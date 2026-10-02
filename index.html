@@ -681,7 +681,7 @@ var PACKS={
   facMap:{"사마사":"진군","사마소":"진군","사마염":"진군","왕원희":"진군","신헌영":"진군","등애":"진군","종회":"진군","가충":"진군","양호":"진군","두예":"진군","왕기":"진군","진태":"진군","곽회":"진군","문앙":"진군","조환":"진군","유선":"촉한군","강유":"촉한군","비의":"촉한군","동윤":"촉한군","장완":"촉한군","왕평":"촉한군","마충":"촉한군","장억":"촉한군","장익":"촉한군","요화":"촉한군","부첨":"촉한군","제갈첨":"촉한군","마대":"촉한군","하후패":"촉한군","나헌":"촉한군","유심":"촉한군","손권":"동오군","제갈각":"동오군","손침":"동오군","육항":"동오군","정봉":"동오군","육개":"동오군","전종":"동오군","보즐":"동오군","고옹":"동오군","주환":"동오군","손환":"동오군","손호":"동오군","여대":"동오군","문흠":"회남군","제갈탄":"회남군","관구검":"회남군","당자":"회남군","문호":"회남군"}
  }
 };
-var PACK2=null;   // 활성 확장팩 (null=본편 영웅집결)
+var PACK2=PACKS.mx;   // 활성 팩 — 기본은 군웅록 (null=본편 영웅집결)
 function facsOf(c){
   if(PACK2&&PACK2.career)return PACK2.career[c[0]]||[c[1]];
   return [(PACK2&&PACK2.facMap&&PACK2.facMap[c[0]])||c[1]];
@@ -1129,7 +1129,7 @@ var CFG_KEY="samgukji_draft_cfg_v1";
 function cfgSnap(){
   return {cards:PACK_OPT,fast:FAST,quickPick:QUICK_PICK,cardArt:CARD_ART,density:DENSITY,mode:MODE,era:ERA,lv:AI_LV,pl:PLAYERS,st:AI_ST,st2:AI_ST2,
           rule:ruleOn,ex:exhaustOn,fo:firstOrd,rr:REROLLS,ban:banOn,scn:SCN,
-          pk:(function(){var k;for(k in PACKS)if(PACKS[k]===PACK2)return k;return null})()};
+          pk:(function(){var k;for(k in PACKS)if(PACKS[k]===PACK2)return k;return "base"})()};
 }
 function cfgApply(c){
   if(!c)return;
@@ -1152,10 +1152,13 @@ function cfgApply(c){
   if(RR_OPT.indexOf(c.rr)>=0)REROLLS=c.rr;
   if(typeof c.ban==="boolean")banOn=c.ban;
   if((x=num(c.scn,SCN_NAME.length))!==null)SCN=x;
-  PACK2=(c.pk&&PACKS[c.pk])?PACKS[c.pk]:null;
+  /* "base" 와 옛 저장의 null 은 본편. 값이 없으면 기본인 군웅록 */
+  PACK2=c.pk==="base"||c.pk===null?null:PACKS[c.pk]||PACKS.mx;
 }
 function cfgSave(){try{localStorage.setItem(CFG_KEY,JSON.stringify(cfgSnap()))}catch(e){}}
-function cfgLoad(){try{return JSON.parse(localStorage.getItem(CFG_KEY))}catch(e){return null}}
+/* 군웅록이 기본이 되기 전의 설정은 본편을 null 로 적었다. 한 번 군웅록으로 옮기고,
+   그 뒤로 본편을 고르면 "base" 로 남는다. 이어 두는 대국(v.cfg)은 여기를 거치지 않아 그대로다 */
+function cfgLoad(){try{var c=JSON.parse(localStorage.getItem(CFG_KEY));if(c&&c.pk===null)c.pk="mx";return c}catch(e){return null}}
 
 /* ══ 저장소 백업 ══
    Pages 는 정적이라 이 페이지가 저장소에 못 쓴다. 그래서 읽어서 되살리기만 하고,
@@ -1255,7 +1258,7 @@ function checkFeats(won,diff,wn,ls){
   }
   if(won&&exhaustOn&&REROLLS===0)give("hard_win");
   if(won){
-    var pkn=PACK2?PACK2.n:"본편";REC.by.pk[pkn]=REC.by.pk[pkn]||{n:0,w:0};
+    var pkn=PACK2?PACK2.n:"본편 · 영웅집결";REC.by.pk[pkn]=REC.by.pk[pkn]||{n:0,w:0};
     var allp=true,pkc;
     var need=["본편 · 영웅집결","군웅할거 一九四","관도대전 二〇〇","적벽대전 二〇八","삼국종결 二六三","군웅록 · 遍歷"];
     for(pkc=0;pkc<need.length;pkc++)if(!REC.by.pk[need[pkc]]||!REC.by.pk[need[pkc]].w)allp=false;
@@ -1820,8 +1823,8 @@ function buildSetup(){
   $("sBan").addEventListener("click",function(){banOn=!banOn;this.textContent=banOn?"켜짐":"꺼짐"});
   $("sScn").addEventListener("click",function(){SCN=(SCN+1)%SCN_NAME.length;this.textContent=SCN_NAME[SCN]});
   $("sPk").addEventListener("click",function(){
-    var keys=[null,"w194","gd200","jb208","end263","mx"],cur=0,i;
-    for(i=1;i<keys.length;i++)if(PACK2===PACKS[keys[i]])cur=i;
+    var keys=["mx",null,"w194","gd200","jb208","end263"],cur=0,i;
+    for(i=0;i<keys.length;i++)if(PACK2===(keys[i]?PACKS[keys[i]]:null))cur=i;
     var nx=keys[(cur+1)%keys.length];
     PACK2=nx?PACKS[nx]:null;
     this.textContent=PACK2?PACK2.n:"본편 · 영웅집결";

@@ -83,8 +83,13 @@ c.lineupChoice=opt.team.map(x=>x[0]);c.confirmLineup();assert.equal(c.mine.lengt
 // Old v2 saves without round metadata finish at eleven picks, then new games use thirteen.
 const oldStorage={};c=runtime(oldStorage);c.start();const legacy=JSON.parse(oldStorage[c.GAME_KEY]);delete legacy.rounds;delete legacy.packSize;oldStorage[c.GAME_KEY]=JSON.stringify(legacy);
 let old=runtime(oldStorage);assert(old.resumeGame());assert.equal(old.ROUNDS,11);for(let i=0;!old.REC.games&&i<180;i++)step(old);assert.equal(old.mine.length,11);assert.equal(old.REC.games,1);old.start();assert.equal(old.ROUNDS,13);assert.equal(old.PACK,6);
-// Last two picks have no role cap; initial eleven preserve the original role constraint.
-c=runtime();c.start();c.mine=c.C.filter(x=>x[2]==='무장').slice(0,5);c.packArr=[{c:c.byName('여포'),by:null},{c:c.byName('유비'),by:null}];assert(!c.legalSet(c.mine,[0,1]).includes(0));c.mine=c.C.slice(0,11);assert.deepEqual(Array.from(c.legalSet(c.mine,[0,1])),[0,1]);
+// 군웅록이 기본 팩이다. 옛 설정의 본편(null)은 한 번 군웅록으로 옮기고, 그 뒤 고른 본편("base")은 지킨다
+c=runtime();assert.equal(c.PACK2,c.PACKS.mx);
+c=runtime({samgukji_draft_cfg_v1:JSON.stringify({pk:null})});c.cfgApply(c.cfgLoad());assert.equal(c.PACK2,c.PACKS.mx);
+c=runtime({samgukji_draft_cfg_v1:JSON.stringify({pk:'base'})});c.cfgApply(c.cfgLoad());assert.equal(c.PACK2,null);
+c.cfgApply({pk:null});assert.equal(c.PACK2,null,'resumed old game keeps 본편');
+// Last two picks have no role cap; initial eleven preserve the original role constraint (본편 roles: 여포 is 무장).
+c=runtime();c.PACK2=null;c.start();c.mine=c.C.filter(x=>x[2]==='무장').slice(0,5);c.packArr=[{c:c.byName('여포'),by:null},{c:c.byName('유비'),by:null}];assert(!c.legalSet(c.mine,[0,1]).includes(0));c.mine=c.C.slice(0,11);assert.deepEqual(Array.from(c.legalSet(c.mine,[0,1])),[0,1]);
 console.log('PASS: thirteen picks, optimal legal eleven, invalid/double confirmation, legacy eleven-round save, reserve role freedom');
 
 // Mid-edit final selection is restored, and a player's legal choice is not auto-replaced.
