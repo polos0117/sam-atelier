@@ -1,4 +1,4 @@
-# 삼국지 드래프트 — 竹簡
+# 삼국지 쟁탈전
 
 https://polos0117.github.io/sam-atelier/ — 게임은 `index.html`을 편집합니다. 로컬에서는 저장소를 내려받아 `index.html`을 엽니다. ES Module이나 빌드 과정은 사용하지 않습니다.
 

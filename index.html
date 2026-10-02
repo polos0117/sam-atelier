@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>삼국지 드래프트 — 竹簡</title>
+<title>삼국지 쟁탈전</title>
 <script>
 (function(){
  if(location.protocol!=="file:"||location.hash.indexOf("#sam-transfer=")!==0)return;
@@ -23,7 +23,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="竹簡">
+<meta name="apple-mobile-web-app-title" content="삼국지 쟁탈전">
 <link rel="apple-touch-icon" href="icons/icon-sam-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,11 +81,11 @@ body{
 }
 #totop{bottom:calc(76px + env(safe-area-inset-bottom))}
 .totop:active{background:var(--gold);color:#100C09}
-.helpbtn{flex:none;width:27px;height:27px;border-radius:50%;border:1px solid var(--line);background:transparent;
-  color:var(--gold);font-family:var(--display);font-size:15px;line-height:1;cursor:pointer;transition:.2s}
+.helpbtn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;
+  color:var(--gold);font-family:var(--display);font-size:12px;line-height:1;white-space:nowrap;cursor:pointer;transition:.2s}
 .helpbtn:active{background:rgba(201,162,39,.15)}
 .title{white-space:nowrap;flex:none}
-@media (max-width:420px){.top{flex-wrap:wrap;row-gap:10px}.top .title{margin-right:auto}.tally{order:3;width:100%;justify-content:space-between}.helpbtn{width:38px;height:38px;font-size:17px}.helpbtn{position:relative}.helpbtn::after{content:"";position:absolute;inset:-4px}}
+@media (max-width:420px){.top{flex-wrap:wrap;row-gap:10px}.top .title{margin-right:auto}.tally{order:3;width:100%;justify-content:space-between}.helpbtn{width:40px;height:40px;font-size:12.5px;letter-spacing:-.02em}.helpbtn{position:relative}.helpbtn::after{content:"";position:absolute;inset:-4px}}
 
 /* ── 새 대국 설정 ── */
 .srow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px dotted rgba(184,164,126,.16)}
@@ -243,7 +243,7 @@ body{
 .hint .near{margin-left:5px}
 .hint.up{color:#8A6E12}.hint.dn{color:#A8402F}
 .card.illegal{opacity:.34;filter:grayscale(.7)}
-.card.illegal::after{content:"編";position:absolute;top:9px;left:12px;font-family:var(--display);font-size:12px;color:#A8402F;font-weight:700}
+.card.illegal::after{content:"정원 초과";position:absolute;top:9px;left:12px;font-family:var(--display);font-size:12px;color:#A8402F;font-weight:700}
 .card>.pw{position:absolute;bottom:9px;right:10px;font-family:var(--display);font-size:15px;font-weight:700;color:#3C3227}
 .pw em{font-style:normal;font-size:8.5px;letter-spacing:.14em;color:#8A7A62;margin-right:3px}
 
@@ -287,9 +287,9 @@ body{
 .ros h3 em{font-style:normal;font-size:10px;letter-spacing:.1em;color:var(--paper3)}
 .chips{display:flex;flex-wrap:wrap;gap:5px;min-height:24px}
 .chip{font-size:12px;padding:3px 8px;border-radius:2px;background:var(--cc);color:#F2EADA;font-weight:500;animation:pop .3s ease}
-.slot{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;margin-bottom:6px}
+.slot{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;margin-bottom:6px}
 .slot:last-child{margin-bottom:0}
-.slot .lb{font-family:var(--display);font-size:13px;color:var(--gold);opacity:.75;line-height:22px;text-align:center}
+.slot .lb{font-family:var(--display);font-size:11px;color:var(--gold);opacity:.75;line-height:16px;text-align:center;white-space:nowrap;letter-spacing:-.03em}
 .slot .cells{display:flex;flex-wrap:wrap;gap:5px}
 .chip.fog{background:rgba(60,50,40,.85);color:rgba(231,220,195,.5);letter-spacing:.08em;font-family:var(--display)}
 .chip.ph{background:transparent;border:1px dashed rgba(184,164,126,.28);color:rgba(184,164,126,.4)}
@@ -453,41 +453,41 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 </svg>
 <div class="wrap">
   <div class="top">
-    <div class="title"><small>三國志</small>드래프트</div>
+    <div class="title"><small>三國志</small>쟁탈전</div>
     <div class="tally" id="tally"></div>
-    <button class="helpbtn" id="recBtn" aria-label="전적">錄</button>
-    <button class="helpbtn" id="dexBtn" aria-label="인물 도감">譜</button>
-    <button class="helpbtn" id="labBtn" aria-label="기질 탐구">究</button>
+    <button class="helpbtn" id="recBtn" aria-label="전적">기록</button>
+    <button class="helpbtn" id="dexBtn" aria-label="인물 도감">도감</button>
+    <button class="helpbtn" id="labBtn" aria-label="기질 탐구">탐구</button>
     <button class="helpbtn" id="helpBtn" aria-label="병법 요람">?</button>
   </div>
 
   <div class="board" id="board">
-    <div><b id="sMe">0</b><span>我 軍</span></div>
+    <div><b id="sMe">0</b><span>아 군</span></div>
     <div class="gap" id="sDiff">±0</div>
-    <div><b id="sFoe">0</b><span id="sFoeLb">敵 軍</span></div>
-    <div id="bF2" style="display:none"><b id="sF2">0</b><span>敵 二</span></div>
+    <div><b id="sFoe">0</b><span id="sFoeLb">적 군</span></div>
+    <div id="bF2" style="display:none"><b id="sF2">0</b><span>적 군 2</span></div>
   </div>
 
   <div class="opts">
     <button class="opt on" id="tHint">결의 힌트</button>
     <button class="opt" id="tFog">적진 가리기</button>
-    <button class="opt cyc" id="newBtn">新 · 새 대국</button>
+    <button class="opt cyc" id="newBtn">새 대국</button>
   </div>
 
   <div class="decree">
-    <div class="rd" id="rd">第 一 陣</div>
+    <div class="rd" id="rd">1차 지명</div>
     <div class="msg" id="msg">여섯 죽간 중 하나를 취하시오</div>
     <div class="lorel" id="sub"></div>
   </div>
 
   <div class="pack" id="pack"></div>
-  <button class="reroll" id="reroll">換 · 죽간을 다시 펴다</button>
+  <button class="reroll" id="reroll">다시 뽑기</button>
 
   <div class="rosters">
-    <div class="ros"><h3>我 軍 <em id="myct">0 / 11</em></h3><div class="chips" id="mine"></div></div>
-    <div class="ros"><h3 id="foeTitle">敵 軍 <em id="opct">0 / 11</em></h3><div class="chips" id="foe"></div></div>
-    <div class="ros" id="ros2" style="display:none"><h3>敵 二 <em id="opct2">0 / 11</em></h3><div class="chips" id="foe2"></div></div>
-    <div class="ros"><h3>結 義 <em id="pgct">맺은 인연 없음</em></h3><div id="pgs"></div></div>
+    <div class="ros"><h3>아군 <em id="myct">0 / 11</em></h3><div class="chips" id="mine"></div></div>
+    <div class="ros"><h3 id="foeTitle">적군 <em id="opct">0 / 11</em></h3><div class="chips" id="foe"></div></div>
+    <div class="ros" id="ros2" style="display:none"><h3>적군 2 <em id="opct2">0 / 11</em></h3><div class="chips" id="foe2"></div></div>
+    <div class="ros"><h3>결의 <em id="pgct">맺은 인연 없음</em></h3><div id="pgs"></div></div>
   </div>
 </div>
 
@@ -495,8 +495,8 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 <div class="veil" id="detail" role="dialog" aria-modal="true" aria-label="장수 상세"><div class="res" id="detailBody"></div></div>
 <div class="veil" id="lineup" role="dialog" aria-modal="true" aria-label="최종 11명 편성"><div class="res" id="lineupBody"></div></div>
 <div id="toast"></div>
-<button class="totop" id="tobot" aria-label="맨 아래로">下</button>
-<button class="totop" id="totop" aria-label="맨 위로">上</button>
+<button class="totop" id="tobot" aria-label="맨 아래로">▼</button>
+<button class="totop" id="totop" aria-label="맨 위로">▲</button>
 <div class="veil" id="setup"><div class="res" id="setupBody"></div></div>
 <div class="veil" id="rec"><div class="res" id="recBody"></div></div>
 <div class="veil" id="dex"><div class="res" id="dexBody"></div></div>
@@ -637,7 +637,7 @@ function avHTML(c,cls){
 var FAC={"위":{h:"魏",c:"var(--f-wei)"},"촉":{h:"蜀",c:"var(--f-shu)"},"오":{h:"吳",c:"var(--f-wu)"},"군웅":{h:"雄",c:"var(--f-etc)"}};
 var PACKS={
  w194:{
-  n:"군웅할거 一九四",
+  n:"군웅할거 194",
   synMul:1.35,
   bias:25,
   factions:{
@@ -662,21 +662,21 @@ var PACKS={
   }
  },
  gd200:{
-  n:"관도대전 二〇〇",
+  n:"관도대전 200",
   synMul:1.3,bias:25,
   roleMap:{},
   factions:{"조조군":{h:"曹",c:"#3E5C8C"},"원소군":{h:"袁",c:"#8C6A3E"},"유표군":{h:"荊",c:"#4F7A6E"},"손씨군":{h:"孫",c:"#C0472F"},"유장군":{h:"益",c:"#66803A"},"마등군":{h:"馬",c:"#6E4F8C"},"장로군":{h:"米",c:"#A8842A"}},
   facMap:{"조조":"조조군","하후돈":"조조군","하후연":"조조군","조인":"조조군","조홍":"조조군","허저":"조조군","악진":"조조군","우금":"조조군","이전":"조조군","서황":"조조군","장료":"조조군","순욱":"조조군","순유":"조조군","곽가":"조조군","정욱":"조조군","만총":"조조군","종요":"조조군","여건":"조조군","유엽":"조조군","장패":"조조군","관우":"조조군","원소":"원소군","전풍":"원소군","저수":"원소군","심배":"원소군","곽도":"원소군","안량":"원소군","문추":"원소군","고람":"원소군","장합":"원소군","순우경":"원소군","허유":"원소군","진림":"원소군","순심":"원소군","견씨":"원소군","봉기":"원소군","신평":"원소군","원담":"원소군","원희":"원소군","원상":"원소군","유비":"원소군","조운":"원소군","장비":"원소군","유표":"유표군","한현":"유표군","황조":"유표군","괴량":"유표군","괴월":"유표군","채모":"유표군","문빙":"유표군","유기":"유표군","감녕":"유표군","손책":"손씨군","손권":"손씨군","주치":"손씨군","여범":"손씨군","주유":"손씨군","노숙":"손씨군","태사자":"손씨군","정보":"손씨군","황개":"손씨군","한당":"손씨군","주태":"손씨군","장흠":"손씨군","장소":"손씨군","장굉":"손씨군","대교":"손씨군","소교":"손씨군","손상향":"손씨군","능조":"손씨군","유장":"유장군","장임":"유장군","엄안":"유장군","이엄":"유장군","법정":"유장군","장송":"유장군","황권":"유장군","오의":"유장군","맹달":"유장군","마등":"마등군","마초":"마등군","마대":"마등군","방덕":"마등군","한수":"마등군","장로":"장로군","염포":"장로군","양송":"장로군"}
  },
  jb208:{
-  n:"적벽대전 二〇八",
+  n:"적벽대전 208",
   synMul:1.3,bias:25,
   roleMap:{"마초":"군주"},
   factions:{"조조군":{h:"曹",c:"#3E5C8C"},"유비군":{h:"劉",c:"#4F7A4A"},"손권군":{h:"孫",c:"#C0472F"},"유장군":{h:"益",c:"#66803A"},"서량군":{h:"涼",c:"#6E4F8C"},"장로군":{h:"米",c:"#A8842A"}},
   facMap:{"조조":"조조군","하후돈":"조조군","하후연":"조조군","조인":"조조군","조홍":"조조군","장료":"조조군","서황":"조조군","장합":"조조군","악진":"조조군","우금":"조조군","허저":"조조군","이전":"조조군","문빙":"조조군","채모":"조조군","괴월":"조조군","서서":"조조군","순욱":"조조군","순유":"조조군","정욱":"조조군","가후":"조조군","만총":"조조군","종요":"조조군","유엽":"조조군","조휴":"조조군","왕랑":"조조군","화흠":"조조군","유비":"유비군","관우":"유비군","장비":"유비군","조운":"유비군","제갈량":"유비군","미축":"유비군","손건":"유비군","간옹":"유비군","미방":"유비군","관평":"유비군","주창":"유비군","유기":"유비군","손권":"손권군","주유":"손권군","노숙":"손권군","여몽":"손권군","감녕":"손권군","정보":"손권군","황개":"손권군","한당":"손권군","주태":"손권군","서성":"손권군","정봉":"손권군","능통":"손권군","주연":"손권군","우번":"손권군","감택":"손권군","여범":"손권군","주치":"손권군","하제":"손권군","장흠":"손권군","육손":"손권군","장소":"손권군","고옹":"손권군","제갈근":"손권군","보즐":"손권군","장굉":"손권군","대교":"손권군","소교":"손권군","손상향":"손권군","반장":"손권군","진무":"손권군","동습":"손권군","전종":"손권군","유장":"유장군","장임":"유장군","엄안":"유장군","이엄":"유장군","법정":"유장군","장송":"유장군","황권":"유장군","오의":"유장군","맹달":"유장군","마초":"서량군","마대":"서량군","방덕":"서량군","한수":"서량군","염행":"서량군","장로":"장로군","염포":"장로군","양송":"장로군"}
  },
  mx:{
-  n:"군웅록 · 遍歷",
+  n:"군웅록",
   career:{"추씨":["장수"],"화흠":["한조정","동오","조위"],"관녕":["재야"],"여대":["동오"],"하제":["동오"],"주치":["동오"],"우번":["동오"],"감택":["동오"],"여범":["동오"],"손등":["동오"],"손준":["동오"],"미부인":["촉한"],"감부인":["촉한"],"오국태":["동오"],"장춘화":["조위","진"],"왕원희":["조위","진"],"신헌영":["조위","진"],"왕이":["조위"],"견씨":["원소","조위"],"채옹":["한조정","동탁"],"채문희":["조위"],"유우":["한조정"],"한현":["유표"],"왕보":["촉한"],"조루":["촉한"],"이유":["동탁"],"장훈":["원술"],"교유":["원술"],"양강":["원술"],"한윤":["원술"],"관구검":["조위"],"당자":["동오"],"문호":["조위"],"전예":["촉한","공손찬","조위"],"엄강":["공손찬"],"관정":["공손찬"],"전해":["공손찬"],"공손범":["공손찬"],"장제":["동탁","장수"],"번조":["동탁"],"장선":["장수"],"유비":["촉한"],"관우":["조위","촉한"],"장비":["촉한"],"조운":["공손찬","촉한"],"마초":["서량","장로","촉한"],"황충":["유표","촉한"],"제갈량":["촉한"],"방통":["촉한"],"법정":["유장","촉한"],"서서":["촉한","조위"],"강유":["조위","촉한"],"위연":["유표","촉한"],"마대":["서량","촉한"],"관평":["촉한"],"장포":["촉한"],"관흥":["촉한"],"왕평":["조위","촉한"],"유봉":["촉한"],"요화":["황건","촉한"],"엄안":["유장","촉한"],"장익":["촉한"],"진식":["촉한"],"관색":["촉한"],"종예":["촉한"],"이적":["촉한"],"제갈첨":["촉한"],"주창":["황건","촉한"],"간옹":["촉한"],"미축":["도겸","촉한"],"손건":["촉한"],"이엄":["유표","유장","촉한"],"마량":["촉한"],"마속":["촉한"],"비의":["촉한"],"동윤":["촉한"],"장완":["촉한"],"황월영":["촉한"],"유선":["촉한"],"조조":["조위"],"하후돈":["조위"],"하후연":["조위"],"조창":["조위"],"조앙":["조위"],"조인":["조위"],"조홍":["조위"],"장료":["여포","조위"],"서황":["조위"],"장합":["원소","조위"],"악진":["조위"],"우금":["조위"],"전위":["조위"],"허저":["조위"],"방덕":["서량","장로","조위"],"순욱":["조위"],"순유":["조위"],"곽가":["조위"],"가후":["동탁","장수","조위"],"정욱":["조위"],"사마의":["조위","진"],"등애":["조위"],"종회":["조위"],"조비":["조위"],"조예":["조위"],"조식":["조위"],"유엽":["한조정","조위"],"진군":["조위"],"만총":["조위"],"이전":["조위"],"문빙":["유표","조위"],"하후현":["조위"],"학소":["조위"],"조휴":["조위"],"조환":["조위"],"장패":["여포","조위"],"조진":["조위"],"왕랑":["한조정","조위"],"장수":["장수"],"손견":["동오"],"손책":["원술","동오"],"손권":["동오"],"주유":["동오"],"노숙":["동오"],"여몽":["동오"],"육손":["동오"],"태사자":["한조정","동오"],"감녕":["유표","동오"],"황개":["동오"],"조무":["동오"],"정보":["동오"],"한당":["동오"],"주태":["동오"],"서성":["동오"],"정봉":["동오"],"능통":["동오"],"능조":["동오"],"장흠":["동오"],"육항":["동오"],"장소":["동오"],"고옹":["동오"],"제갈근":["동오"],"보즐":["동오"],"장굉":["동오"],"전종":["동오"],"손환":["동오"],"주방":["동오"],"손상향":["동오"],"대교":["동오"],"소교":["동오"],"진무":["동오"],"동습":["동오"],"반장":["동오"],"여포":["동탁","여포"],"동탁":["동탁"],"원소":["원소"],"원술":["원술"],"공손찬":["공손찬"],"유표":["유표"],"유장":["유장"],"마등":["서량"],"한수":["서량"],"장각":["황건"],"초선":["한조정","여포"],"진궁":["조위","여포"],"공융":["한조정","조위"],"원담":["원소"],"원희":["원소"],"원상":["원소"],"봉기":["원소"],"신평":["원소"],"전풍":["원소"],"저수":["원소"],"심배":["원소"],"곽도":["원소"],"안량":["원소"],"문추":["원소"],"고람":["원소"],"장연":["황건","조위"],"화웅":["동탁"],"노식":["한조정"],"황보숭":["한조정"],"주준":["한조정"],"올돌골":["남만"],"타사대왕":["남만"],"맹우":["남만"],"엄여":["재야"],"맹획":["남만"],"축융":["남만"],"좌자":["재야"],"화타":["재야"],"사마휘":["재야"],"관로":["재야","조위"],"이각":["동탁"],"곽사":["동탁"],"서영":["동탁"],"왕윤":["한조정"],"황조":["유표"],"왕광":["한조정"],"기령":["원술"],"순우경":["원소"],"호거아":["장수"],"염포":["장로"],"양송":["장로"],"장로":["장로"],"고순":["여포"],"국의":["원소"],"진규":["도겸","조위"],"진등":["도겸","조위"],"포신":["조위"],"도겸":["도겸"],"한복":["원소"],"관해":["황건"],"장보":["황건"],"장량":["황건"],"우길":["재야"],"엄백호":["재야"],"동승":["한조정"],"염행":["서량","조위"],"하진":["한조정"],"장막":["조위","여포"],"순심":["원소"],"유요":["한조정"],"장임":["유장"],"황권":["유장","촉한","조위"],"오의":["유장","촉한"],"맹달":["유장","촉한","조위"],"장송":["유장"],"허유":["원소","조위"],"진림":["원소","조위"],"괴량":["유표"],"괴월":["유표","조위"],"채모":["유표","조위"],"유기":["유표","촉한"],"후성":["여포"],"송헌":["여포"],"위속":["여포"],"문앙":["조위","동오","진"],"문흠":["조위","동오"],"곽회":["조위"],"진태":["조위"],"사마사":["조위","진"],"사마소":["조위","진"],"왕기":["조위"],"양호":["조위","진"],"두예":["조위","진"],"가충":["조위","진"],"가규":["조위"],"사마염":["진"],"하후패":["조위","촉한"],"제갈각":["동오"],"주환":["동오"],"등지":["촉한"],"이회":["촉한"],"나헌":["촉한","진"],"유심":["촉한"],"부첨":["촉한"],"마충":["촉한"],"장억":["촉한"],"육개":["동오"],"손호":["동오"],"주연":["동오"],"손침":["동오"],"종요":["조위"],"여건":["조위"],"제갈탄":["조위","동오"],"미방":["도겸","촉한","동오"],"여령기":["여포"]},
   synMul:.8,bias:25,
   roleMap:{"여포":"군주","장수":"군주","장각":"군주","맹획":"군주"},
@@ -690,7 +690,7 @@ var PACKS={
   }
  },
  end263:{
-  n:"삼국종결 二六三",
+  n:"삼국종결 263",
   synMul:1.3,bias:25,
   roleMap:{"사마소":"군주","제갈탄":"군주"},
   factions:{"진군":{h:"晉",c:"#6E4F8C"},"촉한군":{h:"漢",c:"#4F7A4A"},"동오군":{h:"吳",c:"#C0472F"},"회남군":{h:"淮",c:"#8C6A3E"}},
@@ -1012,10 +1012,14 @@ var RR_K=[-1,.8,.9];    // 換 계수 — 최선 이득이 그 진의 통상치�
 function rrBase(r){return 85+r*6}
 var RR_SAY=["쓸 만한 인물이 보이지 않는군","형세가 마음에 들지 않소","이 죽간으론 어림없지","다시 펴는 게 낫겠소"];
 function seatTeam(t){return t==="me"?mine:t==="foe"?foe:foe2}
-function seatName(t){return t==="me"?"我軍":t==="foe"?(PLAYERS===3?"敵一":"敵軍"):"敵二"}
+function seatName(t){return t==="me"?"아군":t==="foe"?(PLAYERS===3?"적군1":"적군"):"적군2"}
 var REC_KEY="samgukji_draft_rec_v1";
 function recLoad(){
-  try{var r=JSON.parse(localStorage.getItem(REC_KEY));if(r&&r.v===1)return r}catch(e){}
+  try{var r=JSON.parse(localStorage.getItem(REC_KEY));if(r&&r.v===1){
+    /* 2026-10: 확장팩 이름의 한자 연도를 아라비아 숫자로 바꾸며 팩별 기록 키를 옮긴다 */
+    var pk=r.by&&r.by.pk,old={"군웅할거 一九四":"군웅할거 194","관도대전 二〇〇":"관도대전 200","적벽대전 二〇八":"적벽대전 208","삼국종결 二六三":"삼국종결 263","군웅록 · 遍歷":"군웅록"},k;
+    if(pk)for(k in old)if(pk[k]){var a=pk[k],b=pk[old[k]]||{n:0,w:0};pk[old[k]]={n:(a.n||0)+(b.n||0),w:(a.w||0)+(b.w||0)};delete pk[k]}
+    return r}}catch(e){}
   return {v:1,games:0,win:0,lose:0,draw:0,best:0,bestLv:-1,stamps:{},feats:{},picks:{},by:{st:{},pk:{},fac:{},lv:{}},aist:{}};
 }
 var MARK_KEY="samgukji_mark_v1", MARK=null, MARK_NEW=false;
@@ -1178,7 +1182,7 @@ function cfgLoad(){try{var c=JSON.parse(localStorage.getItem(CFG_KEY));if(c&&c.p
 
 /* ══ 저장소 백업 ══
    Pages 는 정적이라 이 페이지가 저장소에 못 쓴다. 그래서 읽어서 되살리기만 하고,
-   백업은 사람이 戰錄 화면에서 내보내 파일에 붙여 넣는다.
+   백업은 사람이 전적 화면에서 내보내 파일에 붙여 넣는다.
    판 수는 줄지 않으므로 많은 쪽을 쓴다 — 브라우저 기록이 날아가면 저장소 것이 살아난다 */
 /* 전적은 줄지 않는다. 그러니 항목마다 큰 쪽을 남기면 어느 쪽도 잃지 않는다.
    예전에는 판 수만 보고 통째로 갈아끼워서, 저장소가 모르는 도장·과업이 함께 지워졌다 */
@@ -1214,8 +1218,8 @@ var FEATS=[
  {id:"first_win",n:"첫 승전보",d:"처음으로 승리하다"},
  {id:"master",n:"고수를 꺾다",d:"적장 고수를 상대로 승리"},
  {id:"fog_win",n:"안개를 걷다",d:"적진을 가린 채 승리"},
- {id:"tier_win",n:"안목의 증명",d:"티어 드래프트에서 승리"},
- {id:"ban_win",n:"금수의 계",d:"금지 드래프트에서 승리"},
+ {id:"tier_win",n:"안목의 증명",d:"등급 지명에서 승리"},
+ {id:"ban_win",n:"금수의 계",d:"금지 지명에서 승리"},
  {id:"etc8",n:"군웅의 맹주",d:"군웅 8인 이상으로 승리"},
  {id:"one_fac",n:"한 깃발 아래",d:"열한 명 전원 같은 진영으로 승리"},
  {id:"liu_shan",n:"유선의 재림",d:"유선을 주공으로 세워 승리"},
@@ -1276,7 +1280,7 @@ function checkFeats(won,diff,wn,ls){
   if(won){
     var pkn=PACK2?PACK2.n:"본편 · 영웅집결";REC.by.pk[pkn]=REC.by.pk[pkn]||{n:0,w:0};
     var allp=true,pkc;
-    var need=["본편 · 영웅집결","군웅할거 一九四","관도대전 二〇〇","적벽대전 二〇八","삼국종결 二六三","군웅록 · 遍歷"];
+    var need=["본편 · 영웅집결","군웅할거 194","관도대전 200","적벽대전 208","삼국종결 263","군웅록"];
     for(pkc=0;pkc<need.length;pkc++)if(!REC.by.pk[need[pkc]]||!REC.by.pk[need[pkc]].w)allp=false;
     if(allp)give("all_pack");
   }
@@ -1339,8 +1343,8 @@ function threatScore(c,opp){
   }
   return t;
 }
-var MODE=0, MODE_NAME=["무작위 팩","티어 드래프트"];
-var TIER_NAME=["天","上","中","下"], TIER_CUT=[.12,.34,.66,1];
+var MODE=0, MODE_NAME=["무작위 팩","등급 지명"];
+var TIER_NAME=["천","상","중","하"], TIER_CUT=[.12,.34,.66,1];
 var TIER_SCHEDULE=[0,1,1,1,2,0,1,2,2,3,3,1,2];
 var tierMap={};
 function buildTiers(list){
@@ -1459,7 +1463,7 @@ function renderPledges(){
     var g=list[i],bad=(g.got<0||(!g.got&&g.nextV<0)),cls="pg"+(g.got?" done":"")+(bad?" bad":"")+(g.kin?" kin":"");
     var right=g.got?((g.got>0?"+":"")+g.got+(g.next?" → "+g.have+"/"+g.next:" 완성")):(g.have+"/"+g.next+" "+(g.nextV>0?"+":"")+g.nextV);
     var pct=g.got&&!g.next?100:Math.round(g.have/(g.next||g.gotk)*100);
-    h+='<div class="'+cls+'"><div class="l1"><span class="nm2">'+(g.kin?"血 ":"")+g.n+'</span><span class="vv">'+right+'</span></div>';
+    h+='<div class="'+cls+'"><div class="l1"><span class="nm2">'+(g.kin?"혈연 ":"")+g.n+'</span><span class="vv">'+right+'</span></div>';
     if(hintOn&&g.next)h+='<div class="l2">남은 인물 · '+missingText(g)+'</div>';
     h+='<div class="bar"><i style="width:'+pct+'%"></i></div></div>';
   }
@@ -1488,7 +1492,7 @@ function announce(name,info,upg,delay){
     var el=document.createElement("div");
     el.className="tst"+(info.v<0?" bad":info.kin?" kin":"");
     el.style.setProperty("--hold",(info.v<0?"2s":"1.7s"));
-    el.innerHTML='<div class="tt">'+(info.v<0?"惡 緣":info.kin?"血 緣":"結 義")+'</div>'+
+    el.innerHTML='<div class="tt">'+(info.v<0?"악연":info.kin?"혈연":"결의")+'</div>'+
       '<div class="tn">'+name.replace(/^(불화|악연) · /,"")+'</div>'+
       '<div class="tv">'+(upg?"깊어지다 ":"")+(info.v>0?"+":"")+info.v+'</div>';
     $("toast").appendChild(el);
@@ -1500,7 +1504,7 @@ function hintOf(team,c){
   a.rows.forEach(function(r){m[r.k]=r.v});
   b.rows.forEach(function(r){
     if(r.k==="인물 전력 합"||r.k.indexOf("주공")===0)return;
-    if((m[r.k]||0)!==r.v)names.push(r.k.replace("진영 결속 · ","결속 ").replace("불화 · ","불화 ").replace("혈연 · ","血 "));
+    if((m[r.k]||0)!==r.v)names.push(r.k.replace("진영 결속 · ","결속 ").replace("불화 · ","불화 ").replace("혈연 · ","혈연 "));
   });
   return {d:b.total-a.total,names:names};
 }
@@ -1639,7 +1643,7 @@ function replaceOpen(){
 function card(c,idx,hint){
   var f=facInfo(facOf(c)),s=[["통",c[3]],["무",c[4]],["지",c[5]],["정",c[6]]],h="";
   for(var i=0;i<4;i++)h+='<div class="st"><u><i style="width:'+s[i][1]+'%"></i></u><b>'+s[i][1]+'</b><span>'+s[i][0]+'</span></div>';
-  h+='<div class="st pw"><u></u><b>'+power(c)+'</b><span>戰力</span></div>';
+  h+='<div class="st pw"><u></u><b>'+power(c)+'</b><span>전력</span></div>';
   var el=document.createElement("button");
   el.className="card";el.style.setProperty("--fc",f.c);el.dataset.i=idx;
   if(PACK2&&PACK2.career){
@@ -1684,7 +1688,7 @@ function chips(box,team,slots){
     for(i=0;i<team.length;i++){
       var m=document.createElement("span");
       m.className="chip fog";
-      m.textContent=catOf(team[i])==="군주"?"主 ?":catOf(team[i])==="무장"?"武 ?":"謀 ?";
+      m.textContent=catOf(team[i])==="군주"?"군주 ?":catOf(team[i])==="무장"?"무장 ?":"참모 ?";
       box.appendChild(m);
     }
     for(j=team.length;j<slots;j++)box.appendChild(phEl());
@@ -1695,7 +1699,7 @@ function chips(box,team,slots){
     for(j=team.length;j<slots;j++)box.appendChild(phEl());
     return;
   }
-  var mark={"군주":"主","무장":"武","참모":"謀"},order=["군주","무장","참모"];
+  var mark={"군주":"군주","무장":"무장","참모":"참모"},order=["군주","무장","참모"];
   for(i=0;i<order.length;i++){
     var cat=order[i],row=document.createElement("div"),lb=document.createElement("div"),cells=document.createElement("div");
     row.className="slot";lb.className="lb";
@@ -1723,16 +1727,16 @@ function tally(){
 function combosOf(n){
   var r=[],i;
   for(i=0;i<COMBO.length;i++)if(COMBO[i].m.indexOf(n)>=0)
-    r.push((COMBO[i].k?"<em>血 ":"<span>")+COMBO[i].n+(COMBO[i].k?"</em>":"</span>"));
+    r.push((COMBO[i].k?"<em>혈연 ":"<span>")+COMBO[i].n+(COMBO[i].k?"</em>":"</span>"));
   return r;
 }
 function buildDex(){
   var h="",i,facs=["전체","위","촉","오","군웅"];
-  h+='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">人 物 譜</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  h+='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">인물 도감</div><svg class="orn"><use href="#orn-knot"/></svg>'+
      '<div class="sub">'+C.length+'인의 능력과 인연</div></div>';
   h+='<div class="dexbar">';
   for(i=0;i<facs.length;i++)
-    h+='<button class="dtab'+(i===0?" on":"")+'" data-f="'+facs[i]+'">'+(i?FAC[facs[i]].h:"全")+'</button>';
+    h+='<button class="dtab'+(i===0?" on":"")+'" data-f="'+facs[i]+'">'+(i?FAC[facs[i]].h:"전체")+'</button>';
   h+='</div><div class="dexcount" id="dexCount"></div><div id="dexList">';
   var sorted=C.slice().sort(function(a,b){return power(b)-power(a)});
   for(i=0;i<sorted.length;i++){
@@ -1801,25 +1805,25 @@ function buildSetup(){
     return '<div class="srow"><div class="sl">'+label+'<small>'+small+'</small></div>'+
            '<button class="opt cyc" id="'+id+'">'+val+'</button></div>';
   }
-  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">新 對 局</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">새 대국</div><svg class="orn"><use href="#orn-knot"/></svg>'+
         '<div class="sub">판을 새로 짜는 자리요 · 규칙은 우상단 ?</div></div>';
   h+='<div class="intro">죽간이 펼쳐지면 적장과 <b>번갈아</b> 하나씩 취하오. 열세 진이 끝나면 11명을 편성하여 전력과 인연으로 승부를 가리오.</div>';
   h+='<div class="intro">후보 <b>6장</b> · <b>13번 지명</b> → 최종 <b>11명</b><br>첫 11번은 편성 규칙, 마지막 2번은 자유 예비 지명입니다.</div>';
   h+=row("진행 속도","적장 선택과 다음 진의 대기 시간","sFast",FAST?"빠르게":"기본");
-  h+=row("드래프트 방식","티어는 진마다 같은 등급끼리 겨루오","sMode",MODE_NAME[MODE]);
+  h+=row("지명 방식","등급 지명은 진마다 같은 등급끼리 겨루오","sMode",MODE_NAME[MODE]);
   h+=row("시대","죽간더미의 얼굴이 달라지오","sEra",ERA_NAME[ERA]);
   h+=row("적장","고수는 아군의 인연을 노리오","sAI","적장 "+AI_NAME[AI_LV]);
   h+=row("대국 인원","셋이면 정립이오 — 시나리오 제외","sPl",PLAYERS+"인");
   h+=row("적장의 기질",AI_ST_DESC[AI_ST],"sSt",AI_ST_NAME[AI_ST]);
   h+=row("둘째 적장의 기질","3인 대국에서만 쓰이오","sSt2",AI_ST_NAME[AI_ST2]);
-  h+=row("편성 규칙","主 1 · 武 5 · 謀 5","sRule",ruleOn?"켜짐":"꺼짐");
+  h+=row("편성 규칙","군주 1 · 무장 5 · 참모 5","sRule",ruleOn?"켜짐":"꺼짐");
   h+=row("죽간 소진","한 번 펼친 죽간은 물러나오","sEx",exhaustOn?"켜짐":"꺼짐");
   h+=row("첫 선공","첫 진에 누가 먼저 취하는가","sFo",["아군","적군","무작위"][firstOrd]);
-  h+=row("換 · 죽간을 다시 펴다","양편이 한 판에 쓸 수 있는 횟수","sRR",REROLLS===0?"없음":REROLLS+"회");
-  h+=row("금지 드래프트","시작 전에 둘씩 지우오","sBan",banOn?"켜짐":"꺼짐");
+  h+=row("다시 뽑기","양편이 한 판에 쓸 수 있는 횟수","sRR",REROLLS===0?"없음":REROLLS+"회");
+  h+=row("금지 지명","시작 전에 둘씩 지우오","sBan",banOn?"켜짐":"꺼짐");
   h+=row("시나리오","연의의 명진영에 도전하오","sScn",SCN_NAME[SCN]);
   h+=row("확장팩","그 해의 세력으로 죽간이 갈리오","sPk",PACK2?PACK2.n:"본편 · 영웅집결");
-  h+='<div style="text-align:center;font-size:10px;color:var(--paper3);margin-top:18px;font-family:var(--body);letter-spacing:.06em">版 2026.09.09 · 죽간 '+C.length+'인 · 결의 '+COMBO.length+'종</div>';
+  h+='<div style="text-align:center;font-size:10px;color:var(--paper3);margin-top:18px;font-family:var(--body);letter-spacing:.06em">갱신 2026.09.09 · 죽간 '+C.length+'인 · 결의 '+COMBO.length+'종</div>';
   h+='<div class="setup-actions"><button class="btn" id="setupGo">이 로 써 겨 루 다</button>';
   h+='<button class="btn2" id="setupX">돌 아 가 기</button></div>';
   $("setupBody").innerHTML=h;
@@ -1857,7 +1861,7 @@ function buildRec(){
   var h="",i,got=0;
   for(i=0;i<COMBO.length;i++)if(REC.stamps[COMBO[i].n])got++;
   var pos=COMBO.filter(function(c){var k;for(k in c.t)if(c.t[k]>0)return true;return false});
-  h+='<div class="verdict" style="margin-bottom:16px"><div class="big" style="font-size:30px;color:var(--gold)">戰 錄</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  h+='<div class="verdict" style="margin-bottom:16px"><div class="big" style="font-size:30px;color:var(--gold)">전적</div><svg class="orn"><use href="#orn-knot"/></svg>'+
      '<div class="sub">이 자리에서 겨룬 기록</div></div>';
   h+='<div class="rgrid">'+
      '<div class="rcell"><b>'+REC.games+'</b><span>대국</span></div>'+
@@ -1917,7 +1921,7 @@ function buildRec(){
   for(i=0;i<srt.length;i++){
     var c=srt[i],g=REC.stamps[c.n];
     h+='<div class="stamp '+(g?("got"+(c.k?" kin":"")):"no")+'">'+
-       '<div class="sn">'+(c.k?"血 ":"")+c.n+'</div>'+
+       '<div class="sn">'+(c.k?"혈연 ":"")+c.n+'</div>'+
        '<div class="sc">'+(g?"제 "+g+"국에서 맺음":"미달성")+'</div></div>';
   }
   h+='</div></div>';
@@ -2006,13 +2010,13 @@ function labRun(st){
     fac:fk.slice(0,2).map(function(x){return x+" "+Math.round(facN[x]/sumCnt*100)+"%"}).join(" · ")};
 }
 function buildLab(){
-  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">究 · 기질 탐구</div>'+
+  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">기질 탐구</div>'+
         '<svg class="orn"><use href="#orn-knot"/></svg>'+
         '<div class="sub">적장의 기질마다 무엇을 집는지 살펴보오</div></div>';
   // ── 실제 대국에서 관측된 기록 ──
   var any=false,sk;
   for(sk in REC.aist)any=true;
-  h+='<div class="verdict" style="margin:6px 0 10px"><div class="sub" style="color:var(--gold)">實 錄 · 겨루어 본 적장들</div></div>';
+  h+='<div class="verdict" style="margin:6px 0 10px"><div class="sub" style="color:var(--gold)">실전 기록 · 겨루어 본 적장들</div></div>';
   if(!any){
     h+='<div class="ledger"><div class="row"><span>아직 겨루어 본 적장이 없소. 몇 판을 두면 기질마다 무엇을 즐겨 취하는지 여기 쌓이오.</span></div></div>';
   }else{
@@ -2040,7 +2044,7 @@ function buildLab(){
       h+='</div>';
     }
   }
-  h+='<div class="verdict" style="margin:16px 0 10px"><div class="sub" style="color:var(--gold)">試 算 · 셈으로 미리 보기</div></div>';
+  h+='<div class="verdict" style="margin:16px 0 10px"><div class="sub" style="color:var(--gold)">모의 대국 · 셈으로 미리 보기</div></div>';
   h+='<div class="ledger"><div class="row"><span>다섯 기질에게 각기 '+LAB_N+'판씩 두게 하여 미리 헤아려 보오. 실제로 겨룬 기록과는 별개요. 본편 전체 인물의 2인 무작위 팩을 쓰는 간이 실험으로, 보충·최근 등장 억제·교체·시나리오는 반영하지 않소.</span></div></div>';
   h+='<button class="btn" id="labGo">셈 하 여 보 다</button>';
   h+='<div id="labOut"></div>';
@@ -2082,20 +2086,20 @@ function buildLab(){
 /* ───────── 병법 요람 ───────── */
 function buildHelp(){
   var h="",i,k;
-  h+='<div class="verdict" style="margin-bottom:22px"><div class="big" style="font-size:32px;color:var(--gold)">兵 法 要 覽</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  h+='<div class="verdict" style="margin-bottom:22px"><div class="big" style="font-size:32px;color:var(--gold)">병법 요람</div><svg class="orn"><use href="#orn-knot"/></svg>'+
      '<div class="sub">규칙과 채점을 모두 적어두었소</div></div>';
 
   h+='<div class="hsec"><h4>진행</h4>'+
      '<p>모두 <b>'+ROUNDS+'진</b>. 매 진마다 죽간 <b>'+PACK+'장</b>이 펼쳐지고, 아군과 적군이 <b>같은 죽간을 보며 번갈아</b> 한 명씩 취하오. 아무도 취하지 않은 죽간은 다시 더미로 돌아가오.</p>'+
-     '<p><b>선공은 진마다 교대</b>하오. 첫 진의 선공은 새 대국의 <b>첫 선공</b> 설정을 따르고, 이후 진마다 차례가 도오. 진이 홀수이니 먼저 시작한 쪽이 한 번 더 선공하게 되오 — 적군 선공은 곧 난이도를 올리는 길이오. 적군이 채간 인물은 푸른 <span class="g">奪</span> 도장이 찍힌 채 남으니, 무엇을 빼앗겼는지 보고 남은 죽간에서 고르면 되오.</p>'+
-     '<p><b>換(리롤)</b>은 각자 한 판에 '+REROLLS+'회 — <b>적장도 쓰오</b>. 내 차례라면 언제든 쓸 수 있고, 이미 취한 장수는 각 진영에 남고, 펼쳐진 후보는 여섯 장 모두 새로 뽑소. 미선택 죽간은 소진 설정에 따라 물러나거나 후보 풀로 돌아가오. 적장은 남은 죽간이 형편없을 때 물리는데, 고수일수록 눈이 높아 자주 물리오. 다만 마지막 진에서는 아무도 물리지 않소. 물리면 <b>죽간 여섯 장이 모두 새로 펼쳐지오</b> — 앞선 이가 채간 자리까지 새로 채우니, 늦게 고르는 이에게도 온전한 여섯이 돌아가오. 누가 언제 물렀는지는 전황 기록에 남소. 횟수는 새 대국에서 <b>없음부터 세 번까지</b> 정할 수 있고, 아군과 적장에게 <b>똑같이</b> 주어지오.</p>'+
+     '<p><b>선공은 진마다 교대</b>하오. 첫 진의 선공은 새 대국의 <b>첫 선공</b> 설정을 따르고, 이후 진마다 차례가 도오. 진이 홀수이니 먼저 시작한 쪽이 한 번 더 선공하게 되오 — 적군 선공은 곧 난이도를 올리는 길이오. 적군이 채간 인물은 푸른 <span class="g">奪(빼앗을 탈)</span> 도장이 찍힌 채 남으니, 무엇을 빼앗겼는지 보고 남은 죽간에서 고르면 되오.</p>'+
+     '<p><b>다시 뽑기</b>는 각자 한 판에 '+REROLLS+'회 — <b>적장도 쓰오</b>. 내 차례라면 언제든 쓸 수 있고, 이미 취한 장수는 각 진영에 남고, 펼쳐진 후보는 여섯 장 모두 새로 뽑소. 미선택 죽간은 소진 설정에 따라 물러나거나 후보 풀로 돌아가오. 적장은 남은 죽간이 형편없을 때 물리는데, 고수일수록 눈이 높아 자주 물리오. 다만 마지막 진에서는 아무도 물리지 않소. 물리면 <b>죽간 여섯 장이 모두 새로 펼쳐지오</b> — 앞선 이가 채간 자리까지 새로 채우니, 늦게 고르는 이에게도 온전한 여섯이 돌아가오. 누가 언제 물렀는지는 전황 기록에 남소. 횟수는 새 대국에서 <b>없음부터 세 번까지</b> 정할 수 있고, 아군과 적장에게 <b>똑같이</b> 주어지오.</p>'+
      '<p><b>죽간 소진</b>을 켜면 한 번 펼쳐진 죽간은 아무도 취하지 않아도 <b>판에서 물러나오</b> — 매 진이 새 얼굴이 되오. 다만 놓친 인물은 돌아오지 않으니, ◇ 예고를 믿고 다음을 기약하는 수는 통하지 않게 되오. 죽간이 모자랄 지경이 되면 물러난 패를 다시 섞소.</p></div>';
 
   var cs=[],cat;
   for(cat in CAPS)cs.push(cat+" "+CAPS[cat]+"인");
   h+='<div class="hsec"><h4>편성 규칙</h4>'+
-     '<p>상단 <b>편성 규칙</b>을 켜면 자리가 정해지오 — <span class="g">'+cs.join(" · ")+'</span>. 책사와 문관은 모두 <b>謀</b>로 묶소.</p>'+
-     '<p>자리가 찬 분류의 죽간은 회색 <span class="r">編</span> 표시로 잠기오. 고를 수 있는 후보가 둘보다 적으면 남은 더미에서 역할에 맞는 후보를 보충하오. 보충할 인물도 없고 선택 가능한 후보가 없을 때만 예외를 표시하고 제한을 푸오. 적장도 같은 규칙을 따르오.</p>'+
+     '<p>상단 <b>편성 규칙</b>을 켜면 자리가 정해지오 — <span class="g">'+cs.join(" · ")+'</span>. 책사와 문관은 모두 <b>참모</b>로 묶소.</p>'+
+     '<p>자리가 찬 분류의 죽간은 회색 <span class="r">정원 초과</span> 표시로 잠기오. 고를 수 있는 후보가 둘보다 적으면 남은 더미에서 역할에 맞는 후보를 보충하오. 보충할 인물도 없고 선택 가능한 후보가 없을 때만 예외를 표시하고 제한을 푸오. 적장도 같은 규칙을 따르오.</p>'+
      '<p>규칙을 끄면 '+FINAL_SIZE+' 최종 자리를 마음대로 채우되, 아래 <b>편성 감점</b>을 받게 되오. <b>규칙을 켠 동안에는 감점이 없소</b> — 주공이 끝내 나타나지 않는 것은 허물이 아니라 운이니, 그릇의 보탬을 얻지 못하는 것으로 족하오.</p></div>';
 
   h+='<div class="hsec"><h4>채점 · 하나. 인물 전력</h4>'+
@@ -2120,13 +2124,13 @@ function buildHelp(){
   var kn=0;for(i=0;i<COMBO.length;i++)if(COMBO[i].k)kn++;
   h+='<div class="hsec"><h4>채점 · 셋. 혈연 · 결의 · 불화</h4>'+
      '<p>인연이 닿는 인물들이 모이면 결의가 이루어지오. 모두 <b>'+COMBO.length+'가지</b>. 반대로 서로 등을 돌린 사이는 깎이오.</p>'+
-     '<p>그중 <span style="color:#6FA08A">血</span> 표가 붙은 <b>'+kn+'가지</b>는 <b>혈연</b>이오. 한 핏줄은 진영이 갈려도 서로를 알아보니, 조씨와 하후씨, 관씨 부자, 제갈 가문, 손씨 일가, 서량 마씨 따위가 그러하오. 제갈량과 제갈근처럼 <b>섬기는 나라가 달라도</b> 혈연은 이어지오.</p>'+
+     '<p>그중 <span style="color:#6FA08A">혈연</span> 표가 붙은 <b>'+kn+'가지</b>는 <b>혈연</b>이오. 한 핏줄은 진영이 갈려도 서로를 알아보니, 조씨와 하후씨, 관씨 부자, 제갈 가문, 손씨 일가, 서량 마씨 따위가 그러하오. 제갈량과 제갈근처럼 <b>섬기는 나라가 달라도</b> 혈연은 이어지오.</p>'+
      '<button class="fold" id="foldCombo">결의 목록 펼치기</button><div class="cb" id="cbList">';
   for(i=0;i<COMBO.length;i++){
     var cb=COMBO[i],ts=[],neg=false;
     for(k in cb.t){ts.push(k+"인 "+(cb.t[k]>0?"+":"")+cb.t[k]);if(cb.t[k]<0)neg=true}
     var col=neg?"#C4685C":cb.k?"#6FA08A":"var(--paper)";
-    h+='<div class="cbi"><div class="t"><b style="color:'+col+'">'+(cb.k?"血 ":"")+cb.n+'</b>'+
+    h+='<div class="cbi"><div class="t"><b style="color:'+col+'">'+(cb.k?"혈연 ":"")+cb.n+'</b>'+
        '<em style="color:'+(neg?"#C4685C":cb.k?"#6FA08A":"var(--gold)")+'">'+ts.join(" / ")+'</em></div>'+
        '<div class="m">'+cb.m.join(" · ")+'</div></div>';
   }
@@ -2139,29 +2143,29 @@ function buildHelp(){
      '<p>규칙을 끈 자유 편성에서만 붙는 감점이오 — 주공 부재 <span class="r">−40</span>, 무장이 둘에 못 미침 <span class="r">−50</span>, 막료가 하나도 없음 <span class="r">−50</span>.</p></div>';
 
   var tn=[],ti;
-  for(ti=0;ti<TIER_NAME.length;ti++)tn.push(TIER_NAME[ti]+"級 상위 "+Math.round(TIER_CUT[ti]*100)+"%까지");
+  for(ti=0;ti<TIER_NAME.length;ti++)tn.push(TIER_NAME[ti]+"급 상위 "+Math.round(TIER_CUT[ti]*100)+"%까지");
   var sch=[];
   for(ti=0;ti<TIER_SCHEDULE.length;ti++)sch.push(NUM[ti]+"진 "+TIER_NAME[TIER_SCHEDULE[ti]]);
-  h+='<div class="hsec"><h4>드래프트 방식</h4>'+
+  h+='<div class="hsec"><h4>지명 방식</h4>'+
      '<p><b>무작위 팩</b>은 죽간더미에서 아무나 '+PACK+'장을 펼치오. 운이 크게 따르는 방식이오.</p>'+
-     '<p><b>티어 드래프트</b>는 인물을 전력에 따라 네 등급으로 나누고, 진마다 정해진 등급에서만 죽간을 펼치오. 양군이 같은 등급을 놓고 겨루니 운이 줄고 안목이 남소.</p>'+
+     '<p><b>등급 지명</b>는 인물을 전력에 따라 네 등급으로 나누고, 진마다 정해진 등급에서만 죽간을 펼치오. 양군이 같은 등급을 놓고 겨루니 운이 줄고 안목이 남소.</p>'+
      '<div class="form">'+tn.join("<br>")+'</div>'+
-     '<p>진행 차례는 <span class="g">'+sch.join(" · ")+'</span> 순이오. <b>天級</b>은 첫 진과 여섯째 진에 나와 중반에도 방향을 바꿀 수 있소. 해당 등급의 죽간이 모자라면 이웃 등급에서 채우오.</p></div>';
+     '<p>진행 차례는 <span class="g">'+sch.join(" · ")+'</span> 순이오. <b>천급</b>은 첫 진과 여섯째 진에 나와 중반에도 방향을 바꿀 수 있소. 해당 등급의 죽간이 모자라면 이웃 등급에서 채우오.</p></div>';
   h+='<div class="hsec"><h4>적장과 시대</h4>'+
      '<p><b>적장</b>은 세 등급이오. 여기에 <b>기질</b>이 겹치오 — <span class="g">조조형</span>은 전력을, <span class="g">유비형</span>은 인연을, <span class="g">손권형</span>은 결속을 우선하고, <span class="g">여포형</span>은 오직 무력만 보오. <span class="g">사마의형</span>은 눈앞의 이득보다 <b>다 자랐을 때의 결의</b>를 헤아려 조용히 판을 짜오. <b>무작위</b>로 두면 적장의 기질을 판마다 새로 뽑으니, 초반의 수를 보고 상대를 짐작해야 하오. 기질은 강함이 아니라 <b>개성</b>이니, 여포형은 사나우나 다루기 쉬운 상대요. 고수는 나아가 아군이 <b>한 사람만 더하면 완성되는 결의</b>를 헤아려 그 길목을 먼저 막소. <span class="g">하수</span>는 눈에 띄는 것을 아무렇게나 집고, <span class="g">중수</span>는 제 이득을 셈하며 이따금 아군의 인연을 끊소. <span class="g">고수</span>는 아군의 진행 중인 결의를 거의 놓치지 않고 먼저 채가오.</p>'+
-     '<p><b>확장팩 · 군웅할거 一九四</b>를 켜면 본편의 위·촉·오 대신 <b>그 해의 열 세력</b> — 조조군, 원소군, 여포군, 유표군, 손책군, 서주군, 공손찬군, 마등군, 원술군, 장수군 — 으로 죽간이 갈리오. 그 시절에 없던 인물은 나오지 않고, 세력 결속은 본편보다 <span class="g">더 무겁게</span> 셈하오. 적장들은 각기 <b>한 세력의 기치</b>를 받들어 제 세력 인물을 눈여겨보니, 원소군 적장 앞에서 전풍을 늦게 집는 것은 어리석은 일이오. 인원이 다섯에 못 미치는 세력은 적장의 기치로 나오지 않소. 이 해의 여포와 장수는 한 세력의 <b>주공</b>으로 셈하니 主 자리에 앉힐 수 있소 — 다만 그릇은 타고난 통솔과 지모를 따르고, <b>전력 또한 본디 소임의 잣대</b>로 셈하오 — 여포는 主 자리에 앉아도 무장의 창끝으로 평가받소. 본편의 채점과 기록은 조금도 달라지지 않소.</p>'+
-     '<p>확장팩은 넷이오 — <span class="g">군웅할거 一九四</span>, <span class="g">관도대전 二〇〇</span>(관우는 조조의 진중에, 유비는 원소의 객장으로 있소), <span class="g">적벽대전 二〇八</span>(형주의 항장들이 조조군 깃발 아래 서고, 아비 잃은 마초가 서량의 주공으로 셈되오), <span class="g">삼국종결 二六三</span>(사마씨의 진, 강유의 촉, 저무는 오, 회남의 불씨가 겨루오). 소속은 그 해를 따르나 결의와 혈연은 세월을 넘소.</p>'+
-     '<p>다섯째 팩 <span class="g">군웅록 · 遍歷</span>은 온 시대의 인물이 다 나오되, 저마다 <b>몸담았던 모든 세력의 빛깔</b>을 지니오. 가후는 동탁·장수·조위 세 결속을 한 몸에 이으니, 섬긴 주인이 많을수록 여러 깃발을 잇는 <b>이음쇠</b>가 되오. 진(晉)을 연 사마씨와 그 신하들은 <b>조위와 진</b> 두 빛깔을 함께 지니되, 스스로 제위에 오른 <b>사마염</b>은 진의 빛만 지니오. 이 편에서는 <b>여포·장수·장각·맹획</b>이 제 무리의 주공으로 셈되오. 다만 결속의 무게는 조금 가볍게 셈하오. 죽간의 <b>빛깔과 낙관은 마지막으로 섬긴 곳</b>을 따르고, 왼편의 색동 띠가 거쳐 온 차례를 보이오 — 관우는 조조의 진중을 거쳤으나 끝내 촉으로 돌아갔으니 촉의 빛이오.</p>'+
-     '<p><b>대국 인원</b>을 셋으로 하면 <b>정립전</b>이오. 세 진영이 같은 죽간을 번갈아 취하고(선공은 진마다 도는 차례), 마지막에 세 합계를 견주어 수위를 가리오. 이때 승리는 <b>두 적장을 모두</b> 눌러야 하오. 금지 드래프트는 셋이 하나씩 지우고, 시나리오 대전에서는 쓰이지 않소.</p>'+
-     '<p><b>금지 드래프트</b>를 켜면 첫 진에 앞서 죽간더미의 으뜸 열둘이 펼쳐지고, 아군과 적군이 번갈아 <b>두 사람씩</b> 지우오. 지워진 넷은 그 판에 나오지 않소. 천하의 으뜸을 내가 쓸 수 없다면, 적도 쓰지 못하게 하는 계책이오.</p>'+
-     '<p><b>시나리오</b>를 고르면 적장이 드래프트 대신 <b>연의의 명진영</b>을 그대로 들고나오오 — 적벽의 조조군, 이릉의 육손군, 오장원의 사마의군, 한중의 유비군, 관도의 원소군. 아군만 죽간을 취하며, 그 열한 명은 죽간더미에서 빠지오. 이기면 과업 <span class="g">연의를 넘다</span>가 남소.</p>'+
+     '<p><b>확장팩 · 군웅할거 194</b>를 켜면 본편의 위·촉·오 대신 <b>그 해의 열 세력</b> — 조조군, 원소군, 여포군, 유표군, 손책군, 서주군, 공손찬군, 마등군, 원술군, 장수군 — 으로 죽간이 갈리오. 그 시절에 없던 인물은 나오지 않고, 세력 결속은 본편보다 <span class="g">더 무겁게</span> 셈하오. 적장들은 각기 <b>한 세력의 기치</b>를 받들어 제 세력 인물을 눈여겨보니, 원소군 적장 앞에서 전풍을 늦게 집는 것은 어리석은 일이오. 인원이 다섯에 못 미치는 세력은 적장의 기치로 나오지 않소. 이 해의 여포와 장수는 한 세력의 <b>주공</b>으로 셈하니 군주 자리에 앉힐 수 있소 — 다만 그릇은 타고난 통솔과 지모를 따르고, <b>전력 또한 본디 소임의 잣대</b>로 셈하오 — 여포는 군주 자리에 앉아도 무장의 창끝으로 평가받소. 본편의 채점과 기록은 조금도 달라지지 않소.</p>'+
+     '<p>확장팩은 넷이오 — <span class="g">군웅할거 194</span>, <span class="g">관도대전 200</span>(관우는 조조의 진중에, 유비는 원소의 객장으로 있소), <span class="g">적벽대전 208</span>(형주의 항장들이 조조군 깃발 아래 서고, 아비 잃은 마초가 서량의 주공으로 셈되오), <span class="g">삼국종결 263</span>(사마씨의 진, 강유의 촉, 저무는 오, 회남의 불씨가 겨루오). 소속은 그 해를 따르나 결의와 혈연은 세월을 넘소.</p>'+
+     '<p>다섯째 팩 <span class="g">군웅록</span>은 온 시대의 인물이 다 나오되, 저마다 <b>몸담았던 모든 세력의 빛깔</b>을 지니오. 가후는 동탁·장수·조위 세 결속을 한 몸에 이으니, 섬긴 주인이 많을수록 여러 깃발을 잇는 <b>이음쇠</b>가 되오. 진(晉)을 연 사마씨와 그 신하들은 <b>조위와 진</b> 두 빛깔을 함께 지니되, 스스로 제위에 오른 <b>사마염</b>은 진의 빛만 지니오. 이 편에서는 <b>여포·장수·장각·맹획</b>이 제 무리의 주공으로 셈되오. 다만 결속의 무게는 조금 가볍게 셈하오. 죽간의 <b>빛깔과 낙관은 마지막으로 섬긴 곳</b>을 따르고, 왼편의 색동 띠가 거쳐 온 차례를 보이오 — 관우는 조조의 진중을 거쳤으나 끝내 촉으로 돌아갔으니 촉의 빛이오.</p>'+
+     '<p><b>대국 인원</b>을 셋으로 하면 <b>정립전</b>이오. 세 진영이 같은 죽간을 번갈아 취하고(선공은 진마다 도는 차례), 마지막에 세 합계를 견주어 수위를 가리오. 이때 승리는 <b>두 적장을 모두</b> 눌러야 하오. 금지 지명는 셋이 하나씩 지우고, 시나리오 대전에서는 쓰이지 않소.</p>'+
+     '<p><b>금지 지명</b>를 켜면 첫 진에 앞서 죽간더미의 으뜸 열둘이 펼쳐지고, 아군과 적군이 번갈아 <b>두 사람씩</b> 지우오. 지워진 넷은 그 판에 나오지 않소. 천하의 으뜸을 내가 쓸 수 없다면, 적도 쓰지 못하게 하는 계책이오.</p>'+
+     '<p><b>시나리오</b>를 고르면 적장이 지명 대신 <b>연의의 명진영</b>을 그대로 들고나오오 — 적벽의 조조군, 이릉의 육손군, 오장원의 사마의군, 한중의 유비군, 관도의 원소군. 아군만 죽간을 취하며, 그 열한 명은 죽간더미에서 빠지오. 이기면 과업 <span class="g">연의를 넘다</span>가 남소.</p>'+
      '<p>매 판이 끝나면 <b>돌아보기</b>에 진마다 취한 죽간과 그때의 즉시 득점 1위가 나란히 적히오. 미래 인연과 견제 가치는 포함하지 않으니 전략의 정답은 아니오.</p>'+
-     '<p><b>적진 가리기</b>를 켜면 적장의 편성과 점수가 안개에 덮이오. 채간 죽간은 흐려지고 자리(主·武·謀)만 드러나며, 점수판에는 <span class="g">霧</span> 한 글자만 남소. 승부는 마지막에야 밝혀지오. 안개 속에서는 적장의 견제도 절반으로 무디어지오 — 그도 아군의 패를 온전히 보지 못하는 셈이오.</p>'+
+     '<p><b>적진 가리기</b>를 켜면 적장의 편성과 점수가 안개에 덮이오. 채간 죽간은 흐려지고 자리(군주·무장·참모)만 드러나며, 점수판에는 <span class="g">?</span> 표시만 남소. 승부는 마지막에야 밝혀지오. 안개 속에서는 적장의 견제도 절반으로 무디어지오 — 그도 아군의 패를 온전히 보지 못하는 셈이오.</p>'+
      '<p><b>시대</b>를 고르면 죽간더미가 달라지오. <span class="g">군웅할거</span>는 후기 인물이 아직 나서지 않았고, <span class="g">삼국정립</span>은 초기 군웅이 이미 스러진 뒤요. 시대를 바꾸면 판이 새로 시작되오.</p></div>';
   h+='<div class="hsec"><h4>판정</h4>'+
      '<p>'+ROUNDS+'진이 끝나면 추천 편성에서 최종 11명을 확정하고 모든 진영의 합계를 견주어 높은 쪽이 이기오. 결과 화면에 <b>양쪽 채점표가 항목별로</b> 나오니 어디서 갈렸는지 짚어볼 수 있소.</p>'+
      '<p>상단 <b>점수판</b>은 진행 중의 합계요. 아직 편성이 끝나지 않았으므로 위의 편성 감점은 빼고 셈하오.</p>'+
-     '<p>아군 편성 아래 <b>結義</b> 칸에는 혈연이 <span style="color:#6FA08A">옥빛</span>, 결의가 금빛, 불화가 붉게 나뉘어 적히오.  이미 맺은 인연과 <b>맺어가는 중인 인연</b>이 <span class="g">2/3</span>처럼 진행도로 적히오. 힌트를 켜면 아직 오지 않은 인물의 이름까지 일러주오.</p>'+
+     '<p>아군 편성 아래 <b>결의</b> 칸에는 혈연이 <span style="color:#6FA08A">옥빛</span>, 결의가 금빛, 불화가 붉게 나뉘어 적히오.  이미 맺은 인연과 <b>맺어가는 중인 인연</b>이 <span class="g">2/3</span>처럼 진행도로 적히오. 힌트를 켜면 아직 오지 않은 인물의 이름까지 일러주오.</p>'+
      '<p>죽간에도 <span class="g">◇ 오호대장군 2/3</span>처럼, 지금은 점수가 되지 않으나 <b>앞으로 이어질 인연</b>을 따로 적어두었소.</p>'+
      '<p><b>결의 힌트</b>를 켜면 죽간마다 <span class="g">▲+85 · 도원결의</span>처럼, 그것을 취했을 때 오르는 점수와 새로 이루어지는 결의가 적히오.</p></div>';
 
@@ -2196,7 +2200,7 @@ function banPhase(){
   chips($("mine"),mine,ROUNDS);chips($("foe"),foe,ROUNDS);
   $("myct").textContent="0 / "+ROUNDS;$("opct").textContent="0 / "+ROUNDS;
   board();tally();
-  $("rd").textContent=foe2?"禁 · 셋이 하나씩 지우오":"禁 · 두 사람을 지우시오";
+  $("rd").textContent=foe2?"금지 · 셋이 하나씩 지우오":"금지 · 두 사람을 지우시오";
   $("msg").textContent="가장 두려운 죽간부터 거두는 법이오";
   $("sub").textContent="";
   $("reroll").disabled=true;
@@ -2254,7 +2258,7 @@ function removeFromPool(c){
 }
 
 /* ───────── 한 판의 흐름 ───────── */
-var NUM=["一","二","三","四","五","六","七","八","九","十","十一","十二","十三"];
+var NUM=["1","2","3","4","5","6","7","8","9","10","11","12","13"];
 
 function board(){
   var a=evaluate(mine,true).total,b=evaluate(foe,true).total,
@@ -2263,11 +2267,11 @@ function board(){
   var g=$("sDiff");
   if(fogOn){
     $("sFoe").textContent="???";if(foe2)$("sF2").textContent="???";
-    g.textContent="霧";g.className="gap even";
+    g.textContent="?";g.className="gap even";
   }else{
     $("sFoe").textContent=b;if(foe2)$("sF2").textContent=c2;
     if(foe2){
-      var top=Math.max(b,c2),rank=a>top?"首":a===top?"共同首":(a>=Math.min(b,c2)?"次":"末");
+      var top=Math.max(b,c2),rank=a>top?"1위":a===top?"공동 1위":(a>=Math.min(b,c2)?"2위":"3위");
       g.textContent=rank;g.className="gap "+(a>top?"lead":a<Math.min(b,c2)?"trail":"even");
     }else{
       var d=a-b;
@@ -2277,7 +2281,7 @@ function board(){
   }
   renderPledges();
   var ct=counts(mine);
-  $("draftSummary").textContent=(Math.min(round+1,ROUNDS))+"/"+ROUNDS+"진 · 후보 "+PACK+"장 · 主 "+ct.군주+"/1 · 武 "+ct.무장+"/5 · 謀 "+ct.참모+"/5";
+  $("draftSummary").textContent=(Math.min(round+1,ROUNDS))+"/"+ROUNDS+"진 · 후보 "+PACK+"장 · 군주 "+ct.군주+"/1 · 무장 "+ct.무장+"/5 · 참모 "+ct.참모+"/5";
 }
 
 function updateReroll(){
@@ -2285,7 +2289,7 @@ function updateReroll(){
   $("draftSummary").textContent=(myTurn?"내 차례":"진행 중")+" · "+Math.min(round+1,ROUNDS)+"/"+ROUNDS+"진 · "+(mine.length>FINAL_SIZE?"추천 ":"")+evaluate(mine,true).total+"점 · "+(ruleOn?"군 "+ct.군주+"/1 무 "+ct.무장+"/5 모 "+ct.참모+"/5":"자유 편성 "+mine.length+"명");
   var rb=$("reroll");
   rb.disabled=(rerolls<1||busy||!myTurn);
-  rb.textContent=rerolls>0?"換 · 죽간을 다시 펴다 (남은 "+rerolls+"회)":"換 · 다시 펼 죽간이 없소";
+  rb.textContent=rerolls>0?"다시 뽑기 (남은 "+rerolls+"회)":"다시 뽑기 없음";
 }
 
 function renderPack(fresh){
@@ -2301,7 +2305,7 @@ function renderPack(fresh){
       el.disabled=true;
       el.classList.add("taken","by-"+(e.by==="me"?"me":e.by==="foe"?"foe":"foe2"));
       el.querySelector(".seal").textContent=(e.by==="me"?"採":"奪");
-      if(fogOn&&e.by!=="me"){el.classList.add("fogged");el.innerHTML='<div class="hidden-card">敵 · 선택한 인물 비공개</div>';el.setAttribute("aria-label","적이 선택한 비공개 카드")}
+      if(fogOn&&e.by!=="me"){el.classList.add("fogged");el.innerHTML='<div class="hidden-card">적군 · 선택한 인물 비공개</div>';el.setAttribute("aria-label","적이 선택한 비공개 카드")}
     }else if(fresh){
       el.style.animationDelay=(i*45)+"ms";
     }else{
@@ -2353,8 +2357,8 @@ function nextRound(){
   var rot=(round+firstOff)%seats.length;
   turnQ=seats.slice(rot).concat(seats.slice(0,rot));
   hist[round]={first:turnQ[0],me:"",foe:SCN>0?"—":"",foe2:"",rr:[]};
-  $("rd").textContent="第 "+NUM[round]+" 陣 · "+(SCN>0?"對 "+SCN_NAME[SCN].split(" · ")[1]:"先攻 "+seatName(turnQ[0]))+
-    (MODE===1?" · "+TIER_NAME[TIER_SCHEDULE[round]===undefined?3:TIER_SCHEDULE[round]]+"級":"");
+  $("rd").textContent=NUM[round]+"차 지명 · "+(SCN>0?"상대 "+SCN_NAME[SCN].split(" · ")[1]:seatName(turnQ[0])+" 선공")+
+    (MODE===1?" · "+TIER_NAME[TIER_SCHEDULE[round]===undefined?3:TIER_SCHEDULE[round]]+"급":"");
   advanceTurn(true);
 }
 
@@ -2478,7 +2482,7 @@ function reroll(){
   if(busy||!myTurn||rerolls<1)return;
   var n=replaceOpen();
   if(!n){$("sub").textContent="새로 펼칠 후보가 없소 · 교체 횟수는 유지하오";return}
-  rerolls--;hist[round].rr.push("我");ensureChoices(mine);
+  rerolls--;hist[round].rr.push("아군");ensureChoices(mine);
   saveGame("draft",["me"].concat(turnQ));renderPack(true);
   $("msg").textContent="새 후보 "+n+"장이오 — 하나를 취하시오";
 }
@@ -2497,21 +2501,21 @@ function tale(me,op,team){
 
 function copyOut(me,op,cb){
   var L=[],i;
-  L.push("삼국지 드래프트 · "+(PACK2?PACK2.n:MODE_NAME[MODE]+" · "+ERA_NAME[ERA])+(SCN>0?" · "+SCN_NAME[SCN]:"")+" · 적장 "+AI_NAME[AI_LV]+"·"+AI_ST_NAME[ST_A]);
+  L.push("삼국지 쟁탈전 · "+(PACK2?PACK2.n:MODE_NAME[MODE]+" · "+ERA_NAME[ERA])+(SCN>0?" · "+SCN_NAME[SCN]:"")+" · 적장 "+AI_NAME[AI_LV]+"·"+AI_ST_NAME[ST_A]);
   L.push("");
-  if(foe2)L.push("我軍 "+me.total+" / 敵一 "+op.total+" / 敵二 "+evaluate(foe2).total);
-  else L.push("我軍 "+me.total+"  對  敵軍 "+op.total+"  ("+(me.total>op.total?"승":me.total<op.total?"패":"무")+")");
+  if(foe2)L.push("아군 "+me.total+" / 적군1 "+op.total+" / 적군2 "+evaluate(foe2).total);
+  else L.push("아군 "+me.total+"  대  적군 "+op.total+"  ("+(me.total>op.total?"승":me.total<op.total?"패":"무")+")");
   L.push("");
   L.push("[아군 편성]");
   for(i=0;i<mine.length;i++)L.push("  "+mine[i][0]+" ("+facOf(mine[i])+"/"+mine[i][2]+", 전력 "+power(mine[i])+")");
   var pl=pledges(mine).filter(function(g){return g.got});
   if(pl.length){
     L.push("");L.push("[맺은 인연]");
-    for(i=0;i<pl.length;i++)L.push("  "+(pl[i].kin?"血 ":"")+pl[i].n+" "+(pl[i].got>0?"+":"")+pl[i].got);
+    for(i=0;i<pl.length;i++)L.push("  "+(pl[i].kin?"혈연 ":"")+pl[i].n+" "+(pl[i].got>0?"+":"")+pl[i].got);
   }
-  L.push("");L.push(foe2?"[敵一 편성]":"[적군 편성]");
+  L.push("");L.push(foe2?"[적군1 편성]":"[적군 편성]");
   for(i=0;i<foe.length;i++)L.push("  "+foe[i][0]+" ("+foe[i][1]+"/"+foe[i][2]+")");
-  if(foe2){L.push("");L.push("[敵二 편성]");
+  if(foe2){L.push("");L.push("[적군2 편성]");
     for(i=0;i<foe2.length;i++)L.push("  "+foe2[i][0]+" ("+foe2[i][1]+"/"+foe2[i][2]+")")}
   var txt=L.join("\n");
   try{
@@ -2602,25 +2606,25 @@ function finish(){
     for(kx in COMBO[i].t)if(hv>=+kx&&COMBO[i].t[kx]>0)fk=1;
     if(fk&&!REC.stamps[COMBO[i].n])REC.stamps[COMBO[i].n]=REC.games;
   }
-  var d=me.total-op.total,cls=d>0?"win":d<0?"lose":"draw",word=d>0?"大 勝":d<0?"敗 北":"無 勝 負";
+  var d=me.total-op.total,cls=d>0?"win":d<0?"lose":"draw",word=d>0?"승 리":d<0?"패 배":"무 승 부";
   if(op2){
     var rank=1+(op1.total>me.total?1:0)+(op2.total>me.total?1:0);
     var tied=(op1.total===me.total||op2.total===me.total);
-    word=rank===1?(tied?"共 同 一 位":"天 下 統 一"):rank===2?(tied?"共 同 二 位":"鼎 立 二 位"):"鼎 立 末 位";
+    word=rank===1?(tied?"공 동 1 위":"천 하 통 일"):rank===2?(tied?"공 동 2 위":"2 위"):"3 위";
     cls=d>0?"win":d===0?"draw":"lose";
   }
   var h='<div class="verdict"><div class="big '+cls+'">'+word+'</div><svg class="orn"><use href="#orn-knot"/></svg><div class="sub">'+
         (d>0?"점수차 "+d+"점":d<0?"점수차 "+(-d)+"점":"동수")+'</div></div>';
   if(op2){
-    h+='<div class="tote" style="grid-template-columns:1fr 1fr 1fr"><div><div class="num">'+me.total+'</div><div class="lbl">我 軍</div></div>'+
-       '<div><div class="num">'+op1.total+'</div><div class="lbl">敵 一</div></div>'+
-       '<div><div class="num">'+op2.total+'</div><div class="lbl">敵 二</div></div></div>';
+    h+='<div class="tote" style="grid-template-columns:1fr 1fr 1fr"><div><div class="num">'+me.total+'</div><div class="lbl">아 군</div></div>'+
+       '<div><div class="num">'+op1.total+'</div><div class="lbl">적 군 1</div></div>'+
+       '<div><div class="num">'+op2.total+'</div><div class="lbl">적 군 2</div></div></div>';
   }else{
-    h+='<div class="tote"><div><div class="num">'+me.total+'</div><div class="lbl">我 軍</div></div>'+
-       '<div class="vs">對</div><div><div class="num">'+op.total+'</div><div class="lbl">敵 軍</div></div></div>';
+    h+='<div class="tote"><div><div class="num">'+me.total+'</div><div class="lbl">아 군</div></div>'+
+       '<div class="vs">대</div><div><div class="num">'+op.total+'</div><div class="lbl">적 군</div></div></div>';
   }
   var fresh=[];
-  for(i=0;i<COMBO.length;i++)if(REC.stamps[COMBO[i].n]===REC.games)fresh.push((COMBO[i].k?"血 ":"")+COMBO[i].n);
+  for(i=0;i<COMBO.length;i++)if(REC.stamps[COMBO[i].n]===REC.games)fresh.push((COMBO[i].k?"혈연 ":"")+COMBO[i].n);
   if(fresh.length)h+='<div class="tale" style="border-left-color:var(--gold)">처음 맺은 인연 — '+fresh.join(" · ")+'</div>';
   h+='<div class="tale">'+tale(me,op,mine)+'</div>';
 
@@ -2628,7 +2632,7 @@ function finish(){
   var ma=mine.slice().sort(function(a,b){return power(b)-power(a)}),
       oa=opTeam.slice().sort(function(a,b){return power(b)-power(a)}),
       wn=0,ls=0,dw=0;
-  h+='<div class="ledger sub-ledger"><h4>참고 · 합(合)별 전력 대조'+(op2?' · 對 '+(op===op2?'敵二':'敵一'):'')+'</h4>';
+  h+='<div class="ledger sub-ledger"><h4>참고 · 합별 전력 대조'+(op2?' · 상대 '+(op===op2?'적군2':'적군1'):'')+'</h4>';
   for(i=0;i<ma.length;i++){
     var pa=power(ma[i]),pb=power(oa[i]),gap=pa-pb,rs,cl;
     if(gap>18){rs="아군 승";cl="w";wn++}
@@ -2637,7 +2641,7 @@ function finish(){
     else if(gap>-19){rs="근소 열세";cl="l";ls++}
     else{rs="적군 승";cl="l";ls++}
     h+='<div class="duel"><span class="hb">'+NUM[i]+'합</span>'+
-       '<span class="pair"><b>'+ma[i][0]+'</b> '+pa+' &nbsp;對&nbsp; '+oa[i][0]+' '+pb+'</span>'+
+       '<span class="pair"><b>'+ma[i][0]+'</b> '+pa+' &nbsp;대&nbsp; '+oa[i][0]+' '+pb+'</span>'+
        '<span class="rs '+cl+'">'+rs+'</span></div>';
   }
   h+='<div class="row tot"><span>합계</span><b>'+wn+'승 '+dw+'무 '+ls+'패</b></div>'+
@@ -2689,18 +2693,18 @@ function finish(){
   for(i=0;i<replay.length;i++){missed+=Math.max(0,replay[i].bg-replay[i].pg);rpMap[replay[i].rd]=replay[i]}
   h+='<div class="ledger"><h4>복기 · 즉시 득점 차이 '+missed+'점</h4><p class="pgempty">각 선택 당시의 점수만 비교합니다. 미래 인연과 견제의 가치는 포함하지 않으며, 합계는 최종 손실 점수가 아닙니다.</p>';
   if(bans.me.length||bans.foe.length)
-    h+='<div class="hist"><span class="r1">禁</span><span class="r2">我 <b>'+bans.me.join("·")+'</b> / 敵 <span>'+bans.foe.join("·")+(bans.foe2.length?" · "+bans.foe2.join("·"):"")+'</span></span></div>';
+    h+='<div class="hist"><span class="r1">금지</span><span class="r2">아군 <b>'+bans.me.join("·")+'</b> / 적군 <span>'+bans.foe.join("·")+(bans.foe2.length?" · "+bans.foe2.join("·"):"")+'</span></span></div>';
   for(i=0;i<hist.length;i++){
     var g=hist[i];if(!g)continue;
     rp=rpMap[i];
     var same=rp&&(rp.bn===rp.pick||rp.bg-rp.pg<=0);
-    h+='<div class="rnd"><div class="rh"><span>'+NUM[i]+'陣</span>'+
-       (g.rr&&g.rr.length?'<em>換 '+g.rr.join("·")+'</em>':'')+'</div>';
-    var seats=[["me","我"],["foe",foe2?"敵一":"敵"]];
-    if(foe2)seats.push(["foe2","敵二"]);
+    h+='<div class="rnd"><div class="rh"><span>'+NUM[i]+'차</span>'+
+       (g.rr&&g.rr.length?'<em>다시 뽑기 '+g.rr.join("·")+'</em>':'')+'</div>';
+    var seats=[["me","아군"],["foe",foe2?"적군1":"적군"]];
+    if(foe2)seats.push(["foe2","적군2"]);
     for(var si=0;si<seats.length;si++){
       var sk=seats[si][0],lb=seats[si][1],nm=g[sk]||"—";
-      h+='<div class="rl2'+(sk==="me"?" mine":"")+'"><span class="who">'+lb+(g.first===sk?'<i>先</i>':'')+'</span>'+
+      h+='<div class="rl2'+(sk==="me"?" mine":"")+'"><span class="who">'+lb+(g.first===sk?'<i>선공</i>':'')+'</span>'+
          '<span class="pk">'+nm+'</span>';
       if(sk==="me"&&rp){
         h+='<span class="jd">'+(rp.pg>=0?"+":"")+rp.pg+
@@ -2724,13 +2728,13 @@ function finish(){
     h+='<div class="row"><span>'+r.k+'</span><b class="'+(r.v>=0?"up":"dn")+'">'+(r.v>0?"+":"")+r.v+'</b></div>';
   });
   h+='<div class="row tot"><span>합계</span><b>'+me.total+'</b></div>';
-  h+='<h4>'+(op2?'敵一 채점표':'적군 채점표')+'</h4>';
+  h+='<h4>'+(op2?'적군1 채점표':'적군 채점표')+'</h4>';
   op1.rows.forEach(function(r){
     h+='<div class="row"><span>'+r.k+'</span><b class="'+(r.v>=0?"up":"dn")+'">'+(r.v>0?"+":"")+r.v+'</b></div>';
   });
   h+='<div class="row tot"><span>합계</span><b>'+op1.total+'</b></div>';
   if(op2){
-    h+='<h4>敵二 채점표</h4>';
+    h+='<h4>적군2 채점표</h4>';
     op2.rows.forEach(function(r){
       h+='<div class="row"><span>'+r.k+'</span><b class="'+(r.v>=0?"up":"dn")+'">'+(r.v>0?"+":"")+r.v+'</b></div>';
     });
@@ -2781,11 +2785,11 @@ function resumeGame(){
   hist=v.hist;replay=v.replay;bans=v.bans;banQ=v.banQ;banCand=restored.ban;turnQ=v.q;hintOn=v.hint;fogOn=v.fog;busy=false;myTurn=false;
   buildTiers(eraPool().filter(function(c){return bans.me.concat(bans.foe,bans.foe2).indexOf(c[0])<0}));syncLayout();buildHelp();
   $("ros2").style.display=foe2?"":"none";$("bF2").style.display=foe2?"":"none";$("board").classList.toggle("p3",!!foe2);
-  $("foeTitle").childNodes[0].textContent=foe2?"敵 一 ":"敵 軍 ";$("sFoeLb").textContent=foe2?"敵 一":"敵 軍";
+  $("foeTitle").childNodes[0].textContent=foe2?"적군1 ":"적군 ";$("sFoeLb").textContent=foe2?"적 군 1":"적 군";
   $("tHint").classList.toggle("on",hintOn);$("tFog").classList.toggle("on",fogOn);
   chips($("mine"),mine,ROUNDS);chips($("foe"),foe,ROUNDS);if(foe2)chips($("foe2"),foe2,ROUNDS);
   $("myct").textContent=mine.length+" / "+ROUNDS;$("opct").textContent=foe.length+" / "+ROUNDS;if(foe2)$("opct2").textContent=foe2.length+" / "+ROUNDS;
-  board();tally();$("sub").textContent="진행 중이던 대국을 이어갑니다";$("rd").textContent="第 "+NUM[round]+" 陣 · 이어하기";
+  board();tally();$("sub").textContent="진행 중이던 대국을 이어갑니다";$("rd").textContent=NUM[round]+"차 지명 · 이어하기";
   if(v.phase==="lineup"){beginLineup(true)}
   else if(v.phase==="ban"){busy=true;renderBan();banStep()}
   else if(v.phase==="next"){renderPack(false);busy=true;later(completeRound,300)}
@@ -2815,9 +2819,9 @@ function start(){
   $("ros2").style.display=foe2?"":"none";
   $("bF2").style.display=foe2?"":"none";
   $("board").classList.toggle("p3",!!foe2);
-  $("foeTitle").childNodes[0].textContent=(foe2?"敵 一 ":"敵 軍 ")+(PACK2&&aiFac.foe?"· "+aiFac.foe+" ":"");
-  if(foe2)$("ros2").querySelector("h3").childNodes[0].textContent="敵 二 "+(PACK2&&aiFac.foe2?"· "+aiFac.foe2+" ":"");
-  $("sFoeLb").textContent=foe2?"敵 一":"敵 軍";
+  $("foeTitle").childNodes[0].textContent=(foe2?"적군1 ":"적군 ")+(PACK2&&aiFac.foe?"· "+aiFac.foe+" ":"");
+  if(foe2)$("ros2").querySelector("h3").childNodes[0].textContent="적군2 "+(PACK2&&aiFac.foe2?"· "+aiFac.foe2+" ":"");
+  $("sFoeLb").textContent=foe2?"적 군 1":"적 군";
   bans={me:[],foe:[],foe2:[]};aiRR={foe:REROLLS,foe2:REROLLS};
   if(SCN>0){
     var i,j;

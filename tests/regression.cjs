@@ -51,7 +51,7 @@ for(const phase of ['ban','draft','next','lineup']){
  assert.equal(resumed.REC.games,1);resumed.finish();assert.equal(resumed.REC.games,1,'idempotent finish');
 }
 // Ranked display and record use the same strict-win convention.
-c=runtime();c.PLAYERS=3;c.start();c.stopTimers();c.mine=c.C.slice(0,11);c.foe=c.C.slice(11,22);c.foe2=c.C.slice(22,33);c.evaluate=()=>({total:100,rows:[]});c.finish();assert.equal(c.REC.draw,1);assert(c.document.getElementById('res').innerHTML.includes('共 同 一 位'));
+c=runtime();c.PLAYERS=3;c.start();c.stopTimers();c.mine=c.C.slice(0,11);c.foe=c.C.slice(11,22);c.foe2=c.C.slice(22,33);c.evaluate=()=>({total:100,rows:[]});c.finish();assert.equal(c.REC.draw,1);assert(c.document.getElementById('res').innerHTML.includes('공 동 1 위'));
 // Reroll exhaustion never charges a token and does not discard the remaining pack.
 c=runtime();c.start();c.pool=[];c.discard=[];let rr=c.rerolls,pack=c.packArr.map(e=>e.c[0]);c.reroll();assert.equal(c.rerolls,rr);assert.deepEqual(c.packArr.map(e=>e.c[0]),pack);
 // A role supplement replaces unusable candidates, keeping size and identity conservation.
