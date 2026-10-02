@@ -72,11 +72,20 @@ body{
   box-shadow:0 0 0 3px rgba(16,12,9,.7),0 8px 22px rgba(0,0,0,.65);
   opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s}
 .totop.show{opacity:1;pointer-events:auto;transform:none}
+.veil .res{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+/* 덮개 화면에서는 上/下 를 가장자리 탭으로 줄이고, 탭이 뜨는 창의 내용은 그만큼 안쪽으로 당겨 겹치지 않게 한다 */
+@media (max-width:420px){
+  .totop{width:30px;height:46px;right:0;border-radius:10px 0 0 10px;border-right:none;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.6)}
+  #totop{bottom:calc(72px + env(safe-area-inset-bottom))}
+  .veil:not(#setup):not(#lineup):not(#detail) .res{padding-right:36px}
+}
 #totop{bottom:calc(76px + env(safe-area-inset-bottom))}
 .totop:active{background:var(--gold);color:#100C09}
 .helpbtn{flex:none;width:27px;height:27px;border-radius:50%;border:1px solid var(--line);background:transparent;
   color:var(--gold);font-family:var(--display);font-size:15px;line-height:1;cursor:pointer;transition:.2s}
 .helpbtn:active{background:rgba(201,162,39,.15)}
+.title{white-space:nowrap;flex:none}
+@media (max-width:420px){.top{flex-wrap:wrap;row-gap:10px}.top .title{margin-right:auto}.tally{order:3;width:100%;justify-content:space-between}.helpbtn{width:38px;height:38px;font-size:17px}.helpbtn{position:relative}.helpbtn::after{content:"";position:absolute;inset:-4px}}
 
 /* ── 새 대국 설정 ── */
 .srow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px dotted rgba(184,164,126,.16)}
@@ -213,23 +222,29 @@ body{
 .card .nm{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.02em;padding-left:64px;min-height:24px;white-space:nowrap;overflow:hidden}
 .card .nm.ln{font-size:17.5px;letter-spacing:0}
 @media (max-width:390px){.card .nm{font-size:19px}.card .nm.ln{font-size:16px}}
+.card .nm.l4{font-size:14px;padding-left:50px}
 .card .nm .tr{display:inline-block;font-size:11px;font-weight:700;width:16px;height:16px;line-height:16px;text-align:center;
   border-radius:2px;margin-right:5px;vertical-align:2px;color:#F2EADA}
 .tr.t0{background:#A8842A}.tr.t1{background:#5A7A8C}.tr.t2{background:#7A6A55}.tr.t3{background:#9A8E7A}
 .card .rl{font-size:10.5px;letter-spacing:.16em;color:#6B5B45;padding-left:52px;margin-top:1px;min-height:14px}
 .card .rl b{color:var(--fc);font-weight:600}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:9px;padding-left:6px}
+.card .nm,.card .rl,.card .stats,.card .hint{position:relative;z-index:1}
+.card .rl i,.card .rl .ro{display:inline-block;white-space:nowrap}
+.card .rl.mf{letter-spacing:.02em;line-height:1.45}
+.stats{display:grid;grid-template-columns:repeat(4,1fr) 1.25fr;gap:5px;margin-top:9px;padding-left:6px}
+.st.pw u{background:none}.st.pw b{font-family:var(--display);font-size:15px;font-weight:700;margin-top:0;line-height:17px;color:#3C3227}
 .st{text-align:center}
 .st u{display:block;height:3px;border-radius:2px;background:rgba(34,27,21,.14);text-decoration:none;overflow:hidden}
 .st u i{display:block;height:100%;background:var(--fc);opacity:.85}
 .st b{display:block;font-size:11px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
 .st span{display:block;font-size:8.5px;color:#7A6A52;letter-spacing:.08em}
-.hint{margin-top:6px;padding:0 46px 0 6px;font-size:10px;line-height:1.45;font-weight:600;height:30px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#8A7A62;word-break:keep-all;overflow-wrap:break-word}
+@media (max-width:420px){.st span{font-size:10px}.board span{font-size:10.5px}.title small{font-size:11px}.hint{font-size:11px;height:32px}.near{font-size:10.5px}.ros h3 em{font-size:11px}.card .rl{font-size:11px}.rcell span,.stamp .sc,.rl2 .who i{font-size:10.5px}.rwhy,.tote .lbl,.rnd .rh em,.hist .r2 em,.srow .sl small{font-size:11px}}
+.hint{margin-top:6px;padding:0 0 0 6px;font-size:10px;line-height:1.45;font-weight:600;height:30px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#8A7A62;word-break:keep-all;overflow-wrap:break-word}
 .hint .near{margin-left:5px}
 .hint.up{color:#8A6E12}.hint.dn{color:#A8402F}
 .card.illegal{opacity:.34;filter:grayscale(.7)}
 .card.illegal::after{content:"編";position:absolute;top:9px;left:12px;font-family:var(--display);font-size:12px;color:#A8402F;font-weight:700}
-.pw{position:absolute;bottom:9px;right:10px;font-family:var(--display);font-size:15px;font-weight:700;color:#3C3227}
+.card>.pw{position:absolute;bottom:9px;right:10px;font-family:var(--display);font-size:15px;font-weight:700;color:#3C3227}
 .pw em{font-style:normal;font-size:8.5px;letter-spacing:.14em;color:#8A7A62;margin-right:3px}
 
 /* 인물 낙관 아바타 */
@@ -384,6 +399,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 .lineup-card{min-height:66px;padding:8px;background:var(--ink2);color:var(--paper);border:1px solid var(--line);border-radius:4px;font:600 14px var(--body);text-align:left}
 .lineup-card small{display:block;font-size:11px;margin:3px 0}.lineup-card b{font-size:11px}
 .lineup-card[aria-pressed="true"]{border-color:var(--gold);background:#393020}.lineup-card[aria-pressed="true"] b{color:var(--gold)}
+.setup-actions{position:sticky;bottom:0;background:var(--ink);padding:8px 0;margin-top:14px;display:grid;gap:6px;z-index:2}.setup-actions button{margin:0}
 .lineup-summary{position:sticky;top:0;background:var(--ink);padding:10px 0;z-index:1}
 .lineup-actions{position:sticky;bottom:0;background:var(--ink);padding:8px 0;display:grid;gap:5px}.lineup-actions button{margin:0;min-height:44px}
 .lineup-actions button:disabled{opacity:.45}
@@ -1623,6 +1639,7 @@ function replaceOpen(){
 function card(c,idx,hint){
   var f=facInfo(facOf(c)),s=[["통",c[3]],["무",c[4]],["지",c[5]],["정",c[6]]],h="";
   for(var i=0;i<4;i++)h+='<div class="st"><u><i style="width:'+s[i][1]+'%"></i></u><b>'+s[i][1]+'</b><span>'+s[i][0]+'</span></div>';
+  h+='<div class="st pw"><u></u><b>'+power(c)+'</b><span>戰力</span></div>';
   var el=document.createElement("button");
   el.className="card";el.style.setProperty("--fc",f.c);el.dataset.i=idx;
   if(PACK2&&PACK2.career){
@@ -1634,9 +1651,9 @@ function card(c,idx,hint){
     }
   }
   el.innerHTML='<svg class="emb"><use href="#em-'+roleOf(c)+'"/></svg><div class="fac">'+f.h+'</div>'+avHTML(c,"avc")+
-    '<div class="nm'+(c[0].length>=3?" ln":"")+'"><span class="tr t'+tierOf(c)+'">'+TIER_NAME[tierOf(c)]+'</span>'+c[0]+'</div>'+
-    '<div class="rl"><b>'+((PACK2&&PACK2.career)?facsOf(c).map(function(f){return '<i style="color:'+facInfo(f).c+';font-style:normal">'+f+'</i>'}).join("·"):facOf(c))+'</b> · '+roleOf(c)+'</div><div class="stats">'+h+'</div>'+
-    '<div class="pw"><em>戰力</em>'+power(c)+'</div><div class="seal">採</div>';
+    '<div class="nm'+(c[0].length>=4?" ln l4":c[0].length>=3?" ln":"")+'"><span class="tr t'+tierOf(c)+'">'+TIER_NAME[tierOf(c)]+'</span>'+c[0]+'</div>'+
+    '<div class="rl'+((PACK2&&PACK2.career&&facsOf(c).length>1)?" mf":"")+'"><b>'+((PACK2&&PACK2.career)?facsOf(c).map(function(f){return '<i style="color:'+facInfo(f).c+';font-style:normal">'+f+'</i>'}).join("·"):facOf(c))+'</b> <span class="ro">· '+roleOf(c)+'</span></div><div class="stats">'+h+'</div>'+
+    '<div class="seal">採</div>';
   if(hint){
     var hd=document.createElement("div");
     hd.className="hint "+(hint.d>=0?"up":"dn");
@@ -1648,7 +1665,7 @@ function card(c,idx,hint){
     nr.className="near";
     nr.textContent=(hint.near&&hint.near.length)?"◇ "+hint.near.slice(0,3).join(" · ")+(hint.near.length>3?" 외 "+(hint.near.length-3):""):"";
     hd.appendChild(nr);
-    el.insertBefore(hd,el.querySelector(".pw"));
+    el.insertBefore(hd,el.querySelector(".seal"));
   }
   return el;
 }
@@ -1803,8 +1820,8 @@ function buildSetup(){
   h+=row("시나리오","연의의 명진영에 도전하오","sScn",SCN_NAME[SCN]);
   h+=row("확장팩","그 해의 세력으로 죽간이 갈리오","sPk",PACK2?PACK2.n:"본편 · 영웅집결");
   h+='<div style="text-align:center;font-size:10px;color:var(--paper3);margin-top:18px;font-family:var(--body);letter-spacing:.06em">版 2026.09.09 · 죽간 '+C.length+'인 · 결의 '+COMBO.length+'종</div>';
-  h+='<button class="btn" id="setupGo" style="margin-top:14px">이 로 써 겨 루 다</button>';
-  h+='<button class="btn2" id="setupX">돌 아 가 기</button>';
+  h+='<div class="setup-actions"><button class="btn" id="setupGo">이 로 써 겨 루 다</button>';
+  h+='<button class="btn2" id="setupX">돌 아 가 기</button></div>';
   $("setupBody").innerHTML=h;
   $("sFast").addEventListener("click",function(){FAST=!FAST;this.textContent=FAST?"빠르게":"기본"});
   $("sMode").addEventListener("click",function(){MODE=(MODE+1)%2;this.textContent=MODE_NAME[MODE]});
@@ -2821,6 +2838,7 @@ buildTiers(C);buildHelp();buildDex();
   }
   function sync(){
     var v=openVeil();
+    if(v&&v.querySelector(".setup-actions,.lineup-actions,.pick-actions"))v=null;
     up.classList.toggle("show",!!v&&v.scrollTop>320);
     dn.classList.toggle("show",!!v&&v.scrollHeight-v.scrollTop-v.clientHeight>320);
   }
