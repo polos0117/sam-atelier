@@ -2,7 +2,7 @@
   "name": "삼국지 드래프트 — 竹簡",
   "short_name": "竹簡",
   "description": "삼국지 인물 드래프트",
-  "id": "../sam.html",
+  "id": "./",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

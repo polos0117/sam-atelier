@@ -1179,7 +1179,7 @@ function mergeRec(a,b){
   r.best=hi.best||0; r.bestLv=(hi.bestLv===undefined?-1:hi.bestLv);
   r.v=1; return r;
 }
-var SAVE_URL="../data-sam/save.json", REPO_SAVE=null, RESTORED=false;
+var SAVE_URL="data-sam/save.json", REPO_SAVE=null, RESTORED=false;
 function loadRepoSave(){
   if(typeof fetch!=="function")return Promise.resolve();
   return fetch(SAVE_URL,{cache:"no-cache"}).then(function(r){
