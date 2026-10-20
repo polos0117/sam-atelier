@@ -134,7 +134,7 @@ body{
 .dexcount{font-size:11px;color:var(--paper3);margin-bottom:10px;letter-spacing:.06em}
 .dx .avs{cursor:zoom-in}
 /* ── 초상 확대 ── */
-.zoom{position:fixed;inset:0;background:rgba(6,5,4,.96);z-index:60;display:none;
+.zoom{position:fixed;inset:0;background:rgba(6,5,4,.96);z-index:60;display:none;overscroll-behavior:contain;
   align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
 .zoom.on{display:flex;animation:fade .22s ease}
 .zbox{max-width:420px;width:100%;text-align:center}
@@ -328,7 +328,8 @@ body{
 @keyframes tstOut{to{opacity:0;transform:translateY(-14px) scale(.96)}}
 
 /* ── 결과 ── */
-.veil{position:fixed;inset:0;background:rgba(10,8,6,.93);backdrop-filter:blur(3px);z-index:20;overflow-y:auto;display:none}
+.veil{position:fixed;inset:0;background:rgba(10,8,6,.93);backdrop-filter:blur(3px);z-index:20;overflow-y:auto;overscroll-behavior:contain;display:none}
+.veil:focus,.zoom:focus{outline:none}
 .veil.on{display:block;animation:fade .4s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 .res{max-width:560px;margin:0 auto;padding:34px 16px 48px}
@@ -458,7 +459,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
     <circle cx="93.5" cy="7" r="1.1" fill="currentColor" stroke="none"/>
   </symbol>
 </svg>
-<div class="wrap">
+<div class="wrap" id="app">
   <div class="top">
     <div class="title"><small>三國志</small>쟁탈전</div>
     <div class="tally" id="tally"></div>
@@ -500,18 +501,18 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 </div>
 
 <div id="draftSummary" hidden></div><button id="tArt" hidden></button>
-<div class="veil" id="detail" role="dialog" aria-modal="true" aria-label="장수 상세"><div class="res" id="detailBody"></div></div>
-<div class="veil" id="lineup" role="dialog" aria-modal="true" aria-label="최종 11명 편성"><div class="res" id="lineupBody"></div></div>
+<div class="veil" id="detail" role="dialog" aria-modal="true" aria-label="장수 상세" tabindex="-1"><div class="res" id="detailBody"></div></div>
+<div class="veil" id="lineup" role="dialog" aria-modal="true" aria-label="최종 11명 편성" tabindex="-1"><div class="res" id="lineupBody"></div></div>
 <div id="toast"></div>
 <button class="totop" id="tobot" aria-label="맨 아래로">▼</button>
 <button class="totop" id="totop" aria-label="맨 위로">▲</button>
-<div class="veil" id="setup"><div class="res" id="setupBody"></div></div>
-<div class="veil" id="rec"><div class="res" id="recBody"></div></div>
-<div class="veil" id="dex"><div class="res" id="dexBody"></div></div>
-<div class="zoom" id="zoom"><div class="zbox"><img id="zimg" alt=""><div class="zn" id="zn"></div><div class="zt" id="zt"></div><div class="zl" id="zl"></div><div class="zh">아무 곳이나 눌러 닫기</div></div></div>
-<div class="veil" id="lab"><div class="res" id="labBody"></div></div>
-<div class="veil" id="help"><div class="res" id="helpBody"></div></div>
-<div class="veil" id="veil"><div class="res" id="res"></div></div>
+<div class="veil" id="setup" role="dialog" aria-modal="true" aria-labelledby="setupTitle" tabindex="-1"><div class="res" id="setupBody"></div></div>
+<div class="veil" id="rec" role="dialog" aria-modal="true" aria-labelledby="recTitle" tabindex="-1"><div class="res" id="recBody"></div></div>
+<div class="veil" id="dex" role="dialog" aria-modal="true" aria-labelledby="dexTitle" tabindex="-1"><div class="res" id="dexBody"></div></div>
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zn" tabindex="-1"><div class="zbox"><img id="zimg" alt=""><div class="zn" id="zn"></div><div class="zt" id="zt"></div><div class="zl" id="zl"></div><div class="zh">아무 곳이나 눌러 닫기</div></div></div>
+<div class="veil" id="lab" role="dialog" aria-modal="true" aria-labelledby="labTitle" tabindex="-1"><div class="res" id="labBody"></div></div>
+<div class="veil" id="help" role="dialog" aria-modal="true" aria-labelledby="helpTitle" tabindex="-1"><div class="res" id="helpBody"></div></div>
+<div class="veil" id="veil" role="dialog" aria-modal="true" aria-labelledby="resTitle" tabindex="-1"><div class="res" id="res"></div></div>
 
 <script>
 (function(){
@@ -1740,7 +1741,7 @@ function combosOf(n){
 }
 function buildDex(){
   var h="",i,facs=["전체","위","촉","오","군웅"];
-  h+='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">인물 도감</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  h+='<div class="verdict" style="margin-bottom:14px"><div class="big" id="dexTitle" style="font-size:30px;color:var(--gold)">인물 도감</div><svg class="orn"><use href="#orn-knot"/></svg>'+
      '<div class="sub">'+C.length+'인의 능력과 인연</div></div>';
   h+='<div class="dexbar">';
   for(i=0;i<facs.length;i++)
@@ -1793,18 +1794,12 @@ function buildDex(){
     $("zn").textContent=nm;
     $("zt").textContent=c[1]+" · "+c[2]+" · 전력 "+power(c);
     $("zl").textContent=LORE[nm]||"";
-    var z=$("zoom");z.style.setProperty("--zc",FAC[c[1]].c);z.classList.add("on");
+    var z=$("zoom");z.style.setProperty("--zc",FAC[c[1]].c);openLayer("zoom");
   });
-  $("dexClose").addEventListener("click",function(){$("dex").classList.remove("on")});
+  $("dexClose").addEventListener("click",function(){closeLayer("dex")});
 }
 
-(function(){
-  var z=document.getElementById("zoom");
-  if(z)z.addEventListener("click",function(){z.classList.remove("on")});
-  document.addEventListener("keydown",function(e){
-    if(e.key==="Escape"&&z&&z.classList.contains("on"))z.classList.remove("on");
-  });
-})();
+$("zoom").addEventListener("click",function(){closeLayer("zoom")});
 
 /* ───────── 새 대국 설정 ───────── */
 function buildSetup(){
@@ -1813,7 +1808,7 @@ function buildSetup(){
     return '<div class="srow"><div class="sl">'+label+'<small>'+small+'</small></div>'+
            '<button class="opt cyc" id="'+id+'">'+val+'</button></div>';
   }
-  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">새 대국</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" id="setupTitle" style="font-size:30px;color:var(--gold)">새 대국</div><svg class="orn"><use href="#orn-knot"/></svg>'+
         '<div class="sub">판을 새로 짜는 자리요 · 규칙은 우상단 ?</div></div>';
   h+='<div class="intro">죽간이 펼쳐지면 적장과 <b>번갈아</b> 하나씩 취하오. 열세 진이 끝나면 11명을 편성하여 전력과 인연으로 승부를 가리오.</div>';
   h+='<div class="intro">후보 <b>6장</b> · <b>13번 지명</b> → 최종 <b>11명</b><br>첫 11번은 편성 규칙, 마지막 2번은 자유 예비 지명입니다.</div>';
@@ -1859,17 +1854,17 @@ function buildSetup(){
     this.textContent=PACK2?PACK2.n:"본편 · 영웅집결";
   });
   /* 새 판을 시작할 때만 적용하며, 취소하면 진행 중인 설정으로 돌아간다. */
-  $("setupGo").addEventListener("click",function(){setupBefore=null;cfgSave();$("setup").classList.remove("on");start()});
+  $("setupGo").addEventListener("click",function(){setupBefore=null;cfgSave();closeLayer("setup");start()});
   $("setupX").addEventListener("click",closeSetup);
 }
 
 /* ───────── 전적 · 결의 도장 ───────── */
-function closeSetup(){if(setupBefore){cfgApply(setupBefore);setupBefore=null}$("setup").classList.remove("on");syncLayout()}
+function closeSetup(){if(setupBefore){cfgApply(setupBefore);setupBefore=null}closeLayer("setup");syncLayout()}
 function buildRec(){
   var h="",i,got=0;
   for(i=0;i<COMBO.length;i++)if(REC.stamps[COMBO[i].n])got++;
   var pos=COMBO.filter(function(c){var k;for(k in c.t)if(c.t[k]>0)return true;return false});
-  h+='<div class="verdict" style="margin-bottom:16px"><div class="big" style="font-size:30px;color:var(--gold)">전적</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  h+='<div class="verdict" style="margin-bottom:16px"><div class="big" id="recTitle" style="font-size:30px;color:var(--gold)">전적</div><svg class="orn"><use href="#orn-knot"/></svg>'+
      '<div class="sub">이 자리에서 겨룬 기록</div></div>';
   h+='<div class="rgrid">'+
      '<div class="rcell"><b>'+REC.games+'</b><span>대국</span></div>'+
@@ -1949,7 +1944,7 @@ function buildRec(){
   h+='<div class="ledger" id="saveBox" style="margin-top:22px"></div>';
   $("recBody").innerHTML=h;
   renderSaveBox();
-  $("recClose").addEventListener("click",function(){$("rec").classList.remove("on")});
+  $("recClose").addEventListener("click",function(){closeLayer("rec")});
   $("recReset").addEventListener("click",function(){
     if(!this.dataset.arm){
       this.dataset.arm=1;
@@ -2018,7 +2013,7 @@ function labRun(st){
     fac:fk.slice(0,2).map(function(x){return x+" "+Math.round(facN[x]/sumCnt*100)+"%"}).join(" · ")};
 }
 function buildLab(){
-  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" style="font-size:30px;color:var(--gold)">기질 탐구</div>'+
+  var h='<div class="verdict" style="margin-bottom:14px"><div class="big" id="labTitle" style="font-size:30px;color:var(--gold)">기질 탐구</div>'+
         '<svg class="orn"><use href="#orn-knot"/></svg>'+
         '<div class="sub">적장의 기질마다 무엇을 집는지 살펴보오</div></div>';
   // ── 실제 대국에서 관측된 기록 ──
@@ -2058,7 +2053,7 @@ function buildLab(){
   h+='<div id="labOut"></div>';
   h+='<button class="btn2" id="labClose" style="margin-top:10px">닫 다</button>';
   $("labBody").innerHTML=h;
-  $("labClose").addEventListener("click",function(){$("lab").classList.remove("on")});
+  $("labClose").addEventListener("click",function(){closeLayer("lab")});
   $("labGo").addEventListener("click",function(){
     var btn=this;btn.disabled=true;btn.textContent="헤아리는 중…";
     var out=$("labOut");out.innerHTML="";
@@ -2094,7 +2089,7 @@ function buildLab(){
 /* ───────── 병법 요람 ───────── */
 function buildHelp(){
   var h="",i,k;
-  h+='<div class="verdict" style="margin-bottom:22px"><div class="big" style="font-size:32px;color:var(--gold)">병법 요람</div><svg class="orn"><use href="#orn-knot"/></svg>'+
+  h+='<div class="verdict" style="margin-bottom:22px"><div class="big" id="helpTitle" style="font-size:32px;color:var(--gold)">병법 요람</div><svg class="orn"><use href="#orn-knot"/></svg>'+
      '<div class="sub">규칙과 채점을 모두 적어두었소</div></div>';
 
   h+='<div class="hsec"><h4>진행</h4>'+
@@ -2187,7 +2182,7 @@ function buildHelp(){
     var c=$("cbList"),o=c.classList.toggle("open");
     this.textContent=o?"결의 목록 접기":"결의 목록 펼치기";
   });
-  $("helpClose").addEventListener("click",function(){$("help").classList.remove("on")});
+  $("helpClose").addEventListener("click",function(){closeLayer("help")});
 }
 function etcTiers(){
   var a=[],k;
@@ -2196,8 +2191,32 @@ function etcTiers(){
 }
 function byName(n){for(var i=0;i<C.length;i++)if(C[i][0]===n)return C[i];return C[0]}
 
-$("detail").addEventListener("click",function(e){if(e.target===this)this.classList.remove("on")});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDetail();if(e.key==="Tab"&&$("detail").classList.contains("on")){var bs=$("detailBody").querySelectorAll("button:not(:disabled)"),first=bs[0],last=bs[bs.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+/* ───────── 덮개 창 ─────────
+   창을 열면 뒤 화면을 inert 로 잠그고 포커스를 창 안으로 옮긴다. 닫으면 연 자리로 포커스를 돌려준다.
+   여러 창이 겹치면 맨 위 창만 살아 있다(확대 > 도감처럼) */
+var LAYER_ORDER=["lineup","detail","zoom","veil","help","lab","dex","rec","setup"],layerReturn={};
+function topLayer(){for(var i=0;i<LAYER_ORDER.length;i++){var el=$(LAYER_ORDER[i]);if(el.classList.contains("on"))return el}return null}
+function syncLayers(){
+  var top=topLayer();$("app").inert=!!top;
+  LAYER_ORDER.forEach(function(id){var el=$(id);el.inert=!!top&&el!==top});
+}
+function focusQuiet(el){if(el&&el.focus)try{el.focus({preventScroll:true})}catch(e){el.focus()}}
+function openLayer(id,focusEl){
+  var el=$(id),ae=document.activeElement;
+  if(!el.classList.contains("on")&&ae&&ae!==document.body&&!(el.contains&&el.contains(ae)))layerReturn[id]=ae;
+  el.classList.add("on");syncLayers();focusQuiet(focusEl||el);
+}
+function closeLayer(id){
+  var el=$(id),was=el.classList.contains("on"),back=layerReturn[id];
+  el.classList.remove("on");delete layerReturn[id];syncLayers();
+  if(!was)return;
+  var top=topLayer();
+  if(back&&back.isConnected&&!(back.closest&&back.closest("[inert]"))&&(!top||top.contains(back)))focusQuiet(back);
+  else if(top)focusQuiet(top);
+}
+$("detail").addEventListener("click",function(e){if(e.target===this)closeDetail()});
+/* Esc 는 맨 위 창만 닫는다. 최종 편성과 결과는 다음 단계로 가는 단추가 출구라 Esc 로 치우지 않는다 */
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){var top=topLayer();if(!top||top.id==="lineup"||top.id==="veil")return;e.preventDefault();if(top.id==="detail")closeDetail();else if(top.id==="setup")closeSetup();else closeLayer(top.id);return}if(e.key==="Tab"&&$("detail").classList.contains("on")){var bs=$("detailBody").querySelectorAll("button:not(:disabled)"),first=bs[0],last=bs[bs.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 /* ───────── 금지 페이즈 ───────── */
 var banCand=[],banQ=[];
 function banPhase(){
@@ -2333,10 +2352,8 @@ function renderPack(fresh){
   updateReroll();
 }
 
-var detailOrigin=null;
-function closeDetail(){ $("detail").classList.remove("on");if(detailOrigin&&detailOrigin.isConnected)detailOrigin.focus(); }
+function closeDetail(){closeLayer("detail")}
 function showDetail(c,pickIndex){
- detailOrigin=document.activeElement;
  var canPick=typeof pickIndex==="number"&&myTurn&&!busy&&packArr[pickIndex]&&packArr[pickIndex].c===c&&!packArr[pickIndex].by&&legalSet(mine,openIdx()).indexOf(pickIndex)>=0;
  var h='<img class="pick-portrait" src="'+((IMGL&&IMGL[c[0]])||IMG[c[0]]||'')+'" alt="'+c[0]+'" onerror="this.style.display=\'none\'"><h3>'+c[0]+' · '+facOf(c)+' · '+roleOf(c)+'</h3><p>통솔 '+c[3]+' · 무력 '+c[4]+' · 지력 '+c[5]+' · 정치 '+c[6]+'</p><p>전력 '+power(c)+(martialBonus(c)?' · 무력 특화 +'+martialBonus(c):'')+'</p>';
  if(!mine.concat(foe,foe2||[]).some(function(x){return x[0]===c[0]})){
@@ -2352,7 +2369,7 @@ function showDetail(c,pickIndex){
  h+='<p class="pick-warning">'+blocked+'</p>';
  $("detailBody").innerHTML=h+'<div class="pick-actions">'+(canPick?'<button class="btn" id="pickConfirm">'+c[0]+' 지명 확정</button>':'')+'<button class="btn2" id="detailClose">닫기 · 후보 다시 보기</button></div>';
  if(canPick){var snapshot=packArr;$("pickConfirm").onclick=function(){if(snapshot!==packArr||!myTurn||busy||packArr[pickIndex].by||legalSet(mine,openIdx()).indexOf(pickIndex)<0){closeDetail();return}closeDetail();myPick(pickIndex)}}
- $("detail").classList.add("on");$("detail").scrollTop=0;$("detailClose").onclick=closeDetail;$("detailClose").focus();
+ $("detailClose").onclick=closeDetail;openLayer("detail",$("detailClose"));$("detail").scrollTop=0;
 }
 function nextRound(){
   roundExcluded=[];busy=false;
@@ -2573,7 +2590,7 @@ function beginLineup(restore){
  myTurn=false;busy=true;lineupOpen=true;
  if(!restore||lineupChoice.some(function(n){return !mine.some(function(c){return c[0]===n})})||new Set(lineupChoice).size!==lineupChoice.length)
    lineupChoice=bestLineup(mine,false).team.map(function(c){return c[0]});
- saveGame("lineup",[]);renderLineup();$("lineup").classList.add("on");$("lineupAuto").focus();
+ saveGame("lineup",[]);renderLineup();openLayer("lineup",$("lineupAuto"));
 }
 function renderLineup(){
  var chosen=mine.filter(function(c){return lineupChoice.indexOf(c[0])>=0}),recommended=bestLineup(mine,false),over=lineupOverflow(chosen);
@@ -2597,7 +2614,7 @@ function confirmLineup(){
  var chosen=mine.filter(function(c){return lineupChoice.indexOf(c[0])>=0});
  if(chosen.length!==11||lineupOverflow(chosen)>bestLineup(mine,false).over)return;
  mine=chosen;foe=bestLineup(foe,false).team.slice();if(foe2)foe2=bestLineup(foe2,false).team.slice();
- lineupOpen=false;$("lineup").classList.remove("on");board();
+ lineupOpen=false;closeLayer("lineup");board();
  chips($("mine"),mine,11);chips($("foe"),foe,11);if(foe2)chips($("foe2"),foe2,11);
  $("myct").textContent="11 / 11";$("opct").textContent=foe.length+" / 11";if(foe2)$("opct2").textContent="11 / 11";
  finish();
@@ -2634,7 +2651,7 @@ function finish(){
     word=rank===1?(tied?"공 동 1 위":"천 하 통 일"):rank===2?(tied?"공 동 2 위":"2 위"):"3 위";
     cls=d>0?"win":d===0?"draw":"lose";
   }
-  var h='<div class="verdict"><div class="big '+cls+'">'+word+'</div><svg class="orn"><use href="#orn-knot"/></svg><div class="sub">'+
+  var h='<div class="verdict"><div class="big '+cls+'" id="resTitle">'+word+'</div><svg class="orn"><use href="#orn-knot"/></svg><div class="sub">'+
         (d>0?"점수차 "+d+"점":d<0?"점수차 "+(-d)+"점":"동수")+'</div></div>';
   if(op2){
     h+='<div class="tote" style="grid-template-columns:1fr 1fr 1fr"><div><div class="num">'+me.total+'</div><div class="lbl">아 군</div></div>'+
@@ -2766,7 +2783,7 @@ function finish(){
   h+='<button class="btn2" id="copy">편 성 을 옮 겨 적 다</button>';
   clearGame();
   $("res").innerHTML=h;
-  $("veil").classList.add("on");
+  openLayer("veil");
   revealResult();
   $("veil").scrollTop=0;
   $("again").addEventListener("click",start);
@@ -2820,7 +2837,7 @@ function resumeGame(){
  }catch(e){cfgApply(before);ROUNDS=beforeRounds;clearGame();return false}
 }
 function start(){
-  ROUNDS=13;lineupOpen=false;lineupChoice=[];lineupCache={};lineupCacheCount=0;$("lineup").classList.remove("on");
+  ROUNDS=13;lineupOpen=false;lineupChoice=[];lineupCache={};lineupCacheCount=0;closeLayer("lineup");
   stopTimers();clearGame();matchId=Date.now().toString(36)+Math.random().toString(36).slice(2);
   if(PACK2)SCN=0;
   PACK=packSize();recentShown={};roundExcluded=[];packArr=[];turnQ=[];myTurn=false;syncLayout();buildHelp();
@@ -2851,7 +2868,7 @@ function start(){
       if(C[j][0]===SCN_SET[SCN][i]){foe.push(C[j]);removeFromPool(C[j]);break}
   }
   buildTiers(pool);
-  $("veil").classList.remove("on");
+  closeLayer("veil");
   if(banOn&&!SCN)banPhase();else nextRound();
 }
 buildTiers(C);buildHelp();buildDex();
@@ -2884,16 +2901,16 @@ buildTiers(C);buildHelp();buildDex();
 })();
 $("tArt").onclick=function(){CARD_ART=!CARD_ART;syncLayout();cfgSave()};
 $("mystrip").addEventListener("click",function(){document.querySelector(".rosters").scrollIntoView({behavior:"smooth"})});
-$("newBtn").addEventListener("click",function(){buildSetup();$("setup").classList.add("on");$("setup").scrollTop=0});
+$("newBtn").addEventListener("click",function(){buildSetup();openLayer("setup");$("setup").scrollTop=0});
 $("setup").addEventListener("click",function(e){if(e.target===this)closeSetup()});
-$("recBtn").addEventListener("click",function(){buildRec();$("rec").classList.add("on");$("rec").scrollTop=0});
-$("rec").addEventListener("click",function(e){if(e.target===this)this.classList.remove("on")});
-$("dexBtn").addEventListener("click",function(){buildDex();$("dex").classList.add("on");$("dex").scrollTop=0});
-$("dex").addEventListener("click",function(e){if(e.target===this)this.classList.remove("on")});
-$("labBtn").addEventListener("click",function(){buildLab();$("lab").classList.add("on");$("lab").scrollTop=0});
-$("lab").addEventListener("click",function(e){if(e.target===this)this.classList.remove("on")});
-$("helpBtn").addEventListener("click",function(){$("help").classList.add("on");$("help").scrollTop=0});
-$("help").addEventListener("click",function(e){if(e.target===this)this.classList.remove("on")});
+$("recBtn").addEventListener("click",function(){buildRec();openLayer("rec");$("rec").scrollTop=0});
+$("rec").addEventListener("click",function(e){if(e.target===this)closeLayer("rec")});
+$("dexBtn").addEventListener("click",function(){buildDex();openLayer("dex");$("dex").scrollTop=0});
+$("dex").addEventListener("click",function(e){if(e.target===this)closeLayer("dex")});
+$("labBtn").addEventListener("click",function(){buildLab();openLayer("lab");$("lab").scrollTop=0});
+$("lab").addEventListener("click",function(e){if(e.target===this)closeLayer("lab")});
+$("helpBtn").addEventListener("click",function(){openLayer("help");$("help").scrollTop=0});
+$("help").addEventListener("click",function(e){if(e.target===this)closeLayer("help")});
 $("tFog").addEventListener("click",function(){
   fogOn=!fogOn;this.classList.toggle("on",fogOn);
   chips($("foe"),foe,ROUNDS);board();if(packArr)renderPack(false);
@@ -2909,7 +2926,7 @@ cfgApply(cfgLoad());
 loadRepoSave().then(function(){
   var resumed=resumeGame();if(!resumed)start();
   preloadPortraits(Object.keys(IMG),false);
-  if(!resumed&&!REC.games){buildSetup();$("setup").classList.add("on")}
+  if(!resumed&&!REC.games){buildSetup();openLayer("setup")}
 });
 })();
 </script>
