@@ -132,7 +132,7 @@ body{
 .dx .cj{font-size:10px;color:#9C8A66;margin-top:4px;line-height:1.5}
 .dx .cj em{font-style:normal;color:#6FA08A}
 .dexcount{font-size:11px;color:var(--paper3);margin-bottom:10px;letter-spacing:.06em}
-.dx .avs{cursor:zoom-in}
+.dx .avbtn{flex:none;padding:0;margin:0;border:0;background:none;color:inherit;border-radius:9px;cursor:zoom-in}
 /* ── 초상 확대 ── */
 .zoom{position:fixed;inset:0;background:rgba(6,5,4,.96);z-index:60;display:none;overscroll-behavior:contain;
   align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
@@ -148,12 +148,12 @@ body{
 
 /* ── 병법 요람 ── */
 .hsec{margin-bottom:10px}
-.hsec h4{cursor:pointer;user-select:none}
-.hsec h4::after{content:"▾";float:right;opacity:.5;transition:.2s}
-.hsec.fold h4::after{transform:rotate(-90deg)}
+.hsec h4 button{display:block;width:100%;margin:0;padding:10px 0 6px;background:none;border:0;border-radius:0;font:inherit;letter-spacing:inherit;color:inherit;text-align:left;cursor:pointer;user-select:none}
+.hsec h4 button::after{content:"▾";content:"▾" / "";float:right;opacity:.5;transition:transform .2s}
+.hsec.fold h4 button::after{transform:rotate(-90deg)}
 .hsec.fold>*:not(h4){display:none}
 .hsec h4{font-family:var(--display);font-size:12px;letter-spacing:.24em;color:var(--gold);margin:0 0 9px;font-weight:400;
-  padding-bottom:6px;border-bottom:1px solid var(--line)}
+  padding-bottom:0;border-bottom:1px solid var(--line)}
 .hsec p{margin:0 0 8px;font-size:13px;line-height:1.75;color:var(--paper2)}
 .hsec p:last-child{margin-bottom:0}
 .hsec b{color:var(--paper);font-weight:600}
@@ -187,11 +187,11 @@ body{
 .opt{flex:1 1 30%}
 .opt{flex:1;padding:7px;font-family:var(--body);font-size:11.5px;letter-spacing:.06em;border-radius:3px;cursor:pointer;
   background:transparent;border:1px solid rgba(184,164,126,.24);color:var(--paper3);transition:.18s}
-.opt::before{content:"○ "}
+.opt::before{content:"○ ";content:"○ " / ""}
 .opt.on{border-color:rgba(201,162,39,.5);color:var(--gold);background:rgba(201,162,39,.07)}
-.opt.on::before{content:"● "}
+.opt.on::before{content:"● ";content:"● " / ""}
 .opt.cyc{border-color:rgba(201,162,39,.42);color:var(--gold)}
-.opt.cyc::before{content:"◈ "}
+.opt.cyc::before{content:"◈ ";content:"◈ " / ""}
 
 /* ── 지시문 ── */
 .decree{margin:20px 0 14px;text-align:center}
@@ -482,14 +482,14 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
   <button class="mystrip" id="mystrip" type="button" aria-label="아군 명단 보기"></button>
 
   <div class="opts">
-    <button class="opt on" id="tHint">결의 힌트</button>
-    <button class="opt" id="tFog">적진 가리기</button>
+    <button type="button" class="opt on" id="tHint" aria-pressed="true">결의 힌트</button>
+    <button type="button" class="opt" id="tFog" aria-pressed="false">적진 가리기</button>
     <button class="opt cyc" id="newBtn">새 대국</button>
   </div>
 
   <div class="decree">
     <div class="rd" id="rd">1차 지명</div>
-    <div class="msg" id="msg">여섯 죽간 중 하나를 취하시오</div>
+    <div class="msg" id="msg" aria-live="polite" aria-atomic="true">여섯 죽간 중 하나를 취하시오</div>
     <div class="lorel" id="sub"></div>
   </div>
 
@@ -507,7 +507,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 <div id="draftSummary" hidden></div><button id="tArt" hidden></button>
 <div class="veil" id="detail" role="dialog" aria-modal="true" aria-label="장수 상세" tabindex="-1"><div class="res" id="detailBody"></div></div>
 <div class="veil" id="lineup" role="dialog" aria-modal="true" aria-label="최종 11명 편성" tabindex="-1"><div class="res" id="lineupBody"></div></div>
-<div id="toast"></div>
+<div id="toast" aria-live="polite"></div>
 <button class="totop" id="tobot" aria-label="맨 아래로">▼</button>
 <button class="totop" id="totop" aria-label="맨 위로">▲</button>
 <div class="veil" id="setup" role="dialog" aria-modal="true" aria-labelledby="setupTitle" tabindex="-1"><div class="res" id="setupBody"></div></div>
@@ -1755,7 +1755,7 @@ function buildDex(){
   for(i=0;i<sorted.length;i++){
     var c=sorted[i],cj=combosOf(c[0]);
     h+='<div class="dx" data-f="'+c[1]+'" style="--dc:'+FAC[c[1]].c+'">'+
-       '<div class="h1">'+avHTML(c,"avs")+'<span class="tr t'+tierOf(c)+'">'+TIER_NAME[tierOf(c)]+'</span><span class="nm3">'+c[0]+'</span><svg class="demb"><use href="#em-'+c[2]+'"/></svg><span class="tg">'+c[1]+' · '+c[2]+'</span>'+
+       '<div class="h1"><button type="button" class="avbtn" aria-label="'+c[0]+' 초상 크게 보기">'+avHTML(c,"avs")+'</button>'+'<span class="tr t'+tierOf(c)+'">'+TIER_NAME[tierOf(c)]+'</span><span class="nm3">'+c[0]+'</span><svg class="demb"><use href="#em-'+c[2]+'"/></svg><span class="tg">'+c[1]+' · '+c[2]+'</span>'+
        '<span class="pv">'+power(c)+'</span></div>'+
        '<div class="sv"><span>통 <b>'+c[3]+'</b></span><span>무 <b>'+c[4]+'</b></span><span>지 <b>'+c[5]+'</b></span><span>정 <b>'+c[6]+'</b></span></div>'+
        '<div class="lr">'+(LORE[c[0]]||"")+'</div>'+
@@ -1786,7 +1786,7 @@ function buildDex(){
   });
   apply("전체");
   $("dexList").addEventListener("click",function(ev){
-    var av=ev.target.closest?ev.target.closest(".av"):null;
+    var av=ev.target.closest?ev.target.closest(".avbtn"):null;
     if(!av)return;
     var box=av.closest(".dx");if(!box)return;
     var nm=box.querySelector(".nm3").textContent;
@@ -1809,8 +1809,8 @@ $("zoom").addEventListener("click",function(){closeLayer("zoom")});
 function buildSetup(){
   if(!setupBefore)setupBefore=cfgSnap();
   function row(label,small,id,val){
-    return '<div class="srow"><div class="sl">'+label+'<small>'+small+'</small></div>'+
-           '<button class="opt cyc" id="'+id+'">'+val+'</button></div>';
+    return '<div class="srow"><div class="sl">'+label+'<small id="'+id+'D">'+small+'</small></div>'+
+           '<button type="button" class="opt cyc" id="'+id+'" data-name="'+label+'" aria-label="'+label+': '+val+'" aria-describedby="'+id+'D">'+val+'</button></div>';
   }
   var h='<div class="verdict" style="margin-bottom:14px"><div class="big" id="setupTitle" style="font-size:30px;color:var(--gold)">새 대국</div><svg class="orn"><use href="#orn-knot"/></svg>'+
         '<div class="sub">판을 새로 짜는 자리요 · 규칙은 우상단 ?</div></div>';
@@ -1859,6 +1859,10 @@ function buildSetup(){
   });
   /* 새 판을 시작할 때만 적용하며, 취소하면 진행 중인 설정으로 돌아간다. */
   $("setupGo").onclick=setupGo;
+  /* 순환 단추의 이름은 "항목: 값" 이다. 값이 바뀌면 이름도 따라 바꾼다(위의 처리 뒤에 돈다) */
+  [].forEach.call($("setupBody").querySelectorAll(".srow .opt"),function(b){
+    b.addEventListener("click",function(){b.setAttribute("aria-label",b.dataset.name+": "+b.textContent)});
+  });
   $("setupX").addEventListener("click",closeSetup);
 }
 
@@ -2144,7 +2148,7 @@ function buildHelp(){
   h+='<div class="hsec"><h4>채점 · 셋. 혈연 · 결의 · 불화</h4>'+
      '<p>인연이 닿는 인물들이 모이면 결의가 이루어지오. 모두 <b>'+COMBO.length+'가지</b>. 반대로 서로 등을 돌린 사이는 깎이오.</p>'+
      '<p>그중 <span style="color:#6FA08A">혈연</span> 표가 붙은 <b>'+kn+'가지</b>는 <b>혈연</b>이오. 한 핏줄은 진영이 갈려도 서로를 알아보니, 조씨와 하후씨, 관씨 부자, 제갈 가문, 손씨 일가, 서량 마씨 따위가 그러하오. 제갈량과 제갈근처럼 <b>섬기는 나라가 달라도</b> 혈연은 이어지오.</p>'+
-     '<button class="fold" id="foldCombo">결의 목록 펼치기</button><div class="cb" id="cbList">';
+     '<button type="button" class="fold" id="foldCombo" aria-expanded="false" aria-controls="cbList">결의 목록 펼치기</button><div class="cb" id="cbList">';
   for(i=0;i<COMBO.length;i++){
     var cb=COMBO[i],ts=[],neg=false;
     for(k in cb.t){ts.push(k+"인 "+(cb.t[k]>0?"+":"")+cb.t[k]);if(cb.t[k]<0)neg=true}
@@ -2192,11 +2196,14 @@ function buildHelp(){
   $("helpBody").innerHTML=h;
   [].forEach.call($("helpBody").querySelectorAll(".hsec"),function(sec,idx){
     if(idx>0)sec.classList.add("fold");
-    sec.querySelector("h4").addEventListener("click",function(){sec.classList.toggle("fold")});
+    var h4=sec.querySelector("h4"),b=document.createElement("button");
+    b.type="button";b.textContent=h4.textContent;h4.textContent="";h4.appendChild(b);
+    b.setAttribute("aria-expanded",String(idx===0));
+    b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(!sec.classList.toggle("fold")))});
   });
   $("foldCombo").addEventListener("click",function(){
     var c=$("cbList"),o=c.classList.toggle("open");
-    this.textContent=o?"결의 목록 접기":"결의 목록 펼치기";
+    this.textContent=o?"결의 목록 접기":"결의 목록 펼치기";this.setAttribute("aria-expanded",String(o));
   });
   $("helpClose").addEventListener("click",function(){closeLayer("help")});
 }
@@ -2856,7 +2863,7 @@ function resumeGame(){
   buildTiers(eraPool().filter(function(c){return bans.me.concat(bans.foe,bans.foe2).indexOf(c[0])<0}));syncLayout();buildHelp();
   $("ros2").style.display=foe2?"":"none";$("bF2").style.display=foe2?"":"none";$("board").classList.toggle("p3",!!foe2);
   $("foeTitle").childNodes[0].textContent=foe2?"적군1 ":"적군 ";$("sFoeLb").textContent=foe2?"적군 1":"적군";
-  $("tHint").classList.toggle("on",hintOn);$("tFog").classList.toggle("on",fogOn);
+  $("tHint").classList.toggle("on",hintOn);$("tFog").classList.toggle("on",fogOn);$("tHint").setAttribute("aria-pressed",String(hintOn));$("tFog").setAttribute("aria-pressed",String(fogOn));
   chips($("mine"),mine,ROUNDS);chips($("foe"),foe,ROUNDS);if(foe2)chips($("foe2"),foe2,ROUNDS);
   $("myct").textContent=mine.length+" / "+ROUNDS;$("opct").textContent=foe.length+" / "+ROUNDS;if(foe2)$("opct2").textContent=foe2.length+" / "+ROUNDS;
   board();tally();$("sub").textContent="진행 중이던 대국을 이어갑니다";$("rd").textContent=NUM[round]+"차 지명 · 이어하기";
@@ -2943,12 +2950,12 @@ $("lab").addEventListener("click",function(e){if(e.target===this)closeLayer("lab
 $("helpBtn").addEventListener("click",function(){openLayer("help");$("help").scrollTop=0});
 $("help").addEventListener("click",function(e){if(e.target===this)closeLayer("help")});
 $("tFog").addEventListener("click",function(){
-  fogOn=!fogOn;this.classList.toggle("on",fogOn);
+  fogOn=!fogOn;this.classList.toggle("on",fogOn);this.setAttribute("aria-pressed",String(fogOn));
   chips($("foe"),foe,ROUNDS);board();if(packArr)renderPack(false);
 });
 $("reroll").addEventListener("click",reroll);
 $("tHint").addEventListener("click",function(){
-  hintOn=!hintOn;this.classList.toggle("on",hintOn);
+  hintOn=!hintOn;this.classList.toggle("on",hintOn);this.setAttribute("aria-pressed",String(hintOn));
   renderPledges();if(packArr)renderPack(false);
 });
 /* 저장소 백업을 먼저 읽어 되살린 뒤에 판을 연다. 못 읽어도 그냥 진행한다 */
