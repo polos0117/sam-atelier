@@ -204,7 +204,7 @@ body{
 .card{
   position:relative;background:linear-gradient(168deg,var(--paper) 0%,var(--paper2) 100%);
   color:#221B15;border:none;border-radius:3px;padding:11px 11px 9px;text-align:left;
-  cursor:pointer;font-family:var(--body);
+  cursor:pointer;font-family:var(--body);touch-action:manipulation;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;
   box-shadow:0 2px 0 var(--paper3),0 8px 18px rgba(0,0,0,.45);
   transition:transform .18s cubic-bezier(.2,.8,.3,1),box-shadow .18s,opacity .35s;
   overflow:hidden;
@@ -1858,10 +1858,21 @@ function buildSetup(){
     this.textContent=PACK2?PACK2.n:"본편 · 영웅집결";
   });
   /* 새 판을 시작할 때만 적용하며, 취소하면 진행 중인 설정으로 돌아간다. */
-  $("setupGo").addEventListener("click",function(){setupBefore=null;cfgSave();closeLayer("setup");start()});
+  $("setupGo").onclick=setupGo;
   $("setupX").addEventListener("click",closeSetup);
 }
 
+/* 지명이 하나라도 오간 판이 진행 중이면 첫 누름은 경고만 하고, 4초 안에 한 번 더 눌러야 새로 시작한다 */
+function gameInProgress(){return !!matchId&&REC.lastMatch!==matchId&&!!((mine&&mine.length)||(bans&&bans.me.length)||round>0)}
+function setupGo(){
+  var b=$("setupGo");
+  if(gameInProgress()&&!b.dataset.arm){
+    b.dataset.arm=1;b.classList.remove("sp");b.textContent="진행 중인 대국이 사라지오 — 한 번 더 누르면 새로 겨루오";
+    setTimeout(function(){if(b.dataset.arm){delete b.dataset.arm;b.textContent="이로써 겨루다";b.classList.add("sp")}},4000);
+    return;
+  }
+  delete b.dataset.arm;setupBefore=null;cfgSave();closeLayer("setup");start();
+}
 /* ───────── 전적 · 결의 도장 ───────── */
 function closeSetup(){if(setupBefore){cfgApply(setupBefore);setupBefore=null}closeLayer("setup");syncLayout()}
 function buildRec(){
@@ -2098,6 +2109,7 @@ function buildHelp(){
 
   h+='<div class="hsec"><h4>진행</h4>'+
      '<p>모두 <b>'+ROUNDS+'진</b>. 매 진마다 죽간 <b>'+PACK+'장</b>이 펼쳐지고, 아군과 적군이 <b>같은 죽간을 보며 번갈아</b> 한 명씩 취하오. 아무도 취하지 않은 죽간은 다시 더미로 돌아가오.</p>'+
+     '<p>죽간을 <b>짧게 누르면 바로 취하오</b>. <b>길게 누르면</b>(PC 는 오른쪽 클릭) 취하지 않고 능력과 인연을 자세히 펼치니, 살펴본 뒤 <b>지명 확정</b>으로 고르면 되오. 진행 중에 새 대국을 시작하려면 단추를 한 번 더 눌러야 하오.</p>'+
      '<p><b>선공은 진마다 교대</b>하오. 첫 진의 선공은 새 대국의 <b>첫 선공</b> 설정을 따르고, 이후 진마다 차례가 도오. 진이 홀수이니 먼저 시작한 쪽이 한 번 더 선공하게 되오 — 적군 선공은 곧 난이도를 올리는 길이오. 적군이 채간 인물은 푸른 <span class="g">奪(빼앗을 탈)</span> 도장이 찍힌 채 남으니, 무엇을 빼앗겼는지 보고 남은 죽간에서 고르면 되오.</p>'+
      '<p><b>다시 뽑기</b>는 각자 한 판에 '+REROLLS+'회 — <b>적장도 쓰오</b>. 내 차례라면 언제든 쓸 수 있고, 이미 취한 장수는 각 진영에 남고, 펼쳐진 후보는 여섯 장 모두 새로 뽑소. 미선택 죽간은 소진 설정에 따라 물러나거나 후보 풀로 돌아가오. 적장은 남은 죽간이 형편없을 때 물리는데, 고수일수록 눈이 높아 자주 물리오. 다만 마지막 진에서는 아무도 물리지 않소. 물리면 <b>죽간 여섯 장이 모두 새로 펼쳐지오</b> — 앞선 이가 채간 자리까지 새로 채우니, 늦게 고르는 이에게도 온전한 여섯이 돌아가오. 누가 언제 물렀는지는 전황 기록에 남소. 횟수는 새 대국에서 <b>없음부터 세 번까지</b> 정할 수 있고, 아군과 적장에게 <b>똑같이</b> 주어지오.</p>'+
      '<p><b>죽간 소진</b>을 켜면 한 번 펼쳐진 죽간은 아무도 취하지 않아도 <b>판에서 물러나오</b> — 매 진이 새 얼굴이 되오. 다만 놓친 인물은 돌아오지 않으니, ◇ 예고를 믿고 다음을 기약하는 수는 통하지 않게 되오. 죽간이 모자랄 지경이 되면 물러난 패를 다시 섞소.</p></div>';
@@ -2349,13 +2361,27 @@ function renderPack(fresh){
       var ok=legal.indexOf(i)>=0;
       if(!ok)el.classList.add("illegal");
       el.disabled=!myTurn||!ok;
-      if(ok)el.addEventListener("click",function(){myPick(i)});
+      if(ok){el.addEventListener("click",function(){if(el.dataset.held){delete el.dataset.held;return}myPick(i)});holdToInspect(el,e.c,i)}
     }
     box.appendChild(el);
   });
   updateReroll();
 }
 
+/* 짧게 누르면 예전처럼 바로 지명한다. 길게 누르거나(PC 는 오른쪽 클릭·메뉴 키) 하면 지명하지 않고
+   상세를 열어 살펴본 뒤 "지명 확정" 으로 고른다 — 잘못 누른 지명을 막는 길이고, 보통 진행은 느려지지 않는다 */
+var HOLD_MS=450;
+function holdToInspect(el,c,i){
+  var timer=null,x=0,y=0;
+  function cancel(){if(timer){clearTimeout(timer);timer=null}}
+  el.addEventListener("pointerdown",function(e){
+    delete el.dataset.held;cancel();if(e.button>0)return;x=e.clientX;y=e.clientY;
+    timer=setTimeout(function(){timer=null;el.dataset.held=1;showDetail(c,i)},HOLD_MS);
+  });
+  el.addEventListener("pointermove",function(e){if(timer&&Math.abs(e.clientX-x)+Math.abs(e.clientY-y)>10)cancel()});
+  ["pointerup","pointercancel","pointerleave"].forEach(function(t){el.addEventListener(t,cancel)});
+  el.addEventListener("contextmenu",function(e){e.preventDefault();cancel();if(!$("detail").classList.contains("on"))showDetail(c,i)});
+}
 function closeDetail(){closeLayer("detail")}
 function showDetail(c,pickIndex){
  var canPick=typeof pickIndex==="number"&&myTurn&&!busy&&packArr[pickIndex]&&packArr[pickIndex].c===c&&!packArr[pickIndex].by&&legalSet(mine,openIdx()).indexOf(pickIndex)>=0;
@@ -2404,6 +2430,7 @@ function advanceTurn(first,keepPack){
     if(!keepPack||added)renderPack(false);
     $("msg").textContent=(first?openIdx().length+"장 중 하나를 취하시오":"이제 그대의 차례요 — 남은 "+openIdx().length+"장");
     if(added)$("sub").textContent="남은 역할에 맞는 후보 "+added+"장을 보충했소";
+    else if(round===0&&first&&!mine.length)$("sub").textContent="죽간을 길게 누르면 살펴본 뒤 고를 수 있소";
     else if(round>=FINAL_SIZE)$("sub").textContent="예비 지명 · 역할 제한 없이 선택하고 마지막에 11명을 편성합니다";
     else if(ruleOn&&!rawLegal(mine,openIdx()).length)$("sub").textContent="편성 예외 · 남은 역할 후보가 없어 제한을 풀었소";
     updateReroll();

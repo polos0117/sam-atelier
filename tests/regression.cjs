@@ -121,3 +121,12 @@ const snapshot=JSON.stringify([c.pool,c.discard,c.packArr,c.shown,c.recentShown,
 assert.equal(c.replaceOpen(),0);
 assert.equal(JSON.stringify([c.pool,c.discard,c.packArr,c.shown,c.recentShown,c.roundExcluded]),snapshot);
 console.log('PASS: full six-card rerolls, claimed roster preservation, exhaustion settings, atomic shortage');
+
+// A new game over one in progress needs a second press; an untouched or finished game restarts at once.
+c=runtime();c.start();c.buildSetup();let id0=c.matchId;c.document.getElementById('setupGo').onclick();assert.notEqual(c.matchId,id0,'untouched game restarts at once');
+c=runtime();c.start();for(let i=0;!c.mine.length&&i<20;i++)step(c);assert(c.mine.length);c.buildSetup();
+const go=c.document.getElementById('setupGo');id0=c.matchId;const picked=c.mine.length;
+go.onclick();assert.equal(c.matchId,id0,'first press only warns');assert.equal(c.mine.length,picked,'warning keeps picks');assert(go.dataset.arm);
+go.onclick();assert.notEqual(c.matchId,id0,'second press starts');assert.equal(c.mine.length,0);
+c=runtime();c.start();for(let i=0;!c.REC.games&&i<200;i++)step(c);c.buildSetup();id0=c.matchId;c.document.getElementById('setupGo').onclick();assert.notEqual(c.matchId,id0,'finished game restarts at once');
+console.log('PASS: new-game confirmation only while a game is in progress');
