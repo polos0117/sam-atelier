@@ -178,7 +178,7 @@ body{
 .board>div{text-align:center}
 .board b{display:block;font-family:var(--display);font-size:25px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.05;
   transition:color .3s}
-.board span{display:block;font-size:9px;letter-spacing:.24em;color:var(--paper3);margin-top:1px}
+.board span{display:block;font-size:9px;letter-spacing:.5em;text-indent:.5em;color:var(--paper3);margin-top:1px}
 .board .gap{font-family:var(--display);font-size:13px;font-variant-numeric:tabular-nums;padding:0 4px;letter-spacing:.02em}
 .board .gap.lead{color:var(--gold)}.board .gap.trail{color:#C4685C}.board .gap.even{color:var(--paper3)}
 
@@ -348,7 +348,7 @@ body{
 .tote{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:22px}
 .tote div{text-align:center}
 .tote .num{font-family:var(--display);font-size:34px;font-weight:700;font-variant-numeric:tabular-nums}
-.tote .lbl{font-size:10px;letter-spacing:.2em;color:var(--paper3);margin-top:2px}
+.tote .lbl{font-size:10px;letter-spacing:.5em;text-indent:.5em;color:var(--paper3);margin-top:2px}
 .tote .vs{font-family:var(--display);color:var(--seal);font-size:15px;letter-spacing:.1em}
 .ledger{border-top:1px solid var(--line)}
 .ledger h4{font-family:var(--display);font-size:12px;letter-spacing:.24em;color:var(--gold);margin:18px 0 8px;font-weight:400}
@@ -391,6 +391,10 @@ body{
 .btn{display:block;width:100%;margin-top:22px;padding:14px;background:transparent;border:1px solid var(--gold);color:var(--gold);
   font-family:var(--display);font-size:15px;letter-spacing:.3em;border-radius:3px;cursor:pointer;transition:.2s}
 .btn:active{background:var(--gold);color:var(--ink)}
+/* 띄어 쓴 글자 대신 자간으로 벌린다. 낭독기는 낱말로 읽고, 끝 자간만큼 들여 써서 가운데를 맞춘다 */
+.btn.sp{letter-spacing:.55em;text-indent:.55em}
+.btn2.sp{letter-spacing:.45em;text-indent:.45em}
+#res .verdict .big{letter-spacing:.55em;text-indent:.55em}
 button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media (max-width:340px){.pack{grid-template-columns:1fr}}
@@ -470,10 +474,10 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
   </div>
 
   <div class="board" id="board">
-    <div><b id="sMe">0</b><span>아 군</span></div>
+    <div><b id="sMe">0</b><span>아군</span></div>
     <div class="gap" id="sDiff">±0</div>
-    <div><b id="sFoe">0</b><span id="sFoeLb">적 군</span></div>
-    <div id="bF2" style="display:none"><b id="sF2">0</b><span>적 군 2</span></div>
+    <div><b id="sFoe">0</b><span id="sFoeLb">적군</span></div>
+    <div id="bF2" style="display:none"><b id="sF2">0</b><span>적군 2</span></div>
   </div>
   <button class="mystrip" id="mystrip" type="button" aria-label="아군 명단 보기"></button>
 
@@ -1140,7 +1144,7 @@ function renderSaveBox(){
     '<textarea id="saveOut" readonly spellcheck="false" style="width:100%;height:120px;'+
     'font-family:monospace;font-size:10px;margin-top:8px;background:var(--ink2);'+
     'color:var(--paper);border:1px solid var(--line);border-radius:4px;padding:7px"></textarea>'+
-    '<button class="btn2" id="saveCopy" style="margin-top:6px">복 사</button>';
+    '<button class="btn2 sp" id="saveCopy" style="margin-top:6px">복사</button>';
   $("saveOut").value=saveText();
   var pb=$("pinBtn"); if(pb)pb.addEventListener("click",askPersist);
   $("saveCopy").addEventListener("click",function(){
@@ -1762,7 +1766,7 @@ function buildDex(){
        (cj.length?'<div class="cj">'+cj.join(" · ")+'</div>':'')+
        '</div>';
   }
-  h+='</div><button class="btn" id="dexClose">보 를 덮 다</button>';
+  h+='</div><button class="btn sp" id="dexClose">보를 덮다</button>';
   $("dexBody").innerHTML=h;
 
   function apply(f){
@@ -1827,8 +1831,8 @@ function buildSetup(){
   h+=row("시나리오","연의의 명진영에 도전하오","sScn",SCN_NAME[SCN]);
   h+=row("확장팩","그 해의 세력으로 죽간이 갈리오","sPk",PACK2?PACK2.n:"본편 · 영웅집결");
   h+='<div style="text-align:center;font-size:10px;color:var(--paper3);margin-top:18px;font-family:var(--body);letter-spacing:.06em">갱신 2026.09.09 · 죽간 '+C.length+'인 · 결의 '+COMBO.length+'종</div>';
-  h+='<div class="setup-actions"><button class="btn" id="setupGo">이 로 써 겨 루 다</button>';
-  h+='<button class="btn2" id="setupX">돌 아 가 기</button></div>';
+  h+='<div class="setup-actions"><button class="btn sp" id="setupGo">이로써 겨루다</button>';
+  h+='<button class="btn2 sp" id="setupX">돌아가기</button></div>';
   $("setupBody").innerHTML=h;
   $("sFast").addEventListener("click",function(){FAST=!FAST;this.textContent=FAST?"빠르게":"기본"});
   $("sMode").addEventListener("click",function(){MODE=(MODE+1)%2;this.textContent=MODE_NAME[MODE]});
@@ -1938,8 +1942,8 @@ function buildRec(){
        '<div class="sc">'+(fg?"제 "+fg+"국":ft.d)+'</div></div>';
   }
   h+='</div></div>';
-  h+='<button class="btn" id="recClose">록 을 덮 다</button>';
-  h+='<button class="btn2" id="recReset" style="border-color:#A8402F;color:#C4685C;margin-top:10px">기 록 을 태 우 다</button>';
+  h+='<button class="btn sp" id="recClose">록을 덮다</button>';
+  h+='<button class="btn2 sp" id="recReset" style="border-color:#A8402F;color:#C4685C;margin-top:10px">기록을 태우다</button>';
   /* 저장소 백업 — Pages 가 정적이라 여기서 직접 못 쓴다. 사람이 옮겨 붙이는 자리다 */
   h+='<div class="ledger" id="saveBox" style="margin-top:22px"></div>';
   $("recBody").innerHTML=h;
@@ -1947,9 +1951,9 @@ function buildRec(){
   $("recClose").addEventListener("click",function(){closeLayer("rec")});
   $("recReset").addEventListener("click",function(){
     if(!this.dataset.arm){
-      this.dataset.arm=1;
+      this.dataset.arm=1;this.classList.remove("sp");
       this.textContent="모든 전적·도장·과업이 사라지오 — 한 번 더 누르면 태우오";
-      var b=this;setTimeout(function(){if(b.dataset.arm){delete b.dataset.arm;b.textContent="기 록 을 태 우 다"}},4000);
+      var b=this;setTimeout(function(){if(b.dataset.arm){delete b.dataset.arm;b.textContent="기록을 태우다";b.classList.add("sp")}},4000);
       return;
     }
     REC={v:1,games:0,win:0,lose:0,draw:0,best:0,bestLv:-1,stamps:{},feats:{},picks:{},by:{st:{},pk:{},fac:{},lv:{}},aist:{}};
@@ -2049,13 +2053,13 @@ function buildLab(){
   }
   h+='<div class="verdict" style="margin:16px 0 10px"><div class="sub" style="color:var(--gold)">모의 대국 · 셈으로 미리 보기</div></div>';
   h+='<div class="ledger"><div class="row"><span>다섯 기질에게 각기 '+LAB_N+'판씩 두게 하여 미리 헤아려 보오. 실제로 겨룬 기록과는 별개요. 본편 전체 인물의 2인 무작위 팩을 쓰는 간이 실험으로, 보충·최근 등장 억제·교체·시나리오는 반영하지 않소.</span></div></div>';
-  h+='<button class="btn" id="labGo">셈 하 여 보 다</button>';
+  h+='<button class="btn sp" id="labGo">셈하여 보다</button>';
   h+='<div id="labOut"></div>';
-  h+='<button class="btn2" id="labClose" style="margin-top:10px">닫 다</button>';
+  h+='<button class="btn2 sp" id="labClose" style="margin-top:10px">닫다</button>';
   $("labBody").innerHTML=h;
   $("labClose").addEventListener("click",function(){closeLayer("lab")});
   $("labGo").addEventListener("click",function(){
-    var btn=this;btn.disabled=true;btn.textContent="헤아리는 중…";
+    var btn=this;btn.disabled=true;btn.classList.remove("sp");btn.textContent="헤아리는 중…";
     var out=$("labOut");out.innerHTML="";
     var st=0;
     function step(){
@@ -2080,7 +2084,7 @@ function buildLab(){
       out.innerHTML+=o;
       st++;
       if(st<5){btn.textContent="헤아리는 중… ("+st+"/5)";setTimeout(step,30)}
-      else{btn.textContent="다 시 셈 하 다";btn.disabled=false}
+      else{btn.textContent="다시 셈하다";btn.classList.add("sp");btn.disabled=false}
     }
     setTimeout(step,30);
   });
@@ -2172,7 +2176,7 @@ function buildHelp(){
      '<p>죽간에도 <span class="g">◇ 오호대장군 2/3</span>처럼, 지금은 점수가 되지 않으나 <b>앞으로 이어질 인연</b>을 따로 적어두었소.</p>'+
      '<p><b>결의 힌트</b>를 켜면 죽간마다 <span class="g">▲+85 · 도원결의</span>처럼, 그것을 취했을 때 오르는 점수와 새로 이루어지는 결의가 적히오.</p></div>';
 
-  h+='<button class="btn" id="helpClose">요 람 을 덮 다</button>';
+  h+='<button class="btn sp" id="helpClose">요람을 덮다</button>';
   $("helpBody").innerHTML=h;
   [].forEach.call($("helpBody").querySelectorAll(".hsec"),function(sec,idx){
     if(idx>0)sec.classList.add("fold");
@@ -2644,22 +2648,22 @@ function finish(){
     for(kx in COMBO[i].t)if(hv>=+kx&&COMBO[i].t[kx]>0)fk=1;
     if(fk&&!REC.stamps[COMBO[i].n])REC.stamps[COMBO[i].n]=REC.games;
   }
-  var d=me.total-op.total,cls=d>0?"win":d<0?"lose":"draw",word=d>0?"승 리":d<0?"패 배":"무 승 부";
+  var d=me.total-op.total,cls=d>0?"win":d<0?"lose":"draw",word=d>0?"승리":d<0?"패배":"무승부";
   if(op2){
     var rank=1+(op1.total>me.total?1:0)+(op2.total>me.total?1:0);
     var tied=(op1.total===me.total||op2.total===me.total);
-    word=rank===1?(tied?"공 동 1 위":"천 하 통 일"):rank===2?(tied?"공 동 2 위":"2 위"):"3 위";
+    word=rank===1?(tied?"공동 1위":"천하통일"):rank===2?(tied?"공동 2위":"2위"):"3위";
     cls=d>0?"win":d===0?"draw":"lose";
   }
   var h='<div class="verdict"><div class="big '+cls+'" id="resTitle">'+word+'</div><svg class="orn"><use href="#orn-knot"/></svg><div class="sub">'+
         (d>0?"점수차 "+d+"점":d<0?"점수차 "+(-d)+"점":"동수")+'</div></div>';
   if(op2){
-    h+='<div class="tote" style="grid-template-columns:1fr 1fr 1fr"><div><div class="num">'+me.total+'</div><div class="lbl">아 군</div></div>'+
-       '<div><div class="num">'+op1.total+'</div><div class="lbl">적 군 1</div></div>'+
-       '<div><div class="num">'+op2.total+'</div><div class="lbl">적 군 2</div></div></div>';
+    h+='<div class="tote" style="grid-template-columns:1fr 1fr 1fr"><div><div class="num">'+me.total+'</div><div class="lbl">아군</div></div>'+
+       '<div><div class="num">'+op1.total+'</div><div class="lbl">적군 1</div></div>'+
+       '<div><div class="num">'+op2.total+'</div><div class="lbl">적군 2</div></div></div>';
   }else{
-    h+='<div class="tote"><div><div class="num">'+me.total+'</div><div class="lbl">아 군</div></div>'+
-       '<div class="vs">대</div><div><div class="num">'+op.total+'</div><div class="lbl">적 군</div></div></div>';
+    h+='<div class="tote"><div><div class="num">'+me.total+'</div><div class="lbl">아군</div></div>'+
+       '<div class="vs">대</div><div><div class="num">'+op.total+'</div><div class="lbl">적군</div></div></div>';
   }
   var fresh=[];
   for(i=0;i<COMBO.length;i++)if(REC.stamps[COMBO[i].n]===REC.games)fresh.push((COMBO[i].k?"혈연 ":"")+COMBO[i].n);
@@ -2779,8 +2783,8 @@ function finish(){
     h+='<div class="row tot"><span>합계</span><b>'+op2.total+'</b></div>';
   }
   h+='</div>';
-  h+='<button class="btn" id="again">다 시 겨 루 기</button>';
-  h+='<button class="btn2" id="copy">편 성 을 옮 겨 적 다</button>';
+  h+='<button class="btn sp" id="again">다시 겨루기</button>';
+  h+='<button class="btn2 sp" id="copy">편성을 옮겨 적다</button>';
   clearGame();
   $("res").innerHTML=h;
   openLayer("veil");
@@ -2790,7 +2794,7 @@ function finish(){
   $("copy").addEventListener("click",function(){
     var b=this;copyOut(me,op,function(ok){
       b.textContent=ok?"옮겨 적었소":"옮기지 못하였소";
-      setTimeout(function(){b.textContent="편 성 을 옮 겨 적 다"},1800);
+      setTimeout(function(){b.textContent="편성을 옮겨 적다"},1800);
     });
   });
 }
@@ -2824,7 +2828,7 @@ function resumeGame(){
   hist=v.hist;replay=v.replay;bans=v.bans;banQ=v.banQ;banCand=restored.ban;turnQ=v.q;hintOn=v.hint;fogOn=v.fog;busy=false;myTurn=false;
   buildTiers(eraPool().filter(function(c){return bans.me.concat(bans.foe,bans.foe2).indexOf(c[0])<0}));syncLayout();buildHelp();
   $("ros2").style.display=foe2?"":"none";$("bF2").style.display=foe2?"":"none";$("board").classList.toggle("p3",!!foe2);
-  $("foeTitle").childNodes[0].textContent=foe2?"적군1 ":"적군 ";$("sFoeLb").textContent=foe2?"적 군 1":"적 군";
+  $("foeTitle").childNodes[0].textContent=foe2?"적군1 ":"적군 ";$("sFoeLb").textContent=foe2?"적군 1":"적군";
   $("tHint").classList.toggle("on",hintOn);$("tFog").classList.toggle("on",fogOn);
   chips($("mine"),mine,ROUNDS);chips($("foe"),foe,ROUNDS);if(foe2)chips($("foe2"),foe2,ROUNDS);
   $("myct").textContent=mine.length+" / "+ROUNDS;$("opct").textContent=foe.length+" / "+ROUNDS;if(foe2)$("opct2").textContent=foe2.length+" / "+ROUNDS;
@@ -2860,7 +2864,7 @@ function start(){
   $("board").classList.toggle("p3",!!foe2);
   $("foeTitle").childNodes[0].textContent=(foe2?"적군1 ":"적군 ")+(PACK2&&aiFac.foe?"· "+aiFac.foe+" ":"");
   if(foe2)$("ros2").querySelector("h3").childNodes[0].textContent="적군2 "+(PACK2&&aiFac.foe2?"· "+aiFac.foe2+" ":"");
-  $("sFoeLb").textContent=foe2?"적 군 1":"적 군";
+  $("sFoeLb").textContent=foe2?"적군 1":"적군";
   bans={me:[],foe:[],foe2:[]};aiRR={foe:REROLLS,foe2:REROLLS};
   if(SCN>0){
     var i,j;
