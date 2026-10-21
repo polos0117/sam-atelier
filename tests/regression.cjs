@@ -56,6 +56,12 @@ c=runtime();c.PLAYERS=3;c.start();c.stopTimers();c.mine=c.C.slice(0,11);c.foe=c.
 c=runtime();c.start();c.pool=[];c.discard=[];let rr=c.rerolls,pack=c.packArr.map(e=>e.c[0]);c.reroll();assert.equal(c.rerolls,rr);assert.deepEqual(c.packArr.map(e=>e.c[0]),pack);
 // A role supplement replaces unusable candidates, keeping size and identity conservation.
 c=runtime();c.start();c.mine=c.C.filter(x=>x[2]==='무장').slice(0,5);c.pool=c.C.filter(x=>x[2]==='문관').slice(0,10);c.packArr=c.C.filter(x=>x[2]==='무장').slice(5,13).map(x=>({c:x,by:null}));assert.equal(c.ensureChoices(c.mine),2);assert.equal(c.rawLegal(c.mine,c.openIdx()).length,2);assert.equal(c.packArr.length,8);invariant(c);
+// Daily match: the date seeds the pack, so two fresh starts deal the same candidates; ordinary starts stay random; the flag survives a save/resume and the game completes.
+c=runtime({},7);c.start(true);assert(c.DAILY);const dailyPack=c.packArr.map(e=>e.c[0]);assert.equal(dailyPack.length,6);
+{const d2=runtime({},9);d2.start(true);assert.deepEqual(d2.packArr.map(e=>e.c[0]),dailyPack,'daily pack identical');assert.equal(d2.ST_A,c.ST_A);}
+{const o1=runtime({},7);o1.start();assert(!o1.DAILY);const o2=runtime({},9);o2.start();assert.notDeepEqual(o2.packArr.map(e=>e.c[0]),o1.packArr.map(e=>e.c[0]),'ordinary starts differ by Math.random');}
+{const storage={};c=runtime(storage,5);c.start(true);let g=0;while(JSON.parse(storage[c.GAME_KEY]||'{}').phase!=='draft'&&g++<40)step(c);assert.equal(JSON.parse(storage[c.GAME_KEY]).daily,true,'daily saved');
+ const r=runtime(storage);assert(r.resumeGame());assert.equal(r.DAILY,true,'daily restored');g=0;while(!r.REC.games&&g++<180)step(r);assert.equal(r.REC.games,1);invariant(r);}
 // Hidden enemies do not leak via availability labels.
 c=runtime();c.start();c.foe=[c.byName('관우')];c.fogOn=true;assert.equal(c.availability('관우'),'불확실');assert.equal(c.availability('장비'),'불확실');c.fogOn=false;assert.equal(c.availability('관우'),'적 보유');
 console.log(JSON.stringify({games:played,reloadPhases:4,officers:c.C.length,combos:c.COMBO.length,result:'PASS'}));

@@ -429,6 +429,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 #toast{top:50%;transform:translate(-50%,-50%)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.card.taken .seal{opacity:.88;transform:rotate(-8deg)}}
 </style>
+<script src="lib/today.js"></script>
 </head>
 <body>
 <svg style="display:none" aria-hidden="true">
@@ -1322,7 +1323,7 @@ var AI_LV=1, AI_NAME=["하수","중수","고수"], DENY=[0,.2,.45], NOISE=[70,20
 var AI_ST=0, AI_ST_NAME=["조조형","유비형","손권형","여포형","사마의형","무작위"],
     AI_ST_DESC=["전력을 우선하오","인연을 우선하오","결속을 우선하오","무력만 보오","때를 기다리오","판마다 기질이 달라지오"];
 var ST_A=0, ST_B=2;   // 그 판에 실제로 쓰이는 기질 (무작위면 대국마다 새로 뽑는다)
-function rollST(v){return v===5?Math.floor(Math.random()*5):v}
+function rollST(v){return v===5?Math.floor(rnd()*5):v}
 function styleScore(c,team){
   if(AI_ST===0)return power(c)*.35;
   if(AI_ST===1){
@@ -1603,7 +1604,7 @@ function refill(n){
 }
 function weightedCard(indices){
  var weights=indices.map(function(i){var r=recentShown[pool[i][0]];return r===undefined?1:(round-r<=1?.18:round-r<=3?.45:1)});
- var sum=weights.reduce(function(a,b){return a+b},0),v=Math.random()*sum;
+ var sum=weights.reduce(function(a,b){return a+b},0),v=rnd()*sum;
  for(var j=0;j<indices.length;j++){v-=weights[j];if(v<0)return indices[j]}return indices[indices.length-1];
 }
 function drawCards(n,t,exclude){
@@ -1838,7 +1839,9 @@ function buildSetup(){
   h+=row("시나리오","연의의 명진영에 도전하오","sScn",SCN_NAME[SCN]);
   h+=row("확장팩","그 해의 세력으로 죽간이 갈리오","sPk",PACK2?PACK2.n:"본편 · 영웅집결");
   h+='<div style="text-align:center;font-size:11px;color:var(--paper3);margin-top:18px;font-family:var(--body);letter-spacing:.06em">갱신 2026.09.09 · 죽간 '+C.length+'인 · 결의 '+COMBO.length+'종</div>';
+  var td=TODAY?TODAY.read(ROOM):null;
   h+='<div class="setup-actions"><button class="btn sp" id="setupGo">이로써 겨루다</button>';
+  h+='<button class="btn2 sp" id="setupDaily" title="날짜가 씨앗 — 오늘은 모두 같은 죽간이 펼쳐지오">오늘의 대국'+(td&&td.n?' · 오늘 '+td.n+'판 '+td.w+'승'+(td.daily?' · 끝냈소':''):'')+'</button>';
   h+='<button class="btn2 sp" id="setupX">돌아가기</button></div>';
   $("setupBody").innerHTML=h;
   $("sFast").addEventListener("click",function(){FAST=!FAST;this.textContent=FAST?"빠르게":"기본"});
@@ -1865,7 +1868,8 @@ function buildSetup(){
     this.textContent=PACK2?PACK2.n:"본편 · 영웅집결";
   });
   /* 새 판을 시작할 때만 적용하며, 취소하면 진행 중인 설정으로 돌아간다. */
-  $("setupGo").onclick=setupGo;
+  $("setupGo").onclick=function(){setupGo(false)};
+  $("setupDaily").onclick=setupDaily;
   /* 순환 단추의 이름은 "항목: 값" 이다. 값이 바뀌면 이름도 따라 바꾼다(위의 처리 뒤에 돈다) */
   [].forEach.call($("setupBody").querySelectorAll(".srow .opt"),function(b){
     b.addEventListener("click",function(){b.setAttribute("aria-label",b.dataset.name+": "+b.textContent)});
@@ -1875,15 +1879,17 @@ function buildSetup(){
 
 /* 지명이 하나라도 오간 판이 진행 중이면 첫 누름은 경고만 하고, 4초 안에 한 번 더 눌러야 새로 시작한다 */
 function gameInProgress(){return !!matchId&&REC.lastMatch!==matchId&&!!((mine&&mine.length)||(bans&&bans.me.length)||round>0)}
-function setupGo(){
-  var b=$("setupGo");
+function setupGo(daily){
+  daily=daily===true;
+  var b=$(daily?"setupDaily":"setupGo"),word=daily?"오늘의 대국":"이로써 겨루다";
   if(gameInProgress()&&!b.dataset.arm){
     b.dataset.arm=1;b.classList.remove("sp");b.textContent="진행 중인 대국이 사라지오 — 한 번 더 누르면 새로 겨루오";
-    setTimeout(function(){if(b.dataset.arm){delete b.dataset.arm;b.textContent="이로써 겨루다";b.classList.add("sp")}},4000);
+    setTimeout(function(){if(b.dataset.arm){delete b.dataset.arm;b.textContent=word;b.classList.add("sp")}},4000);
     return;
   }
-  delete b.dataset.arm;setupBefore=null;cfgSave();closeLayer("setup");start();
+  delete b.dataset.arm;setupBefore=null;cfgSave();closeLayer("setup");start(daily);
 }
+function setupDaily(){setupGo(true)}
 /* ───────── 전적 · 결의 도장 ───────── */
 function closeSetup(){if(setupBefore){cfgApply(setupBefore);setupBefore=null}closeLayer("setup");syncLayout()}
 function buildRec(){
@@ -1994,7 +2000,7 @@ function labPick(team,foeTeam,cands,st){
     var gain=evaluate(team.concat([cc]),true).total-tb;
     var deny=evaluate(foeTeam.concat([cc]),true).total-fb2;
     var realST=AI_ST;AI_ST=st;var stSc=styleScore(cc,team);AI_ST=realST;
-    var sc=gain+.45*deny+stSc+Math.random()*20;
+    var sc=gain+.45*deny+stSc+rnd()*20;
     if(sc>bs){bs=sc;best=cc}
   }
   return best;
@@ -2012,7 +2018,7 @@ function labRun(st){
     var pool=C.slice(),A=[],B=[];
     for(r=0;r<ROUNDS;r++){
       var pk=[];
-      for(i=0;i<PACK&&pool.length;i++)pk.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);
+      for(i=0;i<PACK&&pool.length;i++)pk.push(pool.splice(Math.floor(rnd()*pool.length),1)[0]);
       var rem=pk.slice();
       var order=(r%2)?[[B,A,null],[A,B,st]]:[[A,B,st],[B,A,null]];
       for(j=0;j<order.length;j++){
@@ -2300,7 +2306,7 @@ function aiBan(){
   for(i=0;i<banCand.length;i++)if(!banCand[i].by)rem.push(i);
   var best=rem[0],bs=-1e9;
   for(i=0;i<rem.length;i++){
-    var sc=power(banCand[rem[i]].c)+Math.random()*NOISE[AI_LV];
+    var sc=power(banCand[rem[i]].c)+rnd()*NOISE[AI_LV];
     if(sc>bs){bs=sc;best=rem[i]}
   }
   banCand[best].by=(seat==="foe")?"foe":"foe2";
@@ -2528,7 +2534,7 @@ function aiPick(seat){
     var stSc;
     var realST=AI_ST;AI_ST=st;stSc=styleScore(cc,team);AI_ST=realST;
     var fb=(PACK2&&aiFac[seat]&&facsOf(cc).indexOf(aiFac[seat])>=0)?PACK2.bias:0;
-    var sc=gain+DENY[AI_LV]*(fogOn?.5:1)*deny+threat+stSc+fb+Math.random()*NOISE[AI_LV];
+    var sc=gain+DENY[AI_LV]*(fogOn?.5:1)*deny+threat+stSc+fb+rnd()*NOISE[AI_LV];
     if(sc>bs){bs=sc;best=rem[i];bestWhy={g:Math.round(gain),d:Math.round(DENY[AI_LV]*(fogOn?.5:1)*deny+threat),s:Math.round(stSc)}}
   }
   packArr[best].by=(seat==="foe")?"foe":"foe2";
@@ -2683,6 +2689,7 @@ function finish(){
   if(REC.lastMatch===matchId)return;
   REC.lastMatch=matchId;REC.games++;
   if(me.total>op.total)REC.win++;else if(me.total<op.total)REC.lose++;else REC.draw++;
+  if(TODAY)TODAY.bump(ROOM,{won:me.total>op.total,daily:DAILY});   /* 오늘 기록 — 공방 지도가 읽는 칸 */
   if(me.total>REC.best){REC.best=me.total;REC.bestLv=AI_LV}
   for(i=0;i<COMBO.length;i++){
     var hv=comboHave(COMBO[i],mine),fk=0,kx;
@@ -2697,7 +2704,7 @@ function finish(){
     cls=d>0?"win":d===0?"draw":"lose";
   }
   var h='<div class="verdict"><div class="big '+cls+'" id="resTitle">'+word+'</div><svg class="orn"><use href="#orn-knot"/></svg><div class="sub">'+
-        (d>0?"점수차 "+d+"점":d<0?"점수차 "+(-d)+"점":"동수")+'</div></div>';
+        (DAILY?"오늘의 대국 · ":"")+(d>0?"점수차 "+d+"점":d<0?"점수차 "+(-d)+"점":"동수")+'</div></div>';
   if(op2){
     h+='<div class="tote" style="grid-template-columns:1fr 1fr 1fr"><div><div class="num">'+me.total+'</div><div class="lbl">아군</div></div>'+
        '<div><div class="num">'+op1.total+'</div><div class="lbl">적군 1</div></div>'+
@@ -2841,11 +2848,18 @@ function finish(){
 }
 
 var GAME_KEY="samgukji_draft_game_v2",matchId="";
+/* 오늘의 대국 — 날짜가 씨앗이라 하루 동안 후보 죽간·적장의 수가 같다. 승부에 드는 난수만 rnd() 를 거치고,
+   대사·대국 번호는 Math.random 에 남긴다. 끝나면 오늘 기록 한 칸(lib/today.js)을 적어 공방 지도가 군막에 불을 켠다.
+   회귀 검증(vm)에는 AtelierToday 가 없으니 늘 있는지 본다. 이어하기한 대국은 남은 수를 Math.random 으로 둔다 */
+var TODAY=(typeof window!=="undefined"&&window.AtelierToday)||null,ROOM="samguk",DAILY=false,RNG=Math.random;
+function rnd(){return RNG()}
+function mulberry(seed){var a=seed>>>0;return function(){a=(a+0x6D2B79F5)>>>0;var t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
+function todaySeed(){var d=new Date(),p=function(n){return (n<10?"0":"")+n},s=""+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+ROOM,h=2166136261>>>0,i;for(i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return h||1}
 function clearGame(){try{localStorage.removeItem(GAME_KEY)}catch(e){}}
 function saveGame(phase,q){
  if(!matchId||REC.lastMatch===matchId)return;
  function names(a){return (a||[]).map(function(c){return c[0]})}
- var v={v:2,rounds:ROUNDS,packSize:PACK,lineupChoice:lineupChoice,id:matchId,phase:phase,cfg:cfgSnap(),hint:hintOn,fog:fogOn,round:round,
+ var v={v:2,rounds:ROUNDS,packSize:PACK,lineupChoice:lineupChoice,id:matchId,phase:phase,daily:DAILY,cfg:cfgSnap(),hint:hintOn,fog:fogOn,round:round,
  pool:names(pool),discard:names(discard),mine:names(mine),foe:names(foe),foe2:foe2?names(foe2):null,
  pack:(packArr||[]).map(function(e){return {n:e.c[0],by:e.by}}),q:q.slice(),
  shown:shown,recent:recentShown,excluded:roundExcluded,rerolls:rerolls,aiRR:aiRR,aiFac:aiFac,stA:ST_A,stB:ST_B,first:firstOff,
@@ -2866,7 +2880,7 @@ function resumeGame(){
   cfgApply(v.cfg);ROUNDS=savedRounds;PACK=savedRounds===13?6:(v.packSize||restored.pack.length||6);matchId=v.id;round=v.round;lineupChoice=Array.isArray(v.lineupChoice)?v.lineupChoice:[];lineupCache={};lineupCacheCount=0;
   pool=restored.pool;discard=restored.discard;mine=restored.mine;foe=restored.foe;foe2=restored.foe2;packArr=restored.pack;
   shown=v.shown||{};recentShown=v.recent||{};roundExcluded=v.excluded||[];rerolls=v.rerolls;aiRR=v.aiRR;aiFac=v.aiFac;ST_A=v.stA;ST_B=v.stB;firstOff=v.first;
-  hist=v.hist;replay=v.replay;bans=v.bans;banQ=v.banQ;banCand=restored.ban;turnQ=v.q;hintOn=v.hint;fogOn=v.fog;busy=false;myTurn=false;
+  hist=v.hist;replay=v.replay;bans=v.bans;banQ=v.banQ;banCand=restored.ban;turnQ=v.q;hintOn=v.hint;fogOn=v.fog;DAILY=!!v.daily;busy=false;myTurn=false;
   buildTiers(eraPool().filter(function(c){return bans.me.concat(bans.foe,bans.foe2).indexOf(c[0])<0}));syncLayout();buildHelp();
   $("ros2").style.display=foe2?"":"none";$("bF2").style.display=foe2?"":"none";$("board").classList.toggle("p3",!!foe2);
   $("foeTitle").childNodes[0].textContent=foe2?"적군1 ":"적군 ";$("sFoeLb").textContent=foe2?"적군 1":"적군";
@@ -2881,13 +2895,14 @@ function resumeGame(){
   return true;
  }catch(e){cfgApply(before);ROUNDS=beforeRounds;clearGame();return false}
 }
-function start(){
+function start(daily){
+  DAILY=!!daily;RNG=DAILY?mulberry(todaySeed()):Math.random;
   ROUNDS=13;lineupOpen=false;lineupChoice=[];lineupCache={};lineupCacheCount=0;closeLayer("lineup");
   stopTimers();clearGame();matchId=Date.now().toString(36)+Math.random().toString(36).slice(2);
   if(PACK2)SCN=0;
   PACK=packSize();recentShown={};roundExcluded=[];packArr=[];turnQ=[];myTurn=false;syncLayout();buildHelp();
   ST_A=rollST(AI_ST);ST_B=rollST(AI_ST2);
-  firstOff=(SCN>0)?0:((firstOrd===2)?Math.floor(Math.random()*(PLAYERS===3?3:2)):firstOrd);
+  firstOff=(SCN>0)?0:((firstOrd===2)?Math.floor(rnd()*(PLAYERS===3?3:2)):firstOrd);
   pool=eraPool();discard=[];shown={};mine=[];foe=[];round=0;busy=false;rerolls=REROLLS;hist=[];replay=[];
   if(PACK2)SCN=0;
   aiFac={foe:null,foe2:null};
@@ -2896,8 +2911,8 @@ function start(){
     if(PACK2.career){for(nm in PACK2.career){var ca=PACK2.career[nm],ci;for(ci=0;ci<ca.length;ci++)fcCnt[ca[ci]]=(fcCnt[ca[ci]]||0)+1}}
     else for(nm in PACK2.facMap)fcCnt[PACK2.facMap[nm]]=(fcCnt[PACK2.facMap[nm]]||0)+1;
     for(k in PACK2.factions)if(fcCnt[k]>=5)fk.push(k);   // 기치는 5인 이상 세력만
-    aiFac.foe=fk[Math.floor(Math.random()*fk.length)];
-    do{aiFac.foe2=fk[Math.floor(Math.random()*fk.length)]}while(fk.length>1&&aiFac.foe2===aiFac.foe);
+    aiFac.foe=fk[Math.floor(rnd()*fk.length)];
+    do{aiFac.foe2=fk[Math.floor(rnd()*fk.length)]}while(fk.length>1&&aiFac.foe2===aiFac.foe);
   }
   foe2=(PLAYERS===3&&!SCN)?[]:null;
   $("ros2").style.display=foe2?"":"none";
@@ -2969,7 +2984,8 @@ $("tHint").addEventListener("click",function(){
 markTouch(); probeStore();
 cfgApply(cfgLoad());
 loadRepoSave().then(function(){
-  var resumed=resumeGame();if(!resumed)start();
+  if(TODAY)TODAY.visit(ROOM);
+  var resumed=resumeGame();if(!resumed)start(!!(TODAY&&TODAY.isDaily()));
   preloadPortraits(Object.keys(IMG),false);
   if(!resumed&&!REC.games){buildSetup();openLayer("setup")}
 });
