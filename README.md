@@ -5,6 +5,7 @@ https://polos0117.github.io/sam-atelier/ — 게임은 `index.html`을 편집합
 ## 파일 구성
 
 - `index.html`: 화면, 데이터, 게임 규칙. 초상은 상대 경로로 참조합니다.
+- `lib/speech.js`: 말풍선. 취한 장수가 제 한 줄(`LORE`)을 진영 칸 위에서 합니다(적장은 안개가 아닐 때만).
 - `lib/today.js`: 오늘 기록. 다섯 공방이 한 출처(polos0117.github.io)라 localStorage 를 같이 쓰며, 대국이 끝나면 `atelier_today_v1:samguk` 에 `{d, n, w, daily, at, seen}` 한 칸을 적고 공방 지도가 읽어 군막에 불을 켭니다. 모양의 약속은 지도 저장소 README 「오늘 기록」절에 있습니다.
 - `images/portraits/`: 카드·도감용 초상 267개.
 - `images/large/`: 확대용 초상 34개. 확대본이 없는 인물은 카드용 이미지를 사용합니다.
