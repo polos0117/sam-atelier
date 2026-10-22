@@ -1,0 +1,5 @@
+{
+ "_": "도트 무장 — 약속은 공방 모음(polos0117.github.io) README 「도트 재생기」. 인물마다 card(무장 이름) · cell · foot · scale · flip · facing · states(still · idle · walk · react). 인물 칸은 공방 모음의 도트 공방(dot.html) 「인물 칸 복사」 그대로 넣는다. 그림은 이 저장소의 sprites/<이름>/. 군막 바닥 띠·인물 확대·지명 상세의 작은 무대가 이것을 읽는다.",
+ "base": "https://polos0117.github.io/sam-atelier/sprites/",
+ "actors": {}
+}

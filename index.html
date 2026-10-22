@@ -144,6 +144,12 @@ body{
 .zbox img{width:100%;max-width:360px;aspect-ratio:1;object-fit:cover;border-radius:4px;
   border:1px solid rgba(184,164,126,.3);box-shadow:0 12px 40px rgba(0,0,0,.6);background:#15110C}
 .zbox img.soft{filter:blur(.2px) saturate(1.02)}
+/* 도트 무장(lib/sprite-actor.js · data/sprites.json) — 군막 바닥 띠·확대·지명 상세의 작은 무대. 도트가 없으면 [hidden] 으로 없다 */
+.sam-dots{position:relative;height:138px;margin:10px 0 2px;overflow:hidden;border:1px solid var(--line);border-radius:4px;
+  background:linear-gradient(180deg,transparent 0,transparent calc(100% - 30px),rgba(184,164,126,.16) calc(100% - 30px),rgba(184,164,126,.06) 100%)}
+.sam-dots[hidden],.dot-stage[hidden]{display:none}
+.dot-stage{position:relative;height:150px;max-width:360px;margin:12px auto 4px;overflow:hidden;border:1px solid rgba(184,164,126,.3);border-radius:4px;cursor:default;
+  background:linear-gradient(180deg,#15110C 0,#15110C 74%,#2a2216 74%,#1d1810 100%)}
 .zbox .zn{font-family:var(--display);font-size:22px;font-weight:700;color:var(--zc,var(--gold));margin-top:14px}
 .zbox .zt{font-size:11px;letter-spacing:.12em;color:var(--paper3);margin-top:3px}
 .zbox .zl{font-size:12.5px;color:var(--paper2);margin-top:10px;font-family:var(--display);line-height:1.6}
@@ -451,6 +457,8 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 </style>
 <script src="lib/today.js"></script>
 <script src="lib/speech.js"></script>
+<script src="lib/sprite-actor.js"></script>
+<link rel="stylesheet" href="lib/sprite-actor.css">
 </head>
 <body>
 <svg style="display:none" aria-hidden="true">
@@ -501,6 +509,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
     <button class="helpbtn" id="labBtn" aria-label="기질 탐구">탐구</button>
     <button class="helpbtn" id="helpBtn" aria-label="병법 요람">?</button>
   </div>
+  <div class="sam-dots" id="samDots" role="group" aria-label="군막 바닥 — 도트 무장이 거닌다" hidden></div>
 
   <div class="board" id="board">
     <div><b id="sMe">0</b><span>아군</span></div>
@@ -542,7 +551,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 <div class="veil" id="setup" role="dialog" aria-modal="true" aria-labelledby="setupTitle" tabindex="-1"><div class="res" id="setupBody"></div></div>
 <div class="veil" id="rec" role="dialog" aria-modal="true" aria-labelledby="recTitle" tabindex="-1"><div class="res" id="recBody"></div></div>
 <div class="veil" id="dex" role="dialog" aria-modal="true" aria-labelledby="dexTitle" tabindex="-1"><div class="res" id="dexBody"></div></div>
-<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zn" tabindex="-1"><div class="zbox"><img id="zimg" alt=""><div class="zn" id="zn"></div><div class="zt" id="zt"></div><div class="zl" id="zl"></div><div class="zh">아무 곳이나 눌러 닫기</div></div></div>
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zn" tabindex="-1"><div class="zbox"><img id="zimg" alt=""><div class="zn" id="zn"></div><div class="zt" id="zt"></div><div class="zl" id="zl"></div><div class="dot-stage" id="zdot" hidden></div><div class="zh">아무 곳이나 눌러 닫기</div></div></div>
 <div class="veil" id="lab" role="dialog" aria-modal="true" aria-labelledby="labTitle" tabindex="-1"><div class="res" id="labBody"></div></div>
 <div class="veil" id="help" role="dialog" aria-modal="true" aria-labelledby="helpTitle" tabindex="-1"><div class="res" id="helpBody"></div></div>
 <div class="veil" id="veil" role="dialog" aria-modal="true" aria-labelledby="resTitle" tabindex="-1"><div class="res" id="res"></div></div>
@@ -1822,18 +1831,23 @@ function buildDex(){
     var nm=box.querySelector(".nm3").textContent;
     var c=null;for(var q=0;q<C.length;q++)if(C[q][0]===nm){c=C[q];break}
     if(!c)return;
-    var im=$("zimg");
+    zoomOf(c);
+  });
+  $("dexClose").addEventListener("click",function(){closeLayer("dex")});
+}
+/* 인물 확대 — 도감의 초상·군막 바닥의 도트가 연다. 도트가 있으면 초상 밑에 작은 무대 */
+function zoomOf(c){
+    var nm=c[0],im=$("zimg");
     var big=(typeof IMGL!=="undefined"&&IMGL[nm])||IMG[nm];
     if(big){im.src=big;im.style.display="";im.classList.toggle("soft",!(typeof IMGL!=="undefined"&&IMGL[nm]));}else{im.removeAttribute("src");im.style.display="none";}
     $("zn").textContent=nm;
     $("zt").textContent=c[1]+" · "+c[2]+" · 전력 "+power(c);
     $("zl").textContent=LORE[nm]||"";
     var z=$("zoom");z.style.setProperty("--zc",FAC[c[1]].c);openLayer("zoom");
-  });
-  $("dexClose").addEventListener("click",function(){closeLayer("dex")});
+    dotInto("zoom",$("zdot"),nm);
 }
 
-$("zoom").addEventListener("click",function(){closeLayer("zoom")});
+$("zoom").addEventListener("click",function(e){if(e.target.closest&&e.target.closest(".dot-stage"))return;closeLayer("zoom")});   // 도트를 누르면 반응만(창은 그대로)
 
 /* ───────── 새 대국 설정 ───────── */
 function buildSetup(){
@@ -2249,6 +2263,32 @@ function etcTiers(){
 }
 function byName(n){for(var i=0;i<C.length;i++)if(C[i][0]===n)return C[i];return C[0]}
 
+/* ───────── 도트 무장 ─────────
+   lib/sprite-actor.js(공방 모음의 공용 재생기, 다섯 공방이 같은 파일) · data/sprites.json(card = 무장 이름).
+   군막 바닥 띠(#samDots — 좁으면 둘·넓으면 셋, 날마다 차례가 돈다, 누르면 그 인물 확대) · 확대·지명 상세의 작은 무대(누르면 반응).
+   도트가 없거나 그림을 못 받으면 자리째 숨는다 — 판은 그대로 */
+var SPR=window.AtelierSprite,DOTS={};
+function dotClear(layer){var d=DOTS[layer];if(!d)return;d.token++;if(d.actor){d.actor.destroy();d.actor=null}if(d.host)d.host.hidden=true}
+function dotInto(layer,host,nm){
+  if(!SPR||!host)return;
+  dotClear(layer);
+  var d=DOTS[layer]||(DOTS[layer]={token:0,actor:null,host:null}),t=++d.token;d.host=host;host.hidden=true;
+  SPR.mount(host,nm,{url:"data/sprites.json",label:nm+" 도트 — 눌러서 반응"}).then(function(a){
+    if(t!==d.token){if(a)a.destroy();return}
+    d.actor=a;host.hidden=!a;
+  });
+}
+function dotFloor(){
+  var host=$("samDots");if(!SPR||!host)return;
+  SPR.load("data/sprites.json").then(function(d){
+    if(!d||!d.actors)return;
+    var keys=Object.keys(d.actors).map(function(k){return SPR.cardKey(k,d.actors[k])}).filter(function(k){return C.some(function(c){return c[0]===k})});
+    if(!keys.length)return;
+    var F=SPR.floor(host,d,{keys:keys,floor:12,labelOf:function(k){return k+" 도트 — 눌러서 인물 보기"},onSelect:function(k){zoomOf(byName(k))}});
+    F.ready().then(function(){host.hidden=!F.list().some(function(x){return !x.actor.failed})});
+  },function(){});
+}
+
 /* ───────── 덮개 창 ─────────
    창을 열면 뒤 화면을 inert 로 잠그고 포커스를 창 안으로 옮긴다. 닫으면 연 자리로 포커스를 돌려준다.
    여러 창이 겹치면 맨 위 창만 살아 있다(확대 > 도감처럼) */
@@ -2265,6 +2305,7 @@ function openLayer(id,focusEl){
   el.classList.add("on");syncLayers();focusQuiet(focusEl||el);
 }
 function closeLayer(id){
+  dotClear(id);
   var el=$(id),was=el.classList.contains("on"),back=layerReturn[id];
   el.classList.remove("on");delete layerReturn[id];syncLayers();
   if(!was)return;
@@ -2439,9 +2480,11 @@ function showDetail(c,pickIndex){
  COMBO.filter(function(g){return g.m.indexOf(c[0])>=0}).forEach(function(g){h+='<p><b>'+g.n+'</b> · '+Object.keys(g.t).map(function(k){return k+'인 '+g.t[k]}).join(' / ')+'<br>'+g.m.filter(function(n){return n!==c[0]}).map(function(n){return n+' ['+availability(n)+']'}).join(' · ')+'</p>'});
  var blocked=typeof pickIndex==="number"&&!canPick&&!packArr[pickIndex].by?(myTurn?catOf(c)+" 정원 초과 · 예비 지명에서 선택 가능":"적군이 선택 중입니다"):"";
  h+='<p class="pick-warning">'+blocked+'</p>';
+ h+='<div class="dot-stage" id="pdot" hidden></div>';
  $("detailBody").innerHTML=h+'<div class="pick-actions">'+(canPick?'<button class="btn" id="pickConfirm">'+c[0]+' 지명 확정</button>':'')+'<button class="btn2" id="detailClose">닫기 · 후보 다시 보기</button></div>';
  if(canPick){var snapshot=packArr;$("pickConfirm").onclick=function(){if(snapshot!==packArr||!myTurn||busy||packArr[pickIndex].by||legalSet(mine,openIdx()).indexOf(pickIndex)<0){closeDetail();return}closeDetail();myPick(pickIndex)}}
  $("detailClose").onclick=closeDetail;openLayer("detail",$("detailClose"));$("detail").scrollTop=0;
+ dotInto("detail",$("pdot"),c[0]);
 }
 function nextRound(){
   roundExcluded=[];busy=false;
@@ -2986,7 +3029,7 @@ function start(daily){
   closeLayer("veil");
   if(banOn&&!SCN)banPhase();else nextRound();
 }
-buildTiers(C);buildHelp();buildDex();
+buildTiers(C);buildHelp();buildDex();dotFloor();
 (function(){
   var up=$("totop"),dn=$("tobot");
   function openVeil(){
