@@ -52,6 +52,8 @@ const server = http.createServer((q, s) => {
     await p.waitForSelector('#samDots:not([hidden]) .sprite-actor:not([hidden])', { timeout: 10000 });
     assert.equal(await p.locator('#samDots .sprite-actor').count(), 2, '좁으면 둘');
     assert(await p.evaluate(() => { const t = document.querySelector('.top').getBoundingClientRect(), f = document.getElementById('samDots').getBoundingClientRect(); return f.top >= t.bottom - 1; }), '머리 밑');
+    /* 인물 머리가 띠 위로 잘리지 않는다 — 칸(96×128, 발 126)을 다 쓰는 인물이 dy 로 2칸 올라가도 */
+    assert(await p.evaluate(() => { const f = document.getElementById('samDots').getBoundingClientRect(); return [...document.querySelectorAll('#samDots .sprite-actor')].every(a => { const u = a.sprite.debug().unit; return a.getBoundingClientRect().top - 2 * u >= f.top - 0.5; }); }), '인물 머리가 잘린다');
     await p.waitForFunction(() => [...document.querySelectorAll('#samDots .sprite-actor')].some(a => a.sprite.debug().state === 'walk'), null, { timeout: 10000 });
     assert.equal(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, '옆으로 넘치지 않는다');
     n += 2;

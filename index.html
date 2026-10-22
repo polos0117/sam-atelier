@@ -144,8 +144,9 @@ body{
 .zbox img{width:100%;max-width:360px;aspect-ratio:1;object-fit:cover;border-radius:4px;
   border:1px solid rgba(184,164,126,.3);box-shadow:0 12px 40px rgba(0,0,0,.6);background:#15110C}
 .zbox img.soft{filter:blur(.2px) saturate(1.02)}
-/* 도트 무장(lib/sprite-actor.js · data/sprites.json) — 군막 바닥 띠·확대·지명 상세의 작은 무대. 도트가 없으면 [hidden] 으로 없다 */
-.sam-dots{position:relative;height:138px;margin:10px 0 2px;overflow:hidden;border:1px solid var(--line);border-radius:4px;
+/* 도트 무장(lib/sprite-actor.js · data/sprites.json) — 군막 바닥 띠·확대·지명 상세의 작은 무대. 도트가 없으면 [hidden] 으로 없다.
+   띠 높이 146 = 발 자리 12 + 칸 128 − 발 밑 2 + 걷기 오르내림 2 + 여유 — 칸을 다 쓰는 인물도 머리가 안 잘린다 */
+.sam-dots{position:relative;height:146px;margin:10px 0 2px;overflow:hidden;border:1px solid var(--line);border-radius:4px;
   background:linear-gradient(180deg,transparent 0,transparent calc(100% - 30px),rgba(184,164,126,.16) calc(100% - 30px),rgba(184,164,126,.06) 100%)}
 .sam-dots[hidden],.dot-stage[hidden]{display:none}
 .dot-stage{position:relative;height:150px;max-width:360px;margin:12px auto 4px;overflow:hidden;border:1px solid rgba(184,164,126,.3);border-radius:4px;cursor:default;
