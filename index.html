@@ -458,7 +458,7 @@ button:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-o
 </style>
 <script src="lib/today.js"></script>
 <script src="lib/speech.js"></script>
-<script src="lib/sprite-actor.js"></script>
+<script src="lib/sprite-actor.js?v=2"></script>
 <link rel="stylesheet" href="lib/sprite-actor.css">
 </head>
 <body>
@@ -2285,7 +2285,7 @@ function dotFloor(){
     if(!d||!d.actors)return;
     var keys=Object.keys(d.actors).map(function(k){return SPR.cardKey(k,d.actors[k])}).filter(function(k){return C.some(function(c){return c[0]===k})});
     if(!keys.length)return;
-    var F=SPR.floor(host,d,{keys:keys,floor:12,labelOf:function(k){return k+" 도트 — 눌러서 인물 보기"},onSelect:function(k){zoomOf(byName(k))}});
+    var F=SPR.floor(host,d,{keys:keys,floor:12,grow:true,labelOf:function(k){return k+" 도트 — 눌러서 인물 보기"},onSelect:function(k){zoomOf(byName(k))}});
     F.ready().then(function(){host.hidden=!F.list().some(function(x){return !x.actor.failed})});
   },function(){});
 }

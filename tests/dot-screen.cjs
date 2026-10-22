@@ -28,8 +28,8 @@ const server = http.createServer((q, s) => {
 (async () => {
   await new Promise(r => server.listen(PORT, '127.0.0.1', r));
   const br = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH, args: ['--no-sandbox', '--disable-dev-shm-usage'] } : {}) });
-  async function open(data, size = { width: 390, height: 844 }) {
-    const ctx = await br.newContext({ viewport: size });
+  async function open(data, size = { width: 390, height: 844 }, dpr = 1) {
+    const ctx = await br.newContext({ viewport: size, deviceScaleFactor: dpr });
     await ctx.route('**/*', r => {
       const u = new URL(r.request().url());
       if (u.origin === BASE && u.pathname === '/data/sprites.json') return r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(data) });
@@ -88,6 +88,19 @@ const server = http.createServer((q, s) => {
     assert.deepEqual(errors, []);
     await ctx.close();
     n++;
-    console.log('PASS 도트 무장: ' + n + '가지 · 군막 바닥 띠(좁으면 둘·머리 밑·넘치지 않는다) · 누르면 인물 확대 + 작은 무대(눌러도 창은 그대로·닫으면 치운다) · 도감 초상의 확대 · 없는 인물 · 자료 없음');
+    /* ── 화소 배율이 정수가 아닌 화면 — 폴드(2.625: 도트 한 칸 3화소 = 1.14배) · 노트북 150%(1.5: 2화소 = 1.33배). 띠·무대가 도트만큼 늘어 머리가 안 잘린다(재생기 grow) ── */
+    const headIn = (host, sel) => p.evaluate(([host, sel]) => { const f = document.querySelector(host).getBoundingClientRect(), as = [...document.querySelectorAll(sel)];
+      return as.length > 0 && as.every(a => { const u = a.sprite.debug().unit, b = a.getBoundingClientRect(); return b.top - 2 * u >= f.top - 0.5 && b.bottom <= f.bottom + 0.5; }); }, [host, sel]);
+    for (const [dpr, vp] of [[2.625, { width: 344, height: 882 }], [2.625, { width: 690, height: 829 }], [1.5, { width: 1280, height: 800 }]]) {
+      ({ ctx, p, errors } = await open(SPRITES, vp, dpr));
+      await p.waitForSelector('#samDots:not([hidden]) .sprite-actor:not([hidden])', { timeout: 10000 });
+      assert(await headIn('#samDots', '#samDots .sprite-actor'), '군막 바닥에서 머리가 잘린다 — 배율 ' + dpr + ' · 폭 ' + vp.width);
+      await p.locator('#samDots .sprite-actor').first().click({ force: true });
+      await p.waitForSelector('#zdot:not([hidden]) .sprite-actor:not([hidden])', { timeout: 8000 });
+      assert(await headIn('#zdot', '#zdot .sprite-actor'), '인물 확대 무대에서 머리가 잘린다 — 배율 ' + dpr + ' · 폭 ' + vp.width);
+      await ctx.close();
+    }
+    n++;
+    console.log('PASS 도트 무장: ' + n + '가지 · 군막 바닥 띠(좁으면 둘·머리 밑·넘치지 않는다) · 누르면 인물 확대 + 작은 무대(눌러도 창은 그대로·닫으면 치운다) · 도감 초상의 확대 · 없는 인물 · 자료 없음 · 폴드·150% 화면에서 머리가 안 잘린다');
   } finally { await br.close(); server.close(); fs.rmSync(art, { recursive: true, force: true }); }
 })().catch(e => { console.error(e); process.exit(1); });
