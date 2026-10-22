@@ -40,6 +40,11 @@ AI도 13명을 지명한 뒤 동일한 추천 계산으로 11명을 확정합니
 ```sh
 node tests/assets.cjs
 node tests/regression.cjs
+node tests/sprite-actor-copy.cjs
 ```
 
 회귀 검증은 DOM 대역으로 게임 함수를 실행하며 실제 브라우저 렌더링 검증을 대체하지 않습니다.
+
+## 공용 모듈
+
+`lib/` 의 파일은 공방 모음(polos0117.github.io)이 원본인 공용 모듈입니다 — 오늘 기록 `today.js`, 말풍선 `speech.js`, 도트 재생기 `sprite-actor.js`·`sprite-actor.css`(판 v1). 여기서 따로 고치지 않습니다. 고치면 원본과 다섯 저장소를 같이 고치고, `node tests/sprite-actor-copy.cjs` 가 도트 재생기를 원본과 견줍니다(약속은 그쪽 README 「도트 재생기」절, 도트 인물의 그림은 도트 공방 `dot.html` 에서 만듭니다). 아직 이 공방에서 도트 인물을 세우는 화면은 없습니다.
