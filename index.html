@@ -2994,6 +2994,14 @@ function resumeGame(){
   return true;
  }catch(e){cfgApply(before);ROUNDS=beforeRounds;clearGame();return false}
 }
+/* 주소의 ?daily(공방 지도의 「오늘의 판」) — 한 번 읽고 주소에서 걷는다. 안 걷으면 대국이 끝난 뒤 새로고침·「갈아타기」마다
+   같은 오늘의 대국이 처음부터 다시 열렸다(끝난 대국은 이어하기가 안 되니). 오늘 이미 끝냈으면 새 대국으로 연다 */
+function bootDaily(){
+  if(!TODAY||!TODAY.isDaily())return false;
+  try{var q=location.search.replace(/^\?/,"").split("&").filter(function(s){return s&&!/^daily(=|$)/.test(s)}).join("&");
+    history.replaceState(null,"",location.pathname+(q?"?"+q:"")+(location.hash||""))}catch(e){}
+  return !TODAY.read(ROOM).daily;
+}
 function start(daily){
   DAILY=!!daily;RNG=DAILY?mulberry(todaySeed()):Math.random;
   ROUNDS=13;lineupOpen=false;lineupChoice=[];lineupCache={};lineupCacheCount=0;closeLayer("lineup");
@@ -3084,7 +3092,7 @@ markTouch(); probeStore();
 cfgApply(cfgLoad());
 loadRepoSave().then(function(){
   if(TODAY)TODAY.visit(ROOM);
-  var resumed=resumeGame();if(!resumed)start(!!(TODAY&&TODAY.isDaily()));
+  var daily=bootDaily(),resumed=resumeGame();if(!resumed)start(daily);
   preloadPortraits(Object.keys(IMG),false);
   if(!resumed&&!REC.games){buildSetup();openLayer("setup")}
 });

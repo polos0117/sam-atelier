@@ -60,6 +60,12 @@ c=runtime();c.start();c.mine=c.C.filter(x=>x[2]==='무장').slice(0,5);c.pool=c.
 c=runtime({},7);c.start(true);assert(c.DAILY);const dailyPack=c.packArr.map(e=>e.c[0]);assert.equal(dailyPack.length,6);
 {const d2=runtime({},9);d2.start(true);assert.deepEqual(d2.packArr.map(e=>e.c[0]),dailyPack,'daily pack identical');assert.equal(d2.ST_A,c.ST_A);}
 {const o1=runtime({},7);o1.start();assert(!o1.DAILY);const o2=runtime({},9);o2.start();assert.notDeepEqual(o2.packArr.map(e=>e.c[0]),o1.packArr.map(e=>e.c[0]),'ordinary starts differ by Math.random');}
+/* 주소의 ?daily 는 한 번만 — 걷고 나면 새로고침해도 같은 오늘의 대국이 다시 열리지 않는다. 오늘 끝냈으면 새 대국 */
+{const r=runtime({});let url=null,done=false;r.history={replaceState:(a,b,u)=>{url=u}};r.location={protocol:'https:',pathname:'/sam-atelier/',search:'?daily&_v=1',hash:''};
+ r.TODAY={isDaily:()=>/[?&]daily(=[^&]*)?(&|$)/.test(r.location.search),read:()=>({daily:done})};
+ assert.equal(r.bootDaily(),true,'daily link opens the daily');assert.equal(url,'/sam-atelier/?_v=1','daily param removed from the address');
+ done=true;assert.equal(r.bootDaily(),false,'finished daily is not replayed');
+ r.location.search='';url=null;assert.equal(r.bootDaily(),false);assert.equal(url,null,'plain address untouched');}
 {const storage={};c=runtime(storage,5);c.start(true);let g=0;while(JSON.parse(storage[c.GAME_KEY]||'{}').phase!=='draft'&&g++<40)step(c);assert.equal(JSON.parse(storage[c.GAME_KEY]).daily,true,'daily saved');
  const r=runtime(storage);assert(r.resumeGame());assert.equal(r.DAILY,true,'daily restored');g=0;while(!r.REC.games&&g++<180)step(r);assert.equal(r.REC.games,1);invariant(r);}
 // Hidden enemies do not leak via availability labels.
