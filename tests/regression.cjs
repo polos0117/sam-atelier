@@ -60,6 +60,10 @@ c=runtime();c.start();c.mine=c.C.filter(x=>x[2]==='무장').slice(0,5);c.pool=c.
 c=runtime({},7);c.start(true);assert(c.DAILY);const dailyPack=c.packArr.map(e=>e.c[0]);assert.equal(dailyPack.length,6);
 {const d2=runtime({},9);d2.start(true);assert.deepEqual(d2.packArr.map(e=>e.c[0]),dailyPack,'daily pack identical');assert.equal(d2.ST_A,c.ST_A);}
 {const o1=runtime({},7);o1.start();assert(!o1.DAILY);const o2=runtime({},9);o2.start();assert.notDeepEqual(o2.packArr.map(e=>e.c[0]),o1.packArr.map(e=>e.c[0]),'ordinary starts differ by Math.random');}
+/* 「다시 겨루기」는 오늘의 대국이 아니다 — 처리기가 start 에 클릭 이벤트를 넘겨 DAILY 로 읽히면 판마다 같은 죽간이 깔린다 */
+assert(/\$\("again"\)\.addEventListener\("click",function\(\)\{start\(false\)\}\)/.test(html),'again button starts a normal game');
+{const a=runtime({},11),b=runtime({},12);a.start({type:'click'});b.start({type:'click'});assert(a.DAILY&&b.DAILY,'an event object would be read as daily — so the handler must not pass it');
+ a.start(false);b.start(false);assert(!a.DAILY&&!b.DAILY);assert.notDeepEqual(a.packArr.map(e=>e.c[0]),b.packArr.map(e=>e.c[0]),'normal games differ');}
 /* 주소의 ?daily 는 한 번만 — 걷고 나면 새로고침해도 같은 오늘의 대국이 다시 열리지 않는다. 오늘 끝냈으면 새 대국 */
 {const r=runtime({});let url=null,done=false;r.history={replaceState:(a,b,u)=>{url=u}};r.location={protocol:'https:',pathname:'/sam-atelier/',search:'?daily&_v=1',hash:''};
  r.TODAY={isDaily:()=>/[?&]daily(=[^&]*)?(&|$)/.test(r.location.search),read:()=>({daily:done})};

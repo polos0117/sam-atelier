@@ -2935,7 +2935,7 @@ function finish(){
   openLayer("veil");
   playClash(bouts,word,cls,me.total,op.total,revealResult);
   $("veil").scrollTop=0;
-  $("again").addEventListener("click",start);
+  $("again").addEventListener("click",function(){start(false)});   /* start 에 클릭 이벤트가 넘어가면 오늘의 대국(날짜 씨앗)으로 읽혀 늘 같은 죽간이 깔렸다 */
   $("copy").addEventListener("click",function(){
     var b=this;copyOut(me,op,function(ok){
       b.textContent=ok?"옮겨 적었소":"옮기지 못하였소";
