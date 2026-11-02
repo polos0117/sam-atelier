@@ -8,6 +8,9 @@
   python3 tools/casual-check.py                 # 일상컷이 있는 장수 전부
   python3 tools/casual-check.py 관우 조운        # 몇 명만
   python3 tools/casual-check.py --plan 관우      # 아직 안 그린 칸에 무엇을 넣어야 하나
+세계 사이 겹침도 함께 본다(사용자 2026-11-02 「무협·판타지·메카가 다 같은 구도의 장면」) — 세 세계가 같은 장면을 쓰면 안 된다:
+  같은 장소(세계 안 nation_* 장소는 세계마다 다른 곳이 되니 옷 계열까지 같을 때만) · 같은 자세 추천(= 같은 구도).
+  계획기(tools/casual-plan.cjs)와 같은 규칙이다. 옛 묶음의 겹침은 알리기만 하고 실패로 치지 않는다(덮지 않고 새 묶음을 더한다).
 그림 저장소 자리는 SAM_IMG 환경 변수(기본 ../sam-atelier-img)."""
 import glob, json, os, re, sys
 
@@ -41,6 +44,40 @@ def cuts(card):
     return by
 
 
+def scenes(card):
+    out = []
+    for f in sorted(glob.glob(os.path.join(IMGR, 'records', card, '*-casual*-ui.json'))):
+        m = re.match(r'(\w+)-casual(\d+)\.', os.path.basename(f))
+        if not m or m.group(1) not in WORLDS:
+            continue
+        s = json.load(open(f, encoding='utf-8')).get('scene') or {}
+        out.append((m.group(1), int(m.group(2)), s.get('place'), s.get('ofam'), s.get('preset')))
+    return out
+
+
+def clash(a, b):
+    """다른 세계의 두 컷이 같은 장면인가(계획기 check 의 others 규칙과 같다)"""
+    _, _, pa, oa, ra = a
+    _, _, pb, ob, rb = b
+    if pa and pa == pb and (not pa.startswith('nation_') or oa == ob):
+        return '장소 %s' % pa + (' · ' + oa if pa.startswith('nation_') else '')
+    if ra and ra == rb:
+        return '자세 %s' % ra
+    return None
+
+
+def cross(card):
+    sc = scenes(card)
+    hits = []
+    for i, a in enumerate(sc):
+        for b in sc[i + 1:]:
+            if a[0] != b[0]:
+                why = clash(a, b)
+                if why:
+                    hits.append('%s casual%d = %s casual%d (%s)' % (a[0], a[1], b[0], b[1], why))
+    return hits
+
+
 def fill(ks):
     """서로 다른 두 컷으로 두 갈래를 채울 수 있나 — 채운 컷 번호 (노출, 세계 안)"""
     for a, ka in ks.items():
@@ -59,7 +96,7 @@ def main(argv):
     names = [a for a in argv if not a.startswith('--')]
     if not names:
         names = sorted({os.path.basename(os.path.dirname(f)) for f in glob.glob(os.path.join(IMGR, 'records', '*', '*-casual*-ui.json'))})
-    bad = 0
+    bad = dup = 0
     for card in names:
         by = cuts(card)
         for w in WORLDS:
@@ -75,7 +112,11 @@ def main(argv):
             line = '%s %s — %d장 · 노출 %s · 세계 안 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', state)
             if plan or need or len(argv) > 0:
                 print(line)
-    print('일상컷 묶음 — 갈래를 다시 그려야 하는 세계 %d' % bad)
+        hits = cross(card)
+        dup += bool(hits)
+        if hits:
+            print('%s 세계 사이 같은 장면 %d — %s' % (card, len(hits), ' · '.join(hits[:6]) + (' …' if len(hits) > 6 else '')))
+    print('일상컷 묶음 — 갈래를 다시 그려야 하는 세계 %d · 세계 사이 같은 장면이 있는 장수 %d(알림)' % (bad, dup))
     return 1 if bad else 0
 
 

@@ -12,6 +12,7 @@
 | 이 문서 | 규칙과 자리 |
 | `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(279 — 게임 표 그대로) |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
+| `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길 — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
 | `data/style.json` | 화풍 판 — 세계 그림은 `text`, 일상컷은 `casual`. 기본 `kr_mmorpg`(한국 MMORPG 프로모 렌더, 2026-11-02), 비교용 `game_keyart`(2.5D) · `glossy_kr_game` |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 |
 
@@ -32,6 +33,7 @@
 ## 꾸밈 · 글꼴
 
 - 공간 아홉의 꾸밈은 `lib/material.css` 한 곳: 재질 타일 · 장식 틀 · 단추 모양 · 그림 단추(`--ui-*`, 그림 저장소 `backgrounds/ui/`) · 제목 글꼴(`--gallery-serif` — 무협 Song Myung · 판타지 Hahmlet · 메카 Orbit). 본문 글꼴은 IBM Plex Sans KR(400 · 700 두 굵기). 제목 글꼴은 `lib/workspace-theme.js` 가 지금 공간의 것 하나만 붙이고, 글꼴 줄은 전부 화면 그리기를 막지 않는다(`media="print"` → onload — 2026-11-02 「화면 로딩이 엄청 느린데」). 한자 도장 · 세력 기호(Noto Serif KR 900)는 쓰는 글자만 `text=` 로 받는다 — 새 성씨가 생기면 `hall.html` · `dex.html` 의 그 줄을 다시 뽑고 `node tests/fonts.cjs` 로 본다.
+- 움직임은 `lib/motion-fx.js`(깃발 꽂기 · 툭 나타나기 · 차례로 · 날아와 커지기 · 퍼지기 · 선 그리기) — Motion 작은 판(`lib/vendor/motion-mini.mjs`, animate + spring, 손으로 고치지 않는다)을 쓴다. 위치 · 크기 · 투명도만, 움직임 줄이기면 끈다. element-atelier 와 글자 하나 다르지 않게 같이.
 - 디자인 점검 skill: `.claude/skills/frontend-design`(방향 · 글꼴 · 테두리), `.claude/skills/ui-ux-pro-max`(글꼴 짝 · 스타일 · UX 규칙 검색 — `python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<질문>" --domain typography`), `.claude/skills/web-design-guidelines`(규칙 점검).
 
 ## 지켜야 할 것
@@ -82,9 +84,10 @@
 ## 검사
 
 ```sh
-node tools/casual-plan.cjs <장수> --world <세계> [--out 폴더]   # 일상컷 묶음 계획 — 비어 있는 번호에 겹치지 않는 장면(정해 둔 두 갈래 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
+node tools/casual-plan.cjs <장수> --world <세계>|all [--fresh] [--out 폴더]   # 일상컷 묶음 계획 — 세계 셋끼리 같은 장면 없이, 비어 있는 번호에(--fresh 면 옛 묶음 뒤 번호로 새 다섯 장) 겹치지 않는 장면(정해 둔 두 갈래 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
 node tests/casual-plan.cjs              # 계획기 — 장수 × 세계 × 씨앗이 규칙을 지키나
-python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸
+node tests/image-claim.cjs             # 잠금 도구 — 잡기 · 막기 · 풀기 · 끝(시험 저장소에서)
+python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸 · 세계 사이 같은 장면 알림
 python3 tools/sam-design.py check
 python3 tools/casual-tree.py check && python3 tools/casual-tree-v2.py check
 node tests/words.cjs && node tests/look-spec.cjs && node tests/patch.cjs && node tests/img-shards.cjs

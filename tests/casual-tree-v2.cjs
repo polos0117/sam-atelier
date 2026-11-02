@@ -15,7 +15,10 @@ let pairs = 0;
 for (const pr of t.v2.presets) {
   for (const pl of C.allPlaces(t)) {
     const era = pl.eras.includes('now') ? 'now' : pl.eras[0], e = C.era(t, era);
-    const fam = t.v1.outfits.find(o => e.outfits.includes(o.key) && feat(pr).every(x => C.features(t, o.key, '').includes(x)));
+    /* 대표 옷은 정해 둔 갈래가 아닌 것 먼저 — 정해 둔 갈래 컷엔 얼굴 클로즈업을 안 쓴다(data/casual-tree.json frame_rules.face_close.not_required, 2026-11-02) */
+    const rq = t.v1.required || {}, rw = rq.world || {}, req = o => (rq.outfits || []).includes(o.key) || (era === rw.era && (rw.places || []).includes(pl.key) && (rw.outfits || []).includes(o.key));
+    const fits = t.v1.outfits.filter(o => e.outfits.includes(o.key) && feat(pr).every(x => C.features(t, o.key, '').includes(x)));
+    const fam = fits.find(o => !req(o)) || fits[0];
     if (!fam) continue;
     pairs++;
     assert.equal(C.presetOk(t, { era, place: pl.key, ofam: fam.key }, pr.key), py[pr.key].includes(pl.key), pr.key + ' @ ' + pl.key);

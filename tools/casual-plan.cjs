@@ -16,7 +16,10 @@
      node tools/casual-plan.cjs <장수> --world <세계> [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
    --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 다섯 장이 되게 — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
    --records 를 안 주면 옆의 sam-atelier-img/records/<장수>. --out 을 주면 칸마다 기록 · 지시문과 plan.json 을 쓴다.
-     node tools/casual-plan.cjs <장수> --world <세계> --check <기록 폴더>   # 올리기 전 — 그 세계 묶음이 위 규칙을 다 지키나 */
+     node tools/casual-plan.cjs <장수> --world <세계> --check <기록 폴더> [--from N]   # 올리기 전 — 그 세계 묶음이 위 규칙을 다 지키나(다른 세계와 같은 장면도). --from: N 번부터의 새 묶음만, 옛 묶음은 겹침에만
+     node tools/casual-plan.cjs <장수> --world all [--fresh] --out <폴더>   # 세계 셋을 한 번에(폴더 아래 plan-<세계>) — 세계끼리 장면을 돌려쓰지 않는다
+   --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 다섯 장(옛 묶음과도 겹치지 않게). --others a.json,b.json: 아직 안 올린 다른 계획도 겹침에 넣는다.
+   세계끼리 · 묶음끼리: 같은 장소는 안 되고(세계 안 장소는 세계마다 다른 곳이라 옷 · 자세까지 같을 때만), 같은 옷 계열로 같은 자세 추천도 안 된다(2026-11-02 — 네 장수가 세 세계에 같은 장면 한 벌을 썼다) */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const ROOT = path.join(__dirname, '..');
@@ -131,7 +134,7 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
 }
 
 /* 묶음 규칙 — 틀린 것 목록. base 는 이미 있는 컷(그 세계): 그것들이 벌써 넘긴 한도는 그만큼 올려 준다 */
-function check(cuts, card, base = []) {
+function check(cuts, card, base = [], others = []) {
   const all = [...base, ...cuts], errs = [];
   const count = (f, xs) => xs.reduce((m, c) => { const k = f(c); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});
   const over = (name, f, most) => {
@@ -164,10 +167,19 @@ function check(cuts, card, base = []) {
     const fixed = C2.repair(T2, { ...c }, card.g);
     for (const k of C2.ORDER) if ((fixed[k] || '') !== (c[k] || '')) errs.push(`칸 ${c.n || '?'}: ${k}=${c[k]} 는 트리에서 못 고른다`);
   }
+  /* 세계끼리 · 묶음끼리 장면을 돌려쓰지 않는다(2026-11-02 — 유비 · 조운 · 하후돈 · 사마의가 세 세계에 같은 장면 한 벌을 썼다).
+     같은 장소는 안 된다 — 다만 「세계 안」 장소(nation_*)는 세계마다 다른 곳(객잔 · 선술집 · 정거장 바)이 되니, 그때는 옷 계열까지 같을 때만 막는다.
+     장소 · 옷과 상관없이 같은 자세 추천(= 같은 구도)도 안 된다(사용자 「같은 구도의 장면」) */
+  const inWorld = c => (C2.place(T2, c.place) || {}).eras && /^nation_/.test(c.place);
+  for (const c of cuts) {
+    const same = others.filter(o => o.place && o.place === c.place);
+    if (same.length && (!inWorld(c) || same.some(o => o.ofam === c.ofam))) errs.push(`칸 ${c.n || '?'}: 장소 ${c.place} 는 다른 세계 · 다른 묶음이 쓴 곳`);
+    if (c.preset && others.some(o => o.preset === c.preset)) errs.push(`칸 ${c.n || '?'}: 자세 추천 ${c.preset} 는 다른 세계 · 다른 묶음이 쓴 구도`);
+  }
   return errs;
 }
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 )/;
-function plan(card, slots, old, { seed = Date.now(), required = '', usage = {} } = {}) {
+function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [] } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
   const mix = [...(card.key + '|' + (card.world || ''))].reduce((h, ch) => Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0, 2166136261);
   const rUse = rng((seed ^ mix ^ 0x5bd1e995) >>> 0), r = rng((seed ^ mix) >>> 0);
@@ -202,12 +214,12 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {} }
         const want = wants[i] || '', sc = slot(r, card, want, { frame: frames[i], wantSig: i === sigAt && !want, era: eras[i], usage: here, rUse });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
-        if (!check([...cuts, cand], card, old).filter(e => !MUST.test(e)).length) got = cand;
+        if (!check([...cuts, cand], card, old, others).filter(e => !MUST.test(e)).length) got = cand;
       }
       if (!got) break;
       cuts.push(got);
     }
-    if (cuts.length === slots.length && !check(cuts, card, old).length) return { cuts, attempt, required: [...old, ...cuts].map(requiredType).filter(Boolean).join(' · ') };
+    if (cuts.length === slots.length && !check(cuts, card, old, others).length) return { cuts, attempt, required: [...old, ...cuts].map(requiredType).filter(Boolean).join(' · ') };
   }
   throw new Error('규칙을 다 지키는 묶음을 못 찾았다 — 이미 있는 컷이 칸을 너무 많이 차지했는지 본다');
 }
@@ -262,39 +274,57 @@ function line(c) {
     `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}`;
 }
 
+const FLAGS = new Set(['fresh']);
 function main(argv) {
   const key = argv[0], opt = {};
-  for (let i = 1; i < argv.length; i++) opt[argv[i].replace(/^--/, '')] = argv[++i];
+  for (let i = 1; i < argv.length; i++) { const k = argv[i].replace(/^--/, ''); opt[k] = FLAGS.has(k) ? true : argv[++i]; }   /* --fresh 는 값 없이 */
   let card;
   try { card = cardOf(key); } catch (e) { console.error(e.message + '\n' + fs.readFileSync(__filename, 'utf8').split('\n').slice(1, 20).join('\n')); return 2; }
-  const world = opt.world; card.world = world;
-  if (!card.worlds.includes(world)) { console.error(`${key} 는 ${card.worlds.join(' · ')} 에 산다 — --world 로 하나`); return 2; }
+  const recDir = opt.records || path.join(ROOT, '..', 'sam-atelier-img', 'records', key);
+  /* 다른 세계의 컷(그리고 --fresh 면 같은 세계의 옛 묶음까지) — 장면을 돌려쓰지 않게 겹침만 본다 */
+  const allOld = w => oldCuts(recDir, { ...card, world: w }, w);
   if (opt.check) {
-    const cuts = oldCuts(opt.check, card, world);
+    const world = opt.world; card.world = world;
+    if (!card.worlds.includes(world)) { console.error(`${key} 는 ${card.worlds.join(' · ')} 에 산다 — --world 로 하나`); return 2; }
+    /* --from N: 옛 묶음 뒤에 더한 새 묶음(N 번부터)만 묶음으로 보고, 옛 묶음은 겹침에만 넣는다 */
+    const from = Number(opt.from || 0), all = oldCuts(opt.check, card, world);
+    const cuts = all.filter(c => c.n >= from), others = [...all.filter(c => c.n < from), ...card.worlds.filter(w => w !== world).flatMap(w => oldCuts(opt.check, { ...card, world: w }, w))];
     for (const c of cuts.sort((a, b) => a.n - b.n)) console.log(line(c));
-    const errs = check(cuts.map(c => ({ ...c, old: false })), card, []);
+    const errs = cuts.length ? check(cuts.map(c => ({ ...c, old: false })), card, [], others) : [`${world} 일상컷 기록이 없다 — 폴더 · --from 을 확인`];
     for (const e of errs) console.log('  X ' + e);
     console.log(errs.length ? `일상컷 묶음 ${errs.length} 가지 걸림` : `일상컷 묶음 통과 — ${cuts.length} 장`);
     return errs.length ? 1 : 0;
   }
-  const slots = opt.slots ? opt.slots.split(',').map(Number) : freeSlots(card, world);
-  if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); return 0; }
-  const recDir = opt.records || path.join(ROOT, '..', 'sam-atelier-img', 'records', key);
-  const old = oldCuts(recDir, card, world).filter(c => !slots.includes(c.n));
-  const seed = Number(opt.seed || Date.now() % 1e9);
+  const worlds = opt.world === 'all' ? card.worlds : [opt.world];
+  if (!worlds.every(w => card.worlds.includes(w))) { console.error(`${key} 는 ${card.worlds.join(' · ')} 에 산다 — --world 로 하나 또는 all`); return 2; }
+  const fresh = 'fresh' in opt, seed0 = Number(opt.seed || Date.now() % 1e9);
   const usageDir = opt.usage === 'none' ? '' : (opt.usage || path.join(ROOT, '..', 'sam-atelier-img', 'records'));
-  const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key) });
-  console.log(`${key} ${world} 일상컷 묶음 — 칸 ${slots.join(',')} · 정해 둔 갈래 ${res.required} · 시도 ${res.attempt} · seed ${seed}`);
-  for (const c of [...old, ...res.cuts].sort((a, b) => a.n - b.n)) console.log(line(c));
-  if (opt.out) {
-    fs.mkdirSync(opt.out, { recursive: true });
-    for (const c of res.cuts) {
-      const rec = record(card, world, c);
-      fs.writeFileSync(path.join(opt.out, `${world}-casual${c.n}.${STYLE}-ui.json`), JSON.stringify(rec, null, 1) + '\n');
-      fs.writeFileSync(path.join(opt.out, `${world}-casual${c.n}-prompt.txt`), rec.prompt);
+  const extra = (opt.others || '').split(',').filter(Boolean).flatMap(f => JSON.parse(fs.readFileSync(f, 'utf8')).cuts || []);
+  const planned = [];
+  for (const world of worlds) {
+    card.world = world;
+    const mine = allOld(world), taken = Math.max(0, ...mine.map(c => c.n), ...registered(card, world));
+    /* --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 다섯 장(사용자 2026-11-02 「대체하는건 아니고, 추가로」) */
+    const slots = opt.slots ? opt.slots.split(',').map(Number) : fresh ? Array.from({ length: CASUAL_N }, (_, i) => taken + 1 + i) : freeSlots(card, world);
+    if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); continue; }
+    const old = fresh ? [] : mine.filter(c => !slots.includes(c.n));
+    const others = [...card.worlds.filter(w => w !== world).flatMap(allOld), ...(fresh ? mine : []), ...extra, ...planned];
+    const seed = seed0 + worlds.indexOf(world);
+    const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key), others });
+    planned.push(...res.cuts);
+    console.log(`${key} ${world} 일상컷 묶음 — 칸 ${slots.join(',')} · 정해 둔 갈래 ${res.required} · 시도 ${res.attempt} · seed ${seed}${fresh ? ' · 새 묶음(옛 묶음과 겹치지 않게)' : ''}`);
+    for (const c of [...old, ...res.cuts].sort((a, b) => a.n - b.n)) console.log(line(c));
+    if (opt.out) {
+      const out = worlds.length > 1 ? path.join(opt.out, 'plan-' + world) : opt.out;
+      fs.mkdirSync(out, { recursive: true });
+      for (const c of res.cuts) {
+        const rec = record(card, world, c);
+        fs.writeFileSync(path.join(out, `${world}-casual${c.n}.${STYLE}-ui.json`), JSON.stringify(rec, null, 1) + '\n');
+        fs.writeFileSync(path.join(out, `${world}-casual${c.n}-prompt.txt`), rec.prompt);
+      }
+      fs.writeFileSync(path.join(out, 'plan.json'), JSON.stringify({ card: key, world, seed, tree: 2, style: STYLE, required: res.required, slots, fresh, cuts: res.cuts }, null, 1) + '\n');
+      console.log('→ ' + out);
     }
-    fs.writeFileSync(path.join(opt.out, 'plan.json'), JSON.stringify({ card: key, world, seed, tree: 2, style: STYLE, required: res.required, slots, cuts: res.cuts }, null, 1) + '\n');
-    console.log('→ ' + opt.out);
   }
   return 0;
 }

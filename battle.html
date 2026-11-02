@@ -23,7 +23,7 @@
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/material.css?v=6">
-<link rel="stylesheet" href="lib/battle.css?v=2">
+<link rel="stylesheet" href="lib/battle.css?v=3">
 </head>
 <body class="battle-page">
 <div id="app"></div>
@@ -31,6 +31,10 @@
 import {h,render} from 'https://esm.sh/preact@10.24.3';
 import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
 import {PAGES} from './lib/workspace-ui.js?v=3';
+import * as FX from './lib/motion-fx.js?v=1';
+/* 누른 것의 자리 — 미리 보기 · 크게 보기 그림이 거기서 날아와 커진다(lib/motion-fx.js flyFrom) */
+let FROM=null;
+const from=e=>{try{FROM=e.currentTarget.getBoundingClientRect();}catch(x){FROM=null;}};
 const W=window.W,IMG=window.AtelierImg,STORE='samguk_battle_v1',SIDES=['wei','shu','wu','qun'],ROLES=['lord','general','strategist','official'];
 const MAP='https://polos0117.github.io/sam-atelier-img/backgrounds/battles/battle-';
 const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')||{}}catch{return {}}};
@@ -83,10 +87,11 @@ function Bar({doc,st,set}){
 /* 미리 보기 — 이름표 · 자리를 누르면. 여기서 배치하기 · 크게 보기 · 빼기 */
 function Peek({doc,st,g,at,close,place,remove,open}){
   KEY=e=>{if(e.key==='Escape')close();};
+  useEffect(()=>{FX.pop(document.querySelector('.b-peek'),.96);FX.flyFrom(FROM,document.querySelector('.b-peek-pic .b-pic'));FROM=null;},[g.key]);
   const fac=facOf(doc,g.faction),slotKo=at&&at.ko;
   return h('div',{class:'b-peek-wrap',onClick:e=>{if(e.target===e.currentTarget)close();}},
     h('section',{class:'b-peek',role:'dialog','aria-modal':'true','aria-label':g.key,'data-fac':g.faction},
-      h('button',{type:'button',class:'b-peek-pic',onClick:open,'aria-label':W('battle.open')},h(Pic,{doc,g,w:st.w,big:true})),
+      h('button',{type:'button',class:'b-peek-pic',onClick:e=>{from(e);open();},'aria-label':W('battle.open')},h(Pic,{doc,g,w:st.w,big:true})),
       h('div',{class:'b-peek-text'},
         h('p',{class:'b-tier'},fac.hanja+' '+fac.ko+' · '+doc.d.roles[g.role].ko+(g.camp?' · '+(fac.camps.find(c=>c.key===g.camp)||{}).ko:'')),
         h('h2',null,g.key,h('small',null,g.en)),
@@ -96,7 +101,7 @@ function Peek({doc,st,g,at,close,place,remove,open}){
         !pick(doc,g.key,st.w)&&h('a',{class:'b-draw',href:'prompt.html?card='+encodeURIComponent(g.key)+'&world='+st.w},W('battle.draw')),
         h('div',{class:'b-acts'},
           h('button',{type:'button',class:'b-act main','data-act':'place',onClick:place},W(at?'battle.move':'battle.place')),
-          pick(doc,g.key,st.w)&&h('button',{type:'button',class:'b-act','data-act':'open',onClick:open},W('battle.open')),
+          pick(doc,g.key,st.w)&&h('button',{type:'button',class:'b-act','data-act':'open',onClick:()=>{const p=document.querySelector('.b-peek-pic .b-pic');FROM=p&&p.getBoundingClientRect();open();}},W('battle.open')),
           at&&h('button',{type:'button',class:'b-act','data-act':'remove',onClick:remove},W('battle.remove')),
           h('button',{type:'button',class:'b-act','data-act':'close',onClick:close},W('battle.close'))))));
 }
@@ -106,6 +111,7 @@ function Big({doc,st,set,g,close}){
   const step=d=>{if(lives.length<2)return;const i=lives.indexOf(st.w);set({w:lives[((i<0?0:i)+d+lives.length)%lives.length]});};
   KEY=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1);};
   useEffect(()=>{lives.filter(w=>w!==st.w).forEach(w=>{const i=new Image();i.src=IMG.imgURL(fileOf(doc,g.key,w));});},[g.key]);
+  useEffect(()=>{FX.flyFrom(FROM,document.querySelector('.b-big-pic'));FROM=null;},[g.key]);
   const p=pick(doc,g.key,st.w),fac=facOf(doc,g.faction);
   return h('section',{class:'b-big',role:'dialog','aria-modal':'true','aria-label':g.key,'data-fac':g.faction,
       onTouchStart:e=>{touch.current=e.touches[0].clientX;},onTouchEnd:e=>{if(touch.current==null)return;const dx=e.changedTouches[0].clientX-touch.current;touch.current=null;if(Math.abs(dx)>50)step(dx<0?1:-1);}},
@@ -129,6 +135,25 @@ function Field({doc,st,battle,place,placing,onSlot}){
   const wd=battle.worlds[st.w],names=Object.fromEntries(battle.slots.map(s=>[s.key,s.ko]));
   const [z,setZ]=useState(1),box=useRef(null),zr=useRef(1),pin=useRef(null),drag=useRef(null);
   zr.current=z;
+  /* 진군 화살표 — 같은 진영이 둘 이상 서면 세운 차례대로 자리를 잇는다(세운 차례 = 배치 표의 차례). 새로 생긴 선만 그려 나간다 */
+  const pos=Object.fromEntries(wd.slots.map(s=>[s.key,s])),lines=[];
+  const byFac={};for(const [sk,gk] of Object.entries(place)){const g=doc.d.generals.find(x=>x.key===gk);if(g&&pos[sk])(byFac[g.faction]=byFac[g.faction]||[]).push(sk);}
+  for(const [f,ks] of Object.entries(byFac))for(let i=1;i<ks.length;i++){const a=pos[ks[i-1]],b=pos[ks[i]],ax=a.x*1.5,ay=a.y,bx=b.x*1.5,by=b.y,mx=(ax+bx)/2,my=(ay+by)/2,dx=bx-ax,dy=by-ay,len=Math.hypot(dx,dy)||1;
+    const cx=mx-dy/len*Math.min(10,len*.18),cy=my+dx/len*Math.min(10,len*.18),k=4/len,ex=bx-dx*k,ey=by-dy*k;   /* 살짝 휜 길, 끝은 자리 앞에서 멈춘다 */
+    lines.push({id:f+':'+ks[i-1]+'>'+ks[i],f,d:'M'+(ax+dx*k).toFixed(2)+' '+(ay+dy*k).toFixed(2)+' Q'+cx.toFixed(2)+' '+cy.toFixed(2)+' '+ex.toFixed(2)+' '+ey.toFixed(2)});}
+  const drawn=useRef(new Set()),lastPlace=useRef(place);
+  useEffect(()=>{const now=new Set(lines.map(l=>l.id));let i=0;
+    for(const l of lines)if(!drawn.current.has(l.id)){
+      /* 화살촉은 선이 다 그려진 뒤에(사용자 「화살촉은 선 다 그려진 뒤에」) — 그리는 동안 marker 를 떼었다가 끝나면 단다 */
+      const el=document.querySelector('.b-arrows path[data-id="'+CSS.escape(l.id)+'"]'),mk=el&&el.getAttribute('marker-end');
+      const an=FX.draw(el,{delay:.15+i*.08});
+      if(an&&el){el.removeAttribute('marker-end');Promise.resolve(an.finished||an).catch(()=>{}).then(()=>{if(el.isConnected)el.setAttribute('marker-end',mk);});}
+      i++;}
+    drawn.current=now;
+    /* 새로 선 자리 — 깃발이 떨어져 꽂힌다 */
+    for(const [k,v] of Object.entries(place))if(lastPlace.current[k]!==v)FX.plant(document.querySelector('.b-slot[data-slot="'+k+'"] b'));
+    lastPlace.current=place;});
+  useEffect(()=>{drawn.current=new Set(lines.map(l=>l.id));lastPlace.current=place;},[battle.key,st.w]);
   /* 가운데(또는 손가락 · 마우스 자리)를 붙잡고 배율을 바꾼다 */
   const zoomTo=(nz,cx,cy)=>{const el=box.current;nz=clampZ(nz);if(!el||nz===zr.current)return;
     const r=el.getBoundingClientRect(),px=(cx==null?r.width/2:cx-r.left),py=(cy==null?r.height/2:cy-r.top);
@@ -152,9 +177,12 @@ function Field({doc,st,battle,place,placing,onSlot}){
     h('div',{class:'b-field-scroll'+(z>1?' zoomed':''),ref:box,onPointerDown:down,onPointerMove:move,onPointerUp:up,onPointerLeave:up},
       h('div',{class:'b-field'+(placing?' placing':''),style:{'--z':z}},
         h('img',{class:'b-map',key:battle.key+st.w,src:MAP+battle.key+'-'+st.w+'.webp',alt:'',decoding:'async',draggable:false}),
+        h('svg',{class:'b-arrows',viewBox:'0 0 150 100','aria-hidden':'true'},
+          h('defs',null,['wei','shu','wu','qun'].map(f=>h('marker',{key:f,id:'ah-'+f,viewBox:'0 0 10 10',refX:6,refY:5,markerWidth:4,markerHeight:4,orient:'auto-start-reverse'},h('path',{d:'M0 0 L10 5 L0 10 z','data-fac':f})))),
+          lines.map(l=>h('path',{key:l.id,'data-id':l.id,'data-fac':l.f,d:l.d,pathLength:1,'marker-end':'url(#ah-'+l.f+')'}))),
         wd.slots.map(s=>{const gk=place[s.key],g=gk&&doc.d.generals.find(x=>x.key===gk),ko=s.ko||names[s.key];
           return h('button',{key:s.key,type:'button',class:'b-slot'+(g?' on':'')+(s.x<22?' l':s.x>78?' r':''),'data-slot':s.key,'data-fac':g&&g.faction,style:{left:s.x+'%',top:s.y+'%'},
-              'aria-label':g?W('battle.slot.of',{slot:ko,name:g.key}):W('battle.slot.empty',{slot:ko}),onClick:()=>onSlot(s,g)},
+              'aria-label':g?W('battle.slot.of',{slot:ko,name:g.key}):W('battle.slot.empty',{slot:ko}),onClick:e=>{from(e);onSlot(s,g);}},
             g?h('b',null,h('i',null,facOf(doc,g.faction).hanja),g.key):h('span',{class:'dot','aria-hidden':'true'}),
             h('small',null,ko));}))),
     h('div',{class:'b-zoom',role:'group','aria-label':W('battle.zoom')},
@@ -168,13 +196,14 @@ function Roster({doc,st,set,place,onName}){
   const fac=facOf(doc,st.side),camps=st.side==='qun'?fac.camps:null,camp=camps&&(camps.find(c=>c.key===st.camp)||camps[0]);
   const gs=doc.d.generals.filter(g=>g.faction===st.side&&(!camp||g.camp===camp.key));
   const placed=new Set(Object.values(place));
+  useEffect(()=>{FX.stagger(document.querySelectorAll('.b-roster .b-name'));},[st.side,st.camp]);   /* 진영 · 무리를 바꾸면 이름표가 차례로 */
   return h('aside',{class:'b-roster','data-fac':st.side},
     h('div',{class:'b-sides',role:'group','aria-label':W('battle.side')},SIDES.map(k=>{const f=facOf(doc,k);return h('button',{key:k,type:'button','data-side':k,'data-fac':k,'aria-pressed':st.side===k,onClick:()=>set({side:k})},h('i',null,f.hanja),f.ko);})),
     camps&&h('div',{class:'b-camps',role:'group','aria-label':W('battle.camp')},camps.map(c=>h('button',{key:c.key,type:'button','data-camp':c.key,'aria-pressed':camp.key===c.key,title:c.note,onClick:()=>set({camp:c.key})},c.ko))),
     h('h2',null,W('battle.roster',{side:camp?camp.ko:fac.ko,n:gs.length})),
     ROLES.map(r=>{const rs=gs.filter(g=>g.role===r);if(!rs.length)return null;
       return h('section',{key:r,class:'b-role'},h('h3',null,doc.d.roles[r].ko,h('span',null,rs.length)),
-        h('div',{class:'b-names'},rs.map(g=>h('button',{key:g.key,type:'button',class:'b-name'+(placed.has(g.key)?' placed':'')+(fileOf(doc,g.key,st.w)?' art':''),'data-g':g.key,'data-fac':g.faction,onClick:()=>onName(g)},g.key))));}));
+        h('div',{class:'b-names'},rs.map(g=>h('button',{key:g.key,type:'button',class:'b-name'+(placed.has(g.key)?' placed':'')+(fileOf(doc,g.key,st.w)?' art':''),'data-g':g.key,'data-fac':g.faction,onClick:e=>{from(e);onName(g);}},g.key))));}));
 }
 function App(){
   const doc=useDocs(),saved=load();
