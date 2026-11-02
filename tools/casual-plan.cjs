@@ -290,7 +290,7 @@ function main(argv) {
     const from = Number(opt.from || 0), all = oldCuts(opt.check, card, world);
     const cuts = all.filter(c => c.n >= from), others = [...all.filter(c => c.n < from), ...card.worlds.filter(w => w !== world).flatMap(w => oldCuts(opt.check, { ...card, world: w }, w))];
     for (const c of cuts.sort((a, b) => a.n - b.n)) console.log(line(c));
-    const errs = check(cuts.map(c => ({ ...c, old: false })), card, [], others);
+    const errs = cuts.length ? check(cuts.map(c => ({ ...c, old: false })), card, [], others) : [`${world} 일상컷 기록이 없다 — 폴더 · --from 을 확인`];
     for (const e of errs) console.log('  X ' + e);
     console.log(errs.length ? `일상컷 묶음 ${errs.length} 가지 걸림` : `일상컷 묶음 통과 — ${cuts.length} 장`);
     return errs.length ? 1 : 0;
