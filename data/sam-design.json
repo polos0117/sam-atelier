@@ -745,24 +745,38 @@
    },
    "seal": "馬",
    "lore": "서량의 비단 갑옷, 조조가 수염을 잘랐다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "금마초 — 백은 용두 창 · 비단 두른 은갑 · 흰 깃 · 고금빛 머리 · 얼음빛 눈 · 붉은 입술 · 화려한 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the splendid Ma Chao of Xiliang, the brocade-armored rider who once sent Cao Cao fleeing"
+   },
+   "traits": {
+    "en": "dazzling beauty and pride of the western frontier, silver armor trimmed with brocade and a lion-head belt, a white plume, vengeance for her slain family, fierce charges across the Liang steppe"
+   },
+   "hold": {
+    "en": "a silver dragon-tipped spear with a white tassel"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
-     "impression": "sharp",
-     "expr": "focused",
+     "eye_color": "ice_blue",
+     "impression": "glamorous",
+     "expr": "determined",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "small",
      "eye_tilt": "down",
-     "mark": "mole_eye",
+     "mark": "red_lip",
      "brows": "straight_thick",
      "nose": "upturned",
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "voluptuous",
-     "hair_color": "chestnut"
+     "body": "curvy_athletic",
+     "hair_color": "antique_gold"
     },
     "worlds": {
      "samguk": {
@@ -796,7 +810,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「서량의 비단 갑옷, 조조가 수염을 잘랐다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -812,14 +826,28 @@
    },
    "seal": "黃",
    "lore": "노년에 정군산에서 하후연을 베었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "노익장 궁신 — 큰 활 · 붉은 깃 화살 · 잿빛 섞인 머리 · 30대 초반 · 그을린 피부 · 우쭐한 · 건장한 굴곡형"
+   },
+   "title": {
+    "en": "the veteran archer of Shu who outshone the young at Dingjun Mountain"
+   },
+   "traits": {
+    "en": "a seasoned veteran whose aim never fails, silver-streaked hair worn proudly, a heavy saber at her hip, the victory at Dingjun Mountain"
+   },
+   "hold": {
+    "en": "a great recurved war bow with a quiver of red-fletched arrows"
+   },
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "sharp",
-     "expr": "confident",
-     "skin_tone": "fair",
-     "age": "late_20s",
+     "impression": "mature",
+     "expr": "smug",
+     "skin_tone": "golden_tan",
+     "age": "early_30s",
      "eye_size": "large",
      "eye_tilt": "level",
      "mark": "mole_eye",
@@ -828,8 +856,8 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "voluptuous",
-     "hair_color": "chestnut"
+     "body": "strong_curvy",
+     "hair_color": "ash_gray"
     },
     "worlds": {
      "samguk": {
@@ -863,7 +891,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「노년에 정군산에서 하후연을 베었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -967,24 +995,38 @@
    },
    "seal": "龐",
    "lore": "연환계를 바치고 낙봉파에서 스러졌다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "봉추 — 봉황 깃 부채 · 헝클어진 적갈색 머리 · 주근깨 · 장난스러운 · 대충 걸친 도포 · 풍만형"
+   },
+   "title": {
+    "en": "the Fledgling Phoenix, the unkempt genius who matched the Sleeping Dragon"
+   },
+   "traits": {
+    "en": "an unconventional genius with tousled hair and carelessly worn robes, a sly grin, phoenix motifs, the chained-ships stratagem at Red Cliffs, fallen at the Slope of the Fallen Phoenix"
+   },
+   "hold": {
+    "en": "a phoenix-feather fan"
+   },
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "sharp",
-     "expr": "cold_smile",
-     "skin_tone": "fair",
+     "impression": "boyish",
+     "expr": "mischievous",
+     "skin_tone": "olive",
      "age": "late_20s",
      "eye_size": "small",
      "eye_tilt": "down",
-     "mark": "gloss",
+     "mark": "freckles",
      "brows": "arched_thin",
      "nose": "small_button",
      "lips": "wide_smile"
     },
     "silhouette": {
      "body": "voluptuous",
-     "hair_color": "chestnut"
+     "hair_color": "dark_auburn"
     },
     "worlds": {
      "samguk": {
@@ -1018,7 +1060,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「연환계를 바치고 낙봉파에서 스러졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1034,17 +1076,31 @@
    },
    "seal": "法",
    "lore": "한중을 얻게 한 계책의 주인",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "한중의 책사 — 한중 비단 지도 · 청록 머리 · 보라 눈 · 날 선 · 차가운 미소 · 장신 굴곡형"
+   },
+   "title": {
+    "en": "Liu Bei's sharpest schemer, the mind behind the conquest of Hanzhong"
+   },
+   "traits": {
+    "en": "a cold, vengeful brilliance that repays every kindness and every slight, the plan that took Hanzhong, precise and elegant"
+   },
+   "hold": {
+    "en": "a rolled silk map of Hanzhong"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
-     "impression": "melancholic",
-     "expr": "half_smile",
+     "eye_color": "violet",
+     "impression": "sharp",
+     "expr": "cold_smile",
      "skin_tone": "warm_beige",
      "age": "late_20s",
      "eye_size": "large",
      "eye_tilt": "level",
-     "mark": "mole_eye",
+     "mark": "winged_liner",
      "brows": "straight_thick",
      "nose": "upturned",
      "lips": "heart_full"
@@ -1085,7 +1141,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「한중을 얻게 한 계책의 주인」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1101,24 +1157,38 @@
    },
    "seal": "徐",
    "lore": "어머니의 편지에 붓을 꺾고 떠났다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "협객 출신 책사 — 가는 검 · 허리에 접힌 어머니의 편지 · 짙은 갈색 머리 · 우수 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the wandering swordswoman turned strategist who left for her mother's letter"
+   },
+   "traits": {
+    "en": "a former knight-errant in a scholar's robe over a swordswoman's belt, filial devotion, quiet melancholy, a vow never to devise a plan for the enemy, a folded letter tucked at her belt"
+   },
+   "hold": {
+    "en": "a slim scholar's sword"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "sharp",
-     "expr": "cold_smile",
+     "eye_color": "forest_green",
+     "impression": "melancholic",
+     "expr": "wistful",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "small",
      "eye_tilt": "down",
-     "mark": "blush",
+     "mark": "mole_eye",
      "brows": "low_heavy",
      "nose": "broad_soft",
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "voluptuous",
-     "hair_color": "chestnut"
+     "body": "curvy_athletic",
+     "hair_color": "dark_brown"
     },
     "worlds": {
      "samguk": {
@@ -1152,7 +1222,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「어머니의 편지에 붓을 꺾고 떠났다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1168,12 +1238,26 @@
    },
    "seal": "姜",
    "lore": "제갈량의 뜻을 홀로 아홉 번 이었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "와룡의 후계 — 초록 술 장창 · 학 문장 갑옷 · 먹빛 녹음 머리 · 금빛 눈 · 차가운 결의 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the chosen heir of the Sleeping Dragon, who led nine northern campaigns"
+   },
+   "traits": {
+    "en": "a warrior-scholar with boundless courage, unyielding resolve to carry on Zhuge Liang's will, green-and-white armor with a crane crest"
+   },
+   "hold": {
+    "en": "a long steel spear with a green tassel"
+   },
    "look": {
     "face": {
      "eye_color": "gold",
      "impression": "cool",
-     "expr": "serious",
+     "expr": "determined",
      "skin_tone": "fair",
      "age": "mid_20s",
      "eye_size": "small",
@@ -1185,7 +1269,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "chestnut"
+     "hair_color": "ink_green"
     },
     "worlds": {
      "samguk": {
@@ -1219,7 +1303,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「제갈량의 뜻을 홀로 아홉 번 이었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1235,24 +1319,38 @@
    },
    "seal": "魏",
    "lore": "뒤통수에 반골이 있다 하였다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "반골의 선봉 — 초승달 대도 · 진홍 칠 중갑 · 와인빛 머리 · 불씨 눈 · 흉터 · 사나운 · 건장한 굴곡형"
+   },
+   "title": {
+    "en": "the defiant vanguard of Shu said to bear a 'rebel's bone'"
+   },
+   "traits": {
+    "en": "a fierce, proud vanguard with bold plans for the Ziwu Valley, crimson-lacquered heavy armor, defiance in her eyes"
+   },
+   "hold": {
+    "en": "a heavy crescent-bladed glaive"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
-     "impression": "cheerful",
-     "expr": "focused",
+     "eye_color": "ember",
+     "impression": "fierce",
+     "expr": "smug",
      "skin_tone": "golden_tan",
      "age": "late_20s",
      "eye_size": "small",
      "eye_tilt": "down",
-     "mark": "red_lip",
+     "mark": "scar",
      "brows": "soft_round",
      "nose": "straight_narrow",
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "busty_slender",
-     "hair_color": "dark_brown"
+     "body": "strong_curvy",
+     "hair_color": "wine_red"
     },
     "worlds": {
      "samguk": {
@@ -1286,7 +1384,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「뒤통수에 반골이 있다 하였다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1302,12 +1400,26 @@
    },
    "seal": "馬",
    "lore": "서량의 창끝, 끝까지 촉에 남았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "서량의 칼끝 — 서량 곡도 · 청동빛 머리 · 호박색 눈 · 무표정 · 마초의 사촌 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "Ma Chao's loyal cousin, the Xiliang blade who stayed with Shu to the end"
+   },
+   "traits": {
+    "en": "a quiet, steady Xiliang rider in brocade-trimmed armor, the blade that struck down the rebel Wei Yan"
+   },
+   "hold": {
+    "en": "a curved Xiliang saber"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "sharp",
-     "expr": "confident",
+     "eye_color": "amber",
+     "impression": "stoic",
+     "expr": "serious",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "large",
@@ -1318,8 +1430,8 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "voluptuous",
-     "hair_color": "chestnut"
+     "body": "curvy_athletic",
+     "hair_color": "bronze"
     },
     "worlds": {
      "samguk": {
@@ -1353,7 +1465,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「서량의 창끝, 끝까지 촉에 남았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1369,12 +1481,26 @@
    },
    "seal": "關",
    "lore": "아버지의 청룡도 곁을 떠나지 않았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "관우의 양자 — 초록 술 대도 · 초록 전포 · 칠흑 머리 · 숲빛 눈 · 묵묵한 · 모래시계형"
+   },
+   "title": {
+    "en": "Guan Yu's devoted adopted child, always at her side"
+   },
+   "traits": {
+    "en": "steady and dutiful, a green war robe like her parent's, falling together with Guan Yu at Maicheng"
+   },
+   "hold": {
+    "en": "a broad saber with a green tassel"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
+     "eye_color": "forest_green",
      "impression": "stoic",
-     "expr": "laughing",
+     "expr": "calm",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "large",
@@ -1385,7 +1511,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "busty_slender",
+     "body": "hourglass",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -1420,7 +1546,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「아버지의 청룡도 곁을 떠나지 않았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1436,24 +1562,38 @@
    },
    "seal": "張",
    "lore": "아비의 장팔사모를 물려받았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "장비의 자식 — 장팔사모 · 뻗친 검은 머리 · 발그레한 볼 · 말괄량이 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "Zhang Fei's child, heir to the Serpent Spear"
+   },
+   "traits": {
+    "en": "the same thunderous temper as her parent, wild bristling hair, eager to prove herself in battle"
+   },
+   "hold": {
+    "en": "a serpent spear with a wavy blade"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "rugged",
-     "expr": "serious",
+     "eye_color": "amber",
+     "impression": "boyish",
+     "expr": "determined",
      "skin_tone": "fair",
      "age": "mid_20s",
      "eye_size": "small",
      "eye_tilt": "down",
-     "mark": "freckles",
+     "mark": "blush",
      "brows": "angled_sharp",
      "nose": "aquiline",
      "lips": "thin_long"
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "chestnut"
+     "hair_color": "jet_black"
     },
     "worlds": {
      "samguk": {
@@ -1487,7 +1627,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「아비의 장팔사모를 물려받았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1503,12 +1643,26 @@
    },
    "seal": "關",
    "lore": "관가의 이름을 이릉까지 들고 갔다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "관가의 이름 — 녹룡 대도 · 초록 망토 · 칠흑 머리 · 에메랄드 눈 · 화려한 · 가늘고 풍만한 형"
+   },
+   "title": {
+    "en": "Guan Yu's child who carried the family's honor to Yiling"
+   },
+   "traits": {
+    "en": "a young dragon in a green war cloak, elegant and proud of the Guan name"
+   },
+   "hold": {
+    "en": "a green dragon-crested glaive"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
+     "eye_color": "emerald",
      "impression": "glamorous",
-     "expr": "laughing",
+     "expr": "confident",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "large",
@@ -1554,7 +1708,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「관가의 이름을 이릉까지 들고 갔다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1570,24 +1724,38 @@
    },
    "seal": "王",
    "lore": "글은 열 자를 못 읽어도 진은 읽었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "글 모르는 진법가 — 투박한 쇠창 · 실전 갑옷 · 짙은 갈색 머리 · 그을린 피부 · 거친 · 굴곡형"
+   },
+   "title": {
+    "en": "the frontier soldier who could barely read yet read every battle formation"
+   },
+   "traits": {
+    "en": "plain practical armor, sun-browned skin, the warning ignored at Jieting, steadfast common sense"
+   },
+   "hold": {
+    "en": "a plain iron spear"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
-     "impression": "cheerful",
-     "expr": "smug",
-     "skin_tone": "fair",
+     "eye_color": "leaf_green",
+     "impression": "rugged",
+     "expr": "focused",
+     "skin_tone": "golden_tan",
      "age": "late_20s",
      "eye_size": "medium",
      "eye_tilt": "up",
-     "mark": "red_lip",
+     "mark": "bare",
      "brows": "soft_round",
      "nose": "straight_narrow",
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "voluptuous",
-     "hair_color": "chestnut"
+     "body": "curvy",
+     "hair_color": "dark_brown"
     },
     "worlds": {
      "samguk": {
@@ -1621,7 +1789,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「글은 열 자를 못 읽어도 진은 읽었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1637,12 +1805,26 @@
    },
    "seal": "劉",
    "lore": "맥성의 부름을 외면하고 아버지의 눈물 속에 죽었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "비운의 양자 — 금장 장검 · 금박 갑옷 · 밤색 머리 · 우수 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "Liu Bei's proud, tragic adopted heir"
+   },
+   "traits": {
+    "en": "torn between pride and duty, fine gilded armor, the call from Maicheng she refused, tears on her father's face"
+   },
+   "hold": {
+    "en": "a gilded long sword"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "stoic",
-     "expr": "laughing",
+     "eye_color": "amber",
+     "impression": "melancholic",
+     "expr": "wistful",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "large",
@@ -1688,7 +1870,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「맥성의 부름을 외면하고 아버지의 눈물 속에 죽었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1704,12 +1886,26 @@
    },
    "seal": "王",
    "lore": "맥성의 끝을 예견하고도 주공을 떠나지 않았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "끝을 내다본 충신 — 붉은 끈 죽간 · 단정한 문관복 · 칠흑 머리 · 담담한 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the clear-eyed adviser who foresaw the fall of Jing and stayed to the end"
+   },
+   "traits": {
+    "en": "plain official robes, quiet dignity, loyalty that stays even when the end is certain"
+   },
+   "hold": {
+    "en": "a bundle of bamboo slips sealed with red cord"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
-     "impression": "innocent",
-     "expr": "soft_smile",
+     "eye_color": "steel_blue",
+     "impression": "stoic",
+     "expr": "serious",
      "skin_tone": "fair",
      "age": "mid_20s",
      "eye_size": "small",
@@ -1721,7 +1917,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "chestnut"
+     "hair_color": "jet_black"
     },
     "worlds": {
      "samguk": {
@@ -1755,7 +1951,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「맥성의 끝을 예견하고도 주공을 떠나지 않았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1771,24 +1967,38 @@
    },
    "seal": "趙",
    "lore": "맥성에서 주공과 함께 최후를 맞았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "맥성의 마지막 — 이 빠진 대도 · 낡은 청동 갑옷 · 짙은 갈색 머리 · 흉터 · 건장한 굴곡형"
+   },
+   "title": {
+    "en": "Guan Yu's staff officer who held the last line at Maicheng"
+   },
+   "traits": {
+    "en": "battered green-and-bronze armor, loyalty to the very end"
+   },
+   "hold": {
+    "en": "a notched broadsword"
+   },
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "sharp",
-     "expr": "smug",
+     "impression": "rugged",
+     "expr": "determined",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "medium",
      "eye_tilt": "up",
-     "mark": "mole_eye",
+     "mark": "scar",
      "brows": "straight_thick",
      "nose": "upturned",
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "voluptuous",
-     "hair_color": "chestnut"
+     "body": "strong_curvy",
+     "hair_color": "dark_brown"
     },
     "worlds": {
      "samguk": {
@@ -1822,7 +2032,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「맥성에서 주공과 함께 최후를 맞았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1838,14 +2048,28 @@
    },
    "seal": "廖",
    "lore": "촉의 처음과 끝을 모두 본 장수",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "처음과 끝을 본 노장 — 닳은 극 · 헌것과 새것이 섞인 갑옷 · 잿빛 머리 · 성숙한 · 풍만형"
+   },
+   "title": {
+    "en": "the veteran who served Shu from its first day to its last"
+   },
+   "traits": {
+    "en": "a former Yellow Turban turned loyal officer, long-lived and weathered, practical armor mixing old and new pieces"
+   },
+   "hold": {
+    "en": "a well-worn halberd"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "sharp",
-     "expr": "smug",
+     "eye_color": "leaf_green",
+     "impression": "mature",
+     "expr": "calm",
      "skin_tone": "fair",
-     "age": "late_20s",
+     "age": "early_30s",
      "eye_size": "medium",
      "eye_tilt": "up",
      "mark": "gloss",
@@ -1855,7 +2079,7 @@
     },
     "silhouette": {
      "body": "voluptuous",
-     "hair_color": "chestnut"
+     "hair_color": "ash_gray"
     },
     "worlds": {
      "samguk": {
@@ -1889,7 +2113,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「촉의 처음과 끝을 모두 본 장수」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1905,14 +2129,28 @@
    },
    "seal": "嚴",
    "lore": "목은 벨 수 있어도 항복은 없다 했다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "항복은 없다 — 청동 도끼 · 무거운 청동 갑옷 · 은백 머리 · 호박색 눈 · 꼿꼿한 자부 · 모래시계형"
+   },
+   "title": {
+    "en": "the unbending old general of Ba — 'take my head, but not my surrender'"
+   },
+   "traits": {
+    "en": "a proud, defiant stare, heavy bronze armor, won over only by Zhang Fei's respect"
+   },
+   "hold": {
+    "en": "a heavy bronze war axe"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "cheerful",
-     "expr": "smug",
+     "eye_color": "amber",
+     "impression": "fierce",
+     "expr": "proud",
      "skin_tone": "olive",
-     "age": "late_20s",
+     "age": "early_30s",
      "eye_size": "medium",
      "eye_tilt": "up",
      "mark": "blush",
@@ -1922,7 +2160,7 @@
     },
     "silhouette": {
      "body": "hourglass",
-     "hair_color": "jade_green"
+     "hair_color": "silver_white"
     },
     "worlds": {
      "samguk": {
@@ -1956,7 +2194,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「목은 벨 수 있어도 항복은 없다 했다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -1972,12 +2210,26 @@
    },
    "seal": "張",
    "lore": "북벌을 말리면서도 끝까지 따랐다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "말리면서도 따른 장수 — 둥근 청동 방패 · 풀빛 머리 · 생각 깊은 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the cautious general who argued against the northern campaigns yet followed them"
+   },
+   "traits": {
+    "en": "a weary, steadfast loyalty, a sturdy shield-and-blade fighter"
+   },
+   "hold": {
+    "en": "a round bronze shield"
+   },
    "look": {
     "face": {
      "eye_color": "emerald",
-     "impression": "sharp",
-     "expr": "smug",
+     "impression": "stoic",
+     "expr": "pensive",
      "skin_tone": "porcelain",
      "age": "late_20s",
      "eye_size": "medium",
@@ -2023,7 +2275,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「북벌을 말리면서도 끝까지 따랐다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2039,12 +2291,26 @@
    },
    "seal": "陳",
    "lore": "삼국지를 지은 진수의 아버지라 전한다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "사관의 부모 — 연노 · 갑옷에 꽂은 붓 · 먹빛 녹음 머리 · 단정한 · 굴곡형"
+   },
+   "title": {
+    "en": "the Shu officer remembered as the parent of the historian Chen Shou"
+   },
+   "traits": {
+    "en": "a bookish soldier with a brush tucked into her armor, a record-keeper's careful eye"
+   },
+   "hold": {
+    "en": "a repeating crossbow"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "stoic",
-     "expr": "determined",
+     "eye_color": "gold",
+     "impression": "elegant",
+     "expr": "calm",
      "skin_tone": "warm_beige",
      "age": "early_30s",
      "eye_size": "medium",
@@ -2090,7 +2356,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「삼국지를 지은 진수의 아버지라 전한다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2106,12 +2372,26 @@
    },
    "seal": "關",
    "lore": "형주에서 이름만 전해지는 관우의 아들",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "전설 속 관가 막내 — 가벼운 녹술 대도 · 꽃무늬 초록 갑옷 · 칠흑 머리 · 화려한 · 모래시계형"
+   },
+   "title": {
+    "en": "Guan Yu's legendary youngest, known only in the tales of Jing"
+   },
+   "traits": {
+    "en": "a handsome wandering warrior with a flair for romance, green-and-gold armor with flower motifs"
+   },
+   "hold": {
+    "en": "a light glaive with a green tassel"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "stoic",
-     "expr": "determined",
+     "eye_color": "emerald",
+     "impression": "glamorous",
+     "expr": "half_smile",
      "skin_tone": "warm_beige",
      "age": "early_30s",
      "eye_size": "medium",
@@ -2122,8 +2402,8 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "curvy",
-     "hair_color": "ink_green"
+     "body": "hourglass",
+     "hair_color": "jet_black"
     },
     "worlds": {
      "samguk": {
@@ -2157,7 +2437,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「형주에서 이름만 전해지는 관우의 아들」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2173,12 +2453,26 @@
    },
    "seal": "宗",
    "lore": "오에 사신으로 가 손권을 설득했다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "손권 앞의 사신 — 붉은 끈 옥 부절 · 사신 예복 · 짙은 갈색 머리 · 날 선 말솜씨 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the envoy who stood her ground before Sun Quan"
+   },
+   "traits": {
+    "en": "sharp-tongued poised diplomacy, a formal envoy's robe"
+   },
+   "hold": {
+    "en": "a jade envoy's tally on a red cord"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "innocent",
-     "expr": "gentle",
+     "eye_color": "leaf_green",
+     "impression": "sharp",
+     "expr": "confident",
      "skin_tone": "fair",
      "age": "mid_20s",
      "eye_size": "medium",
@@ -2190,7 +2484,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "chestnut"
+     "hair_color": "dark_brown"
     },
     "worlds": {
      "samguk": {
@@ -2224,7 +2518,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「오에 사신으로 가 손권을 설득했다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2240,12 +2534,26 @@
    },
    "seal": "伊",
    "lore": "말재주로 손권을 무색하게 했다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "말재주꾼 — 접부채 · 구리빛 머리 · 밝은 · 짓궂은 미소 · 풍만형"
+   },
+   "title": {
+    "en": "the witty orator who left Sun Quan speechless with a single bow"
+   },
+   "traits": {
+    "en": "playful eloquence, a scholar's robe worn with flair"
+   },
+   "hold": {
+    "en": "a folding paper fan"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
+     "eye_color": "amber",
      "impression": "cheerful",
-     "expr": "focused",
+     "expr": "mischievous",
      "skin_tone": "porcelain",
      "age": "early_30s",
      "eye_size": "large",
@@ -2257,7 +2565,7 @@
     },
     "silhouette": {
      "body": "voluptuous",
-     "hair_color": "grass_green"
+     "hair_color": "copper"
     },
     "worlds": {
      "samguk": {
@@ -2291,7 +2599,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「말재주로 손권을 무색하게 했다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2307,11 +2615,25 @@
    },
    "seal": "諸葛",
    "lore": "면죽에서 아버지의 이름값을 치렀다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "와룡의 자식 — 흰 술 장검 · 학 무늬 갑옷 · 먹빛 녹음 머리 · 금빛 눈 · 이름값의 무게 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "Zhuge Liang's child, who paid the family name's price at Mianzhu"
+   },
+   "traits": {
+    "en": "earnest and burdened by expectation, a white crane motif on her armor, a feather-crest helmet"
+   },
+   "hold": {
+    "en": "a long sword with a white tassel"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
-     "impression": "stoic",
+     "eye_color": "gold",
+     "impression": "innocent",
      "expr": "determined",
      "skin_tone": "warm_beige",
      "age": "early_30s",
@@ -2324,7 +2646,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "teal"
+     "hair_color": "ink_green"
     },
     "worlds": {
      "samguk": {
@@ -2358,7 +2680,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「면죽에서 아버지의 이름값을 치렀다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2374,13 +2696,27 @@
    },
    "seal": "周",
    "lore": "관우의 청룡도를 지고 그림자처럼 따랐다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "관우의 그림자 — 어깨에 진 대도 · 짙은 갈색 곱슬 · 구릿빛 피부 · 거친 · 건장한 굴곡형"
+   },
+   "title": {
+    "en": "Guan Yu's devoted shadow who carried the Green Dragon blade"
+   },
+   "traits": {
+    "en": "a rough mountain-bandit past, sun-burnt skin, wild curly hair, fierce loyalty"
+   },
+   "hold": {
+    "en": "a heavy guandao carried over the shoulder"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "stoic",
-     "expr": "laughing",
-     "skin_tone": "fair",
+     "eye_color": "amber",
+     "impression": "rugged",
+     "expr": "serious",
+     "skin_tone": "bronze",
      "age": "early_30s",
      "eye_size": "large",
      "eye_tilt": "level",
@@ -2390,8 +2726,8 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "petite_curvy",
-     "hair_color": "chestnut"
+     "body": "strong_curvy",
+     "hair_color": "dark_brown"
     },
     "worlds": {
      "samguk": {
@@ -2425,7 +2761,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「관우의 청룡도를 지고 그림자처럼 따랐다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2441,12 +2777,26 @@
    },
    "seal": "簡",
    "lore": "농으로 유비의 마음을 풀어주던 사람",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "농으로 마음을 푼 벗 — 술 호리병 · 풀어진 도포 · 칠흑 머리 · 나른한 · 가늘고 풍만한 형"
+   },
+   "title": {
+    "en": "Liu Bei's oldest friend, whose jokes softened her lord's heart"
+   },
+   "traits": {
+    "en": "lounging humor, loose comfortable robes, an easygoing adviser"
+   },
+   "hold": {
+    "en": "a wine gourd on a red cord"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "elegant",
-     "expr": "gentle",
+     "eye_color": "amber",
+     "impression": "languid",
+     "expr": "amused",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "medium",
@@ -2492,7 +2842,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「농으로 유비의 마음을 풀어주던 사람」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2508,13 +2858,27 @@
    },
    "seal": "糜",
    "lore": "아두를 맡기고 우물에 몸을 던졌다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "장판의 희생 — 옥비녀 · 단정한 궁중복 · 먹빛 녹음 머리 · 도자기 피부 · 부드러운 · 가늘고 풍만한 형"
+   },
+   "title": {
+    "en": "Liu Bei's consort who entrusted the infant heir to Zhao Yun at Changban"
+   },
+   "traits": {
+    "en": "gentle courage and self-sacrifice, simple elegant court robes"
+   },
+   "hold": {
+    "en": "a jade hairpin"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
-     "impression": "stoic",
-     "expr": "serious",
-     "skin_tone": "warm_beige",
+     "eye_color": "forest_green",
+     "impression": "soft",
+     "expr": "gentle",
+     "skin_tone": "porcelain",
      "age": "early_20s",
      "eye_size": "medium",
      "eye_tilt": "up",
@@ -2559,7 +2923,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「아두를 맡기고 우물에 몸을 던졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2575,13 +2939,27 @@
    },
    "seal": "甘",
    "lore": "난리 속에 아들을 낳아 길렀다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "옥 같은 피부 — 백옥 인형 · 칠흑 머리 · 도자기 피부 · 우아한 · 모래시계형"
+   },
+   "title": {
+    "en": "Liu Bei's consort, famed for skin as white as jade"
+   },
+   "traits": {
+    "en": "grace through hardship, mother of the heir, a small white jade figurine kept close"
+   },
+   "hold": {
+    "en": "a small white jade figurine"
+   },
    "look": {
     "face": {
      "eye_color": "amber",
      "impression": "elegant",
-     "expr": "serious",
-     "skin_tone": "fair",
+     "expr": "soft_smile",
+     "skin_tone": "porcelain",
      "age": "early_20s",
      "eye_size": "medium",
      "eye_tilt": "up",
@@ -2626,7 +3004,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「난리 속에 아들을 낳아 길렀다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2642,12 +3020,26 @@
    },
    "seal": "麋",
    "lore": "가산을 털어 유비의 유랑을 먹였다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "가산을 턴 거상 — 금전 꾸러미 · 비단과 금 장신구 · 고금빛 머리 · 너그러운 · 풍만형"
+   },
+   "title": {
+    "en": "the wealthy merchant who spent her fortune to feed Liu Bei's wandering army"
+   },
+   "traits": {
+    "en": "luxurious silk and gold ornaments, generous warmth"
+   },
+   "hold": {
+    "en": "a string of gold coins"
+   },
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "cheerful",
-     "expr": "focused",
+     "impression": "glamorous",
+     "expr": "gentle",
      "skin_tone": "porcelain",
      "age": "early_30s",
      "eye_size": "large",
@@ -2659,7 +3051,7 @@
     },
     "silhouette": {
      "body": "voluptuous",
-     "hair_color": "grass_green"
+     "hair_color": "antique_gold"
     },
     "worlds": {
      "samguk": {
@@ -2693,7 +3085,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「가산을 털어 유비의 유랑을 먹였다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2709,12 +3101,26 @@
    },
    "seal": "孫",
    "lore": "발로 뛰며 유비의 말을 전했다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "발로 뛴 사신 — 죽통 전갈 · 여행복 · 청록 머리 · 밝은 · 장신 굴곡형"
+   },
+   "title": {
+    "en": "Liu Bei's tireless envoy who ran between warlords"
+   },
+   "traits": {
+    "en": "travel-worn robes, a messenger's satchel, bright stamina"
+   },
+   "hold": {
+    "en": "a bamboo message tube"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
-     "impression": "mature",
-     "expr": "pensive",
+     "eye_color": "leaf_green",
+     "impression": "cheerful",
+     "expr": "confident",
      "skin_tone": "warm_beige",
      "age": "late_20s",
      "eye_size": "small",
@@ -2760,7 +3166,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「발로 뛰며 유비의 말을 전했다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2776,12 +3182,26 @@
    },
    "seal": "李",
    "lore": "탁고의 신하였으나 군량에서 무너졌다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "탁고의 신하 — 청동 인장 · 문관복 위 경갑 · 자흑 머리 · 야심 어린 미소 · 장신 굴곡형"
+   },
+   "title": {
+    "en": "the co-regent entrusted with the young emperor who fell over the grain supply"
+   },
+   "traits": {
+    "en": "ambitious pride and talent, rich official robes over light armor"
+   },
+   "hold": {
+    "en": "a bronze seal of command"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
-     "impression": "mature",
-     "expr": "calm",
+     "eye_color": "violet",
+     "impression": "glamorous",
+     "expr": "smug",
      "skin_tone": "warm_beige",
      "age": "late_20s",
      "eye_size": "large",
@@ -2793,7 +3213,7 @@
     },
     "silhouette": {
      "body": "tall_curvy",
-     "hair_color": "teal"
+     "hair_color": "plum_black"
     },
     "worlds": {
      "samguk": {
@@ -2827,7 +3247,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「탁고의 신하였으나 군량에서 무너졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2843,12 +3263,26 @@
    },
    "seal": "馬",
    "lore": "마씨 다섯 형제 중 흰 눈썹이 으뜸이었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "흰 눈썹 — 흰 리본 두루마리 · 밤색 머리 · 흰 눈썹 · 온화한 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "the finest of the five Ma siblings, marked by white eyebrows"
+   },
+   "traits": {
+    "en": "striking white eyebrows, gentle wisdom, diplomacy among the southern tribes"
+   },
+   "hold": {
+    "en": "a scroll tied with a white ribbon"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "innocent",
-     "expr": "soft_smile",
+     "eye_color": "leaf_green",
+     "impression": "soft",
+     "expr": "gentle",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "small",
@@ -2894,7 +3328,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「마씨 다섯 형제 중 흰 눈썹이 으뜸이었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2910,12 +3344,26 @@
    },
    "seal": "馬",
    "lore": "가정을 잃고 눈물 속에 목이 베였다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "가정의 비극 — 병법서 두루마리 · 풀빛 머리 · 자신만만한 · 제갈량의 제자 · 풍만형"
+   },
+   "title": {
+    "en": "Zhuge Liang's gifted pupil whose overconfidence lost Jieting"
+   },
+   "traits": {
+    "en": "a theorist in love with strategy books, a proud smile on the hill, a tragic farewell in tears"
+   },
+   "hold": {
+    "en": "a strategy treatise scroll"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "mature",
-     "expr": "calm",
+     "eye_color": "amber",
+     "impression": "sharp",
+     "expr": "smug",
      "skin_tone": "porcelain",
      "age": "early_30s",
      "eye_size": "medium",
@@ -2961,7 +3409,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「가정을 잃고 눈물 속에 목이 베였다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -2977,12 +3425,26 @@
    },
    "seal": "費",
    "lore": "위연과 양의 사이를 홀로 꿰맸다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "꿰매는 재상 — 바둑알 함 · 밤색 머리 · 차분한 · 풍만형"
+   },
+   "title": {
+    "en": "the calm statesman who stitched together Wei Yan's and Yang Yi's quarrels"
+   },
+   "traits": {
+    "en": "effortless competence, famous for playing go while handling affairs of state"
+   },
+   "hold": {
+    "en": "a lacquered jar of go stones"
+   },
    "look": {
     "face": {
      "eye_color": "emerald",
-     "impression": "innocent",
-     "expr": "serious",
+     "impression": "soft",
+     "expr": "calm",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "medium",
@@ -3028,7 +3490,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「위연과 양의 사이를 홀로 꿰맸다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -3044,12 +3506,26 @@
    },
    "seal": "董",
    "lore": "환관을 눌러 궁을 조용히 지켰다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "궁을 다잡은 신하 — 간언 홀 · 짙은 예복 · 짙은 갈색 머리 · 엄격한 · 굴곡형"
+   },
+   "title": {
+    "en": "the strict minister who kept the palace eunuchs in check"
+   },
+   "traits": {
+    "en": "upright and austere, dark formal robes, unbending integrity"
+   },
+   "hold": {
+    "en": "a bamboo tablet of remonstrance"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "soft",
-     "expr": "soft_smile",
+     "eye_color": "steel_blue",
+     "impression": "stoic",
+     "expr": "serious",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
      "eye_size": "small",
@@ -3095,7 +3571,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「환관을 눌러 궁을 조용히 지켰다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -3111,12 +3587,26 @@
    },
    "seal": "蔣",
    "lore": "제갈량이 남긴 다음 사람",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "제갈량이 남긴 사람 — 승상부 청동 인장 · 옥빛 머리 · 성숙한 · 온화한 · 굴곡형"
+   },
+   "title": {
+    "en": "the successor Zhuge Liang named to guide Shu"
+   },
+   "traits": {
+    "en": "calm and generous, steady hands after the Sleeping Dragon, chancellery robes"
+   },
+   "hold": {
+    "en": "a bronze chancellery seal"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
-     "impression": "soft",
-     "expr": "focused",
+     "eye_color": "gold",
+     "impression": "mature",
+     "expr": "gentle",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
      "eye_size": "large",
@@ -3128,7 +3618,7 @@
     },
     "silhouette": {
      "body": "curvy",
-     "hair_color": "dark_brown"
+     "hair_color": "jade_green"
     },
     "worlds": {
      "samguk": {
@@ -3162,7 +3652,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「제갈량이 남긴 다음 사람」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -3178,13 +3668,27 @@
    },
    "seal": "黃",
    "lore": "추녀로 소문났으나 재주는 남편에 견줬다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "발명가 — 나무 톱니 기계 · 금발(누런 머리 전설) · 올리브 피부 · 호기심 · 잉크 묻은 손 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the brilliant inventor, rumored plain-looking yet equal in genius to Zhuge Liang"
+   },
+   "traits": {
+    "en": "wooden gears and lever contraptions, ink-stained fingers, yellow hair and tanned skin of the legend, endless curiosity"
+   },
+   "hold": {
+    "en": "a wooden gear-and-lever contraption"
+   },
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "elegant",
-     "expr": "calm",
-     "skin_tone": "fair",
+     "impression": "boyish",
+     "expr": "curious",
+     "skin_tone": "olive",
      "age": "mid_20s",
      "eye_size": "medium",
      "eye_tilt": "up",
@@ -3194,8 +3698,8 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "strong_curvy",
-     "hair_color": "jet_black"
+     "body": "curvy_athletic",
+     "hair_color": "golden_blonde"
     },
     "worlds": {
      "samguk": {
@@ -3229,7 +3733,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「추녀로 소문났으나 재주는 남편에 견줬다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -3245,12 +3749,26 @@
    },
    "seal": "劉",
    "lore": "즐거워 촉이 생각나지 않는다 하였다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "즐거운 마지막 황제 — 단술 잔 · 화려한 황제 예복 · 짙은 갈색 머리 · 나른한 · 풍만형"
+   },
+   "title": {
+    "en": "the carefree last emperor of Shu — 'here I am happy and do not miss Shu'"
+   },
+   "traits": {
+    "en": "lazy charm, lavish imperial robes, sweets and music"
+   },
+   "hold": {
+    "en": "a cup of sweet wine"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "elegant",
-     "expr": "determined",
+     "eye_color": "amber",
+     "impression": "languid",
+     "expr": "playful",
      "skin_tone": "golden_tan",
      "age": "late_20s",
      "eye_size": "large",
@@ -3261,7 +3779,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "busty_slender",
+     "body": "voluptuous",
      "hair_color": "dark_brown"
     },
     "worlds": {
@@ -3296,7 +3814,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「즐거워 촉이 생각나지 않는다 하였다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -15350,12 +15868,26 @@
    },
    "seal": "黃",
    "lore": "항복하고도 세 나라의 예우를 받았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "세 나라의 예우 — 상소 죽간 · 밤색 머리 · 성숙한 · 담담한 · 굴곡형"
+   },
+   "title": {
+    "en": "the farsighted adviser respected by all three kingdoms for her honesty"
+   },
+   "traits": {
+    "en": "composed dignity, surrendering only when cut off, never speaking ill of her old lord"
+   },
+   "hold": {
+    "en": "a sealed memorial on bamboo slips"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "soft",
-     "expr": "gentle",
+     "eye_color": "steel_blue",
+     "impression": "mature",
+     "expr": "calm",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
      "eye_size": "medium",
@@ -15367,7 +15899,7 @@
     },
     "silhouette": {
      "body": "curvy",
-     "hair_color": "dark_brown"
+     "hair_color": "chestnut"
     },
     "worlds": {
      "samguk": {
@@ -15401,7 +15933,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「항복하고도 세 나라의 예우를 받았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -15417,12 +15949,26 @@
    },
    "seal": "吳",
    "lore": "누이를 유비의 황후로 보낸 국구",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "황실의 외척 — 금장 장창 · 금박 갑옷 · 청동빛 머리 · 위엄 · 풍만형"
+   },
+   "title": {
+    "en": "the empress's sibling, a dependable commander of the imperial in-laws"
+   },
+   "traits": {
+    "en": "gilded armor, family pride, steady command"
+   },
+   "hold": {
+    "en": "a gilded long spear"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "cheerful",
-     "expr": "smug",
+     "eye_color": "amber",
+     "impression": "regal",
+     "expr": "proud",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "medium",
@@ -15434,7 +15980,7 @@
     },
     "silhouette": {
      "body": "voluptuous",
-     "hair_color": "chestnut"
+     "hair_color": "bronze"
     },
     "worlds": {
      "samguk": {
@@ -15468,7 +16014,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「누이를 유비의 황후로 보낸 국구」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -15484,12 +16030,26 @@
    },
    "seal": "孟",
    "lore": "세 번 주인을 바꾸다 성 아래서 죽었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "세 번 주인을 바꾼 — 반쯤 뽑은 장검 · 촉 초록 · 위 남색 섞인 갑옷 · 청록 머리 · 기회주의자의 미소 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the talented but fickle general who changed masters three times"
+   },
+   "traits": {
+    "en": "a charming opportunist's smile, armor mixing Shu green and Wei navy"
+   },
+   "hold": {
+    "en": "a long sword half-drawn from its scabbard"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
+     "eye_color": "violet",
      "impression": "cool",
-     "expr": "determined",
+     "expr": "half_smile",
      "skin_tone": "porcelain",
      "age": "mid_20s",
      "eye_size": "medium",
@@ -15501,7 +16061,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "grass_green"
+     "hair_color": "teal"
     },
     "worlds": {
      "samguk": {
@@ -15535,7 +16095,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「세 번 주인을 바꾸다 성 아래서 죽었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17092,12 +17652,26 @@
    },
    "seal": "夏侯",
    "lore": "촉으로 달아나 창끝을 돌렸다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "위에서 온 망명객 — 남·녹 술 장창 · 남색 갑옷을 초록으로 덧칠 · 남빛 검정 머리 · 차가운 결의 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the Xiahou noble who fled Wei and turned her spear against her old clan"
+   },
+   "traits": {
+    "en": "navy armor repainted green, a lone exile's resolve"
+   },
+   "hold": {
+    "en": "a long spear with a navy-and-green tassel"
+   },
    "look": {
     "face": {
-     "eye_color": "amber",
-     "impression": "glamorous",
-     "expr": "laughing",
+     "eye_color": "steel_blue",
+     "impression": "cool",
+     "expr": "determined",
      "skin_tone": "warm_beige",
      "age": "early_30s",
      "eye_size": "large",
@@ -17109,7 +17683,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "teal"
+     "hair_color": "blue_black"
     },
     "worlds": {
      "samguk": {
@@ -17143,7 +17717,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「촉으로 달아나 창끝을 돌렸다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17293,12 +17867,26 @@
    },
    "seal": "鄧",
    "lore": "오와 다시 손잡게 한 사신",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "동맹을 되살린 사신 — 옥 동맹 부절 · 수수한 옷 · 바다빛 머리 · 거침없는 말 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the envoy who restored the alliance with Wu"
+   },
+   "traits": {
+    "en": "frank, fearless speech, simple honest clothing despite high rank"
+   },
+   "hold": {
+    "en": "a jade alliance tally"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "innocent",
-     "expr": "soft_smile",
+     "eye_color": "leaf_green",
+     "impression": "sharp",
+     "expr": "confident",
      "skin_tone": "fair",
      "age": "mid_20s",
      "eye_size": "small",
@@ -17310,7 +17898,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "chestnut"
+     "hair_color": "ocean_blue"
     },
     "worlds": {
      "samguk": {
@@ -17344,7 +17932,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「오와 다시 손잡게 한 사신」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17360,13 +17948,27 @@
    },
    "seal": "李",
    "lore": "남중을 다독여 후방을 굳혔다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "남중을 다독인 — 남방 청동 북 · 남방 수 관복 · 밤색 머리 · 그을린 피부 · 풍만형"
+   },
+   "title": {
+    "en": "the administrator who calmed the southern tribes of Nanzhong"
+   },
+   "traits": {
+    "en": "southern-patterned embroidery on her official robes, patient warmth"
+   },
+   "hold": {
+    "en": "a small bronze drum of the southern tribes"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "innocent",
-     "expr": "calm",
-     "skin_tone": "fair",
+     "eye_color": "amber",
+     "impression": "soft",
+     "expr": "gentle",
+     "skin_tone": "golden_tan",
      "age": "late_20s",
      "eye_size": "large",
      "eye_tilt": "level",
@@ -17411,7 +18013,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「남중을 다독여 후방을 굳혔다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17427,12 +18029,26 @@
    },
    "seal": "羅",
    "lore": "나라가 망한 뒤에도 영안성을 지켰다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "망국 뒤의 성 — 큰 방패 · 무거운 갑옷 · 짙은 갈색 머리 · 꺾이지 않는 · 건장한 굴곡형"
+   },
+   "title": {
+    "en": "the steadfast general who held Yong'an even after Shu fell"
+   },
+   "traits": {
+    "en": "unbroken resolve on the walls against both Wu and Wei, heavy armor"
+   },
+   "hold": {
+    "en": "a heavy tower shield"
+   },
    "look": {
     "face": {
-     "eye_color": "emerald",
-     "impression": "cheerful",
-     "expr": "focused",
+     "eye_color": "steel_blue",
+     "impression": "stoic",
+     "expr": "determined",
      "skin_tone": "golden_tan",
      "age": "late_20s",
      "eye_size": "small",
@@ -17443,7 +18059,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "busty_slender",
+     "body": "strong_curvy",
      "hair_color": "dark_brown"
     },
     "worlds": {
@@ -17478,7 +18094,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「나라가 망한 뒤에도 영안성을 지켰다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17494,12 +18110,26 @@
    },
    "seal": "劉",
    "lore": "소열묘 앞에서 처자와 함께 목숨을 끊었다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "항복을 거부한 왕자 — 옥 손잡이 왕검 · 왕족 예복 · 칠흑 머리 · 우수 · 장신 굴곡형"
+   },
+   "title": {
+    "en": "the prince who refused to surrender and died before her grandfather's temple"
+   },
+   "traits": {
+    "en": "tragic royal pride, princely robes, quiet resolve"
+   },
+   "hold": {
+    "en": "a royal jian with a jade pommel"
+   },
    "look": {
     "face": {
-     "eye_color": "forest_green",
-     "impression": "cheerful",
-     "expr": "focused",
+     "eye_color": "emerald",
+     "impression": "melancholic",
+     "expr": "wistful",
      "skin_tone": "warm_beige",
      "age": "late_20s",
      "eye_size": "small",
@@ -17511,7 +18141,7 @@
     },
     "silhouette": {
      "body": "tall_curvy",
-     "hair_color": "teal"
+     "hair_color": "jet_black"
     },
     "worlds": {
      "samguk": {
@@ -17545,7 +18175,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「소열묘 앞에서 처자와 함께 목숨을 끊었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17561,12 +18191,26 @@
    },
    "seal": "傅",
    "lore": "관을 지키다 끝내 물러서지 않았다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "관문을 지킨 — 장병 도끼 · 해진 갑옷 · 청록 머리 · 사나운 · 장신 굴곡형"
+   },
+   "title": {
+    "en": "the pass guardian who refused to retreat at Yangping Pass"
+   },
+   "traits": {
+    "en": "battered armor, unwavering at the gate"
+   },
+   "hold": {
+    "en": "a long-hafted pole axe"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "sharp",
-     "expr": "smug",
+     "eye_color": "amber",
+     "impression": "fierce",
+     "expr": "determined",
      "skin_tone": "warm_beige",
      "age": "late_20s",
      "eye_size": "medium",
@@ -17612,7 +18256,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「관을 지키다 끝내 물러서지 않았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17628,13 +18272,27 @@
    },
    "seal": "馬",
    "lore": "남중에서 촉의 남쪽을 지켰다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "남쪽을 지킨 — 남방 정글도 · 밤색 머리 · 그을린 피부 · 밝은 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "the governor of the southern frontier loved by the tribes"
+   },
+   "traits": {
+    "en": "gentle but firm, jungle-worn practical armor"
+   },
+   "hold": {
+    "en": "a curved southern machete"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "stoic",
-     "expr": "laughing",
-     "skin_tone": "fair",
+     "eye_color": "leaf_green",
+     "impression": "cheerful",
+     "expr": "soft_smile",
+     "skin_tone": "golden_tan",
      "age": "early_30s",
      "eye_size": "large",
      "eye_tilt": "level",
@@ -17679,7 +18337,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「남중에서 촉의 남쪽을 지켰다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -17695,17 +18353,31 @@
    },
    "seal": "張",
    "lore": "북벌의 선봉에서 팔을 잃고도 섰다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "부상에도 선 선봉 — 장창 · 붕대 감은 팔뚝 · 풀빛 머리 · 흉터 · 거친 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the vanguard of the northern campaigns who fought on though gravely wounded"
+   },
+   "traits": {
+    "en": "grim endurance, bandages wrapped around one forearm under her armor"
+   },
+   "hold": {
+    "en": "a long spear"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "sharp",
-     "expr": "focused",
+     "eye_color": "amber",
+     "impression": "rugged",
+     "expr": "determined",
      "skin_tone": "porcelain",
      "age": "late_20s",
      "eye_size": "small",
      "eye_tilt": "down",
-     "mark": "blush",
+     "mark": "scar",
      "brows": "low_heavy",
      "nose": "broad_soft",
      "lips": "small_bow"
@@ -17746,7 +18418,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「북벌의 선봉에서 팔을 잃고도 섰다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -18365,12 +19037,26 @@
    },
    "seal": "麋",
    "lore": "형과 달리 형주를 등졌다",
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "형주를 등진 — 금장 의장검 · 싸운 적 없는 화려한 갑옷 · 고금빛 머리(미축과 핏줄) · 피하는 눈 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "Mi Zhu's sibling who betrayed Jing province to Wu"
+   },
+   "traits": {
+    "en": "guilt and evasive eyes, luxurious armor that never saw much battle"
+   },
+   "hold": {
+    "en": "a gilded ceremonial sword"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "stoic",
-     "expr": "serious",
+     "eye_color": "amber",
+     "impression": "languid",
+     "expr": "pensive",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "small",
@@ -18382,7 +19068,7 @@
     },
     "silhouette": {
      "body": "petite_curvy",
-     "hair_color": "chestnut"
+     "hair_color": "antique_gold"
     },
     "worlds": {
      "samguk": {
@@ -18416,7 +19102,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「형과 달리 형주를 등졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -18497,11 +19183,25 @@
     "int": 66,
     "pol": 54
    },
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "백이병의 장 — 흰 칠 장창 · 흰 갑옷 · 칠흑 머리 · 묵묵한 · 굴곡형"
+   },
+   "title": {
+    "en": "commander of Liu Bei's elite white-armored guard"
+   },
+   "traits": {
+    "en": "as dependable as Zhao Yun, polished white armor, silent professionalism"
+   },
+   "hold": {
+    "en": "a white-lacquered spear"
+   },
    "look": {
     "face": {
-     "eye_color": "leaf_green",
-     "impression": "sharp",
+     "eye_color": "steel_blue",
+     "impression": "cool",
      "expr": "focused",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -18548,7 +19248,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「—」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -18562,12 +19262,26 @@
     "int": 86,
     "pol": 93
    },
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "화폐를 세운 재정가 — 청동 주화 거푸집 · 단정한 예복 · 먹빛 남색 머리 · 도도한 · 풍만형"
+   },
+   "title": {
+    "en": "the aloof financial genius who stabilized Shu's coinage"
+   },
+   "traits": {
+    "en": "proud and reserved, scorning the uncultured, crisp formal robes"
+   },
+   "hold": {
+    "en": "a bronze coin mold"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "innocent",
-     "expr": "pensive",
+     "eye_color": "violet",
+     "impression": "cool",
+     "expr": "unimpressed",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "small",
@@ -18579,7 +19293,7 @@
     },
     "silhouette": {
      "body": "voluptuous",
-     "hair_color": "chestnut"
+     "hair_color": "ink_blue"
     },
     "worlds": {
      "samguk": {
@@ -18613,7 +19327,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「—」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
@@ -18627,12 +19341,26 @@
     "int": 85,
     "pol": 82
    },
-   "designed": "auto",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "독설의 장사 — 죽간 장부 · 잉크 묻은 소매 · 청록빛 머리 · 날 선 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the brilliant but bitter chief clerk who ran the army's logistics"
+   },
+   "traits": {
+    "en": "a sharp tongue, ink-stained sleeves, a long feud with Wei Yan"
+   },
+   "hold": {
+    "en": "a ledger of bamboo slips"
+   },
    "look": {
     "face": {
-     "eye_color": "gold",
-     "impression": "innocent",
-     "expr": "gentle",
+     "eye_color": "steel_blue",
+     "impression": "sharp",
+     "expr": "mildly_annoyed",
      "skin_tone": "fair",
      "age": "mid_20s",
      "eye_size": "medium",
@@ -18644,7 +19372,7 @@
     },
     "silhouette": {
      "body": "curvy_athletic",
-     "hair_color": "chestnut"
+     "hair_color": "cyan"
     },
     "worlds": {
      "samguk": {
@@ -18678,7 +19406,7 @@
       }
      }
     },
-    "why": "자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「—」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
    }
   },
   {
