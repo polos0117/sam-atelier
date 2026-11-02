@@ -323,7 +323,79 @@
       }
      ]
     }
-   }
+   },
+   "camps": [
+    {
+     "key": "dong",
+     "ko": "동탁군",
+     "note": "동탁과 서량의 잔당 — 이각 · 곽사, 완성의 장제 일가"
+    },
+    {
+     "key": "lubu",
+     "ko": "여포군",
+     "note": "하비에 선 비장의 무리"
+    },
+    {
+     "key": "yuanshao",
+     "ko": "원소군",
+     "note": "하북 사주를 쥔 명문"
+    },
+    {
+     "key": "yuanshu",
+     "ko": "원술군",
+     "note": "옥새를 쥐고 제위를 칭한 회남"
+    },
+    {
+     "key": "gongsun",
+     "ko": "공손찬군",
+     "note": "유주의 백마의종"
+    },
+    {
+     "key": "jing",
+     "ko": "형주",
+     "note": "유표의 형주"
+    },
+    {
+     "key": "yi",
+     "ko": "익주",
+     "note": "유장의 익주"
+    },
+    {
+     "key": "hanzhong",
+     "ko": "한중",
+     "note": "오두미도 장로의 한중"
+    },
+    {
+     "key": "xiliang",
+     "ko": "서량",
+     "note": "마등 · 한수의 서량 기병"
+    },
+    {
+     "key": "nanman",
+     "ko": "남만",
+     "note": "맹획의 남중"
+    },
+    {
+     "key": "yellow",
+     "ko": "황건",
+     "note": "황천당립 — 황건과 그 잔당"
+    },
+    {
+     "key": "court",
+     "ko": "한 조정",
+     "note": "낙양 · 장안의 조정 신하"
+    },
+    {
+     "key": "recluse",
+     "ko": "재야",
+     "note": "명사 · 은자 · 의원 · 방사"
+    },
+    {
+     "key": "lords",
+     "ko": "그 밖의 제후",
+     "note": "서주 · 연주 · 하내 · 유주 · 강동 · 교주의 군소 제후"
+    }
+   ]
   }
  ],
  "roles": {
@@ -11031,6 +11103,7 @@
    "en": "Lü Bu",
    "faction": "qun",
    "role": "general",
+   "camp": "lubu",
    "stats": {
     "lead": 82,
     "war": 100,
@@ -11112,6 +11185,7 @@
    "en": "Dong Zhuo",
    "faction": "qun",
    "role": "lord",
+   "camp": "dong",
    "stats": {
     "lead": 78,
     "war": 85,
@@ -11193,6 +11267,7 @@
    "en": "Yuan Shao",
    "faction": "qun",
    "role": "lord",
+   "camp": "yuanshao",
    "stats": {
     "lead": 80,
     "war": 62,
@@ -11274,6 +11349,7 @@
    "en": "Yuan Shu",
    "faction": "qun",
    "role": "lord",
+   "camp": "yuanshu",
    "stats": {
     "lead": 55,
     "war": 50,
@@ -11355,6 +11431,7 @@
    "en": "Yan Gang",
    "faction": "qun",
    "role": "general",
+   "camp": "gongsun",
    "stats": {
     "lead": 62,
     "war": 72,
@@ -11436,6 +11513,7 @@
    "en": "Guan Jing",
    "faction": "qun",
    "role": "strategist",
+   "camp": "gongsun",
    "stats": {
     "lead": 48,
     "war": 30,
@@ -11517,6 +11595,7 @@
    "en": "Tian Kai",
    "faction": "qun",
    "role": "general",
+   "camp": "gongsun",
    "stats": {
     "lead": 60,
     "war": 64,
@@ -11598,6 +11677,7 @@
    "en": "Gongsun Fan",
    "faction": "qun",
    "role": "general",
+   "camp": "gongsun",
    "stats": {
     "lead": 58,
     "war": 62,
@@ -11679,6 +11759,7 @@
    "en": "Gongsun Zan",
    "faction": "qun",
    "role": "lord",
+   "camp": "gongsun",
    "stats": {
     "lead": 80,
     "war": 82,
@@ -11760,6 +11841,7 @@
    "en": "Liu Biao",
    "faction": "qun",
    "role": "lord",
+   "camp": "jing",
    "stats": {
     "lead": 62,
     "war": 45,
@@ -11841,6 +11923,7 @@
    "en": "Liu Zhang",
    "faction": "qun",
    "role": "lord",
+   "camp": "yi",
    "stats": {
     "lead": 40,
     "war": 30,
@@ -11922,6 +12005,7 @@
    "en": "Ma Teng",
    "faction": "qun",
    "role": "lord",
+   "camp": "xiliang",
    "stats": {
     "lead": 82,
     "war": 86,
@@ -12003,6 +12087,7 @@
    "en": "Han Sui",
    "faction": "qun",
    "role": "general",
+   "camp": "xiliang",
    "stats": {
     "lead": 72,
     "war": 70,
@@ -12084,6 +12169,7 @@
    "en": "Zhang Jiao",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yellow",
    "stats": {
     "lead": 76,
     "war": 40,
@@ -12165,6 +12251,7 @@
    "en": "Cai Yong",
    "faction": "qun",
    "role": "official",
+   "camp": "court",
    "stats": {
     "lead": 45,
     "war": 18,
@@ -12246,6 +12333,7 @@
    "en": "Cai Wenji",
    "faction": "qun",
    "role": "official",
+   "camp": "recluse",
    "stats": {
     "lead": 38,
     "war": 16,
@@ -12327,6 +12415,7 @@
    "en": "Diaochan",
    "faction": "qun",
    "role": "official",
+   "camp": "lubu",
    "stats": {
     "lead": 15,
     "war": 12,
@@ -12408,6 +12497,7 @@
    "en": "Chen Gong",
    "faction": "qun",
    "role": "strategist",
+   "camp": "lubu",
    "stats": {
     "lead": 70,
     "war": 40,
@@ -12489,6 +12579,7 @@
    "en": "Kong Rong",
    "faction": "qun",
    "role": "official",
+   "camp": "court",
    "stats": {
     "lead": 25,
     "war": 20,
@@ -12570,6 +12661,7 @@
    "en": "Yuan Tan",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 68,
     "war": 72,
@@ -12651,6 +12743,7 @@
    "en": "Yuan Xi",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 60,
     "war": 62,
@@ -12732,6 +12825,7 @@
    "en": "Yuan Shang",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 72,
     "war": 76,
@@ -12813,6 +12907,7 @@
    "en": "Feng Ji",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 55,
     "war": 25,
@@ -12894,6 +12989,7 @@
    "en": "Xin Ping",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 50,
     "war": 22,
@@ -12975,6 +13071,7 @@
    "en": "Tian Feng",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 55,
     "war": 25,
@@ -13056,6 +13153,7 @@
    "en": "Ju Shou",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 70,
     "war": 35,
@@ -13137,6 +13235,7 @@
    "en": "Shen Pei",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 65,
     "war": 40,
@@ -13218,6 +13317,7 @@
    "en": "Guo Tu",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 50,
     "war": 30,
@@ -13299,6 +13399,7 @@
    "en": "Yan Liang",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 76,
     "war": 92,
@@ -13380,6 +13481,7 @@
    "en": "Wen Chou",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 75,
     "war": 91,
@@ -13461,6 +13563,7 @@
    "en": "Gao Lan",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 70,
     "war": 80,
@@ -13542,6 +13645,7 @@
    "en": "Zhang Yan",
    "faction": "qun",
    "role": "general",
+   "camp": "yellow",
    "stats": {
     "lead": 72,
     "war": 78,
@@ -13623,6 +13727,7 @@
    "en": "Hua Xiong",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 68,
     "war": 85,
@@ -13704,6 +13809,7 @@
    "en": "Lu Zhi",
    "faction": "qun",
    "role": "general",
+   "camp": "court",
    "stats": {
     "lead": 85,
     "war": 60,
@@ -13785,6 +13891,7 @@
    "en": "Huangfu Song",
    "faction": "qun",
    "role": "general",
+   "camp": "court",
    "stats": {
     "lead": 91,
     "war": 70,
@@ -13866,6 +13973,7 @@
    "en": "Zhu Jun",
    "faction": "qun",
    "role": "general",
+   "camp": "court",
    "stats": {
     "lead": 84,
     "war": 68,
@@ -13947,6 +14055,7 @@
    "en": "Wutugu",
    "faction": "qun",
    "role": "general",
+   "camp": "nanman",
    "stats": {
     "lead": 60,
     "war": 92,
@@ -14028,6 +14137,7 @@
    "en": "King Duosi",
    "faction": "qun",
    "role": "general",
+   "camp": "nanman",
    "stats": {
     "lead": 62,
     "war": 74,
@@ -14109,6 +14219,7 @@
    "en": "Meng You",
    "faction": "qun",
    "role": "general",
+   "camp": "nanman",
    "stats": {
     "lead": 52,
     "war": 60,
@@ -14190,6 +14301,7 @@
    "en": "Yan Yu",
    "faction": "qun",
    "role": "general",
+   "camp": "lords",
    "stats": {
     "lead": 50,
     "war": 66,
@@ -14271,6 +14383,7 @@
    "en": "Meng Huo",
    "faction": "qun",
    "role": "general",
+   "camp": "nanman",
    "stats": {
     "lead": 74,
     "war": 86,
@@ -14352,6 +14465,7 @@
    "en": "Lady Zhurong",
    "faction": "qun",
    "role": "general",
+   "camp": "nanman",
    "stats": {
     "lead": 60,
     "war": 78,
@@ -14433,6 +14547,7 @@
    "en": "Zuo Ci",
    "faction": "qun",
    "role": "strategist",
+   "camp": "recluse",
    "stats": {
     "lead": 10,
     "war": 20,
@@ -14514,6 +14629,7 @@
    "en": "Hua Tuo",
    "faction": "qun",
    "role": "official",
+   "camp": "recluse",
    "stats": {
     "lead": 10,
     "war": 15,
@@ -14595,6 +14711,7 @@
    "en": "Guan Ning",
    "faction": "qun",
    "role": "official",
+   "camp": "recluse",
    "stats": {
     "lead": 25,
     "war": 15,
@@ -14676,6 +14793,7 @@
    "en": "Sima Hui",
    "faction": "qun",
    "role": "strategist",
+   "camp": "recluse",
    "stats": {
     "lead": 10,
     "war": 15,
@@ -14757,6 +14875,7 @@
    "en": "Guan Lu",
    "faction": "qun",
    "role": "strategist",
+   "camp": "recluse",
    "stats": {
     "lead": 10,
     "war": 12,
@@ -14838,6 +14957,7 @@
    "en": "Li Ru",
    "faction": "qun",
    "role": "strategist",
+   "camp": "dong",
    "stats": {
     "lead": 55,
     "war": 30,
@@ -14919,6 +15039,7 @@
    "en": "Li Jue",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 62,
     "war": 78,
@@ -15000,6 +15121,7 @@
    "en": "Guo Si",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 60,
     "war": 78,
@@ -15081,6 +15203,7 @@
    "en": "Xu Rong",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 82,
     "war": 80,
@@ -15162,6 +15285,7 @@
    "en": "Wang Yun",
    "faction": "qun",
    "role": "official",
+   "camp": "court",
    "stats": {
     "lead": 30,
     "war": 20,
@@ -15243,6 +15367,7 @@
    "en": "Huang Zu",
    "faction": "qun",
    "role": "general",
+   "camp": "jing",
    "stats": {
     "lead": 60,
     "war": 62,
@@ -15324,6 +15449,7 @@
    "en": "Wang Kuang",
    "faction": "qun",
    "role": "general",
+   "camp": "lords",
    "stats": {
     "lead": 62,
     "war": 66,
@@ -15405,6 +15531,7 @@
    "en": "Zhang Xun",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshu",
    "stats": {
     "lead": 72,
     "war": 78,
@@ -15486,6 +15613,7 @@
    "en": "Qiao Rui",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshu",
    "stats": {
     "lead": 50,
     "war": 28,
@@ -15567,6 +15695,7 @@
    "en": "Yang Gang",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshu",
    "stats": {
     "lead": 68,
     "war": 80,
@@ -15648,6 +15777,7 @@
    "en": "Han Yin",
    "faction": "qun",
    "role": "official",
+   "camp": "yuanshu",
    "stats": {
     "lead": 40,
     "war": 25,
@@ -15729,6 +15859,7 @@
    "en": "Ji Ling",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshu",
    "stats": {
     "lead": 72,
     "war": 84,
@@ -15810,6 +15941,7 @@
    "en": "Chunyu Qiong",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 68,
     "war": 76,
@@ -15891,6 +16023,7 @@
    "en": "Hu Che'er",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 55,
     "war": 88,
@@ -15972,6 +16105,7 @@
    "en": "Yan Pu",
    "faction": "qun",
    "role": "strategist",
+   "camp": "hanzhong",
    "stats": {
     "lead": 50,
     "war": 30,
@@ -16053,6 +16187,7 @@
    "en": "Yang Song",
    "faction": "qun",
    "role": "official",
+   "camp": "hanzhong",
    "stats": {
     "lead": 30,
     "war": 20,
@@ -16134,6 +16269,7 @@
    "en": "Zhang Lu",
    "faction": "qun",
    "role": "lord",
+   "camp": "hanzhong",
    "stats": {
     "lead": 55,
     "war": 40,
@@ -16215,6 +16351,7 @@
    "en": "Gao Shun",
    "faction": "qun",
    "role": "general",
+   "camp": "lubu",
    "stats": {
     "lead": 84,
     "war": 86,
@@ -16296,6 +16433,7 @@
    "en": "Qu Yi",
    "faction": "qun",
    "role": "general",
+   "camp": "yuanshao",
    "stats": {
     "lead": 80,
     "war": 80,
@@ -16377,6 +16515,7 @@
    "en": "Chen Gui",
    "faction": "qun",
    "role": "official",
+   "camp": "lords",
    "stats": {
     "lead": 40,
     "war": 25,
@@ -16458,6 +16597,7 @@
    "en": "Chen Deng",
    "faction": "qun",
    "role": "official",
+   "camp": "lords",
    "stats": {
     "lead": 58,
     "war": 45,
@@ -16539,6 +16679,7 @@
    "en": "Bao Xin",
    "faction": "qun",
    "role": "general",
+   "camp": "lords",
    "stats": {
     "lead": 70,
     "war": 72,
@@ -16620,6 +16761,7 @@
    "en": "Tao Qian",
    "faction": "qun",
    "role": "lord",
+   "camp": "lords",
    "stats": {
     "lead": 45,
     "war": 35,
@@ -16701,6 +16843,7 @@
    "en": "Han Fu",
    "faction": "qun",
    "role": "lord",
+   "camp": "lords",
    "stats": {
     "lead": 30,
     "war": 28,
@@ -16782,6 +16925,7 @@
    "en": "Guan Hai",
    "faction": "qun",
    "role": "general",
+   "camp": "yellow",
    "stats": {
     "lead": 70,
     "war": 78,
@@ -16863,6 +17007,7 @@
    "en": "Zhang Bao",
    "faction": "qun",
    "role": "general",
+   "camp": "yellow",
    "stats": {
     "lead": 66,
     "war": 74,
@@ -16944,6 +17089,7 @@
    "en": "Zhang Liang",
    "faction": "qun",
    "role": "general",
+   "camp": "yellow",
    "stats": {
     "lead": 64,
     "war": 76,
@@ -17025,6 +17171,7 @@
    "en": "Yu Ji",
    "faction": "qun",
    "role": "official",
+   "camp": "recluse",
    "stats": {
     "lead": 10,
     "war": 10,
@@ -17106,6 +17253,7 @@
    "en": "Yan Baihu",
    "faction": "qun",
    "role": "general",
+   "camp": "lords",
    "stats": {
     "lead": 58,
     "war": 70,
@@ -17187,6 +17335,7 @@
    "en": "Zhang Ji",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 70,
     "war": 74,
@@ -17268,6 +17417,7 @@
    "en": "Fan Chou",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 62,
     "war": 78,
@@ -17349,6 +17499,7 @@
    "en": "Lady Zou",
    "faction": "qun",
    "role": "official",
+   "camp": "dong",
    "stats": {
     "lead": 30,
     "war": 15,
@@ -17430,6 +17581,7 @@
    "en": "Zhang Xian",
    "faction": "qun",
    "role": "general",
+   "camp": "dong",
    "stats": {
     "lead": 58,
     "war": 66,
@@ -17511,6 +17663,7 @@
    "en": "Dong Cheng",
    "faction": "qun",
    "role": "general",
+   "camp": "court",
    "stats": {
     "lead": 60,
     "war": 55,
@@ -17592,6 +17745,7 @@
    "en": "Yan Xing",
    "faction": "qun",
    "role": "general",
+   "camp": "xiliang",
    "stats": {
     "lead": 68,
     "war": 84,
@@ -17673,6 +17827,7 @@
    "en": "He Jin",
    "faction": "qun",
    "role": "lord",
+   "camp": "court",
    "stats": {
     "lead": 40,
     "war": 58,
@@ -17754,6 +17909,7 @@
    "en": "Zhang Miao",
    "faction": "qun",
    "role": "official",
+   "camp": "lords",
    "stats": {
     "lead": 55,
     "war": 50,
@@ -17835,6 +17991,7 @@
    "en": "Xun Chen",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 50,
     "war": 25,
@@ -17916,6 +18073,7 @@
    "en": "Liu Yu",
    "faction": "qun",
    "role": "lord",
+   "camp": "lords",
    "stats": {
     "lead": 60,
     "war": 25,
@@ -17997,6 +18155,7 @@
    "en": "Han Xuan",
    "faction": "qun",
    "role": "lord",
+   "camp": "jing",
    "stats": {
     "lead": 45,
     "war": 50,
@@ -18078,6 +18237,7 @@
    "en": "Liu Yao",
    "faction": "qun",
    "role": "lord",
+   "camp": "lords",
    "stats": {
     "lead": 50,
     "war": 40,
@@ -18159,6 +18319,7 @@
    "en": "Zhang Ren",
    "faction": "qun",
    "role": "general",
+   "camp": "yi",
    "stats": {
     "lead": 82,
     "war": 80,
@@ -18483,6 +18644,7 @@
    "en": "Zhang Song",
    "faction": "qun",
    "role": "official",
+   "camp": "yi",
    "stats": {
     "lead": 25,
     "war": 15,
@@ -18564,6 +18726,7 @@
    "en": "Xu You",
    "faction": "qun",
    "role": "strategist",
+   "camp": "yuanshao",
    "stats": {
     "lead": 45,
     "war": 30,
@@ -18645,6 +18808,7 @@
    "en": "Chen Lin",
    "faction": "qun",
    "role": "official",
+   "camp": "yuanshao",
    "stats": {
     "lead": 30,
     "war": 20,
@@ -18726,6 +18890,7 @@
    "en": "Kuai Liang",
    "faction": "qun",
    "role": "strategist",
+   "camp": "jing",
    "stats": {
     "lead": 50,
     "war": 30,
@@ -18807,6 +18972,7 @@
    "en": "Kuai Yue",
    "faction": "qun",
    "role": "strategist",
+   "camp": "jing",
    "stats": {
     "lead": 60,
     "war": 40,
@@ -18888,6 +19054,7 @@
    "en": "Cai Mao",
    "faction": "qun",
    "role": "general",
+   "camp": "jing",
    "stats": {
     "lead": 72,
     "war": 68,
@@ -18969,6 +19136,7 @@
    "en": "Liu Qi",
    "faction": "qun",
    "role": "official",
+   "camp": "jing",
    "stats": {
     "lead": 45,
     "war": 35,
@@ -19050,6 +19218,7 @@
    "en": "Hou Cheng",
    "faction": "qun",
    "role": "general",
+   "camp": "lubu",
    "stats": {
     "lead": 66,
     "war": 76,
@@ -19131,6 +19300,7 @@
    "en": "Song Xian",
    "faction": "qun",
    "role": "general",
+   "camp": "lubu",
    "stats": {
     "lead": 64,
     "war": 75,
@@ -19212,6 +19382,7 @@
    "en": "Wei Xu",
    "faction": "qun",
    "role": "general",
+   "camp": "lubu",
    "stats": {
     "lead": 63,
     "war": 74,
@@ -21966,6 +22137,7 @@
    "en": "Lü Lingqi",
    "faction": "qun",
    "role": "general",
+   "camp": "lubu",
    "stats": {
     "lead": 66,
     "war": 74,
@@ -22758,6 +22930,7 @@
    "en": "Zhang Yang",
    "faction": "qun",
    "role": "lord",
+   "camp": "lords",
    "stats": {
     "lead": 70,
     "war": 73,
@@ -22837,6 +23010,7 @@
    "en": "Shi Xie",
    "faction": "qun",
    "role": "lord",
+   "camp": "lords",
    "stats": {
     "lead": 58,
     "war": 30,

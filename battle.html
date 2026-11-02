@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0c10">
+<title>삼국지 공방</title>
+<!-- 전장(2026-11-02, 사용자 「배경은 전장맵 — 호로관 · 장판파 · 한중 · 관도 · 이릉 · 적벽 · 오장원을 무협 · 판타지 · sf 다른 구성으로, 맵별 배치도 다르게.
+     진영을 고르면 장수를 이름표로 병과별로 띄우고, 고른 장수를 맵의 지정된 자리에 세운다. 한 번 누르면 그림, 거기서 크게 보기. 군웅은 무리별로」).
+     지도: 그림 저장소 backgrounds/battles/battle-<전장>-<세계>.webp, 자리는 data/battles.json(세계마다 구성이 달라 자리도 세계마다).
+     진영: 위 · 촉 · 오 · 군웅(군웅은 설계표 camp 로 열넷의 무리). 병과는 설계표의 역할 넷(군주 · 무장 · 책사 · 문관 — 사용자 선택).
+     배치는 전장 × 세계마다 이 브라우저에(samguk_battle_v1) — 진영을 섞어 세워도 된다(위 · 촉이 한 지도에서 맞선다). 주소 ?b=&w= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@900&text=%E9%AD%8F%E8%9C%80%E5%90%B3%E9%9B%84&display=swap" media="print" onload="this.media='all'">   <!-- 진영 깃발의 한자 넷만 -->
+<link rel="stylesheet" href="lib/workspace.css?v=4">
+<script src="lib/workspace-theme.js?v=2"></script>
+<script src="lib/words.js?v=4"></script>
+<script src="lib/img.js?v=1"></script>
+<script src="lib/fresh.js?v=1"></script>
+<link rel="stylesheet" href="lib/room.css?v=1">
+<link rel="stylesheet" href="lib/material.css?v=6">
+<link rel="stylesheet" href="lib/battle.css?v=1">
+</head>
+<body class="battle-page">
+<div id="app"></div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
+import {PAGES} from './lib/workspace-ui.js?v=3';
+const W=window.W,IMG=window.AtelierImg,STORE='samguk_battle_v1',SIDES=['wei','shu','wu','qun'],ROLES=['lord','general','strategist','official'];
+const MAP='https://polos0117.github.io/sam-atelier-img/backgrounds/battles/battle-';
+const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')||{}}catch{return {}}};
+const save=v=>{try{localStorage.setItem(STORE,JSON.stringify(v))}catch{}};
+const q=k=>{try{return new URLSearchParams(location.search).get(k)}catch{return null}};
+/* 큰 보기 · 미리 보기의 키 — 페이지에 한 번 걸고, 떠 있는 판이 처리기를 바꿔 끼운다 */
+let KEY=null;
+addEventListener('keydown',e=>{if(KEY)KEY(e);});
+function useDocs(){
+  const [doc,setDoc]=useState(null);
+  useEffect(()=>{
+    Promise.all([
+      fetch('data/sam-design.json').then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch('data/battles.json').then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch('data/style.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
+      fetch(IMG.DATA,{cache:'no-cache'}).then(r=>r.ok?r.json():{img:{}}).catch(()=>({img:{}}))
+    ]).then(([d,b,s,i])=>{IMG.setShards&&IMG.setShards(i);IMG.setAdded&&IMG.setAdded(i);setDoc({d,b,s,img:i.img||{}});}).catch(()=>setDoc({failed:true}));
+  },[]);
+  return doc;
+}
+/* 장수의 세계 그림 — 기본 화풍 먼저, 없으면 다른 화풍 */
+function fileOf(doc,key,world){
+  const e=doc.img[key];if(!e)return null;const m=IMG.styleMap(e);
+  const order=[doc.s.default,...Object.keys(m).filter(k=>k!==doc.s.default)];
+  for(const st of order){const f=m[st]&&IMG.formMap(m[st])[world];if(f&&f.f)return f.f;}
+  return null;
+}
+function pick(doc,key,w){
+  const f=fileOf(doc,key,w);if(f)return {file:f,world:w};
+  for(const x of doc.d.vocab.worlds){const g=fileOf(doc,key,x);if(g)return {file:g,world:x,from:true};}
+  return null;
+}
+const sideOf=g=>g.faction;
+const facOf=(doc,k)=>doc.d.factions.find(f=>f.key===k);
+/* 장수 그림 한 장 — 원본이 오는 동안 썸네일을 깐다 */
+function Pic({doc,g,w,big,cls}){
+  const p=pick(doc,g.key,w);
+  if(!p)return h('span',{class:'b-pic none'+(cls?' '+cls:'')},h('span',null,W('battle.noart')));
+  return h('span',{class:'b-pic'+(cls?' '+cls:''),style:big?{backgroundImage:'url("'+IMG.thumbURL(p.file)+'")'}:null},
+    h('img',{key:p.file,src:big?IMG.imgURL(p.file):IMG.thumbURL(p.file),alt:'',decoding:'async',onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(p.file);}}),
+    p.from&&h('span',{class:'from'},W('battle.from',{world:W('world.'+p.world)})));
+}
+/* 위 막대 — 타이틀 · 전장 이름 · 세계 · 공방 화면 */
+function Bar({doc,st,set}){
+  return h('header',{class:'b-bar'},
+    h('a',{class:'b-home',href:'index.html'},h('span',{'aria-hidden':'true'},'◆'),h('b',null,W('app.title'))),
+    h('div',{class:'b-worlds',role:'group','aria-label':W('battle.world')},doc.d.vocab.worlds.map(w=>h('button',{key:w,type:'button','data-w':w,'aria-pressed':st.w===w,onClick:()=>set({w})},W('world.'+w)))),
+    h('nav',{class:'b-pages','aria-label':W('battle.nav')},PAGES.filter(k=>k!=='battle').map(k=>h('a',{key:k,href:k+'.html'},W('nav.'+k)))));
+}
+/* 미리 보기 — 이름표 · 자리를 누르면. 여기서 배치하기 · 크게 보기 · 빼기 */
+function Peek({doc,st,g,at,close,place,remove,open}){
+  KEY=e=>{if(e.key==='Escape')close();};
+  const fac=facOf(doc,g.faction),slotKo=at&&at.ko;
+  return h('div',{class:'b-peek-wrap',onClick:e=>{if(e.target===e.currentTarget)close();}},
+    h('section',{class:'b-peek',role:'dialog','aria-modal':'true','aria-label':g.key,'data-fac':g.faction},
+      h('button',{type:'button',class:'b-peek-pic',onClick:open,'aria-label':W('battle.open')},h(Pic,{doc,g,w:st.w,big:true})),
+      h('div',{class:'b-peek-text'},
+        h('p',{class:'b-tier'},fac.hanja+' '+fac.ko+' · '+doc.d.roles[g.role].ko+(g.camp?' · '+(fac.camps.find(c=>c.key===g.camp)||{}).ko:'')),
+        h('h2',null,g.key,h('small',null,g.en)),
+        g.lore&&h('p',{class:'b-lore'},g.lore),
+        g.summary&&g.summary.ko&&h('p',{class:'b-sum'},g.summary.ko),
+        slotKo&&h('p',{class:'b-at'},W('battle.at',{slot:slotKo})),
+        !pick(doc,g.key,st.w)&&h('a',{class:'b-draw',href:'prompt.html?card='+encodeURIComponent(g.key)+'&world='+st.w},W('battle.draw')),
+        h('div',{class:'b-acts'},
+          h('button',{type:'button',class:'b-act main','data-act':'place',onClick:place},W(at?'battle.move':'battle.place')),
+          pick(doc,g.key,st.w)&&h('button',{type:'button',class:'b-act','data-act':'open',onClick:open},W('battle.open')),
+          at&&h('button',{type:'button',class:'b-act','data-act':'remove',onClick:remove},W('battle.remove')),
+          h('button',{type:'button',class:'b-act','data-act':'close',onClick:close},W('battle.close'))))));
+}
+/* 크게 보기 — 화면 가득. ← → 로 세계, Esc 로 닫기 */
+function Big({doc,st,set,g,close}){
+  const lives=doc.d.vocab.worlds.filter(w=>fileOf(doc,g.key,w)),touch=useRef(null);
+  const step=d=>{if(lives.length<2)return;const i=lives.indexOf(st.w);set({w:lives[((i<0?0:i)+d+lives.length)%lives.length]});};
+  KEY=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1);};
+  useEffect(()=>{lives.filter(w=>w!==st.w).forEach(w=>{const i=new Image();i.src=IMG.imgURL(fileOf(doc,g.key,w));});},[g.key]);
+  const p=pick(doc,g.key,st.w),fac=facOf(doc,g.faction);
+  return h('section',{class:'b-big',role:'dialog','aria-modal':'true','aria-label':g.key,'data-fac':g.faction,
+      onTouchStart:e=>{touch.current=e.touches[0].clientX;},onTouchEnd:e=>{if(touch.current==null)return;const dx=e.changedTouches[0].clientX-touch.current;touch.current=null;if(Math.abs(dx)>50)step(dx<0?1:-1);}},
+    h('button',{type:'button',class:'b-close',onClick:close},W('battle.close')),
+    p&&h('div',{class:'b-big-bg','aria-hidden':'true',style:{backgroundImage:'url("'+IMG.thumbURL(p.file)+'")'}}),
+    h('div',{class:'b-big-stage'},
+      lives.length>1&&h('button',{type:'button',class:'b-step prev','aria-label':W('battle.prev'),onClick:()=>step(-1)},'‹'),
+      h(Pic,{doc,g,w:st.w,big:true,cls:'b-big-pic'}),
+      lives.length>1&&h('button',{type:'button',class:'b-step next','aria-label':W('battle.next'),onClick:()=>step(1)},'›')),
+    h('div',{class:'b-big-text',key:g.key+st.w},
+      h('p',{class:'b-tier'},fac.hanja+' '+fac.ko+' · '+doc.d.roles[g.role].ko+' · '+W('world.'+st.w)),
+      h('h1',null,g.key,h('small',null,g.en)),
+      g.lore&&h('p',{class:'b-lore'},g.lore),
+      g.summary&&g.summary.ko&&h('p',{class:'b-sum'},g.summary.ko)));
+}
+/* 지도 — 그림 위에 자리 표시. 배치하기 중이면 자리가 빛나고, 누르면 그 자리에 선다 */
+function Field({doc,st,battle,place,placing,onSlot}){
+  const wd=battle.worlds[st.w],names=Object.fromEntries(battle.slots.map(s=>[s.key,s.ko]));
+  return h('div',{class:'b-field-scroll'},
+    h('div',{class:'b-field'+(placing?' placing':''),style:{'--map':'url("'+MAP+battle.key+'-'+st.w+'.webp")'}},
+      h('img',{class:'b-map',key:battle.key+st.w,src:MAP+battle.key+'-'+st.w+'.webp',alt:'',decoding:'async'}),
+      wd.slots.map(s=>{const gk=place[s.key],g=gk&&doc.d.generals.find(x=>x.key===gk),ko=s.ko||names[s.key];
+        return h('button',{key:s.key,type:'button',class:'b-slot'+(g?' on':'')+(s.x<22?' l':s.x>78?' r':''),'data-slot':s.key,'data-fac':g&&g.faction,style:{left:s.x+'%',top:s.y+'%'},
+            'aria-label':g?W('battle.slot.of',{slot:ko,name:g.key}):W('battle.slot.empty',{slot:ko}),onClick:()=>onSlot(s,g)},
+          g?h('b',null,h('i',null,facOf(doc,g.faction).hanja),g.key):h('span',{class:'dot','aria-hidden':'true'}),
+          h('small',null,ko));})));
+}
+/* 진영 · 무리 · 역할별 이름표 */
+function Roster({doc,st,set,place,onName}){
+  const fac=facOf(doc,st.side),camps=st.side==='qun'?fac.camps:null,camp=camps&&(camps.find(c=>c.key===st.camp)||camps[0]);
+  const gs=doc.d.generals.filter(g=>g.faction===st.side&&(!camp||g.camp===camp.key));
+  const placed=new Set(Object.values(place));
+  return h('aside',{class:'b-roster','data-fac':st.side},
+    h('div',{class:'b-sides',role:'group','aria-label':W('battle.side')},SIDES.map(k=>{const f=facOf(doc,k);return h('button',{key:k,type:'button','data-side':k,'data-fac':k,'aria-pressed':st.side===k,onClick:()=>set({side:k})},h('i',null,f.hanja),f.ko);})),
+    camps&&h('div',{class:'b-camps',role:'group','aria-label':W('battle.camp')},camps.map(c=>h('button',{key:c.key,type:'button','data-camp':c.key,'aria-pressed':camp.key===c.key,title:c.note,onClick:()=>set({camp:c.key})},c.ko))),
+    h('h2',null,W('battle.roster',{side:camp?camp.ko:fac.ko,n:gs.length})),
+    ROLES.map(r=>{const rs=gs.filter(g=>g.role===r);if(!rs.length)return null;
+      return h('section',{key:r,class:'b-role'},h('h3',null,doc.d.roles[r].ko,h('span',null,rs.length)),
+        h('div',{class:'b-names'},rs.map(g=>h('button',{key:g.key,type:'button',class:'b-name'+(placed.has(g.key)?' placed':'')+(fileOf(doc,g.key,st.w)?' art':''),'data-g':g.key,'data-fac':g.faction,onClick:()=>onName(g)},g.key))));}));
+}
+function App(){
+  const doc=useDocs(),saved=load();
+  const [st,setSt]=useState(()=>({b:q('b')||saved.b||'hulao',w:q('w')||saved.w||'samguk',side:saved.side||'shu',camp:saved.camp||'',places:saved.places||{}}));
+  const [ui,setUi]=useState({peek:null,big:null,placing:null});
+  const set=p=>setSt(s=>{const n=Object.assign({},s,p);save(n);try{const u=new URLSearchParams(location.search);u.set('b',n.b);u.set('w',n.w);history.replaceState(null,'','?'+u);}catch(e){}return n;});
+  useEffect(()=>{document.documentElement.dataset.world=st.w;},[st.w]);
+  useEffect(()=>{const b=document.querySelector('.b-bar');if(b)document.documentElement.style.setProperty('--bar-h',b.offsetHeight+'px');});
+  if(!doc)return h('p',{class:'b-wait'},W('battle.loading'));
+  if(doc.failed)return h('p',{class:'b-wait'},W('battle.fail'));
+  const battle=doc.b.battles.find(x=>x.key===st.b)||doc.b.battles[0],pk=battle.key+'|'+st.w,place=st.places[pk]||{};
+  const slotOf=gk=>{const k=Object.keys(place).find(s=>place[s]===gk);if(!k)return null;const s=battle.worlds[st.w].slots.find(x=>x.key===k);return {key:k,ko:s&&s.ko||battle.slots.find(x=>x.key===k).ko};};
+  const setPlace=np=>set({places:Object.assign({},st.places,{[pk]:np})});
+  const assign=(slot,gk)=>{const np={};for(const [k,v] of Object.entries(place))if(v!==gk&&k!==slot)np[k]=v;np[slot]=gk;setPlace(np);};
+  const unassign=gk=>{const np={};for(const [k,v] of Object.entries(place))if(v!==gk)np[k]=v;setPlace(np);};
+  if(!ui.peek&&!ui.big&&!ui.placing)KEY=null;
+  if(ui.placing)KEY=e=>{if(e.key==='Escape')setUi({peek:null,big:null,placing:null});};
+  const onSlot=(s,g)=>{
+    if(ui.placing){assign(s.key,ui.placing.key);setUi({peek:null,big:null,placing:null});return;}
+    if(g)setUi({peek:g,big:null,placing:null});
+  };
+  const placedN=Object.keys(place).length,allN=battle.worlds[st.w].slots.length;
+  return h('div',{class:'b-shell'},
+    h(Bar,{doc,st,set}),
+    h('nav',{class:'b-battles','aria-label':W('battle.pick')},doc.b.battles.map(x=>h('button',{key:x.key,type:'button','data-b':x.key,'aria-pressed':x.key===battle.key,onClick:()=>{set({b:x.key});setUi({peek:null,big:null,placing:null});}},h('b',null,x.ko),h('small',null,W('battle.year',{year:x.year}))))),
+    h('main',{class:'b-main'},
+      h('section',{class:'b-war'},
+        h('div',{class:'b-war-head'},h('h1',null,battle.ko),h('p',null,battle.note),h('span',{class:'b-count'},W('battle.placed',{n:placedN,all:allN})),
+          placedN>0&&h('button',{type:'button',class:'b-clear',onClick:()=>{if(confirm(W('battle.clear.ok')))setPlace({});}},W('battle.clear'))),
+        ui.placing&&h('div',{class:'b-placing',role:'status'},h('span',null,W('battle.placing',{name:ui.placing.key})),h('button',{type:'button',onClick:()=>setUi({peek:null,big:null,placing:null})},W('battle.cancel'))),
+        h(Field,{doc,st,battle,place,placing:ui.placing,onSlot}),
+        !ui.placing&&h('p',{class:'b-hint'},W('battle.hint'))),
+      h(Roster,{doc,st,set,place,onName:g=>setUi({peek:g,big:null,placing:null})})),
+    ui.peek&&h(Peek,{doc,st,g:ui.peek,at:slotOf(ui.peek.key),close:()=>setUi({peek:null,big:null,placing:null}),
+      place:()=>{setUi({peek:null,big:null,placing:ui.peek});const f=document.querySelector('.b-field-scroll');if(f)f.scrollIntoView({block:'start',behavior:'smooth'});},
+      remove:()=>{unassign(ui.peek.key);setUi({peek:null,big:null,placing:null});},
+      open:()=>setUi({peek:null,big:ui.peek,placing:null})}),
+    ui.big&&h(Big,{doc,st,set,g:ui.big,close:()=>setUi({peek:ui.big,big:null,placing:null})}));
+}
+render(h(App),document.getElementById('app'));
+window.AtelierFresh.watch();
+</script>
+</body>
+</html>

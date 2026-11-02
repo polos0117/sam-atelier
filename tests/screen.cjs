@@ -60,7 +60,7 @@ const P = ctx0.window.AtelierPrompt;
     /* ── 타이틀(2026-11-02) — 메뉴 다섯 · 공간 ◀ ▶ · 배경 장면이 화면에 ── */
     let tv = await open('/index.html', vp);
     await tv.page.waitForSelector('#m-draft span');
-    assert.deepEqual(await tv.page.locator('.menu-btn').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['hall.html', 'draft.html', 'dex.html', 'prompt.html'], '메뉴 넷 — 머리 메뉴와 같은 차례');
+    assert.deepEqual(await tv.page.locator('.menu-btn').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['hall.html', 'draft.html', 'battle.html', 'dex.html', 'prompt.html'], '메뉴 다섯 — 머리 메뉴와 같은 차례');
     const t0 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
     await tv.page.click('#next'); const t1 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
     assert.notEqual(t0, t1, '◀ ▶ 로 공간이 바뀐다'); assert.match(await tv.page.locator('#s-name').textContent(), /공간 · /);
@@ -75,6 +75,34 @@ const P = ctx0.window.AtelierPrompt;
       await tv.page.locator('#s-name').click(); assert.equal(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), false, '메뉴 안은 그대로'); }
     await noOverflow(tv.page, vp.width + ' 타이틀');
     assert.deepEqual(tv.errors, [], '타이틀 콘솔'); await tv.ctx.close(); checks += 6;
+    /* ── 전장(2026-11-02) — 일곱 전장 · 세계마다 지도와 자리 · 진영(군웅은 무리) · 역할별 이름표 → 미리 보기 → 배치하기 → 자리 · 크게 보기 ── */
+    {
+      const BT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/battles.json'), 'utf8'));
+      let bv = await open('/battle.html?b=changban&w=samguk', vp), bp = bv.page;
+      await bp.evaluate(() => { try { localStorage.removeItem('samguk_battle_v1'); } catch (e) {} });
+      await bp.reload(); await bp.waitForSelector('.b-slot');
+      assert.equal(await bp.locator('.b-battles button').count(), BT.battles.length, '전장 일곱');
+      const cb = BT.battles.find(b => b.key === 'changban');
+      assert.equal(await bp.locator('.b-slot').count(), cb.worlds.samguk.slots.length, '자리 — 그 세계 지도의 것');
+      assert.match(await bp.locator('.b-map').getAttribute('src'), /battle-changban-samguk\.webp/);
+      await bp.click('.b-sides [data-side="shu"]');
+      assert.equal(await bp.locator('.b-name').count(), D.generals.filter(g => g.faction === 'shu').length, '촉 이름표 — 역할별');
+      await bp.click('.b-name[data-g="조운"]'); await bp.waitForSelector('.b-peek');
+      await bp.click('.b-act[data-act="place"]'); await bp.click('.b-slot[data-slot="bridge"]');
+      assert.match(await bp.locator('.b-slot[data-slot="bridge"]').textContent(), /조운/, '고른 자리에 선다');
+      await bp.click('.b-worlds [data-w="fantasy"]');
+      assert.match(await bp.locator('.b-map').getAttribute('src'), /battle-changban-fantasy\.webp/, '세계를 바꾸면 그 세계 지도');
+      assert.doesNotMatch(await bp.locator('.b-slot[data-slot="bridge"]').textContent(), /조운/, '배치는 전장 × 세계마다');
+      await bp.click('.b-sides [data-side="qun"]');
+      assert.equal(await bp.locator('.b-camps button').count(), D.factions.find(f => f.key === 'qun').camps.length, '군웅은 무리로');
+      await bp.click('.b-camps [data-camp="lubu"]');
+      assert.deepEqual((await bp.locator('.b-name').allTextContents()).sort(), D.generals.filter(g => g.camp === 'lubu').map(g => g.key).sort(), '여포군만');
+      await bp.click('.b-worlds [data-w="samguk"]'); await bp.click('.b-slot[data-slot="bridge"]'); await bp.waitForSelector('.b-peek');
+      assert.match(await bp.locator('.b-peek').textContent(), /장판교/, '선 자리를 누르면 그 장수 — 서 있는 자리');
+      if (await bp.locator('.b-act[data-act="open"]').count()) { await bp.click('.b-act[data-act="open"]'); await bp.waitForSelector('.b-big'); await bp.keyboard.press('Escape'); await bp.waitForSelector('.b-peek'); }
+      await bp.click('.b-act[data-act="remove"]'); assert.doesNotMatch(await bp.locator('.b-slot[data-slot="bridge"]').textContent(), /조운/, '자리에서 빼기');
+      await noOverflow(bp, vp.width); assert.deepEqual(bv.errors, [], '전장 콘솔'); checks += 10; await bv.ctx.close();
+    }
     /* ── 군막(처음엔 첫 화면) — 문 셋 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
     let hv = await open('/hall.html', vp);
     await hv.page.waitForSelector('.factions .nation-card');
@@ -165,5 +193,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 타이틀(메뉴 넷 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 전장(일곱 전장 · 세계마다 지도 · 진영 · 군웅 무리 · 이름표 → 미리 보기 → 배치 · 크게 보기 · 빼기) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

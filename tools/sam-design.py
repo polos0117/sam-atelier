@@ -200,7 +200,7 @@ def seed():
             g['designed'] = 'auto'
         g.setdefault('designed', 'auto')
         out.append(g)
-    order = ['key', 'en', 'faction', 'role', 'stats', 'seal', 'lore', 'designed', 'design_by', 'design_date', 'redo', 'summary', 'title', 'traits', 'hold', 'look', 'worlds', 'history']
+    order = ['key', 'en', 'faction', 'role', 'camp', 'stats', 'seal', 'lore', 'designed', 'design_by', 'design_date', 'redo', 'summary', 'title', 'traits', 'hold', 'look', 'worlds', 'history']
     d['generals'] = [{k: g[k] for k in order if k in g} | {k: v for k, v in g.items() if k not in order} for g in out]
     save(d)
     print('장수 %d — %s' % (len(out), ' · '.join('%s %d' % (st, sum(1 for g in out if g['designed'] == st)) for st in STATES)))
@@ -256,6 +256,12 @@ def check():
             errs.append('%s 세력' % k)
         if g.get('role') not in roles:
             errs.append('%s 역할' % k)
+        # 군웅은 소속 진영(camp)으로 나눈다 — 전장 화면이 이걸로 진영을 고른다(2026-11-02)
+        camps = {c['key'] for c in (facs.get('qun') or {}).get('camps') or []}
+        if g.get('faction') == 'qun' and g.get('camp') not in camps:
+            errs.append('%s 군웅 소속(camp) — %s' % (k, ' · '.join(sorted(camps))))
+        if g.get('faction') != 'qun' and 'camp' in g:
+            errs.append('%s camp 는 군웅만' % k)
         if not g.get('en'):
             errs.append('%s 영문 이름' % k)
         if g.get('designed') not in STATES:
