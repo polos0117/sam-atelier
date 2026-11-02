@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "삼국지 설계표(2026-11-02) — 장수 한 명이 여성 한 명. 세계 셋(삼국시대풍 · 서양 중세 판타지풍 · 메카풍)마다 다른 사람으로 그린다(사용자 2026-11-02 「삼국시대풍, 서양 중세 판타지 시대풍, 메카풍으로 나눠서 이것도 여성의인화」). 장수 목록·세력·역할·능력치·일화·낙관은 게임(index.html)의 표에서 tools/sam-design.py seed 가 받는다 — 게임은 그대로 둔다. 세력(factions)은 팔레트와 세계 글 · 장면 셋, 역할(roles)은 세계마다 차림과 일상컷에서 드는 기본 물건, 장수(generals)는 손 설계(designed: hand — title · traits · hold · look 을 직접)와 자동(designed: auto — 세력 팔레트 · 역할 · 열쇠로 돌린 look)으로 나뉜다. 고치면 python3 tools/sam-design.py check. 체형은 볼륨 · 굴곡이 있는 여덟 갈래만(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」 — hourglass · voluptuous · curvy · curvy_athletic · busty_slender · tall_curvy · strong_curvy · petite_curvy). 장신 · 건장 · 아담 · 마른 체형은 같은 결의 굴곡 체형으로 옮겼다.",
+ "note": "삼국지 설계표(2026-11-02) — 장수 한 명이 여성 한 명. 세계 셋(삼국시대풍 · 서양 중세 판타지풍 · 메카풍)마다 다른 사람으로 그린다(사용자 2026-11-02 「삼국시대풍, 서양 중세 판타지 시대풍, 메카풍으로 나눠서 이것도 여성의인화」). 장수 목록·세력·역할·능력치·일화·낙관은 게임(index.html)의 표에서 tools/sam-design.py seed 가 받는다 — 게임은 그대로 둔다. 세력(factions)은 팔레트와 세계 글 · 장면 셋, 역할(roles)은 세계마다 차림과 일상컷에서 드는 기본 물건, 장수(generals)는 손 설계(designed: hand — title · traits · hold · look 을 직접)와 자동(designed: auto — 세력 팔레트 · 역할 · 열쇠로 돌린 look)으로 나뉜다. 고치면 python3 tools/sam-design.py check. 체형은 볼륨 · 굴곡이 있는 여덟 갈래만(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」 — hourglass · voluptuous · curvy · curvy_athletic · busty_slender · tall_curvy · strong_curvy · petite_curvy). 장신 · 건장 · 아담 · 마른 체형은 같은 결의 굴곡 체형으로 옮겼다. 메카 세계는 우주 · SF 배경(사용자 2026-11-02 「메카쪽은 배경을 좀 더 sf 쪽이나 우주쪽으로」).",
  "vocab": {
   "worlds": [
    "samguk",
@@ -74,24 +74,24 @@
      ]
     },
     "mecha": {
-     "ko": "2190 위 연방 — 북방 요새 도시, 함대 사령부, 궤도 기병대",
-     "en": "year 2190, the Wei Federation: a militarised northern megacity of navy-black towers, capital ships in orbit, orbital cavalry squadrons, cold floodlights and snow over landing pads",
+     "ko": "2190 위 연방 — 궤도 요새, 기함 함대, 행성을 내려다보는 우주",
+     "en": "year 2190, the Wei Federation in orbit: a navy-black orbital fortress and capital-ship fleet above a cold blue planet, starfields and a distant sun, hard white floodlights on armored hulls",
      "design": "navy-blue and black lacquer heavy plating with cold steel-silver edges, angular command fins, a disciplined symmetrical frame, cold blue glow lines",
      "scenes": [
       {
        "key": "bridge",
        "ko": "기함 함교",
-       "en": "the command bridge of a navy-black capital ship, tactical holograms and stars beyond the viewport"
+       "en": "the command bridge of a navy-black capital ship, tactical holograms and the curve of a planet beyond the viewport"
       },
       {
-       "key": "pad",
-       "ko": "눈 내리는 발진대",
-       "en": "a snow-swept launch pad under floodlights, frames lined up behind her"
+       "key": "hangar",
+       "ko": "궤도 격납고",
+       "en": "an orbital hangar bay open to space, frames racked behind her, stars and a blue planet below"
       },
       {
-       "key": "tower",
-       "ko": "요새 도시 첨탑",
-       "en": "atop a fortress tower of the northern megacity at night, a sea of cold lights below"
+       "key": "fortress",
+       "ko": "궤도 요새 외벽",
+       "en": "on the outer gantry of an orbital fortress, a fleet of capital ships drifting against the starfield"
       }
      ]
     }
@@ -150,24 +150,24 @@
      ]
     },
     "mecha": {
-     "ko": "2190 촉 산악 아콜로지 — 안개 분지의 계단 도시, 절벽 자기부상 레일",
-     "en": "year 2190, the Shu mountain arcology: terraced green cities in a mist-filled basin, maglev rails clinging to cliff faces, hydroponic bamboo towers, drone lanterns in the fog",
+     "ko": "2190 촉 개척 위성 — 옥빛 위성의 돔 도시, 고리 행성, 궤도 엘리베이터",
+     "en": "year 2190, the Shu frontier colony on a jade-green moon: terraced garden cities under vast glass domes, a ringed gas giant filling the sky, an orbital elevator climbing into space, starship docks glowing green",
      "design": "jade-green and white plating with imperial-gold trims, organic layered armor like overlapping leaves, a resilient all-terrain frame, warm green glow lines",
      "scenes": [
       {
-       "key": "rail",
-       "ko": "절벽 레일",
-       "en": "a maglev rail platform on a sheer cliff face above a sea of fog"
+       "key": "dome",
+       "ko": "돔 정원 도시",
+       "en": "inside a vast glass dome over terraced gardens, a ringed gas giant hanging in the sky above"
       },
       {
-       "key": "terrace",
-       "ko": "계단 도시",
-       "en": "the terraced green arcology at dawn, hydroponic towers and drone lanterns"
+       "key": "elevator",
+       "ko": "궤도 엘리베이터",
+       "en": "on the platform of an orbital elevator high above the jade-green moon, stars all around"
       },
       {
-       "key": "hangar",
-       "ko": "산속 격납고",
-       "en": "a mountain-cut hangar with frames under repair, green work lights"
+       "key": "dock",
+       "ko": "우주선 도크",
+       "en": "a starship dock with green work lights, a frigate under repair and open space beyond"
       }
      ]
     }
@@ -226,24 +226,24 @@
      ]
     },
     "mecha": {
-     "ko": "2190 오 해상 아콜로지 — 삼각주의 떠 있는 도시, 항모 함대, 붉은 호버선",
-     "en": "year 2190, the Wu naval arcology: a floating city on the Yangtze delta, carrier fleets and crimson hover-ships, rain-slick decks and neon reflections on the water",
+     "ko": "2190 오 항모 함대 — 바다 행성 궤도, 붉은 우주선, 성운",
+     "en": "year 2190, the Wu carrier fleet in orbit above an ocean world: crimson starships and carriers, a glowing nebula, the planet's blue oceans and storm clouds below, neon running lights on the hulls",
      "design": "crimson and black lacquer plating with gold edges, streamlined naval hull shapes and fin binders, hydrojet thrusters, flame-orange glow lines",
      "scenes": [
       {
-       "key": "carrier",
-       "ko": "항모 갑판",
-       "en": "the flight deck of a carrier at sea in the rain, crimson hover-ships launching"
+       "key": "deck",
+       "ko": "항모 비행갑판",
+       "en": "the open flight deck of a space carrier, crimson fighters launching toward a nebula"
       },
       {
-       "key": "delta",
-       "ko": "떠 있는 도시",
-       "en": "a floating city platform on the delta at dusk, neon reflections on the river"
+       "key": "shipyard",
+       "ko": "궤도 조선소",
+       "en": "an orbital shipyard where a crimson cruiser is being built, welding sparks against the stars"
       },
       {
-       "key": "dock",
-       "ko": "수상 도크",
-       "en": "a waterside dock where frames rise dripping from the river"
+       "key": "ocean",
+       "ko": "바다 행성 위",
+       "en": "an observation deck above the ocean world, its storms and seas glowing below"
       }
      ]
     }
@@ -302,24 +302,24 @@
      ]
     },
     "mecha": {
-     "ko": "2190 자유 구역 — 세 세력 사이 무법 지대, 무너진 수도 거대 구조물, 난파선 요새",
-     "en": "year 2190, the Free Zones between the three powers: ruined megastructures of the old capital, warlord fortresses built from wrecked ships, desert and jungle frontiers, violet warning lights",
+     "ko": "2190 자유 구역 — 무법의 소행성대, 소행성 요새, 난파 우주선, 보라 성운",
+     "en": "year 2190, the Free Zones — a lawless asteroid belt between the three powers: warlord fortresses carved into asteroids, wrecked starships drifting in the dark, a violet nebula, warning lights blinking",
      "design": "mismatched violet and tarnished-gold plating with bronze patches and battle scars, aggressive spiked silhouette, salvaged parts and warlord insignia shapes, violet glow lines",
      "scenes": [
       {
+       "key": "asteroid",
+       "ko": "소행성 요새",
+       "en": "a warlord fortress carved into an asteroid, violet floodlights and drifting rocks"
+      },
+      {
        "key": "wreck",
-       "ko": "난파선 요새",
-       "en": "a warlord fortress built from a wrecked capital ship, violet floodlights"
+       "ko": "난파 우주선",
+       "en": "on the hull of a wrecked capital ship drifting in the asteroid belt, the violet nebula behind"
       },
       {
-       "key": "oldcap",
-       "ko": "옛 수도 폐허",
-       "en": "the ruined megastructures of the old capital, burning skyline behind"
-      },
-      {
-       "key": "jungle",
-       "ko": "밀림 전선",
-       "en": "a jungle frontier outpost in steaming rain, vines over broken frames"
+       "key": "market",
+       "ko": "소행성 암시장",
+       "en": "a neon-lit black-market hangar inside an asteroid, ships docked overhead"
       }
      ]
     }
@@ -555,7 +555,7 @@
    "worlds": {
     "samguk": {
      "traits": {
-      "en": "a green battle robe worn over her armor, reading the Spring and Autumn Annals by lamplight"
+      "en": "a green battle robe worn over her armor, a small bamboo-slip scroll of the Spring and Autumn Annals tied at her belt as an ornament (never held in her hands)"
      }
     }
    }
