@@ -186,22 +186,22 @@
 @media (max-width:700px) {.find-row .find {max-width:none}}
 
 /* ── 첫 화면(2026-11-02) — 문 넷 · 세력 카드 · 최근 그림 ── */
-.home-doors {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.home-doors .door {display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;min-height:56px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:inherit;text-decoration:none}
-.home-doors .door b {font-size:17px}
-.home-doors .door.main {background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.home-doors .door:hover {box-shadow:var(--shadow)}
+/* 문 셋 — 타이틀과 같은 그림 단추(lib/material.css --ui-main · --ui-btn), 이름은 공간의 제목 글꼴로. 그림이 늦으면 글씨만 남아도 읽히게 그림자 */
+.home-doors {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 14px;margin-top:16px}
+.home-doors .door {display:flex;align-items:center;justify-content:center;aspect-ratio:5.7;padding:0 20%;background:var(--ui-btn) center/contain no-repeat;color:#fff8ec;text-decoration:none;text-shadow:0 1px 2px #000,0 0 8px #000a;filter:drop-shadow(0 5px 9px #0007);transition:transform .15s,filter .15s}
+.home-doors .door b {font:400 19px/1.1 var(--gallery-serif,serif);letter-spacing:.06em;white-space:nowrap}
+.home-doors .door.main {background-image:var(--ui-main);color:var(--ui-main-ink);text-shadow:0 1px 0 var(--ui-main-shadow)}
+.home-doors .door:hover {transform:translateY(-2px);filter:drop-shadow(0 5px 9px #0007) drop-shadow(0 0 10px var(--ui-glow)) brightness(1.08)}
+.home-doors .door:focus-visible {outline:2px solid var(--ui-glow);outline-offset:-6px;border-radius:12px}
+@media (max-width:640px) {.home-doors {grid-template-columns:minmax(0,1fr);max-width:400px;margin-inline:auto}}   /* 폰 — 타이틀처럼 위에서 아래로 */
+@media (prefers-reduced-motion:reduce) {.home-doors .door {transition:none} .home-doors .door:hover {transform:none}}
 .factions .nation-top .sym {font-family:var(--gallery-serif,serif)}
 .recent-grid {display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
 .recent-grid a {display:block;color:inherit;text-decoration:none;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
 .recent-grid img {display:block;width:100%;aspect-ratio:2/3;object-fit:cover;object-position:center top}
 .recent-grid .cap {display:block;padding:5px 7px;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (max-width:900px) {.recent-grid {grid-template-columns:repeat(4,minmax(0,1fr))}}
-.home-doors .door b {white-space:nowrap}
-@media (max-width:520px) {.home-doors {gap:6px} .home-doors .door b {font-size:15px} html:root .home-doors .door.door {padding-left:10px;padding-right:10px}}   /* 폰 — 문 셋이 한 줄, 이름이 꺾이지 않게(공간 꾸밈의 양끝 여백보다 앞선다) */
 
 /* 공간의 세 색이 부딪히게(2026-11-02 공간 아홉) — 제목 밑에 주색 · 맞색 · 금속 세 띠, 머리말 · 문 이름은 맞색(카드 위 대비 4.5:1 이상을 검사했다) */
 .ek-section > h2::after {content:'';display:block;width:56px;height:3px;margin-top:8px;border-radius:2px;background:linear-gradient(90deg,var(--accent) 0 34%,var(--signal) 34% 67%,var(--gold) 67% 100%)}
 .ek-kicker {color:var(--signal)}
-.home-doors .door:not(.main) b {color:var(--signal)}
-.home-doors .door:not(.main):hover {border-color:var(--gold)}

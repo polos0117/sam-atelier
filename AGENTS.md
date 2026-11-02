@@ -20,13 +20,18 @@
 | 화면 | 파일 | 무엇 |
 |---|---|---|
 | 타이틀 | `index.html` | 게임 첫 진입 화면처럼(2026-11-02 「배경이 너무 안 보인다 — 메인화면을 게임 첫 진입화면처럼」): 공간의 배경 장면을 화면 가득, 장식 틀 안에 공방 현판과 큰 메뉴 넷(머리 메뉴와 같은 차례 — 군막 · 드래프트 · 도감 · 프롬프트, 오늘의 대국은 게임 안 새 대국 설정 단추로, 같은 게임이라 2026-11-02 뺐다), ◀ ▶ · ← → 로 공간 넘기기. 예전 게임 주소의 몫(`?daily` · `?local` · `#sam-transfer`)은 `draft.html` 로 그대로 넘긴다 |
-| 군막 | `hall.html` · `lib/sam.css` | 공방 안내판(처음엔 첫 화면): 문 셋(드래프트 · 도감 · 프롬프트) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수) · 최근 그림 여덟 · 패치 기록 · 공간 고르기 |
+| 군막 | `hall.html` · `lib/sam.css` | 공방 안내판(처음엔 첫 화면): 문 셋(드래프트 · 도감 · 프롬프트 — 타이틀과 같은 공간별 그림 단추) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수) · 최근 그림 여덟 · 패치 기록 · 공간 고르기 |
 | 드래프트(게임) | `draft.html` · `lib/speech.js` · `lib/today.js` · `lib/sprite-actor.*` · `data/sprites.json` · `images/` | **손대지 않는다.** 초상(`images/portraits` · `images/large`)은 게임 것이다 — 새 그림 구조와 따로 |
 | 도감 | `dex.html` · `lib/img.js` · `lib/sam.css` | 세력 하나 — 역할 차례(군주 · 무장 · 책사 · 문관)로 장수마다 세계 셋 · 접는 일상컷 · 다른 화풍, 크게 보기(넘기기 · 뒤로 가기는 팝업만) · 즐겨찾기(a: samguk) · 이름 찾기 · 그림 있는 것만. 빈 칸을 누르면 그 장수 · 세계의 생성기 |
 | 프롬프트 | `prompt.html` · `lib/studio.js` · `lib/studio.css` · `lib/prompt-spec.js`(표) · `lib/look-spec.js`(외형 어휘) · `lib/prompt-sam.js`(조립) · `lib/casual-tree*.js` · `data/casual-tree*.json` | 세력 › 장수 › 갈래(세계 그림 · 일상컷) › 단계. 고른 것은 이 브라우저에(`samguk_studio_v1`), 주소 `?card=&o=&world=` |
 
 머리 · 항해 · ⚙ 설정은 `lib/workspace-ui.js`(화면 차례 `PAGES` — 「군막(게임)」 은 게임으로 간다), 공간은 `lib/workspace-theme.js` · `lib/workspace.css` · `lib/room.css` — 공간 아홉(2026-11-02 다시 짬 — 사용자 「한 가지 색의 명도·채도만 바꾸는 지루한 조합 말고, 서로 다른 계열의 색이 부딪히며 내러티브를 만드는 팔레트」): 무협 — 강호 객잔 · 도화검무(기본) · 주칠 궁전, 판타지 — 금서고 · 요정 숲의 아침 · 용의 대장간, 메카 — 네온 우중 · 정비 격납고 · 궤도 일출. 공간마다 바탕 · 주색 · 맞색 · 금속이 서로 다른 계열이고 이야기 · 소재가 낱말 표 theme.note.* 에 있다. 글자 대비 4.5:1 이상을 지킨다(본문 · 흐린 글 · 주색 · 맞색 · 금속 · 주색 위 글). **질감**(2026-11-02): `lib/material.css` — 판(섹션 · 카드 · 패널 · 단추)에 공간마다 생성한 재질 한 장(그림 저장소 `backgrounds/textures/tex-<공간>.webp`, 이음새 없는 타일 · 대비 55%, 기록 `records/textures/`)을 바탕색 86% 막 아래 깔고, 단추 광택 · 테두리 · 내비게이션 무늬(대발 · 금실 · 문살 · 금박 점 · 열매 점 · 리벳 · 스캔라인 · 해저드 띠 · 별가루)는 CSS. 대비는 재질의 가장 밝은 · 어두운 2% 까지 섞어 계산한다(밝은 공간 셋의 주색 · 맞색 · 금속을 그래서 조금 짙게 했다). 배경 끄기면 재질도 끈다. **공간별 꾸밈**(2026-11-02 「공간별로 따로 적용」): 공간마다 장식 틀 한 장(가운데 투명, `backgrounds/frames/frame-<공간>.webp` — 섹션 · 패널 · 공간 고르기 · 세력 카드 · 내비게이션에 9칸 틀 `border-image`)과 배경 장면 한 장(`backgrounds/room-<공간>.webp`), 단추 모양(등롱 알약 · 비취 육각 현판 · 계단 모서리 칠기 · 책 표지 · 잎 · 화살촉 · 팔각 네온 · 비스듬한 강판 · 그라데이션 테 알약)은 `lib/material.css` 의 공간별 변수(--b-clip · --b-face · --b-pface …). 기록은 그림 저장소 `records/backgrounds/`. 배경 그림은 `sam-atelier-img/backgrounds/room-<공간>.webp`(2026-11-02). 공간을 더하면 workspace.css(색) · workspace-theme.js(themeColors) · room.css · workspace-ui.js(CREST_MARK) · words.js(theme.* · theme.note.*) 다섯 곳.
 `lib/casual-tree.js` · `lib/casual-tree-v2.js` · `lib/favorites.js` 는 다른 공방과 글자 하나 다르지 않게 나눠 쓰는 공용 모듈 — 여기서 따로 고치지 않는다.
+
+## 꾸밈 · 글꼴
+
+- 공간 아홉의 꾸밈은 `lib/material.css` 한 곳: 재질 타일 · 장식 틀 · 단추 모양 · 그림 단추(`--ui-*`, 그림 저장소 `backgrounds/ui/`) · 제목 글꼴(`--gallery-serif` — 무협 Song Myung · 판타지 Hahmlet · 메카 Orbit). 본문 글꼴은 IBM Plex Sans KR. 글꼴을 바꾸면 `index.html` · `hall.html` · `dex.html` · `prompt.html` 의 Google Fonts 줄을 같이 고친다.
+- 디자인 점검 skill: `.claude/skills/frontend-design`(방향 · 글꼴 · 테두리), `.claude/skills/ui-ux-pro-max`(글꼴 짝 · 스타일 · UX 규칙 검색 — `python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<질문>" --domain typography`), `.claude/skills/web-design-guidelines`(규칙 점검).
 
 ## 지켜야 할 것
 
