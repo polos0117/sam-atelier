@@ -143,7 +143,12 @@ function Field({doc,st,battle,place,placing,onSlot}){
     lines.push({id:f+':'+ks[i-1]+'>'+ks[i],f,d:'M'+(ax+dx*k).toFixed(2)+' '+(ay+dy*k).toFixed(2)+' Q'+cx.toFixed(2)+' '+cy.toFixed(2)+' '+ex.toFixed(2)+' '+ey.toFixed(2)});}
   const drawn=useRef(new Set()),lastPlace=useRef(place);
   useEffect(()=>{const now=new Set(lines.map(l=>l.id));let i=0;
-    for(const l of lines)if(!drawn.current.has(l.id)){FX.draw(document.querySelector('.b-arrows path[data-id="'+CSS.escape(l.id)+'"]'),{delay:.15+i*.08});i++;}
+    for(const l of lines)if(!drawn.current.has(l.id)){
+      /* 화살촉은 선이 다 그려진 뒤에(사용자 「화살촉은 선 다 그려진 뒤에」) — 그리는 동안 marker 를 떼었다가 끝나면 단다 */
+      const el=document.querySelector('.b-arrows path[data-id="'+CSS.escape(l.id)+'"]'),mk=el&&el.getAttribute('marker-end');
+      const an=FX.draw(el,{delay:.15+i*.08});
+      if(an&&el){el.removeAttribute('marker-end');Promise.resolve(an.finished||an).catch(()=>{}).then(()=>{if(el.isConnected)el.setAttribute('marker-end',mk);});}
+      i++;}
     drawn.current=now;
     /* 새로 선 자리 — 깃발이 떨어져 꽂힌다 */
     for(const [k,v] of Object.entries(place))if(lastPlace.current[k]!==v)FX.plant(document.querySelector('.b-slot[data-slot="'+k+'"] b'));
