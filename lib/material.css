@@ -1,0 +1,37 @@
+/* 질감(2026-11-02, 사용자 「버튼이나 div 창, 네비게이션 bar 등에도 어울리는 질감 표현 — 필요하면 이미지 생성 도구」).
+   판(섹션 · 카드 · 패널 · 내비게이션)에는 공간마다 생성한 재질 한 장(그림 저장소 backgrounds/textures/tex-<공간>.webp — 이음새 없는 768px 타일, 대비를 55% 로 누름)을
+   바탕색 86% 막 아래에 깐다 — 판 위 글자 대비 4.5:1 은 재질의 가장 밝은 · 어두운 2% 까지 섞어 계산했다. 버튼 광택 · 테두리 · 내비게이션 무늬는 CSS 로.
+   「배경 끄기」 면 재질도 끈다. 움직임 줄이기와 무관(움직이는 것이 없다). */
+:root[data-theme="jianghu"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-jianghu.webp");--mat-edge:#e9c46a40;--mat-glow:0 0 16px #ff8a4c55;--nav-pat:repeating-linear-gradient(0deg,#0000 0 7px,#00000038 7px 8px);--nav-size:auto;--nav-pos:0 0;--nav-rep:repeat}   /* 무협 · 강호 객잔 — 대발(가로 살) · 등롱 빛 · 금박 테 */
+:root[data-theme="peachsword"], :root:not([data-theme]) {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-peachsword.webp");--mat-edge:#0c6c6533;--mat-glow:0 0 0 1px #ffffff66 inset;--nav-pat:repeating-linear-gradient(135deg,#0000 0 12px,#7c5b0e1f 12px 13px),repeating-linear-gradient(45deg,#0000 0 12px,#b02d5314 12px 13px);--nav-size:auto;--nav-pos:0 0;--nav-rep:repeat}   /* 무협 · 도화검무 — 금실 · 다홍 실이 엇갈린 비단 */
+:root[data-theme="lacquer"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-lacquer.webp");--mat-edge:#f0c45c66;--mat-glow:0 0 0 1px #f0c45c99;--nav-pat:repeating-linear-gradient(0deg,#0000 0 15px,#f0c45c22 15px 16px),repeating-linear-gradient(90deg,#0000 0 15px,#f0c45c22 15px 16px);--nav-size:auto;--nav-pos:0 0;--nav-rep:repeat}   /* 무협 · 주칠 궁전 — 금박 문살 · 금테 단추 */
+:root[data-theme="grimoire"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-grimoire.webp");--mat-edge:#f2b84b4d;--mat-glow:0 0 14px #9b5cff55;--nav-pat:radial-gradient(circle,#f2b84b40 0 1.2px,#0000 1.8px);--nav-size:18px 18px;--nav-pos:0 0;--nav-rep:repeat}   /* 판타지 · 금서고 — 금박 점 장정 · 자줏빛 결계 빛 */
+:root[data-theme="feywood"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-feywood.webp");--mat-edge:#7a3bb033;--mat-glow:0 1px 0 #ffffff99 inset;--nav-pat:radial-gradient(circle at 30% 40%,#9d392e1c 0 3px,#0000 4px),radial-gradient(circle at 75% 70%,#7a3bb01a 0 2.5px,#0000 3.5px);--nav-size:40px 32px;--nav-pos:0 0;--nav-rep:repeat}   /* 판타지 · 요정 숲의 아침 — 열매 · 자수정 꽃 점 · 이슬 광택 */
+:root[data-theme="dragonforge"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-dragonforge.webp");--mat-edge:#d8b26a59;--mat-glow:0 0 16px #ff8a3d4d;--nav-pat:radial-gradient(circle,#d8b26a66 0 1.6px,#0000 2.2px);--nav-size:24px 24px;--nav-pos:0 0;--nav-rep:repeat}   /* 판타지 · 용의 대장간 — 리벳 · 용암 빛 · 황동 테 */
+:root[data-theme="neonrain"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-neonrain.webp");--mat-edge:#3fe0ff4d;--mat-glow:0 0 18px #ff4fa366;--nav-pat:repeating-linear-gradient(0deg,#ffffff0a 0 1px,#0000 1px 3px);--nav-size:auto;--nav-pos:0 0;--nav-rep:repeat}   /* 메카 · 네온 우중 — 스캔라인 · 네온 번짐 · 시안 테 */
+:root[data-theme="hangar"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-hangar.webp");--mat-edge:#1c5e9f2e;--mat-glow:0 2px 0 #00000026;--nav-pat:repeating-linear-gradient(-45deg,#705a00 0 8px,#1c2228 8px 16px);--nav-size:100% 4px;--nav-pos:left bottom;--nav-rep:no-repeat}   /* 메카 · 정비 격납고 — 해저드 띠(아래) · 도장 판 단추 */
+:root[data-theme="orbit"] {--tex:url("https://polos0117.github.io/sam-atelier-img/backgrounds/textures/tex-orbit.webp");--mat-edge:#5ff0c04d;--mat-glow:0 0 16px #ff8f6b4d;--nav-pat:radial-gradient(circle,#ffffff40 0 .8px,#0000 1.3px),linear-gradient(90deg,#ff8f6b,#5ff0c0);--nav-size:26px 26px,100% 2px;--nav-pos:0 0,left top;--nav-rep:repeat,no-repeat}   /* 메카 · 궤도 일출 — 별가루 · 일출→오로라 띠(위) */
+:root {--veil:86%}
+/* 판 — 재질 위에 바탕색 막 */
+html:not([data-background="off"]) :is(.ek-section,.panel,.patch-panel,.room-preview-copy) {--surf:var(--card2)}
+html:not([data-background="off"]) :is(.nation-card,.home-doors .door:not(.main),.hchip,.opt,.btn:not(.pri),.room-choice,.patch-open,.slot .cap,.recent-grid a) {--surf:var(--card)}
+html:not([data-background="off"]) :is(.ek-section,.panel,.patch-panel,.room-preview-copy,.nation-card,.home-doors .door:not(.main),.hchip,.opt,.btn:not(.pri),.room-choice,.patch-open) {
+  background-image:linear-gradient(color-mix(in srgb,var(--surf) var(--veil),transparent),color-mix(in srgb,var(--surf) var(--veil),transparent)),var(--tex);
+  background-size:auto,384px;background-repeat:repeat}
+/* 판 테두리 — 공간의 금속 · 맞색 */
+:is(.ek-section,.panel,.nation-card,.home-doors .door,.workspace-nav,.patch-panel) {border-color:var(--mat-edge,var(--line))}
+/* 단추(보조) — 위 빛 · 아래 그늘로 눌리는 판처럼 */
+:is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump) {box-shadow:inset 0 1px 0 #ffffff14,inset 0 -2px 0 #0000001f;border-color:var(--mat-edge,var(--line))}
+/* 단추(주) — 광택 한 겹과 공간의 빛 */
+:is(.btn.pri,.home-doors .door.main,.seg button[aria-pressed="true"],.dex-pick a[aria-current="page"],.room-choice[aria-pressed="true"],.opt[aria-pressed="true"]) {
+  background-image:linear-gradient(180deg,#ffffff33,#ffffff00 46%,#0000001f);box-shadow:inset 0 1px 0 #ffffff40,0 2px 0 #00000030,var(--mat-glow,none)}
+/* 내비게이션 — 무늬 · 재질 · 막 */
+html:not([data-background="off"]) .workspace-nav {
+  background-image:var(--nav-pat),linear-gradient(color-mix(in srgb,var(--card) 82%,transparent),color-mix(in srgb,var(--card) 82%,transparent)),var(--tex);
+  background-size:var(--nav-size),auto,384px;background-position:var(--nav-pos),0 0,0 0;background-repeat:var(--nav-rep),repeat,repeat;
+  box-shadow:inset 0 1px 0 #ffffff12,0 6px 18px #0000001a}
+.workspace-nav a[aria-current="page"] {box-shadow:inset 0 -2px var(--accent),var(--mat-glow,none)}
+/* 공간 고르기 왼쪽 그림 자리 · 쪽 배경 — 배경 그림(room-<공간>.webp)이 없으면 그 밑의 재질이 보인다 */
+.room-preview-art {background-image:var(--room-src),var(--tex);background-size:cover,384px;background-repeat:no-repeat,repeat}
+html:not([data-background="off"]) body:is(.dex-page,.prompt-page) {background-size:cover,cover,cover,cover,384px;background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat}
+
