@@ -1,4 +1,4 @@
-/* 화면 검사 — 도감 · 생성기를 브라우저로 연다. 폰(390)과 PC(1280). 게임(index.html)은 tests/regression.cjs 가 맡는다 — 여기선 안 연다.
+/* 화면 검사 — 도감 · 생성기를 브라우저로 연다. 폰(390)과 PC(1280). 게임(draft.html)은 tests/regression.cjs 가 맡는다 — 여기선 안 연다.
    도감: 세력 넷 · 고른 세력의 장수 수 = 설계표 · 장수마다 세계 셋(빈 칸은 생성기로) · 역할로 바로 가기 · 이름 찾기 · 그림 있는 것만 · 주소 ?faction=&q= · 설계 상태(확정 · 시안 · 다시 설계) · 설계 요약 · 상태 거르기(?st=).
    생성기: 세력 › 장수 › 갈래 › 단계. 세계 그림은 세계 → … → 다 골랐다 — 지시문이 조립기(lib/prompt-sam.js)와 같고 파일 이름이 <장수>_<세계>_<화풍>_f.webp.
    일상컷은 트리 버전2 — 처음부터 랜덤으로 다 골랐다까지, 시대 넷 · 역사의 자리 장소. 주소 ?card=&o=&world=. 콘솔 오류 없음 · 옆으로 넘치지 않음.
@@ -57,6 +57,22 @@ const P = ctx0.window.AtelierPrompt;
 
   for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 900 }]) {
     const mob = vp.width <= 768;
+    /* ── 첫 화면(2026-11-02) — 문 넷 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
+    let hv = await open('/index.html', vp);
+    await hv.page.waitForSelector('.factions .nation-card');
+    assert.deepEqual(await hv.page.locator('.home-doors a').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'draft.html?daily', 'dex.html', 'prompt.html'], '문 넷');
+    assert.equal(await hv.page.locator('.factions .nation-card').count(), D.factions.length, '세력 넷');
+    assert.match(await hv.page.locator('.factions .nation-card[data-fac="shu"]').textContent(), new RegExp('장수 ' + count('shu')));
+    assert.equal(await hv.page.locator('.room-choice').count(), 9, '공간 아홉');
+    await hv.page.click('.room-choice:has-text("적벽의 밤")');
+    assert.equal(await hv.page.evaluate(() => document.documentElement.dataset.theme), 'redcliff');
+    await hv.page.click('.patch-open'); await hv.page.waitForSelector('.patch-entry');
+    await noOverflow(hv.page, vp.width + ' 첫 화면');
+    assert.deepEqual(hv.errors, [], '첫 화면 콘솔'); await hv.ctx.close();
+    for (const old of ['/?daily', '/index.html?local=1#sam-transfer=%7B%7D']) {
+      hv = await open(old, vp); await hv.page.waitForURL(/draft\.html/); assert.match(hv.page.url(), /\/draft\.html/, old + ' → 게임'); await hv.ctx.close();
+    }
+    checks += 9;
     /* ── 도감 ── */
     let v = await open('/dex.html', vp);
     await v.page.waitForSelector('.sam-card');
@@ -131,5 +147,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 첫 화면(문 넷 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

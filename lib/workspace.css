@@ -5,7 +5,7 @@
   --ui-font:13px;--ui-small:12px;--ui-height:40px;--ui-pad:8px;--ui-gap:8px;--gap:12px;
 }
 :root, :root[data-theme="sunlit"] {
-  /* 한낮의 실험실 — 흰 벤치와 유리 기구에 드는 햇살, 플라스크의 하늘색·분홍, 구리 밸브 */
+  /* 한낮의 군막 — 햇살 드는 흰 장막, 하늘빛 깃발, 붉은 인장 */
   color-scheme:light;
   --bg:#f3f6fa;--deck:#f7f9fc;--card:#ffffff;--card2:#e8eef6;--text:#1e2733;
   --muted:#5a6675;--line:#cfd9e6;--accent:#0f7fb0;--accent-soft:#dbeef8;--on-accent:#ffffff;
@@ -14,7 +14,7 @@
   --shadow:0 8px 26px #1e3a5a14;
 }
 :root[data-theme="moonlit"] {
-  /* 심야 천문대 — 남색 밤하늘, 황동 망원경, 보랏빛 성운 */
+  /* 달밤의 성루 — 남색 밤하늘, 황동 등롱, 보랏빛 달무리 */
   color-scheme:dark;
   --bg:#0e1020;--deck:#12152a;--card:#181c34;--card2:#212646;--text:#eef0fa;
   --muted:#b6bbd6;--line:#353c62;--accent:#c9a0ff;--accent-soft:#342a55;--on-accent:#140f24;
@@ -23,7 +23,7 @@
   --shadow:0 10px 30px #00000066;
 }
 :root[data-theme="hanok"] {
-  /* 연금술 공방 — 누런 종이, 벽돌 화로의 붉음, 구리 도가니의 녹청 */
+  /* 죽간 서고 — 누런 죽간과 종이, 붉은 인주, 녹청 청동기 */
   color-scheme:light;
   --bg:#f6eedd;--deck:#f8f1e2;--card:#fdf8ee;--card2:#eedfc3;--text:#352a1c;
   --muted:#6c5a43;--line:#dcc6a1;--accent:#b4461c;--accent-soft:#f6ddd0;--on-accent:#ffffff;
@@ -32,7 +32,7 @@
   --shadow:0 8px 26px #5a321414;
 }
 :root[data-theme="forest"] {
-  /* 숲속 광산 — 흙과 이끼, 갱도 등불의 호박빛, 광석의 구리·청록 */
+  /* 대나무 숲 — 이끼와 대숲, 잔도의 등불, 구리빛 흙 */
   color-scheme:light;
   --bg:#eef0e6;--deck:#f2f3ea;--card:#fafbf4;--card2:#dfe4d0;--text:#26301f;
   --muted:#596650;--line:#c7d0b2;--accent:#3f7a3a;--accent-soft:#dbe9d4;--on-accent:#ffffff;
@@ -41,13 +41,49 @@
   --shadow:0 8px 26px #2a3a1414;
 }
 :root[data-theme="phosphor"] {
-  /* 가속기 제어실 — 검푸른 홀, 초록 화면, 호박색 표시등 */
+  /* 작전 지휘소 — 2190년의 검푸른 함교, 초록 화면, 호박색 표시등 */
   color-scheme:dark;
   --bg:#0a1216;--deck:#0d171c;--card:#122027;--card2:#182b33;--text:#e3f1f1;
   --muted:#a3bbbf;--line:#294650;--accent:#5fe3a3;--accent-soft:#1a3d33;--on-accent:#07150f;
   --signal:#ffb547;--gold:#ffd166;--ok:#7fe3a8;--warn:#ffb547;--pattern:#5fe3a310;
   --g-reflex:#ff8a7a;--g-growth:#ffd166;--g-mind:#6cc2ff;--g-explore:#5fe3a3;
   --shadow:0 10px 30px #0000005e;
+}
+:root[data-theme="redcliff"] {
+  /* 적벽의 밤(2026-11-02 더함) — 검붉은 강물, 불배의 주황, 불티의 금빛 */
+  color-scheme:dark;
+  --bg:#140b0a;--deck:#1a0f0d;--card:#221412;--card2:#2e1b18;--text:#f7ebe6;
+  --muted:#c9b0a8;--line:#4a2c27;--accent:#ff8a4c;--accent-soft:#4a2318;--on-accent:#1a0b06;
+  --signal:#ffd166;--gold:#f2c46d;--ok:#8fd9a8;--warn:#ffb070;--pattern:#ff8a4c10;
+  --g-reflex:#ff6b6b;--g-growth:#f2c46d;--g-mind:#7fb7ff;--g-explore:#8fd9a8;
+  --shadow:0 10px 30px #00000070;
+}
+:root[data-theme="peach"] {
+  /* 도원(2026-11-02 더함) — 복사꽃 분홍, 연둣빛 잎, 금빛 술잔 */
+  color-scheme:light;
+  --bg:#fbf1f1;--deck:#fcf4f4;--card:#ffffff;--card2:#f6e2e4;--text:#33232a;
+  --muted:#6d5560;--line:#ecccd2;--accent:#b8436a;--accent-soft:#f8dbe5;--on-accent:#ffffff;
+  --signal:#3d8a57;--gold:#93690f;--ok:#2f7a4a;--warn:#a5561a;--pattern:#b8436a10;
+  --g-reflex:#b8436a;--g-growth:#93690f;--g-mind:#2f64a0;--g-explore:#2f7a4a;
+  --shadow:0 8px 26px #5a1e3214;
+}
+:root[data-theme="snow"] {
+  /* 북방 설원(2026-11-02 더함) — 눈빛 흰 들판, 위의 남색 깃발, 차가운 강철 */
+  color-scheme:light;
+  --bg:#eef2f7;--deck:#f3f6fa;--card:#fbfdff;--card2:#e0e8f2;--text:#1b2433;
+  --muted:#556275;--line:#c9d4e3;--accent:#2b4f8c;--accent-soft:#dbe4f3;--on-accent:#ffffff;
+  --signal:#7a4fb5;--gold:#8a6a1c;--ok:#26734d;--warn:#9a5a12;--pattern:#2b4f8c10;
+  --g-reflex:#b0436a;--g-growth:#8a6a1c;--g-mind:#2b4f8c;--g-explore:#26734d;
+  --shadow:0 8px 26px #1b2a4a14;
+}
+:root[data-theme="bronze"] {
+  /* 동작대(2026-11-02 더함) — 밤의 누대, 청동 참새의 금빛, 비취 장식 */
+  color-scheme:dark;
+  --bg:#13110c;--deck:#18150f;--card:#201c13;--card2:#2b261a;--text:#f4eedf;
+  --muted:#c4b897;--line:#4a4128;--accent:#e2b552;--accent-soft:#3d3218;--on-accent:#1a1406;
+  --signal:#5fd3b0;--gold:#e2b552;--ok:#8fd9a8;--warn:#f7b56a;--pattern:#e2b55210;
+  --g-reflex:#ff8a7a;--g-growth:#e2b552;--g-mind:#7fb7ff;--g-explore:#5fd3b0;
+  --shadow:0 10px 30px #00000066;
 }
 :root[data-density="relaxed"] {
   --ui-font:15px;--ui-small:13px;--ui-height:46px;--ui-pad:12px;--ui-gap:10px;--gap:14px;

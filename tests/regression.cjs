@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const html=fs.readFileSync(require('path').join(__dirname,'../index.html'),'utf8');
+const html=fs.readFileSync(require('path').join(__dirname,'../draft.html'),'utf8');
 const code=Array.from(html.matchAll(/<script>\s*([\s\S]*?)<\/script>/g)).find(m=>m[1].includes('var C=['))[1].replace(/^\s*\(function\(\)\{/, '').split('buildTiers(C);buildHelp();buildDex();')[0];
 function runtime(storage={},seed=42){
  const nodes={};

@@ -43,6 +43,40 @@
     var(--room-src);
   --room-rgb:10 18 22;
 }
+:root[data-theme="redcliff"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-redcliff.webp");
+  --room-image:
+    linear-gradient(180deg,#140b0a00 0,#140b0a88 55%,#140b0a 100%),
+    radial-gradient(circle at 70% 85%,#ff7a3a44 0,#ff7a3a00 42%),
+    radial-gradient(circle at 20% 15%,#ffd16622 0,#ffd16600 30%),
+    var(--room-src);
+  --room-rgb:20 11 10;
+}
+:root[data-theme="peach"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-peach.webp");
+  --room-image:
+    linear-gradient(180deg,#fbf1f100 0,#fbf1f177 55%,#fbf1f1 100%),
+    radial-gradient(circle at 15% 10%,#ffc2d6aa 0,#ffc2d600 38%),
+    radial-gradient(circle at 85% 30%,#d7f0c466 0,#d7f0c400 34%),
+    var(--room-src);
+  --room-rgb:251 241 241;
+}
+:root[data-theme="snow"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-snow.webp");
+  --room-image:
+    linear-gradient(180deg,#eef2f700 0,#eef2f777 55%,#eef2f7 100%),
+    radial-gradient(circle at 80% 5%,#c9dcff99 0,#c9dcff00 40%),
+    var(--room-src);
+  --room-rgb:238 242 247;
+}
+:root[data-theme="bronze"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-bronze.webp");
+  --room-image:
+    linear-gradient(180deg,#13110c00 0,#13110c88 55%,#13110c 100%),
+    radial-gradient(circle at 50% 0%,#e2b55233 0,#e2b55200 44%),
+    var(--room-src);
+  --room-rgb:19 17 12;
+}
 :root[data-background="off"] {--room-image:none}
 body.dex-page,body.prompt-page {
   background-color:var(--room-paper);

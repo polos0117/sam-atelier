@@ -1,6 +1,6 @@
 # 삼국지 공방
 
-게임 **삼국지 쟁탈전**(`index.html`)과, 장수 한 명을 여성 한 명으로 그리는 **도감**(`dex.html`) · **생성기**(`prompt.html`)가 있다(2026-11-02). 세계는 삼국시대 · 중세 판타지 · 메카 셋. 규칙은 `AGENTS.md`, 그림은 `IMAGE_RULES.md`. 게임은 그대로 두고 아래 「게임」 절이 그 설명이다.
+첫 화면(`index.html`), 게임 **삼국지 쟁탈전**(`draft.html` — 2026-11-02 첫 화면을 세우며 옮겼다)과, 장수 한 명을 여성 한 명으로 그리는 **도감**(`dex.html`) · **생성기**(`prompt.html`)가 있다(2026-11-02). 세계는 삼국시대 · 중세 판타지 · 메카 셋. 규칙은 `AGENTS.md`, 그림은 `IMAGE_RULES.md`. 게임은 그대로 두고 아래 「게임」 절이 그 설명이다.
 
 ## 도감 · 생성기 · 그림
 
@@ -10,11 +10,11 @@
 
 # 게임 — 삼국지 쟁탈전
 
-https://polos0117.github.io/sam-atelier/ — 게임은 `index.html`을 편집합니다. 로컬에서는 저장소를 내려받아 `index.html`을 엽니다. ES Module이나 빌드 과정은 사용하지 않습니다.
+https://polos0117.github.io/sam-atelier/ — 게임은 `draft.html`을 편집합니다(2026-11-02 `index.html` 에서 옮김 — `index.html` 은 공방 첫 화면이고 `?daily` · `?local` · `#sam-transfer` 는 게임으로 넘깁니다). 로컬에서는 저장소를 내려받아 `draft.html`을 엽니다. ES Module이나 빌드 과정은 사용하지 않습니다.
 
 ## 파일 구성
 
-- `index.html`: 화면, 데이터, 게임 규칙. 초상은 상대 경로로 참조합니다.
+- `draft.html`: 화면, 데이터, 게임 규칙. 초상은 상대 경로로 참조합니다.
 - `lib/speech.js`: 말풍선. 취한 장수가 제 한 줄(`LORE`)을 진영 칸 위에서 합니다(적장은 안개가 아닐 때만).
 - `lib/today.js`: 오늘 기록. 다섯 공방이 한 출처(polos0117.github.io)라 localStorage 를 같이 쓰며, 대국이 끝나면 `atelier_today_v1:samguk` 에 `{d, n, w, daily, at, seen}` 한 칸을 적고 공방 지도가 읽어 군막에 불을 켭니다. 모양의 약속은 지도 저장소 README 「오늘 기록」절에 있습니다.
 - `images/portraits/`: 카드·도감용 초상 267개.

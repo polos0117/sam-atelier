@@ -35,9 +35,9 @@ const TABLES = ['lib/words.js', 'lib/prompt-spec.js', 'lib/look-spec.js'];
    빼 주되 조용히 잊히지는 않게 — 남은 자리 수를 늘 찍고, 늘어나면 실패한다.
    다 빼고 나면 이 줄을 지운다. */
 const PENDING = {};
-/* 게임(군막) — 기존 게임은 그대로 둔다(사용자 2026-11-02 「기존 게임은 그대로 두고」). index.html 과 게임만 쓰는 lib 는 낱말 표 밖이다.
+/* 게임(군막) — 기존 게임은 그대로 둔다(사용자 2026-11-02 「기존 게임은 그대로 두고」). draft.html(2026-11-02 index.html 에서 옮겼다)과 게임만 쓰는 lib 는 낱말 표 밖이다.
    sprite-actor · speech · today 는 공방 모음이 원본인 공용 모듈(README 「공용 모듈」) */
-const GAME = ['index.html', 'lib/speech.js', 'lib/today.js', 'lib/sprite-actor.js'];
+const GAME = ['draft.html', 'lib/speech.js', 'lib/today.js', 'lib/sprite-actor.js'];
 const targets = [];
 for (const dir of ['.', 'lib']) {
   for (const f of fs.readdirSync(dir)) {

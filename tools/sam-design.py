@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""삼국지 설계표(data/sam-design.json) — 장수 목록을 게임(index.html)에서 받아 채우고, 칸이 다 찼는지 본다(2026-11-02).
+"""삼국지 설계표(data/sam-design.json) — 장수 목록을 게임(draft.html)에서 받아 채우고, 칸이 다 찼는지 본다(2026-11-02).
 
   python3 tools/sam-design.py seed    게임의 장수 표(C)·일화(LORE)·낙관(SEAL)에서 장수를 받는다.
                                       손으로 적은 칸(en·title·traits·hold·look·worlds·designed)은 지키고, 비었으면 채운다.
@@ -22,7 +22,7 @@ import datetime, json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DESIGN = os.path.join(ROOT, 'data', 'sam-design.json')
-GAME = os.path.join(ROOT, 'index.html')
+GAME = os.path.join(ROOT, 'draft.html')   # 게임 — 2026-11-02 첫 화면(index.html)을 세우며 내용 그대로 옮겼다
 WORLDS = ['samguk', 'fantasy', 'mecha']
 STATES = ['auto', 'draft', 'hand']   # 자동 · 시안 · 확정
 FACTION_OF = {'위': 'wei', '촉': 'shu', '오': 'wu', '군웅': 'qun'}

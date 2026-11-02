@@ -1,6 +1,6 @@
 # 작업 지침
 
-삼국지 공방 — 게임 **삼국지 쟁탈전**(`index.html`, 드래프트)과, 장수 한 명을 여성 한 명으로 그리는 **도감 · 생성기 · 그림 저장소**가 한 저장소에 있다(2026-11-02).
+삼국지 공방 — 첫 화면(`index.html`), 게임 **삼국지 쟁탈전**(`draft.html`, 드래프트 — 2026-11-02 첫 화면을 세우며 `index.html` 에서 내용 그대로 옮겼다)과, 장수 한 명을 여성 한 명으로 그리는 **도감 · 생성기 · 그림 저장소**가 한 저장소에 있다(2026-11-02).
 도감 · 생성기 · 그림 계층은 원소 공방(element-atelier)의 것을 옮겼다 — 층(근본 · 가문주 · 주민)이 없고 장수 한 명이 한 카드다.
 
 사용자 2026-11-02 「기존 게임은 그대로 두고, 이미지 구조도 개편할거야. 도감 따로 두고, 삼국시대풍, 서양 중세 판타지 시대풍, 메카풍으로 나눠서 이것도 여성의인화 하려고 해.」
@@ -19,18 +19,19 @@
 
 | 화면 | 파일 | 무엇 |
 |---|---|---|
-| 군막(게임) | `index.html` · `lib/speech.js` · `lib/today.js` · `lib/sprite-actor.*` · `data/sprites.json` · `images/` | **손대지 않는다.** 초상(`images/portraits` · `images/large`)은 게임 것이다 — 새 그림 구조와 따로 |
+| 첫 화면 | `index.html` · `lib/sam.css` | 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수) · 최근 그림 여덟 · 패치 기록 · 공간 고르기. 예전 게임 주소의 몫(`?daily` · `?local` · `#sam-transfer`)은 `draft.html` 로 그대로 넘긴다 |
+| 드래프트(게임) | `draft.html` · `lib/speech.js` · `lib/today.js` · `lib/sprite-actor.*` · `data/sprites.json` · `images/` | **손대지 않는다.** 초상(`images/portraits` · `images/large`)은 게임 것이다 — 새 그림 구조와 따로 |
 | 도감 | `dex.html` · `lib/img.js` · `lib/sam.css` | 세력 하나 — 역할 차례(군주 · 무장 · 책사 · 문관)로 장수마다 세계 셋 · 접는 일상컷 · 다른 화풍, 크게 보기(넘기기 · 뒤로 가기는 팝업만) · 즐겨찾기(a: samguk) · 이름 찾기 · 그림 있는 것만. 빈 칸을 누르면 그 장수 · 세계의 생성기 |
 | 프롬프트 | `prompt.html` · `lib/studio.js` · `lib/studio.css` · `lib/prompt-spec.js`(표) · `lib/look-spec.js`(외형 어휘) · `lib/prompt-sam.js`(조립) · `lib/casual-tree*.js` · `data/casual-tree*.json` | 세력 › 장수 › 갈래(세계 그림 · 일상컷) › 단계. 고른 것은 이 브라우저에(`samguk_studio_v1`), 주소 `?card=&o=&world=` |
 
-머리 · 항해 · ⚙ 설정은 `lib/workspace-ui.js`(화면 차례 `PAGES` — 「군막(게임)」 은 게임으로 간다), 공간은 `lib/workspace-theme.js` · `lib/workspace.css` · `lib/room.css` — 공간 다섯의 이름만 삼국지(군막 · 성루 · 서고 · 대숲 · 지휘소), 배경 그림(`sam-atelier-img/backgrounds/room-<공간>.webp`)은 아직 없다(겹 무늬만).
+머리 · 항해 · ⚙ 설정은 `lib/workspace-ui.js`(화면 차례 `PAGES` — 「군막(게임)」 은 게임으로 간다), 공간은 `lib/workspace-theme.js` · `lib/workspace.css` · `lib/room.css` — 공간 아홉 — 한낮의 군막 · 달밤의 성루 · 죽간 서고 · 대나무 숲 · 작전 지휘소, 2026-11-02 더한 적벽의 밤 · 도원 · 북방 설원 · 동작대. 배경 그림(`sam-atelier-img/backgrounds/room-<공간>.webp`)은 아직 없다(겹 무늬만). 공간을 더하면 workspace.css(색) · workspace-theme.js(themeColors) · room.css · workspace-ui.js(CREST_MARK) · words.js(theme.* · theme.note.*) 다섯 곳.
 `lib/casual-tree.js` · `lib/casual-tree-v2.js` · `lib/favorites.js` 는 다른 공방과 글자 하나 다르지 않게 나눠 쓰는 공용 모듈 — 여기서 따로 고치지 않는다.
 
 ## 지켜야 할 것
 
 ### 1. 게임은 그대로, 사실은 게임 표에서
 
-장수 목록 · 세력 · 역할 · 능력치(통솔 · 무력 · 지력 · 정치) · 일화(`LORE`) · 낙관(`SEAL`)은 `index.html` 의 표에서 `python3 tools/sam-design.py seed` 가 받는다. 게임 파일을 고치지 않는다.
+장수 목록 · 세력 · 역할 · 능력치(통솔 · 무력 · 지력 · 정치) · 일화(`LORE`) · 낙관(`SEAL`)은 `draft.html` 의 표에서 `python3 tools/sam-design.py seed` 가 받는다. 게임 파일을 고치지 않는다.
 영문 이름(`en`)은 한어 병음 — `tools/sam-design.py` 의 `ROMAN`. 게임 표가 바뀌면 `seed` 를 다시 돌린다(손으로 적은 칸은 지킨다).
 
 ### 2. 세계 셋, 세계마다 다른 사람

@@ -3,7 +3,7 @@
   "short_name": "삼국지 쟁탈전",
   "description": "삼국지 장수를 번갈아 뽑아 겨루는 쟁탈전",
   "id": "./",
-  "start_url": "./index.html",
+  "start_url": "./draft.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#17130F",

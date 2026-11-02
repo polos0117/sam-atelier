@@ -40,7 +40,7 @@ const server = http.createServer((q, s) => {
     });
     const p = await ctx.newPage(), errors = [];
     p.on('pageerror', e => errors.push(String(e)));
-    await p.goto(BASE + '/');
+    await p.goto(BASE + '/draft.html');   // 게임 — 2026-11-02 첫 화면을 세우며 index.html 에서 옮겼다
     /* 처음 오면 새 대국 창이 덮는다(뒤 화면은 잠긴다) — 대국을 열고 본다 */
     if (await p.locator('#setup.on').count()) { await p.click('#setupGo'); await p.waitForSelector('#setup:not(.on)', { state: 'attached' }); await p.waitForFunction(() => !document.getElementById('app').inert); }
     return { ctx, p, errors };

@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-02 · claude · 첫 화면 · 게임은 draft.html 로 · 공간 넷 더함
+- index.html · lib/sam.css · lib/words.js — 사용자 「공방 처음 진입 화면 만들어줘. 다른 공방처럼」. 새 첫 화면: 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수, 누르면 그 세력 도감) · 최근 그림 여덟 · 패치 기록 · 공간 고르기. 예전 게임 주소의 몫(?daily · ?local · #sam-transfer)은 draft.html 로 그대로 넘긴다.
+- draft.html(← index.html) · sam.webmanifest · tools/sam-design.py · tests/assets.cjs · tests/regression.cjs · tests/dot-screen.cjs · tests/words.cjs — 게임은 한 글자도 안 바꾸고 이름만 옮겼다(게임은 제 주소를 location.pathname 으로만 쓴다). 설치 앱 시작은 그대로 게임(start_url ./draft.html).
+- lib/workspace.css · lib/workspace-theme.js · lib/room.css · lib/workspace-ui.js — 사용자 「테마도 몇가지 추가」. 공간 넷 — 적벽의 밤(검붉은 강 · 불배 주황) · 도원(복사꽃 분홍 · 잎 초록) · 북방 설원(눈빛 · 위의 남색) · 동작대(청동 금빛 · 비취), 문양(불배 · 복사꽃 · 눈꽃 · 누대와 참새). 항해에 「드래프트」. 원래 다섯의 주석도 삼국지 말로.
+- tests/screen.cjs · AGENTS.md · CLAUDE.md · README.md — 첫 화면 검사(문 · 세력 · 공간 아홉 · 패치 · 옛 주소 넘기기)와 자리.
+
 ## 2026-11-02 · claude · 체형 — 굴곡형 시안 40명을 풍만형 · 모래시계형으로
 - data/sam-design.json — 사용자 「굴곡형 일부를 풍만형·모래시계형으로 옮겨줘」. 수수한 굴곡형(curvy) 시안 59명 중 40명을 번갈아 모래시계형 20 · 풍만형 20 으로(요약 · why 도 고침), 확정 장수는 그대로. 이제 풍만형 57 · 탄탄한 굴곡형 53 · 모래시계형 39 · 장신 굴곡형 33 · 가늘고 풍만한 형 32 · 건장한 굴곡형 30 · 굴곡형 20 · 아담한 굴곡형 15.
 
