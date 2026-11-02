@@ -171,7 +171,11 @@
 .role-head span {color:var(--muted);font-size:12px}
 .sam-card .who b .seal {display:inline-block;margin-right:6px;padding:0 5px;border:1px solid var(--cat,var(--accent));border-radius:4px;color:var(--cat,var(--accent));font:700 13px/1.5 var(--gallery-serif,serif)}
 .sam-card .who .en {margin-left:6px;color:var(--muted);font-size:12px}
-.sam-card .who .hand {margin-left:6px;color:var(--accent);font-size:12px}
+.sam-card .who .state {margin-left:6px;font-size:12px;white-space:nowrap}
+.sam-card .who .st-hand {color:var(--accent)} .sam-card .who .st-draft {color:var(--warn,#c78a00)} .sam-card .who .st-redo {color:#d0453a}
+.sam-card .summary {margin:2px 0 4px;font-size:12.5px;line-height:1.55}
+.sam-card .redo-why {margin:0 0 4px;color:#d0453a;font-size:12px}
+.find-row select {min-height:40px;margin-left:6px;padding:0 8px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:inherit;font:inherit}
 .sam-card .stats {display:flex;flex-wrap:wrap;gap:4px 10px;margin:4px 0 2px;padding:0;list-style:none;color:var(--muted);font-size:12px}
 .sam-card .stats b {color:inherit;font-weight:700;margin-left:3px;font-family:ui-monospace,monospace}
 .sam-card .lore {margin:2px 0 8px;color:var(--muted);font-size:12px;line-height:1.55}

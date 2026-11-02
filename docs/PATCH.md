@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-02 · claude · 설계 상태 — 자동 · 시안 · 확정, 다시 설계 요청
+- tools/sam-design.py · data/sam-design.json — 사용자 「두 가지 같이 하는 방법은? 손 설계가 마음에 안들면 다시 설계」 → 「가(시안 상태로도 그린다)로 진행」. designed 는 auto · draft · hand, 시안 · 확정은 summary.ko · design_by · design_date 가 있어야 한다. approve(시안 → 확정) · redo(다시 설계 요청 — redo {why, date}) · status 명령, 다시 쓸 때 앞 설계는 history 로. 손 설계 열셋은 확정으로 두고 한국어 요약을 적었다.
+- dex.html · lib/words.js · lib/sam.css · tests/screen.cjs — 장수 카드에 ✎ 시안 · ★ 확정 · ↺ 다시 설계 표시와 한국어 설계 요약, 다시 설계 까닭. 설계 상태 거르기(전부 · 시안 · 다시 설계 · 확정 · 자동, 주소 ?st=). 그림이 생긴 조조 대신 그림 없는 장수로 빈 칸 검사.
+- AGENTS.md · IMAGE_RULES.md — 상태와 흐름.
+
 ## 2026-11-02 · claude · 그림 저장소 sam-atelier-img 시작 · 첫 등록 아홉
 - data/img.json — 사용자 「그림 저장소 만들었어」. 그림 저장소에 뼈대(README · 썸네일 워크플로 · records)와 관우 세계 셋 · 일상컷 셋(참고 그림 = 그 세계 그림, ref_sha256) · 조조 세계 셋을 webp 로 올리고(원본 PNG 는 기록에 sha256 만, 조조 판타지는 필터 재시도 1회 기록), 등록기로 적었다. 썸네일 워크플로가 img/thumb/ 아홉을 만들어 되커밋했다.
 

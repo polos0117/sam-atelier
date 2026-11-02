@@ -5,16 +5,26 @@
                                       손으로 적은 칸(en·title·traits·hold·look·worlds·designed)은 지키고, 비었으면 채운다.
                                       외형(look)이 없는 장수는 세력 팔레트·역할·능력치로 돌려 적는다(designed: "auto").
   python3 tools/sam-design.py check   어휘(lib/look-spec.js · lib/prompt-spec.js 의 FACE_DESIGN)와 칸을 본다.
+  python3 tools/sam-design.py approve <장수>…        시안(draft)을 확정(hand)으로 — 사용자가 「좋아」 한 장수
+  python3 tools/sam-design.py redo <장수> <까닭>      다시 설계 요청 — redo 칸에 까닭. 다음 설계자가 까닭을 읽고 새 시안을 쓴다
+  python3 tools/sam-design.py status                 상태별 수 · 다시 설계 요청 목록
+
+설계 상태(사용자 2026-11-02 「손 설계가 마음에 안 들면 다시 설계」 · 「가로 진행」 — 시안 상태로도 그린다):
+  auto  — 자동 설계(seed 가 세력 팔레트 · 역할 · 열쇠로 돌렸다). 그리기 전에 시안으로 올린다
+  draft — 시안. title · traits · hold · look(+why) · summary.ko 를 손으로 적었고 사용자가 아직 안 봤다. 그려도 된다
+  hand  — 확정. 사용자가 보고 좋다고 했다
+  redo  — {why, date} 가 있으면 다시 설계 요청. 새 시안을 쓸 때 앞 설계를 history 에 넣고 redo 를 지운다
 
 게임 파일은 읽기만 한다 — 게임은 그대로 둔다(사용자 2026-11-02 「기존 게임은 그대로 두고」).
 사실(이름·세력·역할·능력치·일화·낙관)은 게임 표에서만 온다. 영문 이름(en)은 한어 병음 표기, 이 파일의 ROMAN 에 있다.
 """
-import json, os, re, subprocess, sys
+import datetime, json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DESIGN = os.path.join(ROOT, 'data', 'sam-design.json')
 GAME = os.path.join(ROOT, 'index.html')
 WORLDS = ['samguk', 'fantasy', 'mecha']
+STATES = ['auto', 'draft', 'hand']   # 자동 · 시안 · 확정
 FACTION_OF = {'위': 'wei', '촉': 'shu', '오': 'wu', '군웅': 'qun'}
 ROLE_OF = {'군주': 'lord', '무장': 'general', '책사': 'strategist', '문관': 'official'}
 
@@ -190,10 +200,10 @@ def seed():
             g['designed'] = 'auto'
         g.setdefault('designed', 'auto')
         out.append(g)
-    order = ['key', 'en', 'faction', 'role', 'stats', 'seal', 'lore', 'designed', 'title', 'traits', 'hold', 'look', 'worlds']
+    order = ['key', 'en', 'faction', 'role', 'stats', 'seal', 'lore', 'designed', 'design_by', 'design_date', 'redo', 'summary', 'title', 'traits', 'hold', 'look', 'worlds', 'history']
     d['generals'] = [{k: g[k] for k in order if k in g} | {k: v for k, v in g.items() if k not in order} for g in out]
     save(d)
-    print('장수 %d — 손 설계 %d · 자동 %d' % (len(out), sum(1 for g in out if g['designed'] == 'hand'), sum(1 for g in out if g['designed'] == 'auto')))
+    print('장수 %d — %s' % (len(out), ' · '.join('%s %d' % (st, sum(1 for g in out if g['designed'] == st)) for st in STATES)))
 
 
 def vocab():
@@ -248,13 +258,27 @@ def check():
             errs.append('%s 역할' % k)
         if not g.get('en'):
             errs.append('%s 영문 이름' % k)
-        if g.get('designed') not in ('hand', 'auto'):
-            errs.append('%s designed 는 hand 또는 auto' % k)
+        if g.get('designed') not in STATES:
+            errs.append('%s designed 는 %s' % (k, ' · '.join(STATES)))
         lk = g.get('look') or {}
-        if g.get('designed') == 'hand':
+        if g.get('designed') in ('draft', 'hand'):
             for c in ('title', 'traits', 'hold'):
                 if not (g.get(c) or {}).get('en'):
-                    errs.append('%s(손 설계) %s.en' % (k, c))
+                    errs.append('%s(%s) %s.en' % (k, g['designed'], c))
+            if not (g.get('summary') or {}).get('ko'):
+                errs.append('%s(%s) summary.ko — 도감에 보일 한국어 설계 요약' % (k, g['designed']))
+            if (lk.get('why') or '').startswith('자동'):
+                errs.append('%s(%s) look.why 가 자동 설계 그대로' % (k, g['designed']))
+            if g.get('design_by') not in ('claude', 'gpt'):
+                errs.append('%s(%s) design_by 는 claude 또는 gpt' % (k, g['designed']))
+            if not re.match(r'^\d{4}-\d{2}-\d{2}$', g.get('design_date') or ''):
+                errs.append('%s(%s) design_date' % (k, g['designed']))
+        r = g.get('redo')
+        if r is not None and (not (r or {}).get('why') or not (r or {}).get('date')):
+            errs.append('%s redo 는 {why, date}' % k)
+        for h in g.get('history') or []:
+            if not h.get('date') or not h.get('summary'):
+                errs.append('%s history 칸(date · summary)' % k)
         for grp in ('face', 'silhouette'):
             for a, v in (lk.get(grp) or {}).items():
                 axis = 'expr' if a == 'expr' else a
@@ -293,9 +317,45 @@ def check():
         print('틀림 %d' % len(errs))
         sys.exit(1)
     gs = d['generals']
-    print('설계표 맞음 — 장수 %d(손 %d · 자동 %d) · 세력 %d · 역할 %d · 세계 %d' % (len(gs), sum(1 for g in gs if g['designed'] == 'hand'), sum(1 for g in gs if g['designed'] == 'auto'), len(facs), len(roles), len(WORLDS)))
+    print('설계표 맞음 — 장수 %d(%s · 다시 설계 요청 %d) · 세력 %d · 역할 %d · 세계 %d' % (len(gs), ' · '.join('%s %d' % (st, sum(1 for g in gs if g['designed'] == st)) for st in STATES), sum(1 for g in gs if g.get('redo')), len(facs), len(roles), len(WORLDS)))
+
+
+def approve(names):
+    d = load(); G = {g['key']: g for g in d['generals']}; done = []
+    for n in names:
+        g = G.get(n)
+        if not g:
+            sys.exit('없는 장수: %s' % n)
+        if g['designed'] != 'draft':
+            sys.exit('%s 은 시안이 아니다(%s) — 시안만 확정한다' % (n, g['designed']))
+        if g.get('redo'):
+            sys.exit('%s 은 다시 설계 요청이 걸려 있다 — 새 시안부터' % n)
+        g['designed'] = 'hand'; done.append(n)
+    save(d); print('확정', ' · '.join(done))
+
+
+def redo(name, why):
+    d = load(); g = next((x for x in d['generals'] if x['key'] == name), None)
+    if not g:
+        sys.exit('없는 장수: %s' % name)
+    g['redo'] = {'why': why, 'date': datetime.date.today().isoformat()}
+    save(d); print('다시 설계 요청', name, '—', why)
+
+
+def status():
+    d = load(); gs = d['generals']
+    for st in STATES:
+        print('%-5s %d' % (st, sum(1 for g in gs if g['designed'] == st)))
+    for g in gs:
+        if g.get('redo'):
+            print('다시 설계 요청 %s — %s (%s)' % (g['key'], g['redo']['why'], g['redo']['date']))
 
 
 if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else 'check'
-    {'seed': seed, 'check': check}[cmd]()
+    if cmd == 'approve':
+        approve(sys.argv[2:])
+    elif cmd == 'redo':
+        redo(sys.argv[2], ' '.join(sys.argv[3:]))
+    else:
+        {'seed': seed, 'check': check, 'status': status}[cmd]()

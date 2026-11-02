@@ -415,6 +415,11 @@
    "seal": "劉",
    "lore": "돗자리를 팔던 손으로 촉을 열었다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "도원결의의 인덕 군주 — 쌍고검 · 어깨까지 닿는 옥 귀걸이(큰 귀) · 밤색 머리 · 처진 순한 눈 · 굴곡형"
+   },
    "title": {
     "en": "the benevolent founder of Shu Han, who swore sisterhood in the Peach Garden"
    },
@@ -491,6 +496,11 @@
    "seal": "關",
    "lore": "다섯 관문을 지나 여섯 장수를 베었다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "군신 — 청룡언월도 · 바닥까지 닿는 검은 포니테일(긴 수염) · 붉은 기 도는 구릿빛 피부 · 봉황 눈 · 초록 전포(삼국시대) · 장신 굴곡형"
+   },
    "title": {
     "en": "the God of War of Shu, loyal unto death, famed for her magnificent long 'beard'"
    },
@@ -574,6 +584,11 @@
    "seal": "張",
    "lore": "장판교에서 홀로 조조군을 멈춰 세웠다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "장판교의 호랑이 — 장팔사모 · 사방으로 뻗친 검은 머리(범 수염) · 크게 웃는 입 · 발그레한 볼(술) · 탄탄한 굴곡형"
+   },
    "title": {
     "en": "the thunder-voiced tiger general of Shu who held Changban Bridge alone"
    },
@@ -650,6 +665,11 @@
    "seal": "趙",
    "lore": "품에 아두를 안고 백만 진중을 돌파했다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "상산의 용 — 은빛 용 장식 창 · 은백 머리 · 은빛 갑옷 흰 깃 · 차가운 인상 · 탄탄한 굴곡형"
+   },
    "title": {
     "en": "the dragon of Changshan, who carried the infant heir through the enemy host at Changban"
    },
@@ -860,6 +880,11 @@
    "seal": "諸葛",
    "lore": "초려에서 천하삼분을 그렸다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "와룡 — 백우선 · 먹빛 녹음 긴 머리 · 금빛 눈(별을 읽는다) · 학창의(삼국시대) · 팔괘진 · 가늘고 풍만한 형"
+   },
    "title": {
     "en": "the Sleeping Dragon, chancellor and master strategist of Shu"
    },
@@ -3288,6 +3313,11 @@
    "seal": "曹",
    "lore": "치세의 능신이요 난세의 간웅",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "난세의 간웅 시인 — 의천검 · 술잔(전투 전 시) · 남빛 검정 머리 · 보라 눈 · 차가운 미소 · 모래시계형"
+   },
    "title": {
     "en": "the ambitious hero of chaos who unified the north — warlord, chancellor and poet"
    },
@@ -3364,6 +3394,11 @@
    "seal": "夏侯",
    "lore": "제 눈알을 삼키고 다시 말을 몰았다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "외눈의 맹장 — 대도 · 왼눈 가죽 안대 · 눈썹 흉터 · 짧은 검은 머리 · 건장한 굴곡형"
+   },
    "title": {
     "en": "Cao Cao's fiercest general, who swallowed her own eye on the battlefield"
    },
@@ -4646,6 +4681,11 @@
    "seal": "司馬",
    "lore": "기다림으로 삼국을 모두 삼켰다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "낭고의 책사 — 검은 깃털 부채 · 어깨 너머 돌아보는 눈 · 칠흑 긴 머리 · 어두운 입술 · 장신 굴곡형"
+   },
    "title": {
     "en": "the patient wolf of Wei, the strategist whose house would rise to found Jin"
    },
@@ -6531,6 +6571,11 @@
    "seal": "孫",
    "lore": "형이 남긴 강동을 오십 년 지켰다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "벽안자염의 오 황제 — 붉은 술 달린 황제 검 · 에메랄드 눈 · 자줏빛 붉은 머리 · 풍만형"
+   },
    "title": {
     "en": "the emperor of Wu, master of the Yangtze, famed for her green eyes and purple beard"
    },
@@ -6607,6 +6652,11 @@
    "seal": "周",
    "lore": "동남풍을 기다리며 적벽에 불을 놓았다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "미주랑 — 옥퉁소 · 진홍 머리(적벽의 불) · 금빛 눈 · 화려한 인상 · 모래시계형"
+   },
    "title": {
     "en": "the brilliant young commander of Wu who burned the fleet at the Red Cliffs"
    },
@@ -8626,6 +8676,11 @@
    "seal": "孫",
    "lore": "시녀에게도 칼을 채운 신부",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "궁요희 — 날 달린 쌍 환도(차크람) · 불꽃 주황 포니테일 · 주근깨 · 말괄량이 · 탄탄한 굴곡형"
+   },
    "title": {
     "en": "the bow-waist princess of Wu, a warrior princess who married Liu Bei"
    },
@@ -9305,6 +9360,11 @@
    "seal": "呂",
    "lore": "사람 중에 여포요 말 중에 적토라",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "천하무쌍 — 방천화극 · 꿩깃 두 가닥 · 자흑 머리 · 진홍 눈 · 거만한 미소 · 장신 굴곡형"
+   },
    "title": {
     "en": "the mightiest warrior under heaven, rider of Red Hare"
    },
@@ -10386,6 +10446,11 @@
    "seal": "貂",
    "lore": "미인계로 두 사내를 갈라놓았다",
    "designed": "hand",
+   "design_by": "claude",
+   "design_date": "2026-11-02",
+   "summary": {
+    "ko": "폐월의 미녀 — 비단 부채(춤) · 로열 퍼플 머리 · 처진 눈 · 눈가 점 · 가늘고 풍만한 형"
+   },
    "title": {
     "en": "the peerless beauty whose chain stratagem turned Dong Zhuo and Lü Bu against each other"
    },

@@ -1,5 +1,5 @@
 /* 화면 검사 — 도감 · 생성기를 브라우저로 연다. 폰(390)과 PC(1280). 게임(index.html)은 tests/regression.cjs 가 맡는다 — 여기선 안 연다.
-   도감: 세력 넷 · 고른 세력의 장수 수 = 설계표 · 장수마다 세계 셋(빈 칸은 생성기로) · 역할로 바로 가기 · 이름 찾기 · 그림 있는 것만 · 주소 ?faction=&q= · ★ 손 설계.
+   도감: 세력 넷 · 고른 세력의 장수 수 = 설계표 · 장수마다 세계 셋(빈 칸은 생성기로) · 역할로 바로 가기 · 이름 찾기 · 그림 있는 것만 · 주소 ?faction=&q= · 설계 상태(확정 · 시안 · 다시 설계) · 설계 요약 · 상태 거르기(?st=).
    생성기: 세력 › 장수 › 갈래 › 단계. 세계 그림은 세계 → … → 다 골랐다 — 지시문이 조립기(lib/prompt-sam.js)와 같고 파일 이름이 <장수>_<세계>_<화풍>_f.webp.
    일상컷은 트리 버전2 — 처음부터 랜덤으로 다 골랐다까지, 시대 넷 · 역사의 자리 장소. 주소 ?card=&o=&world=. 콘솔 오류 없음 · 옆으로 넘치지 않음.
    Run: ESM_DIR=<preact 가 든 node_modules> CHROMIUM_PATH=<chrome> node tests/screen.cjs   (PORT 로 자리 바꾸기, 기본 8796) */
@@ -60,18 +60,25 @@ const P = ctx0.window.AtelierPrompt;
     /* ── 도감 ── */
     let v = await open('/dex.html', vp);
     await v.page.waitForSelector('.sam-card');
+    /* 그림이 있는 장수(조조) — 칸은 크게 보기 단추 */
+    if (await v.page.locator('.sam-card[data-card="조조"] .worlds.main button.slot').count()) assert.equal(await v.page.locator('.sam-card[data-card="조조"] .worlds.main button.slot').count(), 3, '조조 세계 셋 그림');
     assert.equal(await v.page.locator('.dex-pick a').count(), D.factions.length, '세력 넷');
     assert.equal(await v.page.locator('.sam-card').count(), count(D.factions[0].key), '첫 세력의 장수 수');
-    const one = v.page.locator('.sam-card').first();
+    const one = v.page.locator('.sam-card').first(), bare = v.page.locator('.sam-card.bare').first();   /* 그림이 없는 장수 — 빈 칸이 생성기로 */
     assert.equal(await one.locator('.worlds.main .slot').count(), 3, '세계 셋');
-    assert.match(await one.locator('.worlds.main .slot').first().getAttribute('href'), /^prompt\.html\?card=.+&world=samguk$/, '빈 칸은 생성기로');
+    assert.match(await bare.locator('.worlds.main .slot').first().getAttribute('href'), /^prompt\.html\?card=.+&world=samguk$/, '빈 칸은 생성기로');
     assert.equal(await v.page.locator('.toc-jump .jump').count(), new Set(D.generals.filter(g => g.faction === D.factions[0].key).map(g => g.role)).size, '역할로 바로 가기');
     checks += 4;
-    /* 촉 — 관우는 손 설계(★), 찾기 · 주소 */
+    /* 촉 — 관우는 확정(★) · 설계 요약, 상태 거르기 · 찾기 · 주소 */
     await v.page.click('.dex-pick a[href="dex.html?faction=shu"]');
     await v.page.waitForSelector('.sam-card[data-card="관우"]');
     assert.equal(await v.page.locator('.sam-card').count(), count('shu'), '촉 장수 수');
-    assert.match(await v.page.locator('.sam-card[data-card="관우"]').textContent(), /손 설계/);
+    assert.match(await v.page.locator('.sam-card[data-card="관우"]').textContent(), /확정/);
+    assert.match(await v.page.locator('.sam-card[data-card="관우"] .summary').textContent(), /청룡언월도/, '설계 요약');
+    await v.page.selectOption('#dex-state', 'hand');
+    assert.equal(await v.page.locator('.sam-card').count(), D.generals.filter(g => g.faction === 'shu' && g.designed === 'hand').length, '설계 상태 거르기');
+    assert.match(v.page.url(), /st=hand/);
+    await v.page.selectOption('#dex-state', '');
     assert.match(await v.page.locator('.sam-card[data-card="관우"] .stats').textContent(), /무력97/);
     await v.page.fill('#dex-find', 'zhuge');
     assert.equal(await v.page.locator('.sam-card').count(), D.generals.filter(g => g.faction === 'shu' && /zhuge/i.test(g.en)).length, '병음으로 찾기');
@@ -124,5 +131,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 손 설계 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

@@ -93,7 +93,7 @@ function Card({doc,g,view,wf,open,setOpen,onOpen,favs}){
   const fav=pics.filter(p=>favs.some(x=>x.a===A&&x.file===p.file)).length;
   const toggle=k=>setOpen(Object.assign({},open,{[g.key]:Object.assign({},o,{[k]:!o[k]})}));
   const head=h('div',{class:'card-head'},h('b',null,g.seal&&h('span',{class:'seal'},g.seal),g.key),h('span',{class:'en'},g.en),
-    g.designed==='hand'&&h('span',{class:'hand',title:W('dex.hand.title')},W('dex.hand')),fav>0&&h('span',{class:'fav-mark',title:W('dex.fav.inCard',{n:fav})},'♥ '+fav));
+    g.designed!=='auto'&&h('span',{class:'state st-'+g.designed,title:W('dex.state.'+g.designed+'.title')},W('dex.state.'+g.designed)),g.redo&&h('span',{class:'state st-redo',title:g.redo.why},W('dex.state.redo')),fav>0&&h('span',{class:'fav-mark',title:W('dex.fav.inCard',{n:fav})},'♥ '+fav));
   const body=[];
   if(view!=='casual')body.push(h('div',{key:'w',class:'worlds main'},worldsShown.map(w=>h(WorldSlot,{key:w,g,world:w,pic:pics.find(p=>p.kind==='world'&&p.world===w),onOpen}))));
   if(view==='world'){
@@ -109,11 +109,13 @@ function Card({doc,g,view,wf,open,setOpen,onOpen,favs}){
   return h('article',{class:'ek-card sam-card'+(pics.length?'':' bare'),id:'c-'+g.key,'data-card':g.key,'data-fac':g.faction},
     h('div',{class:'who'},head,
       h('ul',{class:'stats','aria-label':W('dex.stats')},STATS.map(k=>h('li',{key:k},W('stat.'+k),h('b',null,st[k])))),
+      g.summary&&h('p',{class:'summary'},g.summary.ko),
+      g.redo&&h('p',{class:'redo-why'},W('dex.redo.why',{why:g.redo.why})),
       g.lore&&h('p',{class:'lore'},g.lore)),
     h('div',{class:'body'},body));
 }
 /* 위에 붙는 판 — 보기 · 세계 · 찾기 · 그림 있는 것만 · 역할로 바로 가기 · 즐겨찾기 */
-function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,favN,worlds}){
+function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts,favN,worlds}){
   const go=r=>{const el=document.getElementById('r-'+r);if(el)el.scrollIntoView({block:'start',behavior:'smooth'});};
   return h('div',{class:'dex-toc'},
     h('div',{class:'toc-row'},
@@ -123,7 +125,8 @@ function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,favN,worlds}){
     /* 찾기 줄 — 폰에서 위 줄은 옆으로 밀리므로 찾기 · 그림 있는 것만은 따로 한 줄 */
     h('div',{class:'find-row'},
       h('input',{class:'find',id:'dex-find',type:'search',value:q,placeholder:W('dex.find'),'aria-label':W('dex.find'),onInput:e=>setQ(e.target.value)}),
-      h('label',{class:'only'},h('input',{type:'checkbox',id:'dex-only',checked:only,onChange:e=>setOnly(e.target.checked)}),W('dex.only.art'))),
+      h('label',{class:'only'},h('input',{type:'checkbox',id:'dex-only',checked:only,onChange:e=>setOnly(e.target.checked)}),W('dex.only.art')),
+      h('label',{class:'only'},W('dex.state.f'),h('select',{id:'dex-state',value:sf,onChange:e=>setSf(e.target.value)},STATE_F.map((k,i)=>h('option',{key:k||'all',value:k},W('dex.state.f.'+(k||'all'))+' '+counts[i]))))),
     roles.length>1&&h('nav',{class:'toc-jump','aria-label':W('dex.toc')},roles.map(r=>h('button',{key:r.key,type:'button',class:'jump','data-jump':r.key,onClick:()=>go(r.key)},r.ko+' '+r.n))));
 }
 /* 크게 보기 — 그 장수의 그림을 차례로. ← → · 밀기 · Esc, 하트 */
@@ -155,9 +158,12 @@ function Lightbox({doc,box,setBox,close,favs}){
 /* 그린 칸 — 장수마다 세계 셋 */
 function progress(doc,gs){let done=0;for(const g of gs)done+=doc.d.vocab.worlds.filter(w=>fileOf(doc,g.key,w)).length;return {done,all:gs.length*doc.d.vocab.worlds.length};}
 const matches=(g,q)=>{q=q.trim().toLowerCase();return !q||(g.key+' '+(g.en||'')+' '+(g.seal||'')).toLowerCase().includes(q);};
-function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,open,setOpen,onOpen,favs}){
+/* 설계 상태 거르기 — 전부 · 시안(검토할 것) · 다시 설계 요청 · 확정 · 자동(2026-11-02 「손 설계가 마음에 안 들면 다시 설계」) */
+const STATE_F=['','draft','redo','hand','auto'];
+const stateOk=(g,sf)=>!sf||(sf==='redo'?!!g.redo:g.designed===sf);
+function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,setOpen,onOpen,favs}){
   const d=doc.d,all=d.generals.filter(g=>g.faction===f.key),pr=progress(doc,all);
-  const shown=all.filter(g=>matches(g,q)&&(!only||picsOf(doc,g).length));
+  const shown=all.filter(g=>matches(g,q)&&stateOk(g,sf)&&(!only||picsOf(doc,g).length));
   const roles=ROLES.map(r=>({key:r,ko:d.roles[r].ko,gs:shown.filter(g=>g.role===r)})).filter(r=>r.gs.length).map(r=>Object.assign(r,{n:r.gs.length}));
   const favN=favs.filter(x=>x.a===A).length,props={doc,view,wf,open,setOpen,onOpen,favs};
   return h('section',{class:'ek-section','data-fac':f.key,'aria-label':f.ko},
@@ -165,7 +171,7 @@ function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,open,setOpen,o
       h('p',{class:'dex-progress'},W('dex.count',{n:all.length}),' · ',W('dex.progress',{done:pr.done,all:pr.all})))),
     h('details',{class:'about'},h('summary',null,W('dex.about')),h('p',null,f.persona),
       h('ul',{class:'traits'},d.vocab.worlds.map(w=>h('li',{key:w},h('b',null,W('world.'+w)),' — ',((f.worlds||{})[w]||{}).ko)))),
-    h(Toc,{roles,view,setView,wf,setWf,q,setQ,only,setOnly,favN,worlds:d.vocab.worlds}),
+    h(Toc,{roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts:STATE_F.map(k=>all.filter(g=>stateOk(g,k)).length),favN,worlds:d.vocab.worlds}),
     !roles.length&&h('p',{class:'none-row',id:'dex-none'},W('dex.empty')),
     roles.map(r=>h('div',{key:r.key,class:'role'},
       h('div',{class:'role-head',id:'r-'+r.key},h('h3',null,r.ko),h('span',null,W('dex.count',{n:r.n}))),
@@ -175,6 +181,7 @@ function Dex(){
   const doc=useDocs(),favs=useFavorites();
   const [view,setViewS]=useState(()=>VIEWS.includes(param('view'))?param('view'):VIEWS.includes(pref.view)?pref.view:'world');
   const [wf,setWfS]=useState(()=>{const w=param('w')??pref.w??'';return ['samguk','fantasy','mecha'].includes(w)?w:'';});
+  const [sf,setSfS]=useState(()=>STATE_F.includes(param('st'))?param('st'):'');
   const [q,setQS]=useState(()=>param('q')||''),[only,setOnlyS]=useState(()=>param('only')==='1'||(param('only')==null&&!!pref.only));
   const [open,setOpen]=useState({}),[box,setBox]=useState(null),deep=useRef(false);
   const remember=(v,w,qq,o)=>{savePref({view:v,w,only:o});try{const u=new URL(location.href);u.searchParams.set('view',v);if(w)u.searchParams.set('w',w);else u.searchParams.delete('w');
@@ -186,6 +193,7 @@ function Dex(){
   const closeBox=()=>{if(isLb()){try{history.back();return;}catch{}}setBox(null);};
   useEffect(()=>{const pop=()=>{if(!isLb())setBox(null);};addEventListener('popstate',pop);return()=>removeEventListener('popstate',pop);},[]);
   const setView=v=>{setViewS(v);remember(v,wf,q,only);},setWf=w=>{setWfS(w);remember(view,w,q,only);},setQ=x=>{setQS(x);remember(view,wf,x,only);},setOnly=o=>{setOnlyS(o);remember(view,wf,q,o);};
+  const setSf=x=>{setSfS(x);try{const u=new URL(location.href);if(x)u.searchParams.set('st',x);else u.searchParams.delete('st');history.replaceState(history.state,'',u);}catch{}};
   /* 공방 모음 즐겨찾기에서 ?card=&pic= 로 오면 그 장수로 내려가 그 그림을 연다 */
   useEffect(()=>{if(!doc||doc.failed||deep.current)return;deep.current=true;const ck=param('card'),pic=param('pic');if(!ck)return;
     const g=doc.d.generals.find(x=>x.key===ck);if(!g)return;
@@ -197,7 +205,7 @@ function Dex(){
   return h('div',null,
     h('nav',{class:'dex-pick','aria-label':W('dex.pick')},d.factions.map(x=>{const gs=d.generals.filter(g=>g.faction===x.key),pr=progress(doc,gs);
       return h('a',{key:x.key,href:'dex.html?faction='+x.key,'aria-current':x.key===f.key?'page':undefined,'data-fac':x.key},h('span',{class:'sym'},x.hanja),x.ko,' ',h('i',null,W('dex.pick.n',{n:gs.length,done:pr.done})));})),
-    h(Faction,{doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})}),
+    h(Faction,{doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})}),
     h(Lightbox,{doc,box,setBox,close:closeBox,favs}));
 }
 function App(){return h('div',null,h(WorkspaceHeader,{page:'dex'}),h(Dex));}
