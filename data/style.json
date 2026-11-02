@@ -37,6 +37,29 @@
      ]
     }
    ]
+  },
+  "kr_mmorpg": {
+   "name": "한국 MMORPG 프로모",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-02",
+     "by": "시험 — 사용자 「한국형 글로시를 조금 더 한국의 mmorpg 스럽게(아이온 · 블레이드앤소울 같이)」. 게임 이름은 지시문에 넣지 않고 특징만",
+     "text": "Premium Korean MMORPG promotional character render: a semi-realistic, painterly 3D finish with porcelain skin and a soft subsurface glow, a small refined face with delicate realistic-anime features, elegant elongated proportions with long legs and a narrow waist while keeping the body type SILHOUETTE names. Glossy specular highlights on skin, polished metal and silk. Extremely intricate ornamented costume — filigree metalwork, jewel inlays, layered translucent fabrics and fine embroidery. Ethereal rim lighting, drifting light particles and atmospheric depth with a softly blurred background. Luxurious, high-detail, character-select-screen quality.",
+     "casual": "Premium Korean MMORPG promotional character render: a semi-realistic, painterly 3D finish with porcelain skin and a soft subsurface glow, a small refined face with delicate realistic-anime features, elegant elongated proportions with long legs and a narrow waist while keeping the body type SILHOUETTE names. Glossy specular highlights on skin, fabric and jewellery. Refined fabric and accessory rendering with fine jewellery detail. Ethereal rim lighting, drifting light particles and atmospheric depth with a softly blurred background. Luxurious, high-detail, character-select-screen quality.",
+     "worlds": {
+      "samguk": "Bold martial-fantasy glamour — high contrast, silk clinging to the body, dynamic contrapposto.",
+      "fantasy": "Serene and celestial — pastel light, gold accents, feather or wing-like ornaments."
+     },
+     "check": "semi-realistic Korean MMORPG promo render — porcelain skin, intricate filigree costume, rim light and particles; one figure, no readable text but a single banner character.",
+     "why": [
+      "반실사 3D 프로모 렌더 · 도자기 피부 · 촘촘한 장식 · 윤곽광과 입자 — 두 게임의 공통점",
+      "결은 세계마다 한 줄(worlds) — 삼국시대는 무협풍, 중세 판타지는 천상풍, 메카는 기본만",
+      "얼굴이 굳지 않게 delicate realistic-anime 로 애니 쪽에 붙잡는다(원소 공방 CGI 의 「얼굴이 각지다」)"
+     ]
+    }
+   ]
   }
  }
 }
