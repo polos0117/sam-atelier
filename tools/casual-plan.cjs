@@ -9,8 +9,8 @@
      - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대는 한 가지 두 번까지, 네 장 이상이면 네 시대(지금 현실 · 역사의 자리 · 세계 안 · 무대·환상) 다
      - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 · 가까운 컷 하나씩은 꼭) · 몸 방향 한 가지는 두 번까지 · 머리 「어깨 너머」 는 한 장까지
      - 소품은 칸마다 다르게 · 그 장수의 물건(설계표 hold, 없으면 역할의 것)을 든 컷은 한두 장 · 마실 것은 한 장까지 · ⚠ 어색한 조합은 한 장까지
-     - 장수 사이에서도 안 쓴 트리 쪽 먼저: 그림 저장소 기록(--usage, 기본 옆의 sam-atelier-img/records)에서 장소 · 옷 · 자세 추천 · 자세 · 표정 · 소품을 센다 —
-       한 번도 안 쓴 값은 무게 4, 쓴 값은 1/(1+횟수)²
+     - 장수 사이에서도 안 쓴 트리 쪽 먼저: 그림 저장소 기록(--usage, 기본 옆의 sam-atelier-img/records)에서 장소 · 옷 계열 · 옷 · 자세 추천 · 자세 · 길(자세 추천 × 장소) · 표정 · 소품을 센다 —
+       한 번도 안 쓴 값은 무게 12, 쓴 값은 1/(1+횟수)³(2026-11-02 「가중치 올려줘」 — 전엔 4 와 ²)
    이미 그림이 있는 번호는 짜지 않고, 그 세계의 기록(--records)은 겹침 검사에만 쓴다.
 
      node tools/casual-plan.cjs <장수> --world <세계> [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
@@ -76,9 +76,11 @@ function presetsAt(sc, g) {
 }
 const sigProp = c => { const u = C2.use(T2, c.use); return !!u && u.prop === 'signature'; };
 
-/* 카드 사이 쓴 횟수의 무게 — 한 번도 안 쓴 값이 먼저(4), 쓴 값은 1/(1+횟수)² */
-const WEIGHT_UNUSED = 4;
-const wOf = n => n ? 1 / Math.pow(1 + n, 2) : WEIGHT_UNUSED;
+/* 카드 사이 쓴 횟수의 무게 — 한 번도 안 쓴 값이 먼저(12), 쓴 값은 1/(1+횟수)³.
+   2026-11-02 사용자 「가중치 올려줘」 — 기록 159장 중 세계 안 · 방 · 홈웨어 · 발목 꼬고 앉기 한 장면이 12장, 길(자세 추천 × 장소) 3583 중 102 만 썼다.
+   전엔 4 와 1/(1+횟수)² — 안 쓴 값이 한 번 쓴 값보다 16 배, 이제 96 배. 길(자세 추천 × 장소) · 옷 계열 횟수도 센다 */
+const WEIGHT_UNUSED = 12;
+const wOf = n => n ? 1 / Math.pow(1 + n, 3) : WEIGHT_UNUSED;
 function lean(r, list, count, key = x => x) {
   if (!list.length) return undefined;
   const w = list.map(x => wOf((count || {})[key(x)] || 0)), sum = w.reduce((a, b) => a + b, 0);
@@ -86,7 +88,9 @@ function lean(r, list, count, key = x => x) {
   return list[list.length - 1];
 }
 /* 쓴 횟수 꼴 바로잡기 — 옛 꼴(소품 → 횟수)도 받는다 */
-const usageOf = u => (u && (u.place || u.prop || u.preset)) ? { prop: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {}, ...u } : { prop: u || {}, place: {}, item: {}, preset: {}, posture: {}, expr: {} };
+const EMPTY_USAGE = () => ({ prop: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {}, ofam: {}, path: {} });
+const usageOf = u => (u && (u.place || u.prop || u.preset)) ? { ...EMPTY_USAGE(), ...u } : { ...EMPTY_USAGE(), prop: u || {} };
+const pathKey = (preset, place) => preset + '@' + place;
 
 /* 한 칸 — 시대 · 장소 · 의상 · 옷, 그 장소에서 쓸 수 있는 자세 추천 하나(frame 을 주면 그 프레이밍의 추천만).
    wantSig 면 소품 동작을 그 장수의 물건으로. 소품 동작은 덜 쓴 소품 쪽으로(무게 1/(1+횟수)², 따로 된 난수 흐름 — game 과 같다).
@@ -98,14 +102,14 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
   else {
     const era = wantEra || weighted(r, ERA_WEIGHT), place = lean(r, C2.choices(T2, { era }, 'place', null), U.place);
     if (!place) return null;
-    sc = { era, place, ofam: pick(r, C2.choices(T2, { era, place }, 'ofam', null)) };
+    sc = { era, place, ofam: lean(r, C2.choices(T2, { era, place }, 'ofam', null), U.ofam) };
   }
   sc.treeV = 2; sc.prop = wantSig ? '0' : '';
   const presets = presetsAt(sc, g).filter(p => (!frame || p.frame === frame) && (!wantSig || p.prop_kind));
   if (!presets.length) return null;
   const rp = list => pick(r, list);
   /* 자세 추천 — 그 추천과 그 자세의 횟수를 함께(선 자세가 절반이 넘었다 — 2026-11-01 기록 434장) */
-  const pw = presets.map(p => wOf(U.preset[p.key] || 0) * Math.sqrt(wOf(U.posture[p.posture] || 0)));
+  const pw = presets.map(p => wOf(U.preset[p.key] || 0) * Math.sqrt(wOf(U.posture[p.posture] || 0)) * wOf(U.path[pathKey(p.key, sc.place)] || 0));
   let px = r() * pw.reduce((a, b) => a + b, 0), chosen = presets[presets.length - 1];
   for (let i = 0; i < presets.length; i++) { px -= pw[i]; if (px < 0) { chosen = presets[i]; break; } }
   sc = C2.repair(T2, C2.applyPreset(T2, sc, chosen.key), g, rp);
@@ -251,7 +255,7 @@ function freeSlots(card, world, want = CASUAL_N) {
 }
 /* 쓴 횟수 — 그림 저장소의 모든 장수 기록에서(그 장수는 빼고): 소품(그 장수의 물건은 빼고) · 장소 · 옷 · 자세 추천 · 자세 · 표정 */
 function sceneUsage(dir, skip) {
-  const out = { prop: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {} };
+  const out = EMPTY_USAGE();
   if (!dir || !fs.existsSync(dir)) return out;
   const add = (m, k) => { if (k) m[k] = (m[k] || 0) + 1; };
   for (const k of fs.readdirSync(dir)) {
@@ -261,7 +265,8 @@ function sceneUsage(dir, skip) {
       if (!sc) continue;
       const u = C2.use(T2, sc.use);
       if (u && u.prop !== 'signature') add(out.prop, u.prop);
-      add(out.place, sc.place); add(out.item, sc.item); add(out.preset, sc.preset); add(out.posture, sc.posture); add(out.expr, sc.expr);
+      add(out.place, sc.place); add(out.item, sc.item); add(out.preset, sc.preset); add(out.posture, sc.posture); add(out.expr, sc.expr); add(out.ofam, sc.ofam);
+      if (sc.preset && sc.place) add(out.path, pathKey(sc.preset, sc.place));
     }
   }
   return out;
