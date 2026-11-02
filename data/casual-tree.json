@@ -2056,8 +2056,9 @@
   }
  },
  "frame_rules": {
-  "note": "가까운 컷에서 보이는 몸 부위(zones), 광각(wide), 허리 아래로 알아보는 옷(low), 안 되는 방향(no_orients — 등 쪽은 등·옆구리를 보이려 컷을 넓혔다) — 없는 프레이밍은 다 된다",
+  "note": "가까운 컷에서 보이는 몸 부위(zones), 광각(wide), 허리 아래로 알아보는 옷(low), 안 되는 방향(no_orients — 등 쪽은 등·옆구리를 보이려 컷을 넓혔다) — 없는 프레이밍은 다 된다 · not_required — 정해 둔 갈래(노출 · 세계 안) 컷엔 안 쓴다(옷이 안 남는다 — pkm 과 같게, 2026-11-02)",
   "face_close": {
+   "not_required": true,
    "zones": [
     "any",
     "face"
