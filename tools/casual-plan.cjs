@@ -158,7 +158,7 @@ function check(cuts, card, base = [], others = []) {
   over('마실 것', c => { const u = C2.use(T2, c.use); return u && DRINKS.includes(u.prop) && 'drink'; }, 1);
   over('그 장수의 물건', c => sigProp(c) && 'signature', 2);
   over('어색한 조합', c => C2.awkward(T2, c.ofam, c.place).length && 'awkward', 1);
-  if (card.g.signature_hold.length && cuts.length >= 3 && !all.some(sigProp)) errs.push('그 장수의 물건을 든 컷이 없다(한두 장)');
+  if (card.g.signature_hold.length && all.length >= 3 && !all.some(sigProp)) errs.push('그 장수의 물건을 든 컷이 없다(한두 장)');
   if (all.length >= 3) {
     if (!all.some(c => FAR.includes(c.frame))) errs.push('먼 컷(전신·환경)이 없다');
     if (!all.some(c => NEAR.includes(c.frame))) errs.push('가까운 컷(가슴 위·클로즈업)이 없다');
