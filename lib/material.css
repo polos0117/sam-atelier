@@ -23,7 +23,7 @@ html:not([data-background="off"]) :is(.ek-section,.panel,.patch-panel,.room-prev
 /* 단추(보조) — 위 빛 · 아래 그늘로 눌리는 판처럼 */
 :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump) {box-shadow:inset 0 1px 0 #ffffff14,inset 0 -2px 0 #0000001f;border-color:var(--mat-edge,var(--line))}
 /* 단추(주) — 광택 한 겹과 공간의 빛 */
-:is(.btn.pri,.home-doors .door.main,.seg button[aria-pressed="true"],.dex-pick a[aria-current="page"],.room-choice[aria-pressed="true"],.opt[aria-pressed="true"]) {
+:is(.btn.pri,.home-doors .door.main,.menu-btn.main,.seg button[aria-pressed="true"],.dex-pick a[aria-current="page"],.room-choice[aria-pressed="true"],.opt[aria-pressed="true"]) {
   background-image:linear-gradient(180deg,#ffffff33,#ffffff00 46%,#0000001f);box-shadow:inset 0 1px 0 #ffffff40,0 2px 0 #00000030,var(--mat-glow,none)}
 /* 내비게이션 — 무늬 · 재질 · 막 */
 html:not([data-background="off"]) .workspace-nav {
@@ -55,17 +55,17 @@ html:not([data-background="off"]) :is(.nation-card,.result) {border-image:var(--
 html:not([data-background="off"]) .workspace-nav {border-image:var(--frame) var(--frame-slice) / 16px / 2px var(--frame-rep)}
 html:not([data-background="off"]) :is(.ek-section,.panel,.patch-panel) {padding-top:max(22px,1em);margin-top:22px}
 /* 단추 — 보조 */
-:is(.btn:not(.pri),.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door:not(.main),.dex-pick a,.toc-jump .jump,.more) {
+:is(.btn:not(.pri),.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door:not(.main),.menu-btn:not(.main),.dex-pick a,.toc-jump .jump,.more) {
   clip-path:var(--b-clip);border-radius:var(--b-rad);background:var(--b-face);box-shadow:var(--b-ring);border-color:transparent}
-:root[data-theme="orbit"] :is(.btn:not(.pri),.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door:not(.main),.dex-pick a,.toc-jump .jump,.more) {border:1.5px solid transparent}
+:root[data-theme="orbit"] :is(.btn:not(.pri),.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door:not(.main),.menu-btn:not(.main),.dex-pick a,.toc-jump .jump,.more) {border:1.5px solid transparent}
 /* 단추 — 주(눌린 것 · 고른 것 · 큰 문) */
-:is(.btn.pri,.home-doors .door.main,.seg button[aria-pressed="true"],.dex-pick a[aria-current="page"],.room-choice[aria-pressed="true"],.opt[aria-pressed="true"],.hchip.on) {
+:is(.btn.pri,.home-doors .door.main,.menu-btn.main,.seg button[aria-pressed="true"],.dex-pick a[aria-current="page"],.room-choice[aria-pressed="true"],.opt[aria-pressed="true"],.hchip.on) {
   clip-path:var(--b-clip);border-radius:var(--b-rad);background:var(--b-pface);box-shadow:var(--b-pring);border-color:transparent;color:var(--on-accent)}
 :is(.room-choice[aria-pressed="true"],.opt[aria-pressed="true"],.hchip.on) :is(span,small,b) {color:var(--on-accent)}
 .home-doors .door.main span {color:var(--on-accent)}
 /* 육각 · 팔각처럼 양끝을 깎는 모양은 글자가 모서리에 닿지 않게 옆 여백을 더 */
-:root:is([data-theme="peachsword"],[data-theme="dragonforge"],:not([data-theme])) :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump,.more) {padding-left:max(18px,1.2em);padding-right:max(18px,1.2em)}
-:is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump,.more):focus-visible {clip-path:none;outline:2px solid var(--signal);outline-offset:2px}
-html[data-background="off"] :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump,.more) {clip-path:none}
+:root:is([data-theme="peachsword"],[data-theme="dragonforge"],:not([data-theme])) :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.menu-btn,.dex-pick a,.toc-jump .jump,.more) {padding-left:max(18px,1.2em);padding-right:max(18px,1.2em)}
+:is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.menu-btn,.dex-pick a,.toc-jump .jump,.more):focus-visible {clip-path:none;outline:2px solid var(--signal);outline-offset:2px}
+html[data-background="off"] :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.menu-btn,.dex-pick a,.toc-jump .jump,.more) {clip-path:none}
 /* 거르기 묶음(.seg) 안의 단추는 한 줄로 붙어 있어 모양은 풀고 얼굴만 */
 .seg button,.seg button[aria-pressed="true"] {clip-path:none !important;border-radius:0 !important;border:0 !important;padding-left:12px !important;padding-right:12px !important}   /* :is 묶음의 특이도(.home-doors .door:not(.main))를 이긴다 */

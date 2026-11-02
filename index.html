@@ -4,131 +4,104 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f9fc">
+<meta name="theme-color" content="#fcf5f3">
 <title>삼국지 공방</title>
-<!-- 첫 화면(2026-11-02, 사용자 「공방 처음 진입 화면 만들어줘. 다른 공방처럼」) — 게임(삼국지 쟁탈전)은 내용 그대로 draft.html 로 옮겼다.
-     예전 주소의 게임 몫(?daily 오늘의 대국 · ?local · #sam-transfer 세이브 옮기기)은 여기서 draft.html 로 그대로 넘긴다 — 공방 지도 · 옛 북마크 · 옛 /atelier/sam.html 길이 안 끊긴다. -->
+<!-- 타이틀 화면(2026-11-02, 사용자 「배경이 너무 안 보인다 — 첨부한 UI 처럼 메인화면을 게임 첫 진입화면처럼, 지금 메인은 거기서 버튼 눌러서 들어가는 식으로」).
+     공간의 배경 장면(lib/room.css --room-src)을 화면 가득, 장식 틀(lib/material.css --frame) 안에 공방 현판과 큰 메뉴 단추 다섯 — 드래프트(게임) · 오늘의 대국 · 도감 · 프롬프트 · 군막(공방 안내판 hall.html).
+     ◀ ▶(← →)로 공간 아홉을 바로 넘긴다 — 고른 공간은 다른 화면에도 그대로(lib/workspace-theme.js).
+     예전 게임 주소의 몫(?daily · ?local · #sam-transfer)은 여기서 draft.html 로 그대로 넘긴다 — 공방 지도 · 옛 북마크 · 옛 /atelier/sam.html 길이 안 끊긴다. -->
 <script>
 (function () {
   try {
     var q = new URLSearchParams(location.search), h = location.hash || '';
     if (q.has('daily') || q.has('local') || /sam-transfer=/.test(h)) location.replace('draft.html' + location.search + h);
-  } catch (e) { /* 아주 옛 브라우저 — 첫 화면 그대로 */ }
+  } catch (e) { /* 아주 옛 브라우저 — 타이틀 그대로 */ }
 })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Gowun+Batang:wght@700&display=swap">
 <link rel="manifest" href="sam.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-sam-180.png">
-<link rel="stylesheet" href="lib/workspace.css?v=2">
-<script src="lib/workspace-theme.js?v=2"></script>
-<script src="lib/words.js?v=2"></script>
-<script src="lib/patch.js?v=1"></script>
+<link rel="stylesheet" href="lib/workspace.css?v=3">
+<script src="lib/workspace-theme.js?v=3"></script>
+<script src="lib/words.js?v=3"></script>
 <script src="lib/fresh.js?v=1"></script>
-<script src="lib/img.js?v=1"></script>
-<link rel="stylesheet" href="lib/room.css?v=2">
-<link rel="stylesheet" href="lib/sam.css?v=2">
-<link rel="stylesheet" href="lib/material.css?v=1">
+<link rel="stylesheet" href="lib/room.css?v=3">
+<link rel="stylesheet" href="lib/sam.css?v=3">
+<link rel="stylesheet" href="lib/material.css?v=2">
+<style>
+/* 타이틀 — 배경 장면이 주인공. 막은 메뉴 쪽만 옅게 */
+body.title-page {margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);overflow-x:hidden}
+.title-bg {position:fixed;inset:0;background-color:var(--bg);background-image:var(--room-src),var(--tex);background-size:cover,384px;background-position:center;background-repeat:no-repeat,repeat}
+.title-bg::after {content:'';position:absolute;inset:0;background:
+  linear-gradient(90deg,rgb(var(--room-rgb) / .78) 0,rgb(var(--room-rgb) / .38) 34%,rgb(var(--room-rgb) / 0) 58%),
+  linear-gradient(0deg,rgb(var(--room-rgb) / .55) 0,rgb(var(--room-rgb) / 0) 28%)}
+.title-wrap {position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(320px,440px) 1fr;align-items:center;padding:clamp(16px,4vw,56px)}
+.title-menu {padding:30px 30px 24px;background:color-mix(in srgb,var(--card) 78%,transparent);border:1px solid var(--line);border-image:var(--frame) var(--frame-slice) / 34px / 6px var(--frame-rep);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);box-shadow:0 20px 50px #0007;display:flex;flex-direction:column;gap:12px}
+.title-kicker {margin:0;color:var(--signal);font-size:12px;letter-spacing:.14em;text-align:center}
+.title-plaque {margin:0 auto 6px;padding:14px 30px;text-align:center;clip-path:var(--b-clip);border-radius:var(--b-rad);background:var(--b-pface);box-shadow:var(--b-pring);color:var(--on-accent)}
+.title-plaque h1 {margin:0;font:700 clamp(28px,4vw,38px)/1.1 'Gowun Batang',var(--gallery-serif,serif);letter-spacing:.06em}
+.title-plaque p {margin:6px 0 0;font-size:12.5px;opacity:.9}
+.menu-btn {display:flex;flex-direction:column;align-items:center;gap:2px;min-height:58px;padding:10px 26px;color:var(--text);text-decoration:none;font:700 18px/1.2 'Gowun Batang',var(--gallery-serif,serif);letter-spacing:.06em}
+.menu-btn small {font:500 11.5px/1.3 'IBM Plex Sans KR',system-ui,sans-serif;letter-spacing:0;color:var(--muted)}
+.menu-btn.main small {color:var(--on-accent);opacity:.85}
+.title-space {display:flex;align-items:center;gap:8px;margin-top:6px}
+.title-space .arrow {min-width:44px;min-height:44px;padding:0;font-size:18px;color:var(--text);cursor:pointer}
+.title-space .name {flex:1;text-align:center}
+.title-space .name b {display:block;font:700 15px/1.3 'Gowun Batang',var(--gallery-serif,serif);color:var(--text)}
+.title-space .name small {display:block;color:var(--muted);font-size:11px;line-height:1.4}
+.title-note {grid-column:2;align-self:end;justify-self:end;max-width:420px;margin:0;padding:10px 14px;color:var(--text);font-size:12.5px;line-height:1.6;background:color-mix(in srgb,var(--card) 60%,transparent);border-radius:10px;backdrop-filter:blur(2px)}
+@media (max-width:760px) {
+  .title-wrap {grid-template-columns:1fr;align-items:end;padding:16px 16px max(16px,env(safe-area-inset-bottom))}
+  .title-bg::after {background:linear-gradient(0deg,rgb(var(--room-rgb) / .85) 0,rgb(var(--room-rgb) / .35) 55%,rgb(var(--room-rgb) / 0) 80%)}
+  .title-menu {padding:22px 20px 18px;gap:9px}
+  .menu-btn {min-height:50px;font-size:16px}
+  .title-note {display:none}
+}
+html[data-background="off"] .title-bg {background-image:none}
+</style>
 </head>
-<body class="prompt-page lab-page home-page">
-<div class="wrap"><div id="app"></div></div>
-<script type="module">
-import {h,render} from 'https://esm.sh/preact@10.24.3';
-import {useState,useEffect} from 'https://esm.sh/preact@10.24.3/hooks';
-import {WorkspaceHeader,ThemeGallery} from './lib/workspace-ui.js?v=2';
-const W=window.W,IMG=window.AtelierImg;
-/* 설계표와 등록부를 한 번 읽는다 */
-function useDocs(){
-  const [doc,setDoc]=useState(null);
-  useEffect(()=>{
-    Promise.all([
-      fetch('data/sam-design.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
-      fetch(IMG.DATA,{cache:'no-cache'}).then(r=>r.ok?r.json():{img:{}}).catch(()=>({img:{}}))
-    ]).then(([d,i])=>{IMG.setShards(i);IMG.setAdded(i);setDoc({d,img:i.img||{},added:i.added||{}});}).catch(()=>setDoc({failed:true}));
-  },[]);
-  return doc;
-}
-/* 장수 하나의 그림 수 — 세계 그림 + 일상컷, 화풍 전부 */
-function artCount(img,key){const e=img[key];if(!e)return 0;return Object.values(IMG.styleMap(e)).reduce((n,b)=>n+IMG.shotsOf(b,'f').length+Object.values(IMG.formMap(b)).filter(f=>f.f).length,0);}   /* shotsOf 는 세계 그림(byForm.<세계>.f)을 안 센다 */
-/* 최근 그림 — 등록한 날(added)이 새 것부터. 파일 이름 맨 앞이 장수 열쇠 */
-function recent(doc,n){
-  return Object.entries(doc.added).filter(([f])=>doc.img[f.split('_')[0]]).sort((a,b)=>a[1]<b[1]?1:a[1]>b[1]?-1:(a[0]<b[0]?-1:1)).slice(0,n)
-    .map(([f,date])=>{const key=f.split('_')[0],g=doc.d.generals.find(x=>x.key===key)||{},w=(f.split('_')[1]||'');return {f,date,key,g,world:['samguk','fantasy','mecha'].includes(w)?w:'',casual:/_casual\d+\.webp$/.test(f)};});
-}
-/* 머리말 — 공방 소개와 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) */
-function Hero(){
-  return h('section',{class:'ek-section home-hero','aria-label':W('home.title')},
-    h('p',{class:'ek-kicker'},W('app.title')),
-    h('h2',null,W('home.title')),
-    h('p',null,W('home.intro')),
-    h('p',{class:'ek-tag'},W('home.tag')),
-    h('nav',{class:'home-doors','aria-label':W('home.doors')},
-      h('a',{class:'door main',href:'draft.html'},h('b',null,W('home.door.draft')),h('span',null,W('home.door.draft.sub'))),
-      h('a',{class:'door',href:'draft.html?daily'},h('b',null,W('home.door.daily')),h('span',null,W('home.door.daily.sub'))),
-      h('a',{class:'door',href:'dex.html'},h('b',null,W('home.door.dex')),h('span',null,W('home.door.dex.sub'))),
-      h('a',{class:'door',href:'prompt.html'},h('b',null,W('home.door.prompt')),h('span',null,W('home.door.prompt.sub')))));
-}
-/* 세력 넷 — 장수 수 · 확정 · 시안 · 그림 수, 누르면 그 세력의 도감 */
-function Factions({doc}){
-  const d=doc.d;
-  return h('section',{class:'ek-section','aria-label':W('home.factions')},
-    h('h2',null,W('home.factions')),
-    h('p',{class:'ek-note',style:'margin:0 0 10px'},W('home.factions.note',{n:d.generals.length})),
-    h('ul',{class:'nations factions'},d.factions.map(f=>{
-      const gs=d.generals.filter(g=>g.faction===f.key),art=gs.reduce((s,g)=>s+artCount(doc.img,g.key),0);
-      const hand=gs.filter(g=>g.designed==='hand').length,draft=gs.filter(g=>g.designed==='draft').length;
-      return h('li',{key:f.key,class:'nation-card','data-fac':f.key},
-        h('div',{class:'nation-top'},h('span',{class:'sym'},f.hanja),h('a',{href:'dex.html?faction='+f.key},f.ko),h('span',{class:'en'},f.en)),
-        h('p',{class:'nation-persona'},f.persona),
-        h('p',{class:'nation-meta'},h('span',null,W('home.f.generals',{n:gs.length})),h('span',null,W('home.f.hand',{n:hand})),h('span',null,W('home.f.draft',{n:draft})),h('span',null,W('home.f.art',{n:art}))));
-    })));
-}
-/* 최근 그림 — 새로 등록한 그림 여덟. 누르면 도감에서 그 그림 */
-function Recent({doc}){
-  const list=recent(doc,8);
-  return h('section',{class:'ek-section','aria-label':W('home.recent')},
-    h('h2',null,W('home.recent')),
-    !list.length?h('p',{class:'ek-note'},W('home.recent.none')):
-    h('ul',{class:'recent-grid'},list.map(x=>h('li',{key:x.f},
-      h('a',{href:'dex.html?faction='+(x.g.faction||'')+'&card='+encodeURIComponent(x.key)+'&pic='+encodeURIComponent(x.f),title:x.key},
-        h('img',{loading:'lazy',src:IMG.thumbURL(x.f),alt:x.key,onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(x.f);}}),
-        h('span',{class:'cap'},h('b',null,x.key),' ',x.world?W('world.'+x.world):'',x.casual?' · '+W('dex.casual'):''))))));
-}
-function Home(){
-  const doc=useDocs();
-  return h('div',null,h(Hero),
-    !doc?h('p',{class:'ek-note'},W('home.loading')):
-    doc.failed?h('p',{class:'ek-note'},W('home.fail')):
-    h('div',null,h(Factions,{doc}),h(Recent,{doc})));
-}
-/* 패치 기록 — docs/PATCH.md 를 그대로 읽는다(다른 공방과 같다) */
-function Patch(){
-  const [open,setOpen]=useState(false),[log,setLog]=useState(null);
-  useEffect(()=>{
-    if(!open||log)return;
-    fetch(window.AtelierPatch.PATH,{cache:'no-cache'})
-      .then(r=>r.ok?r.text():Promise.reject(new Error(String(r.status))))
-      .then(t=>setLog({entries:window.AtelierPatch.parse(t)}))
-      .catch(()=>setLog({entries:[],failed:true}));
-  },[open,log]);
-  if(!open)return h('button',{type:'button',class:'patch-open',onClick:()=>setOpen(true)},h('span',{'aria-hidden':'true'},'◷'),W('home.patch.open'));
-  return h('section',{class:'patch-panel','aria-label':W('home.patch')},
-    h('div',{class:'patch-head'},
-      h('div',null,h('h3',null,W('home.patch')),h('p',null,W('home.patch.note'))),
-      h('button',{type:'button',class:'patch-close',onClick:()=>setOpen(false)},W('home.patch.close'))),
-    !log?h('p',{class:'patch-empty'},W('home.patch.loading')):
-    log.failed?h('p',{class:'patch-empty'},W('home.patch.fail')):
-    !log.entries.length?h('p',{class:'patch-empty'},W('home.patch.none')):
-    h('ul',{class:'patch-list'},log.entries.map((e,i)=>
-      h('li',{class:'patch-entry',key:i},
-        h('div',{class:'patch-when'},h('span',null,e.date),h('span',{class:'patch-who'},e.who)),
-        h('strong',null,e.title),
-        !!e.items.length&&h('ul',null,e.items.map((x,j)=>h('li',{key:j},x)))))));
-}
-function App(){return h('div',null,h(WorkspaceHeader,{page:'index'}),h(Home),h(Patch),h(ThemeGallery));}
-render(h(App),document.getElementById('app'));
-window.AtelierFresh.watch();
+<body class="title-page">
+<div class="title-bg" aria-hidden="true"></div>
+<main class="title-wrap">
+  <nav class="title-menu" id="menu">
+    <p class="title-kicker" id="kicker"></p>
+    <div class="title-plaque"><h1 id="t-name"></h1><p id="t-sub"></p></div>
+    <a class="menu-btn main" href="draft.html" id="m-draft"></a>
+    <a class="menu-btn" href="draft.html?daily" id="m-daily"></a>
+    <a class="menu-btn" href="dex.html" id="m-dex"></a>
+    <a class="menu-btn" href="prompt.html" id="m-prompt"></a>
+    <a class="menu-btn" href="hall.html" id="m-hall"></a>
+    <div class="title-space" role="group" id="space">
+      <button type="button" class="arrow btn" id="prev">◀</button>
+      <div class="name" aria-live="polite"><b id="s-name"></b><small id="s-hint"></small></div>
+      <button type="button" class="arrow btn" id="next">▶</button>
+    </div>
+  </nav>
+  <p class="title-note" id="note"></p>
+</main>
+<script>
+/* 말은 낱말 표에서. 공간은 workspace-theme.js 가 쥐고, 여기선 앞 · 뒤로 넘기기만 */
+(function () {
+  var W = window.W, A = window.AtelierAppearance, $ = function (id) { return document.getElementById(id); };
+  $('kicker').textContent = W('title.kicker'); $('t-name').textContent = W('app.title'); $('t-sub').textContent = W('title.sub');
+  $('menu').setAttribute('aria-label', W('title.menu')); $('space').setAttribute('aria-label', W('title.space'));
+  ['draft', 'daily', 'dex', 'prompt', 'hall'].forEach(function (k) {
+    var a = $('m-' + k), b = document.createElement('span'), s = document.createElement('small');
+    b.textContent = W('title.' + k); s.textContent = W('title.' + k + '.sub'); a.appendChild(b); a.appendChild(s);
+  });
+  $('prev').setAttribute('aria-label', W('title.prev')); $('next').setAttribute('aria-label', W('title.next'));
+  $('s-hint').textContent = W('title.hint');
+  function show() { var t = A.get().theme; $('s-name').textContent = W('title.space') + ' · ' + W('theme.' + t); $('note').textContent = W('theme.note.' + t); }
+  function step(d) { var ks = A.themes, i = ks.indexOf(A.get().theme); A.set('theme', ks[(i + d + ks.length) % ks.length]); show(); }
+  $('prev').addEventListener('click', function () { step(-1); }); $('next').addEventListener('click', function () { step(1); });
+  document.addEventListener('keydown', function (e) { if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return; if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1); });
+  window.addEventListener('atelier-appearance', show);
+  show();
+  window.AtelierFresh.watch();
+})();
 </script>
 </body>
 </html>

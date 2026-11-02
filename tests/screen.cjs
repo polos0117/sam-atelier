@@ -57,8 +57,19 @@ const P = ctx0.window.AtelierPrompt;
 
   for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 900 }]) {
     const mob = vp.width <= 768;
-    /* ── 첫 화면(2026-11-02) — 문 넷 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
-    let hv = await open('/index.html', vp);
+    /* ── 타이틀(2026-11-02) — 메뉴 다섯 · 공간 ◀ ▶ · 배경 장면이 화면에 ── */
+    let tv = await open('/index.html', vp);
+    await tv.page.waitForSelector('#m-draft span');
+    assert.deepEqual(await tv.page.locator('.menu-btn').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'draft.html?daily', 'dex.html', 'prompt.html', 'hall.html'], '메뉴 다섯');
+    const t0 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
+    await tv.page.click('#next'); const t1 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
+    assert.notEqual(t0, t1, '◀ ▶ 로 공간이 바뀐다'); assert.match(await tv.page.locator('#s-name').textContent(), /공간 · /);
+    await tv.page.keyboard.press('ArrowLeft'); assert.equal(await tv.page.evaluate(() => document.documentElement.dataset.theme), t0, '← 로 돌아온다');
+    assert.match(await tv.page.evaluate(() => getComputedStyle(document.querySelector('.title-bg')).backgroundImage), /room-/, '배경 장면');
+    await noOverflow(tv.page, vp.width + ' 타이틀');
+    assert.deepEqual(tv.errors, [], '타이틀 콘솔'); await tv.ctx.close(); checks += 6;
+    /* ── 군막(처음엔 첫 화면) — 문 넷 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
+    let hv = await open('/hall.html', vp);
     await hv.page.waitForSelector('.factions .nation-card');
     assert.deepEqual(await hv.page.locator('.home-doors a').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'draft.html?daily', 'dex.html', 'prompt.html'], '문 넷');
     assert.equal(await hv.page.locator('.factions .nation-card').count(), D.factions.length, '세력 넷');
@@ -147,5 +158,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 첫 화면(문 넷 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면) · 군막(문 넷 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

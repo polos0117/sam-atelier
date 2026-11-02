@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<title>삼국지 공방</title>
+<!-- 군막(2026-11-02) — 공방 안내판: 문 넷 · 세력 넷 · 최근 그림 · 패치 기록 · 공간 고르기. 처음엔 첫 화면(index.html)이었고, 같은 날 사용자 「메인화면을 게임 첫 진입화면처럼, 지금 메인은 거기서 버튼 눌러서 들어가는 식으로」 에 따라 타이틀 화면 뒤로 옮겼다. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="manifest" href="sam.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-sam-180.png">
+<link rel="stylesheet" href="lib/workspace.css?v=2">
+<script src="lib/workspace-theme.js?v=2"></script>
+<script src="lib/words.js?v=2"></script>
+<script src="lib/patch.js?v=1"></script>
+<script src="lib/fresh.js?v=1"></script>
+<script src="lib/img.js?v=1"></script>
+<link rel="stylesheet" href="lib/room.css?v=2">
+<link rel="stylesheet" href="lib/sam.css?v=2">
+<link rel="stylesheet" href="lib/material.css?v=1">
+</head>
+<body class="prompt-page lab-page home-page">
+<div class="wrap"><div id="app"></div></div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {useState,useEffect} from 'https://esm.sh/preact@10.24.3/hooks';
+import {WorkspaceHeader,ThemeGallery} from './lib/workspace-ui.js?v=2';
+const W=window.W,IMG=window.AtelierImg;
+/* 설계표와 등록부를 한 번 읽는다 */
+function useDocs(){
+  const [doc,setDoc]=useState(null);
+  useEffect(()=>{
+    Promise.all([
+      fetch('data/sam-design.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch(IMG.DATA,{cache:'no-cache'}).then(r=>r.ok?r.json():{img:{}}).catch(()=>({img:{}}))
+    ]).then(([d,i])=>{IMG.setShards(i);IMG.setAdded(i);setDoc({d,img:i.img||{},added:i.added||{}});}).catch(()=>setDoc({failed:true}));
+  },[]);
+  return doc;
+}
+/* 장수 하나의 그림 수 — 세계 그림 + 일상컷, 화풍 전부 */
+function artCount(img,key){const e=img[key];if(!e)return 0;return Object.values(IMG.styleMap(e)).reduce((n,b)=>n+IMG.shotsOf(b,'f').length+Object.values(IMG.formMap(b)).filter(f=>f.f).length,0);}   /* shotsOf 는 세계 그림(byForm.<세계>.f)을 안 센다 */
+/* 최근 그림 — 등록한 날(added)이 새 것부터. 파일 이름 맨 앞이 장수 열쇠 */
+function recent(doc,n){
+  return Object.entries(doc.added).filter(([f])=>doc.img[f.split('_')[0]]).sort((a,b)=>a[1]<b[1]?1:a[1]>b[1]?-1:(a[0]<b[0]?-1:1)).slice(0,n)
+    .map(([f,date])=>{const key=f.split('_')[0],g=doc.d.generals.find(x=>x.key===key)||{},w=(f.split('_')[1]||'');return {f,date,key,g,world:['samguk','fantasy','mecha'].includes(w)?w:'',casual:/_casual\d+\.webp$/.test(f)};});
+}
+/* 머리말 — 공방 소개와 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) */
+function Hero(){
+  return h('section',{class:'ek-section home-hero','aria-label':W('home.title')},
+    h('p',{class:'ek-kicker'},W('app.title')),
+    h('h2',null,W('home.title')),
+    h('p',null,W('home.intro')),
+    h('p',{class:'ek-tag'},W('home.tag')),
+    h('nav',{class:'home-doors','aria-label':W('home.doors')},
+      h('a',{class:'door main',href:'draft.html'},h('b',null,W('home.door.draft')),h('span',null,W('home.door.draft.sub'))),
+      h('a',{class:'door',href:'draft.html?daily'},h('b',null,W('home.door.daily')),h('span',null,W('home.door.daily.sub'))),
+      h('a',{class:'door',href:'dex.html'},h('b',null,W('home.door.dex')),h('span',null,W('home.door.dex.sub'))),
+      h('a',{class:'door',href:'prompt.html'},h('b',null,W('home.door.prompt')),h('span',null,W('home.door.prompt.sub')))));
+}
+/* 세력 넷 — 장수 수 · 확정 · 시안 · 그림 수, 누르면 그 세력의 도감 */
+function Factions({doc}){
+  const d=doc.d;
+  return h('section',{class:'ek-section','aria-label':W('home.factions')},
+    h('h2',null,W('home.factions')),
+    h('p',{class:'ek-note',style:'margin:0 0 10px'},W('home.factions.note',{n:d.generals.length})),
+    h('ul',{class:'nations factions'},d.factions.map(f=>{
+      const gs=d.generals.filter(g=>g.faction===f.key),art=gs.reduce((s,g)=>s+artCount(doc.img,g.key),0);
+      const hand=gs.filter(g=>g.designed==='hand').length,draft=gs.filter(g=>g.designed==='draft').length;
+      return h('li',{key:f.key,class:'nation-card','data-fac':f.key},
+        h('div',{class:'nation-top'},h('span',{class:'sym'},f.hanja),h('a',{href:'dex.html?faction='+f.key},f.ko),h('span',{class:'en'},f.en)),
+        h('p',{class:'nation-persona'},f.persona),
+        h('p',{class:'nation-meta'},h('span',null,W('home.f.generals',{n:gs.length})),h('span',null,W('home.f.hand',{n:hand})),h('span',null,W('home.f.draft',{n:draft})),h('span',null,W('home.f.art',{n:art}))));
+    })));
+}
+/* 최근 그림 — 새로 등록한 그림 여덟. 누르면 도감에서 그 그림 */
+function Recent({doc}){
+  const list=recent(doc,8);
+  return h('section',{class:'ek-section','aria-label':W('home.recent')},
+    h('h2',null,W('home.recent')),
+    !list.length?h('p',{class:'ek-note'},W('home.recent.none')):
+    h('ul',{class:'recent-grid'},list.map(x=>h('li',{key:x.f},
+      h('a',{href:'dex.html?faction='+(x.g.faction||'')+'&card='+encodeURIComponent(x.key)+'&pic='+encodeURIComponent(x.f),title:x.key},
+        h('img',{loading:'lazy',src:IMG.thumbURL(x.f),alt:x.key,onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(x.f);}}),
+        h('span',{class:'cap'},h('b',null,x.key),' ',x.world?W('world.'+x.world):'',x.casual?' · '+W('dex.casual'):''))))));
+}
+function Home(){
+  const doc=useDocs();
+  return h('div',null,h(Hero),
+    !doc?h('p',{class:'ek-note'},W('home.loading')):
+    doc.failed?h('p',{class:'ek-note'},W('home.fail')):
+    h('div',null,h(Factions,{doc}),h(Recent,{doc})));
+}
+/* 패치 기록 — docs/PATCH.md 를 그대로 읽는다(다른 공방과 같다) */
+function Patch(){
+  const [open,setOpen]=useState(false),[log,setLog]=useState(null);
+  useEffect(()=>{
+    if(!open||log)return;
+    fetch(window.AtelierPatch.PATH,{cache:'no-cache'})
+      .then(r=>r.ok?r.text():Promise.reject(new Error(String(r.status))))
+      .then(t=>setLog({entries:window.AtelierPatch.parse(t)}))
+      .catch(()=>setLog({entries:[],failed:true}));
+  },[open,log]);
+  if(!open)return h('button',{type:'button',class:'patch-open',onClick:()=>setOpen(true)},h('span',{'aria-hidden':'true'},'◷'),W('home.patch.open'));
+  return h('section',{class:'patch-panel','aria-label':W('home.patch')},
+    h('div',{class:'patch-head'},
+      h('div',null,h('h3',null,W('home.patch')),h('p',null,W('home.patch.note'))),
+      h('button',{type:'button',class:'patch-close',onClick:()=>setOpen(false)},W('home.patch.close'))),
+    !log?h('p',{class:'patch-empty'},W('home.patch.loading')):
+    log.failed?h('p',{class:'patch-empty'},W('home.patch.fail')):
+    !log.entries.length?h('p',{class:'patch-empty'},W('home.patch.none')):
+    h('ul',{class:'patch-list'},log.entries.map((e,i)=>
+      h('li',{class:'patch-entry',key:i},
+        h('div',{class:'patch-when'},h('span',null,e.date),h('span',{class:'patch-who'},e.who)),
+        h('strong',null,e.title),
+        !!e.items.length&&h('ul',null,e.items.map((x,j)=>h('li',{key:j},x)))))));
+}
+function App(){return h('div',null,h(WorkspaceHeader,{page:'hall'}),h(Home),h(Patch),h(ThemeGallery));}
+render(h(App),document.getElementById('app'));
+window.AtelierFresh.watch();
+</script>
+</body>
+</html>

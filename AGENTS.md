@@ -19,7 +19,8 @@
 
 | 화면 | 파일 | 무엇 |
 |---|---|---|
-| 첫 화면 | `index.html` · `lib/sam.css` | 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수) · 최근 그림 여덟 · 패치 기록 · 공간 고르기. 예전 게임 주소의 몫(`?daily` · `?local` · `#sam-transfer`)은 `draft.html` 로 그대로 넘긴다 |
+| 타이틀 | `index.html` | 게임 첫 진입 화면처럼(2026-11-02 「배경이 너무 안 보인다 — 메인화면을 게임 첫 진입화면처럼」): 공간의 배경 장면을 화면 가득, 장식 틀 안에 공방 현판과 큰 메뉴 다섯(드래프트 · 오늘의 대국 · 도감 · 프롬프트 · 군막), ◀ ▶ · ← → 로 공간 넘기기. 예전 게임 주소의 몫(`?daily` · `?local` · `#sam-transfer`)은 `draft.html` 로 그대로 넘긴다 |
+| 군막 | `hall.html` · `lib/sam.css` | 공방 안내판(처음엔 첫 화면): 문 넷 · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수) · 최근 그림 여덟 · 패치 기록 · 공간 고르기 |
 | 드래프트(게임) | `draft.html` · `lib/speech.js` · `lib/today.js` · `lib/sprite-actor.*` · `data/sprites.json` · `images/` | **손대지 않는다.** 초상(`images/portraits` · `images/large`)은 게임 것이다 — 새 그림 구조와 따로 |
 | 도감 | `dex.html` · `lib/img.js` · `lib/sam.css` | 세력 하나 — 역할 차례(군주 · 무장 · 책사 · 문관)로 장수마다 세계 셋 · 접는 일상컷 · 다른 화풍, 크게 보기(넘기기 · 뒤로 가기는 팝업만) · 즐겨찾기(a: samguk) · 이름 찾기 · 그림 있는 것만. 빈 칸을 누르면 그 장수 · 세계의 생성기 |
 | 프롬프트 | `prompt.html` · `lib/studio.js` · `lib/studio.css` · `lib/prompt-spec.js`(표) · `lib/look-spec.js`(외형 어휘) · `lib/prompt-sam.js`(조립) · `lib/casual-tree*.js` · `data/casual-tree*.json` | 세력 › 장수 › 갈래(세계 그림 · 일상컷) › 단계. 고른 것은 이 브라우저에(`samguk_studio_v1`), 주소 `?card=&o=&world=` |
