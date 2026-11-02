@@ -12,6 +12,7 @@
 | 이 문서 | 규칙과 자리 |
 | `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(279 — 게임 표 그대로) |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
+| `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길 — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
 | `data/style.json` | 화풍 판 — 세계 그림은 `text`, 일상컷은 `casual`. 기본 `kr_mmorpg`(한국 MMORPG 프로모 렌더, 2026-11-02), 비교용 `game_keyart`(2.5D) · `glossy_kr_game` |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 |
 
@@ -83,9 +84,10 @@
 ## 검사
 
 ```sh
-node tools/casual-plan.cjs <장수> --world <세계> [--out 폴더]   # 일상컷 묶음 계획 — 비어 있는 번호에 겹치지 않는 장면(정해 둔 두 갈래 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
+node tools/casual-plan.cjs <장수> --world <세계>|all [--fresh] [--out 폴더]   # 일상컷 묶음 계획 — 세계 셋끼리 같은 장면 없이, 비어 있는 번호에(--fresh 면 옛 묶음 뒤 번호로 새 다섯 장) 겹치지 않는 장면(정해 둔 두 갈래 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
 node tests/casual-plan.cjs              # 계획기 — 장수 × 세계 × 씨앗이 규칙을 지키나
-python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸
+node tests/image-claim.cjs             # 잠금 도구 — 잡기 · 막기 · 풀기 · 끝(시험 저장소에서)
+python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸 · 세계 사이 같은 장면 알림
 python3 tools/sam-design.py check
 python3 tools/casual-tree.py check && python3 tools/casual-tree-v2.py check
 node tests/words.cjs && node tests/look-spec.cjs && node tests/patch.cjs && node tests/img-shards.cjs
