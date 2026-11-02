@@ -34,30 +34,48 @@
 /* 타이틀 — 배경 장면이 주인공. 막은 메뉴 쪽만 옅게 */
 body.title-page {margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);overflow-x:hidden}
 .title-bg {position:fixed;inset:0;background-color:var(--bg);background-image:var(--room-src),var(--tex);background-size:cover,384px;background-position:center;background-repeat:no-repeat,repeat}
-.title-bg::after {content:'';position:absolute;inset:0;background:
-  linear-gradient(90deg,rgb(var(--room-rgb) / .78) 0,rgb(var(--room-rgb) / .38) 34%,rgb(var(--room-rgb) / 0) 58%),
-  linear-gradient(0deg,rgb(var(--room-rgb) / .55) 0,rgb(var(--room-rgb) / 0) 28%)}
-.title-wrap {position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(320px,440px) 1fr;align-items:center;padding:clamp(16px,4vw,56px)}
-.title-menu {padding:30px 30px 24px;background:color-mix(in srgb,var(--card) 78%,transparent);border:1px solid var(--line);border-image:var(--frame) var(--frame-slice) / 34px / 6px var(--frame-rep);
-  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);box-shadow:0 20px 50px #0007;display:flex;flex-direction:column;gap:12px}
-.title-kicker {margin:0;color:var(--signal);font-size:12px;letter-spacing:.14em;text-align:center}
-.title-plaque {margin:0 auto 6px;padding:14px 30px;text-align:center;clip-path:var(--b-clip);border-radius:var(--b-rad);background:var(--b-pface);box-shadow:var(--b-pring);color:var(--on-accent)}
-.title-plaque h1 {margin:0;font:700 clamp(28px,4vw,38px)/1.1 'Gowun Batang',var(--gallery-serif,serif);letter-spacing:.06em}
-.title-plaque p {margin:6px 0 0;font-size:12.5px;opacity:.9}
-.menu-btn {display:flex;flex-direction:column;align-items:center;gap:2px;min-height:58px;padding:10px 26px;color:var(--text);text-decoration:none;font:700 18px/1.2 'Gowun Batang',var(--gallery-serif,serif);letter-spacing:.06em}
-.menu-btn small {font:500 11.5px/1.3 'IBM Plex Sans KR',system-ui,sans-serif;letter-spacing:0;color:var(--muted)}
-.menu-btn.main small {color:var(--on-accent);opacity:.85}
-.title-space {display:flex;align-items:center;gap:8px;margin-top:6px}
-.title-space .arrow {min-width:44px;min-height:44px;padding:0;font-size:18px;color:var(--text);cursor:pointer}
-.title-space .name {flex:1;text-align:center}
-.title-space .name b {display:block;font:700 15px/1.3 'Gowun Batang',var(--gallery-serif,serif);color:var(--text)}
-.title-space .name small {display:block;color:var(--muted);font-size:11px;line-height:1.4}
-.title-note {grid-column:2;align-self:end;justify-self:end;max-width:420px;margin:0;padding:10px 14px;color:var(--text);font-size:12.5px;line-height:1.6;background:color-mix(in srgb,var(--card) 60%,transparent);border-radius:10px;backdrop-filter:blur(2px)}
+.title-bg::after {content:'';position:absolute;inset:0;background:   /* 밝은 공간도 메뉴 쪽은 어둡게 — 금빛 글씨 · 그림 단추가 서도록 */
+  linear-gradient(90deg,#000a 0,#0006 30%,#0000 55%),
+  linear-gradient(0deg,#0008 0,#0000 30%)}
+.title-wrap {position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(320px,460px) 1fr;align-items:center;padding:clamp(16px,4vw,56px)}
+/* 현판 · 단추 · 둥근 단추는 공간마다 생성한 그림(그림 저장소 backgrounds/ui/ui-<공간>-<title|main|btn|round>.webp, 투명) — 글씨만 낱말 표에서 얹는다.
+   그림 한 장 시트를 넷으로 잘랐으니 같은 재질 · 같은 빛 — 사용자 「버튼이나 타이틀이 너무 따로 논다 — 이미지로」(2026-11-02) */
+:root[data-theme="jianghu"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-jianghu-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-jianghu-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-jianghu-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-jianghu-round.webp");--ui-ink:#ffd9a0;--ui-glow:#ff8a4c;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+:root[data-theme="peachsword"], :root:not([data-theme]) {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-peachsword-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-peachsword-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-peachsword-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-peachsword-round.webp");--ui-ink:#ffeef0;--ui-glow:#f7a6b6;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+:root[data-theme="lacquer"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-lacquer-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-lacquer-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-lacquer-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-lacquer-round.webp");--ui-ink:#ffd77a;--ui-glow:#f0c45c;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+:root[data-theme="grimoire"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-grimoire-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-grimoire-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-grimoire-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-grimoire-round.webp");--ui-ink:#f6cf78;--ui-glow:#a855f7;--ui-main-ink:#fff8ec;--ui-main-shadow:#000000b0}
+:root[data-theme="feywood"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-feywood-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-feywood-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-feywood-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-feywood-round.webp");--ui-ink:#f4ffd8;--ui-glow:#b7e46a;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+:root[data-theme="dragonforge"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-dragonforge-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-dragonforge-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-dragonforge-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-dragonforge-round.webp");--ui-ink:#ffc07a;--ui-glow:#ff7a2e;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+:root[data-theme="neonrain"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-neonrain-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-neonrain-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-neonrain-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-neonrain-round.webp");--ui-ink:#8ff6ff;--ui-glow:#ff4fa3;--ui-main-ink:#fff8ec;--ui-main-shadow:#000000b0}
+:root[data-theme="hangar"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-hangar-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-hangar-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-hangar-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-hangar-round.webp");--ui-ink:#ffd84a;--ui-glow:#ffc400;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+:root[data-theme="orbit"] {--ui-title:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-orbit-title.webp");--ui-main:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-orbit-main.webp");--ui-btn:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-orbit-btn.webp");--ui-round:url("https://polos0117.github.io/sam-atelier-img/backgrounds/ui/ui-orbit-round.webp");--ui-ink:#c4fff0;--ui-glow:#5ff0c0;--ui-main-ink:#1c1210;--ui-main-shadow:#ffffff55}
+.title-menu {display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.title-kicker {margin:0;color:var(--ui-ink);font-size:12px;letter-spacing:.16em;text-align:center;text-shadow:0 1px 3px #000c}
+.title-plaque {display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:3.4;margin:0 -4% 4px;padding:0 18%;text-align:center;background:var(--ui-title) center/contain no-repeat;filter:drop-shadow(0 10px 18px #0009)}
+.title-plaque h1 {margin:0;font:700 clamp(30px,4.2vw,42px)/1.1 'Gowun Batang',var(--gallery-serif,serif);letter-spacing:.08em;color:var(--ui-ink);text-shadow:0 2px 0 #0008,0 0 18px var(--ui-glow)}
+.title-plaque p {margin:6px 0 0;font-size:12.5px;color:#fff;opacity:.88;text-shadow:0 1px 2px #000}
+.menu-btn {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;aspect-ratio:5.7;padding:0 20%;background:var(--ui-btn) center/contain no-repeat;color:#fff8ec;text-decoration:none;text-shadow:0 1px 2px #000,0 0 8px #000a;
+  font:700 18px/1.15 'Gowun Batang',var(--gallery-serif,serif);letter-spacing:.06em;transition:transform .15s,filter .15s;filter:drop-shadow(0 6px 10px #0008)}
+.menu-btn small {font:500 11px/1.2 'IBM Plex Sans KR',system-ui,sans-serif;letter-spacing:0;opacity:.85}
+.menu-btn.main {background-image:var(--ui-main);color:var(--ui-main-ink);text-shadow:0 1px 0 var(--ui-main-shadow)}
+.menu-btn.main small {opacity:1;font-weight:600}
+.menu-btn:hover {transform:translateY(-2px);filter:drop-shadow(0 6px 10px #0008) drop-shadow(0 0 10px var(--ui-glow)) brightness(1.08)}
+.menu-btn:focus-visible {outline:2px solid var(--ui-glow);outline-offset:-6px;border-radius:12px}
+.title-space {display:flex;align-items:center;gap:8px;margin-top:8px}
+.title-space .arrow {flex:none;width:52px;height:52px;padding:0;border:0;background:var(--ui-round) center/contain no-repeat;color:var(--ui-ink);font-size:16px;cursor:pointer;text-shadow:0 0 6px var(--ui-glow),0 1px 2px #000;filter:drop-shadow(0 4px 8px #0008);transition:transform .15s}
+.title-space .arrow:hover {transform:scale(1.08)}
+.title-space .arrow:focus-visible {outline:2px solid var(--ui-glow);outline-offset:2px;border-radius:50%}
+.title-space .name {flex:1;text-align:center;text-shadow:0 1px 3px #000,0 0 10px #000a}
+.title-space .name b {display:block;font:700 15px/1.3 'Gowun Batang',var(--gallery-serif,serif);color:var(--ui-ink)}
+.title-space .name small {display:block;color:#fff;opacity:.8;font-size:11px;line-height:1.4}
+.title-note {grid-column:2;align-self:end;justify-self:end;max-width:420px;margin:0;padding:10px 14px;color:#fff;font-size:12.5px;line-height:1.6;text-shadow:0 1px 3px #000;background:linear-gradient(90deg,#0000,#0008 18%);border-right:2px solid var(--ui-glow)}
 @media (max-width:760px) {
   .title-wrap {grid-template-columns:1fr;align-items:end;padding:16px 16px max(16px,env(safe-area-inset-bottom))}
-  .title-bg::after {background:linear-gradient(0deg,rgb(var(--room-rgb) / .85) 0,rgb(var(--room-rgb) / .35) 55%,rgb(var(--room-rgb) / 0) 80%)}
-  .title-menu {padding:22px 20px 18px;gap:9px}
-  .menu-btn {min-height:50px;font-size:16px}
+  .title-bg::after {background:linear-gradient(0deg,#000c 0,#0007 55%,#0000 85%)}
+  .title-menu {gap:4px}
+  .title-plaque h1 {font-size:30px}
+  .menu-btn {font-size:16px}
+  .menu-btn small {display:none}
   .title-note {display:none}
 }
 html[data-background="off"] .title-bg {background-image:none}
@@ -75,9 +93,9 @@ html[data-background="off"] .title-bg {background-image:none}
     <a class="menu-btn" href="prompt.html" id="m-prompt"></a>
     <a class="menu-btn" href="hall.html" id="m-hall"></a>
     <div class="title-space" role="group" id="space">
-      <button type="button" class="arrow btn" id="prev">◀</button>
+      <button type="button" class="arrow" id="prev">◀</button>
       <div class="name" aria-live="polite"><b id="s-name"></b><small id="s-hint"></small></div>
-      <button type="button" class="arrow btn" id="next">▶</button>
+      <button type="button" class="arrow" id="next">▶</button>
     </div>
   </nav>
   <p class="title-note" id="note"></p>
