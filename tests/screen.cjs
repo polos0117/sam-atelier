@@ -100,6 +100,10 @@ const P = ctx0.window.AtelierPrompt;
       await bp.click('.b-worlds [data-w="samguk"]'); await bp.click('.b-slot[data-slot="bridge"]'); await bp.waitForSelector('.b-peek');
       assert.match(await bp.locator('.b-peek').textContent(), /장판교/, '선 자리를 누르면 그 장수 — 서 있는 자리');
       if (await bp.locator('.b-act[data-act="open"]').count()) { await bp.click('.b-act[data-act="open"]'); await bp.waitForSelector('.b-big'); await bp.keyboard.press('Escape'); await bp.waitForSelector('.b-peek'); }
+      { const w0 = await bp.locator('.b-field').evaluate(e => e.offsetWidth);   /* 확대 · 축소 — 지도가 커지고 자리는 따라간다, 맞춤으로 돌아온다 */
+        await bp.click('[data-zoom="in"]'); assert.equal(await bp.locator('.b-zoom-n').textContent(), '150%');
+        assert(Math.abs(await bp.locator('.b-field').evaluate(e => e.offsetWidth) - w0 * 1.5) < 3, '확대하면 지도가 1.5배');
+        await bp.click('[data-zoom="fit"]'); assert.equal(await bp.locator('.b-field').evaluate(e => e.offsetWidth), w0, '맞춤'); }
       await bp.click('.b-act[data-act="remove"]'); assert.doesNotMatch(await bp.locator('.b-slot[data-slot="bridge"]').textContent(), /조운/, '자리에서 빼기');
       await noOverflow(bp, vp.width); assert.deepEqual(bv.errors, [], '전장 콘솔'); checks += 10; await bv.ctx.close();
     }
@@ -193,5 +197,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 전장(일곱 전장 · 세계마다 지도 · 진영 · 군웅 무리 · 이름표 → 미리 보기 → 배치 · 크게 보기 · 빼기) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 전장(일곱 전장 · 세계마다 지도 · 진영 · 군웅 무리 · 이름표 → 미리 보기 → 배치 · 크게 보기 · 확대 축소 · 빼기) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

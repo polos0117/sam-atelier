@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@900&text=%E9%AD%8F%E8%9C%80%E5%90%B3%E9%9B%84&display=swap" media="print" onload="this.media='all'">   <!-- 진영 깃발의 한자 넷만 -->
 <link rel="stylesheet" href="lib/workspace.css?v=4">
 <script src="lib/workspace-theme.js?v=2"></script>
-<script src="lib/words.js?v=4"></script>
+<script src="lib/words.js?v=5"></script>
 <script src="lib/img.js?v=1"></script>
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/material.css?v=6">
-<link rel="stylesheet" href="lib/battle.css?v=1">
+<link rel="stylesheet" href="lib/battle.css?v=2">
 </head>
 <body class="battle-page">
 <div id="app"></div>
@@ -122,16 +122,46 @@ function Big({doc,st,set,g,close}){
       g.summary&&g.summary.ko&&h('p',{class:'b-sum'},g.summary.ko)));
 }
 /* 지도 — 그림 위에 자리 표시. 배치하기 중이면 자리가 빛나고, 누르면 그 자리에 선다 */
+/* 지도 확대 · 축소(2026-11-02 「전장 이미지 확대, 축소 기능도」) — 단추(＋ − 맞춤) · 폰 두 손가락 벌리기 · PC Ctrl+휠 · 확대하면 끌어서 옮기기.
+   자리는 지도 백분율이라 지도와 함께 커지고, 이름표 글씨는 그대로라 확대하면 겹치던 이름표가 풀린다. 확대 중심은 그대로 둔다 */
+const ZMIN=1,ZMAX=4,clampZ=z=>Math.min(ZMAX,Math.max(ZMIN,Math.round(z*100)/100));
 function Field({doc,st,battle,place,placing,onSlot}){
   const wd=battle.worlds[st.w],names=Object.fromEntries(battle.slots.map(s=>[s.key,s.ko]));
-  return h('div',{class:'b-field-scroll'},
-    h('div',{class:'b-field'+(placing?' placing':''),style:{'--map':'url("'+MAP+battle.key+'-'+st.w+'.webp")'}},
-      h('img',{class:'b-map',key:battle.key+st.w,src:MAP+battle.key+'-'+st.w+'.webp',alt:'',decoding:'async'}),
-      wd.slots.map(s=>{const gk=place[s.key],g=gk&&doc.d.generals.find(x=>x.key===gk),ko=s.ko||names[s.key];
-        return h('button',{key:s.key,type:'button',class:'b-slot'+(g?' on':'')+(s.x<22?' l':s.x>78?' r':''),'data-slot':s.key,'data-fac':g&&g.faction,style:{left:s.x+'%',top:s.y+'%'},
-            'aria-label':g?W('battle.slot.of',{slot:ko,name:g.key}):W('battle.slot.empty',{slot:ko}),onClick:()=>onSlot(s,g)},
-          g?h('b',null,h('i',null,facOf(doc,g.faction).hanja),g.key):h('span',{class:'dot','aria-hidden':'true'}),
-          h('small',null,ko));})));
+  const [z,setZ]=useState(1),box=useRef(null),zr=useRef(1),pin=useRef(null),drag=useRef(null);
+  zr.current=z;
+  /* 가운데(또는 손가락 · 마우스 자리)를 붙잡고 배율을 바꾼다 */
+  const zoomTo=(nz,cx,cy)=>{const el=box.current;nz=clampZ(nz);if(!el||nz===zr.current)return;
+    const r=el.getBoundingClientRect(),px=(cx==null?r.width/2:cx-r.left),py=(cy==null?r.height/2:cy-r.top);
+    const fx=(el.scrollLeft+px)/el.scrollWidth,fy=(el.scrollTop+py)/el.scrollHeight;
+    zr.current=nz;setZ(nz);
+    requestAnimationFrame(()=>{el.scrollLeft=fx*el.scrollWidth-px;el.scrollTop=fy*el.scrollHeight-py;});};
+  useEffect(()=>{setZ(1);zr.current=1;},[battle.key,st.w]);
+  useEffect(()=>{const el=box.current;if(!el)return;
+    const wheel=e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();zoomTo(zr.current*(e.deltaY<0?1.15:1/1.15),e.clientX,e.clientY);};
+    const dist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);
+    const ts=e=>{if(e.touches.length===2){pin.current={d:dist(e.touches),z:zr.current};}};
+    const tm=e=>{if(e.touches.length===2&&pin.current){e.preventDefault();const t=e.touches;zoomTo(pin.current.z*dist(t)/pin.current.d,(t[0].clientX+t[1].clientX)/2,(t[0].clientY+t[1].clientY)/2);}};
+    const te=e=>{if(e.touches.length<2)pin.current=null;};
+    el.addEventListener('wheel',wheel,{passive:false});el.addEventListener('touchstart',ts,{passive:true});el.addEventListener('touchmove',tm,{passive:false});el.addEventListener('touchend',te);
+    return ()=>{el.removeEventListener('wheel',wheel);el.removeEventListener('touchstart',ts);el.removeEventListener('touchmove',tm);el.removeEventListener('touchend',te);};},[]);
+  /* 마우스로 끌어 옮기기 — 자리 단추 위에서 시작하면 끌지 않는다 */
+  const down=e=>{if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('.b-slot'))return;const el=box.current;drag.current={x:e.clientX,y:e.clientY,l:el.scrollLeft,t:el.scrollTop};el.classList.add('dragging');};
+  const move=e=>{const d=drag.current;if(!d)return;const el=box.current;el.scrollLeft=d.l-(e.clientX-d.x);el.scrollTop=d.t-(e.clientY-d.y);};
+  const up=()=>{drag.current=null;box.current&&box.current.classList.remove('dragging');};
+  return h('div',{class:'b-field-wrap'},
+    h('div',{class:'b-field-scroll'+(z>1?' zoomed':''),ref:box,onPointerDown:down,onPointerMove:move,onPointerUp:up,onPointerLeave:up},
+      h('div',{class:'b-field'+(placing?' placing':''),style:{'--z':z}},
+        h('img',{class:'b-map',key:battle.key+st.w,src:MAP+battle.key+'-'+st.w+'.webp',alt:'',decoding:'async',draggable:false}),
+        wd.slots.map(s=>{const gk=place[s.key],g=gk&&doc.d.generals.find(x=>x.key===gk),ko=s.ko||names[s.key];
+          return h('button',{key:s.key,type:'button',class:'b-slot'+(g?' on':'')+(s.x<22?' l':s.x>78?' r':''),'data-slot':s.key,'data-fac':g&&g.faction,style:{left:s.x+'%',top:s.y+'%'},
+              'aria-label':g?W('battle.slot.of',{slot:ko,name:g.key}):W('battle.slot.empty',{slot:ko}),onClick:()=>onSlot(s,g)},
+            g?h('b',null,h('i',null,facOf(doc,g.faction).hanja),g.key):h('span',{class:'dot','aria-hidden':'true'}),
+            h('small',null,ko));}))),
+    h('div',{class:'b-zoom',role:'group','aria-label':W('battle.zoom')},
+      h('button',{type:'button','data-zoom':'out','aria-label':W('battle.zoom.out'),disabled:z<=ZMIN,onClick:()=>zoomTo(z/1.5)},'−'),
+      h('span',{class:'b-zoom-n','aria-live':'polite'},Math.round(z*100)+'%'),
+      h('button',{type:'button','data-zoom':'in','aria-label':W('battle.zoom.in'),disabled:z>=ZMAX,onClick:()=>zoomTo(z*1.5)},'+'),
+      z>1&&h('button',{type:'button','data-zoom':'fit',class:'fit',onClick:()=>zoomTo(1)},W('battle.zoom.fit'))));
 }
 /* 진영 · 무리 · 역할별 이름표 */
 function Roster({doc,st,set,place,onName}){
