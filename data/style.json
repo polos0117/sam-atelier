@@ -40,7 +40,7 @@
   },
   "kr_mmorpg": {
    "name": "한국 MMORPG 프로모",
-   "current": "v1",
+   "current": "v2",
    "versions": [
     {
      "v": "v1",
@@ -57,6 +57,33 @@
       "반실사 3D 프로모 렌더 · 도자기 피부 · 촘촘한 장식 · 윤곽광과 입자 — 두 게임의 공통점",
       "결은 세계마다 한 줄(worlds) — 삼국시대는 무협풍, 중세 판타지는 천상풍, 메카는 기본만",
       "얼굴이 굳지 않게 delicate realistic-anime 로 애니 쪽에 붙잡는다(원소 공방 CGI 의 「얼굴이 각지다」)"
+     ]
+    },
+    {
+     "v": "v2",
+     "adopted": "2026-11-02",
+     "by": "시험 — v1 이 글로시와 거의 같아(화풍 줄이 600낱말 뒤에 묻힘) 사용자 「v2로 다시」",
+     "text": "Premium Korean MMORPG promotional character render — an in-engine 3D character model with hand-painted textures, not flat cel shading and not a 2D anime illustration: semi-realistic volumetric forms, porcelain skin with a soft subsurface glow and glossy specular highlights, a small refined face with delicate realistic-anime features, elegant elongated proportions with long legs while keeping the body type SILHOUETTE names. Polished metal, silk and gems catch sharp highlights. Extremely intricate ornamented costume — filigree metalwork, jewel inlays, layered translucent fabrics and fine embroidery. Character-select-screen lighting: strong rim light, soft key light on the face, drifting light particles, atmospheric depth with a softly blurred background. Luxurious, high-detail finish.",
+     "casual": "Premium Korean MMORPG promotional character render: a semi-realistic, painterly 3D finish with porcelain skin and a soft subsurface glow, a small refined face with delicate realistic-anime features, elegant elongated proportions with long legs and a narrow waist while keeping the body type SILHOUETTE names. Glossy specular highlights on skin, fabric and jewellery. Refined fabric and accessory rendering with fine jewellery detail. Ethereal rim lighting, drifting light particles and atmospheric depth with a softly blurred background. Luxurious, high-detail, character-select-screen quality.",
+     "lead": true,
+     "worlds": {
+      "samguk": {
+       "costume": "Martial-fantasy glamour: silk sashes and ribbons flowing in the wind, a sheer layered skirt, jade and gold jewellery at the hair and waist.",
+       "scene": "MOOD: bold martial-fantasy key art — high contrast, wind-swept silk and hair, drifting petals and embers, dynamic contrapposto."
+      },
+      "fantasy": {
+       "costume": "Celestial ornament: feather-and-gold wing-shaped ornaments at the shoulders or back, a translucent gauze overskirt, a jewelled circlet.",
+       "scene": "MOOD: serene celestial key art — pastel sky light, a soft halo of light behind her, floating golden light particles and drifting feathers."
+      },
+      "mecha": {
+       "scene": "MOOD: sleek sci-fi key art — clean reflective plates, glowing light lines, hovering light particles and a soft bloom."
+      }
+     },
+     "check": "semi-realistic Korean MMORPG promo render — porcelain skin, intricate filigree costume, rim light and particles; one figure, no readable text but a single banner character.",
+     "why": [
+      "v1 은 화풍 줄이 지시문 가운데(600낱말 뒤)에 묻혀 렌더 질감만 조금 바뀌었다 — lead: 개념 줄 바로 뒤에 싣는다",
+      "「게임 엔진 3D 모델 · 손으로 칠한 질감 · 셀 음영 아님」 으로 렌더를 못 박는다",
+      "천상풍 · 무협풍은 화풍이 아니라 의상 · 장면 요소 — worlds.<세계>.costume 은 WORLD 줄 끝에, scene 은 장면 뒤 MOOD 줄로"
      ]
     }
    ]
