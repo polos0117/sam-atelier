@@ -82,6 +82,8 @@
 ## 검사
 
 ```sh
+node tools/casual-plan.cjs <장수> --world <세계> [--out 폴더]   # 일상컷 묶음 계획 — 비어 있는 번호에 겹치지 않는 장면(정해 둔 두 갈래 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
+node tests/casual-plan.cjs              # 계획기 — 장수 × 세계 × 씨앗이 규칙을 지키나
 python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸
 python3 tools/sam-design.py check
 python3 tools/casual-tree.py check && python3 tools/casual-tree-v2.py check
