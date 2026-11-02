@@ -1,0 +1,83 @@
+"""일상컷 묶음 검사(2026-11-02) — 세계마다 다섯 장 중 두 장은 정해 둔 갈래로(사용자 「란제리풍·수영복·역할극, 세계 안의 방·목욕·지붕·여관 이거는 각각 1장해서 2장은 확정으로」).
+
+  노출 갈래 한 장  — 의상 계열이 란제리풍 · 수영복 · 역할극 (casual-tree.json required.outfits)
+  세계 안 갈래 한 장 — 시대 「세계 안」 의 방 · 목욕탕 · 지붕 · 여관에서 홈웨어 · 란제리 · 목욕 차림 · 수영복 (required.world)
+  두 장은 서로 다른 컷이어야 한다(한 장이 둘 다 맞아도 한 갈래만 채운다). 나머지 세 장은 자유.
+
+그림 저장소(sam-atelier-img)의 기록 records/<장수>/<세계>-casualN.<화풍>-ui.json 의 scene 을 읽는다.
+  python3 tools/casual-check.py                 # 일상컷이 있는 장수 전부
+  python3 tools/casual-check.py 관우 조운        # 몇 명만
+  python3 tools/casual-check.py --plan 관우      # 아직 안 그린 칸에 무엇을 넣어야 하나
+그림 저장소 자리는 SAM_IMG 환경 변수(기본 ../sam-atelier-img)."""
+import glob, json, os, re, sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IMGR = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')
+REQ = json.load(open(os.path.join(ROOT, 'data/casual-tree.json'), encoding='utf-8'))['required']
+WORLDS = ['samguk', 'fantasy', 'mecha']
+PER_WORLD = 5
+
+
+def kind(scene):
+    """한 컷이 맞는 갈래 — {'expose', 'inworld'} 의 부분집합"""
+    s = scene or {}
+    out = set()
+    if s.get('ofam') in REQ['outfits']:
+        out.add('expose')
+    w = REQ['world']
+    if s.get('era') == w['era'] and s.get('place') in w['places'] and s.get('ofam') in w['outfits']:
+        out.add('inworld')
+    return out
+
+
+def cuts(card):
+    by = {}
+    for f in glob.glob(os.path.join(IMGR, 'records', card, '*-casual*-ui.json')):
+        m = re.match(r'(\w+)-casual(\d+)\.', os.path.basename(f))
+        if not m or m.group(1) not in WORLDS:
+            continue
+        d = json.load(open(f, encoding='utf-8'))
+        by.setdefault(m.group(1), {})[int(m.group(2))] = kind(d.get('scene'))
+    return by
+
+
+def fill(ks):
+    """서로 다른 두 컷으로 두 갈래를 채울 수 있나 — 채운 컷 번호 (노출, 세계 안)"""
+    for a, ka in ks.items():
+        if 'expose' not in ka:
+            continue
+        for b, kb in ks.items():
+            if b != a and 'inworld' in kb:
+                return a, b
+    a = next((n for n, k in ks.items() if 'expose' in k), None)
+    b = next((n for n, k in ks.items() if 'inworld' in k and n != a), None)
+    return a, b
+
+
+def main(argv):
+    plan = '--plan' in argv
+    names = [a for a in argv if not a.startswith('--')]
+    if not names:
+        names = sorted({os.path.basename(os.path.dirname(f)) for f in glob.glob(os.path.join(IMGR, 'records', '*', '*-casual*-ui.json'))})
+    bad = 0
+    for card in names:
+        by = cuts(card)
+        for w in WORLDS:
+            ks = by.get(w)
+            if not ks:
+                continue
+            a, b = fill(ks)
+            left = PER_WORLD - len(ks)
+            need = [x for x, ok in (('노출 갈래(란제리풍·수영복·역할극)', a), ('세계 안 갈래(방·목욕·지붕·여관)', b)) if not ok]
+            state = '맞음' if not need else ('남은 %d칸에 %s' % (left, ' · '.join(need)) if len(need) <= left else '모자람 — ' + ' · '.join(need))
+            if need and len(need) > left:
+                bad += 1
+            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', state)
+            if plan or need or len(argv) > 0:
+                print(line)
+    print('일상컷 묶음 — 갈래를 다시 그려야 하는 세계 %d' % bad)
+    return 1 if bad else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))

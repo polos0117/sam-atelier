@@ -82,6 +82,7 @@
 ## 검사
 
 ```sh
+python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸
 python3 tools/sam-design.py check
 python3 tools/casual-tree.py check && python3 tools/casual-tree-v2.py check
 node tests/words.cjs && node tests/look-spec.cjs && node tests/patch.cjs && node tests/img-shards.cjs
