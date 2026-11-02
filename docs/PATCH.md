@@ -17,6 +17,9 @@
 - lib/sam.css — 세 색이 같이 보이게: 제목 밑 세 띠(주색 · 맞색 · 금속), 머리말 · 문 이름은 맞색, 문을 짚으면 금속 테두리.
 - tests/screen.cjs · AGENTS.md — 공간 고르기 검사와 자리.
 
+## 2026-11-02 · gpt · 조운 세계 셋 · 일상컷 아홉 등록
+- data/img.json — kr_mmorpg v3의 삼국시대·중세 판타지·메카 기준컷과 세계별 일상컷 셋씩, 총 12장을 등록기로 추가. 유비 등 기존 등록은 보존하고 WebP·지시문·참고 해시·재시도 기록은 sam-atelier-img에 저장.
+
 ## 2026-11-02 · claude · 첫 화면 · 게임은 draft.html 로 · 공간 넷 더함
 - index.html · lib/sam.css · lib/words.js — 사용자 「공방 처음 진입 화면 만들어줘. 다른 공방처럼」. 새 첫 화면: 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수, 누르면 그 세력 도감) · 최근 그림 여덟 · 패치 기록 · 공간 고르기. 예전 게임 주소의 몫(?daily · ?local · #sam-transfer)은 draft.html 로 그대로 넘긴다.
 - draft.html(← index.html) · sam.webmanifest · tools/sam-design.py · tests/assets.cjs · tests/regression.cjs · tests/dot-screen.cjs · tests/words.cjs — 게임은 한 글자도 안 바꾸고 이름만 옮겼다(게임은 제 주소를 location.pathname 으로만 쓴다). 설치 앱 시작은 그대로 게임(start_url ./draft.html).
