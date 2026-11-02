@@ -1,81 +1,95 @@
 /* 공간 풍경 — 공간마다 배경 그림 한 장(그림 저장소 sam-atelier-img/backgrounds/room-<공간>.webp, 도트 공방의 그리기로 받은 가로 그림 1536×1024, 기록 records/backgrounds/)
    위에 빛 번짐 한 겹. 그림을 못 받으면 겹 무늬만 남는다. 무늬는 옅게 — 글자는 늘 불투명한 카드 위에 앉는다.
    game → element 의 room.css 에서 왔다(2026-11-02 삼국지로 — 그림은 아직 없다, 겹 무늬만) */
-:root {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-sunlit.webp");
+:root[data-theme="jianghu"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-jianghu.webp");
   --room-image:
-    linear-gradient(180deg,#f3f6fa00 0,#f3f6fa66 55%,#f3f6fa 100%),
-    radial-gradient(circle at 12% 0%,#ffd6e8aa 0,#ffd6e800 36%),
+    linear-gradient(180deg,#0d151700 0,#0d151788 55%,#0d1517 100%),
+    radial-gradient(circle at 14% 6%,#ff8a4c55 0,#ff8a4c00 38%),
+    radial-gradient(circle at 86% 30%,#4fd8a844 0,#4fd8a800 34%),
     var(--room-src);
-  --room-paper:var(--bg);--room-rgb:243 246 250;
+  --room-paper:var(--bg);--room-rgb:13 21 23;
   --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="moonlit"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-moonlit.webp");
+:root, :root[data-theme="peachsword"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-peachsword.webp");
   --room-image:
-    linear-gradient(180deg,#0e102000 0,#0e102088 55%,#0e1020 100%),
-    radial-gradient(circle at 80% 10%,#c9a0ff30 0,#c9a0ff00 40%),
+    linear-gradient(180deg,#fbf1ef00 0,#fbf1ef77 55%,#fbf1ef 100%),
+    radial-gradient(circle at 14% 6%,#ffb6c955 0,#ffb6c900 38%),
+    radial-gradient(circle at 86% 30%,#7fd6c844 0,#7fd6c800 34%),
     var(--room-src);
-  --room-rgb:14 16 32;
+  --room-paper:var(--bg);--room-rgb:251 241 239;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="hanok"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-hanok.webp");
+:root[data-theme="lacquer"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-lacquer.webp");
   --room-image:
-    linear-gradient(180deg,#f6eedd00 0,#f6eedd77 55%,#f6eedd 100%),
-    radial-gradient(circle at 88% 70%,#ff9a4a33 0,#ff9a4a00 38%),
+    linear-gradient(180deg,#1a0c0d00 0,#1a0c0d88 55%,#1a0c0d 100%),
+    radial-gradient(circle at 14% 6%,#c0392b55 0,#c0392b00 38%),
+    radial-gradient(circle at 86% 30%,#f0c45c44 0,#f0c45c00 34%),
     var(--room-src);
-  --room-rgb:246 238 221;
+  --room-paper:var(--bg);--room-rgb:26 12 13;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="forest"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-forest.webp");
+:root[data-theme="grimoire"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-grimoire.webp");
   --room-image:
-    linear-gradient(180deg,#eef0e600 0,#eef0e677 55%,#eef0e6 100%),
-    radial-gradient(circle at 70% 40%,#ffd08a33 0,#ffd08a00 36%),
+    linear-gradient(180deg,#150f1d00 0,#150f1d88 55%,#150f1d 100%),
+    radial-gradient(circle at 14% 6%,#9b5cff55 0,#9b5cff00 38%),
+    radial-gradient(circle at 86% 30%,#f2b84b44 0,#f2b84b00 34%),
     var(--room-src);
-  --room-rgb:238 240 230;
-  --room-position:center 47%;--room-mobile-position:62% 38%;
+  --room-paper:var(--bg);--room-rgb:21 15 29;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="phosphor"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-phosphor.webp");
+:root[data-theme="feywood"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-feywood.webp");
   --room-image:
-    linear-gradient(180deg,#0a121600 0,#0a121688 55%,#0a1216 100%),
-    radial-gradient(circle at 20% 8%,#5fe3a32a 0,#5fe3a300 38%),
+    linear-gradient(180deg,#eef3e600 0,#eef3e677 55%,#eef3e6 100%),
+    radial-gradient(circle at 14% 6%,#c9a7f055 0,#c9a7f000 38%),
+    radial-gradient(circle at 86% 30%,#ffb3a144 0,#ffb3a100 34%),
     var(--room-src);
-  --room-rgb:10 18 22;
+  --room-paper:var(--bg);--room-rgb:238 243 230;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="redcliff"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-redcliff.webp");
+:root[data-theme="dragonforge"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-dragonforge.webp");
   --room-image:
-    linear-gradient(180deg,#140b0a00 0,#140b0a88 55%,#140b0a 100%),
-    radial-gradient(circle at 70% 85%,#ff7a3a44 0,#ff7a3a00 42%),
-    radial-gradient(circle at 20% 15%,#ffd16622 0,#ffd16600 30%),
+    linear-gradient(180deg,#0f141b00 0,#0f141b88 55%,#0f141b 100%),
+    radial-gradient(circle at 14% 6%,#ff6a2b55 0,#ff6a2b00 38%),
+    radial-gradient(circle at 86% 30%,#7fd6ff44 0,#7fd6ff00 34%),
     var(--room-src);
-  --room-rgb:20 11 10;
+  --room-paper:var(--bg);--room-rgb:15 20 27;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="peach"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-peach.webp");
+:root[data-theme="neonrain"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-neonrain.webp");
   --room-image:
-    linear-gradient(180deg,#fbf1f100 0,#fbf1f177 55%,#fbf1f1 100%),
-    radial-gradient(circle at 15% 10%,#ffc2d6aa 0,#ffc2d600 38%),
-    radial-gradient(circle at 85% 30%,#d7f0c466 0,#d7f0c400 34%),
+    linear-gradient(180deg,#0a0c1500 0,#0a0c1588 55%,#0a0c15 100%),
+    radial-gradient(circle at 14% 6%,#ff4fa355 0,#ff4fa300 38%),
+    radial-gradient(circle at 86% 30%,#3fe0ff44 0,#3fe0ff00 34%),
     var(--room-src);
-  --room-rgb:251 241 241;
+  --room-paper:var(--bg);--room-rgb:10 12 21;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="snow"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-snow.webp");
+:root[data-theme="hangar"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-hangar.webp");
   --room-image:
-    linear-gradient(180deg,#eef2f700 0,#eef2f777 55%,#eef2f7 100%),
-    radial-gradient(circle at 80% 5%,#c9dcff99 0,#c9dcff00 40%),
+    linear-gradient(180deg,#edeff100 0,#edeff177 55%,#edeff1 100%),
+    radial-gradient(circle at 14% 6%,#ffb26b55 0,#ffb26b00 38%),
+    radial-gradient(circle at 86% 30%,#8fc2ff44 0,#8fc2ff00 34%),
     var(--room-src);
-  --room-rgb:238 242 247;
+  --room-paper:var(--bg);--room-rgb:237 239 241;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
-:root[data-theme="bronze"] {
-  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-bronze.webp");
+:root[data-theme="orbit"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-orbit.webp");
   --room-image:
-    linear-gradient(180deg,#13110c00 0,#13110c88 55%,#13110c 100%),
-    radial-gradient(circle at 50% 0%,#e2b55233 0,#e2b55200 44%),
+    linear-gradient(180deg,#0c0a1c00 0,#0c0a1c88 55%,#0c0a1c 100%),
+    radial-gradient(circle at 14% 6%,#ff8f6b55 0,#ff8f6b00 38%),
+    radial-gradient(circle at 86% 30%,#5ff0c044 0,#5ff0c000 34%),
     var(--room-src);
-  --room-rgb:19 17 12;
+  --room-paper:var(--bg);--room-rgb:12 10 28;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
 }
 :root[data-background="off"] {--room-image:none}
 body.dex-page,body.prompt-page {

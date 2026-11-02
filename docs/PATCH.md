@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-02 · claude · 공간 아홉을 다시 짬 — 무협 · 판타지 · 메카, 계열이 다른 색이 부딪히는 팔레트
+- lib/workspace.css · lib/workspace-theme.js · lib/room.css · lib/workspace-ui.js · lib/words.js · lib/img.js — 사용자 「콘셉트 비주얼 디렉터로서, 한 색의 명도·채도만 바꾸는 지루한 조합 말고 서로 다른 계열의 색이 부딪히며 독창적인 내러티브를 만드는 팔레트로 — 무협 · 판타지 · 미래 메카와 연상되는 소재로」. 옛 아홉(한 색 계열)을 내리고 새 아홉: 강호 객잔(먹빛 청록 × 등롱 주홍 × 비취 · 금박) · 도화검무(복사꽃 분홍 × 청록 검기 × 먹, 기본) · 주칠 궁전(주칠 × 비취 × 군청 · 금박) · 금서고(자줏빛 결계 × 금박 장정 × 독초 연두) · 요정 숲의 아침(이끼 × 자수정 × 산호) · 용의 대장간(강철 청회 × 용암 주황 × 서리 청) · 네온 우중(남흑 × 핫 마젠타 × 시안 · 산성 노랑) · 정비 격납고(콘크리트 회색 × 경고 주황 × 정비 청) · 궤도 일출(남보라 우주 × 일출 산호 × 오로라 민트). 공간마다 문양(등롱 · 검과 꽃 · 지붕 · 마도서 · 버섯 · 모루와 불 · 간판과 비 · 해저드 줄 · 행성과 해)과 빛 번짐 두 색, 글자 대비는 아홉 모두 4.5:1 이상(계산으로 검사). 공간 열쇠가 바뀌어 저장 칸을 samguk_room_v2 로(옛 값은 새 기본으로).
+- lib/sam.css — 세 색이 같이 보이게: 제목 밑 세 띠(주색 · 맞색 · 금속), 머리말 · 문 이름은 맞색, 문을 짚으면 금속 테두리.
+- tests/screen.cjs · AGENTS.md — 공간 고르기 검사와 자리.
+
 ## 2026-11-02 · claude · 첫 화면 · 게임은 draft.html 로 · 공간 넷 더함
 - index.html · lib/sam.css · lib/words.js — 사용자 「공방 처음 진입 화면 만들어줘. 다른 공방처럼」. 새 첫 화면: 문 넷(드래프트 · 오늘의 대국 · 도감 · 프롬프트) · 세력 넷 카드(장수 · 확정 · 시안 · 그림 수, 누르면 그 세력 도감) · 최근 그림 여덟 · 패치 기록 · 공간 고르기. 예전 게임 주소의 몫(?daily · ?local · #sam-transfer)은 draft.html 로 그대로 넘긴다.
 - draft.html(← index.html) · sam.webmanifest · tools/sam-design.py · tests/assets.cjs · tests/regression.cjs · tests/dot-screen.cjs · tests/words.cjs — 게임은 한 글자도 안 바꾸고 이름만 옮겼다(게임은 제 주소를 location.pathname 으로만 쓴다). 설치 앱 시작은 그대로 게임(start_url ./draft.html).

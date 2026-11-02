@@ -24,7 +24,7 @@
 | 도감 | `dex.html` · `lib/img.js` · `lib/sam.css` | 세력 하나 — 역할 차례(군주 · 무장 · 책사 · 문관)로 장수마다 세계 셋 · 접는 일상컷 · 다른 화풍, 크게 보기(넘기기 · 뒤로 가기는 팝업만) · 즐겨찾기(a: samguk) · 이름 찾기 · 그림 있는 것만. 빈 칸을 누르면 그 장수 · 세계의 생성기 |
 | 프롬프트 | `prompt.html` · `lib/studio.js` · `lib/studio.css` · `lib/prompt-spec.js`(표) · `lib/look-spec.js`(외형 어휘) · `lib/prompt-sam.js`(조립) · `lib/casual-tree*.js` · `data/casual-tree*.json` | 세력 › 장수 › 갈래(세계 그림 · 일상컷) › 단계. 고른 것은 이 브라우저에(`samguk_studio_v1`), 주소 `?card=&o=&world=` |
 
-머리 · 항해 · ⚙ 설정은 `lib/workspace-ui.js`(화면 차례 `PAGES` — 「군막(게임)」 은 게임으로 간다), 공간은 `lib/workspace-theme.js` · `lib/workspace.css` · `lib/room.css` — 공간 아홉 — 한낮의 군막 · 달밤의 성루 · 죽간 서고 · 대나무 숲 · 작전 지휘소, 2026-11-02 더한 적벽의 밤 · 도원 · 북방 설원 · 동작대. 배경 그림(`sam-atelier-img/backgrounds/room-<공간>.webp`)은 아직 없다(겹 무늬만). 공간을 더하면 workspace.css(색) · workspace-theme.js(themeColors) · room.css · workspace-ui.js(CREST_MARK) · words.js(theme.* · theme.note.*) 다섯 곳.
+머리 · 항해 · ⚙ 설정은 `lib/workspace-ui.js`(화면 차례 `PAGES` — 「군막(게임)」 은 게임으로 간다), 공간은 `lib/workspace-theme.js` · `lib/workspace.css` · `lib/room.css` — 공간 아홉(2026-11-02 다시 짬 — 사용자 「한 가지 색의 명도·채도만 바꾸는 지루한 조합 말고, 서로 다른 계열의 색이 부딪히며 내러티브를 만드는 팔레트」): 무협 — 강호 객잔 · 도화검무(기본) · 주칠 궁전, 판타지 — 금서고 · 요정 숲의 아침 · 용의 대장간, 메카 — 네온 우중 · 정비 격납고 · 궤도 일출. 공간마다 바탕 · 주색 · 맞색 · 금속이 서로 다른 계열이고 이야기 · 소재가 낱말 표 theme.note.* 에 있다. 글자 대비 4.5:1 이상을 지킨다(본문 · 흐린 글 · 주색 · 맞색 · 금속 · 주색 위 글). 배경 그림(`sam-atelier-img/backgrounds/room-<공간>.webp`)은 아직 없다(겹 무늬만). 공간을 더하면 workspace.css(색) · workspace-theme.js(themeColors) · room.css · workspace-ui.js(CREST_MARK) · words.js(theme.* · theme.note.*) 다섯 곳.
 `lib/casual-tree.js` · `lib/casual-tree-v2.js` · `lib/favorites.js` 는 다른 공방과 글자 하나 다르지 않게 나눠 쓰는 공용 모듈 — 여기서 따로 고치지 않는다.
 
 ## 지켜야 할 것

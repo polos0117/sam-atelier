@@ -1,88 +1,88 @@
-/* Shared workspace — 공간 다섯 색(원소 공방에서 옮겼다 — 이름은 삼국지: 군막·성루·서고·대숲·지휘소). game-atelier 의 것을 열쇠 그대로 가져왔다(2026-10-30, 대비 4.5:1 이상). Room scenery lives in room.css. */
+/* Shared workspace — 공간 아홉(2026-11-02, 사용자 「한 가지 색의 명도·채도만 바꾸는 지루한 조합 말고, 서로 다른 계열의 색이 부딪히며 내러티브를 만드는 팔레트」): 무협 셋(강호 객잔 · 도화검무 · 주칠 궁전) · 판타지 셋(금서고 · 요정 숲의 아침 · 용의 대장간) · 메카 셋(네온 우중 · 정비 격납고 · 궤도 일출). 공간마다 바탕 · 주색(accent) · 맞색(signal) · 금속(gold)이 서로 다른 계열이고, 글자 대비는 4.5:1 이상(바탕 · 카드 위 본문 · 흐린 글 · 주색 · 맞색 · 금속, 주색 위 글). Room scenery lives in room.css. */
 :root {
   --void:var(--bg);--panel:var(--card);--rule:var(--line);
   --ink:var(--text);--dim:var(--muted);--plate:var(--accent);
   --ui-font:13px;--ui-small:12px;--ui-height:40px;--ui-pad:8px;--ui-gap:8px;--gap:12px;
 }
-:root, :root[data-theme="sunlit"] {
-  /* 한낮의 군막 — 햇살 드는 흰 장막, 하늘빛 깃발, 붉은 인장 */
-  color-scheme:light;
-  --bg:#f3f6fa;--deck:#f7f9fc;--card:#ffffff;--card2:#e8eef6;--text:#1e2733;
-  --muted:#5a6675;--line:#cfd9e6;--accent:#0f7fb0;--accent-soft:#dbeef8;--on-accent:#ffffff;
-  --signal:#c2457a;--gold:#9a6b12;--ok:#22774d;--warn:#a85a12;--pattern:#0f7fb010;
-  --g-reflex:#c2457a;--g-growth:#9a6b12;--g-mind:#0f7fb0;--g-explore:#22774d;
-  --shadow:0 8px 26px #1e3a5a14;
-}
-:root[data-theme="moonlit"] {
-  /* 달밤의 성루 — 남색 밤하늘, 황동 등롱, 보랏빛 달무리 */
+:root[data-theme="jianghu"] {
+  /* 무협 · 강호 객잔 — 비 내리는 강호의 밤, 먹빛 청록 객잔에 등롱의 주홍이 번지고 탁자 위 비취 검이 빛난다. 소재: 먹 · 젖은 기와 · 종이 등롱 · 비취 검 · 금박 술잔 */
   color-scheme:dark;
-  --bg:#0e1020;--deck:#12152a;--card:#181c34;--card2:#212646;--text:#eef0fa;
-  --muted:#b6bbd6;--line:#353c62;--accent:#c9a0ff;--accent-soft:#342a55;--on-accent:#140f24;
-  --signal:#5fd3e8;--gold:#e6c27a;--ok:#7fe3a8;--warn:#f7b56a;--pattern:#c9a0ff10;
-  --g-reflex:#ff7fa0;--g-growth:#e6c27a;--g-mind:#7fb7ff;--g-explore:#7fe3a8;
+  --bg:#0d1517;--deck:#111b1e;--card:#162427;--card2:#1d2f33;--text:#eef2ea;
+  --muted:#a9bbb4;--line:#2c4247;--accent:#ff8a4c;--accent-soft:#43281b;--on-accent:#1b0d05;
+  --signal:#4fd8a8;--gold:#e9c46a;--ok:#8fd9a8;--warn:#ffb070;--pattern:#ff8a4c10;
+  --g-reflex:#4fd8a8;--g-growth:#e9c46a;--g-mind:#ff8a4c;--g-explore:#8fd9a8;
   --shadow:0 10px 30px #00000066;
 }
-:root[data-theme="hanok"] {
-  /* 죽간 서고 — 누런 죽간과 종이, 붉은 인주, 녹청 청동기 */
+:root, :root[data-theme="peachsword"] {
+  /* 무협 · 도화검무 — 복사꽃이 흩날리는 언덕에서 청록 검기가 꽃잎을 가른다 — 분홍과 청록, 먹 한 획. 소재: 복사꽃잎 · 청록 검광 · 먹 글씨 · 흰 비단 · 놋 방울 */
   color-scheme:light;
-  --bg:#f6eedd;--deck:#f8f1e2;--card:#fdf8ee;--card2:#eedfc3;--text:#352a1c;
-  --muted:#6c5a43;--line:#dcc6a1;--accent:#b4461c;--accent-soft:#f6ddd0;--on-accent:#ffffff;
-  --signal:#1f7a6c;--gold:#946207;--ok:#2f7346;--warn:#9a5410;--pattern:#b4461c10;
-  --g-reflex:#b4461c;--g-growth:#946207;--g-mind:#2a5f98;--g-explore:#2f7346;
-  --shadow:0 8px 26px #5a321414;
+  --bg:#fbf1ef;--deck:#fcf5f3;--card:#ffffff;--card2:#f5e1df;--text:#1f1a22;
+  --muted:#5f5560;--line:#ead0cd;--accent:#0d7a72;--accent-soft:#d6efeb;--on-accent:#ffffff;
+  --signal:#c8335f;--gold:#8a6510;--ok:#2f7a4a;--warn:#a5561a;--pattern:#0d7a7210;
+  --g-reflex:#c8335f;--g-growth:#8a6510;--g-mind:#0d7a72;--g-explore:#2f7a4a;
+  --shadow:0 8px 26px #1e1e3014;
 }
-:root[data-theme="forest"] {
-  /* 대나무 숲 — 이끼와 대숲, 잔도의 등불, 구리빛 흙 */
-  color-scheme:light;
-  --bg:#eef0e6;--deck:#f2f3ea;--card:#fafbf4;--card2:#dfe4d0;--text:#26301f;
-  --muted:#596650;--line:#c7d0b2;--accent:#3f7a3a;--accent-soft:#dbe9d4;--on-accent:#ffffff;
-  --signal:#b06a2a;--gold:#8a6a1c;--ok:#3f7a3a;--warn:#8f5416;--pattern:#3f7a3a10;
-  --g-reflex:#b1443a;--g-growth:#8a6a1c;--g-mind:#2f5f96;--g-explore:#3f7a3a;
-  --shadow:0 8px 26px #2a3a1414;
-}
-:root[data-theme="phosphor"] {
-  /* 작전 지휘소 — 2190년의 검푸른 함교, 초록 화면, 호박색 표시등 */
+:root[data-theme="lacquer"] {
+  /* 무협 · 주칠 궁전 — 주칠 기둥의 황궁 연회, 비취 장신구와 군청 자기가 금박 아래 서로 다툰다. 소재: 주칠 기둥 · 비취 · 군청 청화자기 · 금박 · 비단 휘장 */
   color-scheme:dark;
-  --bg:#0a1216;--deck:#0d171c;--card:#122027;--card2:#182b33;--text:#e3f1f1;
-  --muted:#a3bbbf;--line:#294650;--accent:#5fe3a3;--accent-soft:#1a3d33;--on-accent:#07150f;
-  --signal:#ffb547;--gold:#ffd166;--ok:#7fe3a8;--warn:#ffb547;--pattern:#5fe3a310;
-  --g-reflex:#ff8a7a;--g-growth:#ffd166;--g-mind:#6cc2ff;--g-explore:#5fe3a3;
-  --shadow:0 10px 30px #0000005e;
+  --bg:#1a0c0d;--deck:#200f10;--card:#2a1415;--card2:#361b1c;--text:#f8ece4;
+  --muted:#cdb2a8;--line:#55302d;--accent:#4fd1a5;--accent-soft:#173a30;--on-accent:#06190f;
+  --signal:#8fa8ff;--gold:#f0c45c;--ok:#8fd9a8;--warn:#ffb070;--pattern:#4fd1a510;
+  --g-reflex:#8fa8ff;--g-growth:#f0c45c;--g-mind:#4fd1a5;--g-explore:#8fd9a8;
+  --shadow:0 10px 30px #00000066;
 }
-:root[data-theme="redcliff"] {
-  /* 적벽의 밤(2026-11-02 더함) — 검붉은 강물, 불배의 주황, 불티의 금빛 */
+:root[data-theme="grimoire"] {
+  /* 판타지 · 금서고 — 봉인된 마도서 서고, 자줏빛 결계 사이로 금박 장정이 빛나고 독초의 연두가 스민다. 소재: 마도서 금박 장정 · 자수정 결계 · 독초 · 양초 · 장미 석영 */
   color-scheme:dark;
-  --bg:#140b0a;--deck:#1a0f0d;--card:#221412;--card2:#2e1b18;--text:#f7ebe6;
-  --muted:#c9b0a8;--line:#4a2c27;--accent:#ff8a4c;--accent-soft:#4a2318;--on-accent:#1a0b06;
-  --signal:#ffd166;--gold:#f2c46d;--ok:#8fd9a8;--warn:#ffb070;--pattern:#ff8a4c10;
-  --g-reflex:#ff6b6b;--g-growth:#f2c46d;--g-mind:#7fb7ff;--g-explore:#8fd9a8;
-  --shadow:0 10px 30px #00000070;
+  --bg:#150f1d;--deck:#1a1324;--card:#21182e;--card2:#2c2140;--text:#f1ebf7;
+  --muted:#bdb0cf;--line:#43365c;--accent:#f2b84b;--accent-soft:#3d2e14;--on-accent:#1a1203;
+  --signal:#7ee08a;--gold:#e8a0c8;--ok:#8fd9a8;--warn:#ffb070;--pattern:#f2b84b10;
+  --g-reflex:#7ee08a;--g-growth:#e8a0c8;--g-mind:#f2b84b;--g-explore:#8fd9a8;
+  --shadow:0 10px 30px #00000066;
 }
-:root[data-theme="peach"] {
-  /* 도원(2026-11-02 더함) — 복사꽃 분홍, 연둣빛 잎, 금빛 술잔 */
+:root[data-theme="feywood"] {
+  /* 판타지 · 요정 숲의 아침 — 이끼 낀 숲의 아침, 자수정 꽃이 피고 산호빛 열매가 맺힌 버섯 고리. 소재: 이끼 · 자수정 꽃 · 산호 열매 · 버섯 고리 · 이슬 */
   color-scheme:light;
-  --bg:#fbf1f1;--deck:#fcf4f4;--card:#ffffff;--card2:#f6e2e4;--text:#33232a;
-  --muted:#6d5560;--line:#ecccd2;--accent:#b8436a;--accent-soft:#f8dbe5;--on-accent:#ffffff;
-  --signal:#3d8a57;--gold:#93690f;--ok:#2f7a4a;--warn:#a5561a;--pattern:#b8436a10;
-  --g-reflex:#b8436a;--g-growth:#93690f;--g-mind:#2f64a0;--g-explore:#2f7a4a;
-  --shadow:0 8px 26px #5a1e3214;
+  --bg:#eef3e6;--deck:#f3f7ec;--card:#fbfdf6;--card2:#dfe8d2;--text:#1e2a1c;
+  --muted:#556450;--line:#c8d6b6;--accent:#7a3bb0;--accent-soft:#ece0f6;--on-accent:#ffffff;
+  --signal:#c4473a;--gold:#8a6a14;--ok:#2f7a4a;--warn:#a5561a;--pattern:#7a3bb010;
+  --g-reflex:#c4473a;--g-growth:#8a6a14;--g-mind:#7a3bb0;--g-explore:#2f7a4a;
+  --shadow:0 8px 26px #1e1e3014;
 }
-:root[data-theme="snow"] {
-  /* 북방 설원(2026-11-02 더함) — 눈빛 흰 들판, 위의 남색 깃발, 차가운 강철 */
-  color-scheme:light;
-  --bg:#eef2f7;--deck:#f3f6fa;--card:#fbfdff;--card2:#e0e8f2;--text:#1b2433;
-  --muted:#556275;--line:#c9d4e3;--accent:#2b4f8c;--accent-soft:#dbe4f3;--on-accent:#ffffff;
-  --signal:#7a4fb5;--gold:#8a6a1c;--ok:#26734d;--warn:#9a5a12;--pattern:#2b4f8c10;
-  --g-reflex:#b0436a;--g-growth:#8a6a1c;--g-mind:#2b4f8c;--g-explore:#26734d;
-  --shadow:0 8px 26px #1b2a4a14;
-}
-:root[data-theme="bronze"] {
-  /* 동작대(2026-11-02 더함) — 밤의 누대, 청동 참새의 금빛, 비취 장식 */
+:root[data-theme="dragonforge"] {
+  /* 판타지 · 용의 대장간 — 용의 숨으로 달군 모루, 용암 주황과 서리 청이 강철 위에서 부딪힌다. 소재: 용암 · 서리 수정 · 강철 · 황동 · 용 비늘 */
   color-scheme:dark;
-  --bg:#13110c;--deck:#18150f;--card:#201c13;--card2:#2b261a;--text:#f4eedf;
-  --muted:#c4b897;--line:#4a4128;--accent:#e2b552;--accent-soft:#3d3218;--on-accent:#1a1406;
-  --signal:#5fd3b0;--gold:#e2b552;--ok:#8fd9a8;--warn:#f7b56a;--pattern:#e2b55210;
-  --g-reflex:#ff8a7a;--g-growth:#e2b552;--g-mind:#7fb7ff;--g-explore:#5fd3b0;
+  --bg:#0f141b;--deck:#131a22;--card:#18212b;--card2:#202c38;--text:#eef3f8;
+  --muted:#a9b7c6;--line:#2f3f50;--accent:#ff8a3d;--accent-soft:#42230f;--on-accent:#1c0c02;
+  --signal:#7fd6ff;--gold:#d8b26a;--ok:#8fd9a8;--warn:#ffb070;--pattern:#ff8a3d10;
+  --g-reflex:#7fd6ff;--g-growth:#d8b26a;--g-mind:#ff8a3d;--g-explore:#8fd9a8;
+  --shadow:0 10px 30px #00000066;
+}
+:root[data-theme="neonrain"] {
+  /* 메카 · 네온 우중 — 비에 젖은 메가시티, 핫 마젠타 간판과 시안 홀로그램 사이로 산성 노랑 경고등이 깜빡인다. 소재: 네온 간판 · 젖은 아스팔트 · 홀로그램 · 크롬 · 경고등 */
+  color-scheme:dark;
+  --bg:#0a0c15;--deck:#0e111c;--card:#141826;--card2:#1c2133;--text:#eef0fb;
+  --muted:#adb3cc;--line:#2c3350;--accent:#ff4fa3;--accent-soft:#45152f;--on-accent:#1a0310;
+  --signal:#3fe0ff;--gold:#e8ff5a;--ok:#8fd9a8;--warn:#ffb070;--pattern:#ff4fa310;
+  --g-reflex:#3fe0ff;--g-growth:#e8ff5a;--g-mind:#ff4fa3;--g-explore:#8fd9a8;
+  --shadow:0 10px 30px #00000066;
+}
+:root[data-theme="hangar"] {
+  /* 메카 · 정비 격납고 — 한낮의 정비 격납고 — 회색 콘크리트에 경고 주황과 해저드 노랑, 정비 청색 조끼. 소재: 콘크리트 · 해저드 줄무늬 · 정비 청색 · 유압 오일 · 볼트 */
+  color-scheme:light;
+  --bg:#edeff1;--deck:#f2f4f5;--card:#fbfcfc;--card2:#dfe3e6;--text:#1c2228;
+  --muted:#535d66;--line:#c7ced4;--accent:#b5470b;--accent-soft:#f6e0d2;--on-accent:#ffffff;
+  --signal:#1f68b0;--gold:#7a6200;--ok:#2f7a4a;--warn:#a5561a;--pattern:#b5470b10;
+  --g-reflex:#1f68b0;--g-growth:#7a6200;--g-mind:#b5470b;--g-explore:#2f7a4a;
+  --shadow:0 8px 26px #1e1e3014;
+}
+:root[data-theme="orbit"] {
+  /* 메카 · 궤도 일출 — 행성의 가장자리로 해가 떠오르는 궤도, 일출의 산호와 오로라 민트가 남보랏빛 우주를 가른다. 소재: 행성 테두리 · 오로라 · 태양광 패널 · 은박 단열재 · 별빛 */
+  color-scheme:dark;
+  --bg:#0c0a1c;--deck:#100e24;--card:#16132e;--card2:#201b3e;--text:#f2effc;
+  --muted:#b4adcf;--line:#352e5c;--accent:#ff8f6b;--accent-soft:#45221a;--on-accent:#1d0b05;
+  --signal:#5ff0c0;--gold:#ffd36e;--ok:#8fd9a8;--warn:#ffb070;--pattern:#ff8f6b10;
+  --g-reflex:#5ff0c0;--g-growth:#ffd36e;--g-mind:#ff8f6b;--g-explore:#8fd9a8;
   --shadow:0 10px 30px #00000066;
 }
 :root[data-density="relaxed"] {
@@ -236,7 +236,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 .prompt-page .controls {position:static;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--deck);box-shadow:var(--shadow);grid-template-columns:minmax(0,1fr) auto;gap:10px}
 .prompt-page .controls button {min-height:46px}
 .prompt-page .controls .primary {background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-[data-theme="sunlit"] .prompt-page .controls .primary {color:#fff}
+[data-theme="peachsword"] .prompt-page .controls .primary {color:#fff}
 .prompt-page .status {padding:8px 4px;font-size:12px;overflow-wrap:anywhere}
 .prompt-page .prompt-view {margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .prompt-page .prompt-view textarea {background:var(--card);color:var(--text);padding:18px;font-size:13px;line-height:1.7}
@@ -248,7 +248,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 .studio-selection .selection-count {margin-left:auto;white-space:nowrap;color:var(--accent);font:11px ui-monospace,monospace}
 @media (hover:hover) {
   .workspace-nav a:hover,button:not(:disabled):hover {filter:brightness(1.12)}
-  [data-theme="sunlit"] button:not(:disabled):hover {filter:brightness(.96)}
+  [data-theme="peachsword"] button:not(:disabled):hover {filter:brightness(.96)}
   .dex-page .cell:hover {transform:translateY(-3px);border-color:var(--accent)}
 }
 /* Fold inner display: use the added width without squeezing fields into tiny columns. */
