@@ -97,13 +97,13 @@ const P = ctx0.window.AtelierPrompt;
       assert.equal(await bp.locator('.b-camps button').count(), D.factions.find(f => f.key === 'qun').camps.length, '군웅은 무리로');
       await bp.click('.b-camps [data-camp="lubu"]');
       assert.deepEqual((await bp.locator('.b-name').allTextContents()).sort(), D.generals.filter(g => g.camp === 'lubu').map(g => g.key).sort(), '여포군만');
-      await bp.click('.b-worlds [data-w="samguk"]'); await bp.click('.b-slot[data-slot="bridge"]'); await bp.waitForSelector('.b-peek');
-      assert.match(await bp.locator('.b-peek').textContent(), /장판교/, '선 자리를 누르면 그 장수 — 서 있는 자리');
-      if (await bp.locator('.b-act[data-act="open"]').count()) { await bp.click('.b-act[data-act="open"]'); await bp.waitForSelector('.b-big'); await bp.keyboard.press('Escape'); await bp.waitForSelector('.b-peek'); }
       { const w0 = await bp.locator('.b-field').evaluate(e => e.offsetWidth);   /* 확대 · 축소 — 지도가 커지고 자리는 따라간다, 맞춤으로 돌아온다 */
         await bp.click('[data-zoom="in"]'); assert.equal(await bp.locator('.b-zoom-n').textContent(), '150%');
         assert(Math.abs(await bp.locator('.b-field').evaluate(e => e.offsetWidth) - w0 * 1.5) < 3, '확대하면 지도가 1.5배');
         await bp.click('[data-zoom="fit"]'); assert.equal(await bp.locator('.b-field').evaluate(e => e.offsetWidth), w0, '맞춤'); }
+      await bp.click('.b-worlds [data-w="samguk"]'); await bp.click('.b-slot[data-slot="bridge"]'); await bp.waitForSelector('.b-peek');
+      assert.match(await bp.locator('.b-peek').textContent(), /장판교/, '선 자리를 누르면 그 장수 — 서 있는 자리');
+      if (await bp.locator('.b-act[data-act="open"]').count()) { await bp.click('.b-act[data-act="open"]'); await bp.waitForSelector('.b-big'); await bp.keyboard.press('Escape'); await bp.waitForSelector('.b-peek'); }
       await bp.click('.b-act[data-act="remove"]'); assert.doesNotMatch(await bp.locator('.b-slot[data-slot="bridge"]').textContent(), /조운/, '자리에서 빼기');
       await noOverflow(bp, vp.width); assert.deepEqual(bv.errors, [], '전장 콘솔'); checks += 10; await bv.ctx.close();
     }
