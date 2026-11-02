@@ -60,7 +60,7 @@ const P = ctx0.window.AtelierPrompt;
     /* ── 타이틀(2026-11-02) — 메뉴 다섯 · 공간 ◀ ▶ · 배경 장면이 화면에 ── */
     let tv = await open('/index.html', vp);
     await tv.page.waitForSelector('#m-draft span');
-    assert.deepEqual(await tv.page.locator('.menu-btn').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'dex.html', 'prompt.html', 'hall.html'], '메뉴 넷');
+    assert.deepEqual(await tv.page.locator('.menu-btn').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['hall.html', 'draft.html', 'dex.html', 'prompt.html'], '메뉴 넷 — 머리 메뉴와 같은 차례');
     const t0 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
     await tv.page.click('#next'); const t1 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
     assert.notEqual(t0, t1, '◀ ▶ 로 공간이 바뀐다'); assert.match(await tv.page.locator('#s-name').textContent(), /공간 · /);
@@ -75,10 +75,10 @@ const P = ctx0.window.AtelierPrompt;
       await tv.page.locator('#s-name').click(); assert.equal(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), false, '메뉴 안은 그대로'); }
     await noOverflow(tv.page, vp.width + ' 타이틀');
     assert.deepEqual(tv.errors, [], '타이틀 콘솔'); await tv.ctx.close(); checks += 6;
-    /* ── 군막(처음엔 첫 화면) — 문 넷 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
+    /* ── 군막(처음엔 첫 화면) — 문 셋 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
     let hv = await open('/hall.html', vp);
     await hv.page.waitForSelector('.factions .nation-card');
-    assert.deepEqual(await hv.page.locator('.home-doors a').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'draft.html?daily', 'dex.html', 'prompt.html'], '문 넷');
+    assert.deepEqual(await hv.page.locator('.home-doors a').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'dex.html', 'prompt.html'], '문 셋');
     assert.equal(await hv.page.locator('.factions .nation-card').count(), D.factions.length, '세력 넷');
     assert.match(await hv.page.locator('.factions .nation-card[data-fac="shu"]').textContent(), new RegExp('장수 ' + count('shu')));
     assert.equal(await hv.page.locator('.room-choice').count(), 9, '공간 아홉');
@@ -165,5 +165,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 타이틀(메뉴 넷 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 군막(문 넷 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 타이틀(메뉴 넷 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });
