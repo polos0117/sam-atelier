@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-02 · claude · 기본 화풍 kr_mmorpg v3 · 체형 볼륨과 굴곡
+- data/style.json — 사용자 「v2를 기본으로 해주는데 체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」. 기본을 kr_mmorpg 로, v3 은 v2 의 「elegant elongated proportions」(몸을 가늘게 당길 수 있다)를 「긴 다리 · 가는 허리 위에 가슴 · 골반 · 허벅지의 둥근 볼륨, 마르거나 납작하지 않게」 로.
+- data/sam-design.json · tools/sam-design.py — 체형을 굴곡 여덟 갈래로만. 아담 → petite_curvy · 장신 · 마른 장신 → tall_curvy · 건장 → strong_curvy · 애슬레틱 → curvy_athletic 으로 60명을 옮겼고(관우 · 여포 · 사마의 · 하후돈 · 조운 포함), 자동 설계 돌림도 그 여덟에서만. check 가 다른 체형을 막는다.
+- tools/port-look-spec.cjs · lib/look-spec.js — 삼국지 몫 체형 셋(tall_curvy · strong_curvy · petite_curvy), busty_slender 에 둥근 골반.
+- tests/screen.cjs · AGENTS.md · IMAGE_RULES.md — 기본 화풍이 바뀐 것.
+
 ## 2026-11-02 · claude · 화풍 kr_mmorpg v2 — 화풍 줄을 앞으로, 무협풍 · 천상풍은 의상 · 장면 줄로
 - data/style.json — v1 은 화풍 줄이 지시문 가운데(600낱말 뒤)에 묻혀 글로시와 거의 같았다. v2: 「게임 엔진 3D 모델 · 손으로 칠한 질감 · 셀 음영 아님」 으로 렌더를 못 박고 lead(개념 줄 바로 뒤), 세계 몫은 costume(WORLD 줄 끝 — 삼국시대 비단 띠 · 비치는 치마, 판타지 깃털 · 금 날개 장식 · 비치는 덧치마) · scene(MOOD 줄 — 무협풍 · 천상풍 · 메카 블룸). 관우 세 장 — 얼굴이 더 매끈한 반실사로, 판타지에 깃털 날개 장식 · 후광, 판타지 첫 시도는 안전 필터(sexual)에 막혀 같은 지시문 재시도로 통과.
 - lib/prompt-sam.js — styleRow · lead · worlds.<세계>.costume · scene 을 읽는다(다른 화풍은 그대로 뒤에).

@@ -101,7 +101,7 @@ const P = ctx0.window.AtelierPrompt;
     const got = await promptOf(v.page);
     assert.equal(got, want, '화면 지시문 = 조립기');
     assert.match(got, /Guan Yu/); assert.match(got, /WORLD — THREE KINGDOMS ERA/); assert.match(got, /Green Dragon Crescent Blade/);
-    assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), /관우_samguk_game_keyart_f\.webp/, '파일 이름');
+    assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_samguk_' + S['default'] + '_f\\.webp'), '파일 이름');
     assert.match(v.page.url(), /card=%EA%B4%80%EC%9A%B0|card=관우/); assert.match(v.page.url(), /world=samguk/);
     await noOverflow(v.page, vp.width + ' 생성기 세계');
     checks += 8;
@@ -115,7 +115,7 @@ const P = ctx0.window.AtelierPrompt;
     const cp = await promptOf(v.page);
     assert.match(cp, /^INPUT: the attached image/); assert.match(cp, /female personification of Guan Yu/); assert.match(cp, /SCENE \(chosen\)/);
     assert.doesNotMatch(cp, /element|chemical symbol|atomic number/i, '원소 말이 남지 않았다');
-    assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), /관우_mecha_game_keyart_f_casual1\.webp/);
+    assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_mecha_' + S['default'] + '_f_casual1\\.webp'));
     await noOverflow(v.page, vp.width + ' 생성기 일상');
     assert.deepEqual(v.errors, [], '생성기 콘솔'); checks += 6; await v.ctx.close();
   }

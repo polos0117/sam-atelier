@@ -1,7 +1,7 @@
 {
  "version": 1,
- "note": "화풍 기록 — 설계 지시문 뒤에 붙이는 공통 화풍 블록. 판을 바꾸면 versions 끝에 새 판을 더하고 current 를 옮긴다. 옛 판은 지우지 않는다(그림 기록이 어느 판으로 만들었는지 가리킨다). text 는 세계 그림, casual 은 일상컷. 기본은 game_keyart(2.5D, 원소 공방에서 옮김 2026-11-02). 일상컷은 세계 그림을 참고 그림으로 붙이므로 그 그림의 화풍을 따른다.",
- "default": "game_keyart",
+ "note": "화풍 기록 — 설계 지시문 뒤에 붙이는 공통 화풍 블록. 판을 바꾸면 versions 끝에 새 판을 더하고 current 를 옮긴다. 옛 판은 지우지 않는다(그림 기록이 어느 판으로 만들었는지 가리킨다). text 는 세계 그림, casual 은 일상컷. 기본은 kr_mmorpg(한국 MMORPG 프로모 렌더, 사용자 2026-11-02 「v2를 기본으로」 — 체형 볼륨을 더한 v3). game_keyart(2.5D) · glossy_kr_game 은 비교용으로 남는다. 일상컷은 세계 그림을 참고 그림으로 붙이므로 그 그림의 화풍을 따른다.",
+ "default": "kr_mmorpg",
  "styles": {
   "game_keyart": {
    "name": "게임 키아트 2.5D",
@@ -40,7 +40,7 @@
   },
   "kr_mmorpg": {
    "name": "한국 MMORPG 프로모",
-   "current": "v2",
+   "current": "v3",
    "versions": [
     {
      "v": "v1",
@@ -84,6 +84,34 @@
       "v1 은 화풍 줄이 지시문 가운데(600낱말 뒤)에 묻혀 렌더 질감만 조금 바뀌었다 — lead: 개념 줄 바로 뒤에 싣는다",
       "「게임 엔진 3D 모델 · 손으로 칠한 질감 · 셀 음영 아님」 으로 렌더를 못 박는다",
       "천상풍 · 무협풍은 화풍이 아니라 의상 · 장면 요소 — worlds.<세계>.costume 은 WORLD 줄 끝에, scene 은 장면 뒤 MOOD 줄로"
+     ]
+    },
+    {
+     "v": "v3",
+     "adopted": "2026-11-02",
+     "by": "사용자 2026-11-02 「v2를 기본으로 해주는데 체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」 — v2 의 「길쭉한 비율」 이 몸을 가늘게 당길 수 있어 볼륨 · 굴곡 문장으로",
+     "text": "Premium Korean MMORPG promotional character render — an in-engine 3D character model with hand-painted textures, not flat cel shading and not a 2D anime illustration: semi-realistic volumetric forms, porcelain skin with a soft subsurface glow and glossy specular highlights, a small refined face with delicate realistic-anime features, long legs and a narrow waist on a full, curvaceous figure — soft, rounded volume at bust, hips and thighs in the body type SILHOUETTE names; never thin, flat or boyishly straight. Polished metal, silk and gems catch sharp highlights. Extremely intricate ornamented costume — filigree metalwork, jewel inlays, layered translucent fabrics and fine embroidery. Character-select-screen lighting: strong rim light, soft key light on the face, drifting light particles, atmospheric depth with a softly blurred background. Luxurious, high-detail finish.",
+     "casual": "Premium Korean MMORPG promotional character render: a semi-realistic, painterly 3D finish with porcelain skin and a soft subsurface glow, a small refined face with delicate realistic-anime features, long legs and a narrow waist on a full, curvaceous figure with soft volume at bust, hips and thighs. Glossy specular highlights on skin, fabric and jewellery. Refined fabric and accessory rendering with fine jewellery detail. Ethereal rim lighting, drifting light particles and atmospheric depth with a softly blurred background. Luxurious, high-detail, character-select-screen quality.",
+     "lead": true,
+     "worlds": {
+      "samguk": {
+       "costume": "Martial-fantasy glamour: silk sashes and ribbons flowing in the wind, a sheer layered skirt, jade and gold jewellery at the hair and waist.",
+       "scene": "MOOD: bold martial-fantasy key art — high contrast, wind-swept silk and hair, drifting petals and embers, dynamic contrapposto."
+      },
+      "fantasy": {
+       "costume": "Celestial ornament: feather-and-gold wing-shaped ornaments at the shoulders or back, a translucent gauze overskirt, a jewelled circlet.",
+       "scene": "MOOD: serene celestial key art — pastel sky light, a soft halo of light behind her, floating golden light particles and drifting feathers."
+      },
+      "mecha": {
+       "scene": "MOOD: sleek sci-fi key art — clean reflective plates, glowing light lines, hovering light particles and a soft bloom."
+      }
+     },
+     "check": "semi-realistic Korean MMORPG promo render — porcelain skin, intricate filigree costume, rim light and particles; one figure, no readable text but a single banner character.",
+     "why": [
+      "v1 은 화풍 줄이 지시문 가운데(600낱말 뒤)에 묻혀 렌더 질감만 조금 바뀌었다 — lead: 개념 줄 바로 뒤에 싣는다",
+      "「게임 엔진 3D 모델 · 손으로 칠한 질감 · 셀 음영 아님」 으로 렌더를 못 박는다",
+      "천상풍 · 무협풍은 화풍이 아니라 의상 · 장면 요소 — worlds.<세계>.costume 은 WORLD 줄 끝에, scene 은 장면 뒤 MOOD 줄로",
+      "v3 — 「elegant elongated proportions」 를 「긴 다리 · 가는 허리 위에 가슴 · 골반 · 허벅지의 둥근 볼륨」 으로(체형은 설계표 SILHOUETTE 가 쥔다)"
      ]
     }
    ]

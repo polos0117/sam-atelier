@@ -12,7 +12,7 @@
 | 이 문서 | 규칙과 자리 |
 | `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(279 — 게임 표 그대로) |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
-| `data/style.json` | 화풍 판 — 세계 그림은 `text`, 일상컷은 `casual`. 기본 `game_keyart`(2.5D) |
+| `data/style.json` | 화풍 판 — 세계 그림은 `text`, 일상컷은 `casual`. 기본 `kr_mmorpg`(한국 MMORPG 프로모 렌더, 2026-11-02), 비교용 `game_keyart`(2.5D) · `glossy_kr_game` |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 |
 
 ## 화면
@@ -44,6 +44,7 @@
 `designed: "hand"` 는 `title` · `traits` · `hold` · `look` 을 장수마다 손으로 적은 것(첫 묶음 13 — 유비 · 관우 · 장비 · 조운 · 제갈량 · 조조 · 하후돈 · 사마의 · 손권 · 주유 · 손상향 · 여포 · 초선).
 `designed: "auto"` 는 세력 팔레트(머리 · 눈 색) · 역할(인상 · 표정) · 장수 열쇠(돌림)로 적은 것 — 성정 줄은 능력치에서 짓는다(90 이상이 먼저). 그리기 전에 손 설계로 올리는 것이 좋다.
 지시문에 「말 · 짐승」 은 넣지 않는다(ONE FIGURE ONLY — 적토마 · 백마는 성정 줄에서 뺐다). 큰 귀 · 긴 팔 같은 몸 이상도 옷 · 장신구로 옮긴다.
+**체형은 볼륨 · 굴곡이 있는 여덟 갈래만**(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」) — hourglass · voluptuous · curvy · curvy_athletic · busty_slender · tall_curvy · strong_curvy · petite_curvy. 장신 · 건장 · 아담도 굴곡 체형으로 적는다(`check` 가 막는다).
 고치면 `python3 tools/sam-design.py check`.
 
 ### 4. 화면에 말을 적지 않는다

@@ -70,8 +70,9 @@ EYE_COLOR = {
  'wu': ['crimson', 'amber', 'ember', 'gold', 'coral'],
  'qun': ['violet', 'gold', 'amber', 'crimson', 'teal'],
 }
-BODY = ['hourglass', 'voluptuous', 'busty_slender', 'curvy_athletic', 'curvy', 'athletic', 'tall_statuesque', 'slender', 'broad_strong', 'lanky', 'petite']
-BODY_W = [5, 4, 4, 4, 3, 2, 2, 1, 1, 1, 1]   # 글래머러스한 몸이 많게(원소 공방 사용자 2026-11-01 「글래머러스한 몸매가 더 많았으면」)
+# 볼륨 · 굴곡이 있는 체형만(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」). check 가 이 밖의 체형을 막는다
+BODY = ['hourglass', 'voluptuous', 'curvy_athletic', 'busty_slender', 'curvy', 'tall_curvy', 'strong_curvy', 'petite_curvy']
+BODY_W = [5, 5, 4, 3, 3, 3, 1, 1]
 IMPRESSION = {
  'lord': ['regal', 'glamorous', 'elegant', 'mature', 'cool', 'fierce'],
  'general': ['fierce', 'rugged', 'sharp', 'stoic', 'boyish', 'cool', 'cheerful', 'glamorous'],
@@ -262,6 +263,8 @@ def check():
         for a in ('eye_color', 'impression', 'skin_tone', 'age', 'expr'):
             if not (lk.get('face') or {}).get(a):
                 errs.append('%s look.face.%s' % (k, a))
+        if (lk.get('silhouette') or {}).get('body') and lk['silhouette']['body'] not in BODY:
+            errs.append('%s look.silhouette.body=%s — 볼륨 · 굴곡 체형(%s)만' % (k, lk['silhouette']['body'], ' · '.join(BODY)))
         for a in ('body', 'hair_color'):
             if not (lk.get('silhouette') or {}).get(a):
                 errs.append('%s look.silhouette.%s' % (k, a))

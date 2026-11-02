@@ -20,8 +20,12 @@ const EXTRA = {
   body: {
     hourglass: 'hourglass-figured — full bust and hips, distinctly narrow-waisted',
     voluptuous: 'voluptuous, generously curved at bust, hips and thighs',
-    busty_slender: 'slender and full-busted, narrow-waisted',
-    curvy_athletic: 'toned athletic-curvy, full-busted with rounded hips'
+    busty_slender: 'slender-limbed yet full-busted with rounded hips and a narrow waist',
+    curvy_athletic: 'toned athletic-curvy, full-busted with rounded hips',
+    /* 사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」 — 장신 · 건장 · 아담도 굴곡 있게 */
+    tall_curvy: 'tall and statuesque with long legs and a full, curvaceous figure — full bust and hips, narrow waist',
+    strong_curvy: 'strong and broad-shouldered with firm muscle, yet full-busted with wide rounded hips and a defined waist',
+    petite_curvy: 'petite and compact yet curvaceous — full bust and rounded hips on a small frame'
   }
 };
 const KO = {   // 설계표의 얼굴·실루엣 열쇠 → 화면 이름(lib/words.js 의 look.* 와 같다 — 검사가 맞춰 본다)

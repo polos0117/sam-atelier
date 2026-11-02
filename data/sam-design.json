@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "삼국지 설계표(2026-11-02) — 장수 한 명이 여성 한 명. 세계 셋(삼국시대풍 · 서양 중세 판타지풍 · 메카풍)마다 다른 사람으로 그린다(사용자 2026-11-02 「삼국시대풍, 서양 중세 판타지 시대풍, 메카풍으로 나눠서 이것도 여성의인화」). 장수 목록·세력·역할·능력치·일화·낙관은 게임(index.html)의 표에서 tools/sam-design.py seed 가 받는다 — 게임은 그대로 둔다. 세력(factions)은 팔레트와 세계 글 · 장면 셋, 역할(roles)은 세계마다 차림과 일상컷에서 드는 기본 물건, 장수(generals)는 손 설계(designed: hand — title · traits · hold · look 을 직접)와 자동(designed: auto — 세력 팔레트 · 역할 · 열쇠로 돌린 look)으로 나뉜다. 고치면 python3 tools/sam-design.py check.",
+ "note": "삼국지 설계표(2026-11-02) — 장수 한 명이 여성 한 명. 세계 셋(삼국시대풍 · 서양 중세 판타지풍 · 메카풍)마다 다른 사람으로 그린다(사용자 2026-11-02 「삼국시대풍, 서양 중세 판타지 시대풍, 메카풍으로 나눠서 이것도 여성의인화」). 장수 목록·세력·역할·능력치·일화·낙관은 게임(index.html)의 표에서 tools/sam-design.py seed 가 받는다 — 게임은 그대로 둔다. 세력(factions)은 팔레트와 세계 글 · 장면 셋, 역할(roles)은 세계마다 차림과 일상컷에서 드는 기본 물건, 장수(generals)는 손 설계(designed: hand — title · traits · hold · look 을 직접)와 자동(designed: auto — 세력 팔레트 · 역할 · 열쇠로 돌린 look)으로 나뉜다. 고치면 python3 tools/sam-design.py check. 체형은 볼륨 · 굴곡이 있는 여덟 갈래만(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」 — hourglass · voluptuous · curvy · curvy_athletic · busty_slender · tall_curvy · strong_curvy · petite_curvy). 장신 · 건장 · 아담 · 마른 체형은 같은 결의 굴곡 체형으로 옮겼다.",
  "vocab": {
   "worlds": [
    "samguk",
@@ -515,7 +515,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -674,7 +674,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "athletic",
+     "body": "curvy_athletic",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -1025,7 +1025,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "teal"
     },
     "worlds": {
@@ -1628,7 +1628,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "chestnut"
     },
     "worlds": {
@@ -2365,7 +2365,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "chestnut"
     },
     "worlds": {
@@ -2700,7 +2700,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "teal"
     },
     "worlds": {
@@ -2767,7 +2767,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "teal"
     },
     "worlds": {
@@ -2834,7 +2834,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "chestnut"
     },
     "worlds": {
@@ -3169,7 +3169,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "broad_strong",
+     "body": "strong_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -3388,7 +3388,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "broad_strong",
+     "body": "strong_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -3522,7 +3522,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "navy"
     },
     "worlds": {
@@ -3589,7 +3589,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "navy"
     },
     "worlds": {
@@ -3723,7 +3723,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "navy"
     },
     "worlds": {
@@ -3857,7 +3857,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "navy"
     },
     "worlds": {
@@ -4058,7 +4058,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "ash_gray"
     },
     "worlds": {
@@ -4670,7 +4670,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "lanky",
+     "body": "tall_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -5072,7 +5072,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "royal_blue"
     },
     "worlds": {
@@ -5273,7 +5273,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "navy"
     },
     "worlds": {
@@ -5474,7 +5474,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "ash_gray"
     },
     "worlds": {
@@ -6211,7 +6211,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "ash_gray"
     },
     "worlds": {
@@ -6412,7 +6412,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "bright_red"
     },
     "worlds": {
@@ -6765,7 +6765,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "dark_auburn"
     },
     "worlds": {
@@ -7368,7 +7368,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "dark_auburn"
     },
     "worlds": {
@@ -7971,7 +7971,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "dark_auburn"
     },
     "worlds": {
@@ -8172,7 +8172,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "dark_auburn"
     },
     "worlds": {
@@ -8239,7 +8239,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "bright_red"
     },
     "worlds": {
@@ -8507,7 +8507,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "bright_red"
     },
     "worlds": {
@@ -8574,7 +8574,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "dark_auburn"
     },
     "worlds": {
@@ -9329,7 +9329,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "plum_black"
     },
     "worlds": {
@@ -9530,7 +9530,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "lanky",
+     "body": "tall_curvy",
      "hair_color": "sunset_pink"
     },
     "worlds": {
@@ -9865,7 +9865,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "sunset_pink"
     },
     "worlds": {
@@ -9999,7 +9999,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -10066,7 +10066,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "plum_black"
     },
     "worlds": {
@@ -10267,7 +10267,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -11080,7 +11080,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "lanky",
+     "body": "tall_curvy",
      "hair_color": "antique_gold"
     },
     "worlds": {
@@ -11348,7 +11348,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "antique_gold"
     },
     "worlds": {
@@ -11482,7 +11482,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "plum_black"
     },
     "worlds": {
@@ -11750,7 +11750,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -11951,7 +11951,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "lanky",
+     "body": "tall_curvy",
      "hair_color": "sunset_pink"
     },
     "worlds": {
@@ -12353,7 +12353,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "broad_strong",
+     "body": "strong_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -12688,7 +12688,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -13157,7 +13157,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "sunset_pink"
     },
     "worlds": {
@@ -13224,7 +13224,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "plum_black"
     },
     "worlds": {
@@ -13425,7 +13425,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "lanky",
+     "body": "tall_curvy",
      "hair_color": "sunset_pink"
     },
     "worlds": {
@@ -13961,7 +13961,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "antique_gold"
     },
     "worlds": {
@@ -15100,7 +15100,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "sunset_pink"
     },
     "worlds": {
@@ -15435,7 +15435,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "athletic",
+     "body": "curvy_athletic",
      "hair_color": "grass_green"
     },
     "worlds": {
@@ -15703,7 +15703,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -15971,7 +15971,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "silver_white"
     },
     "worlds": {
@@ -16440,7 +16440,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "broad_strong",
+     "body": "strong_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -16507,7 +16507,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "broad_strong",
+     "body": "strong_curvy",
      "hair_color": "jet_black"
     },
     "worlds": {
@@ -16574,7 +16574,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "athletic",
+     "body": "curvy_athletic",
      "hair_color": "navy"
     },
     "worlds": {
@@ -16842,7 +16842,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "navy"
     },
     "worlds": {
@@ -17445,7 +17445,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "teal"
     },
     "worlds": {
@@ -17512,7 +17512,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "teal"
     },
     "worlds": {
@@ -17579,7 +17579,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "chestnut"
     },
     "worlds": {
@@ -17981,7 +17981,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "bright_red"
     },
     "worlds": {
@@ -18316,7 +18316,7 @@
      "lips": "wide_smile"
     },
     "silhouette": {
-     "body": "petite",
+     "body": "petite_curvy",
      "hair_color": "chestnut"
     },
     "worlds": {
@@ -18903,7 +18903,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "bright_red"
     },
     "worlds": {
@@ -19098,7 +19098,7 @@
      "lips": "small_bow"
     },
     "silhouette": {
-     "body": "tall_statuesque",
+     "body": "tall_curvy",
      "hair_color": "plum_black"
     },
     "worlds": {
