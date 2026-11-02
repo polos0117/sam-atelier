@@ -4931,6 +4931,21 @@
     "@water"
    ],
    "ko": "할로윈으로 목욕·운동·물가"
+  },
+  {
+   "outfits": [
+    "bath",
+    "swimwear"
+   ],
+   "places": [
+    "nation_study",
+    "nation_camp",
+    "nation_kitchen",
+    "nation_training",
+    "nation_market",
+    "nation_square"
+   ],
+   "ko": "목욕 차림 · 수영복으로 세계의 서재 · 군영 · 부엌 · 연무장 · 시장 · 광장"
   }
  ],
  "presets": [
