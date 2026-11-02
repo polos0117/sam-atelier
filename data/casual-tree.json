@@ -1199,7 +1199,21 @@
     "homewear",
     "lingerie",
     "everyday"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "비단 휘장 침소",
+     "en": "her private chamber in a Han-era residence — silk bed curtains, a lacquered screen, a bronze mirror on a low stand and a lattice window"
+    },
+    "fantasy": {
+     "ko": "성탑 침실",
+     "en": "her tower bedchamber in a stone castle — a canopy bed, tapestries, a tall arched window and a candle-lit vanity"
+    },
+    "mecha": {
+     "ko": "승무원 선실",
+     "en": "her crew cabin aboard a starship — a sleek bunk, soft ambient strip lights, a holographic panel and a porthole full of stars"
+    }
+   }
   },
   {
    "key": "nation_market",
@@ -1212,7 +1226,21 @@
    "outfits": [
     "everyday",
     "evening"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "성 안 장터",
+     "en": "a bustling Han-era market street — cloth awnings, stalls of silk, pottery and steamed buns, paper lanterns"
+    },
+    "fantasy": {
+     "ko": "중세 시장",
+     "en": "a medieval market square — timber-framed houses, striped awnings, stalls of bread, cheese and herbs"
+    },
+    "mecha": {
+     "ko": "정거장 상점가",
+     "en": "a space-station market promenade — neon stalls, vending kiosks, floating holographic signs without text and a curved window onto space"
+    }
+   }
   },
   {
    "key": "nation_field",
@@ -1226,7 +1254,21 @@
     "everyday",
     "homewear",
     "active"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "들판 · 대숲",
+     "en": "an open field at the edge of a bamboo grove, distant misty hills"
+    },
+    "fantasy": {
+     "ko": "초원 · 숲",
+     "en": "an alpine meadow of wildflowers at the edge of an oak forest, a castle far off"
+    },
+    "mecha": {
+     "ko": "돔 정원",
+     "en": "a terraformed garden under a vast glass dome, a ringed planet visible above"
+    }
+   }
   },
   {
    "key": "nation_square",
@@ -1240,12 +1282,26 @@
     "everyday",
     "active",
     "evening"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "성문 앞 광장",
+     "en": "the paved square before a city gate tower, banners and stone lions"
+    },
+    "fantasy": {
+     "ko": "성당 앞 광장",
+     "en": "a cobbled plaza before a Gothic cathedral with a fountain"
+    },
+    "mecha": {
+     "ko": "정거장 중앙 광장",
+     "en": "the central atrium of a space station, walkways on several levels and a great window onto a planet"
+    }
+   }
   },
   {
    "key": "nation_bath",
    "group": "nation",
-   "ko": "세계의 목욕탕·개울",
+   "ko": "세계의 목욕탕 · 개울",
    "en": "an outdoor bath, stream or fountain built in the style of her world",
    "eras": [
     "nation"
@@ -1253,12 +1309,26 @@
    "outfits": [
     "bath",
     "swimwear"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "노천 온천",
+     "en": "a steaming outdoor hot spring among rocks and bamboo, a wooden screen"
+    },
+    "fantasy": {
+     "ko": "성의 목욕실",
+     "en": "a castle bathhouse with a stone pool, arched columns and rose petals on the water"
+    },
+    "mecha": {
+     "ko": "수경 풀",
+     "en": "a hydroponic bathing pool aboard a starship, glowing water and green plants under soft light"
+    }
+   }
   },
   {
    "key": "nation_roof",
    "group": "nation",
-   "ko": "세계의 지붕·테라스",
+   "ko": "세계의 지붕 · 테라스",
    "en": "a rooftop or terrace above a town of her world",
    "eras": [
     "nation"
@@ -1267,7 +1337,21 @@
     "homewear",
     "swimwear",
     "everyday"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "누각 난간",
+     "en": "the upper balcony of a wooden pavilion with upturned eaves, the city rooftops below"
+    },
+    "fantasy": {
+     "ko": "성벽 위 테라스",
+     "en": "a terrace on a castle wall overlooking the valley"
+    },
+    "mecha": {
+     "ko": "전망 갑판",
+     "en": "a starship observation deck with a vast curved window onto a nebula"
+    }
+   }
   },
   {
    "key": "nation_inn",
@@ -1281,7 +1365,131 @@
     "everyday",
     "evening",
     "homewear"
-   ]
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "객잔",
+     "en": "a Han-era inn — low wooden tables, wine jars, paper lanterns and a hearth"
+    },
+    "fantasy": {
+     "ko": "선술집",
+     "en": "a medieval tavern — oak tables, tankards, a roaring fireplace and a wooden bar"
+    },
+    "mecha": {
+     "ko": "정거장 바",
+     "en": "a space-station lounge bar — a glowing counter, sleek stools and a window full of stars"
+    }
+   }
+  },
+  {
+   "key": "nation_study",
+   "group": "nation",
+   "ko": "세계의 서재",
+   "en": "a study or library in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "homewear",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "죽간 서재",
+     "en": "a scholar's study stacked with bound bamboo slips, a low writing desk, brushes and an ink stone"
+    },
+    "fantasy": {
+     "ko": "수도원 도서관",
+     "en": "a monastery library of tall wooden shelves, illuminated books and a reading lectern by a stained-glass window"
+    },
+    "mecha": {
+     "ko": "함내 자료실",
+     "en": "a starship data archive — glowing holographic displays without text, sleek consoles and a reading chair"
+    }
+   }
+  },
+  {
+   "key": "nation_camp",
+   "group": "nation",
+   "ko": "세계의 군영",
+   "en": "a military camp tent or ready room in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "active",
+    "homewear"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "군막",
+     "en": "inside a general's command tent — a campaign map table, armor on a stand, banners and a brazier"
+    },
+    "fantasy": {
+     "ko": "기사단 숙영지",
+     "en": "inside a knightly order's campaign pavilion — a map table, a weapon rack and a lantern"
+    },
+    "mecha": {
+     "ko": "격납고 대기실",
+     "en": "a pilot ready room beside a hangar — lockers, a briefing table and frames visible through the glass"
+    }
+   }
+  },
+  {
+   "key": "nation_kitchen",
+   "group": "nation",
+   "ko": "세계의 부엌",
+   "en": "a kitchen or galley in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "homewear",
+    "everyday"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "객잔 부엌",
+     "en": "an inn kitchen with clay stoves, steaming bamboo baskets and hanging herbs"
+    },
+    "fantasy": {
+     "ko": "성 부엌",
+     "en": "a castle kitchen with a great hearth, copper pots and a long wooden table"
+    },
+    "mecha": {
+     "ko": "함내 식당",
+     "en": "a starship galley and mess hall — steel counters, food dispensers and a window onto space"
+    }
+   }
+  },
+  {
+   "key": "nation_training",
+   "group": "nation",
+   "ko": "세계의 연무장",
+   "en": "a training yard or simulator room in her world, with a bench along the wall",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "active",
+    "everyday"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "연무장",
+     "en": "a martial training yard with weapon racks, wooden dummies and packed earth, a wooden bench along the wall"
+    },
+    "fantasy": {
+     "ko": "기사 훈련장",
+     "en": "a castle training yard with straw targets, a weapon rack and a jousting rail, a stone bench by the wall"
+    },
+    "mecha": {
+     "ko": "시뮬레이터실",
+     "en": "a training simulator bay — a holographic arena, padded floor and glowing guide lines, a sleek bench along the wall"
+    }
+   }
   },
   {
    "key": "fx_studio",
@@ -1944,7 +2152,9 @@
     "night_livehouse",
     "!travel_dunes",
     "@heritage",
-    "!heritage_redcliff"
+    "!heritage_redcliff",
+    "nation_training",
+    "nation_camp"
    ],
    "en": "resting on a seat for a moment, catching her breath",
    "seat": [
@@ -2064,7 +2274,8 @@
     "home_bedroom",
     "night_powder",
     "nation_room",
-    "spa_lounge"
+    "spa_lounge",
+    "nation_camp"
    ],
    "en": "tying her hair up in front of a mirror"
   },
@@ -2091,7 +2302,8 @@
     "home_kitchen",
     "travel_camp",
     "nation_inn",
-    "fx_retro_home"
+    "fx_retro_home",
+    "nation_kitchen"
    ],
    "en": "cooking, chopping and stirring"
   },
@@ -2100,7 +2312,8 @@
    "ko": "늦은 밤 간식",
    "family": "stand",
    "places": [
-    "home_kitchen"
+    "home_kitchen",
+    "nation_kitchen"
    ],
    "en": "making a late-night snack, lit by the open refrigerator",
    "outfits": [
@@ -2145,7 +2358,9 @@
     "street_park",
     "travel_lodge",
     "nation_room",
-    "travel_rural_station"
+    "travel_rural_station",
+    "nation_camp",
+    "nation_study"
    ],
    "en": "reading an unlettered book, one page about to turn"
   },
@@ -2180,7 +2395,8 @@
     "home_entry",
     "sports_gym",
     "sports_rink",
-    "sports_wall"
+    "sports_wall",
+    "nation_training"
    ],
    "en": "sitting on a bench to tie her shoes",
    "seat": [
@@ -2254,7 +2470,8 @@
     "street_shop",
     "street_market",
     "nation_market",
-    "stage_festival"
+    "stage_festival",
+    "nation_study"
    ],
    "en": "browsing a shelf and pulling one item out for a closer look"
   },
@@ -2351,7 +2568,8 @@
     "travel_lake",
     "studio_art",
     "travel_coast",
-    "heritage_tower"
+    "heritage_tower",
+    "nation_study"
    ],
    "en": "sketching the scenery in a small notebook"
   },
@@ -2703,7 +2921,8 @@
    "ko": "샌드백 연습",
    "family": "move",
    "places": [
-    "sports_gym"
+    "sports_gym",
+    "nation_training"
    ],
    "en": "practising guard and footwork beside a heavy bag",
    "outfits": [
@@ -3151,7 +3370,8 @@
     "travel_dunes",
     "nation_square",
     "street_station",
-    "travel_lookout"
+    "travel_lookout",
+    "nation_camp"
    ],
    "en": "comparing a folded map with the way ahead"
   },
@@ -3225,7 +3445,8 @@
    "places": [
     "travel_lodge",
     "nation_inn",
-    "nation_room"
+    "nation_room",
+    "nation_camp"
    ],
    "en": "sitting by the fire with a warm cup in both hands"
   },
@@ -3428,7 +3649,8 @@
    "family": "stand",
    "places": [
     "home_kitchen",
-    "street_shop"
+    "street_shop",
+    "nation_kitchen"
    ],
    "en": "reaching up for a box on a high shelf"
   },
@@ -3655,7 +3877,8 @@
    "ko": "펜싱 자세",
    "family": "move",
    "places": [
-    "sports_gym"
+    "sports_gym",
+    "nation_training"
    ],
    "en": "stepping into an en garde stance, the mask tucked under one arm",
    "outfits": [
@@ -3955,7 +4178,10 @@
    "places": [
     "heritage_teahouse",
     "nation_market",
-    "nation_inn"
+    "nation_inn",
+    "nation_camp",
+    "nation_study",
+    "nation_kitchen"
    ],
    "en": "pouring tea from a pot into small cups, one at a time",
    "seat": [

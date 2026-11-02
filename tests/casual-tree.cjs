@@ -69,9 +69,9 @@ assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fanta
 assert.equal(CT.year(tree, null), null); assert.equal(CT.year(tree, { key: 'fe', facts: {} }), null, '카드에 연도가 없으면 null');
 assert(!tree.places.some(p => 'since' in p), 'since 를 가진 장소가 없다');
 assert.deepEqual(CT.places(tree, 'release', { facts: { year: 1990 } }), [], '없는 시대엔 장소가 없다(걸리지 않는다)');
-assert(CT.places(tree, 'heritage', null).some(p => p.key === 'heritage_museum') && !CT.places(tree, 'heritage', null).some(p => p.key === 'home_living'), '현장 시대엔 현장만');
-assert(CT.places(tree, 'nation', null).every(p => p.group === 'nation') && CT.places(tree, 'nation', null).length === 7, '나라 안 시대엔 나라 안 일곱 곳');
-assert(CT.places(tree, 'now', null).some(p => p.key === 'heritage_museum') && !CT.places(tree, 'now', null).some(p => p.key === 'nation_room'), '현장은 지금 현실에도, 나라 안은 나라 안에만');
+assert(CT.places(tree, 'heritage', null).some(p => p.key === 'heritage_museum') && !CT.places(tree, 'heritage', null).some(p => p.key === 'home_living'), '역사의 자리 시대엔 역사의 자리만');
+assert(CT.places(tree, 'nation', null).every(p => p.group === 'nation') && CT.places(tree, 'nation', null).length === 11, '세계 안 시대엔 세계 안 열한 곳');
+assert(CT.places(tree, 'now', null).some(p => p.key === 'heritage_museum') && !CT.places(tree, 'now', null).some(p => p.key === 'nation_room'), '역사의 자리는 지금 현실에도, 세계 안은 세계 안에만');
 /* 필수 갈래의 「그 세계 안」 규칙은 required.world(모듈 worldRule — game 의 in_game 자리) */
 assert.equal(CT.worldRule(tree).era, 'nation');
 assert(CT.isRequired(tree, { era: 'nation', place: 'nation_room', ofam: 'homewear' }) && !CT.isRequired(tree, { era: 'now', place: 'home_bedroom', ofam: 'homewear' }) && CT.isRequired(tree, { era: 'now', place: 'home_bedroom', ofam: 'lingerie' }), '나라의 방에서 홈웨어는 필수 갈래, 지금 현실의 침실에선 란제리풍만');

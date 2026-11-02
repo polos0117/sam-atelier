@@ -1810,6 +1810,30 @@
    "table",
    "wall",
    "rail_waist"
+  ],
+  "nation_study": [
+   "chair",
+   "table",
+   "wall",
+   "floor"
+  ],
+  "nation_camp": [
+   "chair",
+   "table",
+   "wall",
+   "floor"
+  ],
+  "nation_kitchen": [
+   "rail_waist",
+   "chair",
+   "wall",
+   "table",
+   "worktable"
+  ],
+  "nation_training": [
+   "wall",
+   "floor",
+   "edge"
   ]
  },
  "props": [
@@ -1834,7 +1858,9 @@
     "library_reading",
     "heritage_teahouse",
     "heritage_tower",
-    "heritage_shrine"
+    "heritage_shrine",
+    "nation_study",
+    "nation_camp"
    ]
   },
   {
@@ -1891,7 +1917,9 @@
     "library_reading",
     "train_sleeper",
     "greenhouse",
-    "heritage_tower"
+    "heritage_tower",
+    "nation_study",
+    "nation_camp"
    ]
   },
   {
@@ -1967,7 +1995,9 @@
     "backstage_dressing",
     "heritage_forge",
     "heritage_plank",
-    "heritage_redcliff"
+    "heritage_redcliff",
+    "nation_kitchen",
+    "nation_training"
    ]
   },
   {
@@ -1981,7 +2011,8 @@
     "evening_opera",
     "evening_gala",
     "spa_onsen",
-    "nation_inn"
+    "nation_inn",
+    "nation_camp"
    ]
   },
   {
@@ -2148,7 +2179,10 @@
     "train_sleeper",
     "evening_hotel",
     "nation_inn",
-    "library_reading"
+    "library_reading",
+    "nation_study",
+    "nation_kitchen",
+    "nation_camp"
    ]
   },
   {
@@ -2162,7 +2196,8 @@
     "home_living",
     "@studio",
     "tailor_room",
-    "@heritage"
+    "@heritage",
+    "nation_study"
    ]
   },
   {
@@ -2172,7 +2207,9 @@
    "places": [
     "bakery_kitchen",
     "home_kitchen",
-    "nation_inn"
+    "nation_inn",
+    "nation_kitchen",
+    "nation_camp"
    ]
   },
   {
@@ -2195,7 +2232,8 @@
     "street_shop",
     "home_kitchen",
     "stage_wedding",
-    "backstage_dressing"
+    "backstage_dressing",
+    "nation_kitchen"
    ]
   },
   {
@@ -2221,7 +2259,8 @@
     "@spa",
     "evening_hotel",
     "nation_room",
-    "train_sleeper"
+    "train_sleeper",
+    "nation_camp"
    ]
   },
   {
@@ -2233,7 +2272,8 @@
     "heritage_studio",
     "heritage_shrine",
     "heritage_teahouse",
-    "library_reading"
+    "library_reading",
+    "nation_study"
    ]
   },
   {
@@ -2245,7 +2285,8 @@
     "heritage_lantern",
     "heritage_tower",
     "nation_inn",
-    "nation_market"
+    "nation_market",
+    "nation_camp"
    ]
   },
   {
@@ -2272,7 +2313,8 @@
     "heritage_studio",
     "studio_art",
     "library_reading",
-    "home_living"
+    "home_living",
+    "nation_study"
    ]
   },
   {
@@ -2294,7 +2336,8 @@
     "heritage_wall",
     "heritage_tower",
     "nation_market",
-    "nation_inn"
+    "nation_inn",
+    "nation_camp"
    ]
   },
   {

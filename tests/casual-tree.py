@@ -60,6 +60,6 @@ fails(lambda d: era(d, 'heritage').update(outfits=['everyday', 'active', 'homewe
 fails(lambda d: era(d, 'nation').update(outfits=['everyday', 'evening', 'active']), '시대 세계 안 에서 필수 갈래')
 assert T.required_reach(doc, 'nation', 'nation_room', act(doc, 'morning_stretch'), 'homewear') and not T.required_reach(doc, 'now', 'home_bedroom', act(doc, 'morning_stretch'), 'homewear')
 # 나라 안 장소는 나라 안 시대에만, 현장은 지금 현실에도
-assert {p['key'] for p in T.places_in(doc, 'nation')} == {'nation_room', 'nation_market', 'nation_field', 'nation_square', 'nation_bath', 'nation_roof', 'nation_inn'}
+assert {p['key'] for p in T.places_in(doc, 'nation')} == {'nation_room', 'nation_market', 'nation_field', 'nation_square', 'nation_bath', 'nation_roof', 'nation_inn', 'nation_study', 'nation_camp', 'nation_kitchen', 'nation_training'}
 assert 'heritage_museum' in {p['key'] for p in T.places_in(doc, 'now')} and 'nation_room' not in {p['key'] for p in T.places_in(doc, 'now')}
 print('PASS 일상컷 트리: 실제 표 · 없는 열쇠·자세 계열·장소·한글·겹침 · 끊긴 길 · 필수 갈래(현장·나라 안) · 추천 조합·예전 기록 · @묶음 · 옷 계열 교집합 · since 없음')

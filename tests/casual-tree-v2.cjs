@@ -233,8 +233,14 @@ assert.equal(C.why(t, fx({ place: 'nation_bath' }), 'posture', 'swim').code, 'pl
 assert.equal(C.why(t, fx({ place: 'heritage_teahouse' }), 'posture', 'lean_rail'), null, '찻집 난간');
 const glass = fx({ era: 'heritage', place: 'heritage_shrine', frame: 'chest_up', right: 'prop', left: 'down', use: 'glass_look' });
 assert.equal(C.why(t, glass, 'gaze', 'into_prop'), null, '돋보기는 들여다본다');
-for (const k of ['heritage_museum', 'heritage_forge', 'heritage_plank', 'heritage_redcliff', 'heritage_wall', 'heritage_teahouse', 'heritage_shrine', 'heritage_tower', 'heritage_lantern', 'heritage_studio', 'nation_room', 'nation_market', 'nation_field', 'nation_square', 'nation_bath', 'nation_roof', 'nation_inn'])
+for (const k of ['heritage_museum', 'heritage_forge', 'heritage_plank', 'heritage_redcliff', 'heritage_wall', 'heritage_teahouse', 'heritage_shrine', 'heritage_tower', 'heritage_lantern', 'heritage_studio', 'nation_room', 'nation_market', 'nation_field', 'nation_square', 'nation_bath', 'nation_roof', 'nation_inn', 'nation_study', 'nation_camp', 'nation_kitchen', 'nation_training'])
   assert(C.place(t, k) && C.placeHas(t, k).length && C.presets(t, { era: C.place(t, k).eras[0], place: k, ofam: 'everyday' }).length, k + ' 받침 · 쓸 수 있는 추천');
+/* 세계 안 장소는 세 세계마다 제 이름 · 글(2026-11-02 「일상컷 시대를 각 폼의 시대에 맞게」) — 객잔 · 선술집 · 정거장 바 */
+for (const p of t.v1.places.filter(p => p.key.startsWith('nation_'))) {
+  assert(['samguk', 'fantasy', 'mecha'].every(w => p.worlds && p.worlds[w] && p.worlds[w].ko && p.worlds[w].en), p.key + ' 세계 셋의 이름 · 글');
+  assert(new Set(['samguk', 'fantasy', 'mecha'].map(w => p.worlds[w].en)).size === 3, p.key + ' 세계마다 다른 글');
+}
+assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 11, '세계 안 장소 열하나');
 const r13 = seeded(13);
 for (let i = 0; i < 300; i++) valid(C.random(t, { era: i % 2 ? 'heritage' : 'nation' }, null, r13, ['era']), '삼국지 시대 랜덤 ' + i);
 
