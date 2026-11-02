@@ -67,6 +67,12 @@ const P = ctx0.window.AtelierPrompt;
     await tv.page.keyboard.press('ArrowLeft'); assert.equal(await tv.page.evaluate(() => document.documentElement.dataset.theme), t0, '← 로 돌아온다');
     assert.match(await tv.page.evaluate(() => getComputedStyle(document.querySelector('.title-bg')).backgroundImage), /room-/, '배경 장면');
     assert.match(await tv.page.evaluate(() => [getComputedStyle(document.querySelector('.title-plaque')).backgroundImage, getComputedStyle(document.querySelector('.menu-btn.main')).backgroundImage, getComputedStyle(document.querySelector('.menu-btn:not(.main)')).backgroundImage, getComputedStyle(document.querySelector('#next')).backgroundImage].join(' ')), /ui-\w+-title.*ui-\w+-main.*ui-\w+-btn.*ui-\w+-round/, '현판 · 단추 그림');
+    { const w = vp.width, empty = { x: w - 20, y: 20 };   /* 빈 곳 한 번 → 배경만, 한 번 더 → 메뉴 */
+      await tv.page.mouse.click(empty.x, empty.y); await tv.page.waitForTimeout(450);
+      assert.ok(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), '빈 곳 → 배경만'); assert.equal(await tv.page.locator('#menu').isVisible(), false, '메뉴 숨김');
+      await tv.page.mouse.click(empty.x, empty.y); await tv.page.waitForTimeout(450);
+      assert.equal(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), false, '다시 → 메뉴'); assert.ok(await tv.page.locator('#menu').isVisible());
+      await tv.page.locator('#s-name').click(); assert.equal(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), false, '메뉴 안은 그대로'); }
     await noOverflow(tv.page, vp.width + ' 타이틀');
     assert.deepEqual(tv.errors, [], '타이틀 콘솔'); await tv.ctx.close(); checks += 6;
     /* ── 군막(처음엔 첫 화면) — 문 넷 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
@@ -159,5 +165,5 @@ const P = ctx0.window.AtelierPrompt;
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
   await br.close(); server.close();
-  console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림) · 군막(문 넷 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 군막(문 넷 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });
