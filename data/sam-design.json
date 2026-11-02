@@ -129,23 +129,23 @@
      ]
     },
     "fantasy": {
-     "ko": "옥빛 산악 왕국 — 안개 낀 봉우리, 절벽 도시, 폭포, 숲의 요새",
-     "en": "a righteous mountain kingdom of medieval high fantasy hidden among misty peaks: cliffside cities and waterfalls, forest strongholds of white stone, green-and-gold banners, oaths sworn under ancient trees, gentle green nature-magic",
+     "ko": "옥빛 고원 왕국 — 초록 산등성이의 회색 돌 성 · 수도원, 알프스풍 초원 · 폭포 · 참나무 숲, 용 문장 깃발",
+     "en": "a righteous highland kingdom of Western medieval high fantasy: grey-stone castles and fortified abbeys on green mountain ridges, alpine meadows, waterfalls and oak forests, heraldic banners of green and gold bearing a dragon device, oaths sworn under an ancient oak, gentle green nature-magic",
      "scenes": [
       {
        "key": "oath",
        "ko": "맹세의 고목",
-       "en": "beneath a vast ancient tree where oaths are sworn, glowing green motes in the air"
+       "en": "beneath a vast ancient oak where oaths are sworn, glowing green motes in the air, a stone castle on the ridge behind"
       },
       {
        "key": "cliff",
        "ko": "절벽 성채",
-       "en": "on a white-stone cliff fortress bridge, waterfalls and misty peaks behind"
+       "en": "on the stone bridge of a cliffside castle, waterfalls and green alpine peaks behind"
       },
       {
        "key": "pass",
        "ko": "산길 관문",
-       "en": "at a narrow mountain pass gate held against an army, banners of green and gold"
+       "en": "at a fortified mountain-pass gatehouse of grey stone, green-and-gold heraldic banners"
       }
      ]
     },
@@ -495,7 +495,7 @@
     "en": "the God of War of Shu, loyal unto death, famed for her magnificent long 'beard'"
    },
    "traits": {
-    "en": "unbending loyalty and pride, a ruddy red-tinged complexion and long phoenix eyes, her legendary beard reimagined as an immensely long, sleek black ponytail kept in a silk sheath, a green battle robe worn over her armor, reading the Spring and Autumn Annals by lamplight"
+    "en": "unbending loyalty and pride, a ruddy red-tinged complexion and long phoenix eyes, her legendary beard reimagined as an immensely long, sleek black ponytail, green and gold as her colours"
    },
    "hold": {
     "en": "the Green Dragon Crescent Blade, a long guandao with a dragon-head guard"
@@ -551,6 +551,13 @@
      }
     },
     "why": "긴 수염 → 바닥까지 닿는 매끈한 검은 머리(비단 주머니). 붉은 얼굴 → 붉은 기 도는 구릿빛 · 붉은 입술, 봉황 눈 → 치켜 올라간 긴 눈. 초록 전포는 촉 팔레트"
+   },
+   "worlds": {
+    "samguk": {
+     "traits": {
+      "en": "a green battle robe worn over her armor, reading the Spring and Autumn Annals by lamplight"
+     }
+    }
    }
   },
   {
@@ -857,7 +864,7 @@
     "en": "the Sleeping Dragon, chancellor and master strategist of Shu"
    },
    "traits": {
-    "en": "a crane-feather fan and white Daoist robes, the Eight Trigrams battle formation, borrowing the east wind and arrows with straw boats, wooden oxen and gliding horses, reading the stars, serene foresight"
+    "en": "a white crane-feather fan, serene foresight, the Eight Trigrams battle formation, borrowing the east wind and arrows with straw boats, wooden oxen and gliding horses, reading the stars"
    },
    "hold": {
     "en": "a white crane-feather fan"
@@ -913,6 +920,13 @@
      }
     },
     "why": "와룡 — 먹빛에 녹음이 도는 긴 머리, 금빛 눈(별을 읽는다). 백우선 · 학창의는 성정 줄과 일상컷 소품"
+   },
+   "worlds": {
+    "samguk": {
+     "traits": {
+      "en": "white Daoist robes with a crane-feather cloak"
+     }
+    }
    }
   },
   {

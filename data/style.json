@@ -20,6 +20,23 @@
      ]
     }
    ]
+  },
+  "glossy_kr_game": {
+   "name": "한국형 글로시 게임 일러스트",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-02",
+     "by": "게임 공방 glossy_kr_game v1 문장 그대로 — 사용자 2026-11-02 「관우를 2.5d 화풍이랑 게임공방의 한국형 글로시 프로모 화풍으로 하나씩」 비교용",
+     "text": "Glossy Korean mobile-game character art with an elegant anime face, smooth dimensional shading, luminous color accents and refined costume and accessory rendering. Keep highlights selective and the figure sharply readable.",
+     "casual": "Glossy Korean mobile-game character art with an elegant anime face, smooth dimensional shading, luminous color accents and refined fabric and accessory rendering. Keep highlights selective and the figure sharply readable.",
+     "check": "glossy Korean mobile-game rendering with selective highlights; the general's legend carried by costume, signature item and scene — one figure, no readable text but a single banner character.",
+     "why": [
+      "게임 공방의 기본 화풍 — 2.5D 와 나란히 보고 기본을 고르기 위해"
+     ]
+    }
+   ]
   }
  }
 }

@@ -280,6 +280,8 @@ def check():
         for w, gw in (g.get('worlds') or {}).items():
             if w not in WORLDS:
                 errs.append('%s worlds.%s 모르는 세계' % (k, w))
+            if gw.get('traits') is not None and not (gw.get('traits') or {}).get('en'):
+                errs.append('%s worlds.%s.traits.en' % (k, w))
             for sc in gw.get('scenes') or []:
                 if not sc.get('key') or not sc.get('ko') or not sc.get('en'):
                     errs.append('%s worlds.%s 장면 칸' % (k, w))
