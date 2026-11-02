@@ -5854,7 +5854,10 @@
     "nation_room",
     "nation_bath",
     "nation_roof",
-    "nation_inn"
+    "nation_inn",
+    "nation_study",
+    "nation_kitchen",
+    "nation_camp"
    ],
    "outfits": [
     "homewear",
@@ -5863,7 +5866,7 @@
     "swimwear"
    ]
   },
-  "note": "세계마다 일상컷 다섯 장 중 두 장은 확정(2026-11-02 — 사용자 「각각 1장해서 2장은 확정」): 노출 갈래 한 장(outfits — 란제리풍·수영복·역할극) + 세계 안 갈래 한 장(world — 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복), 서로 다른 컷. tools/casual-check.py 가 본다. 모듈은 required.world 를 읽는다(game 의 in_game 자리)"
+  "note": "세계마다 일상컷 다섯 장 중 두 장은 확정(2026-11-02 — 사용자 「각각 1장해서 2장은 확정」): 노출 갈래 한 장(outfits — 란제리풍·수영복·역할극) + 세계 안 갈래 한 장(world — 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복), 서로 다른 컷. tools/casual-check.py 가 본다. 모듈은 required.world 를 읽는다(game 의 in_game 자리) · 2026-11-02 사용자 「둘 다 해줘」(장소를 넓히고 지금 현실 비중을 높이기) — 세계 안 갈래 장소에 서재 · 부엌 · 군영을 더해 일곱 곳(홈웨어가 되는 곳). 한 묶음 다섯 장의 시대는 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(tools/casual-plan.cjs ERA_QUOTA)"
  },
  "presets": [
   {

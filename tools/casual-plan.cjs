@@ -5,7 +5,7 @@
    생성기(lib/studio.js)와 같은 lib/casual-tree-v2.js · lib/prompt-sam.js 로 칸마다 장면을 고르고, 생성기 「기록 내보내기」 와 같은 꼴의
    기록(<세계>-casualN.<화풍>-ui.json)과 지시문을 쓴다. 지키는 묶음 규칙(한 세계 묶음 안):
      - 두 장은 정해 둔 갈래(사용자 2026-11-02 「각각 1장해서 2장은 확정」) — 노출 갈래 한 장(란제리풍 · 수영복 · 역할극 의상) +
-       세계 안 갈래 한 장(세계 안의 방 · 목욕탕 · 지붕 · 여관에서 홈웨어 · 란제리 · 목욕 차림 · 수영복), 서로 다른 컷. tools/casual-check.py 와 같은 판정
+       세계 안 갈래 한 장(세계 안의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영에서 홈웨어 · 란제리 · 목욕 차림 · 수영복), 서로 다른 컷. tools/casual-check.py 와 같은 판정
      - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대는 한 가지 두 번까지, 네 장 이상이면 네 시대(지금 현실 · 역사의 자리 · 세계 안 · 무대·환상) 다
      - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 · 가까운 컷 하나씩은 꼭) · 몸 방향 한 가지는 두 번까지 · 머리 「어깨 너머」 는 한 장까지
      - 소품은 칸마다 다르게 · 그 장수의 물건(설계표 hold, 없으면 역할의 것)을 든 컷은 한두 장 · 마실 것은 한 장까지 · ⚠ 어색한 조합은 한 장까지
@@ -36,6 +36,9 @@ const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
 const FRAMES = Object.keys(tree2.frames).filter(k => k !== 'note' && k !== 'detail');
 const EXPRS = Object.keys(tree2.expressions || {});
 const ERA_WEIGHT = { now: 5, heritage: 2, nation: 2, fantasy: 1 };
+/* 한 묶음 다섯 장의 시대 몫 — 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(2026-11-02 사용자 「지금 현실 비중을 높여줘」 —
+   기록 159장 중 지금 현실이 31장(19%)이고 세계 안이 88장이었다. 안 쓴 장소 51 곳이 다 지금 현실에 있다). 칸마다 「쓴 수 ÷ 몫」 이 가장 낮은 시대부터 */
+const ERA_QUOTA = { now: 2, nation: 1, heritage: 1, fantasy: 1 };
 const FIXED_AXES = { overall_intensity: 'strong', skin_exposure: 'bold' };
 const DRINKS = ['cup', 'drink_glass', 'water_bottle', 'teapot'];
 
@@ -51,7 +54,7 @@ function cardOf(key) {
   const h = P.casualHold(c);   /* 무기는 일상컷에서 들지 않고 장신구로(prompt-sam casualHold) — 그때는 「그 장수의 물건을 든 컷」 도 없다 */
   return { key, c, g: { key, signature: h ? [h] : [], signature_hold: h ? [0] : [] }, worlds: P.worldsOf(D, key) };
 }
-/* 필수 갈래 종류 — 옷 계열이 곧 노출 갈래면 그 계열, 세계 안의 방 · 목욕 · 지붕 · 여관 일상이면 nation(세계 안 갈래) */
+/* 필수 갈래 종류 — 옷 계열이 곧 노출 갈래면 그 계열, 세계 안의 방 · 목욕 · 지붕 · 여관 · 서재 · 부엌 · 군영 일상이면 nation(세계 안 갈래) */
 function requiredType(sc) {
   if ((tree.required.outfits || []).includes(sc.ofam)) return sc.ofam;
   return CT.isRequired(tree, sc) ? 'nation' : '';
@@ -198,7 +201,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     frames = frames.slice(0, slots.length);
     const seen = [...old, ...frames.map(frame => ({ frame }))];
     if (slots.length + old.length >= 3 && (!seen.some(c => FAR.includes(c.frame)) || !seen.some(c => NEAR.includes(c.frame)))) continue;
-    /* 시대 — 칸마다 먼저 나눠 준다. 이미 있는 컷까지 세어 가장 덜 쓴 시대부터(같으면 무게대로) */
+    /* 시대 — 칸마다 먼저 나눠 준다. 이미 있는 컷까지 세어 몫(ERA_QUOTA)에 비해 가장 덜 쓴 시대부터(같으면 무게대로) */
     const ERAS = tree.eras.map(e => e.key), cnt = Object.fromEntries(ERAS.map(e => [e, 0]));
     old.forEach(c => { if (c.era in cnt) cnt[c.era]++; });
     /* 세계 안 갈래 칸은 「세계 안」 시대로 먼저 세고, 나머지 칸에 덜 쓴 시대부터(같으면 무게대로) 나눈 뒤 정해 둔 칸 뒤쪽만 섞는다 */
@@ -206,7 +209,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     const eras = [];
     for (let i = 0; i < slots.length; i++) {
       if (wants[i] === 'nation') { eras.push('nation'); continue; }
-      const lo = Math.min(...ERAS.map(e => cnt[e])), e = weighted(r, Object.fromEntries(ERAS.filter(x => cnt[x] === lo).map(x => [x, ERA_WEIGHT[x] || 1])));
+      const ratio = x => cnt[x] / (ERA_QUOTA[x] || 1), lo = Math.min(...ERAS.map(ratio)), e = weighted(r, Object.fromEntries(ERAS.filter(x => ratio(x) === lo).map(x => [x, ERA_WEIGHT[x] || 1])));
       eras.push(e); cnt[e]++;
     }
     const tail = eras.slice(wants.length).sort(() => r() - 0.5); eras.splice(wants.length, tail.length, ...tail);
