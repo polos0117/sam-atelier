@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#fcf5f3">
 <title>삼국지 공방</title>
 <!-- 타이틀 화면(2026-11-02, 사용자 「배경이 너무 안 보인다 — 첨부한 UI 처럼 메인화면을 게임 첫 진입화면처럼, 지금 메인은 거기서 버튼 눌러서 들어가는 식으로」).
-     공간의 배경 장면(lib/room.css --room-src)을 화면 가득, 장식 틀(lib/material.css --frame) 안에 공방 현판과 큰 메뉴 단추 다섯 — 드래프트(게임) · 오늘의 대국 · 도감 · 프롬프트 · 군막(공방 안내판 hall.html).
+     공간의 배경 장면(lib/room.css --room-src)을 화면 가득, 장식 틀(lib/material.css --frame) 안에 공방 현판과 큰 메뉴 단추 넷 — 드래프트(게임 · 오늘의 대국은 게임 안 새 대국 설정에서) · 도감 · 프롬프트 · 군막(공방 안내판 hall.html).
      ◀ ▶(← →)로 공간 아홉을 바로 넘긴다 — 고른 공간은 다른 화면에도 그대로(lib/workspace-theme.js).
      예전 게임 주소의 몫(?daily · ?local · #sam-transfer)은 여기서 draft.html 로 그대로 넘긴다 — 공방 지도 · 옛 북마크 · 옛 /atelier/sam.html 길이 안 끊긴다. -->
 <script>
@@ -98,7 +98,6 @@ html[data-background="off"] .title-bg {background-image:none}
     <p class="title-kicker" id="kicker"></p>
     <div class="title-plaque"><h1 id="t-name"></h1><p id="t-sub"></p></div>
     <a class="menu-btn main" href="draft.html" id="m-draft"></a>
-    <a class="menu-btn" href="draft.html?daily" id="m-daily"></a>
     <a class="menu-btn" href="dex.html" id="m-dex"></a>
     <a class="menu-btn" href="prompt.html" id="m-prompt"></a>
     <a class="menu-btn" href="hall.html" id="m-hall"></a>
@@ -117,7 +116,7 @@ html[data-background="off"] .title-bg {background-image:none}
   var W = window.W, A = window.AtelierAppearance, $ = function (id) { return document.getElementById(id); };
   $('kicker').textContent = W('title.kicker'); $('t-name').textContent = W('app.title'); $('t-sub').textContent = W('title.sub');
   $('menu').setAttribute('aria-label', W('title.menu')); $('space').setAttribute('aria-label', W('title.space'));
-  ['draft', 'daily', 'dex', 'prompt', 'hall'].forEach(function (k) {
+  ['draft', 'dex', 'prompt', 'hall'].forEach(function (k) {
     var a = $('m-' + k), b = document.createElement('span'), s = document.createElement('small');
     b.textContent = W('title.' + k); s.textContent = W('title.' + k + '.sub'); a.appendChild(b); a.appendChild(s);
   });
