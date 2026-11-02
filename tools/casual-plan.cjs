@@ -48,7 +48,7 @@ const by = (list, k) => (list || []).find(r => r.key === k);
 function cardOf(key) {
   const c = P.card(D, key);
   if (!c) throw new Error('장수가 없다: ' + key + ' (설계표의 한글 이름 그대로)');
-  const h = P.holdOf(c);
+  const h = P.casualHold(c);   /* 무기는 일상컷에서 들지 않고 장신구로(prompt-sam casualHold) — 그때는 「그 장수의 물건을 든 컷」 도 없다 */
   return { key, c, g: { key, signature: h ? [h] : [], signature_hold: h ? [0] : [] }, worlds: P.worldsOf(D, key) };
 }
 /* 필수 갈래 종류 — 옷 계열이 곧 노출 갈래면 그 계열, 세계 안의 방 · 목욕 · 지붕 · 여관 일상이면 nation(세계 안 갈래) */

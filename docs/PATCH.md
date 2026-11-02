@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-02 · claude · 일상컷 — 무기는 들지 않고 그 무기를 본뜬 장신구로
+- lib/prompt-sam.js · lib/prompt-spec.js — hold 가 무기(검 · 창 · 언월도 · 극 · 활 · 도끼 · 방패 …, isWeapon)면 일상컷에서 손에 드는 물건이 없고, 지시문에 SIGNATURE ACCESSORY 줄(무기 없이 그 모양 · 색의 작은 장신구 하나)을 넣는다(사용자 「무기를 일상컷에선 들고 있는것보단 악세사리류로 대체」 — 조운 창 끊김 · 하후돈 등 뒤 칼). 부채 · 두루마리 · 인장은 그대로 든다. 279명 중 무기 장수 149
+- tools/casual-plan.cjs — 장수 카드가 casualHold 를 쓴다(무기 장수는 「그 장수의 물건을 든 컷」 규칙이 없다). tests/casual-plan.cjs — 무기 셋 · 부채 하나로 시험
+- IMAGE_RULES.md · docs/IMAGE_AUTOMATION.md — 규칙과 검수 항목
+
 ## 2026-11-02 · claude · GPT 세션은 AI 검수 뒤 묻지 않고 바로 올린다
 - docs/IMAGE_AUTOMATION.md — 0절을 원소 공방과 같은 승인으로(사용자 「삼국지도 원소처럼 바로 올리게 바꿔줘」): 검수(qa)를 적고 묻지 않고 올리며, 검수에서 걸린 것도 passed:false 로 적고 올린다. 멈춤(block) 조건 · 덮지 않기 · 강제 push 금지는 그대로
 - IMAGE_RULES.md · AGENTS.md — 「올리기 전에 사람이 본다」 에 GPT 세션 예외를 적고 문서를 가리킨다. 사람이 지켜보는 세션은 그대로 「올릴까?」

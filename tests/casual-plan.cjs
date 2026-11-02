@@ -87,4 +87,20 @@ try {
     assert(C.check([one], card, [], [{ ...one }]).length > 0, '같은 장면을 잡는다');
   } finally { fs.rmSync(rec, { recursive: true, force: true }); fs.rmSync(out, { recursive: true, force: true }); }
 }
-console.log(`PASS 일상컷 묶음 계획기: ${n} 묶음(장수 ${pickKeys.length} × 세계 셋 × 씨앗 둘)이 다섯 장 · 묶음 규칙 · 정해 둔 두 갈래(노출 · 세계 안) · 네 시대 · 기록 꼴, 있는 두 장 위에 세 장 · 카드 사이 안 쓴 장소 · 자세 추천 · 표정 먼저 · 세계 셋 한 번에 새 묶음(세계 · 옛 묶음 사이 같은 장면 없음)`);
+/* 무기는 일상컷에서 들지 않고 장신구로(2026-11-02 사용자 「무기를 일상컷에선 들고 있는것보단 악세사리류로 대체」) —
+   무기 장수는 「그 장수의 물건을 든 컷」 이 없고 지시문마다 SIGNATURE ACCESSORY 줄, 부채 · 두루마리 같은 물건은 그대로 손에 든다 */
+{
+  for (const [key, weapon] of [['조운', true], ['관우', true], ['유비', true], ['제갈량', false]]) {
+    const card = C.cardOf(key); card.world = card.worlds[0];
+    assert.equal(P.isWeapon(P.holdOf(card.c)), weapon, key + ' — 무기인가');
+    assert.equal(card.g.signature.length, weapon ? 0 : 1, key + ' — 일상컷에서 손에 드는 물건');
+    const cuts = C.plan(card, [1, 2, 3, 4, 5], [], { seed: 7 }).cuts;
+    for (const c of cuts) {
+      const p = C.record(card, card.world, c).prompt;
+      assert.equal(p.includes('SIGNATURE ACCESSORY'), weapon, key + ' — 장신구 줄');
+      if (weapon) assert(!p.includes('SIGNATURE ITEM SHAPE') && !p.includes(P.holdOf(card.c) + ' in'), key + ' — 무기를 들지 않는다');
+    }
+    if (!weapon) assert(cuts.some(c => /sig_/.test(c.use || '')), key + ' — 무기 아닌 물건은 한두 장 든다');
+  }
+}
+console.log(`PASS 일상컷 묶음 계획기: ${n} 묶음(장수 ${pickKeys.length} × 세계 셋 × 씨앗 둘)이 다섯 장 · 묶음 규칙 · 정해 둔 두 갈래(노출 · 세계 안) · 네 시대 · 기록 꼴, 있는 두 장 위에 세 장 · 카드 사이 안 쓴 장소 · 자세 추천 · 표정 먼저 · 세계 셋 한 번에 새 묶음(세계 · 옛 묶음 사이 같은 장면 없음) · 무기는 장신구로(부채 · 두루마리는 손에)`);
