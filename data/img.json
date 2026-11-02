@@ -1,5 +1,15 @@
 {
- "img": {},
- "count": 0,
- "added": {}
+ "img": {"관우": {"byStyle": {"kr_mmorpg": {"byForm": {"samguk": {"f": "관우_samguk_kr_mmorpg_f.webp", "casual": {"f": ["관우_samguk_kr_mmorpg_f_casual1.webp"]}}, "fantasy": {"f": "관우_fantasy_kr_mmorpg_f.webp", "casual": {"f": ["관우_fantasy_kr_mmorpg_f_casual1.webp"]}}, "mecha": {"f": "관우_mecha_kr_mmorpg_f.webp", "casual": {"f": ["관우_mecha_kr_mmorpg_f_casual1.webp"]}}}}}}, "조조": {"byStyle": {"kr_mmorpg": {"byForm": {"samguk": {"f": "조조_samguk_kr_mmorpg_f.webp"}, "fantasy": {"f": "조조_fantasy_kr_mmorpg_f.webp"}, "mecha": {"f": "조조_mecha_kr_mmorpg_f.webp"}}}}}},
+ "count": 2,
+ "added": {
+  "관우_fantasy_kr_mmorpg_f.webp": "2026-11-02",
+  "관우_fantasy_kr_mmorpg_f_casual1.webp": "2026-11-02",
+  "관우_mecha_kr_mmorpg_f.webp": "2026-11-02",
+  "관우_mecha_kr_mmorpg_f_casual1.webp": "2026-11-02",
+  "관우_samguk_kr_mmorpg_f.webp": "2026-11-02",
+  "관우_samguk_kr_mmorpg_f_casual1.webp": "2026-11-02",
+  "조조_fantasy_kr_mmorpg_f.webp": "2026-11-02",
+  "조조_mecha_kr_mmorpg_f.webp": "2026-11-02",
+  "조조_samguk_kr_mmorpg_f.webp": "2026-11-02"
+ }
 }
