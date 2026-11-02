@@ -62,7 +62,6 @@ html:not([data-background="off"]) :is(.ek-section,.panel,.patch-panel) {padding-
 :is(.btn.pri,.home-doors .door.main,.seg button[aria-pressed="true"],.dex-pick a[aria-current="page"],.room-choice[aria-pressed="true"],.opt[aria-pressed="true"],.hchip.on) {
   clip-path:var(--b-clip);border-radius:var(--b-rad);background:var(--b-pface);box-shadow:var(--b-pring);border-color:transparent;color:var(--on-accent)}
 :is(.room-choice[aria-pressed="true"],.opt[aria-pressed="true"],.hchip.on) :is(span,small,b) {color:var(--on-accent)}
-.home-doors .door.main span {color:var(--on-accent)}
 /* 육각 · 팔각처럼 양끝을 깎는 모양은 글자가 모서리에 닿지 않게 옆 여백을 더 */
 :root:is([data-theme="peachsword"],[data-theme="dragonforge"],:not([data-theme])) :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump,.more) {padding-left:max(18px,1.2em);padding-right:max(18px,1.2em)}
 :is(.btn,.opt,.hchip,.room-choice,.patch-open,.seg button,.home-doors .door,.dex-pick a,.toc-jump .jump,.more):focus-visible {clip-path:none;outline:2px solid var(--signal);outline-offset:2px}

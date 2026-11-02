@@ -187,18 +187,18 @@
 
 /* ── 첫 화면(2026-11-02) — 문 넷 · 세력 카드 · 최근 그림 ── */
 .home-doors {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.home-doors .door {display:flex;flex-direction:column;gap:4px;min-height:84px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:inherit;text-decoration:none}
+.home-doors .door {display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;min-height:56px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:inherit;text-decoration:none}
 .home-doors .door b {font-size:17px}
-.home-doors .door span {color:var(--muted);font-size:12.5px;line-height:1.5}
 .home-doors .door.main {background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.home-doors .door.main span {color:var(--on-accent);opacity:.85}
 .home-doors .door:hover {box-shadow:var(--shadow)}
 .factions .nation-top .sym {font-family:var(--gallery-serif,serif)}
 .recent-grid {display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
 .recent-grid a {display:block;color:inherit;text-decoration:none;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
 .recent-grid img {display:block;width:100%;aspect-ratio:2/3;object-fit:cover;object-position:center top}
 .recent-grid .cap {display:block;padding:5px 7px;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:900px) {.home-doors {grid-template-columns:repeat(2,minmax(0,1fr))} .home-doors .door.main {grid-column:1/-1} .recent-grid {grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:900px) {.recent-grid {grid-template-columns:repeat(4,minmax(0,1fr))}}
+.home-doors .door b {white-space:nowrap}
+@media (max-width:520px) {.home-doors {gap:6px} .home-doors .door b {font-size:15px} html:root .home-doors .door.door {padding-left:10px;padding-right:10px}}   /* 폰 — 문 셋이 한 줄, 이름이 꺾이지 않게(공간 꾸밈의 양끝 여백보다 앞선다) */
 
 /* 공간의 세 색이 부딪히게(2026-11-02 공간 아홉) — 제목 밑에 주색 · 맞색 · 금속 세 띠, 머리말 · 문 이름은 맞색(카드 위 대비 4.5:1 이상을 검사했다) */
 .ek-section > h2::after {content:'';display:block;width:56px;height:3px;margin-top:8px;border-radius:2px;background:linear-gradient(90deg,var(--accent) 0 34%,var(--signal) 34% 67%,var(--gold) 67% 100%)}
