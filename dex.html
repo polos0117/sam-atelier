@@ -12,8 +12,8 @@
      원소 공방의 dex.html(2026-10-31 판 — 위에 붙는 판 · 접는 일상컷 · 크게 보기 넘기기 · 뒤로 가기는 팝업만)을 옮겼다(2026-11-02). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Song+Myung&family=Hahmlet:wght@600;700&family=Orbit&display=swap">
-<link rel="stylesheet" href="lib/workspace.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Song+Myung&family=Hahmlet:wght@600;700&family=Orbit&family=Noto+Serif+KR:wght@700;900&display=swap">
+<link rel="stylesheet" href="lib/workspace.css?v=4">
 <script src="lib/workspace-theme.js?v=1"></script>
 <script src="lib/words.js?v=1"></script>
 <script src="lib/img.js?v=1"></script>
@@ -21,8 +21,8 @@
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다. 삼국지는 a: samguk) -->
 <script src="lib/favorites.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
-<link rel="stylesheet" href="lib/sam.css?v=4">
-<link rel="stylesheet" href="lib/material.css?v=4">
+<link rel="stylesheet" href="lib/sam.css?v=6">
+<link rel="stylesheet" href="lib/material.css?v=6">
 </head>
 <body class="prompt-page lab-page">
 <div class="wrap"><div id="app"></div></div>
@@ -126,7 +126,7 @@ function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts,fa
     /* 찾기 줄 — 폰에서 위 줄은 옆으로 밀리므로 찾기 · 그림 있는 것만은 따로 한 줄 */
     h('div',{class:'find-row'},
       h('input',{class:'find',id:'dex-find',type:'search',value:q,placeholder:W('dex.find'),'aria-label':W('dex.find'),onInput:e=>setQ(e.target.value)}),
-      h('label',{class:'only'},h('input',{type:'checkbox',id:'dex-only',checked:only,onChange:e=>setOnly(e.target.checked)}),W('dex.only.art')),
+      h('div',{class:'seg'},h('button',{type:'button',id:'dex-only','aria-pressed':only,onClick:()=>setOnly(!only)},W('dex.only.art'))),   /* 체크 상자 대신 공간 단추 — 13px 상자는 손가락에 작다(2026-11-02 점검) */
       h('label',{class:'only'},W('dex.state.f'),h('select',{id:'dex-state',value:sf,onChange:e=>setSf(e.target.value)},STATE_F.map((k,i)=>h('option',{key:k||'all',value:k},W('dex.state.f.'+(k||'all'))+' '+counts[i]))))),
     roles.length>1&&h('nav',{class:'toc-jump','aria-label':W('dex.toc')},roles.map(r=>h('button',{key:r.key,type:'button',class:'jump','data-jump':r.key,onClick:()=>go(r.key)},r.ko+' '+r.n))));
 }

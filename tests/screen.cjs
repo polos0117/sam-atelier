@@ -118,11 +118,11 @@ const P = ctx0.window.AtelierPrompt;
     assert.equal(await v.page.locator('.sam-card').count(), D.generals.filter(g => g.faction === 'shu' && /zhuge/i.test(g.en)).length, '병음으로 찾기');
     assert.match(v.page.url(), /q=zhuge/);
     await v.page.fill('#dex-find', '');
-    await v.page.check('#dex-only');
+    await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'true', '그림 있는 것만 — 누른 단추');
     const withArt = await v.page.locator('.sam-card').count();
     assert(withArt <= count('shu'), '그림 있는 것만');
     if (!withArt) assert(await v.page.locator('#dex-none').count(), '없으면 알림');
-    await v.page.uncheck('#dex-only');
+    await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'false');
     await noOverflow(v.page, vp.width + ' 도감');
     assert.deepEqual(v.errors, [], '도감 콘솔'); checks += 7; await v.ctx.close();
 

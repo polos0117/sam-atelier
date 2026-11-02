@@ -87,3 +87,6 @@ html {font-synthesis:none}
 .ek-section h2,.dex-head h2,.room-preview-copy h2 {letter-spacing:0}
 /* Orbit 은 낱말 사이가 넓다 — 제목 글꼴을 쓰는 자리만 좁힌다 */
 :root:is([data-theme="neonrain"],[data-theme="hangar"],[data-theme="orbit"]) :is(.workspace-heading h1,.ek-section h2,.dex-head h2,.room-preview-copy h2,.role-head h3,.panel h3,.result h3,.title-plaque h1,.menu-btn > span,.title-space .name b,.home-doors .door b) {word-spacing:-.24em}
+/* 판 안의 고르기 칸은 얇은 선만 — 틀 안에 틀이 또 들어가 복잡하던 것(2026-11-02 점검). 고른 칸만 공간 단추 얼굴 */
+html:root .panel .opt:not([aria-pressed="true"]) {clip-path:none;border-radius:10px;border:1px solid var(--mat-edge,var(--line));background:color-mix(in srgb,var(--card2) 88%,transparent);box-shadow:none}
+html:root .hchips .hchip {min-height:44px}   /* 단계 칩 — 손가락 크기(2026-11-02 점검) */

@@ -1,6 +1,6 @@
 /* 생성기 판 — 공방 모음(polos0117.github.io)의 통합 생성기(prompt.html) 모양을 이 공방의 공간 변수(workspace.css)로 옮겼다(2026-10-30, 사용자 「UI 는 허브 통합 생성기」).
    칩 한 줄(고른 단계) · 판(지금 단계의 선택지) · 결과. 폰(≤768)은 칩 레일 한 줄 + 아래 고정 막대 + 시트 — docs/PROMPT_MOBILE_PLAN.md(공방 모음) 그대로 */
-.studio-wrap {max-width:1100px;margin:0 auto}
+.studio-wrap {max-width:none;margin:0}   /* 머리 · 메뉴와 왼쪽 줄을 맞춘다(2026-11-02 점검) */
 .lede {margin:2px 0 14px;color:var(--muted);font-size:13px;word-break:keep-all}
 #status {min-height:1.4em;margin:0 0 8px;color:var(--muted);font-size:13px}
 .hchips {display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
@@ -56,8 +56,9 @@
 @media (max-width:768px) {
   html {scroll-padding-top:calc(var(--hchips-h,110px) + 10px);scroll-padding-bottom:calc(96px + env(safe-area-inset-bottom))}
   .lede {display:none} body.help .lede {display:block}
-  #help {display:inline-flex;min-height:40px;min-width:40px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--text);font:700 14px inherit;font-family:inherit;padding:0;margin:0 0 8px}
-  .hchips {position:sticky;top:0;z-index:4;display:block;margin:0 -16px 12px;padding:6px 16px 8px;background:linear-gradient(180deg,var(--bg) 85%,transparent)}
+  #help {display:inline-flex;min-height:44px;align-items:center;justify-content:center;gap:4px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--text);font:600 13px inherit;font-family:inherit;padding:0 14px;margin:0 0 8px}
+  .hchips {position:sticky;top:0;z-index:4;display:block;margin:0 -16px 12px;padding:6px 16px 8px;background:transparent;transition:background-color .2s}
+  .hchips.stuck {background:color-mix(in srgb,var(--bg) 80%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 10px),#0000);mask-image:linear-gradient(180deg,#000 calc(100% - 10px),#0000)}   /* 막은 내려 읽을 때만 — 처음엔 배경 장면을 자르지 않는다 */   /* 붙는 줄 — 바탕 장면을 뚝 자르던 불투명 띠를 걷음(2026-11-02 점검) */
   .hpath {display:flex;align-items:center;gap:4px;margin:0 0 6px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font-size:13px;color:var(--muted)}
   .hpath::-webkit-scrollbar {display:none}
   .hpath i {font-style:normal;opacity:.6}
@@ -123,3 +124,4 @@
 .grp .axis {margin:6px 0}
 .axis .lbl {display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
 .axis .dz {font-style:normal;padding:1px 6px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:11px;white-space:nowrap}
+@media (max-width:768px) {.hpath .hcrumb {min-height:44px} .opts .opt {min-height:48px}}   /* 손가락 크기 44px 이상(2026-11-02 점검) */
