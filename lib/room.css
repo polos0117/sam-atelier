@@ -1,0 +1,88 @@
+/* 공간 풍경 — 공간마다 배경 그림 한 장(그림 저장소 sam-atelier-img/backgrounds/room-<공간>.webp, 도트 공방의 그리기로 받은 가로 그림 1536×1024, 기록 records/backgrounds/)
+   위에 빛 번짐 한 겹. 그림을 못 받으면 겹 무늬만 남는다. 무늬는 옅게 — 글자는 늘 불투명한 카드 위에 앉는다.
+   game → element 의 room.css 에서 왔다(2026-11-02 삼국지로 — 그림은 아직 없다, 겹 무늬만) */
+:root {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-sunlit.webp");
+  --room-image:
+    linear-gradient(180deg,#f3f6fa00 0,#f3f6fa66 55%,#f3f6fa 100%),
+    radial-gradient(circle at 12% 0%,#ffd6e8aa 0,#ffd6e800 36%),
+    var(--room-src);
+  --room-paper:var(--bg);--room-rgb:243 246 250;
+  --room-position:center 42%;--room-mobile-position:60% 34%;
+}
+:root[data-theme="moonlit"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-moonlit.webp");
+  --room-image:
+    linear-gradient(180deg,#0e102000 0,#0e102088 55%,#0e1020 100%),
+    radial-gradient(circle at 80% 10%,#c9a0ff30 0,#c9a0ff00 40%),
+    var(--room-src);
+  --room-rgb:14 16 32;
+}
+:root[data-theme="hanok"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-hanok.webp");
+  --room-image:
+    linear-gradient(180deg,#f6eedd00 0,#f6eedd77 55%,#f6eedd 100%),
+    radial-gradient(circle at 88% 70%,#ff9a4a33 0,#ff9a4a00 38%),
+    var(--room-src);
+  --room-rgb:246 238 221;
+}
+:root[data-theme="forest"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-forest.webp");
+  --room-image:
+    linear-gradient(180deg,#eef0e600 0,#eef0e677 55%,#eef0e6 100%),
+    radial-gradient(circle at 70% 40%,#ffd08a33 0,#ffd08a00 36%),
+    var(--room-src);
+  --room-rgb:238 240 230;
+  --room-position:center 47%;--room-mobile-position:62% 38%;
+}
+:root[data-theme="phosphor"] {
+  --room-src:url("https://polos0117.github.io/sam-atelier-img/backgrounds/room-phosphor.webp");
+  --room-image:
+    linear-gradient(180deg,#0a121600 0,#0a121688 55%,#0a1216 100%),
+    radial-gradient(circle at 20% 8%,#5fe3a32a 0,#5fe3a300 38%),
+    var(--room-src);
+  --room-rgb:10 18 22;
+}
+:root[data-background="off"] {--room-image:none}
+body.dex-page,body.prompt-page {
+  background-color:var(--room-paper);
+  background-image:var(--room-image);
+  background-position:center top;background-size:cover;background-repeat:no-repeat;background-attachment:fixed;
+}
+/* 가운데 판은 반쯤 비친다 — 바탕 풍경이 카드 사이로 보이게(카드는 불투명) */
+.dex-page main,.prompt-page .wrap {
+  max-width:1360px;background:rgb(var(--room-rgb) / .55);
+  box-shadow:0 0 60px #00000014;
+}
+html[data-background="off"] .dex-page main,html[data-background="off"] .prompt-page .wrap {background:var(--room-paper)}
+.workspace-header {position:relative}
+.workspace-heading .crest-name {font-family:var(--gallery-serif);font-size:12px;font-weight:500;letter-spacing:.03em}
+.appearance-panel {border-radius:8px;box-shadow:var(--shadow)}
+.appearance-panel .room-control {grid-column:1 / -1}
+.appearance-panel select {border-radius:3px;background:var(--card)}
+.editorial-kicker {color:var(--accent)}
+/* 공간 고르기 — 첫 화면 아래. 그림이 왼쪽, 글이 오른쪽 */
+.room-preview {display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);margin:24px 0;background:var(--card)}
+.room-preview-art {min-height:250px;background-color:var(--card2);background-image:var(--room-src);background-position:var(--room-position);background-size:cover;background-repeat:no-repeat}
+.room-preview-copy {padding:32px;align-self:center}
+.room-preview-copy h2 {font:700 28px/1.5 var(--gallery-serif,sans-serif);margin:0 0 12px}
+.room-preview-copy>p:not(.editorial-kicker) {color:var(--muted);font-size:13px;line-height:1.9;max-width:38ch}
+.room-choices {display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 8px}
+.room-choice {min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--text);font:inherit;font-size:12px}
+.room-choice[aria-pressed="true"] {background:var(--accent-soft);border-color:var(--accent);color:var(--accent);box-shadow:inset 0 -2px var(--accent)}
+.room-choice:hover {border-color:var(--accent)}
+.room-background-toggle {min-height:44px;margin-top:8px;padding:9px 16px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--text);font:inherit;font-size:12px}
+.room-background-toggle:hover {border-color:var(--accent)}
+html[data-background="off"] .room-preview-art {display:none}
+html[data-background="off"] .room-preview {grid-template-columns:1fr}
+@media(max-width:599px) {
+ .room-preview {grid-template-columns:1fr}
+ .room-preview-art {min-height:170px;background-position:var(--room-mobile-position)}
+ .room-preview-copy {padding:22px}
+ .room-preview-copy h2 {font-size:25px}
+}
+@media(prefers-reduced-transparency:reduce) {.dex-page main,.prompt-page .wrap{background:var(--room-paper)}}
+@media(forced-colors:active) {
+ body.dex-page,body.prompt-page {background-image:none}
+ .room-preview-art {display:none}
+}

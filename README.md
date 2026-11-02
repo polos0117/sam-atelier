@@ -1,4 +1,14 @@
-# 삼국지 쟁탈전
+# 삼국지 공방
+
+게임 **삼국지 쟁탈전**(`index.html`)과, 장수 한 명을 여성 한 명으로 그리는 **도감**(`dex.html`) · **생성기**(`prompt.html`)가 있다(2026-11-02). 세계는 삼국시대 · 중세 판타지 · 메카 셋. 규칙은 `AGENTS.md`, 그림은 `IMAGE_RULES.md`. 게임은 그대로 두고 아래 「게임」 절이 그 설명이다.
+
+## 도감 · 생성기 · 그림
+
+- `data/sam-design.json` — 설계표. 장수 279 는 게임 표에서 `python3 tools/sam-design.py seed` 가 받는다(게임은 읽기만).
+- `dex.html` — 세력 › 역할 › 장수, 장수마다 세계 셋. `prompt.html` — 세력 › 장수 › 세계 그림 · 일상컷 지시문.
+- 새 그림은 그림 저장소 `sam-atelier-img`(Pages)에 올리면 `그림 등록` 워크플로가 `data/img.json` 에 적는다. 게임의 `images/` 와 따로다.
+
+# 게임 — 삼국지 쟁탈전
 
 https://polos0117.github.io/sam-atelier/ — 게임은 `index.html`을 편집합니다. 로컬에서는 저장소를 내려받아 `index.html`을 엽니다. ES Module이나 빌드 과정은 사용하지 않습니다.
 

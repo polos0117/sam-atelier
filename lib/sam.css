@@ -1,0 +1,182 @@
+/* 삼국지 공방 화면 — 도감·생성기(원소 공방의 lib/element.css 에서 옮겼다, 2026-11-02). 색은 lib/workspace.css 의 공간 변수와 세력 색만 쓴다 */
+.wrap {max-width:1180px;margin:0 auto;padding:0 16px 48px}
+.ek-kicker {margin:0 0 4px;color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.ek-section {margin:18px 0 0;padding:22px 24px;background:var(--card2);border:1px solid var(--line);border-radius:18px}
+.ek-section h2 {margin:4px 0 10px;font:700 24px/1.4 var(--gallery-serif,sans-serif);letter-spacing:-.03em}
+.ek-section > p {margin:0 0 8px;color:var(--muted);line-height:1.7}
+.ek-note {margin:12px 0 0;color:var(--muted);font-size:13px}
+.ek-tag {font-size:13px}
+/* 분류 색 — 주기율표 칸·도감 머리. 공간마다의 --g-* 를 빌려 쓰고 나머지는 섞는다 */
+[data-cat="alkali"] {--cat:var(--g-reflex)} [data-cat="alkaline_earth"] {--cat:var(--warn)} [data-cat="transition"] {--cat:var(--g-mind)}
+[data-cat="post_transition"] {--cat:var(--signal)} [data-cat="metalloid"] {--cat:var(--g-growth)} [data-cat="nonmetal"] {--cat:var(--g-explore)}
+[data-cat="halogen"] {--cat:var(--accent)} [data-cat="noble_gas"] {--cat:#8a6cff} [data-cat="lanthanide"] {--cat:#c07a3a} [data-cat="actinide"] {--cat:#b04a7a} [data-cat="unknown"] {--cat:var(--muted)}
+
+/* 주기율표 — 18열. 란타넘·악티늄족은 아래 두 줄 */
+.ptable {display:grid;grid-template-columns:repeat(18,minmax(0,1fr));gap:3px;margin:8px 0 0}
+.ptable .gap {grid-column:span 1}
+.pcell {position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1;min-width:0;padding:2px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--muted);text-decoration:none;font:600 11px/1.1 ui-monospace,monospace}
+.pcell small {font-size:7px;font-weight:400;opacity:.8}
+.pcell b {font-size:12px;font-weight:700}
+.pcell.on {color:var(--on-accent);background:var(--cat);border-color:var(--cat);box-shadow:var(--shadow)}
+.pcell.on:hover,.pcell.on:focus-visible {filter:brightness(1.08);outline:2px solid var(--text);outline-offset:1px}
+.pcell.f {opacity:.9}
+.ptable-f {margin-top:8px}
+@media (max-width:760px) {
+  .ptable {gap:2px} .pcell {border-radius:4px;font-size:8px} .pcell b {font-size:9px} .pcell small {display:none}
+}
+
+/* 첫 묶음 — 나라 카드 */
+.nations {list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.nation-card {padding:14px 16px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--cat,var(--accent));border-radius:14px;box-shadow:var(--shadow)}
+.nation-top {display:flex;align-items:baseline;gap:10px}
+.nation-top .sym {font:700 26px/1 ui-monospace,monospace;color:var(--cat,var(--accent))}
+.nation-top a {color:var(--text);text-decoration:none;font-size:16px;font-weight:700}
+.nation-top a:hover,.nation-top a:focus-visible {color:var(--accent);text-decoration:underline}
+.nation-top .en {color:var(--muted);font-size:12px}
+.nation-persona {margin:8px 0 6px;font-size:14px;line-height:1.6}
+.nation-meta {margin:0;color:var(--muted);font-size:12px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* 도감 */
+.dex-pick {display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.dex-pick a {min-height:40px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);text-decoration:none;font-size:13px;font-weight:600}
+.dex-pick a[aria-current="page"] {border-color:var(--cat,var(--accent));background:var(--cat,var(--accent));color:var(--on-accent)}
+.dex-pick a .sym {font:700 13px ui-monospace,monospace}
+.dex-head {display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 18px}
+.dex-head .sym {font:700 44px/1 ui-monospace,monospace;color:var(--cat,var(--accent))}
+.dex-head h2 {margin:0;font:700 26px/1.3 var(--gallery-serif,sans-serif)}
+.dex-head .en {color:var(--muted)}
+.facts {display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 0;padding:0;list-style:none;color:var(--muted);font-size:12px}
+.facts b {color:var(--text);font-weight:600;margin-left:4px}
+.traits {margin:10px 0 0;padding:0 0 0 18px;color:var(--text);font-size:14px;line-height:1.6}
+.dex-progress {margin:8px 0 0;color:var(--muted);font-size:12px}
+.row-head {display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.row-head h3 {margin:0;font-size:17px}
+.row-head .en {color:var(--muted);font-size:12px}
+.row-head .shared {color:var(--muted);font-size:12px}
+.row-head .shared a {color:var(--accent)}
+.row-head .elements {display:inline-flex;gap:4px}
+.row-head .elements span {padding:1px 7px;border-radius:999px;border:1px solid var(--line);font:600 11px ui-monospace,monospace;color:var(--muted)}
+.row-persona {margin:0 0 8px;color:var(--muted);font-size:13px;line-height:1.6}
+.worlds {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.worlds.wide {grid-template-columns:repeat(3,minmax(0,1fr))}
+.slot {display:block;width:100%;padding:0;text-align:left;color:inherit;font:inherit;background:var(--card);border:1px solid var(--line);border-radius:11px;overflow:hidden;cursor:pointer}
+.slot[disabled] {cursor:default;opacity:.55;border-style:dashed}
+.slot .face {display:block;position:relative;width:100%;aspect-ratio:2/3;background:var(--card2);overflow:hidden}
+.slot .face img {display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.slot .ph {display:flex;align-items:center;justify-content:center;height:100%;padding:6px;color:var(--muted);font:11px/1.4 ui-monospace,monospace;letter-spacing:.04em;text-align:center}
+.slot .cap {display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:6px 9px;font-size:12px;font-weight:700}
+.slot .cap i {font-style:normal;font-weight:400;color:var(--muted);font-size:11px}
+.citizen {display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.citizen .who b {display:block;font-size:15px}
+.citizen .who i {display:block;font-style:normal;color:var(--muted);font-size:12px}
+.citizen .who p {margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+.citizen .worlds .slot .face {aspect-ratio:2/3}
+@media (max-width:760px) {.citizen {grid-template-columns:1fr} .dex-head .sym {font-size:34px}}
+/* 크게 보기 */
+.lightbox {position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;background:#000c}
+.lightbox img {max-width:100%;max-height:82vh;border-radius:8px;box-shadow:0 20px 60px #0008}
+.lightbox .bar {display:flex;gap:8px;align-items:center;color:#fff;font-size:13px}
+.lightbox button,.lightbox a {min-height:40px;padding:6px 12px;border:1px solid #fff6;border-radius:8px;background:#0008;color:#fff;font:inherit;font-size:13px;text-decoration:none}
+
+/* 생성기 */
+.studio {display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:16px;margin-top:16px}
+@media (max-width:860px) {.studio {grid-template-columns:1fr}}
+.pane {padding:16px;background:var(--card2);border:1px solid var(--line);border-radius:14px}
+.pane h3 {margin:0 0 8px;font-size:14px;color:var(--muted)}
+.field {display:grid;gap:5px;margin:0 0 12px;font-size:13px;color:var(--muted)}
+.field select,.field textarea,.field input {width:100%;min-height:40px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit;font-size:14px}
+.field textarea {min-height:64px;resize:vertical}
+.chips {display:flex;flex-wrap:wrap;gap:6px}
+.chips button {min-height:40px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font:inherit;font-size:13px;font-weight:600}
+.chips button[aria-pressed="true"] {border-color:var(--accent);background:var(--accent);color:var(--on-accent)}
+.chips button[disabled] {opacity:.45;border-style:dashed}
+.out {width:100%;min-height:360px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font:12px/1.55 ui-monospace,monospace;resize:vertical}
+.out-head {display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 8px}
+.out-head b {font-size:14px} .out-head small {color:var(--muted)}
+.btn {min-height:40px;padding:6px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit;font-size:13px;font-weight:700}
+.btn.pri {background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.file {margin:10px 0 0;font:12px ui-monospace,monospace;overflow-wrap:anywhere;color:var(--text)}
+.file span {color:var(--muted);font-family:inherit;margin-right:6px}
+.info {margin:12px 0 0;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);font-size:13px;line-height:1.6}
+.info b {display:block;color:var(--muted);font-size:11px;letter-spacing:.06em;margin:6px 0 2px}
+.info b:first-child {margin-top:0}
+.record {margin-top:12px} .record summary {cursor:pointer;min-height:40px;display:flex;align-items:center;font-size:13px;font-weight:700}
+.record textarea {min-height:180px}
+.status {min-height:20px;margin:6px 0 0;color:var(--ok);font-size:12px}
+.art-preview {margin-top:12px;display:flex;gap:10px;align-items:flex-start}
+.art-preview img {width:120px;aspect-ratio:2/3;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.art-preview p {margin:0;color:var(--muted);font-size:12px}
+
+/* 일상컷 줄 — 세계 셋 아래, 같은 칸 크기로 이어 붙는다 */
+.worlds.casuals {margin-top:8px}
+.alt-row {margin-top:8px}
+.style-note {margin:6px 0 4px;color:var(--muted);font-size:12px}
+.worlds.alt .slot {border-style:dotted}
+
+/* 도감 판(2026-10-31) — 위에 붙는 판 · 카드마다 접기 · 작은 칸 · 크게 보기 넘기기 · 즐겨찾기 */
+.about {margin:10px 0 0;font-size:13px;color:var(--muted)}
+.about summary {cursor:pointer;min-height:40px;display:flex;align-items:center;font-weight:600}
+.about p {margin:4px 0 0;color:var(--text);line-height:1.7;font-size:14px}
+.dex-toc {position:sticky;top:0;z-index:5;margin:12px -4px 4px;padding:8px 4px;background:var(--bg);border-bottom:1px solid var(--line)}
+.toc-row {display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.seg {display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.seg button {min-height:40px;padding:0 12px;border:0;background:none;color:var(--text);font:600 13px/1 inherit;font-family:inherit;cursor:pointer;white-space:nowrap}
+.seg button+button {border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"] {background:var(--accent);color:var(--on-accent)}
+.dex-toc .fav-count {margin-left:auto;min-height:40px;display:inline-flex;align-items:center;padding:0 12px;border:1px solid var(--line);border-radius:999px;color:var(--text);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}
+.toc-jump {display:flex;gap:6px;margin-top:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.toc-jump::-webkit-scrollbar {display:none}
+.toc-jump .jump {flex:0 0 auto;min-height:36px;padding:0 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font:500 12px/1 inherit;font-family:inherit;cursor:pointer;white-space:nowrap}
+.toc-jump .jump.tier-root,.toc-jump .jump.tier-lord {font-weight:800;border-color:var(--accent)}
+.ek-card {scroll-margin-top:150px;padding:10px 0;border-top:1px solid var(--line)}
+.cards {display:grid;gap:0}
+.card-head {display:flex;align-items:baseline;gap:8px;margin:0 0 6px}
+.card-head b {font-size:15px} .card-head i {font-style:normal;color:var(--muted);font-size:12px}
+.card-head .fav-mark {margin-left:auto;color:var(--accent);font-size:12px;font-weight:700}
+.ek-card .obj {margin:-2px 0 8px;color:var(--muted);font-size:12px;line-height:1.5}
+.worlds.main {max-width:560px}
+.worlds.casuals,.worlds.alt {grid-template-columns:repeat(auto-fill,minmax(112px,1fr));margin-top:8px}
+.slot .cap {white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.slot.dead {opacity:.45;border-style:dashed;cursor:default;align-self:start}
+.slot.dead .face {aspect-ratio:auto;height:44px}
+.slot.dead .ph {font-size:10px}
+.more-row {display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.more-row .more {min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font:600 13px/1 inherit;font-family:inherit;cursor:pointer}
+.more-row .more[aria-expanded="true"] {border-color:var(--accent);color:var(--accent)}
+.none-note {margin:0;color:var(--muted);font-size:12px}
+@media (min-width:900px) {.cards .ek-card.tier-citizen {display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:16px;align-items:start} .ek-card.tier-citizen .obj {margin:0}}
+/* 폰 — 위에 붙는 판은 두 줄(보기·세계·즐겨찾기 한 줄을 옆으로 밀고, 바로 가기 한 줄) */
+@media (max-width:700px) {.toc-row {flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .toc-row::-webkit-scrollbar {display:none} .seg,.dex-toc .fav-count {flex:0 0 auto} .dex-toc .fav-count {margin-left:0} .seg button {padding:0 10px;min-height:38px}
+  .ek-card {scroll-margin-top:110px}}
+.lightbox {justify-content:center}
+.lightbox .lb-top {display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;justify-content:center;color:#fff;font-size:13px;max-width:100%}
+.lightbox .lb-top b {font-size:15px} .lightbox .lb-n {opacity:.7;font-family:ui-monospace,monospace}
+.lb-stage {position:relative;display:flex;align-items:center;justify-content:center;max-width:100%}
+.lb-stage img {max-height:76vh}
+.lb-nav {position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:1px solid #fff4;border-radius:10px;background:#0007;color:#fff;font-size:30px;line-height:1;cursor:pointer}
+.lb-nav.prev {left:6px} .lb-nav.next {right:6px}
+.lightbox .fav-heart[aria-pressed="true"] {border-color:#ff8fb1;color:#ffb3c8}
+.fav-toast {position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:90;max-width:calc(100vw - 32px);padding:9px 16px;border-radius:999px;background:#fff;color:#111;font-size:13px;font-weight:700;text-align:center;pointer-events:none}
+.fav-toast:empty {display:none}
+
+/* ── 삼국지 몫(2026-11-02) ── 세력 색 · 장수 카드 · 찾기 */
+[data-fac="wei"] {--cat:#3f6fb5} [data-fac="shu"] {--cat:#3e9a5e} [data-fac="wu"] {--cat:#c8423b} [data-fac="qun"] {--cat:#8a5cc4}
+.dex-pick a i {font-style:normal;opacity:.75;font-size:12px}
+.dex-head .han {font:700 44px/1 var(--gallery-serif,serif);color:var(--cat,var(--accent))}
+.find-row {display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:8px}
+.find-row .find {min-height:40px;min-width:0;flex:1 1 200px;max-width:340px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:inherit;font:inherit}
+.find-row .only {display:inline-flex;align-items:center;gap:6px;min-height:40px;font-size:13px}
+.role-head {display:flex;align-items:baseline;gap:8px;margin:18px 0 0;scroll-margin-top:150px}
+.role-head h3 {margin:0;font:700 18px/1.3 var(--gallery-serif,sans-serif)}
+.role-head span {color:var(--muted);font-size:12px}
+.sam-card .who b .seal {display:inline-block;margin-right:6px;padding:0 5px;border:1px solid var(--cat,var(--accent));border-radius:4px;color:var(--cat,var(--accent));font:700 13px/1.5 var(--gallery-serif,serif)}
+.sam-card .who .en {margin-left:6px;color:var(--muted);font-size:12px}
+.sam-card .who .hand {margin-left:6px;color:var(--accent);font-size:12px}
+.sam-card .stats {display:flex;flex-wrap:wrap;gap:4px 10px;margin:4px 0 2px;padding:0;list-style:none;color:var(--muted);font-size:12px}
+.sam-card .stats b {color:inherit;font-weight:700;margin-left:3px;font-family:ui-monospace,monospace}
+.sam-card .lore {margin:2px 0 8px;color:var(--muted);font-size:12px;line-height:1.55}
+.sam-card .worlds.main {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sam-card.bare .worlds.main .slot .face {aspect-ratio:auto;height:52px}
+.none-row {margin:16px 0;color:var(--muted)}
+@media (min-width:900px) {.sam-card {display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:16px;align-items:start}}
+@media (max-width:700px) {.find-row .find {max-width:none}}

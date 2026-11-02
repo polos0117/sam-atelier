@@ -1,0 +1,125 @@
+/* 생성기 판 — 공방 모음(polos0117.github.io)의 통합 생성기(prompt.html) 모양을 이 공방의 공간 변수(workspace.css)로 옮겼다(2026-10-30, 사용자 「UI 는 허브 통합 생성기」).
+   칩 한 줄(고른 단계) · 판(지금 단계의 선택지) · 결과. 폰(≤768)은 칩 레일 한 줄 + 아래 고정 막대 + 시트 — docs/PROMPT_MOBILE_PLAN.md(공방 모음) 그대로 */
+.studio-wrap {max-width:1100px;margin:0 auto}
+.lede {margin:2px 0 14px;color:var(--muted);font-size:13px;word-break:keep-all}
+#status {min-height:1.4em;margin:0 0 8px;color:var(--muted);font-size:13px}
+.hchips {display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.hchip {display:inline-flex;align-items:baseline;gap:6px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);cursor:pointer;font:600 13px/1.3 inherit;font-family:inherit;text-align:left;max-width:100%}
+.hchip small {color:var(--muted);font-weight:500;font-size:11px}
+.hchip.on {border-color:var(--accent);background:var(--accent-soft)}
+.hchip .lock {font-size:12px}
+.panel {margin:0 0 18px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.panel h3 {margin:0 0 6px;font:800 18px/1.3 var(--gallery-serif,inherit)}
+.panel h4 {margin:12px 0 6px;color:var(--accent);font:700 13px/1.3 inherit;font-family:inherit}
+.panel .note {margin:0 0 10px;color:var(--muted);font-size:13px;word-break:keep-all}
+.panel .warn {color:var(--warn)}
+.opts {display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.opt {display:grid;gap:2px;align-content:start;min-height:44px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card2);cursor:pointer;text-align:left;text-decoration:none;color:var(--text);word-break:keep-all;font:inherit}
+.opt b {font-weight:700;font-size:14px}
+.opt b i {font-style:normal;color:var(--muted);font-weight:500;font-size:12px}
+.opt span {color:var(--muted);font-size:12px;line-height:1.35}
+.opt[aria-pressed="true"] {border-color:var(--accent);background:var(--accent-soft)}
+.opt:disabled {opacity:.45;cursor:default}
+.opt.out {opacity:.55;border-style:dashed}
+.opt.out .why {color:var(--warn)}
+.opt.out[aria-pressed="true"] {opacity:1}
+.bar {display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:12px 0 0}
+.unlock {display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--muted);font-size:13px}
+.unlock input {width:20px;height:20px;accent-color:var(--accent)}
+.rand {display:inline-flex;flex-wrap:wrap;gap:6px}
+.prompt-page .btn {min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:99px;background:var(--card2);color:var(--text);cursor:pointer;font:600 13px/1 inherit;font-family:inherit}
+.prompt-page .btn:hover {border-color:var(--accent);color:var(--accent)}
+.prompt-page .btn.pri {background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:800}
+.axis {display:grid;gap:4px;margin:0 0 10px;font-size:13px;color:var(--muted)}
+.axis select,.axis input,.axis textarea {width:100%;min-width:0;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card2);color:var(--text);font:inherit}
+.axis textarea {resize:vertical}
+.axis small {color:var(--muted);font-size:12px;line-height:1.4}
+.result {padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card2)}
+.result h3 {margin:0 0 6px;font:800 18px/1.3 var(--gallery-serif,inherit)}
+.result textarea {width:100%;min-height:260px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font:13px/1.5 ui-monospace,Menlo,monospace;resize:vertical}
+.result .row {display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px}
+.result .row small {color:var(--muted)}
+.result .file {margin:8px 0 0;font:12px ui-monospace,monospace;overflow-wrap:anywhere}
+.result .file span {font-family:inherit;color:var(--muted);margin-right:6px}
+/* 일상컷의 참고 그림(그 세계 그림) — 등록돼 있으면 작은 그림, 없으면 흐리게 */
+.ref {display:flex;gap:8px;align-items:center;margin:8px 0 0;font:12px ui-monospace,monospace;overflow-wrap:anywhere}
+.ref span {font-family:inherit;color:var(--muted);margin-right:2px}
+.ref img {width:36px;aspect-ratio:2/3;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+.ref.none {color:var(--muted)}
+#unlocked-note {color:var(--warn);font-size:13px}
+.art-mini {display:flex;gap:10px;align-items:center;margin:8px 0 0}
+.art-mini img {width:72px;aspect-ratio:2/3;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.art-mini small {color:var(--muted);font-size:12px}
+@media (max-width:600px) {.opts {grid-template-columns:1fr 1fr}}
+/* 폰 */
+.hbar,.hsheet,#help {display:none}
+@media (max-width:768px) {
+  html {scroll-padding-top:calc(var(--hchips-h,110px) + 10px);scroll-padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .lede {display:none} body.help .lede {display:block}
+  #help {display:inline-flex;min-height:40px;min-width:40px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--text);font:700 14px inherit;font-family:inherit;padding:0;margin:0 0 8px}
+  .hchips {position:sticky;top:0;z-index:4;display:block;margin:0 -16px 12px;padding:6px 16px 8px;background:linear-gradient(180deg,var(--bg) 85%,transparent)}
+  .hpath {display:flex;align-items:center;gap:4px;margin:0 0 6px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font-size:13px;color:var(--muted)}
+  .hpath::-webkit-scrollbar {display:none}
+  .hpath i {font-style:normal;opacity:.6}
+  .hcrumb {flex:0 0 auto;min-height:44px;padding:0 6px;border:0;background:none;color:var(--text);font:600 13px/1 inherit;font-family:inherit;white-space:nowrap;max-width:140px;overflow:hidden;text-overflow:ellipsis}
+  .hcrumb.on {color:var(--accent)}
+  .hpath .n {flex:0 0 auto;position:sticky;right:0;margin-left:auto;padding:4px 0 4px 10px;background:linear-gradient(90deg,transparent,var(--bg) 10px);color:var(--accent);font:700 12px/1 ui-monospace,monospace}
+  .hrail {display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none}
+  .hrail::-webkit-scrollbar {display:none}
+  .hchip {flex:0 0 auto;display:block;max-width:170px;min-height:44px;padding:9px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;scroll-snap-align:center}
+  .hchip small {margin-right:2px}
+  .hchip.next {color:var(--muted);border-style:dashed}
+  #out {display:none}
+  .hres {margin:0 0 14px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card2)}
+  .hres .h {display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px} .hres .h b {font:800 17px/1.3 var(--gallery-serif,inherit)} .hres .h small {color:var(--muted)}
+  .hres-text {position:relative;margin:0;max-height:190px;overflow:hidden;white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-monospace,monospace;color:var(--text)}
+  .hres-text::after {content:'';position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(180deg,transparent,var(--card2))}
+  .hres-text.open {max-height:none} .hres-text.open::after {display:none}
+  .hres .more {margin:6px 0 0;min-height:44px;padding:0;border:0;background:none;color:var(--accent);font:600 13px/1 inherit;font-family:inherit}
+  .hres .file {margin:8px 0 0;font:12px ui-monospace,monospace;overflow-wrap:anywhere;color:var(--muted)}
+  .hsheet {display:block;position:fixed;inset:0;z-index:8;background:#000a}
+  .hsheet[hidden] {display:none}
+  .hsheet .pane {position:absolute;left:0;right:0;bottom:0;max-height:86dvh;display:flex;flex-direction:column;gap:8px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--card);border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0}
+  .hsheet .h {display:flex;align-items:center;gap:8px} .hsheet .h b {font:800 17px/1.3 var(--gallery-serif,inherit)} .hsheet .h small {flex:1 1 auto;color:var(--muted);font-size:12px}
+  .hsheet textarea {flex:1 1 auto;min-height:40dvh;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card2);font:12px/1.5 ui-monospace,monospace;color:var(--text);resize:none}
+  .hsheet .rand {margin:0}
+  body.sheet .hbar {display:none}
+  .axis:has(> select) {display:grid;grid-template-columns:38% 1fr;align-items:center;gap:4px 8px}
+  .axis:has(> select) small {grid-column:1 / -1}
+  .panel {scroll-margin-top:64px}
+  .prompt-page .wrap {padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .hbar {position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgb(var(--room-rgb) / .96);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+  .hbar[hidden],body.kb .hbar {display:none}
+  .hbar .btn,.hbar .unlock {flex:1 1 0;min-width:0;justify-content:center;border-radius:12px;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hbar .ico {flex:0 0 44px;padding:0}
+  .hbar .pri {flex:1.2 1 0}
+  .hbar .unlock {flex:1.3 1 0;display:flex;align-items:center;justify-content:flex-start;gap:6px;min-height:44px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:600 13px/1 inherit;font-family:inherit;cursor:pointer}
+  .hbar .unlock input {flex:0 0 16px;width:16px;height:16px;margin:0}
+  .hbar .unlock span {flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .hbar .unlock i {font-style:normal;color:var(--muted)} .hbar:has(> :nth-child(4)) .unlock i {display:none}
+  .hbar .unlock:has(input:checked) {border-color:var(--accent);color:var(--accent)}
+  .opts {grid-template-columns:minmax(0,1fr);gap:6px}
+  .opt {display:flex;align-items:center;gap:10px;min-height:48px;min-width:0;padding:0 12px}
+  .opt::before {content:'';flex:none;width:14px;height:14px;border-radius:50%;border:2px solid var(--line)}
+  .opt[aria-pressed="true"]::before {background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--card2)}
+  .opt b {flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .opt b i {display:none}
+  .opt span {flex:0 1 46%;min-width:0;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .opt.out {opacity:.6}
+  .gtabs {display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px 10px;padding:2px 16px}
+  .gtabs::-webkit-scrollbar {display:none}
+  .gtab {flex:0 0 auto;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:99px;background:var(--card2);color:var(--muted);font:600 13px/1 inherit;font-family:inherit;white-space:nowrap}
+  .gtab i {font-style:normal;opacity:.7;margin-left:2px}
+  .gtab.on {background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+  .panel h4 {position:sticky;top:var(--hchips-h,60px);z-index:1;margin:10px -4px 6px;padding:4px 4px;background:var(--card)}
+  .hmenu {position:fixed;right:10px;bottom:calc(68px + env(safe-area-inset-bottom));z-index:7;display:grid;gap:6px;padding:8px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow)}
+  .hmenu .btn {justify-content:flex-start;width:100%}
+}
+/* 설계 줄·외형(세계 그림) — 설계표 값 목록, 외형 묶음은 접는 칸 */
+.design-list {margin:4px 0 10px 28px;padding:0;color:var(--muted);font-size:12px;line-height:1.7}
+.grp {margin:0 0 8px;border:1px solid var(--line);border-radius:10px;padding:0 12px}
+.grp summary {min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700}
+.grp[open] {padding-bottom:8px}
+.grp .axis {margin:6px 0}
+.axis .lbl {display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
+.axis .dz {font-style:normal;padding:1px 6px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:11px;white-space:nowrap}

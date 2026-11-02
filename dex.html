@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<title>삼국지 공방</title>
+<!-- 도감 — 세력 하나의 장수들을 역할 차례(군주 · 무장 · 책사 · 문관)로. 장수마다 세계 그림 셋(삼국시대 · 중세 판타지 · 메카) + 접는 일상컷 · 다른 화풍, 크게 보기에서 넘기기 · 즐겨찾기.
+     화면은 data/img.json 에 적힌 것만 그린다. 그림 저장소에 파일이 있어도 등록부에 적기 전에는 없는 것이다.
+     글(이름 · 일화 · 능력치)은 data/sam-design.json 에서 온다 — 게임(index.html)의 표를 tools/sam-design.py 가 옮긴 것. 게임은 그대로 둔다.
+     원소 공방의 dex.html(2026-10-31 판 — 위에 붙는 판 · 접는 일상컷 · 크게 보기 넘기기 · 뒤로 가기는 팝업만)을 옮겼다(2026-11-02). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="lib/workspace.css?v=1">
+<script src="lib/workspace-theme.js?v=1"></script>
+<script src="lib/words.js?v=1"></script>
+<script src="lib/img.js?v=1"></script>
+<script src="lib/fresh.js?v=1"></script>
+<!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다. 삼국지는 a: samguk) -->
+<script src="lib/favorites.js?v=1"></script>
+<link rel="stylesheet" href="lib/room.css?v=1">
+<link rel="stylesheet" href="lib/sam.css?v=1">
+</head>
+<body class="prompt-page lab-page">
+<div class="wrap"><div id="app"></div></div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
+import {WorkspaceHeader} from './lib/workspace-ui.js?v=1';
+/* · 위: 세력 고르기(위 · 촉 · 오 · 군웅 — 장수 수 · 그린 칸)
+   · 위에 붙는 판: 보기(세계 그림 · 일상컷 · 전부) · 세계(모두 · 삼국시대 · 중세 판타지 · 메카) · 이름 찾기 · 그림 있는 것만 · 역할로 바로 가기 · 즐겨찾기 수
+   · 장수마다 세계 그림 셋. 그림이 하나도 없는 장수는 낮은 빈 칸(누르면 그 세계의 생성기)
+   · 크게 보기는 그 장수의 그림을 차례로 넘긴다(← → · 밀기 · Esc · 뒤로 가기는 팝업만 닫는다), 하트로 공방 모음 즐겨찾기에 담는다(a: samguk)
+   · 주소 ?faction=&view=&w=&q=&card=&pic= — 공방 모음 즐겨찾기의 link 가 ?card=&pic= 로 그 그림을 다시 연다. 보기 · 세계 · 그림 있는 것만은 이 기기에도(samguk_dex_v1) */
+const W=window.W,IMG=window.AtelierImg,FAV=window.AtelierFavorites,FAV_HUB='/favorites.html',A='samguk',STORE='samguk_dex_v1';
+const VIEWS=['world','casual','all'],ROLES=['lord','general','strategist','official'],STATS=['lead','war','int','pol'];
+const param=k=>{try{return new URLSearchParams(location.search).get(k)}catch{return null}};
+const pref=(()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')||{}}catch{return {}}})();
+const savePref=v=>{try{localStorage.setItem(STORE,JSON.stringify(Object.assign({},pref,v)))}catch{}};
+function useDocs(){
+  const [doc,setDoc]=useState(null);
+  useEffect(()=>{
+    Promise.all([
+      fetch('data/sam-design.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch('data/style.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch(IMG.DATA,{cache:'no-cache'}).then(r=>r.ok?r.json():{img:{}}).catch(()=>({img:{}}))
+    ]).then(([d,s,i])=>{IMG.setShards(i);IMG.setAdded(i);setDoc({d,s,img:i.img||{}});}).catch(()=>setDoc({failed:true}));
+  },[]);
+  return doc;
+}
+function useFavorites(){const [l,set]=useState(()=>FAV?FAV.list():[]);useEffect(()=>FAV?FAV.onChange(set):undefined,[]);return l;}
+function useNote(){const [m,set]=useState(''),t=useRef(0);useEffect(()=>()=>clearTimeout(t.current),[]);return [m,s=>{set(s);clearTimeout(t.current);t.current=setTimeout(()=>set(''),2000);}];}
+/* 장수에 그림이 등록된 화풍들 — 기본 화풍이 먼저, 나머지는 style.json 차례 */
+function stylesOf(doc,key,any){
+  const e=doc.img[key];if(!e)return [];const m=IMG.styleMap(e);
+  const ks=Object.keys(m).filter(k=>any||Object.values(IMG.formMap(m[k])).some(f=>f.f));
+  const order=[doc.s.default,...Object.keys(doc.s.styles||{})];
+  return ks.sort((a,b)=>{const ia=order.indexOf(a),ib=order.indexOf(b);return (ia<0?99:ia)-(ib<0?99:ib);});
+}
+function fileOf(doc,key,world,style){
+  const e=doc.img[key];if(!e)return null;
+  const b=IMG.styleMap(e)[style||doc.s.default]||(style?null:IMG.styleMap(e)[stylesOf(doc,key)[0]]);if(!b)return null;
+  const f=IMG.formMap(b)[world];return f&&f.f||null;
+}
+const styleName=(doc,k)=>{const s=doc.s.styles&&doc.s.styles[k];return s&&s.name||k;};
+/* 장수의 그림 전부 — 크게 보기가 이 차례로 넘긴다: 세계 그림 → 다른 화풍 → 일상컷(세계마다 번호) */
+function picsOf(doc,g){
+  const all=doc.d.vocab.worlds,out=[],styles=stylesOf(doc,g.key),key=g.key;
+  for(const w of all){const f=fileOf(doc,key,w);if(f)out.push({file:f,kind:'world',world:w,label:W('world.'+w)});}
+  for(const st of styles.slice(1))for(const w of all){const f=fileOf(doc,key,w,st);if(f)out.push({file:f,kind:'alt',world:w,style:st,label:styleName(doc,st)+' · '+W('world.'+w)});}
+  const e=doc.img[key];
+  if(e){const seen={};for(const st of stylesOf(doc,key,true))for(const c of IMG.casualsOf(IMG.styleMap(e)[st],all,'f')){const wk=c.world||'';seen[wk]=(seen[wk]||0)+1;
+    out.push({file:c.file,kind:'casual',world:wk,label:(wk?W('world.'+wk):W('dex.casual.draft'))+' '+seen[wk],long:W('dex.casual')+' · '+(wk?W('world.'+wk):W('dex.casual.draft'))+' '+seen[wk]});}}
+  return out;
+}
+const Thumb=({file})=>h('img',{loading:'lazy',src:IMG.thumbURL(file),alt:'',onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(file);}});
+const promptURL=(g,w)=>'prompt.html?card='+encodeURIComponent(g.key)+(w?'&world='+w:'');
+/* 세계 한 칸 — 그림이면 크게 보기, 없으면 그 세계의 생성기로 */
+function WorldSlot({g,world,pic,onOpen}){
+  const ko=W('world.'+world);
+  if(!pic)return h('a',{class:'slot',href:promptURL(g,world),title:W('dex.prompt')},h('span',{class:'face'},h('span',{class:'ph'},W('art.missing'))),h('span',{class:'cap'},ko));
+  return h('button',{type:'button',class:'slot',onClick:()=>onOpen(g,pic.file),title:W('dex.open')},h('span',{class:'face'},h(Thumb,{file:pic.file})),h('span',{class:'cap'},ko));
+}
+const PicSlot=({g,pic,onOpen,cls})=>h('button',{type:'button',class:'slot'+(cls?' '+cls:''),onClick:()=>onOpen(g,pic.file),title:pic.long||pic.label},h('span',{class:'face'},h(Thumb,{file:pic.file})),h('span',{class:'cap'},pic.label));
+/* 장수 하나 — 보기 · 세계 거르기와 접기를 따른다 */
+function Card({doc,g,view,wf,open,setOpen,onOpen,favs}){
+  const pics=picsOf(doc,g),inW=p=>!wf||p.world===wf,d=doc.d;
+  const worldsShown=d.vocab.worlds.filter(w=>!wf||w===wf);
+  const casuals=pics.filter(p=>p.kind==='casual'&&inW(p)),alts=pics.filter(p=>p.kind==='alt'&&inW(p));
+  const o=open[g.key]||{},showCasual=view==='casual'||view==='all'||o.casual,showAlt=view==='all'||o.alt;
+  const fav=pics.filter(p=>favs.some(x=>x.a===A&&x.file===p.file)).length;
+  const toggle=k=>setOpen(Object.assign({},open,{[g.key]:Object.assign({},o,{[k]:!o[k]})}));
+  const head=h('div',{class:'card-head'},h('b',null,g.seal&&h('span',{class:'seal'},g.seal),g.key),h('span',{class:'en'},g.en),
+    g.designed==='hand'&&h('span',{class:'hand',title:W('dex.hand.title')},W('dex.hand')),fav>0&&h('span',{class:'fav-mark',title:W('dex.fav.inCard',{n:fav})},'♥ '+fav));
+  const body=[];
+  if(view!=='casual')body.push(h('div',{key:'w',class:'worlds main'},worldsShown.map(w=>h(WorldSlot,{key:w,g,world:w,pic:pics.find(p=>p.kind==='world'&&p.world===w),onOpen}))));
+  if(view==='world'){
+    const btns=[];
+    if(casuals.length)btns.push(h('button',{key:'c',type:'button',class:'more','aria-expanded':!!o.casual,'data-more':'casual',onClick:()=>toggle('casual')},W(o.casual?'dex.less.casual':'dex.more.casual',{n:casuals.length})));
+    if(alts.length)btns.push(h('button',{key:'a',type:'button',class:'more','aria-expanded':!!o.alt,'data-more':'alt',onClick:()=>toggle('alt')},W(o.alt?'dex.less.alt':'dex.more.alt',{n:alts.length})));
+    if(btns.length)body.push(h('div',{key:'m',class:'more-row'},btns));
+  }
+  if(showAlt&&alts.length&&view!=='casual')body.push(h('div',{key:'alt',class:'worlds alt'},alts.map(p=>h(PicSlot,{key:p.file,g,pic:p,onOpen}))));
+  if(showCasual&&casuals.length)body.push(h('div',{key:'cas',class:'worlds casuals'},casuals.map(p=>h(PicSlot,{key:p.file,g,pic:p,onOpen}))));
+  if(view==='casual'&&!casuals.length)body.push(h('p',{key:'no',class:'none-note'},W('dex.casual.none')));
+  const st=g.stats||{};
+  return h('article',{class:'ek-card sam-card'+(pics.length?'':' bare'),id:'c-'+g.key,'data-card':g.key,'data-fac':g.faction},
+    h('div',{class:'who'},head,
+      h('ul',{class:'stats','aria-label':W('dex.stats')},STATS.map(k=>h('li',{key:k},W('stat.'+k),h('b',null,st[k])))),
+      g.lore&&h('p',{class:'lore'},g.lore)),
+    h('div',{class:'body'},body));
+}
+/* 위에 붙는 판 — 보기 · 세계 · 찾기 · 그림 있는 것만 · 역할로 바로 가기 · 즐겨찾기 */
+function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,favN,worlds}){
+  const go=r=>{const el=document.getElementById('r-'+r);if(el)el.scrollIntoView({block:'start',behavior:'smooth'});};
+  return h('div',{class:'dex-toc'},
+    h('div',{class:'toc-row'},
+      h('div',{class:'seg',role:'group','aria-label':W('dex.view')},VIEWS.map(v=>h('button',{key:v,type:'button','data-view':v,'aria-pressed':view===v,onClick:()=>setView(v)},W('dex.view.'+v)))),
+      h('div',{class:'seg',role:'group','aria-label':W('dex.wf')},[''].concat(worlds).map(w=>h('button',{key:w||'all',type:'button','data-wf':w||'all','aria-pressed':wf===w,onClick:()=>setWf(w)},w?W('world.'+w):W('dex.wf.all')))),
+      h('a',{class:'fav-count',id:'dex-fav-count',href:FAV_HUB,title:W('dex.fav.open',{n:favN})},'♡ '+W('dex.fav.count',{n:favN}))),
+    /* 찾기 줄 — 폰에서 위 줄은 옆으로 밀리므로 찾기 · 그림 있는 것만은 따로 한 줄 */
+    h('div',{class:'find-row'},
+      h('input',{class:'find',id:'dex-find',type:'search',value:q,placeholder:W('dex.find'),'aria-label':W('dex.find'),onInput:e=>setQ(e.target.value)}),
+      h('label',{class:'only'},h('input',{type:'checkbox',id:'dex-only',checked:only,onChange:e=>setOnly(e.target.checked)}),W('dex.only.art'))),
+    roles.length>1&&h('nav',{class:'toc-jump','aria-label':W('dex.toc')},roles.map(r=>h('button',{key:r.key,type:'button',class:'jump','data-jump':r.key,onClick:()=>go(r.key)},r.ko+' '+r.n))));
+}
+/* 크게 보기 — 그 장수의 그림을 차례로. ← → · 밀기 · Esc, 하트 */
+function Lightbox({doc,box,setBox,close,favs}){
+  const [msg,say]=useNote(),touch=useRef(null);
+  useEffect(()=>{if(!box)return;const k=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1);};addEventListener('keydown',k);return()=>removeEventListener('keydown',k);});
+  if(!box)return null;
+  const pics=picsOf(doc,box.g),i=Math.max(0,pics.findIndex(p=>p.file===box.file)),p=pics[i];
+  if(!p)return null;
+  /* 늘 지금 값에서 한 칸 — 키를 빨리 두 번 누르면 옛 자리를 읽어 안 넘어갔다(원소 공방 2026-10-31) */
+  function step(d){setBox(b=>{if(!b)return b;const ps=picsOf(doc,b.g),n=ps.length;if(n<2)return b;const j=Math.max(0,ps.findIndex(x=>x.file===b.file));return Object.assign({},b,{file:ps[(j+d+n)%n].file});});}
+  const faved=favs.some(x=>x.a===A&&x.file===p.file);
+  const toggleFav=()=>{if(!FAV)return;const q=new URLSearchParams({faction:box.g.faction,card:box.g.key,pic:p.file});
+    const on=FAV.toggle({a:A,key:box.g.key,file:p.file,title:box.g.key,sub:p.long||p.label,thumb:IMG.thumbURL(p.file),full:IMG.imgURL(p.file),link:new URL('dex.html',location.href).pathname+'?'+q.toString()});
+    say(W(on?'dex.fav.added':faved?'dex.fav.removed':'dex.fav.blocked'));};
+  return h('div',{class:'lightbox',role:'dialog','aria-modal':'true','aria-label':box.g.key,onClick:e=>{if(e.target===e.currentTarget)close();},
+      onTouchStart:e=>{touch.current=e.touches[0].clientX;},onTouchEnd:e=>{const x=touch.current;touch.current=null;if(x==null)return;const dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>50)step(dx<0?1:-1);}},
+    h('div',{class:'lb-top'},h('b',null,box.g.key),h('span',null,p.long||p.label),h('span',{class:'lb-n'},W('dex.counter',{i:i+1,n:pics.length}))),
+    h('div',{class:'lb-stage'},
+      pics.length>1&&h('button',{type:'button',class:'lb-nav prev','aria-label':W('dex.prev'),onClick:()=>step(-1)},'‹'),
+      h('img',{key:p.file,src:IMG.imgURL(p.file),alt:box.g.key+' · '+(p.long||p.label)}),
+      pics.length>1&&h('button',{type:'button',class:'lb-nav next','aria-label':W('dex.next'),onClick:()=>step(1)},'›')),
+    h('div',{class:'bar'},
+      h('button',{type:'button',class:'fav-heart',id:'dex-fav','aria-pressed':faved,disabled:!FAV,title:W('dex.fav.note'),onClick:toggleFav},h('span',{'aria-hidden':'true'},faved?'♥':'♡'),' '+W('dex.fav')),
+      p.kind==='world'&&h('a',{href:promptURL(box.g,p.world)},W('dex.prompt')),
+      h('button',{type:'button',onClick:close},W('dex.close'))),
+    h('div',{class:'fav-toast',role:'status','aria-live':'polite'},msg));
+}
+/* 그린 칸 — 장수마다 세계 셋 */
+function progress(doc,gs){let done=0;for(const g of gs)done+=doc.d.vocab.worlds.filter(w=>fileOf(doc,g.key,w)).length;return {done,all:gs.length*doc.d.vocab.worlds.length};}
+const matches=(g,q)=>{q=q.trim().toLowerCase();return !q||(g.key+' '+(g.en||'')+' '+(g.seal||'')).toLowerCase().includes(q);};
+function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,open,setOpen,onOpen,favs}){
+  const d=doc.d,all=d.generals.filter(g=>g.faction===f.key),pr=progress(doc,all);
+  const shown=all.filter(g=>matches(g,q)&&(!only||picsOf(doc,g).length));
+  const roles=ROLES.map(r=>({key:r,ko:d.roles[r].ko,gs:shown.filter(g=>g.role===r)})).filter(r=>r.gs.length).map(r=>Object.assign(r,{n:r.gs.length}));
+  const favN=favs.filter(x=>x.a===A).length,props={doc,view,wf,open,setOpen,onOpen,favs};
+  return h('section',{class:'ek-section','data-fac':f.key,'aria-label':f.ko},
+    h('div',{class:'dex-head'},h('span',{class:'han'},f.hanja),h('div',null,h('h2',null,f.ko,' ',h('span',{class:'en'},f.en)),
+      h('p',{class:'dex-progress'},W('dex.count',{n:all.length}),' · ',W('dex.progress',{done:pr.done,all:pr.all})))),
+    h('details',{class:'about'},h('summary',null,W('dex.about')),h('p',null,f.persona),
+      h('ul',{class:'traits'},d.vocab.worlds.map(w=>h('li',{key:w},h('b',null,W('world.'+w)),' — ',((f.worlds||{})[w]||{}).ko)))),
+    h(Toc,{roles,view,setView,wf,setWf,q,setQ,only,setOnly,favN,worlds:d.vocab.worlds}),
+    !roles.length&&h('p',{class:'none-row',id:'dex-none'},W('dex.empty')),
+    roles.map(r=>h('div',{key:r.key,class:'role'},
+      h('div',{class:'role-head',id:'r-'+r.key},h('h3',null,r.ko),h('span',null,W('dex.count',{n:r.n}))),
+      h('div',{class:'cards'},r.gs.map(g=>h(Card,Object.assign({key:g.key,g},props)))))));
+}
+function Dex(){
+  const doc=useDocs(),favs=useFavorites();
+  const [view,setViewS]=useState(()=>VIEWS.includes(param('view'))?param('view'):VIEWS.includes(pref.view)?pref.view:'world');
+  const [wf,setWfS]=useState(()=>{const w=param('w')??pref.w??'';return ['samguk','fantasy','mecha'].includes(w)?w:'';});
+  const [q,setQS]=useState(()=>param('q')||''),[only,setOnlyS]=useState(()=>param('only')==='1'||(param('only')==null&&!!pref.only));
+  const [open,setOpen]=useState({}),[box,setBox]=useState(null),deep=useRef(false);
+  const remember=(v,w,qq,o)=>{savePref({view:v,w,only:o});try{const u=new URL(location.href);u.searchParams.set('view',v);if(w)u.searchParams.set('w',w);else u.searchParams.delete('w');
+    if(qq)u.searchParams.set('q',qq);else u.searchParams.delete('q');if(o)u.searchParams.set('only','1');else u.searchParams.delete('only');u.searchParams.delete('card');u.searchParams.delete('pic');history.replaceState(history.state,'',u);}catch{}};
+  /* 크게 보기와 뒤로 가기 — 열 때 기록에 한 칸(samgukLb)을 더해 두면 뒤로 가기가 그 칸을 지우며 팝업만 닫는다(원소 공방 사용자 2026-10-31 「뒤로 가기 누르면 이전 화면으로 넘어가네」).
+     닫기 · Esc · 바깥으로 닫으면 그 칸을 우리가 지운다 — 다음 뒤로 가기는 그대로 이전 화면 */
+  const isLb=()=>!!(history.state&&history.state.samgukLb);
+  const openBox=b=>{if(!isLb()){try{history.pushState({samgukLb:1},'',location.href);}catch{}}setBox(b);};
+  const closeBox=()=>{if(isLb()){try{history.back();return;}catch{}}setBox(null);};
+  useEffect(()=>{const pop=()=>{if(!isLb())setBox(null);};addEventListener('popstate',pop);return()=>removeEventListener('popstate',pop);},[]);
+  const setView=v=>{setViewS(v);remember(v,wf,q,only);},setWf=w=>{setWfS(w);remember(view,w,q,only);},setQ=x=>{setQS(x);remember(view,wf,x,only);},setOnly=o=>{setOnlyS(o);remember(view,wf,q,o);};
+  /* 공방 모음 즐겨찾기에서 ?card=&pic= 로 오면 그 장수로 내려가 그 그림을 연다 */
+  useEffect(()=>{if(!doc||doc.failed||deep.current)return;deep.current=true;const ck=param('card'),pic=param('pic');if(!ck)return;
+    const g=doc.d.generals.find(x=>x.key===ck);if(!g)return;
+    setTimeout(()=>{const el=document.getElementById('c-'+ck);if(el)el.scrollIntoView({block:'start'});},50);
+    if(pic&&picsOf(doc,g).some(p=>p.file===pic))openBox({g,file:pic});},[doc]);
+  if(!doc)return h('p',{class:'ek-note'},W('dex.loading'));
+  if(doc.failed)return h('p',{class:'ek-note'},W('dex.fail'));
+  const d=doc.d,ck=param('card'),cg=ck&&d.generals.find(x=>x.key===ck),want=param('faction')||(cg&&cg.faction),f=d.factions.find(x=>x.key===want)||d.factions[0];
+  return h('div',null,
+    h('nav',{class:'dex-pick','aria-label':W('dex.pick')},d.factions.map(x=>{const gs=d.generals.filter(g=>g.faction===x.key),pr=progress(doc,gs);
+      return h('a',{key:x.key,href:'dex.html?faction='+x.key,'aria-current':x.key===f.key?'page':undefined,'data-fac':x.key},h('span',{class:'sym'},x.hanja),x.ko,' ',h('i',null,W('dex.pick.n',{n:gs.length,done:pr.done})));})),
+    h(Faction,{doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})}),
+    h(Lightbox,{doc,box,setBox,close:closeBox,favs}));
+}
+function App(){return h('div',null,h(WorkspaceHeader,{page:'dex'}),h(Dex));}
+render(h(App),document.getElementById('app'));
+window.AtelierFresh.watch();
+</script>
+</body>
+</html>
