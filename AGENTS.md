@@ -12,7 +12,7 @@
 | 이 문서 | 규칙과 자리 |
 | `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(279 — 게임 표 그대로) |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
-| `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길 — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
+| `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길(AI 검수 뒤 묻지 않고 올린다) — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
 | `data/style.json` | 화풍 판 — 세계 그림은 `text`, 일상컷은 `casual`. 기본 `kr_mmorpg`(한국 MMORPG 프로모 렌더, 2026-11-02), 비교용 `game_keyart`(2.5D) · `glossy_kr_game` |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 |
 
