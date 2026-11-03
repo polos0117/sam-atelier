@@ -8,6 +8,11 @@
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
 
+## 2026-11-04 · claude · GPT 세션용 구조형 지시문 — 지시문 묶음이 자리마다 <자리>-gpt.md
+- lib/prompt-gpt.js(새) — 생성기 지시문(lib/prompt-sam.js)의 줄을 칸으로 옮겨 GPT 세션용 구조형을 만든다. 세계 그림은 API 화풍 줄 대신 고정 화풍 칸(부드러운 3D 렌더 · 작은 턱 · 낮은 미세 대비 · 낮은 채도, 법정 5c 영문), 손에 든 것은 맨 앞(차림 글의 부채 · 두루마리는 그것으로 대신), 일상컷은 화풍 · 얼굴을 첨부 그림에 맡기고 어느 각도에서도 작은 턱 · 몸 볼륨은 그 장수 체형 글에서(첨부 그림의 옷이 몸을 가린다, 법정 일상 4판 영문). 사용자 「응 진행해줘」 — 같은 날 법정 · 반장 시험으로 고른 틀
+- tools/prompt-pack.cjs — build 가 자리마다 <자리>-gpt.md 를 쓰고 INDEX 에 구조형 sha256, 못 옮긴 줄이 있으면 아무것도 안 쓴다. tests/prompt-gpt.cjs(새) — 장수 열넷 × 세계 셋 × 일상 다섯이 한 줄도 남김없이 옮겨지나
+- docs/IMAGE_AUTOMATION.md · IMAGE_RULES.md · AGENTS.md — GPT 세션은 <자리>-gpt.md 를 내고 도구에서 세로 1024×1536 지정. 검수에서 다섯 가지(긴 얼굴 · 다른 사람 · 마른 몸 · 끊긴 물건 · 팔다리 수)가 걸리면 그 자리만 한 번 다시 그린다(같은 지시문도 장마다 갈렸다), 기록에 prompt_form · prompt_sha256 · redo
+
 ## 2026-11-03 · claude · 일상컷 얼굴 · 화풍은 첨부 그림에 맡긴다
 - lib/prompt-sam.js — 일상컷 지시문 끝에서 refLock: 화풍 문장 → 「STYLE: keep the attached image's rendering exactly …」, 나이 줄 → 「FACE: exactly the face of the attached image …」(없으면 CHARACTER 밑에), 표정 줄 끝에 「눈썹 · 눈꺼풀 · 입꼬리로만」, FINAL CHECK 줄 뺌. 사용자 「일상컷 저거 너무 이상해」 → 「이제 좀 낫네」 → 「응 다 적용해줘」 — 화풍 · 얼굴 문장을 새로 주면 GPT 세션이 첨부 그림의 얼굴을 다시 그렸다(헬륨 메카 일상)
 - tests/casual-plan.cjs — 일상컷 화풍 · 얼굴 · 표정 줄 검사

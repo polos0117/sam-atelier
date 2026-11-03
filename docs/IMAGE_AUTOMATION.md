@@ -50,7 +50,7 @@ node tools/image-claim.cjs claim <장수> --execution $ATELIER_EXECUTION_ID
 ```sh
 node tools/casual-plan.cjs <장수> --world all --records ../sam-atelier-img/records/<장수> --out $W      # $W/plan-<세계>/plan.json · 기록 · 지시문
 node tools/prompt-pack.cjs init <장수> --dir $W/pack --plan $W/plan-samguk/plan.json --plan $W/plan-fantasy/plan.json --plan $W/plan-mecha/plan.json
-node tools/prompt-pack.cjs build --dir $W/pack                                  # 자리마다 <자리>-prompt.txt · <자리>-ui.json · INDEX.md
+node tools/prompt-pack.cjs build --dir $W/pack                                  # 자리마다 <자리>-gpt.md(GPT 세션이 내는 것) · <자리>-prompt.txt · <자리>-ui.json · INDEX.md
 ```
 
 - 계획기가 묶음 규칙을 지킨다: 세계마다 다섯 장 중 **정해 둔 두 갈래**(노출 갈래 한 장 — 란제리풍 · 수영복 · 역할극, 세계 안 갈래 한 장 — 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영, 서로 다른 컷) · 네 시대 · 장소 · 의상 · 자세 · 소품 ·
@@ -58,7 +58,8 @@ node tools/prompt-pack.cjs build --dir $W/pack                                  
 - 세계 하나만 남았으면 `--world <세계>` — 다른 세계의 기록은 `--records` 에서 읽어 겹침에 넣는다. 아직 안 올린 다른 계획은 `--others a.json,b.json`.
 - 옛 묶음을 두고 **더 그리라는 말이 있을 때만** `--fresh`(그 세계의 가장 큰 번호 뒤로 다섯 장, 옛 묶음과도 겹치지 않게 — 검사는 `--check … --from <첫 번호>`). 빈 자리 채우기엔 쓰지 않는다.
 - 계획을 손으로 바꾸지 않는다. `settings.json` 은 **비워 둔 채** build 하는 것이 기본 — 고칠 때만 칸을 채우고 직접 입력(덧붙임 글)엔 `why` 를 적는다. 고칠 수 있는 칸은 `tools/prompt-pack.cjs` 머리말에.
-- **`<자리>-prompt.txt` 를 손으로 고쳐 내지 않는다.** 고칠 것이 있으면 settings 를 고쳐 build 를 다시 돌린다.
+- **GPT 세션은 `<자리>-gpt.md`(구조형)를 낸다**(사용자 2026-11-03 「응 진행해줘」 — 법정 시험: 긴 영문 한 덩어리 `<자리>-prompt.txt` 는 image_gen 에서 선 · 장식 · 표정이 세게 나왔고, 화풍을 칸으로 나눈 구조형은 API 와 같은 그림체가 됐다). `lib/prompt-gpt.js` 가 같은 지시문을 칸으로 옮긴 것이라 설계 값은 같다 — 세계 그림은 고정 화풍 칸(부드러운 3D 렌더 · 낮은 채도), 일상컷은 화풍 · 얼굴을 첨부 그림에 맡기고 몸 볼륨은 그 장수 체형 글에서. `<자리>-prompt.txt` 는 API · 생성기 몫이다.
+- **`<자리>-gpt.md` · `<자리>-prompt.txt` 를 손으로 고쳐 내지 않는다.** 고칠 것이 있으면 settings 를 고쳐 build 를 다시 돌린다.
 - 일상컷에서 무기(검 · 창 · 언월도 · 활 …)는 들지 않는다 — 지시문이 그 무기를 본뜬 작은 장신구 하나로 바꾼다(SIGNATURE ACCESSORY 줄, `IMAGE_RULES.md` 2절). 부채 · 두루마리 같은 무기 아닌 물건만 한두 장 손에 든다. 세계 그림의 무기엔 「끊기지 않는 한 자루」 줄이 들어간다(`lib/prompt-spec.js` SIGNATURE).
 - 안전 필터로 한 칸이 끝내 막히면 그 칸만 `--slots N --seed <다른 씨앗>` 으로 계획기에 다시 맡긴다 — 한 번만.
 
@@ -67,11 +68,14 @@ node tools/prompt-pack.cjs build --dir $W/pack                                  
 - `INDEX.md` 의 차례대로, `claim` 의 `missing` 에 있는 자리만 그린다. 자리 하나에 생성 호출 한 번.
 - 세계 그림은 **기준 그림 없이** 한 장씩(세계마다 다른 사람). 일상컷은 그 세계 그림을 **꼭** 붙인다(이미지 편집 `images/edits` — 첨부 없이 뽑으면 다른 사람이 된다).
   이 세션에서 받은 원본, 이미 등록된 세계 그림이면 그림 저장소의 `img/<파일>.webp`. 세계 그림이 없는 세계는 일상컷을 그리지 않는다.
-- 크기는 1024×1536. 도구가 실제로 돌려준 파일만 쓴다.
+- 크기는 1024×1536 — **이미지 도구의 크기 설정으로 세로 1024×1536 을 꼭 지정한다**(글만으로는 가로로 나온 적이 있다). 도구가 실제로 돌려준 파일만 쓴다.
 - **검수**(기록의 `qa` — 7절)를 구체적으로: 1024×1536 · 그녀 한 명(말 · 짐승 · 두 번째 인물 없음) · 깃발 · 인장의 한 글자 말고 읽히는 글자 · 로고 · 워터마크 · 틀 ·
   세계 그림이면 고른 세계대로인가(삼국시대가 일본 옷으로, 판타지가 한푸로 가지 않았나) · 일상컷이면 첨부한 세계 그림과 같은 얼굴 · 머리 · 몸인가, 계획 칸(시대 · 장소 · 의상 · 프레이밍 · 자세 · 두 손 · 소품)대로인가 ·
   **일상컷에 무기가 없나(장신구 하나만) · 세계 그림의 무기 · 손에 든 물건이 한 자루로 이어졌나(꺾임 · 잘림 없음 — 몸으로 불가능한 자세도)** · 팔 · 다리 · 손의 수와 이어짐.
 - 검수에서 걸린 것은 `passed: false` 와 함께 그대로 적고 **올린다**(0절 — 사용자가 올라간 뒤 본다). 다시 그리지 않는다.
+  **다만 아래 다섯 가지는 그 자리만 같은 지시문으로 한 번 다시 그린다**(사용자 2026-11-03 — 같은 지시문도 장마다 갈렸다: 법정 일상 4장 중 1장만 볼륨이 모자랐다):
+  얼굴이 길거나 턱이 무거워 보임 · 일상컷 얼굴이 첨부 그림과 다른 사람 · 몸이 체형 글보다 눈에 띄게 마름 · 무기 · 손에 든 물건이 끊김 · 꺾임 · 몸 뒤로 지나감 · 팔 · 다리 · 손의 수가 틀림.
+  두 장 다 기록에 남긴다(`generation.redo` — 앞 장의 sha256 과 걸린 항목). 다시 그린 장도 걸리면 나은 쪽을 `passed: false` 로 올린다 — 세 번째는 없다.
   지시문에서 부딪힌 줄(세계 · 장소 · 의상 · 자세 · 프레이밍 · HAND · PROP · 시대)을 찾았으면 원인도 적는다 — 규칙 · 계획기를 고치는 일은 사람이 지켜보는 세션이 한다.
 - 올리기 전 `node tools/casual-plan.cjs <장수> --world <세계> --check <새 기록을 넣은 기록 폴더 사본>` 이 세계마다 통과해야 한다(다른 세계와 같은 장면도 본다).
 
@@ -99,7 +103,8 @@ node tools/image-claim.cjs done <장수> --execution $ATELIER_EXECUTION_ID
 
 ```json
 {"generation": {"tool": "<도구>", "endpoint": "images/generations | images/edits", "ref_sha256": "<일상컷 — 붙인 세계 그림의 sha256>",
-                "size": [1024, 1536], "png_sha256": "<원본>", "webp": {"quality": 90}, "retries": [{"n": 1, "status": "<응답>", "exposure": "<노출>"}]},
+                "size": [1024, 1536], "png_sha256": "<원본>", "webp": {"quality": 90}, "retries": [{"n": 1, "status": "<응답>", "exposure": "<노출>"}],
+                "prompt_form": "gpt-structured", "prompt_sha256": "<낸 <자리>-gpt.md 의 sha256>", "redo": {"previous_sha256": "<다시 그렸으면 앞 장>", "why": "<걸린 항목>"}},
  "execution": "<실행 ID>", "imported": "<YYYY-MM-DD>",
  "qa": {"reviewer": "<세션>", "image_sha256": "<원본>", "passed": true, "observations": ["<본 것 하나씩>"], "cause": "<어긋났으면 부딪힌 줄>"},
  "acceptance": "user_approval_2026-11-02 — 묻지 않고 올리고 사용자가 올라간 뒤 본다(「삼국지도 원소처럼 바로 올리게 바꿔줘」)",
@@ -109,4 +114,4 @@ node tools/image-claim.cjs done <장수> --execution $ATELIER_EXECUTION_ID
 ## 8. 하지 않는 것
 
 - 계획기 없이 일상컷 장면을 짜지 않는다 · 세계 셋에 같은 장면을 돌려쓰지 않는다 · 계획 · 지시문을 손으로 고쳐 내지 않는다.
-- 남의 잠금 · 기록 · 그림을 고치지 않는다 · 검수 실패를 통과로 바꾸지 않는다 · 같은 자리를 여러 번 다시 그려 고르지 않는다 · 화풍을 바꾸지 않는다(늘 기본) · 게임(`draft.html` · `images/`)을 건드리지 않는다.
+- 남의 잠금 · 기록 · 그림을 고치지 않는다 · 검수 실패를 통과로 바꾸지 않는다 · 같은 자리를 여러 번 다시 그려 고르지 않는다(4절의 다섯 가지만 한 번) · 화풍을 바꾸지 않는다(늘 기본) · 게임(`draft.html` · `images/`)을 건드리지 않는다.

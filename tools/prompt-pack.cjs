@@ -8,7 +8,7 @@
      작업 폴더에 settings.json(고칠 수 있는 칸만)을 만든다 — 이미 있으면 덮지 않고 멈춘다.
      --plan 은 일상컷 계획기(tools/casual-plan.cjs <카드> --world <세계> --out)의 plan.json — 세계마다 하나, 여럿 준다. 일상 컷의 선택값은 계획에서만 온다.
    node tools/prompt-pack.cjs build --dir <작업 폴더>
-     settings.json 을 읽어 자리마다 <자리>-prompt.txt · <자리>-ui.json 과 차례표 INDEX.md 를 쓴다.
+     settings.json 을 읽어 자리마다 <자리>-prompt.txt(영문 지시문) · <자리>-gpt.md(GPT 세션용 구조형, lib/prompt-gpt.js) · <자리>-ui.json 과 차례표 INDEX.md 를 쓴다.
      틀린 칸(없는 열쇠 · 표에 없는 값 · 사유 없는 직접 입력 · 그 카드가 안 사는 세계 · 계획에 없는 컷)이 하나라도 있으면 아무것도 쓰지 않고 1 로 끝난다.
 
    자리 — <세계>(세계 그림 — 첨부 없이 한 장씩) · <세계>-casualN(일상컷 — 그 세계 그림 첨부). 화풍은 늘 기본(data/style.json default). 고칠 수 있는 칸:
@@ -26,6 +26,7 @@ const T = ctx.window.AtelierSpec, C2 = ctx.window.AtelierCasualTreeV2, P = ctx.w
 const D = JSON.parse(read('data/sam-design.json')), S = JSON.parse(read('data/style.json'));
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json'));
 const PLAN = require('./casual-plan.cjs'), STYLE = S['default'];
+const GPT = require('../lib/prompt-gpt.js');   /* GPT 세션용 구조형(docs/IMAGE_AUTOMATION.md 4절) */
 const sha = s => crypto.createHash('sha256').update(s).digest('hex');
 const DEFS = (T.PARAM_DEFS || []).filter(d => T.IDENTITY_GROUPS.includes(d.group) && !T.IDENTITY_EXCLUDED.includes(d.key));
 const keys = rows => rows.map(r => Array.isArray(r) ? r[0] : r.key).filter(v => v && v !== '__custom__');
@@ -137,14 +138,23 @@ function build(dir) {
   if (errs.length) { for (const e of errs) console.error('  X ' + e); console.error('settings.json 에 ' + errs.length + ' 가지 — 아무것도 안 썼다'); return 1; }
   const out = slots(card, plans).map(s => ({ s, rec: recordOf(card, set, s) }));
   for (const { s, rec } of out) if (!rec.prompt) { console.error('  X ' + s.slot + ' 지시문이 비었다'); return 1; }
-  for (const { s, rec } of out) {
+  /* GPT 세션용 구조형 — 같은 지시문을 칸으로 옮긴 것. 일상컷의 몸 볼륨은 그 세계 그림 SILHOUETTE 의 체형 칸에서 */
+  const bodyOf = w => { const m = (P.build(D, S, card.key, w, { style: STYLE }) || '').match(/^SILHOUETTE:\s*([^;\n]+)/m); return m ? m[1] : ''; };
+  for (const o of out) {
+    const g = o.s.kind === 'world' ? GPT.world(o.rec.prompt) : GPT.casual(o.rec.prompt, { bodyText: bodyOf(o.s.world) });
+    if (g.unknown.length) { console.error('  X ' + o.s.slot + ' 구조형에 못 옮긴 줄: ' + g.unknown.map(l => l.slice(0, 50)).join(' | ')); return 1; }
+    o.gpt = g.text;
+  }
+  for (const { s, rec, gpt } of out) {
+    fs.writeFileSync(path.join(dir, s.slot + '-gpt.md'), gpt);
     fs.writeFileSync(path.join(dir, s.slot + '-prompt.txt'), rec.prompt);
     fs.writeFileSync(path.join(dir, s.slot + '-ui.json'), JSON.stringify(rec, null, 1) + '\n');
   }
-  const rows = out.map(({ s, rec }, i) => `| ${i + 1} | ${s.slot} | ${s.kind === 'world' ? '세계 그림(첨부 없이)' : '일상(버전2)'} | ${s.attach.join(' + ') || '없음'} | ${rec.file} | ${rec.record} | ${sha(rec.prompt).slice(0, 12)} |`);
+  const rows = out.map(({ s, rec, gpt }, i) => `| ${i + 1} | ${s.slot} | ${s.kind === 'world' ? '세계 그림(첨부 없이)' : '일상(버전2)'} | ${s.attach.join(' + ') || '없음'} | ${rec.file} | ${rec.record} | ${sha(rec.prompt).slice(0, 12)} | ${sha(gpt).slice(0, 12)} |`);
   fs.writeFileSync(path.join(dir, 'INDEX.md'), `# ${card.key}(${card.c.ko}) — 지시문 묶음\n\n만든 때 ${new Date().toISOString()} · 화풍 ${STYLE} · 사는 세계 ${card.worlds.join(' · ')} · 계획 ${plans.map(p => p.world).join(' · ') || '없음(일상 자리 없음)'}\n\n` +
-    '차례대로 그린다. 세계 그림은 기준 그림 없이 한 장씩, 일상컷은 그 세계 그림(이 세션의 원본, 이미 등록된 것이면 그림 저장소의 webp)을 붙인다. `<자리>-prompt.txt` 를 고치지 않고 그대로 낸다.\n\n' +
-    '| 차례 | 자리 | 갈래 | 첨부 | 올릴 파일 | 기록 자리 | 지시문 sha256 |\n|---|---|---|---|---|---|---|\n' + rows.join('\n') + '\n');
+    '차례대로 그린다. 세계 그림은 기준 그림 없이 한 장씩, 일상컷은 그 세계 그림(이 세션의 원본, 이미 등록된 것이면 그림 저장소의 webp)을 붙인다. 고치지 않고 그대로 낸다 — ' +
+    'GPT 세션(image_gen)은 `<자리>-gpt.md`(구조형, 크기 1024×1536 지정), API · 생성기는 `<자리>-prompt.txt`(docs/IMAGE_AUTOMATION.md 4절).\n\n' +
+    '| 차례 | 자리 | 갈래 | 첨부 | 올릴 파일 | 기록 자리 | 지시문 sha256 | 구조형 sha256 |\n|---|---|---|---|---|---|---|---|\n' + rows.join('\n') + '\n');
   console.log(`${card.key}(${card.c.ko}) — ${out.length} 자리 → ${dir}`);
   return 0;
 }
