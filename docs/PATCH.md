@@ -8,6 +8,12 @@
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
 
+
+## 2026-11-04 · gpt · 여몽 세계 3장·일상 15장 생성 및 도감 등록
+- sam-atelier-img/img/여몽_* · records/여몽/ — 기존 그림 없는 18칸 신규 생성. 세계는 생성기 영문 지시문, 일상은 구조형과 각 세계 원본 첨부. 1024×1536 WebP 품질 90·method 6, 원본·지시문·참고 그림 해시와 AI 검수 기록 보존. 얼굴·체형·팔다리 연결 확인; 크롭·손 좌우·시선·배경·소품 등 계획과 다른 12장은 qa.passed=false 유지
+- sam-atelier-img/records/여몽/*-casual-plan.json — 기존 로컬 사용 기록을 재사용해 계획기로 세 세계를 함께 구성, 세계별 필수 두 갈래·시대 배분·세계 사이 장소와 구도 중복 검사 통과
+- data/img.json — 등록 도구로 여몽 18개 파일 추가. 다른 장수 663개 파일·도감 데이터·최초 등록일 보존, sparse-checkout에 없는 이미지의 prune 미사용
+
 ## 2026-11-04 · gpt · 등애 메카 일상2 손 흔드는 팔을 몸 앞으로 수정
 - sam-atelier-img/img/등애_mecha_kr_mmorpg_f_casual2.webp · records/등애/mecha-casual2.kr_mmorpg-ui.json — 기존 원본 PNG를 첨부해 가까운 팔은 몸 앞에서 손을 흔들고 반대팔은 아래로 내리도록 부분 편집. 얼굴·체형·의상·까치발·카메라·우주 목욕탕 배경 유지, 1024×1536·양팔 연결·두 손 확인. 요청 수정 검수는 통과, 최초 계획과 다른 기존 몸 방향에 대한 전체 QA 미통과는 유지
 - sam-atelier-img/records/replacement.json — 이전 WebP·PNG 해시와 이전 기록 보존. 같은 등록 파일명으로 교체해 도감 주소·최초 등록일 유지, 썸네일은 워크플로에서 갱신
