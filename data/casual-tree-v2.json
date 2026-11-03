@@ -4610,7 +4610,8 @@
    "editorial": [],
    "bridal": [],
    "retro": [],
-   "halloween": []
+   "halloween": [],
+   "dongtan": []
   },
   "add": {
    "overalls": [
@@ -4749,6 +4750,12 @@
    "nineties_windbreaker_track": [
     "pocket",
     "collar"
+   ],
+   "dongtan_offshoulder": [
+    "strap"
+   ],
+   "dongtan_tube_leggings": [
+    "strap"
    ]
   },
   "remove": {
