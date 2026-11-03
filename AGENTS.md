@@ -88,7 +88,7 @@
 node tools/casual-plan.cjs <장수> --world <세계>|all [--fresh] [--out 폴더]   # 일상컷 묶음 계획 — 세계 셋끼리 같은 장면 없이, 비어 있는 번호에(--fresh 면 옛 묶음 뒤 번호로 새 다섯 장) 겹치지 않는 장면(정해 둔 두 갈래 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
 node tests/casual-plan.cjs              # 계획기 — 장수 × 세계 × 씨앗이 규칙을 지키나
 node tests/image-claim.cjs             # 잠금 도구 — 잡기 · 막기 · 풀기 · 끝(시험 저장소에서)
-node tests/prompt-gpt.cjs              # 구조형(lib/prompt-gpt.js — 시험 뒤 쓰지 않지만 build 가 만든다) — 생성기 지시문의 줄이 다 칸으로 옮겨지나, 고정 화풍 · 첨부 그림 · 체형 볼륨
+node tests/prompt-gpt.cjs              # 구조형(lib/prompt-gpt.js) — GPT 세션 일상컷 지시문, 생성기 지시문의 줄이 다 칸으로 옮겨지나 — 생성기 지시문의 줄이 다 칸으로 옮겨지나, 고정 화풍 · 첨부 그림 · 체형 볼륨
 python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 다섯 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장(서로 다른 컷), --plan 장수 로 남은 칸 · 세계 사이 같은 장면 알림
 python3 tools/sam-design.py check
 python3 tools/casual-tree.py check && python3 tools/casual-tree-v2.py check

@@ -8,7 +8,7 @@
      작업 폴더에 settings.json(고칠 수 있는 칸만)을 만든다 — 이미 있으면 덮지 않고 멈춘다.
      --plan 은 일상컷 계획기(tools/casual-plan.cjs <카드> --world <세계> --out)의 plan.json — 세계마다 하나, 여럿 준다. 일상 컷의 선택값은 계획에서만 온다.
    node tools/prompt-pack.cjs build --dir <작업 폴더>
-     settings.json 을 읽어 자리마다 <자리>-prompt.txt(영문 지시문) · <자리>-gpt.md(구조형 시험본 — 내지 않는다, lib/prompt-gpt.js) · <자리>-ui.json 과 차례표 INDEX.md 를 쓴다.
+     settings.json 을 읽어 자리마다 <자리>-prompt.txt(영문 지시문) · <자리>-gpt.md(구조형 — GPT 세션 일상컷이 낸다, lib/prompt-gpt.js) · <자리>-ui.json 과 차례표 INDEX.md 를 쓴다.
      틀린 칸(없는 열쇠 · 표에 없는 값 · 사유 없는 직접 입력 · 그 카드가 안 사는 세계 · 계획에 없는 컷)이 하나라도 있으면 아무것도 쓰지 않고 1 로 끝난다.
 
    자리 — <세계>(세계 그림 — 첨부 없이 한 장씩) · <세계>-casualN(일상컷 — 그 세계 그림 첨부). 화풍은 늘 기본(data/style.json default). 고칠 수 있는 칸:
@@ -153,7 +153,7 @@ function build(dir) {
   const rows = out.map(({ s, rec, gpt }, i) => `| ${i + 1} | ${s.slot} | ${s.kind === 'world' ? '세계 그림(첨부 없이)' : '일상(버전2)'} | ${s.attach.join(' + ') || '없음'} | ${rec.file} | ${rec.record} | ${sha(rec.prompt).slice(0, 12)} | ${sha(gpt).slice(0, 12)} |`);
   fs.writeFileSync(path.join(dir, 'INDEX.md'), `# ${card.key}(${card.c.ko}) — 지시문 묶음\n\n만든 때 ${new Date().toISOString()} · 화풍 ${STYLE} · 사는 세계 ${card.worlds.join(' · ')} · 계획 ${plans.map(p => p.world).join(' · ') || '없음(일상 자리 없음)'}\n\n` +
     '차례대로 그린다. 세계 그림은 기준 그림 없이 한 장씩, 일상컷은 그 세계 그림(이 세션의 원본, 이미 등록된 것이면 그림 저장소의 webp)을 붙인다. 고치지 않고 그대로 낸다 — ' +
-    'GPT 세션 · API · 생성기 모두 `<자리>-prompt.txt` 를 낸다(GPT 세션은 크기 1024×1536 지정). `<자리>-gpt.md` 는 구조형 시험본 — 내지 않는다(docs/IMAGE_AUTOMATION.md 3절).\n\n' +
+    'GPT 세션은 세계 그림에 `<세계>-prompt.txt`, 일상컷에 `<세계>-casualN-gpt.md`(크기 1024×1536 지정). API · 생성기는 모두 `<자리>-prompt.txt`(docs/IMAGE_AUTOMATION.md 3절).\n\n' +
     '| 차례 | 자리 | 갈래 | 첨부 | 올릴 파일 | 기록 자리 | 지시문 sha256 | 구조형 sha256 |\n|---|---|---|---|---|---|---|---|\n' + rows.join('\n') + '\n');
   console.log(`${card.key}(${card.c.ko}) — ${out.length} 자리 → ${dir}`);
   return 0;

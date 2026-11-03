@@ -8,6 +8,10 @@
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
 
+## 2026-11-04 · claude · GPT 세션 일상컷은 구조형(화풍 칸 없이)
+- lib/prompt-gpt.js — 일상컷 구조형에서 화풍 칸(ART STYLE)을 빼고 화풍 말이 아닌 배제만 AVOID 한 줄로. 마감 · 얼굴은 0. INPUT(첨부 그림에서 가져올 것), 몸 볼륨은 체형 글 · 어느 각도에서도 작은 턱은 그대로. 사용자 「일상컷 만드는거는 아까 작업한걸로 해볼까? 화풍 지시는 빼고, 체형 정보 남기는 식으로」. tests/prompt-gpt.cjs — 일상엔 화풍 칸 없음
+- docs/IMAGE_AUTOMATION.md · IMAGE_RULES.md · AGENTS.md · tools/prompt-pack.cjs(INDEX 안내) — GPT 세션은 세계 그림에 <세계>-prompt.txt, 일상컷에 <세계>-casualN-gpt.md. 기록 prompt_form
+
 ## 2026-11-04 · claude · 입술 「크게 웃는 입」 을 돌림에서 빼고 다시 나눴다
 - data/sam-design.json · tools/sam-design.py — 입술 wide_smile(wide smiling mouth)이 40명에게 있었다 — 크게 웃는 표정을 뺀 뒤에도 입 모양이 웃음을 밀었다(사용자 「얼굴표정이나 말상얼굴은 안나오는 방향패치는 적용되는건가?」 를 확인하다 진궁 지시문에서). 그림이 없는 35명과 다시 그릴 진궁을 다른 입술로(덜 쓴 쪽부터), 요약의 「웃는 입」 은 「옅은 미소」 로, 까닭은 look.lips_note. 그림이 있는 강유 · 육손 · 원소 · 문앙과 지금 그리는 중인 장수는 그대로. 어휘엔 남는다(game 과 같은 열쇠)
 
