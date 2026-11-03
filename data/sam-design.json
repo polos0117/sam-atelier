@@ -1132,32 +1132,32 @@
    "lore": "연환계를 바치고 낙봉파에서 스러졌다",
    "designed": "draft",
    "design_by": "claude",
-   "design_date": "2026-11-02",
+   "design_date": "2026-11-03",
    "summary": {
-    "ko": "봉추 — 봉황 깃 부채 · 헝클어진 로즈골드 머리 · 주근깨 · 장난스러운 · 대충 걸친 도포 · 골반 굴곡형"
+    "ko": "봉추 — 봉황 깃 부채 · 로즈골드 생머리 · 치켜 올라간 봉황 눈매 · 차갑고 도도한 · 골반 굴곡형"
    },
    "title": {
-    "en": "the Fledgling Phoenix, the unkempt genius who matched the Sleeping Dragon"
+    "en": "the Fledgling Phoenix, the proud genius who matched the Sleeping Dragon"
    },
    "traits": {
-    "en": "an unconventional genius with tousled hair and carelessly worn robes, a sly grin, phoenix motifs, the chained-ships stratagem at Red Cliffs, fallen at the Slope of the Fallen Phoenix"
+    "en": "a cool, aloof genius who looks down on lesser minds and lets few see her worth, phoenix motifs, the chained-ships stratagem at Red Cliffs, fallen at the Slope of the Fallen Phoenix"
    },
    "hold": {
     "en": "a phoenix-feather fan"
    },
    "look": {
     "face": {
-     "eye_color": "coral",
-     "impression": "boyish",
-     "expr": "mischievous",
-     "skin_tone": "olive",
+     "eye_color": "ice_blue",
+     "impression": "cool",
+     "expr": "confident",
+     "skin_tone": "fair",
      "age": "late_20s",
-     "eye_size": "small",
-     "eye_tilt": "down",
-     "mark": "freckles",
-     "brows": "feathered",
-     "nose": "high_bridge",
-     "lips": "thin_bow"
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "winged_liner",
+     "brows": "angled_sharp",
+     "nose": "straight_narrow",
+     "lips": "thin_long"
     },
     "silhouette": {
      "body": "pear_curvy",
@@ -1166,39 +1166,106 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
-       "bangs": "wispy"
+       "hair": "long_straight",
+       "bangs": "side_swept"
       },
       "face": {
        "face_shape": "v_line",
-       "eyes": "peach_blossom"
+       "eyes": "phoenix"
       }
      },
      "fantasy": {
       "silhouette": {
        "hair": "chignon",
-       "bangs": "asymmetric"
+       "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "heart",
-       "eyes": "phoenix"
+       "face_shape": "oval",
+       "eyes": "cat"
       }
      },
      "mecha": {
       "silhouette": {
        "hair": "lob",
-       "bangs": "side_locks"
+       "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "inverted_triangle",
-       "eyes": "hooded"
+       "face_shape": "heart",
+       "eyes": "narrow_upturned"
       }
      }
     },
-    "why": "시안(claude 2026-11-02) — 게임 일화 「연환계를 바치고 낙봉파에서 스러졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
+    "why": "사용자 2026-11-03 「방통도 차갑고 도도하게 바꿔줘」 — 주근깨 · 앳된(boyish) 인상 · 장난스러운 표정 · 처진 작은 눈 · 헝클어진 픽시 · 대충 걸친 도포를 빼고, 차가운 인상 · 치켜 올라간 봉황 눈매(봉추) · 날렵한 눈썹 · 날개 아이라인 · 얇은 입술 · 자신만만한 표정 · 얼음빛 눈. 로즈골드 머리 · 봉황 깃 부채 · 골반 굴곡형은 그대로",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 jade_green → rose_gold, 눈 emerald → coral(머리 45 · 눈 27가지에서 고르게)"
-   }
+   },
+   "history": [
+    {
+     "date": "2026-11-02",
+     "summary": "봉추 — 봉황 깃 부채 · 헝클어진 로즈골드 머리 · 주근깨 · 장난스러운 · 대충 걸친 도포 · 골반 굴곡형",
+     "why_replaced": "사용자 2026-11-03 「방통도 차갑고 도도하게 바꿔줘」",
+     "look": {
+      "face": {
+       "eye_color": "coral",
+       "impression": "boyish",
+       "expr": "mischievous",
+       "skin_tone": "olive",
+       "age": "late_20s",
+       "eye_size": "small",
+       "eye_tilt": "down",
+       "mark": "freckles",
+       "brows": "feathered",
+       "nose": "high_bridge",
+       "lips": "thin_bow"
+      },
+      "silhouette": {
+       "body": "pear_curvy",
+       "hair_color": "rose_gold"
+      },
+      "worlds": {
+       "samguk": {
+        "silhouette": {
+         "hair": "pixie",
+         "bangs": "wispy"
+        },
+        "face": {
+         "face_shape": "v_line",
+         "eyes": "peach_blossom"
+        }
+       },
+       "fantasy": {
+        "silhouette": {
+         "hair": "chignon",
+         "bangs": "asymmetric"
+        },
+        "face": {
+         "face_shape": "heart",
+         "eyes": "phoenix"
+        }
+       },
+       "mecha": {
+        "silhouette": {
+         "hair": "lob",
+         "bangs": "side_locks"
+        },
+        "face": {
+         "face_shape": "inverted_triangle",
+         "eyes": "hooded"
+        }
+       }
+      },
+      "why": "시안(claude 2026-11-02) — 게임 일화 「연환계를 바치고 낙봉파에서 스러졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
+      "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+      "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 jade_green → rose_gold, 눈 emerald → coral(머리 45 · 눈 27가지에서 고르게)"
+     },
+     "traits": {
+      "en": "an unconventional genius with tousled hair and carelessly worn robes, a sly grin, phoenix motifs, the chained-ships stratagem at Red Cliffs, fallen at the Slope of the Fallen Phoenix"
+     },
+     "title": {
+      "en": "the Fledgling Phoenix, the unkempt genius who matched the Sleeping Dragon"
+     }
+    }
+   ]
   },
   {
    "key": "법정",
