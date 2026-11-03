@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-03 · claude · 손상향 — 차갑고 도도한 설계 확정 · 그림 18장 교체
+- data/sam-design.json 손상향 — 시안 → 확정(hand). 사용자가 새 세계 그림 셋을 보고 「1번으로 해줘」(세계 그림 교체 + 일상컷 15장 새 얼굴로), 일상컷을 보고 「응 올려줘」
+- 그림 저장소 img/손상향_* 18장 · records/손상향 · records/replacement.json — 같은 이름으로 교체, 옛 sha256 · 이전 기록을 남기고 옛 썸네일을 지웠다. 일상컷은 계획기 --world all 로 새로 짰다(무기 대신 장신구 · 순한 표정 · 지금 현실 둘)
+
 ## 2026-11-03 · claude · 표정 문구를 순하게 · 일상컷 표정 후보 정리 · 손상향 차갑고 도도하게 다시 설계
 - lib/prompt-spec.js EXPRESSION_DETAIL · data/casual-tree-v2.json expressions — 표정 서른둘을 단서 두셋으로(사용자 「표정 관련 문구가 과하게」 · 「다 해줘」): 이를 악문 턱(determined · serious) · 웃는 입에 무표정한 눈(cold_smile) · 질끈 감은 눈 · 멍하게 벌어진 입을 뺐다. 세계 그림의 FACE 첫인상과 부딪히던 것
 - tools/casual-plan.cjs — 일상컷 표정 후보에서 cold_smile · bored · sleepy · exhausted · mildly_annoyed · unimpressed · laughing 을 빼고, 표정은 덜 쓴 쪽 무게 없이 고르게(무게를 올리자 덜 쓴 극단 표정으로 쏠렸다). tests/casual-plan.cjs — 시험
