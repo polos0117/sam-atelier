@@ -117,7 +117,7 @@ try {
 /* 표정 — 일상컷에 어색한 것(웃는 입에 무표정한 눈 · 지루함 · 졸림 · 지침 · 짜증 · 시큰둥 · 질끈 감은 웃음)은 계획기가 고르지 않고,
    문구는 단서 두셋(2026-11-03 사용자 「표정 관련 문구가 과하게」) */
 {
-  const ok = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistful', 'nostalgic', 'confident', 'proud', 'focused', 'half_smile', 'candid', 'relieved'], seen = new Set();   /* 2026-11-03 「일상컷쪽이 더 그래」 — 은은한 열셋만 */
+  const ok = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistful', 'nostalgic', 'confident', 'proud', 'focused', 'half_smile', 'candid', 'relieved', 'wink', 'sensual', 'serious', 'curious'], seen = new Set();   /* 2026-11-03 「일상컷쪽이 더 그래」 — 은은한 열셋만 */
   for (const key of pickKeys) { const card = C.cardOf(key); for (const w of card.worlds) { card.world = w; for (const seed of [3, 9]) for (const c of C.plan(card, [1, 2, 3, 4, 5], [], { seed }).cuts) if (c.expr) seen.add(c.expr); } }
   for (const k of seen) assert(ok.includes(k), '은은한 표정이 아닌 ' + k);
   assert(seen.size >= 10, '표정 ' + seen.size + ' 가지');
