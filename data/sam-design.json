@@ -10301,17 +10301,17 @@
    },
    "seal": "孫",
    "lore": "시녀에게도 칼을 채운 신부",
-   "designed": "hand",
+   "designed": "draft",
    "design_by": "claude",
-   "design_date": "2026-11-02",
+   "design_date": "2026-11-03",
    "summary": {
-    "ko": "궁요희 — 날 달린 쌍 환도(차크람) · 불꽃 주황 포니테일 · 주근깨 · 말괄량이 · 탄탄한 굴곡형"
+    "ko": "궁요희 — 날 달린 쌍 환도(차크람) · 불꽃 주황 머리 · 차갑고 도도한 오의 공주 · 치켜 올라간 눈매에 아이라인 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the bow-waist princess of Wu, a warrior princess who married Liu Bei"
    },
    "traits": {
-    "en": "a martial princess who keeps armed maidservants, bow and blades always at hand, bright tomboyish spirit, the sister of the Sun clan, a wedding across enemy lines"
+    "en": "a martial princess who keeps armed maidservants, bow and blades always at hand, the cool, haughty pride of the Sun clan's only daughter who looks down on any suitor, a wedding across enemy lines"
    },
    "hold": {
     "en": "a pair of bladed chakram rings"
@@ -10319,16 +10319,16 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "age": "early_20s",
-     "impression": "boyish",
-     "skin_tone": "golden_tan",
-     "eye_size": "large",
+     "age": "mid_20s",
+     "impression": "cool",
+     "skin_tone": "fair",
+     "eye_size": "medium",
      "eye_tilt": "up",
-     "mark": "freckles",
-     "expr": "playful",
-     "brows": "straight_thick",
-     "nose": "upturned",
-     "lips": "wide_smile"
+     "mark": "winged_liner",
+     "expr": "confident",
+     "brows": "angled_sharp",
+     "nose": "straight_narrow",
+     "lips": "thin_long"
     },
     "silhouette": {
      "body": "curvy_athletic",
@@ -10338,20 +10338,20 @@
      "samguk": {
       "silhouette": {
        "hair": "ponytail",
-       "bangs": "choppy"
+       "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "round",
-       "eyes": "round_large"
+       "face_shape": "oval",
+       "eyes": "narrow_upturned"
       }
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
-       "bangs": "straight"
+       "hair": "long_straight",
+       "bangs": "none"
       },
       "face": {
-       "face_shape": "heart",
+       "face_shape": "diamond",
        "eyes": "almond_wide"
       }
      },
@@ -10361,13 +10361,75 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "oval",
-       "eyes": "narrow_upturned"
+       "face_shape": "long",
+       "eyes": "monolid_long"
       }
      }
     },
-    "why": "궁요희 — 말괄량이 · 주근깨 · 장난스러운 표정, 불꽃 주황 머리. 오 팔레트 호박색 눈"
-   }
+    "why": "사용자 2026-11-03 「주근깨에 말괄량이 스타일이라 표정도 마음에 안들어. 차갑고 도도한 이미지가 더 맞을거 같아」 — 주근깨 · 앳된(boyish) 인상 · 장난스러운 표정 · 웃는 입 · 들창코 · 둥근 얼굴 · 트윈테일을 빼고, 차가운 인상 · 치켜 올라간 눈매 · 날렵한 눈썹 · 날개 아이라인 · 얇은 입술 · 자신만만한 표정. 불꽃 주황 머리 · 호박색 눈 · 차크람 · 탄탄한 굴곡형은 그대로"
+   },
+   "history": [
+    {
+     "date": "2026-11-02",
+     "summary": "궁요희 — 날 달린 쌍 환도(차크람) · 불꽃 주황 포니테일 · 주근깨 · 말괄량이 · 탄탄한 굴곡형",
+     "why_replaced": "사용자 2026-11-03 「주근깨에 말괄량이 스타일이라 표정도 마음에 안들어. 차갑고 도도한 이미지가 더 맞을거 같아」",
+     "look": {
+      "face": {
+       "eye_color": "amber",
+       "age": "early_20s",
+       "impression": "boyish",
+       "skin_tone": "golden_tan",
+       "eye_size": "large",
+       "eye_tilt": "up",
+       "mark": "freckles",
+       "expr": "playful",
+       "brows": "straight_thick",
+       "nose": "upturned",
+       "lips": "wide_smile"
+      },
+      "silhouette": {
+       "body": "curvy_athletic",
+       "hair_color": "flame_orange"
+      },
+      "worlds": {
+       "samguk": {
+        "silhouette": {
+         "hair": "ponytail",
+         "bangs": "choppy"
+        },
+        "face": {
+         "face_shape": "round",
+         "eyes": "round_large"
+        }
+       },
+       "fantasy": {
+        "silhouette": {
+         "hair": "twin_tails",
+         "bangs": "straight"
+        },
+        "face": {
+         "face_shape": "heart",
+         "eyes": "almond_wide"
+        }
+       },
+       "mecha": {
+        "silhouette": {
+         "hair": "short_crop",
+         "bangs": "side_swept"
+        },
+        "face": {
+         "face_shape": "oval",
+         "eyes": "narrow_upturned"
+        }
+       }
+      },
+      "why": "궁요희 — 말괄량이 · 주근깨 · 장난스러운 표정, 불꽃 주황 머리. 오 팔레트 호박색 눈"
+     },
+     "traits": {
+      "en": "a martial princess who keeps armed maidservants, bow and blades always at hand, bright tomboyish spirit, the sister of the Sun clan, a wedding across enemy lines"
+     }
+    }
+   ]
   },
   {
    "key": "오국태",
