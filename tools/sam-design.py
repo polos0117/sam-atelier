@@ -92,7 +92,7 @@ IMPRESSION = {
 }
 EXPR = {
  'lord': ['confident', 'proud', 'calm', 'cold_smile', 'determined'],
- 'general': ['determined', 'confident', 'serious', 'smug', 'laughing', 'focused'],
+ 'general': ['determined', 'confident', 'serious', 'smug', 'proud', 'focused'],   # laughing 은 뺐다(2026-11-03 「호탕하게 웃는 얼굴은 빼자」)
  'strategist': ['calm', 'half_smile', 'pensive', 'smug', 'curious', 'cold_smile'],
  'official': ['gentle', 'calm', 'soft_smile', 'serious', 'focused', 'pensive'],
 }

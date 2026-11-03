@@ -4261,7 +4261,7 @@
     "face": {
      "eye_color": "steel_blue",
      "impression": "boyish",
-     "expr": "laughing",
+     "expr": "confident",
      "skin_tone": "fair",
      "age": "early_30s",
      "eye_size": "small",
@@ -4308,7 +4308,8 @@
      }
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「수염 누런 아이라 불리며 북방을 평정했다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 위 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
-    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)"
+    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+    "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → confident"
    }
   },
   {
@@ -5080,7 +5081,7 @@
     "face": {
      "eye_color": "amber",
      "impression": "cheerful",
-     "expr": "laughing",
+     "expr": "proud",
      "skin_tone": "golden_tan",
      "age": "late_20s",
      "eye_size": "small",
@@ -5127,7 +5128,8 @@
      }
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「웃통을 벗고 마초와 맞붙었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 위 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
-    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)"
+    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+    "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → proud"
    }
   },
   {
@@ -7848,7 +7850,7 @@
    "lore": "작은 패왕, 강동을 여섯 해에 갈랐다",
    "designed": "draft",
    "design_by": "claude",
-   "design_date": "2026-11-02",
+   "design_date": "2026-11-03",
    "summary": {
     "ko": "소패왕 — 붉은 술 쌍곤 · 눈부신 패기 · 불꽃 주황 머리 · 화려한 · 골반 굴곡형"
    },
@@ -7865,9 +7867,9 @@
     "face": {
      "eye_color": "gold",
      "impression": "glamorous",
-     "expr": "laughing",
+     "expr": "proud",
      "skin_tone": "warm_beige",
-     "age": "early_30s",
+     "age": "late_20s",
      "eye_size": "small",
      "eye_tilt": "down",
      "mark": "scar",
@@ -7886,7 +7888,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "v_line",
+       "face_shape": "oval",
        "eyes": "round_large"
       }
      },
@@ -7896,7 +7898,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "inverted_triangle",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      },
@@ -7906,14 +7908,76 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "peach_blossom"
       }
      }
     },
-    "why": "시안(claude 2026-11-02) — 게임 일화 「작은 패왕, 강동을 여섯 해에 갈랐다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
-    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)"
-   }
+    "why": "시안(claude 2026-11-02) — 게임 일화 「작은 패왕, 강동을 여섯 해에 갈랐다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로. · 2026-11-03 다시: 얼굴형 V라인 · 역삼각 · 각진 → 계란 · 하트 · 둥근(일상컷이 길고 각지게 나왔다), 크게 웃는 표정 → 자부(proud), 나이 30대 초 → 20대 후반",
+    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+    "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → proud"
+   },
+   "history": [
+    {
+     "date": "2026-11-02",
+     "summary": "소패왕 — 붉은 술 쌍곤 · 눈부신 패기 · 불꽃 주황 머리 · 화려한 · 골반 굴곡형",
+     "why_replaced": "사용자 2026-11-03 「손책도 뽑아봤는데 일상컷 얼굴이 길고 각지고 못생기게」 · 「저렇게 호탕하게 웃는 얼굴은 빼자」",
+     "look": {
+      "face": {
+       "eye_color": "gold",
+       "impression": "glamorous",
+       "expr": "proud",
+       "skin_tone": "warm_beige",
+       "age": "early_30s",
+       "eye_size": "small",
+       "eye_tilt": "down",
+       "mark": "scar",
+       "brows": "soft_round",
+       "nose": "straight_narrow",
+       "lips": "full_wide"
+      },
+      "silhouette": {
+       "body": "pear_curvy",
+       "hair_color": "flame_orange"
+      },
+      "worlds": {
+       "samguk": {
+        "silhouette": {
+         "hair": "chignon",
+         "bangs": "swept_back"
+        },
+        "face": {
+         "face_shape": "v_line",
+         "eyes": "round_large"
+        }
+       },
+       "fantasy": {
+        "silhouette": {
+         "hair": "double_buns",
+         "bangs": "straight"
+        },
+        "face": {
+         "face_shape": "inverted_triangle",
+         "eyes": "deep_set"
+        }
+       },
+       "mecha": {
+        "silhouette": {
+         "hair": "side_braid",
+         "bangs": "one_eye"
+        },
+        "face": {
+         "face_shape": "angular",
+         "eyes": "peach_blossom"
+        }
+       }
+      },
+      "why": "시안(claude 2026-11-02) — 게임 일화 「작은 패왕, 강동을 여섯 해에 갈랐다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
+      "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+      "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → proud"
+     }
+    }
+   ]
   },
   {
    "key": "손권",
@@ -9172,7 +9236,7 @@
     "face": {
      "eye_color": "amber",
      "impression": "fierce",
-     "expr": "laughing",
+     "expr": "determined",
      "skin_tone": "fair",
      "age": "late_20s",
      "eye_size": "medium",
@@ -9219,7 +9283,8 @@
      }
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「눈밭에서 갑옷을 벗고 돌격했다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
-    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)"
+    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+    "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → determined"
    }
   },
   {
@@ -14350,7 +14415,7 @@
     "face": {
      "eye_color": "amber",
      "impression": "fierce",
-     "expr": "laughing",
+     "expr": "determined",
      "skin_tone": "deep_brown",
      "age": "early_30s",
      "eye_size": "medium",
@@ -14397,7 +14462,8 @@
      }
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「등갑군을 이끌고 불길 속에 스러졌다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 군웅 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
-    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)"
+    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+    "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → determined"
    }
   },
   {
@@ -14516,7 +14582,7 @@
     "face": {
      "eye_color": "amber",
      "impression": "cheerful",
-     "expr": "laughing",
+     "expr": "soft_smile",
      "skin_tone": "bronze",
      "age": "mid_20s",
      "eye_size": "small",
@@ -14563,7 +14629,8 @@
      }
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「형 대신 술잔을 받다 번번이 사로잡혔다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 군웅 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
-    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)"
+    "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
+    "expr_note": "2026-11-03 사용자 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 크게 웃는 표정(laughing) → soft_smile"
    }
   },
   {
