@@ -104,7 +104,7 @@ AXES = {
  'mark': ['bare', 'mole_eye', 'winged_liner', 'red_lip', 'freckles', 'blush', 'smoky', 'gloss', 'scar', 'dark_lip'],
  'brows': ['straight_thick', 'arched_thin', 'soft_round', 'angled_sharp', 'low_heavy', 'feathered', 'straight_thin', 'high_arched'],
  'nose': ['small_button', 'straight_narrow', 'aquiline', 'broad_soft', 'upturned', 'high_bridge', 'petite_straight'],
- 'lips': ['full_wide', 'thin_long', 'small_bow', 'heart_full', 'wide_smile', 'plush_pout', 'thin_bow', 'soft_medium'],
+ 'lips': ['full_wide', 'thin_long', 'small_bow', 'heart_full', 'plush_pout', 'thin_bow', 'soft_medium'],   # wide_smile(크게 웃는 입)은 뺐다 — 2026-11-03 「호탕하게 웃는 얼굴은 빼자」
 }
 PER_WORLD = {
  'hair': ['long_straight', 'long_wavy', 'ponytail', 'braids', 'voluminous', 'side_swept', 'bob', 'twin_tails', 'short_crop', 'updo_bun',
