@@ -8,6 +8,10 @@
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
 
+## 2026-11-04 · claude · 얼굴 비율 — 짧은 중안부 · 세로비 고정
+- lib/prompt-spec.js — 세계 그림 FACE 줄 끝에 「짧고 단정한 중안부(눈이 머리 세로 가운데, 눈~입 짧게), 얼굴은 너비보다 조금만 길게(머리선~턱 약 1.3 : 1), 작고 둥근 턱 — 긴 앞머리 · 옆머리 · 높은 관이 얼굴을 길어 보이게 하지 않게」. 사용자 「진궁 새로만든거 얼굴이 길게 나왔어 … 중안부와 얼굴전체의 세로비를 고정하는게 없다」(진궁 무협 — 히메컷 옆머리 · 한쪽 눈 앞머리 · 높은 관)
+- lib/prompt-sam.js REF_FACE · lib/prompt-gpt.js — 일상컷 얼굴 줄에 「첨부 그림과 같은 비율 — 같은 짧은 중안부 · 같은 세로비, 각도 · 앞머리 · 관 때문에 길어지지 않게」
+
 ## 2026-11-04 · claude · GPT 세션 일상컷은 구조형(화풍 칸 없이)
 - lib/prompt-gpt.js — 일상컷 구조형에서 화풍 칸(ART STYLE)을 빼고 화풍 말이 아닌 배제만 AVOID 한 줄로. 마감 · 얼굴은 0. INPUT(첨부 그림에서 가져올 것), 몸 볼륨은 체형 글 · 어느 각도에서도 작은 턱은 그대로. 사용자 「일상컷 만드는거는 아까 작업한걸로 해볼까? 화풍 지시는 빼고, 체형 정보 남기는 식으로」. tests/prompt-gpt.cjs — 일상엔 화풍 칸 없음
 - docs/IMAGE_AUTOMATION.md · IMAGE_RULES.md · AGENTS.md · tools/prompt-pack.cjs(INDEX 안내) — GPT 세션은 세계 그림에 <세계>-prompt.txt, 일상컷에 <세계>-casualN-gpt.md. 기록 prompt_form
