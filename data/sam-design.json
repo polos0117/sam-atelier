@@ -1000,7 +1000,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      },
@@ -1180,7 +1180,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -1262,7 +1262,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "cat"
       }
      },
@@ -1516,7 +1516,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      }
@@ -1588,7 +1588,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "peach_blossom"
       }
      },
@@ -1670,7 +1670,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "peach_blossom"
       }
      },
@@ -1742,7 +1742,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -1824,7 +1824,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      },
@@ -1926,7 +1926,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "phoenix"
       }
      }
@@ -2008,7 +2008,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "hooded"
       }
      }
@@ -2080,7 +2080,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "phoenix"
       }
      },
@@ -2162,7 +2162,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      },
@@ -2244,7 +2244,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "hooded"
       }
      },
@@ -2316,7 +2316,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "peach_blossom"
       }
      },
@@ -2398,7 +2398,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      },
@@ -2480,7 +2480,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -2582,7 +2582,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "phoenix"
       }
      }
@@ -2664,7 +2664,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "peach_blossom"
       }
      }
@@ -2746,7 +2746,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "phoenix"
       }
      }
@@ -2818,7 +2818,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      },
@@ -2910,7 +2910,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "peach_blossom"
       }
      }
@@ -2972,7 +2972,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "phoenix"
       }
      },
@@ -3074,7 +3074,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "cat"
       }
      }
@@ -3146,7 +3146,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "hooded"
       }
      },
@@ -3156,7 +3156,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "peach_blossom"
       }
      }
@@ -3228,7 +3228,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "phoenix"
       }
      },
@@ -3320,7 +3320,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      }
@@ -3392,7 +3392,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "peach_blossom"
       }
      },
@@ -3474,7 +3474,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      },
@@ -3556,7 +3556,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "v_line",
        "eyes": "hooded"
       }
      },
@@ -3566,7 +3566,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "cat"
       }
      }
@@ -3638,7 +3638,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "phoenix"
       }
      },
@@ -3730,7 +3730,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "phoenix"
       }
      }
@@ -3802,7 +3802,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "peach_blossom"
       }
      },
@@ -3894,7 +3894,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      }
@@ -3956,7 +3956,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "cat"
       }
      },
@@ -4200,7 +4200,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "cat"
       }
      },
@@ -4282,7 +4282,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      },
@@ -4364,7 +4364,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "peach_blossom"
       }
      },
@@ -4446,7 +4446,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "hooded"
       }
      },
@@ -4528,7 +4528,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "cat"
       }
      },
@@ -4691,7 +4691,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "phoenix"
       }
      },
@@ -4855,7 +4855,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "cat"
       }
      },
@@ -4937,7 +4937,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "peach_blossom"
       }
      },
@@ -5019,7 +5019,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "v_line",
        "eyes": "peach_blossom"
       }
      },
@@ -5029,7 +5029,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "cat"
       }
      },
@@ -5101,7 +5101,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "cat"
       }
      },
@@ -5193,7 +5193,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -5346,7 +5346,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "hooded"
       }
      },
@@ -5509,7 +5509,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "hooded"
       }
      },
@@ -5601,7 +5601,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "hooded"
       }
      },
@@ -5611,7 +5611,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "phoenix"
       }
      }
@@ -5774,7 +5774,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "hooded"
       }
      }
@@ -5856,7 +5856,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      }
@@ -6000,7 +6000,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "cat"
       }
      },
@@ -6010,7 +6010,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "phoenix"
       }
      },
@@ -6092,7 +6092,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "cat"
       }
      },
@@ -6164,7 +6164,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "v_line",
        "eyes": "phoenix"
       }
      },
@@ -6184,7 +6184,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "cat"
       }
      }
@@ -6256,7 +6256,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -6338,7 +6338,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "cat"
       }
      },
@@ -6430,7 +6430,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "hooded"
       }
      }
@@ -6492,7 +6492,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "cat"
       }
      },
@@ -6574,7 +6574,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "phoenix"
       }
      },
@@ -6584,7 +6584,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "peach_blossom"
       }
      },
@@ -6666,7 +6666,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "phoenix"
       }
      },
@@ -6748,7 +6748,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "phoenix"
       }
      },
@@ -6758,7 +6758,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      }
@@ -6820,7 +6820,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "peach_blossom"
       }
      },
@@ -6840,7 +6840,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "hooded"
       }
      }
@@ -6912,7 +6912,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "phoenix"
       }
      },
@@ -6984,7 +6984,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "phoenix"
       }
      },
@@ -7004,7 +7004,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "cat"
       }
      }
@@ -7086,7 +7086,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "phoenix"
       }
      }
@@ -7168,7 +7168,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "hooded"
       }
      }
@@ -7230,7 +7230,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "peach_blossom"
       }
      },
@@ -7240,7 +7240,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "hooded"
       }
      },
@@ -7322,7 +7322,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      },
@@ -7394,7 +7394,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "phoenix"
       }
      },
@@ -7414,7 +7414,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -7486,7 +7486,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "peach_blossom"
       }
      },
@@ -7568,7 +7568,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "phoenix"
       }
      },
@@ -7650,7 +7650,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "cat"
       }
      },
@@ -7660,7 +7660,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "phoenix"
       }
      }
@@ -7742,7 +7742,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -8150,7 +8150,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -8232,7 +8232,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "hooded"
       }
      }
@@ -8557,7 +8557,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "round_large"
       }
      }
@@ -8629,7 +8629,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -8721,7 +8721,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      }
@@ -8783,7 +8783,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "deep_set"
       }
      },
@@ -8803,7 +8803,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -8885,7 +8885,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "peach_blossom"
       }
      }
@@ -8967,7 +8967,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "almond_wide"
       }
      }
@@ -9039,7 +9039,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "phoenix"
       }
      },
@@ -9111,7 +9111,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "almond_wide"
       }
      },
@@ -9131,7 +9131,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      }
@@ -9203,7 +9203,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "cat"
       }
      },
@@ -9285,7 +9285,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "cat"
       }
      },
@@ -9367,7 +9367,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      },
@@ -9439,7 +9439,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "deep_set"
       }
      },
@@ -9459,7 +9459,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "round_large"
       }
      }
@@ -9531,7 +9531,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "hooded"
       }
      },
@@ -9685,7 +9685,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "deep_set"
       }
      },
@@ -9705,7 +9705,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -9777,7 +9777,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      },
@@ -9859,7 +9859,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "peach_blossom"
       }
      },
@@ -9951,7 +9951,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "deep_set"
       }
      }
@@ -10013,7 +10013,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "peach_blossom"
       }
      },
@@ -10105,7 +10105,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "droopy_soft"
       }
      },
@@ -10197,7 +10197,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      }
@@ -10279,7 +10279,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "round_large"
       }
      }
@@ -10341,7 +10341,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "peach_blossom"
       }
      },
@@ -10351,7 +10351,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "droopy_soft"
       }
      },
@@ -10443,7 +10443,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "round_large"
       }
      }
@@ -10668,7 +10668,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "droopy_soft"
       }
      }
@@ -10740,7 +10740,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "droopy_soft"
       }
      },
@@ -10894,7 +10894,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "phoenix"
       }
      },
@@ -10904,7 +10904,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "droopy_soft"
       }
      },
@@ -10986,7 +10986,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -11150,7 +11150,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -11232,7 +11232,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      },
@@ -11304,7 +11304,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "deep_set"
       }
      },
@@ -11324,7 +11324,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -11479,7 +11479,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "monolid_long"
       }
      },
@@ -11644,7 +11644,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -11717,7 +11717,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "round_large"
       }
      },
@@ -11883,7 +11883,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -11893,7 +11893,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "monolid_long"
       }
      },
@@ -11976,7 +11976,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "droopy_soft"
       }
      },
@@ -12059,7 +12059,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -12215,7 +12215,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      },
@@ -12298,7 +12298,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "inverted_triangle",
        "eyes": "almond_wide"
       }
      },
@@ -12318,7 +12318,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "deep_set"
       }
      }
@@ -12566,7 +12566,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }
@@ -12639,7 +12639,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -12814,7 +12814,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -12877,7 +12877,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "narrow_upturned"
       }
      },
@@ -12887,7 +12887,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "droopy_soft"
       }
      },
@@ -12960,7 +12960,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "diamond",
        "eyes": "narrow_upturned"
       }
      },
@@ -12970,7 +12970,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "droopy_soft"
       }
      },
@@ -13053,7 +13053,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -13146,7 +13146,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      }
@@ -13209,7 +13209,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      },
@@ -13229,7 +13229,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "round_large"
       }
      }
@@ -13312,7 +13312,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      }
@@ -13395,7 +13395,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "deep_set"
       }
      }
@@ -13551,7 +13551,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "droopy_soft"
       }
      },
@@ -13624,7 +13624,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "v_line",
        "eyes": "almond_wide"
       }
      },
@@ -13644,7 +13644,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }
@@ -13727,7 +13727,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "deep_set"
       }
      }
@@ -13800,7 +13800,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -13883,7 +13883,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -13976,7 +13976,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      }
@@ -14039,7 +14039,7 @@
        "bangs": "swept_back"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "round",
        "eyes": "deep_set"
       }
      },
@@ -14059,7 +14059,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      }
@@ -14122,7 +14122,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      },
@@ -14288,7 +14288,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "droopy_soft"
       }
      },
@@ -14298,7 +14298,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -14391,7 +14391,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      }
@@ -14454,7 +14454,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -14620,7 +14620,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "monolid_long"
       }
      },
@@ -14703,7 +14703,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "narrow_upturned"
       }
      },
@@ -14713,7 +14713,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "droopy_soft"
       }
      },
@@ -14796,7 +14796,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -14879,7 +14879,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "monolid_long"
       }
      },
@@ -14962,7 +14962,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -15055,7 +15055,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      }
@@ -15118,7 +15118,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "almond_wide"
       }
      },
@@ -15138,7 +15138,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "deep_set"
       }
      }
@@ -15201,7 +15201,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "droopy_soft"
       }
      },
@@ -15211,7 +15211,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "monolid_long"
       }
      },
@@ -15294,7 +15294,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      },
@@ -15387,7 +15387,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }
@@ -15450,7 +15450,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      },
@@ -15470,7 +15470,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      }
@@ -15553,7 +15553,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "round_large"
       }
      }
@@ -15616,7 +15616,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "almond_wide"
       }
      },
@@ -15636,7 +15636,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }
@@ -15699,7 +15699,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      },
@@ -15782,7 +15782,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -15792,7 +15792,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -15948,7 +15948,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -16031,7 +16031,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -16124,7 +16124,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -16280,7 +16280,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      },
@@ -16300,7 +16300,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "round_large"
       }
      }
@@ -16446,7 +16446,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "droopy_soft"
       }
      },
@@ -16456,7 +16456,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "monolid_long"
       }
      },
@@ -16539,7 +16539,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      },
@@ -16777,7 +16777,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "heart",
        "eyes": "almond_wide"
       }
      },
@@ -16797,7 +16797,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      }
@@ -16963,7 +16963,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "deep_set"
       }
      }
@@ -17026,7 +17026,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -17109,7 +17109,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "droopy_soft"
       }
      },
@@ -17119,7 +17119,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "monolid_long"
       }
      },
@@ -17212,7 +17212,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "round_large"
       }
      }
@@ -17358,7 +17358,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      },
@@ -17441,7 +17441,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -17524,7 +17524,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -17617,7 +17617,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "monolid_long"
       }
      },
@@ -17783,7 +17783,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      },
@@ -17866,7 +17866,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "monolid_long"
       }
      },
@@ -18198,7 +18198,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "monolid_long"
       }
      },
@@ -18281,7 +18281,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "droopy_soft"
       }
      },
@@ -18447,7 +18447,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -18706,7 +18706,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }
@@ -18788,7 +18788,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      }
@@ -18860,7 +18860,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -18952,7 +18952,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      }
@@ -19015,7 +19015,7 @@
        "bangs": "baby"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -19108,7 +19108,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "monolid_long"
       }
      },
@@ -19181,7 +19181,7 @@
        "bangs": "wispy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "droopy_soft"
       }
      },
@@ -19191,7 +19191,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "monolid_long"
       }
      },
@@ -19284,7 +19284,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "round_large"
       }
      }
@@ -19357,7 +19357,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -19430,7 +19430,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      },
@@ -19440,7 +19440,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "monolid_long"
       }
      },
@@ -19523,7 +19523,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "droopy_soft"
       }
      },
@@ -19679,7 +19679,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "deep_set"
       }
      },
@@ -19699,7 +19699,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "round_large"
       }
      }
@@ -19782,7 +19782,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -19925,7 +19925,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "droopy_soft"
       }
      },
@@ -19935,7 +19935,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -20027,7 +20027,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "deep_set"
       }
      }
@@ -20099,7 +20099,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "droopy_soft"
       }
      },
@@ -20171,7 +20171,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      },
@@ -20273,7 +20273,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      }
@@ -20335,7 +20335,7 @@
        "bangs": "side_locks"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -20519,7 +20519,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -20581,7 +20581,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -20683,7 +20683,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "round_large"
       }
      }
@@ -20745,7 +20745,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -20847,7 +20847,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "v_line",
        "eyes": "deep_set"
       }
      }
@@ -20909,7 +20909,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      },
@@ -20929,7 +20929,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "round",
        "eyes": "round_large"
       }
      }
@@ -20991,7 +20991,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -21073,7 +21073,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "monolid_long"
       }
      },
@@ -21247,7 +21247,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "diamond",
        "eyes": "droopy_soft"
       }
      },
@@ -21401,7 +21401,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -21493,7 +21493,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "monolid_long"
       }
      },
@@ -21585,7 +21585,7 @@
        "bangs": "asymmetric"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      }
@@ -21749,7 +21749,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "inverted_triangle",
        "eyes": "round_large"
       }
      }
@@ -21811,7 +21811,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -21893,7 +21893,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -21995,7 +21995,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }
@@ -22057,7 +22057,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -22149,7 +22149,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -22303,7 +22303,7 @@
        "bangs": "curtain"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -22467,7 +22467,7 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "angular",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      },
@@ -22810,7 +22810,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "deep_set"
       }
      }
@@ -22890,7 +22890,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "heart",
        "eyes": "round_large"
       }
      }
@@ -22950,7 +22950,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "v_line",
        "eyes": "round_large"
       }
      },
@@ -23030,7 +23030,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "diamond",
        "eyes": "monolid_long"
       }
      },
@@ -23120,7 +23120,7 @@
        "bangs": "parted"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "oval",
        "eyes": "monolid_long"
       }
      },
@@ -23200,7 +23200,7 @@
        "bangs": "one_eye"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "round",
        "eyes": "monolid_long"
       }
      },
@@ -23280,7 +23280,7 @@
        "bangs": "side_swept"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "inverted_triangle",
        "eyes": "monolid_long"
       }
      },
@@ -23452,7 +23452,7 @@
        "bangs": "straight"
       },
       "face": {
-       "face_shape": "square_soft",
+       "face_shape": "heart",
        "eyes": "deep_set"
       }
      }

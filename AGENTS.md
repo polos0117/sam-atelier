@@ -67,7 +67,7 @@
 `designed: "auto"` 는 세력 팔레트(머리 · 눈 색) · 역할(인상 · 표정) · 장수 열쇠(돌림)로 적은 것 — 성정 줄은 능력치에서 짓는다(90 이상이 먼저). 그리기 전에 손 설계로 올리는 것이 좋다.
 지시문에 「말 · 짐승」 은 넣지 않는다(ONE FIGURE ONLY — 적토마 · 백마는 성정 줄에서 뺐다). 큰 귀 · 긴 팔 같은 몸 이상도 옷 · 장신구로 옮긴다.
 **체형은 볼륨 · 굴곡이 있는 열 갈래만**(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」) — hourglass · voluptuous · curvy · curvy_athletic · busty_slender · tall_curvy · strong_curvy · petite_curvy · pear_curvy · willowy_curvy(2026-11-03 더함).
-**외형 갈래를 늘렸다**(사용자 2026-11-03 「외형관련 분류가 부족하면 더 추가해도 괜찮아. 몇 개로 돌려쓰는 입장이라 겹치는게 있을 수 밖에」) — 머리 10 → 23 · 앞머리 7 → 12 · 얼굴형 6 → 9 · 눈매 6 → 10 · 눈썹 5 → 8 · 코 5 → 7 · 입술 5 → 8(`lib/look-spec.js` VOCAB_EN · `lib/prompt-spec.js` FACE_DESIGN.bangs · `tools/sam-design.py`). 그림이 없는 장수 253명은 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로 다시 나눴다(요약 · 설계 까닭에 이름이 나온 값은 그대로, `look.spread`). 그림이 있는 장수는 그대로. 장신 · 건장 · 아담도 굴곡 체형으로 적는다(`check` 가 막는다).
+**외형 갈래를 늘렸다**(사용자 2026-11-03 「외형관련 분류가 부족하면 더 추가해도 괜찮아. 몇 개로 돌려쓰는 입장이라 겹치는게 있을 수 밖에」) — 머리 10 → 23 · 앞머리 7 → 12 · 얼굴형 6 → 9(돌림은 여섯 — 길고 각진 long · square_soft · angular 는 손으로만, 같은 날 「손책 … 일상컷 얼굴이 길고 각지고 못생기게」) · 눈매 6 → 10 · 눈썹 5 → 8 · 코 5 → 7 · 입술 5 → 8(`lib/look-spec.js` VOCAB_EN · `lib/prompt-spec.js` FACE_DESIGN.bangs · `tools/sam-design.py`). 그림이 없는 장수 253명은 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로 다시 나눴다(요약 · 설계 까닭에 이름이 나온 값은 그대로, `look.spread`). 그림이 있는 장수는 그대로. 장신 · 건장 · 아담도 굴곡 체형으로 적는다(`check` 가 막는다).
 고치면 `python3 tools/sam-design.py check`.
 
 ### 4. 화면에 말을 적지 않는다

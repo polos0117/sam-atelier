@@ -109,7 +109,8 @@ AXES = {
 PER_WORLD = {
  'hair': ['long_straight', 'long_wavy', 'ponytail', 'braids', 'voluminous', 'side_swept', 'bob', 'twin_tails', 'short_crop', 'updo_bun',
           'half_up', 'low_ponytail', 'side_ponytail', 'side_braid', 'braided_crown', 'hime_cut', 'wolf_cut', 'pixie', 'double_buns', 'chignon', 'long_layered', 'lob', 'messy_bun'],
- 'face_shape': ['oval', 'heart', 'diamond', 'long', 'round', 'square_soft', 'v_line', 'inverted_triangle', 'angular'],
+ # 길고 각진 쪽(long · square_soft · angular)은 돌림에서 뺀다 — 어휘엔 남는다(2026-11-03 「손책 … 일상컷 얼굴이 길고 각지고 못생기게」)
+ 'face_shape': ['oval', 'heart', 'diamond', 'round', 'v_line', 'inverted_triangle'],
  'eyes': ['almond_wide', 'narrow_upturned', 'round_large', 'droopy_soft', 'deep_set', 'monolid_long', 'phoenix', 'hooded', 'cat', 'peach_blossom'],
  'bangs': ['none', 'straight', 'side_swept', 'curtain', 'one_eye', 'parted', 'choppy', 'wispy', 'baby', 'side_locks', 'asymmetric', 'swept_back'],
 }
