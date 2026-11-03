@@ -81,8 +81,9 @@ EYE_COLOR = {
  'qun': ['violet', 'gold', 'amber', 'crimson', 'teal'],
 }
 # 볼륨 · 굴곡이 있는 체형만(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」). check 가 이 밖의 체형을 막는다
-BODY = ['hourglass', 'voluptuous', 'curvy_athletic', 'busty_slender', 'curvy', 'tall_curvy', 'strong_curvy', 'petite_curvy']
-BODY_W = [5, 5, 4, 3, 3, 3, 1, 1]
+# 2026-11-03 사용자 「외형 관련 분류가 부족하면 더 추가해도 괜찮아 … 돌려쓰는 입장이라 겹치는게 있을 수 밖에」 — 체형 · 머리 · 앞머리 · 얼굴형 · 눈매 · 눈썹 · 코 · 입술을 늘렸다
+BODY = ['hourglass', 'voluptuous', 'curvy_athletic', 'busty_slender', 'curvy', 'tall_curvy', 'strong_curvy', 'petite_curvy', 'pear_curvy', 'willowy_curvy']
+BODY_W = [5, 5, 4, 3, 3, 3, 1, 1, 3, 3]
 IMPRESSION = {
  'lord': ['regal', 'glamorous', 'elegant', 'mature', 'cool', 'fierce'],
  'general': ['fierce', 'rugged', 'sharp', 'stoic', 'boyish', 'cool', 'cheerful', 'glamorous'],
@@ -101,15 +102,16 @@ AXES = {
  'age': ['early_20s', 'mid_20s', 'late_20s', 'early_30s'],
  'eye_size': ['small', 'medium', 'large'], 'eye_tilt': ['up', 'level', 'down'],
  'mark': ['bare', 'mole_eye', 'winged_liner', 'red_lip', 'freckles', 'blush', 'smoky', 'gloss', 'scar', 'dark_lip'],
- 'brows': ['straight_thick', 'arched_thin', 'soft_round', 'angled_sharp', 'low_heavy'],
- 'nose': ['small_button', 'straight_narrow', 'aquiline', 'broad_soft', 'upturned'],
- 'lips': ['full_wide', 'thin_long', 'small_bow', 'heart_full', 'wide_smile'],
+ 'brows': ['straight_thick', 'arched_thin', 'soft_round', 'angled_sharp', 'low_heavy', 'feathered', 'straight_thin', 'high_arched'],
+ 'nose': ['small_button', 'straight_narrow', 'aquiline', 'broad_soft', 'upturned', 'high_bridge', 'petite_straight'],
+ 'lips': ['full_wide', 'thin_long', 'small_bow', 'heart_full', 'wide_smile', 'plush_pout', 'thin_bow', 'soft_medium'],
 }
 PER_WORLD = {
- 'hair': ['long_straight', 'long_wavy', 'ponytail', 'braids', 'voluminous', 'side_swept', 'bob', 'twin_tails', 'short_crop', 'updo_bun'],
- 'face_shape': ['oval', 'heart', 'diamond', 'long', 'round', 'square_soft'],
- 'eyes': ['almond_wide', 'narrow_upturned', 'round_large', 'droopy_soft', 'deep_set', 'monolid_long'],
- 'bangs': ['none', 'straight', 'side_swept', 'curtain', 'one_eye', 'parted', 'choppy'],
+ 'hair': ['long_straight', 'long_wavy', 'ponytail', 'braids', 'voluminous', 'side_swept', 'bob', 'twin_tails', 'short_crop', 'updo_bun',
+          'half_up', 'low_ponytail', 'side_ponytail', 'side_braid', 'braided_crown', 'hime_cut', 'wolf_cut', 'pixie', 'double_buns', 'chignon', 'long_layered', 'lob', 'messy_bun'],
+ 'face_shape': ['oval', 'heart', 'diamond', 'long', 'round', 'square_soft', 'v_line', 'inverted_triangle', 'angular'],
+ 'eyes': ['almond_wide', 'narrow_upturned', 'round_large', 'droopy_soft', 'deep_set', 'monolid_long', 'phoenix', 'hooded', 'cat', 'peach_blossom'],
+ 'bangs': ['none', 'straight', 'side_swept', 'curtain', 'one_eye', 'parted', 'choppy', 'wispy', 'baby', 'side_locks', 'asymmetric', 'swept_back'],
 }
 
 
