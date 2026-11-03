@@ -366,22 +366,6 @@
    ]
   },
   {
-   "key": "heritage_forge",
-   "group": "heritage",
-   "ko": "검 대장간",
-   "en": "a traditional sword forge where Han-style jian are still made — a glowing coal hearth, anvils and racks of blades",
-   "eras": [
-    "now",
-    "heritage"
-   ],
-   "outfits": [
-    "everyday",
-    "dongtan",
-    "active",
-    "roleplay"
-   ]
-  },
-  {
    "key": "heritage_plank",
    "group": "heritage",
    "ko": "복원된 잔도",
@@ -4184,20 +4168,10 @@
    "en": "reaching up with both hands to hang a red paper lantern"
   },
   {
-   "key": "spark_watch",
-   "ko": "불꽃 보기",
-   "family": "stand",
-   "places": [
-    "heritage_forge"
-   ],
-   "en": "watching sparks fly from the forge, one hand raised against the glow"
-  },
-  {
    "key": "wipe_brow",
    "ko": "이마 땀 닦기",
    "family": "stand",
    "places": [
-    "heritage_forge",
     "heritage_plank",
     "heritage_wall",
     "heritage_redcliff"

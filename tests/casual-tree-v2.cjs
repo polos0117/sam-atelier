@@ -226,8 +226,7 @@ assert.equal(C.why(t, fx({ era: 'release' }), 'place', 'home_living').code, 'era
 const lab = fx({ era: 'heritage', place: 'heritage_museum', posture: 'lean_counter', support: 'none', frame: 'waist_up', right: 'prop', left: 'prop' });
 assert(C.uses(t, lab, 2).some(u => u.key === 'slip_tie') && C.uses(t, Object.assign({}, lab, { place: 'heritage_teahouse' }), 2).some(u => u.key === 'gourd_pour'), '박물관 작업대 — 죽간 묶기 · 찻집에선 호리병 따르기');
 assert(!C.uses(t, Object.assign({}, lab, { place: 'street_park', posture: 'stand' }), 2).some(u => /^(slip|gourd)_/.test(u.key)), '공원엔 죽간 · 호리병이 없다');
-assert(C.uses(t, Object.assign({}, lab, { place: 'heritage_forge' }), 2).some(u => u.key === 'hammer_strike') && !C.uses(t, Object.assign({}, lab, { place: 'heritage_plank', posture: 'stand' }), 2).some(u => u.key === 'hammer_strike'), '망치질은 작업대가 있는 대장간에서, 잔도엔 망치가 없다');
-assert(C.uses(t, Object.assign({}, lab, { place: 'heritage_forge', posture: 'stand', left: 'down', frame: 'full_body' }), 1).some(u => u.key === 'hammer_side'), '대장간에선 망치를 옆에 든다(허리 아래 손 — 전신 컷)');
+assert(!C.place(t, 'heritage_forge') && !C.prop(t, 'hammer') && !(t.v2.prop_uses || []).some(u => u.prop === 'hammer'), '대장간 · 망치는 없다(2026-11-03 「대장간 망치랑 대장장이 컷은 없애자」)');
 assert(C.propAt(t, C.prop(t, 'paper_lantern'), 'heritage_lantern', 'heritage') && C.propAt(t, C.prop(t, 'paper_lantern'), 'nation_inn', 'nation') && !C.propAt(t, C.prop(t, 'phone'), 'nation_room', 'nation'), '종이 등은 등불 옛거리 · 세계의 여관에, 휴대폰은 세계 안에 없다');
 assert.equal(C.why(t, fx({ place: 'heritage_redcliff' }), 'posture', 'soak').code, 'place', '적벽 강가엔 발 담글 물만');
 assert.equal(C.why(t, fx({ place: 'heritage_redcliff', posture: 'sit_edge', support: 'hip_edge' }), 'legs', 'feet_in_water'), null, '강가 턱에 걸터앉아 발 담그기');
@@ -236,7 +235,7 @@ assert.equal(C.why(t, fx({ place: 'nation_bath' }), 'posture', 'swim').code, 'pl
 assert.equal(C.why(t, fx({ place: 'heritage_teahouse' }), 'posture', 'lean_rail'), null, '찻집 난간');
 const glass = fx({ era: 'heritage', place: 'heritage_shrine', frame: 'chest_up', right: 'prop', left: 'down', use: 'glass_look' });
 assert.equal(C.why(t, glass, 'gaze', 'into_prop'), null, '돋보기는 들여다본다');
-for (const k of ['heritage_museum', 'heritage_forge', 'heritage_plank', 'heritage_redcliff', 'heritage_wall', 'heritage_teahouse', 'heritage_shrine', 'heritage_tower', 'heritage_lantern', 'heritage_studio', 'nation_room', 'nation_market', 'nation_field', 'nation_square', 'nation_bath', 'nation_roof', 'nation_inn', 'nation_study', 'nation_camp', 'nation_kitchen', 'nation_training'])
+for (const k of ['heritage_museum', 'heritage_plank', 'heritage_redcliff', 'heritage_wall', 'heritage_teahouse', 'heritage_shrine', 'heritage_tower', 'heritage_lantern', 'heritage_studio', 'nation_room', 'nation_market', 'nation_field', 'nation_square', 'nation_bath', 'nation_roof', 'nation_inn', 'nation_study', 'nation_camp', 'nation_kitchen', 'nation_training'])
   assert(C.place(t, k) && C.placeHas(t, k).length && C.presets(t, { era: C.place(t, k).eras[0], place: k, ofam: 'everyday' }).length, k + ' 받침 · 쓸 수 있는 추천');
 /* 세계 안 장소는 세 세계마다 제 이름 · 글(2026-11-02 「일상컷 시대를 각 폼의 시대에 맞게」) — 객잔 · 선술집 · 정거장 바 */
 for (const p of t.v1.places.filter(p => p.key.startsWith('nation_'))) {

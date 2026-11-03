@@ -101,13 +101,14 @@ assert 'night_taxi' not in T.prop_places(doc, v1, row(doc, 'props', 'phone')) or
 lie = T.preset_places(doc, v1, pre(doc, 'recline_head'))
 assert lie and all('lie' in doc['places'][k] for k in lie), lie
 assert all(T.preset_places(doc, v1, p) for p in doc['presets'])
-# 원소 몫 — 현장 · 나라 안 받침, 원소 소품. 실험실 작업대에서 두 손 소품 동작(시험관 거치대), 용광로 작업대에서 망치질, 염전엔 발 담글 물만
-assert 'heritage_museum' in T.preset_places(doc, v1, pre(doc, 'counter_work')) and 'heritage_forge' in T.preset_places(doc, v1, pre(doc, 'counter_work'))
+# 삼국지 몫 — 역사의 자리 · 세계 안 받침, 삼국지 소품. 대장간 · 망치는 뺐다(2026-11-03 「대장간 망치랑 대장장이 컷은 없애자」 — 원소 공방의 용광로 · 망치질에서 옮겨 왔다)
+assert 'heritage_museum' in T.preset_places(doc, v1, pre(doc, 'counter_work'))
+assert 'heritage_forge' not in doc['places'] and 'heritage_forge' not in {p['key'] for p in v1['places']} and 'spark_watch' not in {a['key'] for a in v1['activities']}
 assert 'heritage_redcliff' not in T.preset_places(doc, v1, pre(doc, 'swim_close')) and 'heritage_redcliff' in T.preset_places(doc, v1, pre(doc, 'edge_dangle'))
 assert 'heritage_museum' in T.prop_places(doc, v1, row(doc, 'props', 'bamboo_slip')) and 'street_park' not in T.prop_places(doc, v1, row(doc, 'props', 'bamboo_slip'))
 assert not {'nation_room', 'nation_inn'} & T.prop_places(doc, v1, row(doc, 'props', 'phone')), '휴대폰은 나라 안에 없다(지금 현실만)'
 assert {'nation_room', 'nation_bath', 'nation_market', 'nation_field', 'nation_square', 'nation_roof', 'nation_inn'} <= set(doc['places'])
-assert {p['key'] for p in doc['props']} >= {'bamboo_slip', 'wine_gourd', 'feather_fan', 'magnifier', 'hammer', 'paper_lantern'} and not {'gamepad', 'coin', 'handheld', 'arcade_panel'} & {p['key'] for p in doc['props']}
+assert {p['key'] for p in doc['props']} >= {'bamboo_slip', 'wine_gourd', 'feather_fan', 'magnifier', 'paper_lantern'} and not {'gamepad', 'coin', 'handheld', 'arcade_panel', 'hammer'} & {p['key'] for p in doc['props']}
 assert not any('since' in p for p in doc['props'])
 # 그 원소의 물건(2026-10-30 되살림 — 설계표 hold.en · 주민 object.en) — 알아볼 거리 소품은 signature 하나, 모든 장소, 동작 셋(들기 · 얼굴 옆 · 두 손)
 sig = [p for p in doc['props'] if p.get('signature')]

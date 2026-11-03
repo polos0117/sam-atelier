@@ -1317,13 +1317,6 @@
    "floor",
    "rail_waist"
   ],
-  "heritage_forge": [
-   "floor",
-   "wall",
-   "rail_waist",
-   "edge",
-   "worktable"
-  ],
   "heritage_plank": [
    "floor",
    "wall",
@@ -1993,7 +1986,6 @@
     "nation_bath",
     "bakery_kitchen",
     "backstage_dressing",
-    "heritage_forge",
     "heritage_plank",
     "heritage_redcliff",
     "nation_kitchen",
@@ -2125,7 +2117,6 @@
     "travel_trail",
     "travel_dunes",
     "heritage_plank",
-    "heritage_forge",
     "heritage_redcliff",
     "heritage_wall"
    ]
@@ -2315,16 +2306,6 @@
     "library_reading",
     "home_living",
     "nation_study"
-   ]
-  },
-  {
-   "key": "hammer",
-   "ko": "망치",
-   "en": "a small forging hammer",
-   "places": [
-    "heritage_forge",
-    "heritage_studio",
-    "studio_art"
    ]
   },
   {
@@ -4301,76 +4282,6 @@
    "gaze": "at_prop",
    "needs_any": [
     "table",
-    "worktable"
-   ]
-  },
-  {
-   "key": "hammer_shoulder",
-   "prop": "hammer",
-   "kind": "hold",
-   "hands": "one",
-   "zone": "chest",
-   "ko": "망치를 어깨에 걸친다",
-   "en": "rests {prop} on her shoulder",
-   "frames": [
-    "waist_up",
-    "three_quarter",
-    "full_body",
-    "environmental"
-   ],
-   "postures": [
-    "stand",
-    "lean_wall",
-    "lean_rail",
-    "walk",
-    "lean_counter"
-   ]
-  },
-  {
-   "key": "hammer_side",
-   "prop": "hammer",
-   "kind": "hold",
-   "hands": "one",
-   "zone": "hips",
-   "ko": "망치를 옆에 든다",
-   "en": "carries {prop} head-down at her side",
-   "frames": [
-    "three_quarter",
-    "full_body",
-    "environmental"
-   ],
-   "postures": [
-    "stand",
-    "lean_wall",
-    "lean_rail",
-    "walk",
-    "lean_counter"
-   ]
-  },
-  {
-   "key": "hammer_strike",
-   "prop": "hammer",
-   "kind": "both",
-   "hands": "both",
-   "zone": "waist",
-   "ko": "망치로 두드린다",
-   "en": "brings {prop} down on the glowing work laid on the worktable",
-   "grip": {
-    "right": "swings the hammer",
-    "left": "holds the work steady with tongs"
-   },
-   "frames": [
-    "waist_up",
-    "three_quarter",
-    "full_body",
-    "environmental"
-   ],
-   "postures": [
-    "stand",
-    "lean_counter"
-   ],
-   "gaze": "at_prop",
-   "needs_any": [
     "worktable"
    ]
   },
