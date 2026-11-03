@@ -655,17 +655,17 @@
    },
    "seal": "張",
    "lore": "장판교에서 홀로 조조군을 멈춰 세웠다",
-   "designed": "hand",
+   "designed": "draft",
    "design_by": "claude",
-   "design_date": "2026-11-02",
+   "design_date": "2026-11-03",
    "summary": {
-    "ko": "장판교의 호랑이 — 장팔사모 · 사방으로 뻗친 검은 머리(범 수염) · 크게 웃는 입 · 발그레한 볼(술) · 탄탄한 굴곡형"
+    "ko": "장판교의 호랑이 — 장팔사모 · 사방으로 뻗친 검은 야생 머리(범 수염) · 날카롭게 올라간 눈매의 사나운 미인 · 자신만만한 미소 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the thunder-voiced tiger general of Shu who held Changban Bridge alone"
    },
    "traits": {
-    "en": "a thunderous roar that turned an army back at Changban Bridge, wild temper and fierce joy, a love of wine, a tiger-whiskered fierceness reimagined as wild bristling hair and tiger-stripe trim"
+    "en": "a thunderous roar that turned an army back at Changban Bridge, wild temper and fierce joy, a love of wine, a striking wild beauty whose tiger-whiskered fierceness is reimagined as wild bristling hair and tiger-stripe trim"
    },
    "hold": {
     "en": "the Serpent Spear, a long zhangba spear with a wavy serpent-shaped blade"
@@ -673,16 +673,16 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "age": "early_20s",
+     "age": "mid_20s",
      "impression": "fierce",
      "skin_tone": "warm_beige",
-     "eye_size": "large",
+     "eye_size": "medium",
      "eye_tilt": "up",
-     "mark": "blush",
-     "expr": "laughing",
-     "brows": "low_heavy",
-     "nose": "broad_soft",
-     "lips": "wide_smile"
+     "mark": "smoky",
+     "expr": "proud",
+     "brows": "angled_sharp",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
     },
     "silhouette": {
      "body": "curvy_athletic",
@@ -695,33 +695,95 @@
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "round",
-       "eyes": "round_large"
+       "face_shape": "oval",
+       "eyes": "almond_wide"
       }
      },
      "fantasy": {
+      "silhouette": {
+       "hair": "long_wavy",
+       "bangs": "side_swept"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "narrow_upturned"
+      }
+     },
+     "mecha": {
       "silhouette": {
        "hair": "short_crop",
        "bangs": "choppy"
       },
       "face": {
-       "face_shape": "square_soft",
-       "eyes": "round_large"
-      }
-     },
-     "mecha": {
-      "silhouette": {
-       "hair": "voluminous",
-       "bangs": "none"
-      },
-      "face": {
        "face_shape": "heart",
-       "eyes": "almond_wide"
+       "eyes": "deep_set"
       }
      }
     },
-    "why": "호랑이 수염 · 우레 같은 목소리 → 사방으로 뻗친 숱 많은 검은 머리 · 크게 웃는 입 · 짙은 눈썹. 술 → 발그레한 볼"
-   }
+    "why": "사용자 2026-11-03 「조금은 더 미형으로 … 지금은 너무 돼지같은 인상」 — 눈을 질끈 감고 입을 크게 벌린 웃음(laughing) · 둥근 얼굴 · 뭉툭한 코 · 발그레한 볼 · 낮고 짙은 눈썹 · 크고 둥근 눈이 겹친 탓. 사나운 인상 · 뻗친 검은 머리 · 호박색 눈 · 장팔사모는 그대로 두고, 날렵한 눈썹 · 올라간 눈매 · 곧은 코 · 도톰한 하트 입술 · 스모키 눈매 · 자신만만한 미소(proud)로"
+   },
+   "history": [
+    {
+     "date": "2026-11-02",
+     "summary": "장판교의 호랑이 — 장팔사모 · 사방으로 뻗친 검은 머리(범 수염) · 크게 웃는 입 · 발그레한 볼(술) · 탄탄한 굴곡형",
+     "why_replaced": "사용자 2026-11-03 「외모가 성격에는 맞는 외모 같긴한데, 조금은 더 미형으로 갔으면 하거든. 지금은 너무 돼지같은? 그런 인상」",
+     "look": {
+      "face": {
+       "eye_color": "amber",
+       "age": "early_20s",
+       "impression": "fierce",
+       "skin_tone": "warm_beige",
+       "eye_size": "large",
+       "eye_tilt": "up",
+       "mark": "blush",
+       "expr": "laughing",
+       "brows": "low_heavy",
+       "nose": "broad_soft",
+       "lips": "wide_smile"
+      },
+      "silhouette": {
+       "body": "curvy_athletic",
+       "hair_color": "jet_black"
+      },
+      "worlds": {
+       "samguk": {
+        "silhouette": {
+         "hair": "voluminous",
+         "bangs": "choppy"
+        },
+        "face": {
+         "face_shape": "round",
+         "eyes": "round_large"
+        }
+       },
+       "fantasy": {
+        "silhouette": {
+         "hair": "short_crop",
+         "bangs": "choppy"
+        },
+        "face": {
+         "face_shape": "square_soft",
+         "eyes": "round_large"
+        }
+       },
+       "mecha": {
+        "silhouette": {
+         "hair": "voluminous",
+         "bangs": "none"
+        },
+        "face": {
+         "face_shape": "heart",
+         "eyes": "almond_wide"
+        }
+       }
+      },
+      "why": "호랑이 수염 · 우레 같은 목소리 → 사방으로 뻗친 숱 많은 검은 머리 · 크게 웃는 입 · 짙은 눈썹. 술 → 발그레한 볼"
+     },
+     "traits": {
+      "en": "a thunderous roar that turned an army back at Changban Bridge, wild temper and fierce joy, a love of wine, a tiger-whiskered fierceness reimagined as wild bristling hair and tiger-stripe trim"
+     }
+    }
+   ]
   },
   {
    "key": "조운",
