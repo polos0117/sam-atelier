@@ -50,7 +50,7 @@ node tools/image-claim.cjs claim <장수> --execution $ATELIER_EXECUTION_ID
 ```sh
 node tools/casual-plan.cjs <장수> --world all --records ../sam-atelier-img/records/<장수> --out $W      # $W/plan-<세계>/plan.json · 기록 · 지시문
 node tools/prompt-pack.cjs init <장수> --dir $W/pack --plan $W/plan-samguk/plan.json --plan $W/plan-fantasy/plan.json --plan $W/plan-mecha/plan.json
-node tools/prompt-pack.cjs build --dir $W/pack                                  # 자리마다 <자리>-gpt.md(GPT 세션이 내는 것) · <자리>-prompt.txt · <자리>-ui.json · INDEX.md
+node tools/prompt-pack.cjs build --dir $W/pack                                  # 자리마다 <자리>-prompt.txt(GPT 세션이 내는 것) · <자리>-gpt.md(구조형 — 쓰지 않는다) · <자리>-ui.json · INDEX.md
 ```
 
 - 계획기가 묶음 규칙을 지킨다: 세계마다 다섯 장 중 **정해 둔 두 갈래**(노출 갈래 한 장 — 란제리풍 · 수영복 · 역할극, 세계 안 갈래 한 장 — 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영, 서로 다른 컷) · 네 시대 · 장소 · 의상 · 자세 · 소품 ·
@@ -58,8 +58,8 @@ node tools/prompt-pack.cjs build --dir $W/pack                                  
 - 세계 하나만 남았으면 `--world <세계>` — 다른 세계의 기록은 `--records` 에서 읽어 겹침에 넣는다. 아직 안 올린 다른 계획은 `--others a.json,b.json`.
 - 옛 묶음을 두고 **더 그리라는 말이 있을 때만** `--fresh`(그 세계의 가장 큰 번호 뒤로 다섯 장, 옛 묶음과도 겹치지 않게 — 검사는 `--check … --from <첫 번호>`). 빈 자리 채우기엔 쓰지 않는다.
 - 계획을 손으로 바꾸지 않는다. `settings.json` 은 **비워 둔 채** build 하는 것이 기본 — 고칠 때만 칸을 채우고 직접 입력(덧붙임 글)엔 `why` 를 적는다. 고칠 수 있는 칸은 `tools/prompt-pack.cjs` 머리말에.
-- **GPT 세션은 `<자리>-gpt.md`(구조형)를 낸다**(사용자 2026-11-03 「응 진행해줘」 — 법정 시험: 긴 영문 한 덩어리 `<자리>-prompt.txt` 는 image_gen 에서 선 · 장식 · 표정이 세게 나왔고, 화풍을 칸으로 나눈 구조형은 API 와 같은 그림체가 됐다). `lib/prompt-gpt.js` 가 같은 지시문을 칸으로 옮긴 것이라 설계 값은 같다 — 세계 그림은 고정 화풍 칸(부드러운 3D 렌더 · 낮은 채도), 일상컷은 화풍 · 얼굴을 첨부 그림에 맡기고 몸 볼륨은 그 장수 체형 글에서. `<자리>-prompt.txt` 는 API · 생성기 몫이다.
-- **`<자리>-gpt.md` · `<자리>-prompt.txt` 를 손으로 고쳐 내지 않는다.** 고칠 것이 있으면 settings 를 고쳐 build 를 다시 돌린다.
+- **GPT 세션은 `<자리>-prompt.txt`(영문 지시문)를 낸다.** 같은 날 구조형(`<자리>-gpt.md`)을 시험했지만 되돌렸다(사용자 2026-11-03 「예전으로 돌아가자」 — 구조형은 그림체가 부드러워져 이미 그린 장수 스물다섯과 갈렸고, 화풍 칸을 예전 쪽으로 당긴 2번도 맞지 않았다). 구조형 파일은 build 가 만들기만 한다 — 내지 않는다.
+- **`<자리>-prompt.txt` 를 손으로 고쳐 내지 않는다.** 고칠 것이 있으면 settings 를 고쳐 build 를 다시 돌린다.
 - 일상컷에서 무기(검 · 창 · 언월도 · 활 …)는 들지 않는다 — 지시문이 그 무기를 본뜬 작은 장신구 하나로 바꾼다(SIGNATURE ACCESSORY 줄, `IMAGE_RULES.md` 2절). 부채 · 두루마리 같은 무기 아닌 물건만 한두 장 손에 든다. 세계 그림의 무기엔 「끊기지 않는 한 자루」 줄이 들어간다(`lib/prompt-spec.js` SIGNATURE).
 - 안전 필터로 한 칸이 끝내 막히면 그 칸만 `--slots N --seed <다른 씨앗>` 으로 계획기에 다시 맡긴다 — 한 번만.
 
@@ -104,7 +104,7 @@ node tools/image-claim.cjs done <장수> --execution $ATELIER_EXECUTION_ID
 ```json
 {"generation": {"tool": "<도구>", "endpoint": "images/generations | images/edits", "ref_sha256": "<일상컷 — 붙인 세계 그림의 sha256>",
                 "size": [1024, 1536], "png_sha256": "<원본>", "webp": {"quality": 90}, "retries": [{"n": 1, "status": "<응답>", "exposure": "<노출>"}],
-                "prompt_form": "gpt-structured", "prompt_sha256": "<낸 <자리>-gpt.md 의 sha256>", "redo": {"previous_sha256": "<다시 그렸으면 앞 장>", "why": "<걸린 항목>"}},
+                "prompt_sha256": "<낸 <자리>-prompt.txt 의 sha256>", "redo": {"previous_sha256": "<다시 그렸으면 앞 장>", "why": "<걸린 항목>"}},
  "execution": "<실행 ID>", "imported": "<YYYY-MM-DD>",
  "qa": {"reviewer": "<세션>", "image_sha256": "<원본>", "passed": true, "observations": ["<본 것 하나씩>"], "cause": "<어긋났으면 부딪힌 줄>"},
  "acceptance": "user_approval_2026-11-02 — 묻지 않고 올리고 사용자가 올라간 뒤 본다(「삼국지도 원소처럼 바로 올리게 바꿔줘」)",
