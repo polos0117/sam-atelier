@@ -195,7 +195,7 @@ const P = ctx0.window.AtelierPrompt;
   /* 시대 넷 — 역사의 자리 장소가 일상컷 트리에 산다 */
   const tree = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/casual-tree.json'), 'utf8'));
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
-  assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 10); checks += 2;
+  assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 19); checks += 2;   // 2026-11-03 「다 넣어줘」 — 관제묘 · 백제성 · 오장원 … 열을 더했다
   await br.close(); server.close();
   console.log('PASS 화면: 타이틀(메뉴 다섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 전장(일곱 전장 · 세계마다 지도 · 진영 · 군웅 무리 · 이름표 → 미리 보기 → 배치 · 크게 보기 · 확대 축소 · 빼기) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

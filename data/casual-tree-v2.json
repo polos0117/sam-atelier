@@ -1827,6 +1827,140 @@
    "wall",
    "floor",
    "edge"
+  ],
+  "heritage_guandi": [
+   "table",
+   "chair",
+   "floor",
+   "wall",
+   "rail_waist"
+  ],
+  "heritage_baidi": [
+   "rail_waist",
+   "chair",
+   "floor",
+   "wall",
+   "edge",
+   "table"
+  ],
+  "heritage_luofeng": [
+   "floor",
+   "wall",
+   "edge"
+  ],
+  "heritage_wuzhang": [
+   "table",
+   "chair",
+   "floor",
+   "wall",
+   "rail_waist"
+  ],
+  "heritage_changban": [
+   "floor",
+   "wall",
+   "rail_waist",
+   "edge"
+  ],
+  "heritage_moat": [
+   "floor",
+   "wall",
+   "rail_waist",
+   "edge"
+  ],
+  "heritage_filmset": [
+   "floor",
+   "wall",
+   "rail_waist"
+  ],
+  "heritage_opera": [
+   "worktable",
+   "chair",
+   "floor",
+   "wall",
+   "edge"
+  ],
+  "heritage_calligraphy": [
+   "chair",
+   "table",
+   "rail_waist",
+   "wall",
+   "floor"
+  ],
+  "heritage_festival": [
+   "floor",
+   "wall",
+   "rail_waist"
+  ],
+  "nation_garden": [
+   "floor",
+   "lie",
+   "edge",
+   "wall"
+  ],
+  "nation_harbor": [
+   "wall",
+   "edge",
+   "floor"
+  ],
+  "nation_temple": [
+   "chair",
+   "table",
+   "wall",
+   "floor"
+  ],
+  "nation_bridge": [
+   "edge",
+   "lie",
+   "floor",
+   "rail_waist"
+  ],
+  "nation_forest": [
+   "floor",
+   "lie",
+   "edge",
+   "wall"
+  ],
+  "fx_skygarden": [
+   "floor",
+   "lie",
+   "edge",
+   "wall"
+  ],
+  "fx_underwater": [
+   "edge",
+   "rail_waist",
+   "wall"
+  ],
+  "fx_mirror": [
+   "chair",
+   "wall",
+   "rail_waist"
+  ],
+  "fx_moonpond": [
+   "water",
+   "lie",
+   "edge"
+  ],
+  "fx_ice": [
+   "edge",
+   "rail_waist",
+   "wall"
+  ],
+  "fx_lanternriver": [
+   "floor",
+   "lie",
+   "edge",
+   "wall"
+  ],
+  "fx_cloudpavilion": [
+   "rail_waist",
+   "chair",
+   "wall"
+  ],
+  "fx_library": [
+   "edge",
+   "rail_waist",
+   "wall"
   ]
  },
  "props": [
@@ -1850,9 +1984,14 @@
     "greenhouse",
     "library_reading",
     "heritage_teahouse",
+    "heritage_calligraphy",
     "heritage_tower",
+    "heritage_baidi",
     "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi",
     "nation_study",
+    "nation_temple",
     "nation_camp"
    ]
   },
@@ -1869,7 +2008,8 @@
     "water_infinity",
     "stage_redcarpet",
     "stage_wedding",
-    "fx_ballroom"
+    "fx_ballroom",
+    "fx_mirror"
    ]
   },
   {
@@ -1905,13 +2045,16 @@
     "nation_room",
     "nation_inn",
     "fx_observatory",
+    "fx_cloudpavilion",
     "evening_hotel",
     "spa_lounge",
     "library_reading",
     "train_sleeper",
     "greenhouse",
     "heritage_tower",
+    "heritage_baidi",
     "nation_study",
+    "nation_temple",
     "nation_camp"
    ]
   },
@@ -1926,10 +2069,14 @@
     "fx_studio",
     "water_beach",
     "nation_field",
+    "nation_forest",
+    "nation_garden",
     "nation_square",
+    "nation_harbor",
     "lodge_terrace",
     "greenhouse",
     "heritage_tower",
+    "heritage_baidi",
     "heritage_redcliff"
    ]
   },
@@ -1946,6 +2093,7 @@
     "travel_coast",
     "home_entry",
     "nation_square",
+    "nation_harbor",
     "nation_market"
    ]
   },
@@ -1958,7 +2106,9 @@
     "water_yacht",
     "travel_lake",
     "travel_coast",
-    "nation_field"
+    "nation_field",
+    "nation_forest",
+    "nation_garden"
    ]
   },
   {
@@ -1987,6 +2137,7 @@
     "bakery_kitchen",
     "backstage_dressing",
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_redcliff",
     "nation_kitchen",
     "nation_training"
@@ -2000,6 +2151,7 @@
     "stage_festival",
     "stage_fireworks",
     "fx_ballroom",
+    "fx_mirror",
     "evening_opera",
     "evening_gala",
     "spa_onsen",
@@ -2039,10 +2191,13 @@
     "street_rooftop",
     "night_rooftop",
     "fx_observatory",
+    "fx_cloudpavilion",
     "travel_lookout",
     "water_yacht",
     "nation_roof",
-    "heritage_tower"
+    "nation_bridge",
+    "heritage_tower",
+    "heritage_baidi"
    ]
   },
   {
@@ -2055,6 +2210,8 @@
     "fx_chapel",
     "street_market",
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "greenhouse",
     "backstage_dressing"
    ]
@@ -2091,8 +2248,14 @@
     "stage_festival",
     "travel_camp",
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "fx_castle",
-    "heritage_plank"
+    "fx_library",
+    "fx_ice",
+    "fx_underwater",
+    "heritage_plank",
+    "heritage_luofeng"
    ]
   },
   {
@@ -2105,7 +2268,10 @@
     "travel_lookout",
     "street_cafe",
     "nation_field",
-    "heritage_tower"
+    "nation_forest",
+    "nation_garden",
+    "heritage_tower",
+    "heritage_baidi"
    ]
   },
   {
@@ -2117,8 +2283,11 @@
     "travel_trail",
     "travel_dunes",
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_redcliff",
-    "heritage_wall"
+    "heritage_wall",
+    "heritage_moat",
+    "heritage_changban"
    ]
   },
   {
@@ -2154,6 +2323,7 @@
    "en": "a masquerade mask on a stick",
    "places": [
     "fx_ballroom",
+    "fx_mirror",
     "stage_convention",
     "evening_opera"
    ]
@@ -2172,6 +2342,7 @@
     "nation_inn",
     "library_reading",
     "nation_study",
+    "nation_temple",
     "nation_kitchen",
     "nation_camp"
    ]
@@ -2188,7 +2359,8 @@
     "@studio",
     "tailor_room",
     "@heritage",
-    "nation_study"
+    "nation_study",
+    "nation_temple"
    ]
   },
   {
@@ -2261,10 +2433,15 @@
    "places": [
     "heritage_museum",
     "heritage_studio",
+    "heritage_opera",
     "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi",
     "heritage_teahouse",
+    "heritage_calligraphy",
     "library_reading",
-    "nation_study"
+    "nation_study",
+    "nation_temple"
    ]
   },
   {
@@ -2273,8 +2450,12 @@
    "en": "a gourd-shaped wine flask on a red cord",
    "places": [
     "heritage_teahouse",
+    "heritage_calligraphy",
     "heritage_lantern",
+    "heritage_festival",
+    "heritage_filmset",
     "heritage_tower",
+    "heritage_baidi",
     "nation_inn",
     "nation_market",
     "nation_camp"
@@ -2286,11 +2467,17 @@
    "en": "a white feather fan",
    "places": [
     "heritage_tower",
+    "heritage_baidi",
     "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi",
     "heritage_studio",
+    "heritage_opera",
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_redcliff",
     "nation_square",
+    "nation_harbor",
     "travel_lookout"
    ]
   },
@@ -2301,11 +2488,15 @@
    "places": [
     "heritage_museum",
     "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi",
     "heritage_studio",
+    "heritage_opera",
     "studio_art",
     "library_reading",
     "home_living",
-    "nation_study"
+    "nation_study",
+    "nation_temple"
    ]
   },
   {
@@ -2314,11 +2505,159 @@
    "en": "a small red paper lantern",
    "places": [
     "heritage_lantern",
+    "heritage_festival",
+    "heritage_filmset",
     "heritage_wall",
+    "heritage_moat",
+    "heritage_changban",
     "heritage_tower",
+    "heritage_baidi",
     "nation_market",
     "nation_inn",
     "nation_camp"
+   ]
+  },
+  {
+   "key": "brush_ink",
+   "ko": "붓과 벼루",
+   "en": "a calligraphy brush and an ink stone",
+   "places": [
+    "heritage_calligraphy",
+    "heritage_teahouse",
+    "heritage_studio",
+    "nation_study",
+    "library_reading",
+    "studio_art"
+   ]
+  },
+  {
+   "key": "guzheng",
+   "ko": "고쟁",
+   "en": "a guzheng zither",
+   "places": [
+    "heritage_teahouse",
+    "heritage_tower",
+    "heritage_opera",
+    "nation_room",
+    "nation_garden",
+    "fx_cloudpavilion",
+    "fx_moonpond"
+   ]
+  },
+  {
+   "key": "pipa",
+   "ko": "비파",
+   "en": "a pipa lute",
+   "places": [
+    "heritage_teahouse",
+    "heritage_tower",
+    "heritage_opera",
+    "heritage_festival",
+    "nation_inn",
+    "nation_room",
+    "nation_garden",
+    "fx_lanternriver"
+   ]
+  },
+  {
+   "key": "go_board",
+   "ko": "바둑판",
+   "en": "a go board with black and white stones",
+   "places": [
+    "heritage_teahouse",
+    "heritage_tower",
+    "nation_study",
+    "nation_garden",
+    "nation_room",
+    "home_living",
+    "fx_cloudpavilion"
+   ]
+  },
+  {
+   "key": "oil_umbrella",
+   "ko": "기름종이 우산",
+   "en": "a red oil-paper umbrella",
+   "places": [
+    "heritage_shrine",
+    "heritage_guandi",
+    "heritage_wuzhang",
+    "heritage_luofeng",
+    "heritage_baidi",
+    "heritage_changban",
+    "heritage_moat",
+    "heritage_wall",
+    "heritage_lantern",
+    "heritage_festival",
+    "heritage_filmset",
+    "nation_bridge",
+    "nation_garden",
+    "nation_forest",
+    "fx_lanternriver",
+    "fx_moonpond"
+   ]
+  },
+  {
+   "key": "kite",
+   "ko": "연",
+   "en": "a paper kite on a string",
+   "places": [
+    "heritage_wall",
+    "heritage_changban",
+    "heritage_wuzhang",
+    "heritage_festival",
+    "nation_field",
+    "street_park",
+    "travel_coast"
+   ]
+  },
+  {
+   "key": "incense",
+   "ko": "향",
+   "en": "a few lit incense sticks",
+   "places": [
+    "heritage_shrine",
+    "heritage_guandi",
+    "heritage_wuzhang",
+    "heritage_luofeng",
+    "nation_temple"
+   ]
+  },
+  {
+   "key": "headphones",
+   "ko": "헤드폰",
+   "en": "a pair of over-ear headphones",
+   "places": [
+    "@street",
+    "@home",
+    "@night",
+    "@travel",
+    "studio_sound",
+    "library_reading"
+   ]
+  },
+  {
+   "key": "laptop",
+   "ko": "노트북",
+   "en": "an open laptop",
+   "places": [
+    "@home",
+    "@studio",
+    "library_reading",
+    "street_cafe",
+    "travel_lodge"
+   ]
+  },
+  {
+   "key": "iced_coffee",
+   "ko": "아이스 커피",
+   "en": "a tall iced coffee in a clear cup with a straw",
+   "places": [
+    "@street",
+    "@home",
+    "@travel",
+    "@studio",
+    "street_cafe",
+    "library_reading"
    ]
   },
   {
@@ -4492,6 +4831,387 @@
     "lean_counter",
     "sit_lean"
    ]
+  },
+  {
+   "key": "brush_write",
+   "prop": "brush_ink",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "붓으로 글씨를 쓴다",
+   "en": "writes with {prop} on rice paper laid flat on the table",
+   "grip": {
+    "right": "holds the brush upright",
+    "left": "keeps the paper flat"
+   },
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "sit_lean",
+    "stand",
+    "lean_counter"
+   ],
+   "gaze": "at_prop",
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "guzheng_play",
+   "prop": "guzheng",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "고쟁을 탄다",
+   "en": "plays {prop} laid across her lap or a low table",
+   "grip": {
+    "right": "plucks the strings",
+    "left": "presses the strings beyond the bridges"
+   },
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "stand",
+    "lean_counter",
+    "sit_lean"
+   ],
+   "gaze": "down"
+  },
+  {
+   "key": "pipa_play",
+   "prop": "pipa",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "비파를 탄다",
+   "en": "plays {prop} held upright on her lap",
+   "grip": {
+    "right": "plucks the strings",
+    "left": "fingers the frets on the neck"
+   },
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "stand",
+    "lean_counter",
+    "sit_lean"
+   ],
+   "gaze": "down"
+  },
+  {
+   "key": "pipa_carry",
+   "prop": "pipa",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "비파를 든다",
+   "en": "carries {prop} by its neck at her side",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "lean_counter"
+   ]
+  },
+  {
+   "key": "go_place",
+   "prop": "go_board",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "바둑돌을 놓는다",
+   "en": "places a stone on {prop} on the table",
+   "grip": {
+    "right": "sets a stone between two fingers",
+    "left": "rests by the stone bowl"
+   },
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "sit_lean",
+    "stand",
+    "lean_counter"
+   ],
+   "gaze": "at_prop",
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "oumb_hold",
+   "prop": "oil_umbrella",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "기름종이 우산을 쓴다",
+   "en": "holds {prop} open over her shoulder",
+   "space": "above",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "lean_counter",
+    "sit_lean"
+   ]
+  },
+  {
+   "key": "kite_fly",
+   "prop": "kite",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "연줄을 잡는다",
+   "en": "holds {prop}'s string up, the kite flying in the sky behind her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "lean_counter",
+    "sit_lean"
+   ],
+   "gaze": "at_prop"
+  },
+  {
+   "key": "incense_offer",
+   "prop": "incense",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "향을 두 손으로 올린다",
+   "en": "holds {prop} in both hands before her, thin smoke rising",
+   "grip": {
+    "right": "holds the sticks",
+    "left": "cups beneath them"
+   },
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "lean_counter",
+    "sit_lean"
+   ],
+   "gaze": "at_prop"
+  },
+  {
+   "key": "phones_neck",
+   "prop": "headphones",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "목에 건 헤드폰을 잡는다",
+   "en": "touches one ear cup of {prop} hung around her neck",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean"
+   ]
+  },
+  {
+   "key": "laptop_type",
+   "prop": "laptop",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "노트북을 두드린다",
+   "en": "types on {prop} open on the table",
+   "grip": {
+    "right": "types on the keys",
+    "left": "rests on the trackpad"
+   },
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "sit_lean",
+    "stand",
+    "lean_counter"
+   ],
+   "gaze": "at_prop",
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "iced_hold",
+   "prop": "iced_coffee",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "아이스 커피를 든다",
+   "en": "holds {prop} at chest height",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean"
+   ]
+  },
+  {
+   "key": "iced_sip",
+   "prop": "iced_coffee",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "빨대로 마신다",
+   "en": "sips {prop} through the straw",
+   "space": "mouth",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean"
+   ]
   }
  ],
  "outfit_features": {
@@ -4667,6 +5387,12 @@
    ],
    "dongtan_tube_leggings": [
     "strap"
+   ],
+   "xinzhongshi_knot_dress": [
+    "collar"
+   ],
+   "fur_coat_mini": [
+    "collar"
    ]
   },
   "remove": {
@@ -4732,6 +5458,12 @@
    ],
    "vinyl_stage": [
     "collar"
+   ],
+   "knit_dress_longboots": [
+    "pocket"
+   ],
+   "sheer_blouse_skirt": [
+    "pocket"
    ]
   }
  },
@@ -4762,9 +5494,14 @@
     "street_station",
     "studio_sound",
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_teahouse",
+    "heritage_calligraphy",
     "heritage_shrine",
-    "heritage_tower"
+    "heritage_wuzhang",
+    "heritage_guandi",
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "ko": "물과 먼 실내·추운 곳에 수영복·목욕 차림"
   },
@@ -4857,11 +5594,13 @@
    ],
    "places": [
     "nation_study",
+    "nation_temple",
     "nation_camp",
     "nation_kitchen",
     "nation_training",
     "nation_market",
-    "nation_square"
+    "nation_square",
+    "nation_harbor"
    ],
    "ko": "목욕 차림 · 수영복으로 세계의 서재 · 군영 · 부엌 · 연무장 · 시장 · 광장"
   }

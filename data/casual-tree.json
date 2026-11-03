@@ -27,7 +27,7 @@
   {
    "key": "heritage",
    "ko": "역사의 자리",
-   "en": "a present-day place where the Three Kingdoms is remembered — a museum of Han relics, a sword forge, a restored plank road, the Red Cliffs park, an old city wall, a Chengdu teahouse, the Wuhou Shrine, a riverside pavilion tower, a lantern-lit old street or a hanfu photo studio",
+   "en": "a present-day place where the Three Kingdoms is remembered — a museum of Han relics, a restored plank road, the Red Cliffs park, an old city wall, a Chengdu teahouse, the Wuhou Shrine, a Guan Yu temple, Baidicheng, the Changban Bridge, a film set, an opera dressing room, a calligraphy class or a festival street",
    "outfits": [
     "everyday",
     "dongtan",
@@ -382,6 +382,22 @@
    ]
   },
   {
+   "key": "heritage_luofeng",
+   "group": "heritage",
+   "ko": "낙봉파 산길 사당",
+   "en": "a small mountain-path shrine at the Slope of the Fallen Phoenix — a stone tablet among pines, a narrow trail and drifting mist",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "traditional"
+   ]
+  },
+  {
    "key": "heritage_redcliff",
    "group": "heritage",
    "ko": "적벽 강가",
@@ -415,10 +431,58 @@
    ]
   },
   {
+   "key": "heritage_moat",
+   "group": "heritage",
+   "ko": "형주 옛 성 해자",
+   "en": "the moat path beneath the old Jingzhou city wall at dusk, a stone railing along the bank, still water reflecting the battlements and willows",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "traditional"
+   ]
+  },
+  {
+   "key": "heritage_changban",
+   "group": "heritage",
+   "ko": "장판교 기념 다리",
+   "en": "the Changban Bridge memorial — an arched stone bridge over a stream with a carved stone railing and a memorial stele",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "traditional"
+   ]
+  },
+  {
    "key": "heritage_teahouse",
    "group": "heritage",
    "ko": "성도 찻집",
    "en": "an old Chengdu teahouse with bamboo chairs, covered bowls of tea and a long-spouted copper kettle",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "traditional",
+    "homewear"
+   ]
+  },
+  {
+   "key": "heritage_calligraphy",
+   "group": "heritage",
+   "ko": "서예 교실",
+   "en": "a calligraphy classroom with low wooden desks, rice paper, brushes and ink stones, finished scrolls drying on a line",
    "eras": [
     "now",
     "heritage"
@@ -447,10 +511,58 @@
    ]
   },
   {
+   "key": "heritage_wuzhang",
+   "group": "heritage",
+   "ko": "오장원 사당",
+   "en": "the Zhuge Liang shrine on the Wuzhang Plains plateau — red halls, old cypress trees and a wide view of the open plain",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "traditional",
+    "evening"
+   ]
+  },
+  {
+   "key": "heritage_guandi",
+   "group": "heritage",
+   "ko": "관제묘",
+   "en": "a Guan Yu temple — red walls, a great bronze incense burner smoking in the courtyard and a statue hall behind carved doors",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "traditional",
+    "evening"
+   ]
+  },
+  {
    "key": "heritage_tower",
    "group": "heritage",
    "ko": "강변 누각",
    "en": "a riverside pavilion tower over the Yangtze, carved railings, upturned eaves and a wide view of the river",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "traditional"
+   ]
+  },
+  {
+   "key": "heritage_baidi",
+   "group": "heritage",
+   "ko": "백제성 강가 돌계단",
+   "en": "the long stone stairway of Baidicheng above the Yangtze gorge, worn steps with stone railings, old pines and the river far below",
    "eras": [
     "now",
     "heritage"
@@ -480,10 +592,61 @@
    ]
   },
   {
+   "key": "heritage_festival",
+   "group": "heritage",
+   "ko": "삼국지 축제 거리",
+   "en": "a Three Kingdoms festival street — a costume parade, red banners, paper lanterns and stalls along an old-town lane",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "traditional",
+    "subculture"
+   ]
+  },
+  {
+   "key": "heritage_filmset",
+   "group": "heritage",
+   "ko": "삼국지 촬영 세트장",
+   "en": "a Three Kingdoms film-set street — painted Han-style gates, banners on poles, prop carts and set lights between takes",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "traditional",
+    "subculture"
+   ]
+  },
+  {
    "key": "heritage_studio",
    "group": "heritage",
    "ko": "한푸 사진관",
    "en": "a hanfu photo studio with costume racks, painted silk backdrops, props and soft studio lights",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "outfits": [
+    "traditional",
+    "costume",
+    "roleplay",
+    "everyday",
+    "dongtan"
+   ]
+  },
+  {
+   "key": "heritage_opera",
+   "group": "heritage",
+   "ko": "경극 분장실",
+   "en": "a Peking opera dressing room — mirrors ringed with bulbs, painted Three Kingdoms opera masks and embroidered costumes on racks",
    "eras": [
     "now",
     "heritage"
@@ -1309,6 +1472,64 @@
    }
   },
   {
+   "key": "nation_forest",
+   "group": "nation",
+   "ko": "세계의 숲 오솔길",
+   "en": "a forest path in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "homewear",
+    "active"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "대숲 오솔길",
+     "en": "a narrow path through a tall bamboo grove, light falling in stripes"
+    },
+    "fantasy": {
+     "ko": "고목 숲길",
+     "en": "a mossy path under ancient oaks with shafts of light"
+    },
+    "mecha": {
+     "ko": "함내 숲 돔 산책로",
+     "en": "a walkway through a forest dome inside a colony ship, trees under an artificial sky"
+    }
+   }
+  },
+  {
+   "key": "nation_garden",
+   "group": "nation",
+   "ko": "세계의 정원 · 연못",
+   "en": "a garden with a pond in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "homewear",
+    "active"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "연못 정원",
+     "en": "a walled garden with a lotus pond, a zigzag stone bridge and a small open pavilion"
+    },
+    "fantasy": {
+     "ko": "성 안뜰 정원",
+     "en": "a castle courtyard rose garden around a stone fountain"
+    },
+    "mecha": {
+     "ko": "함내 수경 정원",
+     "en": "a hydroponic garden dome aboard a starship, glowing planters around a still reflecting pool"
+    }
+   }
+  },
+  {
    "key": "nation_square",
    "group": "nation",
    "ko": "세계의 광장",
@@ -1334,6 +1555,36 @@
     "mecha": {
      "ko": "정거장 중앙 광장",
      "en": "the central atrium of a space station, walkways on several levels and a great window onto a planet"
+    }
+   }
+  },
+  {
+   "key": "nation_harbor",
+   "group": "nation",
+   "ko": "세계의 나루 · 항구",
+   "en": "a harbour or ferry landing in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "evening",
+    "swimwear"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "장강 나루",
+     "en": "a Yangtze ferry landing with moored junks under red sails and coiled ropes on the wooden pier"
+    },
+    "fantasy": {
+     "ko": "항구 부두",
+     "en": "a harbour quay of a port town with tall sailing ships, crates and gulls overhead"
+    },
+    "mecha": {
+     "ko": "도킹 베이",
+     "en": "a space-station docking bay with a sleek shuttle on its pad and long light strips"
     }
    }
   },
@@ -1394,6 +1645,35 @@
    }
   },
   {
+   "key": "nation_bridge",
+   "group": "nation",
+   "ko": "세계의 다리",
+   "en": "a bridge in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "homewear",
+    "swimwear",
+    "everyday",
+    "dongtan"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "버드나무 돌다리",
+     "en": "an arched stone bridge over a canal with weeping willows on both banks"
+    },
+    "fantasy": {
+     "ko": "운하 돌다리",
+     "en": "a stone bridge over a town canal with lamp posts and boats passing below"
+    },
+    "mecha": {
+     "ko": "유리 연결 다리",
+     "en": "a glass skybridge between station towers, the planet glowing below"
+    }
+   }
+  },
+  {
    "key": "nation_inn",
    "group": "nation",
    "ko": "세계의 여관",
@@ -1448,6 +1728,35 @@
     "mecha": {
      "ko": "함내 자료실",
      "en": "a starship data archive — glowing holographic displays without text, sleek consoles and a reading chair"
+    }
+   }
+  },
+  {
+   "key": "nation_temple",
+   "group": "nation",
+   "ko": "세계의 사당 · 신전",
+   "en": "a temple or shrine in her world",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "homewear",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "조상 사당",
+     "en": "an ancestral shrine hall with a bronze incense burner, red pillars and memorial tablets"
+    },
+    "fantasy": {
+     "ko": "성당 안",
+     "en": "the nave of a Gothic cathedral with stained-glass windows, candles and stone columns"
+    },
+    "mecha": {
+     "ko": "함내 추모 홀",
+     "en": "a quiet memorial hall aboard a starship, soft light on a wall of abstract light panels without text"
     }
    }
   },
@@ -1583,6 +1892,21 @@
    ]
   },
   {
+   "key": "fx_mirror",
+   "group": "fx",
+   "ko": "거울 미궁",
+   "en": "a mirrored labyrinth of endless reflections and soft coloured light",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "evening",
+    "retro",
+    "halloween"
+   ]
+  },
+  {
    "key": "fx_starstage",
    "group": "fx",
    "ko": "별빛 무대",
@@ -1612,6 +1936,36 @@
    ]
   },
   {
+   "key": "fx_lanternriver",
+   "group": "fx",
+   "ko": "등불을 띄운 강",
+   "en": "a night river covered with floating paper lanterns, stone steps leading down to the water",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "bridal",
+    "traditional",
+    "halloween"
+   ]
+  },
+  {
+   "key": "fx_skygarden",
+   "group": "fx",
+   "ko": "공중 정원",
+   "en": "a floating sky garden of hanging vines and flowering terraces above the clouds",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "bridal",
+    "traditional",
+    "halloween"
+   ]
+  },
+  {
    "key": "fx_spa",
    "group": "fx",
    "ko": "미래풍 스파",
@@ -1625,10 +1979,38 @@
    ]
   },
   {
+   "key": "fx_moonpond",
+   "group": "fx",
+   "ko": "달빛 연못",
+   "en": "a moonlit lotus pond with stepping stones and glowing fireflies",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "bath",
+    "swimwear"
+   ]
+  },
+  {
    "key": "fx_observatory",
    "group": "fx",
    "ko": "밤 천문대",
    "en": "a night observatory under an open dome",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "editorial",
+    "evening",
+    "halloween"
+   ]
+  },
+  {
+   "key": "fx_cloudpavilion",
+   "group": "fx",
+   "ko": "구름 위 정자",
+   "en": "an open pavilion floating above a sea of clouds at sunrise",
    "eras": [
     "fantasy"
    ],
@@ -1658,6 +2040,54 @@
    "group": "fx",
    "ko": "성 계단",
    "en": "the grand staircase of an old castle",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "evening",
+    "bridal",
+    "retro",
+    "halloween"
+   ]
+  },
+  {
+   "key": "fx_library",
+   "group": "fx",
+   "ko": "거대한 서고",
+   "en": "a vast fantasy library of towering shelves, spiral stairs and floating candles",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "evening",
+    "bridal",
+    "retro",
+    "halloween"
+   ]
+  },
+  {
+   "key": "fx_ice",
+   "group": "fx",
+   "ko": "얼음 궁전",
+   "en": "an ice palace hall of carved crystal pillars, frosted light and a grand frozen staircase",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "costume",
+    "evening",
+    "bridal",
+    "retro",
+    "halloween"
+   ]
+  },
+  {
+   "key": "fx_underwater",
+   "group": "fx",
+   "ko": "수중 궁전",
+   "en": "an underwater palace hall behind great glass arches, a sweeping coral-stone staircase, rippling blue light and drifting bubbles outside",
    "eras": [
     "fantasy"
    ],
@@ -2190,10 +2620,18 @@
     "home_balcony",
     "evening_hotel",
     "nation_square",
+    "nation_harbor",
     "nation_market",
     "nation_field",
+    "nation_forest",
+    "nation_garden",
     "fx_castle",
+    "fx_library",
+    "fx_ice",
+    "fx_underwater",
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "stage_festival",
     "sports_gym",
     "sports_court",
@@ -2230,11 +2668,14 @@
     "travel_lodge",
     "nation_room",
     "nation_roof",
+    "nation_bridge",
     "fx_observatory",
+    "fx_cloudpavilion",
     "water_yacht",
     "water_infinity",
     "fx_retro_home",
-    "heritage_tower"
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "en": "looking out at the view, one hand resting on the nearest ledge"
   },
@@ -2248,12 +2689,21 @@
     "water_beach",
     "stage_festival",
     "nation_square",
+    "nation_harbor",
     "nation_market",
     "nation_field",
+    "nation_forest",
+    "nation_garden",
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "fx_castle",
+    "fx_library",
+    "fx_ice",
+    "fx_underwater",
     "evening_museum",
     "fx_ballroom",
+    "fx_mirror",
     "spa_footbath",
     "stage_fireworks",
     "!street_cafe",
@@ -2261,9 +2711,15 @@
     "!travel_cablecar",
     "heritage_redcliff",
     "heritage_wall",
+    "heritage_moat",
+    "heritage_changban",
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_lantern",
-    "heritage_tower"
+    "heritage_festival",
+    "heritage_filmset",
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "en": "strolling through the place at an easy pace",
    "hands": "free"
@@ -2281,10 +2737,16 @@
     "water_beach",
     "stage_festival",
     "nation_square",
+    "nation_harbor",
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "nation_field",
+    "nation_forest",
+    "nation_garden",
     "heritage_redcliff",
-    "heritage_tower"
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "en": "taking a photo of the scenery with a small camera"
   },
@@ -2411,7 +2873,8 @@
     "nation_room",
     "travel_rural_station",
     "nation_camp",
-    "nation_study"
+    "nation_study",
+    "nation_temple"
    ],
    "en": "reading an unlettered book, one page about to turn"
   },
@@ -2523,7 +2986,8 @@
     "street_market",
     "nation_market",
     "stage_festival",
-    "nation_study"
+    "nation_study",
+    "nation_temple"
    ],
    "en": "browsing a shelf and pulling one item out for a closer look"
   },
@@ -2568,6 +3032,7 @@
     "street_park",
     "travel_trail",
     "nation_square",
+    "nation_harbor",
     "street_market"
    ],
    "en": "walking slowly in the rain under an umbrella"
@@ -2579,6 +3044,7 @@
    "places": [
     "street_alley",
     "nation_square",
+    "nation_harbor",
     "nation_market",
     "travel_rural_station"
    ],
@@ -2604,8 +3070,11 @@
    "places": [
     "street_rooftop",
     "nation_roof",
+    "nation_bridge",
     "fx_observatory",
-    "heritage_tower"
+    "fx_cloudpavilion",
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "en": "adjusting a small telescope to look at the stars"
   },
@@ -2617,11 +3086,14 @@
     "street_park",
     "travel_lookout",
     "nation_square",
+    "nation_harbor",
     "travel_lake",
     "studio_art",
     "travel_coast",
     "heritage_tower",
-    "nation_study"
+    "heritage_baidi",
+    "nation_study",
+    "nation_temple"
    ],
    "en": "sketching the scenery in a small notebook"
   },
@@ -2632,6 +3104,8 @@
    "places": [
     "street_park",
     "nation_field",
+    "nation_forest",
+    "nation_garden",
     "travel_lake",
     "street_rooftop"
    ],
@@ -2647,7 +3121,9 @@
    "places": [
     "studio_art",
     "heritage_teahouse",
+    "heritage_calligraphy",
     "heritage_tower",
+    "heritage_baidi",
     "heritage_museum"
    ],
    "en": "late at night with her feet up on the chair, coffee held in both hands",
@@ -2679,7 +3155,8 @@
    "family": "sit",
    "places": [
     "studio_art",
-    "heritage_studio"
+    "heritage_studio",
+    "heritage_opera"
    ],
    "en": "shaping clay on a pottery wheel, hands wet",
    "seat": [
@@ -2724,7 +3201,8 @@
     "water_yacht",
     "water_beach",
     "water_infinity",
-    "nation_roof"
+    "nation_roof",
+    "nation_bridge"
    ],
    "en": "lying back on a sunbed with a cold drink beside her",
    "hands": "free"
@@ -2851,7 +3329,8 @@
     "spa_onsen",
     "spa_cedar",
     "nation_bath",
-    "fx_spa"
+    "fx_spa",
+    "fx_moonpond"
    ],
    "en": "soaking in the warm water, arms resting on the rim, steam rising",
    "seat": [],
@@ -2897,6 +3376,7 @@
    "places": [
     "spa_lounge",
     "fx_spa",
+    "fx_moonpond",
     "spa_jjimjil",
     "spa_hammam",
     "spa_footbath",
@@ -2944,6 +3424,7 @@
     "spa_lounge",
     "home_bath",
     "fx_spa",
+    "fx_moonpond",
     "spa_hammam"
    ],
    "en": "resting with a clay mask on her face",
@@ -3132,6 +3613,7 @@
     "night_rooftop",
     "stage_festival",
     "fx_ballroom",
+    "fx_mirror",
     "stage_wedding"
    ],
    "en": "dancing to the beat, one hand raised"
@@ -3192,6 +3674,9 @@
     "night_bar",
     "night_karaoke",
     "fx_castle",
+    "fx_library",
+    "fx_ice",
+    "fx_underwater",
     "nation_inn"
    ],
    "en": "raising a glass in a toast"
@@ -3212,7 +3697,9 @@
    "family": "walk",
    "places": [
     "stage_festival",
-    "fx_forest"
+    "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden"
    ],
    "en": "walking under strings of paper lanterns with a small snack"
   },
@@ -3301,6 +3788,8 @@
    "places": [
     "stage_wedding",
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "fx_chapel"
    ],
    "en": "holding a bouquet, waiting for her cue",
@@ -3353,7 +3842,10 @@
    "places": [
     "evening_opera",
     "stage_redcarpet",
-    "fx_castle"
+    "fx_castle",
+    "fx_library",
+    "fx_ice",
+    "fx_underwater"
    ],
    "en": "climbing a grand staircase, lifting her hem"
   },
@@ -3407,6 +3899,9 @@
     "evening_museum",
     "stage_redcarpet",
     "fx_castle",
+    "fx_library",
+    "fx_ice",
+    "fx_underwater",
     "night_taxi",
     "stage_wedding",
     "evening_hotel"
@@ -3421,6 +3916,7 @@
     "travel_trail",
     "travel_dunes",
     "nation_square",
+    "nation_harbor",
     "street_station",
     "travel_lookout",
     "nation_camp"
@@ -3508,6 +4004,7 @@
    "family": "walk",
    "places": [
     "nation_square",
+    "nation_harbor",
     "travel_rural_station",
     "travel_ferry"
    ],
@@ -3546,7 +4043,8 @@
    "ko": "지붕 위 일광욕",
    "family": "lie",
    "places": [
-    "nation_roof"
+    "nation_roof",
+    "nation_bridge"
    ],
    "en": "lying back in the sun with her eyes half closed",
    "hands": "free",
@@ -3567,6 +4065,8 @@
    "family": "lie",
    "places": [
     "nation_field",
+    "nation_forest",
+    "nation_garden",
     "home_balcony"
    ],
    "en": "swinging lazily in a hammock, one leg dangling over the side",
@@ -3577,7 +4077,8 @@
    "ko": "명소 계단에서 쉬기",
    "family": "sit",
    "places": [
-    "nation_square"
+    "nation_square",
+    "nation_harbor"
    ],
    "en": "sitting on the steps of the place's landmark, shoes off beside her",
    "seat": [
@@ -3613,7 +4114,8 @@
    "ko": "가면 들고 돌기",
    "family": "move",
    "places": [
-    "fx_ballroom"
+    "fx_ballroom",
+    "fx_mirror"
    ],
    "en": "turning a slow waltz step with a mask raised on a stick"
   },
@@ -3623,6 +4125,8 @@
    "family": "stand",
    "places": [
     "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden",
     "fx_chapel"
    ],
    "en": "raising a lantern to light the way"
@@ -3633,7 +4137,9 @@
    "family": "stand",
    "places": [
     "fx_observatory",
-    "heritage_tower"
+    "fx_cloudpavilion",
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "en": "looking through a great brass telescope"
   },
@@ -3661,7 +4167,10 @@
    "ko": "계단 내려오기",
    "family": "walk",
    "places": [
-    "fx_castle"
+    "fx_castle",
+    "fx_library",
+    "fx_ice",
+    "fx_underwater"
    ],
    "en": "descending the stairs with her train trailing behind"
   },
@@ -3757,6 +4266,7 @@
    "family": "stand",
    "places": [
     "nation_square",
+    "nation_harbor",
     "travel_rural_station",
     "travel_lookout"
    ],
@@ -3768,9 +4278,12 @@
    "family": "walk",
    "places": [
     "nation_square",
+    "nation_harbor",
     "street_alley",
     "travel_trail",
-    "fx_forest"
+    "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden"
    ],
    "en": "walking at night with a small lantern, the path glowing softly around her"
   },
@@ -3805,7 +4318,9 @@
    "places": [
     "stage_festival",
     "street_park",
-    "fx_forest"
+    "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden"
    ],
    "en": "weaving a crown of fresh flowers"
   },
@@ -4065,7 +4580,9 @@
    "family": "walk",
    "places": [
     "stage_wedding",
-    "fx_forest"
+    "fx_forest",
+    "fx_lanternriver",
+    "fx_skygarden"
    ],
    "en": "walking down an aisle under a flower arch, the train trailing"
   },
@@ -4111,7 +4628,10 @@
    "places": [
     "heritage_museum",
     "heritage_shrine",
-    "heritage_studio"
+    "heritage_wuzhang",
+    "heritage_guandi",
+    "heritage_studio",
+    "heritage_opera"
    ],
    "en": "leaning in to study a bronze relic behind display glass"
   },
@@ -4121,9 +4641,13 @@
    "family": "sit",
    "places": [
     "heritage_teahouse",
+    "heritage_calligraphy",
     "heritage_museum",
     "heritage_tower",
-    "heritage_shrine"
+    "heritage_baidi",
+    "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi"
    ],
    "en": "jotting notes into a small notebook, pen in hand",
    "seat": [
@@ -4136,11 +4660,18 @@
    "family": "stand",
    "places": [
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_wall",
+    "heritage_moat",
+    "heritage_changban",
     "heritage_lantern",
+    "heritage_festival",
+    "heritage_filmset",
     "heritage_tower",
+    "heritage_baidi",
     "heritage_redcliff",
-    "heritage_studio"
+    "heritage_studio",
+    "heritage_opera"
    ],
    "en": "fanning herself with a round silk fan for a moment's rest"
   },
@@ -4150,8 +4681,12 @@
    "family": "stand",
    "places": [
     "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi",
     "heritage_museum",
-    "heritage_wall"
+    "heritage_wall",
+    "heritage_moat",
+    "heritage_changban"
    ],
    "en": "tracing the carving of an old stone tablet with one fingertip"
   },
@@ -4161,9 +4696,15 @@
    "family": "move",
    "places": [
     "heritage_lantern",
+    "heritage_festival",
+    "heritage_filmset",
     "heritage_wall",
+    "heritage_moat",
+    "heritage_changban",
     "heritage_tower",
-    "heritage_studio"
+    "heritage_baidi",
+    "heritage_studio",
+    "heritage_opera"
    ],
    "en": "reaching up with both hands to hang a red paper lantern"
   },
@@ -4173,7 +4714,10 @@
    "family": "stand",
    "places": [
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_wall",
+    "heritage_moat",
+    "heritage_changban",
     "heritage_redcliff"
    ],
    "en": "wiping her brow with the back of her hand after the climb"
@@ -4193,8 +4737,13 @@
    "family": "stand",
    "places": [
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_lantern",
-    "heritage_shrine"
+    "heritage_festival",
+    "heritage_filmset",
+    "heritage_shrine",
+    "heritage_wuzhang",
+    "heritage_guandi"
    ],
    "en": "lifting a hand lantern to look closer at what is in front of her"
   },
@@ -4204,8 +4753,12 @@
    "family": "walk",
    "places": [
     "heritage_plank",
+    "heritage_luofeng",
     "heritage_wall",
-    "heritage_tower"
+    "heritage_moat",
+    "heritage_changban",
+    "heritage_tower",
+    "heritage_baidi"
    ],
    "en": "walking along the railing, one hand trailing on the rail",
    "outfits": [
@@ -4220,15 +4773,91 @@
    "family": "sit",
    "places": [
     "heritage_teahouse",
+    "heritage_calligraphy",
     "nation_market",
     "nation_inn",
     "nation_camp",
     "nation_study",
+    "nation_temple",
     "nation_kitchen"
    ],
    "en": "pouring tea from a pot into small cups, one at a time",
    "seat": [
     "chair"
+   ]
+  },
+  {
+   "key": "incense_bow",
+   "ko": "향 올리기",
+   "family": "stand",
+   "places": [
+    "heritage_guandi",
+    "heritage_wuzhang",
+    "heritage_luofeng",
+    "heritage_shrine",
+    "nation_temple"
+   ],
+   "en": "raising lit incense before the shrine with a small bow"
+  },
+  {
+   "key": "calligraphy_write",
+   "ko": "붓글씨 쓰기",
+   "family": "sit",
+   "places": [
+    "heritage_calligraphy",
+    "nation_study"
+   ],
+   "en": "writing large characters with a brush on rice paper",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "kite_run",
+   "ko": "연 날리기",
+   "family": "stand",
+   "places": [
+    "heritage_wall",
+    "heritage_changban",
+    "heritage_festival",
+    "nation_field",
+    "street_park"
+   ],
+   "en": "letting out a kite string, eyes on the kite in the sky"
+  },
+  {
+   "key": "opera_makeup",
+   "ko": "경극 분장 고치기",
+   "family": "sit",
+   "places": [
+    "heritage_opera"
+   ],
+   "en": "touching up stage makeup in a bulb-ringed mirror",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "parade_wave",
+   "ko": "행렬 따라 걷기",
+   "family": "stand",
+   "places": [
+    "heritage_festival",
+    "heritage_filmset"
+   ],
+   "en": "walking alongside a costume parade, waving to the crowd"
+  },
+  {
+   "key": "pond_feed",
+   "ko": "연못가에 앉기",
+   "family": "sit",
+   "places": [
+    "nation_garden",
+    "fx_moonpond"
+   ],
+   "en": "sitting at the edge of the pond, one hand trailing near the water",
+   "seat": [
+    "edge"
    ]
   }
  ],
@@ -4385,6 +5014,22 @@
      "key": "turtleneck_quilted_vest",
      "ko": "터틀넥 + 퀼팅 조끼 + 바지",
      "en": "a fine knit turtleneck under a quilted vest with straight trousers"
+    },
+    {
+     "key": "knit_dress_longboots",
+     "ko": "니트 원피스 + 롱부츠",
+     "en": "a fitted knit dress with knee-high suede boots",
+     "low": true
+    },
+    {
+     "key": "fur_coat_mini",
+     "ko": "퍼 코트 + 미니 원피스",
+     "en": "a short faux-fur coat open over a fitted mini dress"
+    },
+    {
+     "key": "sheer_blouse_skirt",
+     "ko": "시스루 블라우스 + 하이웨이스트 스커트",
+     "en": "a sheer chiffon blouse over a lace camisole, tucked into a high-waisted skirt"
     }
    ],
    "en": "everyday clothes that suit the place and activity"
@@ -4965,6 +5610,23 @@
      "key": "ski_set",
      "ko": "스키 재킷 + 스키 팬츠",
      "en": "a fitted ski jacket and padded ski pants"
+    },
+    {
+     "key": "golf_wear",
+     "ko": "골프웨어 — 폴로 + 플리츠 미니스커트",
+     "en": "a fitted golf polo with a pleated mini skirt and a visor",
+     "low": true
+    },
+    {
+     "key": "ski_suit",
+     "ko": "스키웨어 — 몸에 붙는 스키 수트",
+     "en": "a sleek fitted one-piece ski suit with goggles pushed up on her head"
+    },
+    {
+     "key": "ballet_practice",
+     "ko": "발레 연습복 — 레오타드 + 랩스커트",
+     "en": "a ballet leotard with a short wrap skirt, tights and leg warmers",
+     "low": true
     }
    ],
    "en": "activewear made for the activity"
@@ -5184,6 +5846,22 @@
      "key": "caftan_evening",
      "ko": "모로코 카프탄",
      "en": "a Moroccan evening caftan — a long embroidered robe with a decorated belt"
+    },
+    {
+     "key": "xinzhongshi_crop_mamian",
+     "ko": "신중식 — 한푸 깃 크롭 상의 + 슬릿 마면치마",
+     "en": "a new-Chinese-style street outfit: a cropped top with a crossed hanfu collar and a pleated horse-face skirt with a high slit"
+    },
+    {
+     "key": "xinzhongshi_knot_dress",
+     "ko": "신중식 — 매듭단추 바디 원피스",
+     "en": "a fitted modern dress with frog-knot buttons and a mandarin collar in hanfu-inspired silk"
+    },
+    {
+     "key": "xinzhongshi_jacket_mini",
+     "ko": "신중식 — 자수 한푸 재킷 + 미니스커트",
+     "en": "a short embroidered hanfu-style jacket with wide sleeves over a camisole and a mini skirt",
+     "low": true
     }
    ],
    "en": "a traditional dress that suits her, worn naturally"
@@ -5934,7 +6612,12 @@
     "nation_inn",
     "nation_study",
     "nation_kitchen",
-    "nation_camp"
+    "nation_camp",
+    "nation_garden",
+    "nation_bridge",
+    "nation_temple",
+    "nation_forest",
+    "nation_harbor"
    ],
    "outfits": [
     "homewear",
@@ -5943,7 +6626,7 @@
     "swimwear"
    ]
   },
-  "note": "세계마다 일상컷 다섯 장 중 두 장은 확정(2026-11-02 — 사용자 「각각 1장해서 2장은 확정」): 노출 갈래 한 장(outfits — 란제리풍·수영복·역할극) + 세계 안 갈래 한 장(world — 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복), 서로 다른 컷. tools/casual-check.py 가 본다. 모듈은 required.world 를 읽는다(game 의 in_game 자리) · 2026-11-02 사용자 「둘 다 해줘」(장소를 넓히고 지금 현실 비중을 높이기) — 세계 안 갈래 장소에 서재 · 부엌 · 군영을 더해 일곱 곳(홈웨어가 되는 곳). 한 묶음 다섯 장의 시대는 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(tools/casual-plan.cjs ERA_QUOTA)"
+  "note": "세계마다 일상컷 다섯 장 중 두 장은 확정(2026-11-02 — 사용자 「각각 1장해서 2장은 확정」): 노출 갈래 한 장(outfits — 란제리풍·수영복·역할극) + 세계 안 갈래 한 장(world — 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복), 서로 다른 컷. tools/casual-check.py 가 본다. 모듈은 required.world 를 읽는다(game 의 in_game 자리) · 2026-11-02 사용자 「둘 다 해줘」(장소를 넓히고 지금 현실 비중을 높이기) — 세계 안 갈래 장소에 서재 · 부엌 · 군영을 더해 일곱 곳(홈웨어가 되는 곳). 한 묶음 다섯 장의 시대는 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(tools/casual-plan.cjs ERA_QUOTA) · 같은 날 「다 넣어줘」 — 세계 안 장소 다섯(정원 · 다리 · 사당 · 숲길 · 나루)을 더하고 세계 안 갈래 장소로도 넣어 열둘(세계 안 시대는 묶음마다 이 갈래 한 장뿐이라 갈래 밖 장소는 뽑히지 않는다)"
  },
  "presets": [
   {

@@ -107,10 +107,10 @@ try {
   }
 }
 /* 시대 몫 — 새 다섯 장은 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(2026-11-02 「지금 현실 비중을 높여줘」),
-   세계 안 갈래 장소는 일곱 곳(방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 — 「둘 다 해줘」) */
+   세계 안 갈래 장소는 열두 곳(방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 + 정원 · 다리 · 사당 · 숲길 · 나루) */
 {
   const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree.json'), 'utf8'));
-  assert.deepEqual(tr.required.world.places, ['nation_room', 'nation_bath', 'nation_roof', 'nation_inn', 'nation_study', 'nation_kitchen', 'nation_camp']);
+  assert.deepEqual(tr.required.world.places, ['nation_room', 'nation_bath', 'nation_roof', 'nation_inn', 'nation_study', 'nation_kitchen', 'nation_camp', 'nation_garden', 'nation_bridge', 'nation_temple', 'nation_forest', 'nation_harbor']);   /* 2026-11-03 「다 넣어줘」 — 열둘 */
   for (const key of pickKeys.slice(0, 6)) {
     const card = C.cardOf(key); card.world = card.worlds[0];
     const eras = C.plan(card, [1, 2, 3, 4, 5], [], { seed: 21 }).cuts.reduce((m, c) => (m[c.era] = (m[c.era] || 0) + 1, m), {});

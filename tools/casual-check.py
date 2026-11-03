@@ -1,7 +1,7 @@
 """일상컷 묶음 검사(2026-11-02) — 세계마다 다섯 장 중 두 장은 정해 둔 갈래로(사용자 「란제리풍·수영복·역할극, 세계 안의 방·목욕·지붕·여관·서재·부엌·군영 이거는 각각 1장해서 2장은 확정으로」).
 
   노출 갈래 한 장  — 의상 계열이 란제리풍 · 수영복 · 역할극 (casual-tree.json required.outfits)
-  세계 안 갈래 한 장 — 시대 「세계 안」 의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영에서 홈웨어 · 란제리 · 목욕 차림 · 수영복 (required.world)
+  세계 안 갈래 한 장 — 시대 「세계 안」 의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복 (required.world)
   두 장은 서로 다른 컷이어야 한다(한 장이 둘 다 맞아도 한 갈래만 채운다). 나머지 세 장은 자유.
 
 그림 저장소(sam-atelier-img)의 기록 records/<장수>/<세계>-casualN.<화풍>-ui.json 의 scene 을 읽는다.
@@ -105,7 +105,7 @@ def main(argv):
                 continue
             a, b = fill(ks)
             left = PER_WORLD - len(ks)
-            need = [x for x, ok in (('노출 갈래(란제리풍·수영복·역할극)', a), ('세계 안 갈래(방·목욕·지붕·여관·서재·부엌·군영)', b)) if not ok]
+            need = [x for x, ok in (('노출 갈래(란제리풍·수영복·역할극)', a), ('세계 안 갈래(방·목욕·지붕·여관·서재·부엌·군영·정원·다리·사당·숲길·나루)', b)) if not ok]
             state = '맞음' if not need else ('남은 %d칸에 %s' % (left, ' · '.join(need)) if len(need) <= left else '모자람 — ' + ' · '.join(need))
             if need and len(need) > left:
                 bad += 1
