@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-04 · gpt · 맹획 18장 화풍 v4로 재작업
+- sam-atelier-img/img/맹획_* · records/맹획/ — 현재 생성기 화풍 v4의 현실적인 하체 비율로 세계 3장·각 세계 기준 원본을 첨부한 일상 15장 재생성. 1024×1536 WebP 품질 90·method 6, 실제 제출 지시문·원본·결과·참고 해시 및 검수 보존. 배경 인물·의상·구도·손 위치·피부색 등 계획 차이 12장은 qa.passed=false 유지
+- sam-atelier-img/records/replacement.json · records/맹획/rework-20261104-626ae.json — 요청한 18개 파일만 교체, 이전 WebP·원본 해시와 기록·계획·설정 보존. 삼국시대 일상5 안전 거절 후 같은 지시문 한 번 재시도로 성공
+- data/img.json — 기존 맹획 18개 파일 이름과 최초 등록일 유지, 등록 도구 대조에서 새 후보 0개. 일상 세 세계 계획·중복 검사 통과. 공용 blob:none Git 데이터와 작업별 sparse worktree·브랜치 재사용, 연결된 GitHub로 비강제 fast-forward 반영
+
+
 ## 2026-11-04 · gpt · 맹획 세계 3장·일상 15장 생성 및 도감 등록
 - sam-atelier-img/img/맹획_* · records/맹획/ — 생성기 영문 세계 지시문과 구조형 일상 지시문으로 18칸 생성, 일상마다 해당 세계 원본 첨부. 1024×1536 WebP 품질 90·method 6, 실제 제출 지시문·원본·결과·참고 해시와 AI 검수 보존. 장신구 수·머리 길이·시선·자세·노출 등 계획과 다른 17장은 qa.passed=false 유지
 - sam-atelier-img/records/맹획/*-casual-plan.json · generation-settings.json · samguk-initial-blocked.json — 세 세계 동시 계획으로 필수 두 갈래·시대 배분·세계 간 장면 중복 검사. 삼국시대 첫 요청 안전 거절 후 생성기 low 노출로 조정해 성공, 원문과 거절 내역 보존
