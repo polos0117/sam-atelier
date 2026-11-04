@@ -114,4 +114,9 @@ assert not any('since' in p for p in doc['props'])
 sig = [p for p in doc['props'] if p.get('signature')]
 assert [p['key'] for p in sig] == ['signature'] and sig[0]['places'] == ['*'], sig
 assert len([u for u in doc['prop_uses'] if u['prop'] == 'signature']) == 3
+# 택시 뒷좌석에선 서지 않는다(2026-11-04) — 서는 자세는 upright 받침이 있는 장소만
+stands = [p for p in doc['postures'] if p['family'] in ('stand', 'walk')]
+assert stands and all('upright' in p.get('needs', []) for p in stands), stands
+assert 'upright' not in doc['places']['night_taxi'] and all('upright' in v for k, v in doc['places'].items() if k != 'night_taxi')
+assert all('night_taxi' not in T.preset_places(doc, v1, p) for p in doc['presets'] if any(q['key'] == p['posture'] and q['family'] in ('stand', 'walk') for q in doc['postures']))
 print('casual-tree-v2 ok — 추천', len(doc['presets']), '· 장소', len(doc['places']), '· 삼국지 소품 여섯')

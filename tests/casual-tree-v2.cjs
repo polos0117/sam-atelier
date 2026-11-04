@@ -87,6 +87,11 @@ assert.equal(s.right, 'prop'); assert.equal(s.left, 'hip'); assert.equal(C.use(t
 
 /* 5. 장소 받침 · 옷 특징 · 시대 소품 */
 assert.equal(C.why(t, { era: 'now', place: 'home_living', posture: 'stand' }, 'posture', 'soak').code, 'place');
+/* 택시 뒷좌석은 앉는 자리만(2026-11-04 「택시 안에 서기 자세가 정상 씬으로」) — 서기 · 걷기 · 기대 서기는 「서서 움직일 만큼 트인 자리(upright)」 가 있어야 */
+for (const k of ['stand', 'walk', 'lean_wall', 'lean_rail', 'lean_counter']) assert.equal(C.why(t, { era: 'now', place: 'night_taxi' }, 'posture', k).code, 'place', '택시에서 ' + k);
+assert.equal(C.why(t, { era: 'now', place: 'night_taxi' }, 'posture', 'sit_chair'), null, '택시는 앉기');
+assert.equal(C.why(t, { era: 'now', place: 'home_living' }, 'posture', 'stand'), null, '거실은 서기');
+for (let i = 0; i < 400; i++) { const sc = C.random(t, { era: 'now', place: 'night_taxi' }, null, seeded(900 + i), ['era', 'place']); if (sc && sc.place === 'night_taxi') assert(!['stand', 'walk', 'lean_wall', 'lean_rail', 'lean_counter'].includes(sc.posture), '택시 랜덤 ' + JSON.stringify(sc)); }
 const wall = t.v1.places.find(p => C.placeHas(t, p.key).includes('wall')).key, nowall = t.v1.places.find(p => !C.placeHas(t, p.key).includes('wall')).key;
 assert.equal(C.why(t, { place: wall }, 'posture', 'lean_wall'), null);
 assert.equal(C.why(t, { place: nowall }, 'posture', 'lean_wall').code, 'place');

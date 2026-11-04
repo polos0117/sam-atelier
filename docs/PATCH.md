@@ -9,6 +9,10 @@
 
 
 
+## 2026-11-04 · claude · 택시 뒷좌석에서 서지 않는다
+- data/casual-tree-v2.json — 받침 「upright(서서 움직일 만큼 트인 자리)」 을 더해 택시(night_taxi) 말고 모든 장소에 붙이고, 서기 · 걷기 · 기대 서기 · 작업대에 숙이기는 이것을 요구한다. 사용자 「택시 안에 서기 자세가 정상 씬으로 등록되어 있대」 — 서기 · 걷기는 받침 조건이 없어 앉는 자리뿐인 택시에서도 통과했다
+- tests/casual-tree-v2.cjs · tests/casual-tree-v2.py — 택시에서 서는 자세 거름 · 앉기는 됨 · 랜덤 · 추천 장소
+
 ## 2026-11-04 · gpt · 견씨 세 세계 기본컷과 일상 15장 등록
 - sam-atelier-img/img/견씨_* · records/견씨/ — 기본 삼국시대·중세 판타지·메카 각 1장과 세계별 일상 5장, 총 18장. 생성기 기본 kr_mmorpg 지시문 그대로 제출, 일상은 해당 세계 원본 첨부. 1024×1536 WebP 품질 90·method 6과 실제 제출 지시문·원본/결과/참고 해시·AI 검수 기록 보존
 - sam-atelier-img/records/견씨/*-casual-plan.json · generation-settings.json — 세 세계 계획기로 필수 두 갈래·시대 배분·장면 중복 검사 통과. 삼국시대 일상2는 bold 두 번 안전 거절 뒤 moderate로 생성, 판타지 일상1·메카 일상1은 동일 지시문 재시도 성공. 은회색에 가까운 머리색·일부 배경 인물·자세/의상 차이는 qa.passed=false로 남김

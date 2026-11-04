@@ -46,6 +46,10 @@
   "worktable": {
    "ko": "서서 쓰는 작업대",
    "en": "a standing-height worktable or counter to work at"
+  },
+  "upright": {
+   "ko": "서서 움직일 만큼 트인 자리",
+   "en": "room to stand upright and walk"
   }
  },
  "frames": {
@@ -350,7 +354,9 @@
    "ko": "서기",
    "family": "stand",
    "en": "standing",
-   "needs": [],
+   "needs": [
+    "upright"
+   ],
    "supports": [
     "none"
    ],
@@ -370,7 +376,8 @@
    "family": "stand",
    "en": "standing, leaning back against a wall",
    "needs": [
-    "wall"
+    "wall",
+    "upright"
    ],
    "supports": [
     "back_wall"
@@ -391,7 +398,8 @@
    "family": "stand",
    "en": "standing at a waist-high railing or sill, leaning lightly on it",
    "needs": [
-    "rail_waist"
+    "rail_waist",
+    "upright"
    ],
    "supports": [
     "none"
@@ -411,7 +419,9 @@
    "ko": "걷기",
    "family": "walk",
    "en": "walking",
-   "needs": [],
+   "needs": [
+    "upright"
+   ],
    "supports": [
     "none"
    ],
@@ -649,6 +659,9 @@
     "three_quarter",
     "full_body",
     "environmental"
+   ],
+   "needs": [
+    "upright"
    ]
   },
   {
@@ -1235,79 +1248,93 @@
    "lie",
    "floor",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "home_bath": [
    "edge",
    "shallow_water",
-   "wall"
+   "wall",
+   "upright"
   ],
   "home_kitchen": [
    "rail_waist",
    "chair",
    "wall",
    "table",
-   "worktable"
+   "worktable",
+   "upright"
   ],
   "home_living": [
    "chair",
    "lie",
    "floor",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "home_balcony": [
    "rail_waist",
    "chair",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "home_entry": [
    "wall",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "street_alley": [
    "wall",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "street_market": [
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "street_cafe": [
    "chair",
    "table",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "street_shop": [
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "street_station": [
    "wall",
    "chair",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "street_laundromat": [
    "chair",
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "street_rooftop": [
    "rail_waist",
    "edge",
    "floor",
-   "wall"
+   "wall",
+   "upright"
   ],
   "street_park": [
    "chair",
    "floor",
    "lie",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_museum": [
    "chair",
@@ -1315,37 +1342,43 @@
    "worktable",
    "wall",
    "floor",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "heritage_plank": [
    "floor",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_redcliff": [
    "floor",
    "shallow_water",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_wall": [
    "floor",
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_teahouse": [
    "chair",
    "table",
    "rail_waist",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "heritage_shrine": [
    "table",
    "chair",
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "heritage_tower": [
    "rail_waist",
@@ -1353,160 +1386,189 @@
    "floor",
    "wall",
    "edge",
-   "table"
+   "table",
+   "upright"
   ],
   "heritage_lantern": [
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "heritage_studio": [
    "worktable",
    "chair",
    "floor",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "studio_art": [
    "chair",
    "table",
    "wall",
-   "worktable"
+   "worktable",
+   "upright"
   ],
   "studio_sound": [
    "chair",
    "table",
    "wall",
-   "worktable"
+   "worktable",
+   "upright"
   ],
   "water_pool": [
    "water",
    "deep_water",
    "edge",
    "lie",
-   "chair"
+   "chair",
+   "upright"
   ],
   "water_beach": [
    "floor",
    "lie",
    "water",
-   "deep_water"
+   "deep_water",
+   "upright"
   ],
   "water_river": [
    "edge",
    "rail_waist",
    "water",
-   "deep_water"
+   "deep_water",
+   "upright"
   ],
   "water_resort": [
    "lie",
    "chair",
    "edge",
    "water",
-   "deep_water"
+   "deep_water",
+   "upright"
   ],
   "water_yacht": [
    "rail_waist",
    "lie",
    "edge",
-   "water"
+   "water",
+   "upright"
   ],
   "water_waterfall": [
    "water",
    "deep_water",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "water_infinity": [
    "water",
    "deep_water",
    "edge",
-   "lie"
+   "lie",
+   "upright"
   ],
   "spa_onsen": [
    "water",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "spa_cedar": [
    "water",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "spa_sauna": [
    "edge",
    "wall",
-   "lie"
+   "lie",
+   "upright"
   ],
   "spa_jjimjil": [
    "floor",
    "lie",
-   "wall"
+   "wall",
+   "upright"
   ],
   "spa_hammam": [
    "edge",
    "lie",
-   "wall"
+   "wall",
+   "upright"
   ],
   "spa_lounge": [
    "lie",
    "chair",
-   "table"
+   "table",
+   "upright"
   ],
   "spa_footbath": [
    "edge",
-   "shallow_water"
+   "shallow_water",
+   "upright"
   ],
   "sports_gym": [
    "wall",
    "floor",
-   "edge"
+   "edge",
+   "upright"
   ],
   "sports_court": [
    "floor",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "sports_track": [
    "floor",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "sports_studio": [
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "sports_wall": [
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "sports_rink": [
    "rail_waist",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "night_bar": [
    "chair",
    "rail_waist",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "night_club": [
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "night_karaoke": [
    "chair",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "night_jazz": [
    "chair",
    "rail_waist",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "night_taxi": [
    "chair"
@@ -1514,326 +1576,386 @@
   "night_rooftop": [
    "rail_waist",
    "chair",
-   "edge"
+   "edge",
+   "upright"
   ],
   "night_powder": [
    "chair",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "stage_festival": [
    "wall",
    "edge",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "stage_fireworks": [
    "rail_waist",
    "floor",
-   "edge"
+   "edge",
+   "upright"
   ],
   "stage_dance": [
    "floor",
-   "wall"
+   "wall",
+   "upright"
   ],
   "stage_redcarpet": [
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "stage_wedding": [
    "chair",
    "table",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "stage_event": [
    "chair",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "stage_convention": [
    "chair",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "evening_hotel": [
    "lie",
    "chair",
    "table",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "evening_penthouse": [
    "lie",
    "chair",
    "rail_waist",
    "wall",
-   "table"
+   "table",
+   "upright"
   ],
   "evening_opera": [
    "chair",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "evening_gala": [
    "chair",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "evening_museum": [
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "travel_trail": [
    "floor",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "travel_rural_station": [
    "chair",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "travel_ferry": [
    "rail_waist",
    "chair",
-   "edge"
+   "edge",
+   "upright"
   ],
   "travel_camp": [
    "chair",
    "floor",
-   "lie"
+   "lie",
+   "upright"
   ],
   "travel_lake": [
    "edge",
    "floor",
    "water",
    "deep_water",
-   "lie"
+   "lie",
+   "upright"
   ],
   "travel_lookout": [
    "rail_waist",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "travel_lodge": [
    "chair",
    "lie",
    "table",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "travel_cablecar": [
    "chair",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "travel_dunes": [
    "floor",
-   "lie"
+   "lie",
+   "upright"
   ],
   "travel_coast": [
    "rail_waist",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_room": [
    "lie",
    "chair",
    "table",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_market": [
    "rail_waist",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "nation_field": [
    "floor",
    "lie",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "nation_square": [
    "wall",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_bath": [
    "water",
-   "edge"
+   "edge",
+   "upright"
   ],
   "nation_roof": [
    "edge",
    "lie",
    "floor",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "nation_inn": [
    "chair",
    "table",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_studio": [
    "chair",
    "floor",
    "wall",
    "edge",
-   "lie"
+   "lie",
+   "upright"
   ],
   "fx_runway": [
-   "floor"
+   "floor",
+   "upright"
   ],
   "fx_ballroom": [
    "chair",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "fx_starstage": [
    "floor",
-   "edge"
+   "edge",
+   "upright"
   ],
   "fx_forest": [
    "floor",
    "lie",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_spa": [
    "water",
    "lie",
-   "edge"
+   "edge",
+   "upright"
   ],
   "fx_observatory": [
    "rail_waist",
    "chair",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_circus": [
    "floor",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_castle": [
    "edge",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_chapel": [
    "chair",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "street_grocery": [
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "street_mall": [
    "rail_waist",
    "edge",
    "wall",
-   "chair"
+   "chair",
+   "upright"
   ],
   "night_livehouse": [
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "stage_open_air": [
    "chair",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "stage_show": [
    "chair",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "sports_range": [
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_retro_home": [
    "chair",
    "lie",
    "table",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "library_reading": [
    "chair",
    "table",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "greenhouse": [
    "worktable",
    "chair",
    "floor",
-   "wall"
+   "wall",
+   "upright"
   ],
   "bakery_kitchen": [
    "worktable",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "lodge_terrace": [
    "rail_waist",
    "chair",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "train_sleeper": [
    "lie",
    "chair",
    "table",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "tailor_room": [
    "worktable",
    "chair",
    "table",
-   "wall"
+   "wall",
+   "upright"
   ],
   "backstage_dressing": [
    "chair",
    "table",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "nation_study": [
    "chair",
    "table",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_camp": [
    "chair",
    "table",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_kitchen": [
    "rail_waist",
    "chair",
    "wall",
    "table",
-   "worktable"
+   "worktable",
+   "upright"
   ],
   "nation_training": [
    "wall",
    "floor",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_guandi": [
    "table",
    "chair",
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "heritage_baidi": [
    "rail_waist",
@@ -1841,126 +1963,148 @@
    "floor",
    "wall",
    "edge",
-   "table"
+   "table",
+   "upright"
   ],
   "heritage_luofeng": [
    "floor",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_wuzhang": [
    "table",
    "chair",
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "heritage_changban": [
    "floor",
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_moat": [
    "floor",
    "wall",
    "rail_waist",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_filmset": [
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "heritage_opera": [
    "worktable",
    "chair",
    "floor",
    "wall",
-   "edge"
+   "edge",
+   "upright"
   ],
   "heritage_calligraphy": [
    "chair",
    "table",
    "rail_waist",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "heritage_festival": [
    "floor",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "nation_garden": [
    "floor",
    "lie",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "nation_harbor": [
    "wall",
    "edge",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_temple": [
    "chair",
    "table",
    "wall",
-   "floor"
+   "floor",
+   "upright"
   ],
   "nation_bridge": [
    "edge",
    "lie",
    "floor",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "nation_forest": [
    "floor",
    "lie",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_skygarden": [
    "floor",
    "lie",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_underwater": [
    "edge",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_mirror": [
    "chair",
    "wall",
-   "rail_waist"
+   "rail_waist",
+   "upright"
   ],
   "fx_moonpond": [
    "water",
    "lie",
-   "edge"
+   "edge",
+   "upright"
   ],
   "fx_ice": [
    "edge",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_lanternriver": [
    "floor",
    "lie",
    "edge",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_cloudpavilion": [
    "rail_waist",
    "chair",
-   "wall"
+   "wall",
+   "upright"
   ],
   "fx_library": [
    "edge",
    "rail_waist",
-   "wall"
+   "wall",
+   "upright"
   ]
  },
  "props": [
