@@ -9,6 +9,11 @@
 
 
 
+## 2026-11-04 · gpt · 황개 메카 6장 반영 및 18장 구성 완료
+- sam-atelier-img/img/황개_mecha_* · records/황개/mecha*.json — 환경 미연결 중 생성했던 메카 기본컷 1장·일상컷 5장 원본을 복구, 원본 크기 1024×1536 확인 후 WebP 품질 90·method 6으로 변환. 재생성 없이 같은 결과를 등록하고 실제 지시문·참고 설정·원본 해시·AI 검수 기록 보존
+- data/img.json — 등록 도구로 황개 메카 6개 파일만 추가, 기존 황개 삼국시대·판타지 12장과 다른 장수 도감·등록일 보존. 세 세계 각 기본컷 1장·일상 5장, 총 18장 구성과 필수 갈래·장면 중복 검사 통과
+- sam-atelier-img/records/automation/claims/황개.json · records/황개/mecha-resume.json — 사용자 「메카 다시 시도해줘」「메인 올려줘」 승인으로 재개. 앞선 mecha.blocked.json은 중단 이력으로 그대로 남김
+
 ## 2026-11-04 · gpt · 황개 삼국시대·판타지 12장 추가, 메카 생성 중단
 - sam-atelier-img/img/황개_* · records/황개/ — 삼국시대·판타지 각각 기본컷 1장과 일상컷 5장, 총 12장 신규 생성. 1024×1536 WebP 품질 90·method 6, 기준 원본·지시문·결과 해시와 실제 제출 지시문·AI 검수 저장. 계획과 다른 구도·눈 색·배경 무기/문자는 qa.passed=false 유지
 - sam-atelier-img/records/황개/*-casual-plan.json · generation-settings.json · mecha.blocked.json — 세 세계 계획과 재현 설정 보존. 판타지 일상1 안전 거절 뒤 bold 재시도·moderate·low 순서 기록. 메카 기본컷 도구 호출이 사용자에 의해 중단되어 메카 6칸은 미완료, 잠금 blocked로 남김
