@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-04 · gpt · 맹획 세계 3장·일상 15장 생성 및 도감 등록
+- sam-atelier-img/img/맹획_* · records/맹획/ — 생성기 영문 세계 지시문과 구조형 일상 지시문으로 18칸 생성, 일상마다 해당 세계 원본 첨부. 1024×1536 WebP 품질 90·method 6, 실제 제출 지시문·원본·결과·참고 해시와 AI 검수 보존. 장신구 수·머리 길이·시선·자세·노출 등 계획과 다른 17장은 qa.passed=false 유지
+- sam-atelier-img/records/맹획/*-casual-plan.json · generation-settings.json · samguk-initial-blocked.json — 세 세계 동시 계획으로 필수 두 갈래·시대 배분·세계 간 장면 중복 검사. 삼국시대 첫 요청 안전 거절 후 생성기 low 노출로 조정해 성공, 원문과 거절 내역 보존
+- data/img.json — 등록 도구로 맹획 18개 파일만 추가, 기존 다른 장수 807개 파일·도감 항목·최초 등록일 보존. 공용 blob:none 저장소와 별도 sparse worktree·작업 브랜치 사용. CLI push 인증 부재로 연결된 GitHub를 통한 비강제 fast-forward 반영
+
 
 
 
