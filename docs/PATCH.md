@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · 화풍 실험 기록 — 네 칸 구조형 판 넷
+- docs/STYLE_LAB.md — 사용자 「다 적어두고 화풍키 정해줘」: 1번 지시문 → semireal_painterly(추천, 2번 지시문은 1번과 같아 같은 판의 두 번째 장), 3번 → glossy_sf_kv, 조운 메카 첫 판 → semireal_smooth, 문앙 메카 판 → semireal_cinematic. 공통 규칙 · 작화 칸 원문과 시험한 2 · 3 · 4번 칸
+- AGENTS.md — 문서 표에 한 줄
+
 ## 2026-11-04 · claude · 크게 웃는 입 남은 넷 정리
 - data/sam-design.json — 강유 · 육손 · 원소 · 문앙 입술 wide_smile(크게 웃는 입) → full_wide(넓고 도톰한 입술). 11-03 「호탕하게 웃는 얼굴은 빼자」 때 돌림 목록에서만 빠지고 이미 받은 장수에 남아 있었다(사용자 「응 설계값 채워줘」 — 문앙 메카 구조형 대조에서 찾음)
 - tools/sam-design.py — check 가 wide_smile 을 막는다
