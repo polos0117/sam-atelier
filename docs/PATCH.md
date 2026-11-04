@@ -9,6 +9,12 @@
 
 
 
+
+## 2026-11-04 · gpt · 축융 세 세계 기준컷과 일상 15장 추가
+- sam-atelier-img/img/축융_* · records/축융/ — 기존 축융 시안과 기본 kr_mmorpg 생성기 지시문으로 삼국시대·중세 판타지·메카 기준 각 1장, 해당 세계 원본을 첨부한 일상 각 5장, 총 18장. 1024×1536 WebP 품질 90·method 6, 원본·결과·실제 첨부 원본 해시와 제출 지시문·AI 검수 보존
+- sam-atelier-img/records/축융/*-casual-plan.json · generation-settings.json — 세 세계 계획 검사 통과. 안전 거절된 삼국시대 일상2는 긴소매·긴바지, 판타지 일상1은 래시가드·수영 레깅스, 판타지 일상5는 목과 팔을 덮는 마녀 의상으로 바꿔 low로 생성. 구도·문양·피부색·프레임 차이는 qa.passed=false로 기록
+- data/img.json — 등록 도구로 축융 18장만 추가하며 기존 장수 항목과 등록일 보존. 공용 blob:none 저장소 복구 후 별도 작업 브랜치·sparse worktree 사용, CLI 쓰기 인증 부재로 연결된 GitHub를 통해 비강제 fast-forward로 main 반영
+
 ## 2026-11-04 · claude · 택시 뒷좌석에서 서지 않는다
 - data/casual-tree-v2.json — 받침 「upright(서서 움직일 만큼 트인 자리)」 을 더해 택시(night_taxi) 말고 모든 장소에 붙이고, 서기 · 걷기 · 기대 서기 · 작업대에 숙이기는 이것을 요구한다. 사용자 「택시 안에 서기 자세가 정상 씬으로 등록되어 있대」 — 서기 · 걷기는 받침 조건이 없어 앉는 자리뿐인 택시에서도 통과했다
 - tests/casual-tree-v2.cjs · tests/casual-tree-v2.py — 택시에서 서는 자세 거름 · 앉기는 됨 · 랜덤 · 추천 장소
