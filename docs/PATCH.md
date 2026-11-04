@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-04 · claude · 크게 웃는 입 남은 넷 정리
+- data/sam-design.json — 강유 · 육손 · 원소 · 문앙 입술 wide_smile(크게 웃는 입) → full_wide(넓고 도톰한 입술). 11-03 「호탕하게 웃는 얼굴은 빼자」 때 돌림 목록에서만 빠지고 이미 받은 장수에 남아 있었다(사용자 「응 설계값 채워줘」 — 문앙 메카 구조형 대조에서 찾음)
+- tools/sam-design.py — check 가 wide_smile 을 막는다
+
 ## 2026-11-04 · gpt · 맹획 18장 화풍 v4로 재작업
 - sam-atelier-img/img/맹획_* · records/맹획/ — 현재 생성기 화풍 v4의 현실적인 하체 비율로 세계 3장·각 세계 기준 원본을 첨부한 일상 15장 재생성. 1024×1536 WebP 품질 90·method 6, 실제 제출 지시문·원본·결과·참고 해시 및 검수 보존. 배경 인물·의상·구도·손 위치·피부색 등 계획 차이 12장은 qa.passed=false 유지
 - sam-atelier-img/records/replacement.json · records/맹획/rework-20261104-626ae.json — 요청한 18개 파일만 교체, 이전 WebP·원본 해시와 기록·계획·설정 보존. 삼국시대 일상5 안전 거절 후 같은 지시문 한 번 재시도로 성공

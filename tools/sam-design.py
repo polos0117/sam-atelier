@@ -296,6 +296,8 @@ def check():
         for a in ('eye_color', 'impression', 'skin_tone', 'age', 'expr'):
             if not (lk.get('face') or {}).get(a):
                 errs.append('%s look.face.%s' % (k, a))
+        if (lk.get('face') or {}).get('lips') == 'wide_smile':   # 2026-11-03 「호탕하게 웃는 얼굴은 빼자」 — 돌림 목록만 빼서 넷이 남았다(2026-11-04)
+            errs.append('%s look.face.lips=wide_smile — 크게 웃는 입은 뺐다' % k)
         if (lk.get('silhouette') or {}).get('body') and lk['silhouette']['body'] not in BODY:
             errs.append('%s look.silhouette.body=%s — 볼륨 · 굴곡 체형(%s)만' % (k, lk['silhouette']['body'], ' · '.join(BODY)))
         for a in ('body', 'hair_color'):
