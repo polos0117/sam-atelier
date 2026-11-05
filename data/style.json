@@ -229,7 +229,7 @@
   },
   "kv_kmmo_lock": {
    "name": "한국 MMORPG 기준 판",
-   "current": "v1",
+   "current": "v2",
    "versions": [
     {
      "v": "v1",
@@ -239,6 +239,58 @@
      "why": "사용자가 고른 기준 판(docs/STYLE_LAB.md kv_kmmo_lock) — 한국 MMORPG 반실사 1절 + FACIAL DESIGN LOCK + GENRE LOCK. 얼굴 · 헤어는 세 세계 같은 값(faceWorld), 흔들리는 값은 swap 으로 바꿔 끼우고, 손에는 지정한 물건만.",
      "head": "Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.",
      "section1": "1. RENDERING STYLE — KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)\nA Korean MMORPG official character illustration: an elegant, mature, idealised semi-realistic face with realistic adult proportions — refined almond eyes of realistic size, a naturally sculpted nose with a defined bridge, and naturally shaped lips — painted with smooth tonal modelling and a soft matte-satin skin finish. Hair is painted as sculpted, weighty masses with soft highlights. Armour and costume are extremely detailed and heavy: engraved metal, layered plates, rich fabrics and ornate trims, all rendered with convincing weight, volume and controlled reflections. Restrained, noble colour palette; soft, dignified lighting. A classy painted game-illustration finish with no outlines and no flat colour.\nFACIAL DESIGN LOCK: Use refined Korean MMORPG beauty stylisation consistently across all genres: softly simplified facial planes, delicate eyelids, a softly defined nose bridge, subtle eye-socket shading, and a smooth, gently tapered jaw. Preserve the specified face shape, eye shape, skin colour and adult maturity. Realism applies to dimensional shading and materials without increasing facial angularity, eye-socket depth, or the prominence of the brow ridge and nose. Heavy armour and an athletic physique must not make the facial features heavier or more rugged.\nGENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre. In mecha, the armour is painted with the same engraved-metal material language as fantasy plate armour, and the face is lit by the same warm-neutral key light; coloured glows and holograms stay in the background and on the equipment only.",
+     "faceWorld": "samguk",
+     "swap": {
+      "hair": {
+       "hime_cut": "long straight hair",
+       "wolf_cut": "long softly layered waves"
+      },
+      "bangs": {
+       "one_eye": "side-swept bangs with both eyes fully visible"
+      },
+      "nose": {
+       "small_button": "a small refined nose with a softly defined bridge"
+      },
+      "eyes": {
+       "droopy_soft": "almond-shaped eyes",
+       "round_large": "almond-shaped eyes"
+      },
+      "eye_size": {
+       "large": "realistically proportioned eyes",
+       "small": "small, narrow eyes"
+      }
+     },
+     "s2": "2. CHARACTER — {NAME}, FEMALE INTERPRETATION (SAME IN EVERY GENRE)\nAn original adult female interpretation of {name_en} ({name_ko}), {title}. Her nature: {traits}. Her femininity and body volume express this character. {age} Face: a small, refined, beautiful adult face — {face}; {impression}; expression: {expr}. Skin: {skin}. Hair: {hair}. Eyes: {eyes}. Body: approximately 7.5 heads tall, a natural neck, long shapely legs — {body}; hips and thighs stay within natural, realistic proportion. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered.{look_extra}",
+     "genre": {
+      "samguk": "WUXIA (Three Kingdoms era, Eastern martial fantasy)",
+      "fantasy": "HIGH FANTASY (Western medieval, no East-Asian robes or armour)",
+      "mecha": "MECHA (far-future science fiction)"
+     },
+     "s3": "3. COSTUME — {genre}\n{costume}{silhouette} Palette: {palette}. Motifs drawn from her nature: {traits}. Signature item: {hold}, drawn whole at full scale.{exposure}{outfit}",
+     "mechaFrame": "; faction frame: {design}. The plating covers her from neck to feet and reads as solid engraved metal armour, not cloth, painted like heavy fantasy plate.",
+     "silhouetteHead": " Overall silhouette: {sil} — only the overall shape is fixed; design the details freely.",
+     "s4": "4. SCENE\nVertical 2:3 full-body composition, entire head to footwear inside the frame with comfortable margins. {pose}; both hands visible; she holds nothing else — no cup, goblet or other props. Background: {bg}, softly blurred. Lighting: warm-neutral soft key light on the face (the same in every genre), environmental light only on the background{time}, gentle rim light.{custom} No text, logos, watermark, UI, collage or additional characters.",
+     "poseDefault": "A poised standing stance turned three-quarters, head toward the viewer, holding her signature item naturally",
+     "timeHead": " — {time}",
+     "noteHead": " Note: ",
+     "ageHead": "Age: ",
+     "exprDefault": "a calm, composed expression",
+     "lookHead": " Chosen look: ",
+     "costumeSwap": [
+      [
+       "her faction's colours",
+       "the palette below"
+      ]
+     ]
+    },
+    {
+     "v": "v2",
+     "format": "kv",
+     "adopted": "2026-11-05",
+     "by": "claude",
+     "why": "v1 + COLOUR LOCK — 사용자 「지금 2.6은 색을 좀 밝게 쓰니까 채도를 낮은색 위주로 쓰자」(마량 2.5 · 2.6 비교 뒤)",
+     "head": "Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.",
+     "section1": "1. RENDERING STYLE — KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)\nA Korean MMORPG official character illustration: an elegant, mature, idealised semi-realistic face with realistic adult proportions — refined almond eyes of realistic size, a naturally sculpted nose with a defined bridge, and naturally shaped lips — painted with smooth tonal modelling and a soft matte-satin skin finish. Hair is painted as sculpted, weighty masses with soft highlights. Armour and costume are extremely detailed and heavy: engraved metal, layered plates, rich fabrics and ornate trims, all rendered with convincing weight, volume and controlled reflections. Restrained, noble colour palette; soft, dignified lighting.\nCOLOUR LOCK: keep the whole image low in saturation — muted, dusty, slightly greyed colours with earthy mid-values. The palette in Section 3 is applied in its muted, desaturated version; no bright, candy, pastel-bright or neon colours, no glowing saturated accents, and highlights stay soft rather than vivid. A classy painted game-illustration finish with no outlines and no flat colour.\nFACIAL DESIGN LOCK: Use refined Korean MMORPG beauty stylisation consistently across all genres: softly simplified facial planes, delicate eyelids, a softly defined nose bridge, subtle eye-socket shading, and a smooth, gently tapered jaw. Preserve the specified face shape, eye shape, skin colour and adult maturity. Realism applies to dimensional shading and materials without increasing facial angularity, eye-socket depth, or the prominence of the brow ridge and nose. Heavy armour and an athletic physique must not make the facial features heavier or more rugged.\nGENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre. In mecha, the armour is painted with the same engraved-metal material language as fantasy plate armour, and the face is lit by the same warm-neutral key light; coloured glows and holograms stay in the background and on the equipment only.",
      "faceWorld": "samguk",
      "swap": {
       "hair": {

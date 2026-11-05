@@ -1183,6 +1183,8 @@ Official game key art made by painting over a high-quality 3D render. The base i
 Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.
 ```
 
+**v2(2026-11-05)** — 1절에 COLOUR LOCK 한 줄(전체 저채도 · 먼지 낀 듯 눌린 색, 3절 색도 저채도판으로, 밝은 · 사탕 · 네온 색 없음). 사용자 「지금 2.6은 색을 좀 밝게 쓰니까 채도를 낮은색 위주로」 — 마량 2.6 세 장 평균 채도 0.26 → 0.20(2.5 는 0.25). 아래 1절은 v1, 지금 판은 `data/style.json`.
+
 ### 1절
 
 ```

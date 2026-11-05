@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기준 판 v2 — 저채도
+- kv_kmmo_lock v2 — 1절에 COLOUR LOCK(저채도 · 눌린 색, 3절 색도 저채도판, 밝은 · 네온 색 없음). v1 은 기록으로. 마량 2.6 평균 채도 0.26 → 0.20(사용자 「2.6은 색을 좀 밝게 쓰니까 채도를 낮은색 위주로」).
+
 ## 2026-11-06 · claude · 기준 판 작은 눈 낱말
 - kv_kmmo_lock swap 에 eye_size small → 「small, narrow eyes」 — 설계 문구 「smaller, narrower eyes than usual anime proportion」 이 장수 96명 2절에 anime 낱말을 넣고 있었다(마량 시험에서 찾음). 검사 tests/prompt-v2.cjs 에 2 · 3 · 4절 애니 낱말 없음.
 
