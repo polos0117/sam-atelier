@@ -8,7 +8,7 @@ const R = path.join(__dirname, '..'), G = require('../lib/prompt-gpt.js'), C = r
 const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx);
   for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(R, f), 'utf8'), ctx);
   return ctx.window.AtelierPrompt; })();
-const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8')), STYLE = S['default'];
+const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8')), STYLE = 'kr_mmorpg';   /* 구조형 옮기기는 영어 v1 지시문(kr_mmorpg) 몫 — 기본 판 kv_kmmo_lock(2026-11-05)은 이미 네 칸이라 옮기지 않는다(아래 묶음 확인) */
 const keys = P.cards(D), pick = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 14)) === 0).slice(0, 14);
 /* 실루엣 — 고르면 세계 글 뒤 한 줄, 안 고르면 없음, 메카 아닌 세계엔 안 붙는다, 구조형은 옷 칸으로 옮긴다(2026-11-05) */
 { const k0 = keys[0];
@@ -59,5 +59,6 @@ try {
   cp.execFileSync(process.execPath, [path.join(R, 'tools/prompt-pack.cjs'), 'build', '--dir', path.join(tmp, 'pack')], { stdio: 'pipe' });
   for (const f of ['samguk-gpt.md', 'samguk-casual1-gpt.md', 'samguk-casual2-gpt.md', 'fantasy-gpt.md']) assert(fs.existsSync(path.join(tmp, 'pack', f)), f);
   assert(fs.readFileSync(path.join(tmp, 'pack', 'INDEX.md'), 'utf8').includes('구조형 sha256'));
+  if (S.styles[S['default']].versions.find(v => v.v === S.styles[S['default']].current).format === 'kv') assert.equal(fs.readFileSync(path.join(tmp, 'pack', 'samguk-gpt.md'), 'utf8'), fs.readFileSync(path.join(tmp, 'pack', 'samguk-prompt.txt'), 'utf8'), '기준 판 세계 그림은 영문 네 칸 그대로');
 } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
 console.log(`PASS GPT 구조형: 세계 그림 ${nw} · 일상컷 ${nc} — 못 옮긴 줄 없음 · 고정 화풍 칸 · 세력 팔레트 · 손에 든 것 · 일상은 화풍 칸 없이 첨부 그림 · 작은 턱 · 체형 볼륨 · 묶음 도구가 <자리>-gpt.md`);

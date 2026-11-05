@@ -57,5 +57,18 @@ assert(!P.build(D, S, k0, 'samguk', { style: STYLE, shot: { frame: 'full_armor' 
     if (cp.mecha) { assert(P.build(D, S, g.key, 'mecha', { style: STYLE }).includes(cp.mecha.design), g.key + ' 무리 메카 설계(v2)'); assert(P.build(D, S, g.key, 'mecha', { style: S['default'] }).includes(cp.mecha.design), g.key + ' 무리 메카 설계(v1)'); }
     if (cp.persona) assert(P.build(D, S, g.key, 'samguk', { style: STYLE }).includes(cp.persona), g.key + ' 무리 성격'); } }
 /* 기본 화풍은 그대로 */
-assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: S['default'] })), '기본 화풍은 영어 지시문 그대로');
+assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'kr_mmorpg 는 영어 지시문 그대로');
+/* 기준 판 kv_kmmo_lock(2026-11-05 기본) — 영문 네 칸, 1절 고정, 얼굴 · 헤어는 세 세계 같은 값, 흔들리는 값은 바꿔 끼움, 손에는 지정한 물건만 */
+{ assert.equal(S['default'], 'kv_kmmo_lock');
+  const kv = S.styles.kv_kmmo_lock.versions.find(v => v.v === S.styles.kv_kmmo_lock.current); assert.equal(kv.format, 'kv');
+  assert(/FACIAL DESIGN LOCK/.test(kv.section1) && /GENRE LOCK/.test(kv.section1) && /semi-realistic/.test(kv.section1) && !/anime|gacha|JP/i.test(kv.section1), '1절 — 반실사 + 두 고정, 애니 낱말 없음');
+  let nk = 0;
+  for (const key of P.cards(D)) { const ps = ['samguk', 'fantasy', 'mecha'].map(w => P.build(D, S, key, w, {}));
+    const face = ps.map(p => (p.match(/Face: [^\n]*?Eyes: [^.]*\./) || [])[0]);
+    assert(face[0] && face[0] === face[1] && face[1] === face[2], key + ' 세 세계 같은 얼굴 · 헤어');
+    for (const p of ps) { assert(p.startsWith(kv.head) && p.includes(kv.section1) && /\n3\. COSTUME — /.test(p) && /\n4\. SCENE\n/.test(p) && p.includes('no cup, goblet or other props'), key + ' 네 칸');
+      assert(!/hime cut|wolf cut|button nose|droopy|falling over one eye|\{/.test(p), key + ' 흔들리는 값 · 빈 칸'); nk++; } }
+  const mh = P.build(D, S, '맹획', 'mecha', {}); assert(/faction frame: bronze-gold and deep-crimson/.test(mh) && /painted like heavy fantasy plate/.test(mh), '메카 — 무리 설계 · 판금처럼');
+  assert(P.build(D, S, '맹획', 'mecha', { shot: { frame: 'full_armor' } }).includes('Overall silhouette: '), '실루엣을 고르면 3절에');
+  console.log('PASS 기준 판: ' + nk + '장'); }
 console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).length + ' × 세계 3) — 칸 빠짐없이 · 외형 한글 표 · 1절 세계 몫 · 메카 실루엣 · 자세 · 시간대 · 장면 · 기본 화풍 그대로');

@@ -139,9 +139,11 @@ function build(dir) {
   const out = slots(card, plans).map(s => ({ s, rec: recordOf(card, set, s) }));
   for (const { s, rec } of out) if (!rec.prompt) { console.error('  X ' + s.slot + ' 지시문이 비었다'); return 1; }
   /* GPT 세션용 구조형 — 같은 지시문을 칸으로 옮긴 것. 일상컷의 몸 볼륨은 그 세계 그림 SILHOUETTE 의 체형 칸에서 */
-  const bodyOf = w => { const m = (P.build(D, S, card.key, w, { style: STYLE }) || '').match(/^SILHOUETTE:\s*([^;\n]+)/m); return m ? m[1] : ''; };
+  const bodyOf = w => { const m = (P.build(D, S, card.key, w, { style: STYLE }) || '').match(/^SILHOUETTE:\s*([^;\n]+)/m); return m ? m[1] : P.bodyText(D, card.key, w); };
+  /* 기준 판(format kv, 2026-11-05)의 세계 그림은 이미 칸으로 나뉜 영문 네 칸 — 구조형으로 옮기지 않고 그대로 낸다 */
+  const KV = ((S.styles[STYLE].versions || []).find(v => v.v === S.styles[STYLE].current) || {}).format === 'kv';
   for (const o of out) {
-    const g = o.s.kind === 'world' ? GPT.world(o.rec.prompt) : GPT.casual(o.rec.prompt, { bodyText: bodyOf(o.s.world) });
+    const g = o.s.kind === 'world' ? (KV ? { text: o.rec.prompt, unknown: [] } : GPT.world(o.rec.prompt)) : GPT.casual(o.rec.prompt, { bodyText: bodyOf(o.s.world) });
     if (g.unknown.length) { console.error('  X ' + o.s.slot + ' 구조형에 못 옮긴 줄: ' + g.unknown.map(l => l.slice(0, 50)).join(' | ')); return 1; }
     o.gpt = g.text;
   }

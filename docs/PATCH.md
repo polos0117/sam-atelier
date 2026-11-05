@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기본 화풍 kv_kmmo_lock
+- data/style.json 에 kv_kmmo_lock(format kv) — 머리말 · 1절 · 2절 틀 · 세계 장르 · 3 · 4절 틀 · swap(히메컷 · 울프컷 · 한쪽 눈 앞머리 · 버튼 코 · 처진 눈 · 큰 동그란 눈 · 큰 눈) · faceWorld(samguk). 기본 화풍을 kr_mmorpg → kv_kmmo_lock(사용자 「응 생성기에 넣어줘」 「기본 화풍으로」).
+- lib/prompt-sam.js buildKv · bodyText, 일상컷은 화풍 글 없는 판도 「첨부 그림 그대로」 STYLE 자리, tools/prompt-pack.cjs 는 kv 세계 그림을 구조형으로 옮기지 않고 그대로. 검사 tests/prompt-v2.cjs(기준 판 837장 — 세 세계 같은 얼굴 · 흔들리는 값 없음 · 네 칸) · prompt-gpt · screen 고침.
+
 ## 2026-11-06 · claude · 기준 판 kv_kmmo_lock
 - docs/STYLE_LAB.md 에 kv_kmmo_lock — 한국 MMORPG 반실사 1절 + FACIAL DESIGN LOCK + GENRE LOCK, 세 세계 같은 얼굴 · 헤어, 흔들리는 값 바꿔 끼우기, 손에는 지정한 물건만. 조조 · 맹획 전문 예시(사용자 「응 저장해줘」).
 - IMAGE_RULES.md 1절 — 이 판으로 그릴 땐 세계마다 2~3장 → 사용자가 고른 뒤 일상컷, GPT 세션도 고른 장만 올림(사용자 「각 세계별로 2~3개씩 생성해서 내가 보고 난 뒤에 일상컷」).

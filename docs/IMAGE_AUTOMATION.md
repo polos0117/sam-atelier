@@ -40,7 +40,7 @@ node tools/image-claim.cjs claim <장수> --execution $ATELIER_EXECUTION_ID
 - 차례는 설계표(게임 표) 차례 — **세력 하나를 끝까지 그린 뒤 다음 세력으로**(`IMAGE_RULES.md` 5절). 고르는 것은 도구가 한다. 몫(하루 · 실행마다)은 없다.
 - 잠금은 그림 저장소 `records/automation/claims/<장수>.json` 하나다. `claim` 은 그 파일만 커밋해 일반 push 한다 — 다른 세션이 먼저 밀었으면 거절되고 도구가 제 커밋을 되돌린다. 그때는 pull 하고 `status` 부터 다시.
 - 잡힌 장수(`working` · `blocked`)는 건드리지 않는다. `blocked` 는 사용자가 정한 뒤 `release --approval '<사용자 말>'` 로만 푼다.
-- 한 장수의 빈 자리 = 사는 세계마다 세계 그림 · 일상컷 다섯 장(기본 화풍 `kr_mmorpg`, `data/img.json`). 번호는 세계마다 따로, 비어 있는 가장 작은 것부터(`claim` 이 적어 준 `missing` 그대로).
+- 한 장수의 빈 자리 = 사는 세계마다 세계 그림 · 일상컷 다섯 장(기본 화풍 `kv_kmmo_lock` — 2026-11-05, 앞 기본 `kr_mmorpg`, `data/img.json`). 번호는 세계마다 따로, 비어 있는 가장 작은 것부터(`claim` 이 적어 준 `missing` 그대로).
 - **자동 설계(`designed: "auto"`) 장수는 그리기 전에 시안**(`IMAGE_RULES.md` 2절 · `AGENTS.md` 3절).
 
 ## 3. 계획과 지시문 묶음 — 일상컷은 반드시 계획기로

@@ -1,7 +1,7 @@
 {
  "version": 1,
  "note": "화풍 기록 — 설계 지시문 뒤에 붙이는 공통 화풍 블록. 판을 바꾸면 versions 끝에 새 판을 더하고 current 를 옮긴다. 옛 판은 지우지 않는다(그림 기록이 어느 판으로 만들었는지 가리킨다). text 는 세계 그림, casual 은 일상컷. 기본은 kr_mmorpg(한국 MMORPG 프로모 렌더, 사용자 2026-11-02 「v2를 기본으로」 — 체형 볼륨을 더한 v3). game_keyart(2.5D) · glossy_kr_game 은 비교용으로 남는다. 일상컷은 세계 그림을 참고 그림으로 붙이므로 그 그림의 화풍을 따른다.",
- "default": "kr_mmorpg",
+ "default": "kv_kmmo_lock",
  "styles": {
   "game_keyart": {
    "name": "게임 키아트 2.5D",
@@ -224,6 +224,63 @@
       "samguk": "1.작화 스타일 — 공통 고정\n\n작화 장비 비교 계열: 고광택 무협 판타지 캐릭터 일러스트레이션 계열, 이상화된 미형 얼굴 조형을 바탕으로 고급 3D 캐릭터 렌더를 연상시키는 매끄러운 입체 채색과 정밀한 갑옷·장신구 묘사를 결합한 디지털 일러스트레이션, 외곽선보다 빛과 명암·반사·재질 차이로 형태를 구분하는 표현, 부드럽고 섬세한 피부와 선명하고 복잡한 금속 장비의 대비, 광택 나는 금속과 옻칠 가죽, 옥·금·청동 장식을 풍부하게 표현하는 고밀도 무협 게임 키 비주얼\n\n01 POSITIVE - 기술 작화\n\n형태 언어: 사실적인 곡면 명암을 결합한 반실사 표현, 얼굴은 이상화하고 신체와 장비는 설득력 있는 부피와 구조를 갖추도록 묘사, 유기적이고 유연한 신체 곡선과 단단하고 정밀한 갑옷 구조의 결합, 풍성한 인체 곡면과 날렵한 갑옷판의 대비, 얼굴의 부드러움과 갑옷과 장신구의 정교함이 동시에 읽히는 형태 구성, 구체적인 얼굴형과 신체 비례는 2번의 설정을 따름\n\n얼굴형: 지정된 얼굴형을 매끄러운 곡면과 연속적인 명암으로 표현, 이마와 볼 및 하관의 부드러운 형태 연결, 광대뼈와 턱뼈의 돌출을 과도하게 강조하지 않는 이상화된 얼굴 묘사, 턱 아래와 볼 옆의 연속적인 명암으로 자연스러운 입체감 형성\n\n눈 구조: 상안검과 속눈썹은 가늘지만 또렷하게 표현하고 하안검은 옅은 음영과 짧은 선으로 최소한만 묘사, 눈꺼풀 두께와 안구의 곡면이 은은하게 드러나는 입체적인 눈 주변, 부드러운 얼굴 채색 안에서도 눈의 형태와 시선이 명확하게 읽히는 표현\n\n홍채: 지정된 눈색을 바탕으로 여러 단계의 색과 명암이 겹쳐지는 투명한 홍채 표현, 상단은 속눈썹 그림자로 어둡게 처리하고 하단은 빛을 머금은 밝은 색으로 묘사, 내부의 섬세한 방사형 색 결, 중심 동공과 작고 선명한 흰색 캐치라이트로 형성되는 초점, 각막 표면의 촉촉한 반사와 홍채 내부의 깊이를 함께 표현하되 별 모양 장식이나 과도한 반짝임은 억제\n\n코: 작고 섬세한 구조의 부피와 방향이 읽히는 반실사형 코 표현, 콧대를 진한 선으로 그리지 않고 미간에서 코끝까지 이어지는 부드러운 명암으로 암시, 코끝과 콧방울의 작은 밝기 차이와 코 아래의 얕은 그림자로 형태 표현, 자연스러운 입체감\n\n입과 표정: 입술 외곽을 진하게 두르지 않고 피부색과 자연스럽게 연결하는 표현, 은은하게 드러나는 입술의 두께와 촉촉한 하이라이트, 윗입술은 조금 어둡게 하고 아랫입술은 부드럽게 밝히는 채색, 눈꺼풀과 입 주변의 미세한 변화로 감정을 전달하는 묘사, 구체적인 표정과 입의 벌어짐은 4번의 설정을 따름\n\n선화: 독립적인 외곽선의 존재감이 낮은 채색 중심 표현, 얼굴과 피부의 경계는 얇은 색 경계와 명암으로 처리하고 머리카락에는 필요한 부분에만 가는 회백색·회갈색 선을 사용, 갑옷 판의 경계와 접합부에는 정밀하고 선명한 어두운 선을 배치, 장비 가장자리의 밝은 반사광이 외곽선 역할을 부분적으로 대신하며 굵은 검정 윤곽선 없이도 형태가 또렷하게 읽히도록 구성\n\n머리카락: 큰 곡선형 머리 덩어리 안에 가늘고 섬세한 가닥을 선택적으로 분리하는 표현, 넓고 은은한 광택과 가는 역광 하이라이트를 함께 사용, 가장자리의 잔머리는 가볍고 투명하게 빛나며 내부의 어두운 겹침으로 여러 층의 깊이 형성, 큰 덩어리의 부피와 개별 가닥의 섬세함을 함께 유지, 구체적인 머리색과 헤어스타일은 2번의 설정을 따름\n\n피부: 맑고 매끄러운 피부 표면, 볼과 눈 아래 및 코끝과 입술 주변의 절제된 혈색, 모공이나 거친 질감은 거의 드러내지 않고 연속적인 곡면 명암과 부드러운 반사광으로 입체감 형성, 매끄러운 중간톤 전환과 고유색을 유지하는 채색, 금속보다 훨씬 넓고 부드럽게 번지는 하이라이트\n\n의상 선화/채색: 미늘과 갑편의 분할·두께·겹침과 끈으로 엮은 구조를 중심으로 형태를 설명하는 표현, 곡면을 따라 배치되는 밝은 반사와 차가운 음영, 판 사이의 틈과 리벳·이음쇠·고정 끈의 작고 정밀한 묘사, 옻칠 가죽에는 넓고 부드러운 광택을 적용하고 금속 미늘과 장식에는 좁고 강한 반사와 주변 환경의 명암 패턴을 표현, 선으로 주름을 그리기보다 실제 장비 구조를 따라 형태를 구분\n\n손: 각각 다섯 손가락을 가진 인간형 손의 명확한 구조, 손목에서 손바닥과 손끝까지 자연스럽게 이어지는 연결, 손등 갑편과 손목 보호대를 실제 손의 구조와 움직임에 맞춰 표현, 작은 갑편 마디와 어두운 틈은 정밀하게 묘사하되 손 전체의 자연스러운 실루엣과 제스처를 우선\n\n렌더링/셰이딩: 부드러운 다단계 명암과 정밀한 반사 표현을 사용하는 고밀도 입체 채색, 피부와 얼굴에는 매끄러운 중간톤 전환을 적용하고 갑옷과 금속에는 선명한 하드 엣지와 고광택 반사를 적용, 갑옷이 겹치는 틈과 이음새 안쪽에는 깊은 접촉 그림자를 넣어 구조를 분리, 넓은 면의 부드러운 명암과 작은 부품의 날카로운 명암을 함께 사용, 피부·금속·보석·가죽·천을 서로 다른 표면으로 구분, 붓 자국과 종이 질감은 거의 드러나지 않는 매끈한 디지털 마감\n\n광원/색채: 피부의 대비는 부드럽게 유지하면서 금속 반사와 갑옷 틈에서는 강한 명암 대비를 허용하는 표현, 표면의 고유색과 광원의 색을 구분하는 채색, 반짝이는 금속 하이라이트의 선명한 중심과 은은한 주변 빛 번짐, 밝은 금속 가장자리의 작은 광점과 절제된 빛 번짐, 피부색이 주변 빛에 덮이지 않도록 유지, 구체적인 광원의 위치와 장면 팔레트는 4번의 설정을 따름\n\n디테일/마감: 얼굴과 눈은 부드럽고 정제된 묘사, 장비와 배경은 높은 구조적 묘사 밀도, 작은 리벳과 이음쇠·끈·보석·판 틈까지 선명하게 표현하되 큰 실루엣을 해치지 않도록 정돈, 피부는 깨끗하게 하고 갑옷은 정밀하게 하며 머리카락과 투명한 장식은 가볍고 유연하게 마감, 인물과 배경 모두 충분한 선명도를 유지하는 고해상도 게임 홍보 이미지 같은 완성도\n\n02 NEGATIVE - 굵은 검정 외곽선, 전신을 동일한 두께로 두르는 선화, 평면적인 두 단계 셀 채색, 수채화 번짐, 종이 질감, 거친 유화 붓 자국, 스케치 잔선, 의도적으로 덜 완성된 채색, 지나치게 단순화된 갑옷, 무광 플라스틱처럼 균일한 재질, 피부와 금속에 동일하게 적용되는 광택, 전신이 젖은 것 같은 기름진 피부, 과도한 모공과 주름, 거칠고 사실적인 피부 질감, 진한 화장, 두꺼운 아이라인, 강한 입술 테두리, 검은 선으로 그린 콧대, 인형처럼 고정된 표정, 덩어리 없이 흩어진 머리카락, 균일하게 반복되는 가닥과 하이라이트, 밝은 갑옷의 세부가 사라지는 과노출, 주변 빛으로 피부색까지 덮는 과도한 빛 번짐, 검고 탁한 전체 색조, 추가 팔과 손, 누락되거나 합쳐진 손가락, 끊어진 관절, 실루엣에 없는 바닥까지 끌리는 겉치마나 비치는 겉자락, 실루엣과 다른 옷 종류",
       "fantasy": "1.작화 스타일 — 공통 고정\n\n작화 장비 비교 계열: 고광택 하이판타지 캐릭터 일러스트레이션 계열, 이상화된 미형 얼굴 조형을 바탕으로 고급 3D 캐릭터 렌더를 연상시키는 매끄러운 입체 채색과 정밀한 갑옷·장신구 묘사를 결합한 디지털 일러스트레이션, 외곽선보다 빛과 명암·반사·재질 차이로 형태를 구분하는 표현, 부드럽고 섬세한 피부와 선명하고 복잡한 금속 장비의 대비, 거울처럼 빛나는 금속과 금 세공, 보석과 은은한 마법 빛을 풍부하게 표현하는 고밀도 판타지 게임 키 비주얼\n\n01 POSITIVE - 기술 작화\n\n형태 언어: 사실적인 곡면 명암을 결합한 반실사 표현, 얼굴은 이상화하고 신체와 장비는 설득력 있는 부피와 구조를 갖추도록 묘사, 유기적이고 유연한 신체 곡선과 단단하고 정밀한 갑옷 구조의 결합, 풍성한 인체 곡면과 날렵한 갑옷판의 대비, 얼굴의 부드러움과 갑옷과 장신구의 정교함이 동시에 읽히는 형태 구성, 구체적인 얼굴형과 신체 비례는 2번의 설정을 따름\n\n얼굴형: 지정된 얼굴형을 매끄러운 곡면과 연속적인 명암으로 표현, 이마와 볼 및 하관의 부드러운 형태 연결, 광대뼈와 턱뼈의 돌출을 과도하게 강조하지 않는 이상화된 얼굴 묘사, 턱 아래와 볼 옆의 연속적인 명암으로 자연스러운 입체감 형성\n\n눈 구조: 상안검과 속눈썹은 가늘지만 또렷하게 표현하고 하안검은 옅은 음영과 짧은 선으로 최소한만 묘사, 눈꺼풀 두께와 안구의 곡면이 은은하게 드러나는 입체적인 눈 주변, 부드러운 얼굴 채색 안에서도 눈의 형태와 시선이 명확하게 읽히는 표현\n\n홍채: 지정된 눈색을 바탕으로 여러 단계의 색과 명암이 겹쳐지는 투명한 홍채 표현, 상단은 속눈썹 그림자로 어둡게 처리하고 하단은 빛을 머금은 밝은 색으로 묘사, 내부의 섬세한 방사형 색 결, 중심 동공과 작고 선명한 흰색 캐치라이트로 형성되는 초점, 각막 표면의 촉촉한 반사와 홍채 내부의 깊이를 함께 표현하되 별 모양 장식이나 과도한 반짝임은 억제\n\n코: 작고 섬세한 구조의 부피와 방향이 읽히는 반실사형 코 표현, 콧대를 진한 선으로 그리지 않고 미간에서 코끝까지 이어지는 부드러운 명암으로 암시, 코끝과 콧방울의 작은 밝기 차이와 코 아래의 얕은 그림자로 형태 표현, 자연스러운 입체감\n\n입과 표정: 입술 외곽을 진하게 두르지 않고 피부색과 자연스럽게 연결하는 표현, 은은하게 드러나는 입술의 두께와 촉촉한 하이라이트, 윗입술은 조금 어둡게 하고 아랫입술은 부드럽게 밝히는 채색, 눈꺼풀과 입 주변의 미세한 변화로 감정을 전달하는 묘사, 구체적인 표정과 입의 벌어짐은 4번의 설정을 따름\n\n선화: 독립적인 외곽선의 존재감이 낮은 채색 중심 표현, 얼굴과 피부의 경계는 얇은 색 경계와 명암으로 처리하고 머리카락에는 필요한 부분에만 가는 회백색·회갈색 선을 사용, 갑옷 판의 경계와 접합부에는 정밀하고 선명한 어두운 선을 배치, 장비 가장자리의 밝은 반사광이 외곽선 역할을 부분적으로 대신하며 굵은 검정 윤곽선 없이도 형태가 또렷하게 읽히도록 구성\n\n머리카락: 큰 곡선형 머리 덩어리 안에 가늘고 섬세한 가닥을 선택적으로 분리하는 표현, 넓고 은은한 광택과 가는 역광 하이라이트를 함께 사용, 가장자리의 잔머리는 가볍고 투명하게 빛나며 내부의 어두운 겹침으로 여러 층의 깊이 형성, 큰 덩어리의 부피와 개별 가닥의 섬세함을 함께 유지, 구체적인 머리색과 헤어스타일은 2번의 설정을 따름\n\n피부: 맑고 매끄러운 피부 표면, 볼과 눈 아래 및 코끝과 입술 주변의 절제된 혈색, 모공이나 거친 질감은 거의 드러내지 않고 연속적인 곡면 명암과 부드러운 반사광으로 입체감 형성, 매끄러운 중간톤 전환과 고유색을 유지하는 채색, 금속보다 훨씬 넓고 부드럽게 번지는 하이라이트\n\n의상 선화/채색: 판금의 분할과 두께·겹침·이음 구조를 중심으로 형태를 설명하는 표현, 곡면을 따라 배치되는 밝은 반사와 차가운 음영, 판 사이의 틈과 리벳·이음쇠·고정 끈의 작고 정밀한 묘사, 판금에는 거울 같은 고광택과 주변 환경의 명암 패턴을, 금 세공에는 좁고 강한 반사를, 선으로 주름을 그리기보다 실제 장비 구조를 따라 형태를 구분\n\n손: 각각 다섯 손가락을 가진 인간형 손의 명확한 구조, 손목에서 손바닥과 손끝까지 자연스럽게 이어지는 연결, 손등 갑편과 손목 보호대를 실제 손의 구조와 움직임에 맞춰 표현, 작은 갑편 마디와 어두운 틈은 정밀하게 묘사하되 손 전체의 자연스러운 실루엣과 제스처를 우선\n\n렌더링/셰이딩: 부드러운 다단계 명암과 정밀한 반사 표현을 사용하는 고밀도 입체 채색, 피부와 얼굴에는 매끄러운 중간톤 전환을 적용하고 갑옷과 금속에는 선명한 하드 엣지와 고광택 반사를 적용, 갑옷이 겹치는 틈과 이음새 안쪽에는 깊은 접촉 그림자를 넣어 구조를 분리, 넓은 면의 부드러운 명암과 작은 부품의 날카로운 명암을 함께 사용, 피부·금속·보석·가죽·천을 서로 다른 표면으로 구분, 붓 자국과 종이 질감은 거의 드러나지 않는 매끈한 디지털 마감\n\n광원/색채: 피부의 대비는 부드럽게 유지하면서 금속 반사와 갑옷 틈에서는 강한 명암 대비를 허용하는 표현, 표면의 고유색과 광원의 색을 구분하는 채색, 반짝이는 금속 하이라이트의 선명한 중심과 은은한 주변 빛 번짐, 밝은 금속 가장자리의 작은 광점과 절제된 빛 번짐, 피부색이 주변 빛에 덮이지 않도록 유지, 구체적인 광원의 위치와 장면 팔레트는 4번의 설정을 따름\n\n디테일/마감: 얼굴과 눈은 부드럽고 정제된 묘사, 장비와 배경은 높은 구조적 묘사 밀도, 작은 리벳과 이음쇠·끈·보석·판 틈까지 선명하게 표현하되 큰 실루엣을 해치지 않도록 정돈, 피부는 깨끗하게 하고 갑옷은 정밀하게 하며 머리카락과 투명한 장식은 가볍고 유연하게 마감, 인물과 배경 모두 충분한 선명도를 유지하는 고해상도 게임 홍보 이미지 같은 완성도\n\n02 NEGATIVE - 굵은 검정 외곽선, 전신을 동일한 두께로 두르는 선화, 평면적인 두 단계 셀 채색, 수채화 번짐, 종이 질감, 거친 유화 붓 자국, 스케치 잔선, 의도적으로 덜 완성된 채색, 지나치게 단순화된 갑옷, 무광 플라스틱처럼 균일한 재질, 피부와 금속에 동일하게 적용되는 광택, 전신이 젖은 것 같은 기름진 피부, 과도한 모공과 주름, 거칠고 사실적인 피부 질감, 진한 화장, 두꺼운 아이라인, 강한 입술 테두리, 검은 선으로 그린 콧대, 인형처럼 고정된 표정, 덩어리 없이 흩어진 머리카락, 균일하게 반복되는 가닥과 하이라이트, 밝은 갑옷의 세부가 사라지는 과노출, 주변 빛으로 피부색까지 덮는 과도한 빛 번짐, 검고 탁한 전체 색조, 추가 팔과 손, 누락되거나 합쳐진 손가락, 끊어진 관절, 실루엣에 없는 바닥까지 끌리는 겉치마나 비치는 겉자락, 실루엣과 다른 옷 종류"
      }
+    }
+   ]
+  },
+  "kv_kmmo_lock": {
+   "name": "한국 MMORPG 반실사 · 얼굴 · 장르 고정(기준 판)",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "format": "kv",
+     "adopted": "2026-11-05",
+     "by": "claude",
+     "why": "사용자가 고른 기준 판(docs/STYLE_LAB.md kv_kmmo_lock) — 한국 MMORPG 반실사 1절 + FACIAL DESIGN LOCK + GENRE LOCK. 얼굴 · 헤어는 세 세계 같은 값(faceWorld), 흔들리는 값은 swap 으로 바꿔 끼우고, 손에는 지정한 물건만.",
+     "head": "Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.",
+     "section1": "1. RENDERING STYLE — KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)\nA Korean MMORPG official character illustration: an elegant, mature, idealised semi-realistic face with realistic adult proportions — refined almond eyes of realistic size, a naturally sculpted nose with a defined bridge, and naturally shaped lips — painted with smooth tonal modelling and a soft matte-satin skin finish. Hair is painted as sculpted, weighty masses with soft highlights. Armour and costume are extremely detailed and heavy: engraved metal, layered plates, rich fabrics and ornate trims, all rendered with convincing weight, volume and controlled reflections. Restrained, noble colour palette; soft, dignified lighting. A classy painted game-illustration finish with no outlines and no flat colour.\nFACIAL DESIGN LOCK: Use refined Korean MMORPG beauty stylisation consistently across all genres: softly simplified facial planes, delicate eyelids, a softly defined nose bridge, subtle eye-socket shading, and a smooth, gently tapered jaw. Preserve the specified face shape, eye shape, skin colour and adult maturity. Realism applies to dimensional shading and materials without increasing facial angularity, eye-socket depth, or the prominence of the brow ridge and nose. Heavy armour and an athletic physique must not make the facial features heavier or more rugged.\nGENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre. In mecha, the armour is painted with the same engraved-metal material language as fantasy plate armour, and the face is lit by the same warm-neutral key light; coloured glows and holograms stay in the background and on the equipment only.",
+     "faceWorld": "samguk",
+     "swap": {
+      "hair": {
+       "hime_cut": "long straight hair",
+       "wolf_cut": "long softly layered waves"
+      },
+      "bangs": {
+       "one_eye": "side-swept bangs with both eyes fully visible"
+      },
+      "nose": {
+       "small_button": "a small refined nose with a softly defined bridge"
+      },
+      "eyes": {
+       "droopy_soft": "almond-shaped eyes",
+       "round_large": "almond-shaped eyes"
+      },
+      "eye_size": {
+       "large": "realistically proportioned eyes"
+      }
+     },
+     "s2": "2. CHARACTER — {NAME}, FEMALE INTERPRETATION (SAME IN EVERY GENRE)\nAn original adult female interpretation of {name_en} ({name_ko}), {title}. Her nature: {traits}. Her femininity and body volume express this character. {age} Face: a small, refined, beautiful adult face — {face}; {impression}; expression: {expr}. Skin: {skin}. Hair: {hair}. Eyes: {eyes}. Body: approximately 7.5 heads tall, a natural neck, long shapely legs — {body}; hips and thighs stay within natural, realistic proportion. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered.{look_extra}",
+     "genre": {
+      "samguk": "WUXIA (Three Kingdoms era, Eastern martial fantasy)",
+      "fantasy": "HIGH FANTASY (Western medieval, no East-Asian robes or armour)",
+      "mecha": "MECHA (far-future science fiction)"
+     },
+     "s3": "3. COSTUME — {genre}\n{costume}{silhouette} Palette: {palette}. Motifs drawn from her nature: {traits}. Signature item: {hold}, drawn whole at full scale.{exposure}{outfit}",
+     "mechaFrame": "; faction frame: {design}. The plating covers her from neck to feet and reads as solid engraved metal armour, not cloth, painted like heavy fantasy plate.",
+     "silhouetteHead": " Overall silhouette: {sil} — only the overall shape is fixed; design the details freely.",
+     "s4": "4. SCENE\nVertical 2:3 full-body composition, entire head to footwear inside the frame with comfortable margins. {pose}; both hands visible; she holds nothing else — no cup, goblet or other props. Background: {bg}, softly blurred. Lighting: warm-neutral soft key light on the face (the same in every genre), environmental light only on the background{time}, gentle rim light.{custom} No text, logos, watermark, UI, collage or additional characters.",
+     "poseDefault": "A poised standing stance turned three-quarters, head toward the viewer, holding her signature item naturally",
+     "timeHead": " — {time}",
+     "noteHead": " Note: ",
+     "ageHead": "Age: ",
+     "exprDefault": "a calm, composed expression",
+     "lookHead": " Chosen look: ",
+     "costumeSwap": [
+      [
+       "her faction's colours",
+       "the palette below"
+      ]
+     ]
     }
    ]
   }
