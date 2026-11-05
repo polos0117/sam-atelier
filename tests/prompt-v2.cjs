@@ -7,11 +7,14 @@ const R = path.join(__dirname, '..'), ctx = { window: {}, console }; vm.createCo
 for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(R, f), 'utf8'), ctx);
 const P = ctx.window.AtelierPrompt, T = ctx.window.AtelierSpec, ST = T.STRUCT;
 const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8'));
-const sv = S.styles.glossy_kv.versions.find(v => v.v === S.styles.glossy_kv.current);
+const STYLE = process.env.V2_STYLE || 'anime_kv', sv = S.styles[STYLE].versions.find(v => v.v === S.styles[STYLE].current);
+/* 두 판 다 구조판 — anime_kv(지금 v2) · glossy_kv(앞 판) */
+for (const k of ['anime_kv', 'glossy_kv']) { const x = S.styles[k].versions.find(v => v.v === S.styles[k].current); assert(x.format === 'structured' && x.section1 && x.section1_worlds.samguk && x.section1_sil.fantasy, k); }
+{ const x = S.styles.anime_kv.versions[0]; for (const t of [x.section1, ...Object.values(x.section1_worlds), ...Object.values(x.section1_sil)]) assert(/일본 애니메이션풍/.test(t) && /얼굴 작화 기준: 고급 애니메이션/.test(t) && !/반실사 미형 얼굴 조형/.test(t), 'anime_kv 얼굴은 애니'); }
 assert.equal(sv.format, 'structured'); assert(sv.rules && sv.section1 && sv.section1_worlds.samguk && sv.section1_worlds.fantasy);
 let n = 0;
 for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) {
-  const p = P.build(D, S, key, w, { style: 'glossy_kv' });
+  const p = P.build(D, S, key, w, { style: STYLE });
   assert(p.startsWith(sv.rules), key + ' ' + w + ' 공통 규칙이 맨 앞');
   assert(p.includes(w === 'mecha' ? sv.section1 : sv.section1_worlds[w]), key + ' ' + w + ' 1절은 세계 몫');
   for (const name of ST.s2.concat(ST.s3, ST.s4)) assert(p.includes('\n' + name + (ST.heading.includes(name) ? ':' : ': [')), key + ' ' + w + ' 칸 ' + name);
@@ -28,10 +31,10 @@ for (const p of T.WORLD_POSES) assert(ST.ko.pose[p.key], '자세 ' + p.key);
 for (const t of T.WORLD_TIMES) assert(ST.ko.time[t.key], '시간대 ' + t.key);
 for (const k of Object.keys(T.EXPRESSION_DETAIL)) assert(ST.ko.expr[k], '표정 ' + k);
 for (const [w, list] of Object.entries(T.SILHOUETTES)) { assert(list.length >= 10, w + ' 실루엣 갈래'); assert.equal(new Set(list.map(m => m.key)).size, list.length, w + ' 실루엣 열쇠 겹침'); for (const m of list) assert(m.ko && m.kot && m.en, w + ' 실루엣 ' + m.key); }
-for (const [w, k] of [['samguk', 'water_sleeves'], ['fantasy', 'gown_armor']]) assert(P.build(D, S, P.cards(D)[0], w, { style: 'glossy_kv', shot: { frame: k } }).includes('실루엣: [' + T.SILHOUETTES[w].find(m => m.key === k).kot + ST.fixed.silFirst + ']'), w + ' 실루엣이 3절에 — 역할 옷보다 우선');
-for (const w of ['samguk', 'fantasy']) { const p2 = P.build(D, S, P.cards(D)[0], w, { style: 'glossy_kv', shot: { frame: T.SILHOUETTES[w][0].key } }); assert(p2.includes('프레임 종류: [' + ST.fixed.frameKindSil.split('(')[0]), w + ' 실루엣을 고르면 역할 옷은 빠진다'); }
-assert(P.build(D, S, P.cards(D)[0], 'fantasy', { style: 'glossy_kv' }).includes('디자인 방식: [' + ST.worlds.fantasy.designHead), '판타지는 서양 옷만을 맨 앞에');
-for (const w of ['samguk', 'fantasy']) { const on2 = P.build(D, S, P.cards(D)[0], w, { style: 'glossy_kv', shot: { frame: T.SILHOUETTES[w][1].key } }), off2 = P.build(D, S, P.cards(D)[0], w, { style: 'glossy_kv' });
+for (const [w, k] of [['samguk', 'water_sleeves'], ['fantasy', 'gown_armor']]) assert(P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: k } }).includes('실루엣: [' + T.SILHOUETTES[w].find(m => m.key === k).kot + ST.fixed.silFirst + ']'), w + ' 실루엣이 3절에 — 역할 옷보다 우선');
+for (const w of ['samguk', 'fantasy']) { const p2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: T.SILHOUETTES[w][0].key } }); assert(p2.includes('프레임 종류: [' + ST.fixed.frameKindSil.split('(')[0]), w + ' 실루엣을 고르면 역할 옷은 빠진다'); }
+assert(P.build(D, S, P.cards(D)[0], 'fantasy', { style: STYLE }).includes('디자인 방식: [' + ST.worlds.fantasy.designHead), '판타지는 서양 옷만을 맨 앞에');
+for (const w of ['samguk', 'fantasy']) { const on2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: T.SILHOUETTES[w][1].key } }), off2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE });
   assert(on2.includes('지켜야 할 것: [' + ST.worlds[w].rulesSil + ']') && on2.includes('노출 범위: [' + ST.worlds[w].expoSil + ']'), w + ' 실루엣이면 옷 종류 없는 규칙 · 노출');
   assert(on2.includes(sv.section1_sil[w]) && !on2.includes(sv.section1_worlds[w]) && !/거즈|벨벳|흐르는 주름/.test(sv.section1_sil[w]), w + ' 실루엣이면 천 낱말 없는 1절');
   assert(on2.includes('캐릭터가 묻어나는 곳: [' + ST.fixed.traitsSil) && !off2.includes(ST.fixed.traitsSil), w + ' 실루엣이면 특징은 장신구로만');
@@ -40,11 +43,11 @@ for (const w of ['samguk', 'fantasy']) { const on2 = P.build(D, S, P.cards(D)[0]
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */
 const k0 = P.cards(D)[0], sc = (P.card(D, k0).faction.worlds.mecha.scenes || [])[0];
-const on = P.build(D, S, k0, 'mecha', { style: 'glossy_kv', shot: { frame: 'full_armor', pose: 'kneel', time: 'night', scene: sc && sc.key } });
+const on = P.build(D, S, k0, 'mecha', { style: STYLE, shot: { frame: 'full_armor', pose: 'kneel', time: 'night', scene: sc && sc.key } });
 assert(on.includes('실루엣: [' + T.MECHA_SILHOUETTES.find(m => m.key === 'full_armor').kot + ']'));
 assert(on.includes('액션: [' + ST.ko.pose.kneel + ']') && on.includes('광원: [' + ST.ko.time.night + ']'));
 if (sc) assert(on.includes(ST.words.scene + sc.ko));
-assert(!P.build(D, S, k0, 'samguk', { style: 'glossy_kv', shot: { frame: 'full_armor' } }).includes(T.MECHA_SILHOUETTES.find(m => m.key === 'full_armor').kot), '메카 아닌 세계엔 실루엣 없음');
+assert(!P.build(D, S, k0, 'samguk', { style: STYLE, shot: { frame: 'full_armor' } }).includes(T.MECHA_SILHOUETTES.find(m => m.key === 'full_armor').kot), '메카 아닌 세계엔 실루엣 없음');
 /* 기본 화풍은 그대로 */
 assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: S['default'] })), '기본 화풍은 영어 지시문 그대로');
 console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).length + ' × 세계 3) — 칸 빠짐없이 · 외형 한글 표 · 1절 세계 몫 · 메카 실루엣 · 자세 · 시간대 · 장면 · 기본 화풍 그대로');
