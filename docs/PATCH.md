@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · 맹획 피부 bronze
+- 설계표 맹획 피부 deep_brown(짙은 갈색) → bronze(청동빛 갈색). 짙은 피부가 그림을 어둡게 끌고 가서(사용자 「bronze로 바꾸고」).
+
 ## 2026-11-05 · claude · v2 메카 2D 고침 되돌림
 - lib/prompt-spec.js · lib/prompt-sam.js · data/style.json — 0d4c752 · 06cd36e(큰 눈 문구 · 머리 영어 용어 · 메카 광원 · SF 게임 키 비주얼 · 눈꼬리 모순)를 되돌림. 사용자 「방금거 고치기 전으로해서 외형 설계만 판타지에 맞춰서 세계별 컷 만들어줘」
 
