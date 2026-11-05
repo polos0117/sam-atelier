@@ -256,7 +256,8 @@
        "round_large": "almond-shaped eyes"
       },
       "eye_size": {
-       "large": "realistically proportioned eyes"
+       "large": "realistically proportioned eyes",
+       "small": "small, narrow eyes"
       }
      },
      "s2": "2. CHARACTER — {NAME}, FEMALE INTERPRETATION (SAME IN EVERY GENRE)\nAn original adult female interpretation of {name_en} ({name_ko}), {title}. Her nature: {traits}. Her femininity and body volume express this character. {age} Face: a small, refined, beautiful adult face — {face}; {impression}; expression: {expr}. Skin: {skin}. Hair: {hair}. Eyes: {eyes}. Body: approximately 7.5 heads tall, a natural neck, long shapely legs — {body}; hips and thighs stay within natural, realistic proportion. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered.{look_extra}",
