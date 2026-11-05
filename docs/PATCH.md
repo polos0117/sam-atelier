@@ -7,12 +7,8 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
-## 2026-11-05 · claude · 눈꼬리 낱말을 표로
-- lib/prompt-sam.js · lib/prompt-spec.js — 앞 칸(0d4c752)이 조립부에 한글 「눈꼬리」 를 박아 tests/words.cjs 가 깨진 채 올라갔다. 낱말을 STRUCT.fixed.tiltWord 로 옮김
-
-## 2026-11-05 · claude · v2 메카 얼굴이 2D 로 가던 줄 고침
-- lib/prompt-spec.js — 한글 표: 큰 눈 → 「큰 편이지만 얼굴 안에서 실제 비례에 가까운 눈(큰 애니메이션 눈 아님)」, 머리 · 앞머리의 영어 용어(hime cut · wolf cut …) 열아홉 뺌, 메카 광원을 「중성 백색 키라이트로 얼굴 · 몸 앞, 장면 색 빛은 가장자리 · 배경만」 으로
-- lib/prompt-sam.js — 눈 모양이 눈꼬리를 말하면 눈꼬리 칸을 싣지 않음(「올라간 눈 · 눈꼬리는 수평」 모순) · data/style.json glossy_plain 메카 1절 「SF 게임 키 비주얼」 → 「SF 캐릭터 일러스트」. 사용자 「맹획은 무협에서 메카로 갈수록 2d 얼굴이 되네」 「응 고쳐서 맹획 3장 뽑아줘」
+## 2026-11-05 · claude · v2 메카 2D 고침 되돌림
+- lib/prompt-spec.js · lib/prompt-sam.js · data/style.json — 0d4c752 · 06cd36e(큰 눈 문구 · 머리 영어 용어 · 메카 광원 · SF 게임 키 비주얼 · 눈꼬리 모순)를 되돌림. 사용자 「방금거 고치기 전으로해서 외형 설계만 판타지에 맞춰서 세계별 컷 만들어줘」
 
 ## 2026-11-05 · claude · v2 기본 화풍 glossy_plain · 생성기 실루엣 단계
 - data/style.json — glossy_plain: glossy_sf_kv 원문에서 애니메이션 말(일본 애니메이션풍 미형 · 일본 미소녀 조형 · 애니메이션식 이상화 · 단순화)만 지운 판, 반실사 얼굴 문단 · 애니 얼굴 문단 없음. 사용자 「v2 glossy 화풍 … 애니메이션 문구 지운걸로 기본 그림체 해줘」 — lib/studio.js · lib/words.js · prompt2.html · AGENTS.md 의 v2 화풍을 glossy_plain 으로(anime_kv · glossy_kv 는 기록)
