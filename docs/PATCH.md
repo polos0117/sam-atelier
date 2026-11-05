@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · v2 기본 화풍 glossy_plain · 생성기 실루엣 단계
+- data/style.json — glossy_plain: glossy_sf_kv 원문에서 애니메이션 말(일본 애니메이션풍 미형 · 일본 미소녀 조형 · 애니메이션식 이상화 · 단순화)만 지운 판, 반실사 얼굴 문단 · 애니 얼굴 문단 없음. 사용자 「v2 glossy 화풍 … 애니메이션 문구 지운걸로 기본 그림체 해줘」 — lib/studio.js · lib/words.js · prompt2.html · AGENTS.md 의 v2 화풍을 glossy_plain 으로(anime_kv · glossy_kv 는 기록)
+- lib/studio.js · lib/words.js — 세계 그림 단계에 「실루엣」(자세·표정 다음): 세계마다 갈래 단추(설명 한글), 자유 · 랜덤 · 여기부터 다시, 자세 칸의 고르개는 뺐다. 사용자 「생성기쪽에 실루엣 선택하는것도 추가해줘」 · IMAGE_RULES.md · tests/prompt-v2.cjs
+
 ## 2026-11-05 · claude · 프롬프트 v2 화풍을 얼굴 애니판(anime_kv)으로
 - data/style.json — anime_kv: glossy_kv 에서 얼굴 칸만 애니메이션(일본 애니풍 미형 · 깔끔한 색선 · 셀 음영 · 큰 반짝이는 눈 · 콧방울 없는 작은 코 · 볼 홍조), 몸 · 옷 · 배경은 고광택 그대로, 부정 칸은 반실사 · 실사 얼굴을 막음. 사용자 「얼굴만 애니판으로 화풍 판 정리해서 v2에 넣어줘」 — 초선 세계 셋 · 일상컷 아홉 장 시험과 글자까지 같은 지시문
 - lib/studio.js · lib/words.js · prompt2.html · AGENTS.md — v2 탭 화풍이 anime_kv, glossy_kv 는 앞 판으로 남김 · tests/prompt-v2.cjs(두 판 다 구조판, anime_kv 얼굴은 애니)

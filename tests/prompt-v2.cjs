@@ -7,10 +7,11 @@ const R = path.join(__dirname, '..'), ctx = { window: {}, console }; vm.createCo
 for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(R, f), 'utf8'), ctx);
 const P = ctx.window.AtelierPrompt, T = ctx.window.AtelierSpec, ST = T.STRUCT;
 const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8'));
-const STYLE = process.env.V2_STYLE || 'anime_kv', sv = S.styles[STYLE].versions.find(v => v.v === S.styles[STYLE].current);
-/* 두 판 다 구조판 — anime_kv(지금 v2) · glossy_kv(앞 판) */
-for (const k of ['anime_kv', 'glossy_kv']) { const x = S.styles[k].versions.find(v => v.v === S.styles[k].current); assert(x.format === 'structured' && x.section1 && x.section1_worlds.samguk && x.section1_sil.fantasy, k); }
+const STYLE = process.env.V2_STYLE || 'glossy_plain', sv = S.styles[STYLE].versions.find(v => v.v === S.styles[STYLE].current);
+/* 세 판 다 구조판 — glossy_plain(지금 v2) · anime_kv · glossy_kv(앞 판) */
+for (const k of ['glossy_plain', 'anime_kv', 'glossy_kv']) { const x = S.styles[k].versions.find(v => v.v === S.styles[k].current); assert(x.format === 'structured' && x.section1 && x.section1_worlds.samguk && x.section1_sil.fantasy, k); }
 { const x = S.styles.anime_kv.versions[0]; for (const t of [x.section1, ...Object.values(x.section1_worlds), ...Object.values(x.section1_sil)]) assert(/일본 애니메이션풍/.test(t) && /얼굴 작화 기준: 고급 애니메이션/.test(t) && !/반실사 미형 얼굴 조형/.test(t), 'anime_kv 얼굴은 애니'); }
+{ const x = S.styles.glossy_plain.versions[0]; for (const t of [x.section1, ...Object.values(x.section1_worlds), ...Object.values(x.section1_sil)]) assert(!/애니메이션|미소녀|얼굴 작화 기준/.test(t), 'glossy_plain 에 애니메이션 말 없음'); }
 assert.equal(sv.format, 'structured'); assert(sv.rules && sv.section1 && sv.section1_worlds.samguk && sv.section1_worlds.fantasy);
 let n = 0;
 for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) {
