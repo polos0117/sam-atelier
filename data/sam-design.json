@@ -328,74 +328,179 @@
     {
      "key": "dong",
      "ko": "동탁군",
-     "note": "동탁과 서량의 잔당 — 이각 · 곽사, 완성의 장제 일가"
+     "note": "동탁과 서량의 잔당 — 이각 · 곽사, 완성의 장제 일가",
+     "palette": {
+      "en": "blood crimson, black iron, tarnished gold and smoky grey",
+      "ko": "핏빛 진홍 · 검은 쇠 · 바랜 금 · 잿빛"
+     },
+     "persona": "폭군의 서량 잔당 — 핏빛 진홍과 검은 쇠",
+     "mecha": {
+      "design": "blood-crimson and black-iron plating with tarnished-gold trim, heavy tyrant's spiked silhouette with battle scars, smoky exhaust vents, crimson glow lines"
+     }
     },
     {
      "key": "lubu",
      "ko": "여포군",
-     "note": "하비에 선 비장의 무리"
+     "note": "하비에 선 비장의 무리",
+     "palette": {
+      "en": "scarlet red, black lacquer, burnished gold and white plume accents",
+      "ko": "진홍 · 검은 옻칠 · 윤낸 금 · 흰 깃 장식"
+     },
+     "persona": "천하무쌍의 비장 — 진홍과 검은 옻칠, 꿩 깃",
+     "mecha": {
+      "design": "scarlet and black-lacquer plating with burnished-gold edges, long pheasant-plume antenna fins, sleek fast-assault silhouette, red glow lines"
+     }
     },
     {
      "key": "yuanshao",
      "ko": "원소군",
-     "note": "하북 사주를 쥔 명문"
+     "note": "하북 사주를 쥔 명문",
+     "palette": {
+      "en": "imperial gold, deep navy, ivory white and bronze",
+      "ko": "황금 · 짙은 남색 · 상아빛 흰색 · 청동"
+     },
+     "persona": "사세삼공의 명문 — 황금과 짙은 남색",
+     "mecha": {
+      "design": "imperial-gold and deep-navy plating with ivory panels and bronze trim, aristocratic layered silhouette, heraldic crest shapes, gold glow lines"
+     }
     },
     {
      "key": "yuanshu",
      "ko": "원술군",
-     "note": "옥새를 쥐고 제위를 칭한 회남"
+     "note": "옥새를 쥐고 제위를 칭한 회남",
+     "palette": {
+      "en": "imperial yellow, royal purple, jade green and gold",
+      "ko": "황제의 노랑 · 자주 · 비취 · 금"
+     },
+     "persona": "옥새를 쥔 참칭 황제 — 노랑과 자주, 비취",
+     "mecha": {
+      "design": "imperial-yellow and royal-purple plating with jade inlays and gold trim, ornate pretender-emperor silhouette, imperial seal motifs, jade glow lines"
+     }
     },
     {
      "key": "gongsun",
      "ko": "공손찬군",
-     "note": "유주의 백마의종"
+     "note": "유주의 백마의종",
+     "palette": {
+      "en": "pure white, silver, pale sky blue and steel",
+      "ko": "흰색 · 은 · 옅은 하늘색 · 강철"
+     },
+     "persona": "유주의 백마의종 — 흰색과 은빛",
+     "mecha": {
+      "design": "pure-white and silver plating with pale sky-blue trim and steel joints, streamlined cavalry silhouette, white-horse crest motifs, ice-blue glow lines"
+     }
     },
     {
      "key": "jing",
      "ko": "형주",
-     "note": "유표의 형주"
+     "note": "유표의 형주",
+     "palette": {
+      "en": "teal green, river blue, silver and ivory",
+      "ko": "청록 · 강물 파랑 · 은 · 상아"
+     },
+     "persona": "유표의 강가 형주 — 청록과 강물 파랑",
+     "mecha": {
+      "design": "teal and river-blue plating with silver trim and ivory panels, smooth naval silhouette, wave motifs, cyan glow lines"
+     }
     },
     {
      "key": "yi",
      "ko": "익주",
-     "note": "유장의 익주"
+     "note": "유장의 익주",
+     "palette": {
+      "en": "deep forest green, bronze, ochre and cream",
+      "ko": "짙은 숲빛 녹색 · 청동 · 황토 · 크림"
+     },
+     "persona": "유장의 산중 익주 — 숲빛 녹색과 청동",
+     "mecha": {
+      "design": "deep forest-green and bronze plating with ochre trim, sturdy mountain-fortress silhouette, cliff-terrace motifs, amber glow lines"
+     }
     },
     {
      "key": "hanzhong",
      "ko": "한중",
-     "note": "오두미도 장로의 한중"
+     "note": "오두미도 장로의 한중",
+     "palette": {
+      "en": "Taoist indigo, white, black and cinnabar red",
+      "ko": "도교의 쪽빛 · 흰색 · 검정 · 주사 붉은색"
+     },
+     "persona": "오두미도 장로의 한중 — 쪽빛과 흰색, 주사 부적",
+     "mecha": {
+      "design": "indigo and white plating with black trim and cinnabar-red seals, ritual Taoist silhouette, talisman motifs, cinnabar glow lines"
+     }
     },
     {
      "key": "xiliang",
      "ko": "서량",
-     "note": "마등 · 한수의 서량 기병"
+     "note": "마등 · 한수의 서량 기병",
+     "palette": {
+      "en": "desert sand, rust orange, dark leather brown and steel",
+      "ko": "사막 모래색 · 녹 주황 · 짙은 가죽 갈색 · 강철"
+     },
+     "persona": "마등 · 한수의 서량 기병 — 모래색과 녹 주황",
+     "mecha": {
+      "design": "desert-sand and rust-orange plating with dark leather-brown parts and steel joints, rugged steppe-raider silhouette, horse-tail plumes, orange glow lines"
+     }
     },
     {
      "key": "nanman",
      "ko": "남만",
-     "note": "맹획의 남중"
+     "note": "맹획의 남중",
+     "palette": {
+      "en": "bronze-gold, deep crimson, jade green and dark wood brown",
+      "ko": "청동금 · 짙은 진홍 · 비취 녹색 · 짙은 나무 갈색"
+     },
+     "persona": "맹획의 남중 — 청동금과 짙은 진홍, 비취",
+     "mecha": {
+      "design": "bronze-gold and deep-crimson plating with dark gunmetal structure, sculpted beast-head shoulder units, southern geometric engravings, jade-green energy cores and glow lines"
+     }
     },
     {
      "key": "yellow",
      "ko": "황건",
-     "note": "황천당립 — 황건과 그 잔당"
+     "note": "황천당립 — 황건과 그 잔당",
+     "palette": {
+      "en": "turban yellow, earth brown, faded ochre and charcoal",
+      "ko": "황건 노랑 · 흙 갈색 · 바랜 황토 · 숯빛"
+     },
+     "persona": "황천당립의 황건 — 누런 두건과 흙빛",
+     "mecha": {
+      "design": "turban-yellow and earth-brown plating with faded-ochre patches on a charcoal frame, salvaged rebel silhouette, sun-sigil motifs, yellow glow lines"
+     }
     },
     {
      "key": "court",
      "ko": "한 조정",
-     "note": "낙양 · 장안의 조정 신하"
+     "note": "낙양 · 장안의 조정 신하",
+     "palette": {
+      "en": "Han black and vermilion, gold and jade",
+      "ko": "한나라 검정 · 주홍 · 금 · 옥"
+     },
+     "persona": "낙양 · 장안의 한 조정 — 검정과 주홍, 금과 옥",
+     "mecha": {
+      "design": "black and vermilion lacquer plating with gold and jade trim, dignified Han court silhouette, ceremonial crest shapes, vermilion glow lines"
+     }
     },
     {
      "key": "recluse",
      "ko": "재야",
-     "note": "명사 · 은자 · 의원 · 방사"
+     "note": "명사 · 은자 · 의원 · 방사",
+     "palette": {
+      "en": "undyed linen white, bamboo green, ink grey and pale celadon",
+      "ko": "생베 흰색 · 대나무 녹색 · 먹빛 회색 · 옅은 청자색"
+     },
+     "persona": "명사 · 은자 · 방사의 재야 — 생베와 대나무, 먹빛",
+     "mecha": {
+      "design": "linen-white and bamboo-green plating with an ink-grey frame and celadon accents, light scholarly silhouette, scroll motifs, soft celadon glow lines"
+     }
     },
     {
      "key": "lords",
      "ko": "그 밖의 제후",
      "note": "서주 · 연주 · 하내 · 유주 · 강동 · 교주의 군소 제후"
     }
-   ]
+   ],
+   "camp_note": "2026-11-05 사용자 「군웅들도 각각 세력색을 넣자」 — 무리(camp)마다 palette · persona · 메카 설계 문장. 없는 무리(그 밖의 제후)는 군웅 세력색 그대로"
   }
  ],
  "roles": {

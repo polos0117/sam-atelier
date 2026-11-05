@@ -49,6 +49,13 @@ assert(on.includes('실루엣: [' + T.MECHA_SILHOUETTES.find(m => m.key === 'ful
 assert(on.includes('액션: [' + ST.ko.pose.kneel + ']') && on.includes('광원: [' + ST.ko.time.night + ']'));
 if (sc) assert(on.includes(ST.words.scene + sc.ko));
 assert(!P.build(D, S, k0, 'samguk', { style: STYLE, shot: { frame: 'full_armor' } }).includes(T.MECHA_SILHOUETTES.find(m => m.key === 'full_armor').kot), '메카 아닌 세계엔 실루엣 없음');
+/* 군웅 무리별 세력색(2026-11-05) — 무리 palette · 메카 설계가 v1 · v2 둘 다에. 무리 색이 없으면(그 밖의 제후) 군웅 색 */
+{ const qun = D.factions.find(f => f.key === 'qun');
+  for (const cp of qun.camps) { const g = D.generals.find(x => x.camp === cp.key); if (!g) continue;
+    const want = cp.palette ? cp.palette.en : qun.palette.en;
+    for (const w of ['samguk', 'mecha']) { assert(P.build(D, S, g.key, w, { style: STYLE }).includes(want), g.key + ' ' + w + ' 무리 색(v2)'); assert(P.build(D, S, g.key, w, { style: S['default'] }).includes(want), g.key + ' ' + w + ' 무리 색(v1)'); }
+    if (cp.mecha) { assert(P.build(D, S, g.key, 'mecha', { style: STYLE }).includes(cp.mecha.design), g.key + ' 무리 메카 설계(v2)'); assert(P.build(D, S, g.key, 'mecha', { style: S['default'] }).includes(cp.mecha.design), g.key + ' 무리 메카 설계(v1)'); }
+    if (cp.persona) assert(P.build(D, S, g.key, 'samguk', { style: STYLE }).includes(cp.persona), g.key + ' 무리 성격'); } }
 /* 기본 화풍은 그대로 */
 assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: S['default'] })), '기본 화풍은 영어 지시문 그대로');
 console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).length + ' × 세계 3) — 칸 빠짐없이 · 외형 한글 표 · 1절 세계 몫 · 메카 실루엣 · 자세 · 시간대 · 장면 · 기본 화풍 그대로');
