@@ -7,8 +7,8 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
-## 2026-11-06 · claude · 맹획 미형 + 태닝 피부
-- 설계표 맹획 — 피부 bronze → golden_tan, 눈 크기 large → medium, 눈꼬리 level → up, 코 small_button → straight_narrow, 입술 soft_medium → heart_full, 판타지 울프컷 · 커튼 앞머리 · 처진 눈 → 긴 웨이브 · 옆 앞머리 · 아몬드 눈, 메카 히메컷 → 긴 생머리(사용자 「맹획의 외모설정을 조조처럼 미형에 피부만 태닝한걸로」).
+## 2026-11-06 · claude · 맹획 미형 + 태닝 되돌림
+- 564d28c(맹획 golden_tan · 미형 값) 되돌림 — 사용자 「원래가 낫네」. 설계표 맹획은 다시 bronze · 큰 눈 · 동그란 코 · 판타지 울프컷 · 메카 히메컷.
 
 ## 2026-11-05 · claude · 2D · 3D 갈래 열쇠 넷
 - docs/STYLE_LAB.md 에 kv_2d_film(극장판 애니) · kv_2d_thick(두꺼운 칠) · kv_3d_real(실사풍) · kv_3d_paintover(렌더 덧칠 키아트) 1절 — 2D · 3D 여섯 갈래씩 시험 중(사용자 「2d는 2,3 3d는 3,6 추가해줘」).
