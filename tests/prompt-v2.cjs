@@ -27,7 +27,8 @@ for (const g of D.generals) { const L = g.look; for (const o of [L.face, L.silho
 for (const p of T.WORLD_POSES) assert(ST.ko.pose[p.key], '자세 ' + p.key);
 for (const t of T.WORLD_TIMES) assert(ST.ko.time[t.key], '시간대 ' + t.key);
 for (const k of Object.keys(T.EXPRESSION_DETAIL)) assert(ST.ko.expr[k], '표정 ' + k);
-for (const m of T.MECHA_SILHOUETTES) assert(m.kot, '실루엣 한글 ' + m.key);
+for (const [w, list] of Object.entries(T.SILHOUETTES)) { assert(list.length >= 10, w + ' 실루엣 갈래'); assert.equal(new Set(list.map(m => m.key)).size, list.length, w + ' 실루엣 열쇠 겹침'); for (const m of list) assert(m.ko && m.kot && m.en, w + ' 실루엣 ' + m.key); }
+for (const [w, k] of [['samguk', 'water_sleeves'], ['fantasy', 'gown_armor']]) assert(P.build(D, S, P.cards(D)[0], w, { style: 'glossy_kv', shot: { frame: k } }).includes('실루엣: [' + T.SILHOUETTES[w].find(m => m.key === k).kot + ']'), w + ' 실루엣이 3절에');
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */

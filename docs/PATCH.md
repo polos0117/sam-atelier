@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · 무협 · 판타지 실루엣 갈래
+- lib/prompt-spec.js — SILHOUETTES(세계마다): 무협 열넷(경갑 무희 · 중갑 장군 · 장포 책사 · 궁중 예복 · 기마 무장 · 협객 · 망토 장수 · 털 망토 변방 · 비단 피백 · 겹치마 갑주 · 물소매 무희 · 경장 자객 · 봉관 · 궁수 경장), 판타지 열넷(판금 기사 · 가벼운 정찰 · 망토 마법사 · 드레스 갑주 · 전투 마법사 · 성기사 망토 · 날개 장식 · 흑기사 가시 · 엘프풍 우아 · 야성 전사 · 귀족 장교 코트 · 사제 예복 · 용비늘 갑주 · 왕관 예장). 사용자 「무협, 판타지 실루엣 갈래도 만들어줘」
+- lib/prompt-sam.js · lib/studio.js · lib/words.js · lib/prompt-gpt.js · tools/prompt-pack.cjs — 실루엣 고르개가 세 세계 다(프롬프트 · 프롬프트 v2), 무협 · 판타지는 OUTFIT SILHOUETTE 한 줄 · 구조판 3절. 안 고르면 지시문 그대로 · 검사 둘 · IMAGE_RULES.md
+
 ## 2026-11-05 · claude · 프롬프트 v2 탭 — 구조판 지시문(glossy · 실루엣 선택)
 - prompt2.html · lib/studio.js · lib/workspace-ui.js · lib/words.js — 머리 메뉴에 「프롬프트 v2」, 같은 생성기를 v2 로(화풍 glossy_kv 고정 · 세계 그림만 · 따로 저장). 사용자 「프롬포트 탭 하나 더 만들어서 v2로 glossy1에 실루엣 선택형으로 하나 만들자」 「원소공방 참고하면 될 거 같아」
 - lib/prompt-sam.js buildStruct · lib/prompt-spec.js STRUCT — 원소 공방 구조판을 삼국지 꼴로: 공통 규칙 → 1절 → 2절 외형(한글 표, 체형 여덟 칸은 하체 현실 비율) → 3절 의상은 그림이(프레임 · 세력 · 색 · 규칙 · 노출 · 메카 실루엣 한글) → 4절 장면
