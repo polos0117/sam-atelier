@@ -13,6 +13,9 @@
 | `semireal_smooth` | 반실사 매끈 채색 | 애니 미형 + 섬세한 반실사 채색 + 3D 렌더 같은 입체, 선은 색 경계로 | 조운 메카 구조형(첫 판) | 아직 안 뽑음 |
 | `semireal_cinematic` | 반실사 시네마틱 | 현실 입체 구조 위 절제된 애니 미형 · 게임 시네마틱 · 깊은 접합부 음영 | 문앙 메카(참고 얼굴판 · 설계값판) | 참고 얼굴판 한 장 — 체형 · 배경 · 무기 좋음, 얼굴은 2번 칸 탓에 설계와 달랐다 |
 | `semireal_painterly_gloss` | 반실사 회화 채색 + 글로시 | `semireal_painterly` 에 얼굴 물광 · 몸 윤기 · 고광택 갑옷(머리 · 배경은 회화 그대로) | 조운 메카 · 무협 · 판타지 각 한 장(2026-11-04) | **세 세계 다 잘 나옴**(사용자 「메카는 된거 같고」 「잘 나온거 같아」). 창은 몸 옆에 거의 수직으로 붙이고 「위끝은 뭉툭한 물미 · 창날은 아래 하나」 를 적어야 휘거나 양쪽이 뾰족해지지 않았다 |
+| `kv_2d_anime` | 2D 애니 키비주얼(영문) | 굵기 차이 둔 선화 · 2~3단 셀 채색(피부 · 머리만 그라데이션) · 큰 눈 홑 하이라이트 · 평면 하이라이트 금속 | 조운 무협 · 판타지 · 메카 각 한 장(2026-11-05) | 세 세계 같은 얼굴 · 머리 · 자세로 통일됨. 세계마다 선 두께가 조금 달라짐(무협이 가장 얇음) |
+| `kv_semireal_painted` | 반실사 페인팅 키비주얼(영문) | 외곽선 없이 빛 · 명암 · 재질로 형태 분리 · 입체 코 · 입술 · 새틴 피부 · 셀 · 사진 질감 · 3D 느낌 금지 | 조운 세 세계 각 한 장(2026-11-05) | 세 세계 통일 좋음, 메카도 같은 화풍 유지. 조조 네 칸 틀 1절 v3 와 같은 계열 |
+| `kv_3d_stylized` | 스타일라이즈드 3D 렌더(영문) | PBR 재질 · 피부 서브서피스 · 스트랜드 머리 · 3점 조명 · 접촉 그림자, 포토리얼도 애니 얼굴도 아님 | 조운 세 세계 각 한 장(2026-11-05) | 피부 질감 · 금속 반사가 뚜렷해 세 갈래 중 가장 구분됨. 세 세계 통일 좋음 |
 
 「1번」 · 「2번」 은 사용자가 원문(장면 맞춤 지시문)을 GPT 에 네 칸 구조로 옮겨 달라고 한 것인데, 처음 받은 구조형 「2번」 은 「1번」 과 글자까지 같게 옮겨져 있었다(파스텔이 빠짐). 그래서 「2번」 은 원문에서 다시 옮겼다(2026-11-04). 판마다 **구조형**(장수에 쓰는 꼴 — 작화 칸은 「지정된 …」 으로 일반화하고 인물 고유값은 2 · 3 · 4번으로 옮김)과 **원문**을 같이 둔다.
 
@@ -1022,4 +1025,71 @@
 환경 효과: [떠다니는 작은 금빛 빛 입자와 흩날리는 흰 깃털, 먼 산골짜기의 옅은 대기 원근]
 
 금지: [다른 인물·말·생물 없음, 로고·워터마크·말풍선·테두리 없음, 읽히는 글자나 숫자 없음 — 깃발과 방패에는 용 같은 문장 그림만, 글자나 한자 없음]
+```
+
+---
+
+## 조운 기준 세 갈래 — `kv_2d_anime` · `kv_semireal_painted` · `kv_3d_stylized` (2026-11-05, 영문 네 칸)
+
+사용자 「기존에 내 작업 내역은 참고하지않고 … 삼국지의 장수들을 무협 · 판타지 · 메카 별로 나누어 여성화해도 화풍이 통일되어있고, 여성성과 볼륨감을 장수 특징에 따라 보여줄 수 있는 그림체를 조운 기준으로 … 2d, 반실사, 3d로 나눠서」. 처음부터 영문으로 짠 네 칸(1 화풍 · 2 인물 · 3 의상 · 4 장면)이고, 앞의 한글 판들과 달리 공통 규칙은 머리말 한 문장이다. 1절만 갈래마다 다르고 2 · 3 · 4절은 세 갈래가 같다 — 그래서 어느 갈래를 골라도 1절을 그대로 두고 2절(장수)만 바꾸면 된다. 볼륨은 2절에서 장수 성격으로 푼다(조운 = 창을 쓰는 무희 — 운동선수 체형 안의 풍만함, 과장 없음). 세 갈래 × 세 세계 아홉 장 다 같은 얼굴 · 머리 · 자세로 나왔고 안전 필터에 안 걸렸다. 시험 장은 scratchpad `c9/zy/`.
+
+### 머리말 (세 갈래 공통)
+
+```
+Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.
+```
+
+### `kv_2d_anime` — 1절
+
+```
+1. RENDERING STYLE — 2D ANIME KEY VISUAL (FIXED ACROSS ALL GENRES)
+Premium Korean/Japanese anime key-visual illustration. Clean, confident line art with varied line weight: thin lines on the face and skin, firmer lines on costume edges and equipment. Cel shading with two to three tone steps plus soft gradient blending on skin and hair; no painterly brushwork, no photographic texture. The face is an idealised adult anime face: large but adult-proportioned eyes with layered iris colour and a single crisp highlight, a small nose drawn with minimal lines, soft lips with a light gloss. Hair is drawn as large clean clumps with sharp strand tips and a bright band highlight. Metal is rendered with flat planes, sharp cel highlights and a reflected-colour edge; cloth with clean fold lines and simple two-tone shading. Body volume is shown through clean silhouette lines and the way the costume wraps, never through soft rendered shading alone. Colours are vivid and clean. Finish: polished anime key art, sharp edges, flat colour fields, no 3D render feel.
+```
+
+### `kv_semireal_painted` — 1절
+
+```
+1. RENDERING STYLE — SEMI-REALISTIC PAINTED KEY ART (FIXED ACROSS ALL GENRES)
+Premium Korean MMORPG promotional character art: a polished semi-realistic digital painting with sculpted three-dimensional forms, softly blended painterly shading and precisely resolved material detail. No visible outlines; forms are separated by light, shadow and material contrast. The face has an idealised adult beauty with a naturally sculpted, dimensional nose and lips, smooth satin skin with soft graduated shadows and restrained highlights, finely painted eyes with transparent layered irises. Hair is painted as layered sculpted masses with soft directional highlights and selectively defined strands. Metal has substantial volume, engraved detail, controlled reflections and crisp edge highlights; cloth has readable weave, folds and thickness. Body volume is described through continuous tonal modelling and the fit of the costume, with convincing anatomical depth. Finish: high-end painted game key art, smooth digital blending, no cel shading, no photographic skin texture, no 3D render look.
+```
+
+### `kv_3d_stylized` — 1절
+
+```
+1. RENDERING STYLE — STYLISED 3D CHARACTER RENDER (FIXED ACROSS ALL GENRES)
+A high-end stylised 3D character render, like a cinematic game-engine character showcase. Physically based materials: skin with soft subsurface scattering and fine but clean pores, hair rendered as modelled strand cards with anisotropic highlights, metal with accurate reflections, roughness variation and sharp specular edges, cloth with visible weave, thickness and natural drape. The face is a stylised-beautiful adult 3D model — idealised proportions, smooth sculpted planes, large expressive but realistic eyes with wet reflective corneas, soft lips — not a photoreal scan and not an anime face. Lighting is a three-point studio-cinematic setup: soft key, cool fill, crisp rim, with ambient occlusion in contact areas and depth of field on the background. Body volume reads through true modelled form under the costume, with cloth and armour conforming physically to it. Finish: clean render, no outlines, no painterly brushwork, no cel shading, polished game-cinematic quality.
+```
+
+### 2절 — 조운 (세 갈래 · 세 세계 공통)
+
+```
+2. CHARACTER — ZHAO YUN, FEMALE INTERPRETATION (SAME IN EVERY GENRE)
+An original adult female interpretation of Zhao Yun (조운), the Dragon of Changshan — the young, loyal spear general who rode through Changban alone: flawless, composed, graceful and quietly fierce. Her femininity and body volume express her nature as a spear dancer: tall and long-limbed, elegant rather than heavy. An adult woman in her mid-twenties with a small refined beautiful face, clear calm eyes with slightly upturned corners, softly arched brows, a small straight nose, soft lips and a composed, gentle but resolute expression. Fair luminous skin. Long silver-white hair with a faint blue sheen, worn in a high ponytail with loose face-framing strands. Pale ice-blue eyes. Body: approximately 7.5 heads tall, a natural neck, long shapely legs, a full rounded bust in proportion to an athletic frame, a narrow waist, toned graceful thighs and balanced natural hips — a lithe hourglass silhouette with firm dancer-like muscle, never bulky and never exaggerated beyond athletic realism. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered.
+```
+
+### 3 · 4절 — 무협
+
+```
+3. COSTUME — WUXIA (Three Kingdoms era, Eastern martial fantasy)
+Silver-white lamellar armour fitted over a white-and-pale-green silk robe: a sculpted silver breastplate with a modest open neckline, symmetrical dragon-engraved pauldrons, silver bracers, a wide jade-green sash, a flowing white robe skirt split high at the side over fitted silver greaves and boots. Materials: polished silver, white silk, jade. Palette: silver-white, pale jade green, ice blue accents. Motifs: a coiling dragon on the breastplate and pauldrons, jade pendants at the sash. Weapon: a long silver spear with a tasselled dragon-head socket and a single straight shaft.
+4. SCENE
+Vertical 2:3 full-body composition, entire head to boots inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer. Right hand holds the spear upright beside her, butt on the ground, shaft straight and unbroken; left hand relaxed and visible at her side. Background: a misty river crossing at dawn beneath a wooden Han-era bridge and willow trees, softly blurred. Lighting: soft flattering key light on the face, cool dawn mist, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
+```
+
+### 3 · 4절 — 판타지
+
+```
+3. COSTUME — HIGH FANTASY (Western medieval, no East-Asian robes or armour)
+A silver knight-paladin's plate: a fitted sculpted silver cuirass with a modest open neckline under a high gorget, symmetrical dragon-wing pauldrons, articulated gauntlets and greaves, a white heraldic tabard split high at the thigh over the plate, and a pale-green half-cape clasped at one shoulder. Materials: polished steel, white wool, silver filigree, pale emerald. Palette: silver, white, pale emerald green, ice blue. Motifs: a rampant dragon crest on the tabard, filigree on the plate edges. Weapon: a long silver lance-spear with a dragon-head socket and a single straight shaft.
+4. SCENE
+Vertical 2:3 full-body composition, entire head to boots inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer. Right hand holds the spear upright beside her, butt on the ground, shaft straight and unbroken; left hand relaxed and visible at her side. Background: a white-stone castle bridge over a river valley at dawn, banners and distant mountains, softly blurred. Lighting: soft flattering key light on the face, cool morning light, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
+```
+
+### 3 · 4절 — 메카
+
+```
+3. COSTUME — MECHA (far-future science fiction)
+Engineered powered armour that reads clearly as mecha: segmented silver-white hard-surface plating with precision panel seams, articulated mechanical joints and compact actuators; a fitted armoured torso with a modest open neckline, symmetrical dragon-fin shoulder units, slim thruster packs at the calves, and soft ice-blue energy lines along the seams. The plating covers her from neck to feet and reads as solid armour, not cloth. Materials: silver-white alloy, dark gunmetal structure, pale-green crystal cores. Palette: silver-white, gunmetal, pale jade green, ice blue glow. Motifs: a dragon emblem core on the chest, fin-shaped head unit over the ponytail. Weapon: a long powered spear with a mechanical dragon-head socket and a glowing ice-blue tip, single straight shaft.
+4. SCENE
+Vertical 2:3 full-body composition, entire head to boots inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer. Right hand holds the spear upright beside her, butt on the ground, shaft straight and unbroken; left hand relaxed and visible at her side. Background: the landing deck of a white starship above a blue planet, hangar lights and stars, softly blurred. Lighting: soft flattering key light on the face, cool white deck light with subtle blue glow accents, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
 ```
