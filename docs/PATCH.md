@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기준 판 v3 — 머리색만 저채도
+- kv_kmmo_lock v3 — v2(전체 저채도)가 뿌옇게 나와 v1 + 머리만 저채도. 1절 머리 줄 + 2절 머리색 낱말에서 vivid · bright · glossy · polished 를 빼고 「muted, low-saturation」(hairMute, lib/prompt-sam.js buildKv). 마량 머리 채도 0.56 → 0.35, 전체는 그대로(사용자 「머리색만 채도를 낮게 해줘. 지금 너무 뿌옇게 됐어」).
+
 ## 2026-11-06 · claude · 기준 판 v2 — 저채도
 - kv_kmmo_lock v2 — 1절에 COLOUR LOCK(저채도 · 눌린 색, 3절 색도 저채도판, 밝은 · 네온 색 없음). v1 은 기록으로. 마량 2.6 평균 채도 0.26 → 0.20(사용자 「2.6은 색을 좀 밝게 쓰니까 채도를 낮은색 위주로」).
 

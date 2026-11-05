@@ -1185,6 +1185,8 @@ Create ONE finished illustration. Sections: 1 fixes the rendering style for ever
 
 **v2(2026-11-05)** — 1절에 COLOUR LOCK 한 줄(전체 저채도 · 먼지 낀 듯 눌린 색, 3절 색도 저채도판으로, 밝은 · 사탕 · 네온 색 없음). 사용자 「지금 2.6은 색을 좀 밝게 쓰니까 채도를 낮은색 위주로」 — 마량 2.6 세 장 평균 채도 0.26 → 0.20(2.5 는 0.25). 아래 1절은 v1, 지금 판은 `data/style.json`.
 
+**v3(같은 날)** — v2 는 화면 전체가 뿌옇게 됐다(사용자 「머리색만 채도를 낮게 해줘. 지금 너무 뿌옇게 됐어」). v1 으로 돌아가 머리만 저채도: 1절 머리 줄에 「muted, low-saturation … only the hair is desaturated」, 그리고 2절 머리색 낱말에서 vivid · bright · glossy · polished 를 빼고 「muted, low-saturation」 을 붙인다(`hairMute`). 1절 줄만으론 「vivid magenta」 를 못 이겼다 — 마량 머리 자홍 채도 0.56 → 0.50(1절만) → 0.35(낱말까지), 그림 전체 채도는 그대로.
+
 ### 1절
 
 ```
