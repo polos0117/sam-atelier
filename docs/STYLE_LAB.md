@@ -23,6 +23,7 @@
 | `kv_2d_thick` | 2D 두꺼운 칠(영문) | 선 거의 없음 · 넓은 평면 색면 · 단단한 그림자 모양 · 붓 질감 · 화집 일러스트 | 같은 시험 3번 | 2D 중 가장 차분하고 성숙한 얼굴, 반실사 회화에 가까움 |
 | `kv_3d_real` | 3D 실사풍(영문) | 실사 얼굴 해부 · 서브서피스 피부 · 가는 모공 · 가닥 머리 · 실사 PBR 재질 · 시네마틱 조명 | 조운 세 세계 각 한 장(2026-11-05, 3D 여섯 갈래 시험 3번) | 3D 중 가장 실사 쪽, 미형은 유지 |
 | `kv_3d_paintover` | 3D 렌더 덧칠 키아트(영문) | 3D 렌더 바탕 위 디지털 페인트오버 — 얼굴 다듬기 · 빛 효과 · 칠한 머리 가닥 · 칠한 배경 | 같은 시험 6번 | 3D 와 일러스트 사이, 반실사 글로시와 꽤 비슷 |
+| `kv_kmmo_lock` | 한국 MMORPG 반실사 + 얼굴 · 장르 고정(영문) | 반실사 미형 얼굴 · 매트 새틴 피부 · 무거운 각인 금속 갑옷 · FACIAL DESIGN LOCK(부드러운 얼굴 면 · 턱 · 콧대, 갑옷 · 근육이 얼굴을 거칠게 하지 않음) · GENRE LOCK(세계는 옷 · 장비 · 배경만) | 조조 · 맹획 세 세계 각 두 번(2026-11-05) | **기준 판.** 세 세계 같은 사람 · 같은 결, 메카도 안 튐. 맹획 메카의 서구 게임 얼굴이 사라짐. 메카는 장갑이 몸에 붙어 가슴이 크게 나오는 편 |
 
 「1번」 · 「2번」 은 사용자가 원문(장면 맞춤 지시문)을 GPT 에 네 칸 구조로 옮겨 달라고 한 것인데, 처음 받은 구조형 「2번」 은 「1번」 과 글자까지 같게 옮겨져 있었다(파스텔이 빠짐). 그래서 「2번」 은 원문에서 다시 옮겼다(2026-11-04). 판마다 **구조형**(장수에 쓰는 꼴 — 작화 칸은 「지정된 …」 으로 일반화하고 인물 고유값은 2 · 3 · 4번으로 옮김)과 **원문**을 같이 둔다.
 
@@ -1160,4 +1161,71 @@ A high-fidelity realistic 3D character render, like a next-generation realistic 
 ```
 1. RENDERING STYLE — RENDER + PAINTOVER KEY ART (FIXED ACROSS ALL GENRES)
 Official game key art made by painting over a high-quality 3D render. The base is a realistic-stylised 3D character render with real modelled forms, PBR materials and cinematic lighting; on top, an artist's digital paintover refines the face into idealised adult beauty, adds painted light effects, soft glow, atmospheric depth, painted hair strands and dramatic highlights, and integrates the character into a painted background. The face combines a sculpted 3D structure with a painted, refined finish — dimensional nose and lips, smooth luminous skin, finely painted eyes. Metal keeps 3D reflections enhanced by painted glints; cloth keeps 3D folds with painted softness. Body volume is the modelled form, refined by paint. Finish: polished official key art between 3D and illustration — no outlines, no cel shading, no visible render artefacts.
+```
+
+---
+
+## `kv_kmmo_lock` — 한국 MMORPG 반실사 + 얼굴 · 장르 고정 (기준 판, 2026-11-05)
+
+사용자가 고른 기준 판(「응 저장해줘」). 조운 기준 열쇠들 → 2D 필름 · 반실사 글로시 비교 → 「결국 한국 mmorpg 쪽이 내 취향」 → 맹획 메카가 서구 게임 얼굴로 가는 문제를 사용자가 가져온 분석으로 고쳤다.
+
+**네 가지가 같이 있어야 한다**
+1. **1절** — 아래 그대로. 반실사 낱말(semi-realistic · realistic proportions · sculpted nose)은 **빼지 않는다**(빼 본 판은 사용자 「반실사를 빼지는 말라고」). FACIAL DESIGN LOCK 이 얼굴을 부드럽게 묶고, GENRE LOCK 이 세계 차이를 옷 · 장비 · 배경에만 둔다. 애니 · JP · 가챠 낱말은 한 마디도 넣지 않는다 — 들어가는 순간 2D 필름 결로 넘어갔다.
+2. **2절 얼굴 · 헤어는 세 세계 같은 값** — 세계마다 얼굴형 · 눈 · 헤어가 다르면(설계표 세계별 값) 메카처럼 이마가 다 드러난 쪽이 따로 놀았다. 장식(관 · 머리 장식)만 세계마다.
+3. **흔들리는 값은 바꿔 끼운다** — 히메컷 → 긴 생머리, 울프컷 → 긴 층진 웨이브, 한쪽 눈 덮는 앞머리 → 옆 앞머리, 버튼 코 → 콧대가 부드러운 작은 코, 처진 눈 · 큰 동그란 눈 → 아몬드 눈. (맹획을 「미형 + 태닝」 으로 통째 바꾼 판은 사용자 「원래가 낫네」 로 되돌렸다 — 피부 · 성격 값은 그대로 둔다.)
+4. **4절** — 얼굴 조명은 세 세계 같은 따뜻한 중성광, 색 빛 · 홀로그램은 배경과 장비에만. 손에는 지정한 물건만(「no cup, goblet or other props」 — 조조 판타지가 성정 줄의 「술」 때문에 잔을 들었다). 메카 장갑은 「판타지 판금처럼 각인 금속으로 칠함」.
+
+참고 그림은 붙이지 않는다 — 무협 그림을 붙여 판타지 · 메카를 뽑으면 얼굴은 같아지지만 자세 · 머리 장식 · 헤어까지 따라와 세계 맛이 없어졌다(사용자 「래퍼런스 하면 얼굴이 다 똑같아지네」). 같은 지시문도 장마다 흔들리니(사용자 「모델이 지 맘대로」) **세계마다 2~3장 뽑아 사용자가 고른 뒤 일상컷**으로 간다(IMAGE_RULES 1절).
+
+### 머리말
+
+```
+Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.
+```
+
+### 1절
+
+```
+1. RENDERING STYLE — KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)
+A Korean MMORPG official character illustration: an elegant, mature, idealised semi-realistic face with realistic adult proportions — refined almond eyes of realistic size, a naturally sculpted nose with a defined bridge, and naturally shaped lips — painted with smooth tonal modelling and a soft matte-satin skin finish. Hair is painted as sculpted, weighty masses with soft highlights. Armour and costume are extremely detailed and heavy: engraved metal, layered plates, rich fabrics and ornate trims, all rendered with convincing weight, volume and controlled reflections. Restrained, noble colour palette; soft, dignified lighting. A classy painted game-illustration finish with no outlines and no flat colour.
+FACIAL DESIGN LOCK: Use refined Korean MMORPG beauty stylisation consistently across all genres: softly simplified facial planes, delicate eyelids, a softly defined nose bridge, subtle eye-socket shading, and a smooth, gently tapered jaw. Preserve the specified face shape, eye shape, skin colour and adult maturity. Realism applies to dimensional shading and materials without increasing facial angularity, eye-socket depth, or the prominence of the brow ridge and nose. Heavy armour and an athletic physique must not make the facial features heavier or more rugged.
+GENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre. In mecha, the armour is painted with the same engraved-metal material language as fantasy plate armour, and the face is lit by the same warm-neutral key light; coloured glows and holograms stay in the background and on the equipment only.
+```
+
+### 조조 — 무협 전문 (2 · 3 · 4절 꼴 예시)
+
+```
+Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.
+
+1. RENDERING STYLE — KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)
+A Korean MMORPG official character illustration: an elegant, mature, idealised semi-realistic face with realistic adult proportions — refined almond eyes of realistic size, a naturally sculpted nose with a defined bridge, and naturally shaped lips — painted with smooth tonal modelling and a soft matte-satin skin finish. Hair is painted as sculpted, weighty masses with soft highlights. Armour and costume are extremely detailed and heavy: engraved metal, layered plates, rich fabrics and ornate trims, all rendered with convincing weight, volume and controlled reflections. Restrained, noble colour palette; soft, dignified lighting. A classy painted game-illustration finish with no outlines and no flat colour.
+FACIAL DESIGN LOCK: Use refined Korean MMORPG beauty stylisation consistently across all genres: softly simplified facial planes, delicate eyelids, a softly defined nose bridge, subtle eye-socket shading, and a smooth, gently tapered jaw. Preserve the specified face shape, eye shape, skin colour and adult maturity. Realism applies to dimensional shading and materials without increasing facial angularity, eye-socket depth, or the prominence of the brow ridge and nose. Heavy armour and an athletic physique must not make the facial features heavier or more rugged.
+GENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre. In mecha, the armour is painted with the same engraved-metal material language as fantasy plate armour, and the face is lit by the same warm-neutral key light; coloured glows and holograms stay in the background and on the equipment only.
+
+2. CHARACTER — CAO CAO, FEMALE INTERPRETATION (SAME IN EVERY GENRE)
+An original adult female interpretation of Cao Cao (조조), the ambitious hero of chaos who unified the north — warlord, chancellor and poet. Her nature: brilliant ruthless ambition, a poet singing over wine before battle, the Bronze Sparrow Terrace, a magnetic and dangerous charm, suspicion and genius, black-and-navy war banners. Her femininity and body volume express this character. Age: early thirties — a poised, graceful face with soft contours; at most faint lines, no deep folds or under-eye bags. Face: a small, refined, beautiful adult face — heart-shaped face, narrow upturned eyes, outer eye corners tilting sharply upward, sharp angled brows, a refined slightly aquiline nose, full heart-shaped lips, smoky dark eye makeup; a glamorous, sultry allure; expression: a faint cool smile, calm composed eyes. Skin: fair skin. Hair: blue-black hair with a cold indigo sheen, long hair partly gathered into an elegant high updo with long loose lengths falling down her back, side-swept bangs. Eyes: pale violet eyes. Body: approximately 7.5 heads tall, a natural neck, long shapely legs — hourglass-figured — full bust and hips, distinctly narrow-waisted; hips and thighs stay within natural, realistic proportion. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered.
+
+3. COSTUME — WUXIA (Three Kingdoms era, Eastern martial fantasy)
+Han-dynasty ruler's regalia — layered silk robes in the palette below with broad embroidered sleeves, a jade-and-gold guan headpiece or a mian crown with beaded strings, jade pendants at the sash, a ceremonial jian sword at the belt. Palette: deep navy blue, black lacquer, cold steel silver, ivory white. Motifs drawn from her nature: brilliant ruthless ambition, a poet singing over wine before battle, the Bronze Sparrow Terrace, a magnetic and dangerous charm, suspicion and genius, black-and-navy war banners. Signature item: the Sky-Leaning Sword, an ornate long jian, drawn whole at full scale.
+4. SCENE
+Vertical 2:3 full-body composition, entire head to footwear inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer, holding her signature item naturally; both hands visible; she holds nothing else — no cup, goblet or other props. Background: on the Bronze Sparrow Terrace at Ye, tiled roofs and a bronze sparrow ornament against the sky, the city below, softly blurred. Lighting: warm-neutral soft key light on the face (the same in every genre), environmental light only on the background, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
+```
+
+### 맹획 — 메카 전문
+
+```
+Create ONE finished illustration. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.
+
+1. RENDERING STYLE — KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)
+A Korean MMORPG official character illustration: an elegant, mature, idealised semi-realistic face with realistic adult proportions — refined almond eyes of realistic size, a naturally sculpted nose with a defined bridge, and naturally shaped lips — painted with smooth tonal modelling and a soft matte-satin skin finish. Hair is painted as sculpted, weighty masses with soft highlights. Armour and costume are extremely detailed and heavy: engraved metal, layered plates, rich fabrics and ornate trims, all rendered with convincing weight, volume and controlled reflections. Restrained, noble colour palette; soft, dignified lighting. A classy painted game-illustration finish with no outlines and no flat colour.
+FACIAL DESIGN LOCK: Use refined Korean MMORPG beauty stylisation consistently across all genres: softly simplified facial planes, delicate eyelids, a softly defined nose bridge, subtle eye-socket shading, and a smooth, gently tapered jaw. Preserve the specified face shape, eye shape, skin colour and adult maturity. Realism applies to dimensional shading and materials without increasing facial angularity, eye-socket depth, or the prominence of the brow ridge and nose. Heavy armour and an athletic physique must not make the facial features heavier or more rugged.
+GENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre. In mecha, the armour is painted with the same engraved-metal material language as fantasy plate armour, and the face is lit by the same warm-neutral key light; coloured glows and holograms stay in the background and on the equipment only.
+
+2. CHARACTER — MENG HUO, FEMALE INTERPRETATION (SAME IN EVERY GENRE)
+An original adult female interpretation of Meng Huo (맹획), the Nanman king captured seven times and released seven times. Her nature: proud stubbornness and final loyalty, beast-tooth necklace, tribal gold. Her femininity and body volume express this character. Age: late twenties — a graceful grown-up face with soft, smooth contours; no wrinkles, folds or under-eye bags. Face: a small, refined, beautiful adult face — heart-shaped face, almond-shaped eyes, level outer eye corners, thin arched brows, small refined nose with a softly defined bridge, soft medium lips, glossy nude lips; a regal, imperious haughtiness; expression: a faint knowing smile. Skin: bronze-brown skin. Hair: deep indigo hair, long softly layered waves, curtain bangs. Eyes: jade-green eyes. Body: approximately 7.5 heads tall, a natural neck, long shapely legs — strong and broad-shouldered with firm muscle, yet full-busted with wide rounded hips and a defined waist; hips and thighs stay within natural, realistic proportion. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered.
+
+3. COSTUME — MECHA (far-future science fiction)
+an assault-type mecha frame — heavy armor plates, thruster packs, reinforced limbs, her weapon rebuilt as a large mecha armament; faction frame: bronze-gold and deep-crimson plating with dark gunmetal structure, sculpted beast-head shoulder units, southern geometric engravings, jade-green energy cores and glow lines. The plating covers her from neck to feet and reads as solid engraved metal armour, not cloth, painted like heavy fantasy plate. Palette: bronze-gold, deep crimson, jade green and dark wood brown. Motifs drawn from her nature: proud stubbornness and final loyalty, beast-tooth necklace, tribal gold. Signature item: a great southern broadsword, drawn whole at full scale.
+4. SCENE
+Vertical 2:3 full-body composition, entire head to footwear inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer, holding her signature item naturally; both hands visible. Background: a futuristic southern mountain fortress terrace — mechanical citadel structures integrated with misty forested cliffs and waterfalls, softly blurred. Lighting: warm-neutral soft key light on the face (the same in every genre), environmental light only on the background, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
 ```
