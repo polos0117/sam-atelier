@@ -10,6 +10,15 @@ const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console };
   return ctx.window.AtelierPrompt; })();
 const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8')), STYLE = S['default'];
 const keys = P.cards(D), pick = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 14)) === 0).slice(0, 14);
+/* 메카 실루엣 — 고르면 세계 글 뒤 한 줄, 안 고르면 없음, 메카 아닌 세계엔 안 붙는다, 구조형은 옷 칸으로 옮긴다(2026-11-05) */
+{ const k0 = keys[0];
+  const none = P.build(D, S, k0, 'mecha', { style: STYLE }), on = P.build(D, S, k0, 'mecha', { style: STYLE, shot: { frame: 'segmented_parts' } });
+  assert(!/^MECHA SILHOUETTE:/m.test(none), '안 고르면 실루엣 줄이 없다');
+  assert(/^MECHA SILHOUETTE: separate armor pieces/m.test(on), '고르면 실루엣 줄');
+  assert.equal(on.split('\n').filter(l => !l.startsWith('MECHA SILHOUETTE:')).join('\n'), none, '실루엣 줄 말고는 같다');
+  assert(!/MECHA SILHOUETTE/.test(P.build(D, S, k0, 'samguk', { style: STYLE, shot: { frame: 'segmented_parts' } })), '메카 아닌 세계엔 없다');
+  assert.equal(P.normShot(D, k0, 'fantasy', { frame: 'full_armor' }).frame, '');
+  const g = G.world(on); assert.deepEqual(g.unknown, []); assert(g.text.includes('Silhouette: separate armor pieces'), '구조형 옷 칸에 실루엣'); }
 let nw = 0, nc = 0;
 for (const key of pick) {
   const card = C.cardOf(key);

@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · 메카 실루엣 선택 칸
+- lib/prompt-spec.js — MECHA_SILHOUETTES 열여덟(슬림 보디슈트 · 중장갑 강습 · 날개 바인더 · 장갑 치마 · 장갑 롱코트 · 떠 있는 유닛 · 보조 팔 · 대형 등짐 · 경량 고기동 · 후광·관 · 장갑 분리 · 전신 장갑 · 골격 노출 · 대형 팔다리 · 기사 갑주 · 망토판 · 꼬리 유닛 · 부유 링). 사용자 「실루엣 종류를 많이 넣어서 랜덤이든 선택이든」 「장갑 분리형, 전신장갑형 등등」 「옵션으로」
+- lib/prompt-sam.js · lib/studio.js · lib/words.js — 메카 세계 그림 자세 칸에 「메카 실루엣」 고르개, 고르면 세계 글 뒤 MECHA SILHOUETTE 한 줄(큰 덩어리만, 세부는 그림이), 안 고르면 지금과 글자까지 같다
+- lib/prompt-gpt.js · tools/prompt-pack.cjs — 구조형 옷 칸으로 옮기고 settings 의 shot.frame 을 받는다 · tests/prompt-gpt.cjs · IMAGE_RULES.md
+
 ## 2026-11-05 · claude · 화풍 실험 기록 — 글로시 판 · 조운 세 세계
 - docs/STYLE_LAB.md — semireal_painterly_gloss: 회화 채색에 얼굴 물광 · 몸 윤기 · 고광택 갑옷. 조운 메카 · 무협 · 판타지 구조형 지시문 셋(사용자 「메카는 된거 같고」 「잘 나온거 같아」) — 창은 몸 옆 거의 수직, 위끝은 뭉툭한 물미
 - AGENTS.md — 판 여섯

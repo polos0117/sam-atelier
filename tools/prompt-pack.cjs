@@ -13,7 +13,7 @@
 
    자리 — <세계>(세계 그림 — 첨부 없이 한 장씩) · <세계>-casualN(일상컷 — 그 세계 그림 첨부). 화풍은 늘 기본(data/style.json default). 고칠 수 있는 칸:
      worlds.<세계>   notes(scene · outfit · custom — 직접 입력, why) · look(params · faceDesignOn · silhouetteOn · exposure — 표에 없는 외형은 직접 입력이라 why) ·
-                     shot(scene — 설계표 장면 변주 열쇠 · time · pose · expr — 표의 값)
+                     shot(scene — 설계표 장면 변주 열쇠 · time · pose · expr · frame(메카 실루엣, 메카만) — 표의 값)
      casual.<자리>   scene · outfit · custom(직접 입력 — why) · exposure(moderate · low — 그 컷만 피부 노출 축을 낮춘다, why 필요) · 나머지는 계획 그대로
      세계 그림의 노출은 worlds.<세계>.look.exposure. 낮추는 것은 필터 거절 뒤 노출 낮추기(사용자 2026-11-01 「필터 문제로 막히면 재시도 후, 노출 수위를 낮춰가며 재시도로」 — IMAGE_RULES 1절) 에만 */
 'use strict';
@@ -31,7 +31,7 @@ const sha = s => crypto.createHash('sha256').update(s).digest('hex');
 const DEFS = (T.PARAM_DEFS || []).filter(d => T.IDENTITY_GROUPS.includes(d.group) && !T.IDENTITY_EXCLUDED.includes(d.key));
 const keys = rows => rows.map(r => Array.isArray(r) ? r[0] : r.key).filter(v => v && v !== '__custom__');
 const TEXT = T.NOTES.map(n => n.id);
-const SHOT = { scene: null, time: T.WORLD_TIMES, pose: T.WORLD_POSES, expr: Object.keys(T.EXPRESSION_DETAIL || {}).map(k => [k]) };
+const SHOT = { scene: null, time: T.WORLD_TIMES, pose: T.WORLD_POSES, expr: Object.keys(T.EXPRESSION_DETAIL || {}).map(k => [k]), frame: T.MECHA_SILHOUETTES };   /* frame — 메카 실루엣(메카만) */
 const FIXED = { overall_intensity: 'strong', skin_exposure: 'bold' };
 
 function cardOf(key) { return PLAN.cardOf(key); }
