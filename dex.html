@@ -55,26 +55,27 @@ function useDocs(){
 }
 function useFavorites(){const [l,set]=useState(()=>FAV?FAV.list():[]);useEffect(()=>FAV?FAV.onChange(set):undefined,[]);return l;}
 function useNote(){const [m,set]=useState(''),t=useRef(0);useEffect(()=>()=>clearTimeout(t.current),[]);return [m,s=>{set(s);clearTimeout(t.current);t.current=setTimeout(()=>set(''),2000);}];}
-/* 장수에 그림이 등록된 화풍들 — 기본 화풍이 먼저, 나머지는 style.json 차례 */
-function stylesOf(doc,key,any){
-  const e=doc.img[key];if(!e)return [];const m=IMG.styleMap(e);
-  const ks=Object.keys(m).filter(k=>any||Object.values(IMG.formMap(m[k])).some(f=>f.f));
-  const order=[doc.s.default,...Object.keys(doc.s.styles||{})];
-  return ks.sort((a,b)=>{const ia=order.indexOf(a),ib=order.indexOf(b);return (ia<0?99:ia)-(ib<0?99:ib);});
+/* 고른 화풍(2026-11-05 사용자 「도감에 옛날 버전은 따로보게 셀렉트박스로 화풍 선택」) — 기본 화풍(kv_kmmo_lock)이 처음, 앞 화풍(kr_mmorpg …)은 고르개로. 고른 화풍의 그림만 보인다 */
+let STY='';
+const curStyle=doc=>STY||doc.s.default;
+/* 그림이 하나라도 있는 화풍 — 기본이 먼저, 나머지는 style.json 차례 */
+function artStyles(doc){
+  const has={};for(const k in doc.img){const m=IMG.styleMap(doc.img[k]);for(const st in m)if(Object.values(IMG.formMap(m[st])).some(f=>f.f)||IMG.casualsOf(m[st],doc.d.vocab.worlds,'f').length)has[st]=(has[st]||0)+1;}
+  const order=[doc.s.default,...Object.keys(doc.s.styles||{}).filter(k=>k!==doc.s.default),...Object.keys(has).filter(k=>!(doc.s.styles||{})[k]&&k!==doc.s.default)];
+  return order.filter((k,i)=>(k===doc.s.default||has[k])&&order.indexOf(k)===i).map(k=>({key:k,n:has[k]||0}));
 }
 function fileOf(doc,key,world,style){
   const e=doc.img[key];if(!e)return null;
-  const b=IMG.styleMap(e)[style||doc.s.default]||(style?null:IMG.styleMap(e)[stylesOf(doc,key)[0]]);if(!b)return null;
+  const b=IMG.styleMap(e)[style||curStyle(doc)];if(!b)return null;
   const f=IMG.formMap(b)[world];return f&&f.f||null;
 }
 const styleName=(doc,k)=>{const s=doc.s.styles&&doc.s.styles[k];return s&&s.name||k;};
-/* 장수의 그림 전부 — 크게 보기가 이 차례로 넘긴다: 세계 그림 → 다른 화풍 → 일상컷(세계마다 번호) */
-function picsOf(doc,g){
-  const all=doc.d.vocab.worlds,out=[],styles=stylesOf(doc,g.key),key=g.key;
-  for(const w of all){const f=fileOf(doc,key,w);if(f)out.push({file:f,kind:'world',world:w,label:W('world.'+w)});}
-  for(const st of styles.slice(1))for(const w of all){const f=fileOf(doc,key,w,st);if(f)out.push({file:f,kind:'alt',world:w,style:st,label:styleName(doc,st)+' · '+W('world.'+w)});}
+/* 장수의 그림 전부(고른 화풍만) — 크게 보기가 이 차례로 넘긴다: 세계 그림 → 일상컷(세계마다 번호). 다른 화풍은 고르개로 따로 본다 */
+function picsOf(doc,g,style){
+  const all=doc.d.vocab.worlds,out=[],key=g.key,sty=style||curStyle(doc);
+  for(const w of all){const f=fileOf(doc,key,w,sty);if(f)out.push({file:f,kind:'world',world:w,label:W('world.'+w)});}
   const e=doc.img[key];
-  if(e){const seen={};for(const st of stylesOf(doc,key,true))for(const c of IMG.casualsOf(IMG.styleMap(e)[st],all,'f')){const wk=c.world||'';seen[wk]=(seen[wk]||0)+1;
+  if(e){const seen={};for(const st of [sty])for(const c of IMG.casualsOf(IMG.styleMap(e)[st]||{},all,'f')){const wk=c.world||'';seen[wk]=(seen[wk]||0)+1;
     out.push({file:c.file,kind:'casual',world:wk,label:(wk?W('world.'+wk):W('dex.casual.draft'))+' '+seen[wk],long:W('dex.casual')+' · '+(wk?W('world.'+wk):W('dex.casual.draft'))+' '+seen[wk]});}}
   return out;
 }
@@ -118,7 +119,8 @@ function Card({doc,g,view,wf,open,setOpen,onOpen,favs}){
     h('div',{class:'body'},body));
 }
 /* 위에 붙는 판 — 보기 · 세계 · 찾기 · 그림 있는 것만 · 역할로 바로 가기 · 즐겨찾기 */
-function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts,favN,worlds}){
+function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts,favN,worlds,doc,sty,setSty}){
+  const sts=artStyles(doc);
   const go=r=>{const el=document.getElementById('r-'+r);if(el)el.scrollIntoView({block:'start',behavior:'smooth'});};
   return h('div',{class:'dex-toc'},
     h('div',{class:'toc-row'},
@@ -129,6 +131,7 @@ function Toc({roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts,fa
     h('div',{class:'find-row'},
       h('input',{class:'find',id:'dex-find',type:'search',value:q,placeholder:W('dex.find'),'aria-label':W('dex.find'),onInput:e=>setQ(e.target.value)}),
       h('div',{class:'seg'},h('button',{type:'button',id:'dex-only','aria-pressed':only,onClick:()=>setOnly(!only)},W('dex.only.art'))),   /* 체크 상자 대신 공간 단추 — 13px 상자는 손가락에 작다(2026-11-02 점검) */
+      h('label',{class:'only'},W('dex.style'),h('select',{id:'dex-style',value:sty,onChange:e=>setSty(e.target.value)},sts.map(x=>h('option',{key:x.key,value:x.key},styleName(doc,x.key)+(x.key===doc.s.default?' '+W('dex.style.default'):'')+' '+W('dex.style.n',{n:x.n}))))),
       h('label',{class:'only'},W('dex.state.f'),h('select',{id:'dex-state',value:sf,onChange:e=>setSf(e.target.value)},STATE_F.map((k,i)=>h('option',{key:k||'all',value:k},W('dex.state.f.'+(k||'all'))+' '+counts[i]))))),
     roles.length>1&&h('nav',{class:'toc-jump','aria-label':W('dex.toc')},roles.map(r=>h('button',{key:r.key,type:'button',class:'jump','data-jump':r.key,onClick:()=>go(r.key)},r.ko+' '+r.n))));
 }
@@ -164,7 +167,7 @@ const matches=(g,q)=>{q=q.trim().toLowerCase();return !q||(g.key+' '+(g.en||'')+
 /* 설계 상태 거르기 — 전부 · 시안(검토할 것) · 다시 설계 요청 · 확정 · 자동(2026-11-02 「손 설계가 마음에 안 들면 다시 설계」) */
 const STATE_F=['','draft','redo','hand','auto'];
 const stateOk=(g,sf)=>!sf||(sf==='redo'?!!g.redo:g.designed===sf);
-function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,setOpen,onOpen,favs}){
+function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,setOpen,onOpen,favs,sty,setSty}){
   const d=doc.d,all=d.generals.filter(g=>g.faction===f.key),pr=progress(doc,all);
   const shown=all.filter(g=>matches(g,q)&&stateOk(g,sf)&&(!only||picsOf(doc,g).length));
   const roles=ROLES.map(r=>({key:r,ko:d.roles[r].ko,gs:shown.filter(g=>g.role===r)})).filter(r=>r.gs.length).map(r=>Object.assign(r,{n:r.gs.length}));
@@ -174,7 +177,7 @@ function Faction({doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,
       h('p',{class:'dex-progress'},W('dex.count',{n:all.length}),' · ',W('dex.progress',{done:pr.done,all:pr.all})))),
     h('details',{class:'about'},h('summary',null,W('dex.about')),h('p',null,f.persona),
       h('ul',{class:'traits'},d.vocab.worlds.map(w=>h('li',{key:w},h('b',null,W('world.'+w)),' — ',((f.worlds||{})[w]||{}).ko)))),
-    h(Toc,{roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts:STATE_F.map(k=>all.filter(g=>stateOk(g,k)).length),favN,worlds:d.vocab.worlds}),
+    h(Toc,{doc,sty,setSty,roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,counts:STATE_F.map(k=>all.filter(g=>stateOk(g,k)).length),favN,worlds:d.vocab.worlds}),
     !roles.length&&h('p',{class:'none-row',id:'dex-none'},W('dex.empty')),
     roles.map(r=>h('div',{key:r.key,class:'role'},
       h('div',{class:'role-head',id:'r-'+r.key},h('h3',null,r.ko),h('span',null,W('dex.count',{n:r.n}))),
@@ -187,6 +190,8 @@ function Dex(){
   const [sf,setSfS]=useState(()=>STATE_F.includes(param('st'))?param('st'):'');
   const [q,setQS]=useState(()=>param('q')||''),[only,setOnlyS]=useState(()=>param('only')==='1'||(param('only')==null&&!!pref.only));
   const [open,setOpen]=useState({}),[box,setBox]=useState(null),deep=useRef(false);
+  const [sty0,setStyS]=useState(()=>param('style')||pref.style||'');
+  const setSty=x=>{setStyS(x);savePref({style:x});try{const u=new URL(location.href);if(doc&&x!==doc.s.default)u.searchParams.set('style',x);else u.searchParams.delete('style');history.replaceState(history.state,'',u);}catch{}};
   const remember=(v,w,qq,o)=>{savePref({view:v,w,only:o});try{const u=new URL(location.href);u.searchParams.set('view',v);if(w)u.searchParams.set('w',w);else u.searchParams.delete('w');
     if(qq)u.searchParams.set('q',qq);else u.searchParams.delete('q');if(o)u.searchParams.set('only','1');else u.searchParams.delete('only');u.searchParams.delete('card');u.searchParams.delete('pic');history.replaceState(history.state,'',u);}catch{}};
   /* 크게 보기와 뒤로 가기 — 열 때 기록에 한 칸(samgukLb)을 더해 두면 뒤로 가기가 그 칸을 지우며 팝업만 닫는다(원소 공방 사용자 2026-10-31 「뒤로 가기 누르면 이전 화면으로 넘어가네」).
@@ -201,14 +206,16 @@ function Dex(){
   useEffect(()=>{if(!doc||doc.failed||deep.current)return;deep.current=true;const ck=param('card'),pic=param('pic');if(!ck)return;
     const g=doc.d.generals.find(x=>x.key===ck);if(!g)return;
     setTimeout(()=>{const el=document.getElementById('c-'+ck);if(el)el.scrollIntoView({block:'start'});},50);
-    if(pic&&picsOf(doc,g).some(p=>p.file===pic))openBox({g,file:pic});},[doc]);
+    if(!pic)return;const st=artStyles(doc).map(x=>x.key).find(k=>picsOf(doc,g,k).some(p=>p.file===pic));   /* 즐겨찾기 그림이 다른 화풍이면 그 화풍으로 */
+    if(st){if(st!==curStyle(doc))setSty(st);openBox({g,file:pic});}},[doc]);
   if(!doc)return h('p',{class:'ek-note'},W('dex.loading'));
   if(doc.failed)return h('p',{class:'ek-note'},W('dex.fail'));
+  const sty=artStyles(doc).some(x=>x.key===sty0)?sty0:doc.s.default;STY=sty;
   const d=doc.d,ck=param('card'),cg=ck&&d.generals.find(x=>x.key===ck),want=param('faction')||(cg&&cg.faction),f=d.factions.find(x=>x.key===want)||d.factions[0];
   return h('div',null,
     h('nav',{class:'dex-pick','aria-label':W('dex.pick')},d.factions.map(x=>{const gs=d.generals.filter(g=>g.faction===x.key),pr=progress(doc,gs);
       return h('a',{key:x.key,href:'dex.html?faction='+x.key,'aria-current':x.key===f.key?'page':undefined,'data-fac':x.key},h('span',{class:'sym'},x.hanja),x.ko,' ',h('i',null,W('dex.pick.n',{n:gs.length,done:pr.done})));})),
-    h(Faction,{doc,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})}),
+    h(Faction,{doc,sty,setSty,f,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})}),
     h(Lightbox,{doc,box,setBox,close:closeBox,favs}));
 }
 function App(){return h('div',null,h(WorkspaceHeader,{page:'dex'}),h(Dex));}

@@ -13104,7 +13104,17 @@
       }
      }
     },
-    "why": "폐월(閉月) — 달빛 같은 자주 머리 · 처진 눈 · 눈가 점. 춤 → 부채"
+    "why": "폐월(閉月) — 달빛 같은 자주 머리 · 처진 눈 · 눈가 점. 춤 → 부채",
+    "palette_note": "2026-11-05 사용자 「초선은 연핑크 위주로 설계 바꿔주고」 — 장수 몫 palette(연핑크 · 블러시 로즈 · 상아 · 로즈골드, 라일락 포인트)와 메카 설계(worlds.mecha.design)가 여포군 진홍 · 검은 옻칠을 이긴다. 머리(royal_purple) · 눈(violet)은 그대로"
+   },
+   "palette": {
+    "en": "soft pastel pink, blush rose, ivory white and pale rose gold, with small lilac accents",
+    "ko": "연핑크 · 블러시 로즈 · 상아빛 흰색 · 옅은 로즈골드, 라일락 포인트"
+   },
+   "worlds": {
+    "mecha": {
+     "design": "soft pastel-pink and ivory-white plating with pale rose-gold edges, sleek graceful dancer's frame with ribbon-like binder fins, small lilac accents, soft pink glow lines"
+    }
    }
   },
   {

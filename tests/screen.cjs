@@ -155,6 +155,12 @@ const P = ctx0.window.AtelierPrompt;
     assert(withArt <= count('shu'), '그림 있는 것만');
     if (!withArt) assert(await v.page.locator('#dex-none').count(), '없으면 알림');
     await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'false');
+    /* 화풍 고르개(2026-11-05) — 기본 화풍이 처음, 그림 있는 앞 화풍은 따로 */
+    assert.equal(await v.page.inputValue('#dex-style'), S['default'], '처음은 기본 화풍');
+    const stys = await v.page.locator('#dex-style option').evaluateAll(es => es.map(e => e.value));
+    assert.equal(stys[0], S['default']);
+    if (stys.includes('kr_mmorpg')) { await v.page.selectOption('#dex-style', 'kr_mmorpg'); assert.match(v.page.url(), /style=kr_mmorpg/); assert(await v.page.locator('.sam-card .worlds.main button.slot').count() > 0, '앞 화풍 그림');
+      await v.page.selectOption('#dex-style', S['default']); assert.doesNotMatch(v.page.url(), /style=/); }
     await noOverflow(v.page, vp.width + ' 도감');
     assert.deepEqual(v.errors, [], '도감 콘솔'); checks += 7; await v.ctx.close();
 

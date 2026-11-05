@@ -263,6 +263,9 @@ def check():
         camps = {c['key'] for c in (facs.get('qun') or {}).get('camps') or []}
         if g.get('faction') == 'qun' and g.get('camp') not in camps:
             errs.append('%s 군웅 소속(camp) — %s' % (k, ' · '.join(sorted(camps))))
+        # 장수 몫 색(2026-11-05 초선 연핑크) — 있으면 en · ko 둘 다
+        if 'palette' in g and not ((g['palette'] or {}).get('en') and (g['palette'] or {}).get('ko')):
+            errs.append('%s palette 는 en · ko' % k)
         if g.get('faction') != 'qun' and 'camp' in g:
             errs.append('%s camp 는 군웅만' % k)
         if not g.get('en'):

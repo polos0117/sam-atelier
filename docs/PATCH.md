@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 도감 화풍 고르개 · 초선 연핑크
+- 도감 dex.html — 화풍 고르개(#dex-style). 처음은 기본 화풍(kv_kmmo_lock), 그림 있는 앞 화풍(kr_mmorpg …)은 골라서 따로. 고른 화풍의 그림만 세계 칸 · 일상컷 · 크게 보기 · 진행 수에 — 다른 화풍 덧줄은 뺐다. 즐겨찾기에서 다른 화풍 그림으로 오면 그 화풍으로(사용자 「도감에 옛날 버전은 따로보게 셀렉트박스로 화풍 선택」).
+- 설계표 초선 — 장수 몫 palette(연핑크 · 블러시 로즈 · 상아 · 로즈골드, 라일락 포인트) · 메카 설계(worlds.mecha.design). 조립기는 장수 palette 가 무리 · 세력 색을 이긴다, 검사기는 palette 의 en · ko 확인(사용자 「초선은 연핑크 위주로」).
+
 ## 2026-11-06 · claude · 기본 화풍 kv_kmmo_lock
 - data/style.json 에 kv_kmmo_lock(format kv) — 머리말 · 1절 · 2절 틀 · 세계 장르 · 3 · 4절 틀 · swap(히메컷 · 울프컷 · 한쪽 눈 앞머리 · 버튼 코 · 처진 눈 · 큰 동그란 눈 · 큰 눈) · faceWorld(samguk). 기본 화풍을 kr_mmorpg → kv_kmmo_lock(사용자 「응 생성기에 넣어줘」 「기본 화풍으로」).
 - lib/prompt-sam.js buildKv · bodyText, 일상컷은 화풍 글 없는 판도 「첨부 그림 그대로」 STYLE 자리, tools/prompt-pack.cjs 는 kv 세계 그림을 구조형으로 옮기지 않고 그대로. 검사 tests/prompt-v2.cjs(기준 판 837장 — 세 세계 같은 얼굴 · 흔들리는 값 없음 · 네 칸) · prompt-gpt · screen 고침.

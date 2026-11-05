@@ -228,7 +228,7 @@
    ]
   },
   "kv_kmmo_lock": {
-   "name": "한국 MMORPG 반실사 · 얼굴 · 장르 고정(기준 판)",
+   "name": "한국 MMORPG 기준 판",
    "current": "v1",
    "versions": [
     {
