@@ -16,6 +16,9 @@
 | `kv_2d_anime` | 2D 애니 키비주얼(영문) | 굵기 차이 둔 선화 · 2~3단 셀 채색(피부 · 머리만 그라데이션) · 큰 눈 홑 하이라이트 · 평면 하이라이트 금속 | 조운 무협 · 판타지 · 메카 각 한 장(2026-11-05) | 세 세계 같은 얼굴 · 머리 · 자세로 통일됨. 세계마다 선 두께가 조금 달라짐(무협이 가장 얇음) |
 | `kv_semireal_painted` | 반실사 페인팅 키비주얼(영문) | 외곽선 없이 빛 · 명암 · 재질로 형태 분리 · 입체 코 · 입술 · 새틴 피부 · 셀 · 사진 질감 · 3D 느낌 금지 | 조운 세 세계 각 한 장(2026-11-05) | 세 세계 통일 좋음, 메카도 같은 화풍 유지. 조조 네 칸 틀 1절 v3 와 같은 계열 |
 | `kv_3d_stylized` | 스타일라이즈드 3D 렌더(영문) | PBR 재질 · 피부 서브서피스 · 스트랜드 머리 · 3점 조명 · 접촉 그림자, 포토리얼도 애니 얼굴도 아님 | 조운 세 세계 각 한 장(2026-11-05) | 피부 질감 · 금속 반사가 뚜렷해 세 갈래 중 가장 구분됨. 세 세계 통일 좋음 |
+| `kv_semireal_painterly` | 반실사 회화(영문) | 붓 결이 보이는 유화 · 과슈 채색 · 무광 피부 · 낮은 채도 중간 명도 · 외곽선 없음 | 조운 세 세계 각 한 장(2026-11-05, 반실사 여섯 갈래 시험 1번) | 책 표지 같은 차분한 그림. 세 세계 통일 좋음 |
+| `kv_semireal_glossy` | 반실사 글로시(영문) | 매끈한 에어브러시 블렌딩 · 물광 피부 · 유리알 눈 · 거울 금속 · 선명한 색 | 같은 시험 2번 | 가챠 스플래시 느낌. 여섯 중 얼굴이 가장 애니 쪽, 메카가 조금 더 |
+| `kv_semireal_cinematic` | 반실사 시네마틱(영문) | 로우키 · 얼굴에 모은 키 라이트 · 깊은 그림자 · 차가운 림 라이트 · 탁한 어둠에 몇 개 강조색 | 같은 시험 5번 | 여섯 중 얼굴이 가장 실사 쪽. 빛줄기 같은 극적 연출은 약하게 나왔다 |
 
 「1번」 · 「2번」 은 사용자가 원문(장면 맞춤 지시문)을 GPT 에 네 칸 구조로 옮겨 달라고 한 것인데, 처음 받은 구조형 「2번」 은 「1번」 과 글자까지 같게 옮겨져 있었다(파스텔이 빠짐). 그래서 「2번」 은 원문에서 다시 옮겼다(2026-11-04). 판마다 **구조형**(장수에 쓰는 꼴 — 작화 칸은 「지정된 …」 으로 일반화하고 인물 고유값은 2 · 3 · 4번으로 옮김)과 **원문**을 같이 둔다.
 
@@ -1092,4 +1095,31 @@ Vertical 2:3 full-body composition, entire head to boots inside the frame with c
 Engineered powered armour that reads clearly as mecha: segmented silver-white hard-surface plating with precision panel seams, articulated mechanical joints and compact actuators; a fitted armoured torso with a modest open neckline, symmetrical dragon-fin shoulder units, slim thruster packs at the calves, and soft ice-blue energy lines along the seams. The plating covers her from neck to feet and reads as solid armour, not cloth. Materials: silver-white alloy, dark gunmetal structure, pale-green crystal cores. Palette: silver-white, gunmetal, pale jade green, ice blue glow. Motifs: a dragon emblem core on the chest, fin-shaped head unit over the ponytail. Weapon: a long powered spear with a mechanical dragon-head socket and a glowing ice-blue tip, single straight shaft.
 4. SCENE
 Vertical 2:3 full-body composition, entire head to boots inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer. Right hand holds the spear upright beside her, butt on the ground, shaft straight and unbroken; left hand relaxed and visible at her side. Background: the landing deck of a white starship above a blue planet, hangar lights and stars, softly blurred. Lighting: soft flattering key light on the face, cool white deck light with subtle blue glow accents, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
+```
+
+---
+
+## 반실사 갈래 — `kv_semireal_painterly` · `kv_semireal_glossy` · `kv_semireal_cinematic` (2026-11-05)
+
+사용자 「반실사에서 작화를 다양하게도 가져갈 수 있나?」 → 반실사 여섯 갈래(회화 · 글로시 · 파스텔 · 선화 · 시네마틱 · 수묵)를 조운 세 세계로 열여덟 장 → 「1,2,5 키로 넣어주고」. 머리말 · 2절(조운) · 3 · 4절(세계별)은 위 「조운 기준 세 갈래」 절 그대로 쓰고 1절만 바꿔 끼운다. 뽑지 않은 셋(파스텔 · 선화 · 수묵)의 1절은 scratchpad `c9/zy/sr-prompts.md` 에만 있다.
+
+### `kv_semireal_painterly` — 1절
+
+```
+1. RENDERING STYLE — PAINTERLY SEMI-REALISM (FIXED ACROSS ALL GENRES)
+A semi-realistic fantasy illustration painted in a traditional oil-and-gouache manner: visible confident brush strokes and layered opaque colour, soft lost-and-found edges, selective simplification in secondary areas. No outlines. The face is an idealised adult beauty with naturally sculpted nose, lips and eyelids, painted with gentle tonal transitions and a soft matte skin finish; eyes are clear and finely painted. Hair is painted as broad sculpted masses with a few loose brushed strands. Metal is built from painted planes with crisp, sparing highlights; cloth shows painted folds and weight. Body volume is modelled with painted light and shadow. Mid-key, harmonious, slightly muted palette. Finish: a premium painted fantasy book-cover or card illustration — brushwork visible, no airbrushed CG smoothness, no cel shading, no photographic texture.
+```
+
+### `kv_semireal_glossy` — 1절
+
+```
+1. RENDERING STYLE — GLOSSY SEMI-REALISM (FIXED ACROSS ALL GENRES)
+A premium mobile-game key-art illustration with semi-realistic sculpted forms and a smooth, high-gloss digital finish. No outlines; seamless airbrush-smooth blending. The face is an idealised adult beauty with a dimensional nose and lips, dewy luminous skin with soft sheen on the cheekbones, nose bridge and lips, and large, finely detailed glassy eyes with layered irises and crisp catchlights. Hair is glossy, with bright band highlights and silky defined strands. Metal is mirror-polished with sharp specular highlights and coloured reflections; gems glow with internal refraction. Body volume reads through smooth satin highlights following the curves. Vivid, saturated, high-clarity palette. Finish: polished gacha-game splash art — very smooth, very clean, no brushwork, no cel shading, no photographic pores.
+```
+
+### `kv_semireal_cinematic` — 1절
+
+```
+1. RENDERING STYLE — CINEMATIC SEMI-REALISM (FIXED ACROSS ALL GENRES)
+A dramatic semi-realistic illustration like a game cinematic trailer frame. No outlines. Strong chiaroscuro: a low-key overall image with a focused warm-neutral key light on the face and body, deep soft-edged shadows, a cool rim light separating her from the background, and atmospheric haze with light shafts. The face is an idealised adult beauty with sculpted, dimensional nose, lips and cheekbones, smooth satin skin with controlled specular highlights, and intense, finely rendered eyes catching the key light. Hair is sculpted with strong rim-lit edges. Metal has deep reflections, dark midtones and bright edge glints; cloth falls into deep shadowed folds. Body volume is carved by light and shadow. Palette: deep, rich, desaturated darks with a few saturated accents. Finish: moody, epic, high-contrast key art — the face always clearly lit and readable, no cel shading, no photographic texture.
 ```
