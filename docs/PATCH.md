@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · 프롬프트 v2 탭 — 구조판 지시문(glossy · 실루엣 선택)
+- prompt2.html · lib/studio.js · lib/workspace-ui.js · lib/words.js — 머리 메뉴에 「프롬프트 v2」, 같은 생성기를 v2 로(화풍 glossy_kv 고정 · 세계 그림만 · 따로 저장). 사용자 「프롬포트 탭 하나 더 만들어서 v2로 glossy1에 실루엣 선택형으로 하나 만들자」 「원소공방 참고하면 될 거 같아」
+- lib/prompt-sam.js buildStruct · lib/prompt-spec.js STRUCT — 원소 공방 구조판을 삼국지 꼴로: 공통 규칙 → 1절 → 2절 외형(한글 표, 체형 여덟 칸은 하체 현실 비율) → 3절 의상은 그림이(프레임 · 세력 · 색 · 규칙 · 노출 · 메카 실루엣 한글) → 4절 장면
+- data/style.json — glossy_kv(구조판, 무협 · 판타지 1절은 SF 낱말을 갑옷 · 비단 · 판금으로). 기본 화풍 · 프롬프트 탭은 그대로 · tests/prompt-v2.cjs · AGENTS.md
+
 ## 2026-11-05 · claude · 메카 실루엣 선택 칸
 - lib/prompt-spec.js — MECHA_SILHOUETTES 열여덟(슬림 보디슈트 · 중장갑 강습 · 날개 바인더 · 장갑 치마 · 장갑 롱코트 · 떠 있는 유닛 · 보조 팔 · 대형 등짐 · 경량 고기동 · 후광·관 · 장갑 분리 · 전신 장갑 · 골격 노출 · 대형 팔다리 · 기사 갑주 · 망토판 · 꼬리 유닛 · 부유 링). 사용자 「실루엣 종류를 많이 넣어서 랜덤이든 선택이든」 「장갑 분리형, 전신장갑형 등등」 「옵션으로」
 - lib/prompt-sam.js · lib/studio.js · lib/words.js — 메카 세계 그림 자세 칸에 「메카 실루엣」 고르개, 고르면 세계 글 뒤 MECHA SILHOUETTE 한 줄(큰 덩어리만, 세부는 그림이), 안 고르면 지금과 글자까지 같다

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<title>삼국지 공방</title>
+<!-- 프롬프트 v2(2026-11-05 — 사용자 「프롬포트 탭 하나 더 만들어서 v2로 glossy1에 실루엣 선택형으로」 「원소공방 참고하면 될 거 같아」) — prompt.html 과 같은 생성기(lib/studio.js)를 body data-studio="v2" 로 띄운다:
+     화풍은 늘 glossy_kv(구조판 — 공통 규칙 · 1절 작화 · 2~4절 칸, lib/prompt-sam.js buildStruct), 갈래는 세계 그림만, 고른 값은 따로 저장(samguk_studio_v2).
+     아래는 prompt.html 의 설명 그대로.
+     생성기 — 공방 모음 통합 생성기 꼴(한 단계씩, 칩·판·아래 막대). 세력 › 장수 › 갈래(세계 그림 · 일상컷) › 단계 → 지시문·파일 이름·기록. 원소 공방의 생성기를 옮겼다(2026-11-02).
+     세계 그림(삼국시대 · 중세 판타지 · 메카)은 lib/prompt-sam.js build, 일상컷은 트리 버전2(lib/casual-tree-v2.js + data/casual-tree-v2.json, 시대·장소·의상은 버전1 표)로 buildCasual.
+     지시문은 생성기가 고른 값으로만 짓는다 — 손으로 고쳐 쓰지 않는다(IMAGE_RULES.md 1절). 고른 것은 이 브라우저에 저장한다(samguk_studio_v1). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">   <!-- 본문 글꼴 — 화면 그리기를 막지 않게(오면 바뀐다). 제목 글꼴은 lib/workspace-theme.js 가 공간 것 하나만 -->
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
+<link rel="stylesheet" href="lib/workspace.css?v=4">
+<script src="lib/workspace-theme.js?v=2"></script>
+<script src="lib/words.js?v=5"></script>
+<script src="lib/img.js?v=1"></script>
+<script src="lib/prompt-spec.js?v=1"></script>
+<script src="lib/look-spec.js?v=1"></script>
+<script src="lib/casual-tree.js?v=1"></script>
+<script src="lib/casual-tree-v2.js?v=1"></script>
+<script src="lib/prompt-sam.js?v=1"></script>
+<script src="lib/fresh.js?v=1"></script>
+<link rel="stylesheet" href="lib/room.css?v=1">
+<link rel="stylesheet" href="lib/sam.css?v=7">
+<link rel="stylesheet" href="lib/studio.css?v=3">
+<link rel="stylesheet" href="lib/material.css?v=6">
+</head>
+<body class="prompt-page lab-page" data-studio="v2">
+<div class="wrap"><div id="app"></div>
+<main class="studio-wrap">
+  <p class="lede" id="lede"></p>
+  <button type="button" id="help" aria-label="?">?</button>
+  <p id="status" role="status"></p>
+  <nav class="hchips" id="chips"></nav>
+  <section class="panel" id="panel" aria-live="polite"></section>
+  <section class="result" id="out" hidden>
+    <div class="row"><h3 id="out-title"></h3><small id="count"></small></div>
+    <p id="unlocked-note"></p>
+    <textarea id="prompt" readonly></textarea>
+    <div class="row"><button type="button" class="btn pri" id="copy"></button><button type="button" class="btn" id="record"></button></div>
+    <div id="ref"></div>
+    <p class="file" id="file-name"></p>
+    <div class="art-mini" id="art-mini"></div>
+    <div id="record-out" hidden><textarea id="record-text" readonly></textarea></div>
+  </section>
+</main>
+</div>
+<nav class="hbar" id="hbar" hidden></nav>
+<div class="hsheet" id="hsheet" hidden></div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {WorkspaceHeader} from './lib/workspace-ui.js?v=3';
+render(h(WorkspaceHeader,{page:'prompt2'}),document.getElementById('app'));
+window.AtelierFresh.watch();
+</script>
+<script>
+/* 고정 글은 낱말 표에서 — 그 뒤 판은 lib/studio.js 가 그린다 */
+(function () {
+  var W = window.W;
+  document.getElementById('lede').textContent = W('studio.lede');
+  document.getElementById('help').removeAttribute('aria-label'); document.getElementById('help').textContent = '? ' + W('studio.help');
+  document.getElementById('chips').setAttribute('aria-label', W('studio.chips'));
+  document.getElementById('hbar').setAttribute('aria-label', W('studio.bar'));
+  document.getElementById('out-title').textContent = W('studio.prompt');
+  document.getElementById('prompt').setAttribute('aria-label', W('studio.prompt'));
+  document.getElementById('record-text').setAttribute('aria-label', W('studio.record'));
+  document.getElementById('copy').textContent = W('studio.copy');
+  document.getElementById('record').textContent = W('studio.record');
+})();
+</script>
+<script src="lib/studio.js?v=4"></script>
+</body>
+</html>
