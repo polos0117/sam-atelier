@@ -19,6 +19,10 @@
 | `kv_semireal_painterly` | 반실사 회화(영문) | 붓 결이 보이는 유화 · 과슈 채색 · 무광 피부 · 낮은 채도 중간 명도 · 외곽선 없음 | 조운 세 세계 각 한 장(2026-11-05, 반실사 여섯 갈래 시험 1번) | 책 표지 같은 차분한 그림. 세 세계 통일 좋음 |
 | `kv_semireal_glossy` | 반실사 글로시(영문) | 매끈한 에어브러시 블렌딩 · 물광 피부 · 유리알 눈 · 거울 금속 · 선명한 색 | 같은 시험 2번 | 가챠 스플래시 느낌. 여섯 중 얼굴이 가장 애니 쪽, 메카가 조금 더 |
 | `kv_semireal_cinematic` | 반실사 시네마틱(영문) | 로우키 · 얼굴에 모은 키 라이트 · 깊은 그림자 · 차가운 림 라이트 · 탁한 어둠에 몇 개 강조색 | 같은 시험 5번 | 여섯 중 얼굴이 가장 실사 쪽. 빛줄기 같은 극적 연출은 약하게 나왔다 |
+| `kv_2d_film` | 2D 극장판 애니(영문) | 가는 색선 · 그림자에 색 그라데이션 · 빛 번짐 · 여러 겹 홍채 · 화사한 고밀도 채색 | 조운 세 세계 각 한 장(2026-11-05, 2D 여섯 갈래 시험 2번) | 애니 셀보다 화사하고 밀도 높음. 세 세계 통일 좋음 |
+| `kv_2d_thick` | 2D 두꺼운 칠(영문) | 선 거의 없음 · 넓은 평면 색면 · 단단한 그림자 모양 · 붓 질감 · 화집 일러스트 | 같은 시험 3번 | 2D 중 가장 차분하고 성숙한 얼굴, 반실사 회화에 가까움 |
+| `kv_3d_real` | 3D 실사풍(영문) | 실사 얼굴 해부 · 서브서피스 피부 · 가는 모공 · 가닥 머리 · 실사 PBR 재질 · 시네마틱 조명 | 조운 세 세계 각 한 장(2026-11-05, 3D 여섯 갈래 시험 3번) | 3D 중 가장 실사 쪽, 미형은 유지 |
+| `kv_3d_paintover` | 3D 렌더 덧칠 키아트(영문) | 3D 렌더 바탕 위 디지털 페인트오버 — 얼굴 다듬기 · 빛 효과 · 칠한 머리 가닥 · 칠한 배경 | 같은 시험 6번 | 3D 와 일러스트 사이, 반실사 글로시와 꽤 비슷 |
 
 「1번」 · 「2번」 은 사용자가 원문(장면 맞춤 지시문)을 GPT 에 네 칸 구조로 옮겨 달라고 한 것인데, 처음 받은 구조형 「2번」 은 「1번」 과 글자까지 같게 옮겨져 있었다(파스텔이 빠짐). 그래서 「2번」 은 원문에서 다시 옮겼다(2026-11-04). 판마다 **구조형**(장수에 쓰는 꼴 — 작화 칸은 「지정된 …」 으로 일반화하고 인물 고유값은 2 · 3 · 4번으로 옮김)과 **원문**을 같이 둔다.
 
@@ -1122,4 +1126,38 @@ A premium mobile-game key-art illustration with semi-realistic sculpted forms an
 ```
 1. RENDERING STYLE — CINEMATIC SEMI-REALISM (FIXED ACROSS ALL GENRES)
 A dramatic semi-realistic illustration like a game cinematic trailer frame. No outlines. Strong chiaroscuro: a low-key overall image with a focused warm-neutral key light on the face and body, deep soft-edged shadows, a cool rim light separating her from the background, and atmospheric haze with light shafts. The face is an idealised adult beauty with sculpted, dimensional nose, lips and cheekbones, smooth satin skin with controlled specular highlights, and intense, finely rendered eyes catching the key light. Hair is sculpted with strong rim-lit edges. Metal has deep reflections, dark midtones and bright edge glints; cloth falls into deep shadowed folds. Body volume is carved by light and shadow. Palette: deep, rich, desaturated darks with a few saturated accents. Finish: moody, epic, high-contrast key art — the face always clearly lit and readable, no cel shading, no photographic texture.
+```
+
+---
+
+## 2D · 3D 갈래 — `kv_2d_film` · `kv_2d_thick` · `kv_3d_real` · `kv_3d_paintover` (2026-11-05)
+
+반실사 갈래와 같은 방식으로 2D · 3D 를 여섯 갈래씩 조운 세 세계 서른여섯 장(2D: 애니 셀 · 극장판 · 두꺼운 칠 · 수채 · 포스터 · 치비 / 3D: 게임 시네마틱 · 툰 셰이딩 · 실사풍 · 애니메이션 영화 · 피규어 · 렌더 덧칠) → 사용자 「2d는 2,3 3d는 3,6 추가해줘」. 머리말 · 2절(조운) · 3 · 4절(세계별)은 「조운 기준 세 갈래」 절 그대로, 1절만 바꿔 끼운다. 2D 1번(애니 셀)은 `kv_2d_anime`, 3D 1번(게임 시네마틱)은 `kv_3d_stylized` 와 같다. 나머지 갈래의 1절은 scratchpad `c9/zy/v-prompts.md` 에만 있다(3D 렌더 덧칠의 시험 이름은 `3d_unreal_kv`).
+
+### `kv_2d_film` — 1절
+
+```
+1. RENDERING STYLE — THEATRICAL ANIME FILM (FIXED ACROSS ALL GENRES)
+A theatrical anime feature-film poster illustration. Very fine, delicate line art in coloured lines (dark brown, deep blue) rather than black. High-density colour work: shadows are soft colour gradients with subtle hue shifts, light bloom and glow on highlights, reflected light in shadow areas, sparkling atmospheric particles. The face is an idealised adult anime face with large, finely detailed eyes with many-layered iris colour, delicate lashes and multiple soft highlights; a minimal small nose; soft lips. Hair has many fine strands, translucent tips and luminous gradient highlights. Metal is rendered with gradient reflections and soft glow; cloth with gentle gradient folds. Rich, luminous, cinematic anime palette. Finish: polished theatrical anime key visual — anime in face and line, but with lush gradient lighting; no 3D render look, no painterly brushwork, no photographic texture.
+```
+
+### `kv_2d_thick` — 1절
+
+```
+1. RENDERING STYLE — PAINTERLY 2D (FIXED ACROSS ALL GENRES)
+A painterly 2D illustration in the style of an illustrator's art book: almost no line art — forms are built from broad, flat, confident colour shapes laid side by side, with crisp hard-edged shadow shapes and a few soft blends. Visible digital brush texture in flat planes. The face is a stylised adult anime-influenced face with clear eyes and a minimal nose, described by a few well-placed colour planes rather than lines or smooth gradients. Hair is painted as large graphic shapes with a few sharp highlight strokes. Metal is built from flat value planes with crisp highlights; cloth from simple folded colour shapes. Body volume is suggested by bold light-and-shadow shapes. Harmonious, slightly muted palette with strong value design. Finish: a stylish gouache-like digital painting — flat shapes and brush texture, no line art, no smooth airbrush, no 3D render look.
+```
+
+### `kv_3d_real` — 1절
+
+```
+1. RENDERING STYLE — REALISTIC 3D CHARACTER RENDER (FIXED ACROSS ALL GENRES)
+A high-fidelity realistic 3D character render, like a next-generation realistic MMORPG character showcase. The character is a beautiful adult woman with realistic facial anatomy and proportions, rendered with physically based skin (subsurface scattering, fine natural pores, soft peach fuzz, subtle natural variation), realistic eyes with wet reflections, and natural lips. Hair is rendered strand by strand with realistic anisotropic highlights. Metal, leather, silk and gems are photoreal PBR materials with accurate reflections, scratches, roughness variation and weight. Cinematic lighting with a soft key, fill, rim and global illumination; shallow depth of field. Body volume is fully realistic modelled form with cloth and armour conforming physically. Finish: realistic high-end game-engine render — beautiful and idealised, but realistic in every material; no anime features, no painterly brushwork, no outlines.
+```
+
+### `kv_3d_paintover` — 1절
+
+```
+1. RENDERING STYLE — RENDER + PAINTOVER KEY ART (FIXED ACROSS ALL GENRES)
+Official game key art made by painting over a high-quality 3D render. The base is a realistic-stylised 3D character render with real modelled forms, PBR materials and cinematic lighting; on top, an artist's digital paintover refines the face into idealised adult beauty, adds painted light effects, soft glow, atmospheric depth, painted hair strands and dramatic highlights, and integrates the character into a painted background. The face combines a sculpted 3D structure with a painted, refined finish — dimensional nose and lips, smooth luminous skin, finely painted eyes. Metal keeps 3D reflections enhanced by painted glints; cloth keeps 3D folds with painted softness. Body volume is the modelled form, refined by paint. Finish: polished official key art between 3D and illustration — no outlines, no cel shading, no visible render artefacts.
 ```

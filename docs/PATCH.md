@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-05 · claude · 2D · 3D 갈래 열쇠 넷
+- docs/STYLE_LAB.md 에 kv_2d_film(극장판 애니) · kv_2d_thick(두꺼운 칠) · kv_3d_real(실사풍) · kv_3d_paintover(렌더 덧칠 키아트) 1절 — 2D · 3D 여섯 갈래씩 시험 중(사용자 「2d는 2,3 3d는 3,6 추가해줘」).
+
 ## 2026-11-05 · claude · 반실사 갈래 열쇠 셋
 - docs/STYLE_LAB.md 에 kv_semireal_painterly(회화) · kv_semireal_glossy(글로시) · kv_semireal_cinematic(시네마틱) 1절 — 반실사 여섯 갈래 시험 중 1 · 2 · 5번(사용자 「1,2,5 키로 넣어주고」).
 
