@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 일상컷 하관 — 참고 그림 얼굴형 기준
+- API 일상컷 FACE 줄(lib/prompt-sam.js REF_FACE)에 각도 문장 — 낮은 · 높은 카메라 · 턱 괴기 · 옆모습 · 돌아보기에서도 참고 그림의 얼굴형 · 턱 길이 · 얼굴 길이 대 폭 비율, 원근 · 자세가 하관을 늘이거나 턱을 무겁게 하지 않는다. GPT 구조형(lib/prompt-gpt.js)의 「small, soft chin」 절대 표현도 같은 참고 그림 기준 문장으로(사용자 「래퍼런스 이미지의 얼굴형을 유지한다 이런식으로」).
+
 ## 2026-11-06 · claude · 새 화풍 열쇠 kv_kmmo_23d — 기본
 - data/style.json — kv_kmmo_lock v6 · v7 을 새 열쇠 kv_kmmo_23d v1 · v2 로 떼어 냈다, 기본 화풍 kv_kmmo_23d(v1). kv_kmmo_lock 은 v5 까지(조조 v5 그림 보존). 검사 prompt-v2 는 기본 판을 읽게. 문서 AGENTS · IMAGE_RULES · IMAGE_AUTOMATION · STYLE_LAB(사용자 「v6는 화풍키 새로해서 올려줘. 기존에 올라가있는건 보존해주고」).
 

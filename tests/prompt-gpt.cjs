@@ -44,7 +44,7 @@ for (const key of pick) {
       if (/^Create ONE finished illustration\. Use case: identity-preserve/.test(cpmt)) { assert.equal(gc.text.trim(), cpmt.trim(), key + ' 자연판은 그대로'); assert.deepEqual(gc.unknown, []); nc++; continue; }
       assert.deepEqual(gc.unknown, [], key + ' ' + w + ' 일상 ' + c.n + ' — 못 옮긴 줄');
       assert(!/STYLE:|ART STYLE|^FACE:|rendering exactly/m.test(gc.text) && gc.text.includes("and the image's finish (rendering)") && gc.text.includes('AVOID: '), key + ' — 일상엔 화풍 칸 없이 첨부 그림의 마감');
-      assert(gc.text.includes('keep her small, soft chin and soft contours as in the attached image'), key + ' — 어느 각도에서도 작은 턱');
+      assert(gc.text.includes("keep the attached image's face shape, jaw length and face length-to-width ratio"), key + ' — 어느 각도에서도 참고 그림의 얼굴형 · 턱 길이');
       assert(gc.text.includes(body.replace(/\s+build$/, '')) && gc.text.includes("take her body volume from this description"), key + ' — 몸 볼륨은 체형 글에서');
       assert(!/No body-part enlargement|enlarged body parts/.test(gc.text), key + ' — 몸 일부 키우지 않기는 없다');
       assert(gc.text.includes('Use the attached image (her ') && /\* Outfit: /.test(gc.text) && /\* Composition: /.test(gc.text), key + ' — 일상 칸');
