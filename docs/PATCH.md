@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 관우 얼굴 — 짧은 얼굴 · 덜 째진 눈
+- 사용자 「얼굴 길이를 좀 줄이고, 째진 눈을 좀 보완해야 될 거 같아」 — 세 세계 공통 얼굴(worlds.samguk) 얼굴형 oval → heart, 눈 narrow_upturned → almond_wide, 앞머리 none → side_swept(드러난 이마가 얼굴을 길게 보이게 함).
+- 눈꼬리 eye_tilt up → level, 성정 줄 'long phoenix eyes' → 'gracefully lifted almond eyes'. 봉황 눈 기운은 윙 아이라인(mark)만으로 남김. 요약 · face_note 함께 고침.
+
 ## 2026-11-06 · claude · 관우 피부 warm_beige
 - 설계표 관우 — 피부 golden_tan → warm_beige, 요약도 「붉은 기 도는 따뜻한 베이지 피부」. 붉은 기는 성정 줄(ruddy red-tinged complexion)로 남김(사용자 「구리빛 피부가 문제같네」 → 「1번으로 해줘」).
 
