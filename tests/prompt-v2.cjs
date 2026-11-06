@@ -59,8 +59,8 @@ assert(!P.build(D, S, k0, 'samguk', { style: STYLE, shot: { frame: 'full_armor' 
 /* 기본 화풍은 그대로 */
 assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'kr_mmorpg 는 영어 지시문 그대로');
 /* 기준 판 kv_kmmo_lock(2026-11-05 기본) — 영문 네 칸, 1절 고정, 얼굴 · 헤어는 세 세계 같은 값, 흔들리는 값은 바꿔 끼움, 손에는 지정한 물건만 */
-{ assert.equal(S['default'], 'kv_kmmo_lock');
-  const kv = S.styles.kv_kmmo_lock.versions.find(v => v.v === S.styles.kv_kmmo_lock.current); assert.equal(kv.format, 'kv');
+{ assert(['kv_kmmo_lock', 'kv_kmmo_23d'].includes(S['default']));
+  const KV0 = S.styles[S['default']], kv = KV0.versions.find(v => v.v === KV0.current); assert.equal(kv.format, 'kv');
   assert(/GENRE LOCK/.test(kv.section1) && /Korean MMORPG/.test(kv.section1) && !/anime|gacha|JP/i.test(kv.section1), '1절 — 한국 MMORPG + 장르 고정, 애니 낱말 없음');
   let nk = 0;
   for (const key of P.cards(D)) { const ps = ['samguk', 'fantasy', 'mecha'].map(w => P.build(D, S, key, w, {}));

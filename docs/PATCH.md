@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 새 화풍 열쇠 kv_kmmo_23d — 기본
+- data/style.json — kv_kmmo_lock v6 · v7 을 새 열쇠 kv_kmmo_23d v1 · v2 로 떼어 냈다, 기본 화풍 kv_kmmo_23d(v1). kv_kmmo_lock 은 v5 까지(조조 v5 그림 보존). 검사 prompt-v2 는 기본 판을 읽게. 문서 AGENTS · IMAGE_RULES · IMAGE_AUTOMATION · STYLE_LAB(사용자 「v6는 화풍키 새로해서 올려줘. 기존에 올라가있는건 보존해주고」).
+
 ## 2026-11-06 · claude · 기준 판 current v7 → v6
 - kv_kmmo_lock current 를 v6 으로 — 일상컷은 v6 꼴(피부 광택 줄 포함). v7 자연판은 기록으로 남김(조조 같은 계획 시험에서 옷이 모두 남색으로 몰림, 사용자 「일상컷은 v6로 가자」).
 
