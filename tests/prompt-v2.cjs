@@ -64,7 +64,7 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
   assert(/GENRE LOCK/.test(kv.section1) && /Korean MMORPG/.test(kv.section1) && !/anime|gacha|JP/i.test(kv.section1), '1절 — 한국 MMORPG + 장르 고정, 애니 낱말 없음');
   let nk = 0;
   for (const key of P.cards(D)) { const ps = ['samguk', 'fantasy', 'mecha'].map(w => P.build(D, S, key, w, {}));
-    const face = ps.map(p => { const i = p.indexOf('A small, refined, beautiful'), j = p.indexOf(kv.s3.split('{')[0]); return i >= 0 && j > i ? p.slice(i, j) : ''; });   /* 얼굴부터 2절 끝까지 — 세 세계 같다(성정 줄은 세계 덧줄이 있어 뺀다) */
+    const face = ps.map(p => { const i = p.search(/A (?:small, )?refined, beautiful/), j = p.indexOf(kv.s3.split('{')[0]); return i >= 0 && j > i ? p.slice(i, j) : ''; });   /* 얼굴부터 2절 끝까지 — 세 세계 같다(성정 줄은 세계 덧줄이 있어 뺀다) */
     assert(face[0] && face[0] === face[1] && face[1] === face[2], key + ' 세 세계 같은 얼굴 · 헤어');
     for (const p of ps) { assert(p.startsWith(kv.head.split('{')[0]) && p.includes(kv.section1) && p.includes(kv.s3.split('{')[0]) && p.includes(kv.s4.split('\n')[0]) && p.includes('no cup, goblet or other props'), key + ' 네 칸');
       assert(!/hime cut|wolf cut|button nose|droopy|falling over one eye|\{/.test(p), key + ' 흔들리는 값 · 빈 칸'); assert(!/anime|manga|gacha/i.test(p.split('\n\n').slice(2).join(' ')), key + ' 2 · 3 · 4절에 애니 낱말 없음'); assert(/Hair: muted, low-saturation /.test(p) && !/Hair: [^.]*\b(?:vivid|bright) /.test(p), key + ' 머리색만 저채도(v3)'); assert(/never thin, flat or boyishly straight/.test(p) && /EXPOSURE \(bold\)/.test(p), key + ' v4 볼륨 · 기본 노출'); nk++; } }

@@ -543,7 +543,7 @@
        "small": "small, narrow eyes"
       }
      },
-     "s2": "CHARACTER:\nOne poised adult woman — {name_en} ({name_ko}), {title}; her nature: {traits}. {age} A small, refined, beautiful face — {face}; {impression}; expression: {expr}. Eyes and skin: {eyes}, {skin}.\n\nHair: {hair}.\n\nA graceful, visibly curvaceous adult figure — {body}; balanced natural proportions, hips and thighs within natural, realistic proportion. Two natural human hands, five fingers each.{look_extra}",
+     "s2": "CHARACTER:\nOne poised adult woman — {name_en} ({name_ko}), {title}; her nature: {traits}. {age} A refined, beautiful face — {face}; {impression}; expression: {expr}. Eyes and skin: {eyes}, {skin}.\n\nHair: {hair}.\n\nA graceful, visibly curvaceous adult figure — {body}; balanced natural proportions, hips and thighs within natural, realistic proportion. Two natural human hands, five fingers each.{look_extra}",
      "genre": {
       "samguk": "WUXIA (Three Kingdoms era, Eastern martial fantasy)",
       "fantasy": "HIGH FANTASY (Western medieval, no East-Asian robes or armour)",

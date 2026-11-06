@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · kv_kmmo_23d — 「small」 얼굴 뺌
+- kv_kmmo_23d v1 2절 「A small, refined, beautiful face」 → 「A refined, beautiful face」 — 머리가 작게 그려지는 쪽을 덜게. 등신 줄(natural 낱말)은 실사로 끌까 봐 넣지 않음(사용자 「1번만 해볼까」).
+
 ## 2026-11-06 · claude · 관우 얼굴 설계 부드럽게
 - 설계표 관우 — 무협 얼굴형 long → oval, 눈썹 straight_thick → angled_sharp, 코 aquiline → straight_narrow, 입술 thin_long → soft_medium, 표식 red_lip → winged_liner. 봉황 눈 · 녹색 눈 · 구릿빛 피부 · 긴 포니테일 그대로(사용자 「리얼해서 그런가 못생기게 나오네」 「붉은 입술도 너무 튀니까 다르게 가자」).
 
