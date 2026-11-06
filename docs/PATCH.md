@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 관우 피부 warm_beige
+- 설계표 관우 — 피부 golden_tan → warm_beige, 요약도 「붉은 기 도는 따뜻한 베이지 피부」. 붉은 기는 성정 줄(ruddy red-tinged complexion)로 남김(사용자 「구리빛 피부가 문제같네」 → 「1번으로 해줘」).
+
 ## 2026-11-06 · claude · kv_kmmo_23d — 「small」 얼굴 뺌
 - kv_kmmo_23d v1 2절 「A small, refined, beautiful face」 → 「A refined, beautiful face」 — 머리가 작게 그려지는 쪽을 덜게. 등신 줄(natural 낱말)은 실사로 끌까 봐 넣지 않음(사용자 「1번만 해볼까」).
 
