@@ -25,7 +25,7 @@
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/sam.css?v=7">
-<link rel="stylesheet" href="lib/studio.css?v=3">
+<link rel="stylesheet" href="lib/studio.css?v=4">
 <link rel="stylesheet" href="lib/material.css?v=6">
 </head>
 <body class="prompt-page lab-page">
@@ -34,6 +34,7 @@
   <p class="lede" id="lede"></p>
   <button type="button" id="help" aria-label="?">?</button>
   <p id="status" role="status"></p>
+  <div class="style-pick" id="style-pick" hidden><label for="st-style" id="st-style-label"></label><select id="st-style"></select></div>
   <nav class="hchips" id="chips"></nav>
   <section class="panel" id="panel" aria-live="polite"></section>
   <section class="result" id="out" hidden>
@@ -61,6 +62,7 @@ window.AtelierFresh.watch();
 (function () {
   var W = window.W;
   document.getElementById('lede').textContent = W('studio.lede');
+  document.getElementById('st-style-label').textContent = W('studio.style');
   document.getElementById('help').removeAttribute('aria-label'); document.getElementById('help').textContent = '? ' + W('studio.help');
   document.getElementById('chips').setAttribute('aria-label', W('studio.chips'));
   document.getElementById('hbar').setAttribute('aria-label', W('studio.bar'));

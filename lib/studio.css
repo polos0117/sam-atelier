@@ -3,6 +3,10 @@
 .studio-wrap {max-width:none;margin:0}   /* 머리 · 메뉴와 왼쪽 줄을 맞춘다(2026-11-02 점검) */
 .lede {margin:2px 0 14px;color:var(--muted);font-size:13px;word-break:keep-all}
 #status {min-height:1.4em;margin:0 0 8px;color:var(--muted);font-size:13px}
+/* 화풍 고르개(2026-11-06) — 안 고르면 기본 화풍 */
+.style-pick {display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 10px;font-size:13px}
+.style-pick label {color:var(--muted)}
+.style-pick select {min-height:36px;max-width:100%;font:inherit;padding:4px 8px}
 .hchips {display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .hchip {display:inline-flex;align-items:baseline;gap:6px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);cursor:pointer;font:600 13px/1.3 inherit;font-family:inherit;text-align:left;max-width:100%}
 .hchip small {color:var(--muted);font-weight:500;font-size:11px}

@@ -182,8 +182,15 @@ const P = ctx0.window.AtelierPrompt;
     assert.match(got, /Guan Yu/); assert.match(got, /COSTUME[^\n]*WUXIA/);   /* 기본 판 kv_kmmo_lock(2026-11-05) — 영문 네 칸 */ assert.match(got, /Green Dragon Crescent Blade/);
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_samguk_' + S['default'] + '_f\\.webp'), '파일 이름');
     assert.match(v.page.url(), /card=%EA%B4%80%EC%9A%B0|card=관우/); assert.match(v.page.url(), /world=samguk/);
+    /* 화풍 고르개(2026-11-06 「생성기에 화풍추가해주고, 변경 기능 만들어줘」) — 맨 위가 기본(''), 고르면 지시문 · 파일 이름이 그 화풍, 기본으로 돌아오면 그대로 */
+    { const ov = await v.page.$$eval('#st-style option', os => os.map(o => o.value));
+      assert.equal(ov[0], '', '화풍 맨 위는 기본'); assert(ov.includes('kv_jp_paint') && ov.includes('kv_jp_mobile') && !ov.includes(S['default']), '화풍 목록');
+      await v.page.selectOption('#st-style', 'kv_jp_paint');
+      assert.match(await promptOf(v.page), /^Use case: stylized-concept\./, '고른 화풍 지시문');
+      assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), /관우_samguk_kv_jp_paint_f\.webp/, '고른 화풍 파일 이름');
+      await v.page.selectOption('#st-style', ''); assert.equal(await promptOf(v.page), want, '기본으로 돌아옴'); }
     await noOverflow(v.page, vp.width + ' 생성기 세계');
-    checks += 8;
+    checks += 12;
     /* 일상컷 — 처음부터 랜덤 → 다 골랐다 */
     await v.page.click('[data-open="out"]');
     await v.page.click('[data-out="casual"]');

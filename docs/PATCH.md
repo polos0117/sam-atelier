@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 생성기 화풍 고르개
+- 사용자 「생성기에 화풍추가해주고, 변경 기능 만들어줘」 — prompt.html 위에 화풍 고르개(select). 맨 위 「기본 — 한국 MMORPG 2.3D」(값 '' — 늘 그때의 기본 화풍), 그 아래 style.json 의 다른 판 여섯(게임 키아트 2.5D · 한국형 글로시 · 한국 MMORPG 프로모 · 한국 MMORPG 기준 판 · 일본 모바일게임 리얼 CG · 일본 유화풍). prompt2(구조판 v2)는 그대로 고정.
+- 고르면 지시문 · 파일 이름(<장수>_<세계>_<화풍>_f.webp) · 기록 · 피부 광택 기본이 그 화풍으로. 주소 ?style= 로도, 기기에 stylePick 으로 기억(옛 saved.style 은 여전히 안 읽음).
+- 글 lib/words.js studio.style · studio.style.default · studio.style.pick, 꾸밈 lib/studio.css .style-pick. 검사 tests/screen.cjs — 목록 맨 위 기본 · 고르면 지시문이 Use case 꼴 · 파일 이름 · 기본으로 돌아오면 조립기와 같다.
+
 ## 2026-11-07 · claude · 일상컷 얼굴 자연광 공통 · 화풍 키 kv_jp_paint
 - 사용자 「일상컷에서는 얼굴에도 자연광 느낌을 추가해줄래?」 → 「이거 화풍추가랑 자연광은 일상컷 공통으로 넣어줘」.
 - 얼굴 자연광 — lib/prompt-spec.js CASUAL.faceLight(LIGHT: 한 줄 — 장면의 빛이 제 방향 · 색온도로 얼굴에, 눈썹 · 코 · 턱 밑 그늘, 주변 반사광, 따로 노는 스튜디오 조명 없음. 첨부 그림의 조명을 얼굴에서만 덮어쓰고 그림결은 그대로). buildCasual 이 피부 광택 줄 다음에 모든 화풍 일상컷에 싣는다(자연판 꼴도). lib/prompt-gpt.js 가 「Light on her face」 칸으로 옮긴다. 조운 일상컷 아홉으로 시험(빛이 장면 색으로 얼굴에 묻음).
