@@ -229,7 +229,7 @@
   },
   "kv_kmmo_lock": {
    "name": "한국 MMORPG 기준 판",
-   "current": "v4",
+   "current": "v5",
    "versions": [
     {
      "v": "v1",
@@ -448,6 +448,65 @@
      },
      "exposureAlways": true,
      "bodyTail": " — long legs and a narrow waist on a full, curvaceous figure, with soft, rounded volume at bust, hips and thighs; never thin, flat or boyishly straight"
+    },
+    {
+     "v": "v5",
+     "format": "kv",
+     "adopted": "2026-11-06",
+     "by": "claude",
+     "why": "v4 + 사용자가 가져온 영문 네 칸(user_kv)의 머리말 · 1절(한국 MMORPG 일러스트 · FACIAL DESIGN LOCK · GENRE LOCK)과 2 · 3 · 4절 말투 · 일상컷에만 촉촉한 피부 광택 줄(casualSkin) — 사용자 「user_kv에 일상컷만 피부광택 넣은 버전이 나은거 같아」 「2번으로 생성기 기본 판에 넣어줘」",
+     "head": "Create ONE finished illustration. Use case: stylized-concept. One original adult female character, a single vertical 2:3 full-body character artwork. Text input only. Sections: 1 fixes the rendering style for every genre; 2 fixes the character; 3 and 4 change only the costume, equipment and scene. The genre must never change the rendering style of Section 1.",
+     "section1": "1. RENDERING STYLE — PREMIUM KOREAN MMORPG ILLUSTRATION (FIXED ACROSS ALL GENRES)\nPremium Korean MMORPG official character illustration with an elegant idealised semi-realistic face, exceptionally refined dimensional modelling and precise material rendering. A polished 2.5D painted game illustration with convincingly three-dimensional forms and delicately finished surfaces. Use rich, clear local colours, deep luminous midtones and selective highlights. Hair has weight, sculpted flowing masses and individual fine wisps. Polished metal has sharp selective reflections; silk has soft directional lustre; leather has quieter broad reflections. The materials must look distinctly different. No visible contour outlines, no flat cel shading, no photographic skin texture, no plastic doll finish, no exaggerated eyeliner, no oily skin or overall glossy sheen. Maintain excellent facial clarity and colour richness without a washed-out veil, muddy shadows, excessive bloom or an overall blue colour cast.\nFACIAL DESIGN LOCK: model the eyelids, eyeballs, nose bridge and nose tip, lips, cheeks and jaw with continuous nuanced shading. The face remains soft and beautiful, with clean matte-satin skin and subtle natural highlights. Preserve the specified face shape, eye shape, skin colour and adult maturity.\nGENRE LOCK: wuxia, high fantasy and mecha change only the design of the costume, equipment and setting. The face, skin, hair rendering, eye size, lighting on the face and painting finish stay exactly the same in every genre.",
+     "faceWorld": "samguk",
+     "swap": {
+      "hair": {
+       "hime_cut": "long straight hair",
+       "wolf_cut": "long softly layered waves"
+      },
+      "bangs": {
+       "one_eye": "side-swept bangs with both eyes fully visible"
+      },
+      "nose": {
+       "small_button": "a small refined nose with a softly defined bridge"
+      },
+      "eyes": {
+       "droopy_soft": "almond-shaped eyes",
+       "round_large": "almond-shaped eyes"
+      },
+      "eye_size": {
+       "large": "realistically proportioned eyes",
+       "small": "small, narrow eyes"
+      }
+     },
+     "s2": "2. CHARACTER — {NAME}, FEMALE INTERPRETATION (SAME IN EVERY GENRE)\nAn original beautiful East Asian adult woman, a female interpretation of {name_en} ({name_ko}) of the Three Kingdoms — {title}. Her nature: {traits}. Her femininity and body volume express this character. {age} Face: a small, refined, beautiful adult face — {face}; {impression}; expression: {expr}. Skin: {skin}. Hair: {hair}. Eyes: {eyes}. Face and both eyes clearly visible. Body: approximately 7.5 heads tall, a natural neck, long shapely legs — {body}; hips and thighs stay within natural, realistic proportion. One head, two arms, two legs; two natural human hands with five fingers each and correct arm and hand connections. The costume in Section 3 fits this body closely enough to show the waist and the curve of bust and hips, while keeping chest and pelvis covered; her beauty and feminine curves stay immediately legible beneath the costume.{look_extra}",
+     "genre": {
+      "samguk": "WUXIA (Three Kingdoms era, Eastern martial fantasy)",
+      "fantasy": "HIGH FANTASY (Western medieval, no East-Asian robes or armour)",
+      "mecha": "MECHA (far-future science fiction)"
+     },
+     "s3": "3. COSTUME — {genre}\n{costume}{silhouette} Tailored to her curves, with a coherent flowing silhouette and exquisitely crafted fine detail rather than clutter; avoid giant pauldrons, oversized hips, dense bulky armour, a closed helmet and gratuitous dangling ornaments. Palette: {palette}. Motifs drawn from her nature: {traits}. Signature item: {hold}, drawn whole at full scale — the item and its tip entirely within the image.{exposure}{outfit}",
+     "mechaFrame": "; faction frame: {design}. The plating covers her from neck to feet and reads as solid engraved metal armour, not cloth, painted like heavy fantasy plate.",
+     "silhouetteHead": " Overall silhouette: {sil} — only the overall shape is fixed; design the details freely.",
+     "s4": "4. SCENE\nVertical 2:3 full-body composition, one complete figure from the top of her hair to the soles of her footwear, with comfortable breathing room above, below and at both sides. {pose}; both arms and both hands completely visible and correctly attached, five natural fingers each; she holds nothing else — no cup, goblet or other props. Make the face sufficiently large and meticulously resolved while retaining the full body. Background: {bg}, softly out of focus; it supports the character and does not compete. Lighting: neutral soft daylight on her face and front body{time}, with a restrained warm grazing highlight on selected metal edges.{custom} Crisp, intricate main character, atmospheric background. No text, labels, UI, logos, watermark, collage, additional people, extra limbs, cropped hands or cropped equipment.",
+     "poseDefault": "Eye-level perspective, a gentle three-quarter turn, an elegant relaxed contrapposto, shoulders open toward the viewer, direct composed gaze; one hand holds her signature item naturally, the other bare hand holds nothing, relaxed slightly forward and separated from her silhouette so the complete hand is visible",
+     "timeHead": " — {time}",
+     "noteHead": " Note: ",
+     "ageHead": "Age: ",
+     "exprDefault": "a calm, composed expression",
+     "lookHead": " Chosen look: ",
+     "costumeSwap": [
+      [
+       "her faction's colours",
+       "the palette below"
+      ]
+     ],
+     "hairMute": {
+      "drop": "\\b(?:vivid|bright|glossy|polished)\\s+",
+      "prefix": "muted, low-saturation "
+     },
+     "exposureAlways": true,
+     "bodyTail": " — long legs and a narrow waist on a full, curvaceous figure, with soft, rounded volume at bust, hips and thighs; never thin, flat or boyishly straight",
+     "casualSkin": "SKIN: dewy, moist, softly glowing skin on every bare area — face, shoulders, chest, arms and legs — with a fresh luminous sheen: soft glossy highlights on the cheekbones, nose bridge, lips, collarbones, shoulders and the curves of the body, modelled by gentle tonal shading; healthy and hydrated rather than oily or sweaty, and never a plastic, airbrushed doll finish."
     }
    ]
   }

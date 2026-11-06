@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기준 판 v5 — user_kv 1절 · 일상컷 피부 광택
+- kv_kmmo_lock v5(current) — 머리말 · 1절을 사용자 영문 네 칸(user_kv)으로, 2 · 3 · 4절 틀을 그 말투로. 일상컷에만 촉촉한 피부 광택 줄(casualSkin, lib/prompt-sam.js buildCasual). GPT 구조형 일상컷은 SKIN 줄을 Skin finish 칸으로(lib/prompt-gpt.js). 검사 tests/prompt-v2.cjs — 일상컷엔 있고 세계 그림엔 없다(사용자 「2번으로 생성기 기본 판에 넣어줘」).
+
 ## 2026-11-06 · claude · 기준 판 v4 를 기본으로
 - kv_kmmo_lock current v3 → v4(볼륨 문장 · 기본 노출 줄). 검사 tests/prompt-v2.cjs 에 v4 줄 확인(사용자 「v4로 생성기 기본 바꿔줘」).
 
