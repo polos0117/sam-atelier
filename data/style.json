@@ -229,7 +229,7 @@
   },
   "kv_kmmo_lock": {
    "name": "한국 MMORPG 기준 판",
-   "current": "v3",
+   "current": "v4",
    "versions": [
     {
      "v": "v1",

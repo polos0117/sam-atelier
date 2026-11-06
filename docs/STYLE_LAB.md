@@ -1187,6 +1187,8 @@ Create ONE finished illustration. Sections: 1 fixes the rendering style for ever
 
 **v3(같은 날)** — v2 는 화면 전체가 뿌옇게 됐다(사용자 「머리색만 채도를 낮게 해줘. 지금 너무 뿌옇게 됐어」). v1 으로 돌아가 머리만 저채도: 1절 머리 줄에 「muted, low-saturation … only the hair is desaturated」, 그리고 2절 머리색 낱말에서 vivid · bright · glossy · polished 를 빼고 「muted, low-saturation」 을 붙인다(`hairMute`). 1절 줄만으론 「vivid magenta」 를 못 이겼다 — 마량 머리 자홍 채도 0.56 → 0.50(1절만) → 0.35(낱말까지), 그림 전체 채도는 그대로.
 
+**v4(2026-11-06, 지금 판)** — v3 + 2절 체형 뒤 옛 kr_mmorpg 볼륨 문장(`bodyTail`) + 3절에 기본 노출(과감) 줄을 늘(`exposureAlways` — v1~v3 조립기는 기본 노출이면 뺐다). 사용자 「2.6에서 2.5랑 같은 프롬포트로 뽑은 이미지에서 맘에 드는건 볼륨감이랑, 의상 노출정도」 → 조조 세 세계 세 번(메카는 셋 중 한 번 2D 쪽으로 흔들림 — 세계마다 2~3장 골라 거른다) → 「v4로 생성기 기본 바꿔줘」.
+
 ### 1절
 
 ```
