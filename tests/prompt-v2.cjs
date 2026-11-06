@@ -79,6 +79,13 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
   /* v5(2026-11-06) — 일상컷에만 촉촉한 피부 광택 줄, 세계 그림엔 없다 */
   if (kv.casualSkin) { const C = require('../tools/casual-plan.cjs'), card = C.cardOf('조조'); card.world = 'samguk';
     const cut = C.plan(card, [1], [], { seed: 5 }).cuts[0], cp = C.record(card, 'samguk', cut).prompt;
-    assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', {}).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음'); }
+    assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', {}).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음');
+    /* 피부 광택 단계(2026-11-06 「광택효과를 선택 할 수 있게 … 단계별로」) — 고르면 그 단계 줄 하나만, 안 고르면 화풍 기본 */
+    const GL = T.CASUAL.glosses; assert.equal(GL.map(g => g.key).join(), 'matte,soft,dewy,glossy', '광택 네 단계');
+    assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, S.default), kv.casualSkin);
+    for (const g of GL) { assert(g.en.startsWith('SKIN: ') && g.ko, g.key);
+      const c2 = JSON.parse(JSON.stringify(cut)); c2.gloss = g.key; const pp = C.record(card, 'samguk', c2).prompt;
+      assert(pp.includes(g.en) && GL.filter(o => o.key !== g.key).every(o => !pp.includes(o.en)), g.key + ' 단계 줄 하나만');
+      assert.equal(pp.split('\n').filter(l => !l.startsWith('SKIN:')).join('\n'), cp.split('\n').filter(l => !l.startsWith('SKIN:')).join('\n'), g.key + ' 광택 줄 말고는 같다'); } }
   console.log('PASS 기준 판: ' + nk + '장'); }
 console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).length + ' × 세계 3) — 칸 빠짐없이 · 외형 한글 표 · 1절 세계 몫 · 메카 실루엣 · 자세 · 시간대 · 장면 · 기본 화풍 그대로');

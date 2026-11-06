@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 일상컷 피부 광택 — 단계 고르기
+- 사용자 「그 일상컷 광택효과를 선택 할 수 있게하자. 단계별로」 — 일상컷 장면에 gloss 칸(lib/prompt-spec.js CASUAL.glosses): matte 광택 없음 · soft 은은하게 · dewy 촉촉하게 · glossy 반짝이게. 모두 SKIN: 한 줄이라 GPT 구조형 「Skin finish」 로 그대로 간다.
+- 안 고르면 화풍 기본(style.json casualSkin — kv_kmmo_23d 는 dewy 와 같은 글이라 지금까지 지시문 그대로). 조립부 buildCasual 이 고른 단계 → 화풍 기본 순, glossDefault 내보냄.
+- 생성기 일상컷 「피부 광택」 단계(머리 변화 다음) · prompt-pack casual.<자리>.gloss · 검사 prompt-v2(네 단계 · dewy = 기본 글 · 고르면 그 줄 하나만, 나머지 지시문은 같다).
+
 ## 2026-11-06 · claude · 실루엣 — 장수마다 고르게 나눈 설계값
 - 사용자 「우리 실루엣 추가했잖아. 그것도 장수마다 고르게 분배하자」 — 장수 279명 × 세 세계에 실루엣 설계값 worlds.<세계>.sil(설계표). tools/sil-spread.py 가 역할(장수 · 책사 · 문관 · 군주)에 어울리는 갈래 안에서 가장 덜 쓰인 갈래를 골랐다 — 무협 · 판타지 갈래마다 19~21명, 메카 15~16명.
 - 관우는 사용자가 고른 세계컷(1,2,1)에 맞춰 무협 cape_general · 판타지 gown_armor · 메카 skirt_plate 로 먼저 박았다.
