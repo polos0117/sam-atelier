@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기준 판 v4 후보 — 볼륨 · 기본 노출
+- kv_kmmo_lock v4(아직 current 아님 — v3) — 2절 체형 뒤 옛 kr_mmorpg 볼륨 문장(bodyTail), 3절에 기본 노출(과감) 줄을 늘(exposureAlways). v1~v3 조립기는 기본 노출이면 노출 줄을 뺐다. 조조 세 세계 시험(사용자 「맘에 드는건 볼륨감이랑, 의상 노출정도」).
+
 ## 2026-11-06 · claude · 기준 판 v3 — 머리색만 저채도
 - kv_kmmo_lock v3 — v2(전체 저채도)가 뿌옇게 나와 v1 + 머리만 저채도. 1절 머리 줄 + 2절 머리색 낱말에서 vivid · bright · glossy · polished 를 빼고 「muted, low-saturation」(hairMute, lib/prompt-sam.js buildKv). 마량 머리 채도 0.56 → 0.35, 전체는 그대로(사용자 「머리색만 채도를 낮게 해줘. 지금 너무 뿌옇게 됐어」).
 
