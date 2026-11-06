@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기준 판 current v7 → v6
+- kv_kmmo_lock current 를 v6 으로 — 일상컷은 v6 꼴(피부 광택 줄 포함). v7 자연판은 기록으로 남김(조조 같은 계획 시험에서 옷이 모두 남색으로 몰림, 사용자 「일상컷은 v6로 가자」).
+
 ## 2026-11-06 · claude · 기준 판 v7 — 자연판 일상컷
 - kv_kmmo_lock v7(current) — 일상컷 조립을 자연판 꼴로(casualNatural, lib/prompt-sam.js buildCasual): identity-preserve 편집 · 정체성과 화풍 잠금 · 옷 · 장소 · 자세 · 구도만 바꾸기, 옷은 세계 그림 팔레트 허용, 강도 · 노출 축 · 피부 광택 · 각도 강제 줄 없음. 계획기 칸은 SCENE 블록으로, 표정 꼬리 · 크롭 · 시대 · 무기 장신구 줄 유지. GPT 구조형(lib/prompt-gpt.js)은 그대로 낸다. 검사 casual-plan · prompt-gpt · screen 을 새 꼴에 맞춤(사용자 「자연판 꼴로 바꾸고 광택 줄은 빼줘」).
 

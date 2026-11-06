@@ -192,7 +192,8 @@ const P = ctx0.window.AtelierPrompt;
     await randAll(v.page, ks[1]);
     await toDone(v.page);
     const cp = await promptOf(v.page);
-    assert.match(cp, /^Create ONE finished illustration\. Use case: identity-preserve/); assert.match(cp, /IDENTITY AND ART STYLE LOCK/); assert.match(cp, /\nSCENE:\n/);   /* 기준 판 v7 — 자연판 일상컷 */
+    if (/^Create ONE finished illustration\. Use case: identity-preserve/.test(cp)) assert.match(cp, /IDENTITY AND ART STYLE LOCK/);   /* 자연판(v7) */
+    else { assert.match(cp, /^INPUT: the attached image/); assert.match(cp, /female personification of Guan Yu/); assert.match(cp, /SCENE \(chosen\)/); }
     assert.doesNotMatch(cp, /element|chemical symbol|atomic number/i, '원소 말이 남지 않았다');
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_mecha_' + S['default'] + '_f_casual1\\.webp'));
     await noOverflow(v.page, vp.width + ' 생성기 일상');
