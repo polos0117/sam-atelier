@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 생성기 화풍 고르개 — 빈 칸 고침
+- 사용자 「칸만 생기고 값이 안보이는데」 — 페이지(prompt.html)는 새 판인데 브라우저가 lib/studio.js?v=4 옛 판을 캐시에서 써 목록을 못 채웠고, .style-pick {display:flex} 가 hidden 을 덮어 빈 칸이 드러났다.
+- 스크립트 판 번호 올림(studio.js v5 · words.js v6 — 모든 페이지 · prompt-spec.js v2 · prompt-sam.js v2 · studio.css v5), .style-pick[hidden] {display:none}.
+
 ## 2026-11-07 · claude · 생성기 화풍 고르개
 - 사용자 「생성기에 화풍추가해주고, 변경 기능 만들어줘」 — prompt.html 위에 화풍 고르개(select). 맨 위 「기본 — 한국 MMORPG 2.3D」(값 '' — 늘 그때의 기본 화풍), 그 아래 style.json 의 다른 판 여섯(게임 키아트 2.5D · 한국형 글로시 · 한국 MMORPG 프로모 · 한국 MMORPG 기준 판 · 일본 모바일게임 리얼 CG · 일본 유화풍). prompt2(구조판 v2)는 그대로 고정.
 - 고르면 지시문 · 파일 이름(<장수>_<세계>_<화풍>_f.webp) · 기록 · 피부 광택 기본이 그 화풍으로. 주소 ?style= 로도, 기기에 stylePick 으로 기억(옛 saved.style 은 여전히 안 읽음).
