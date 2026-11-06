@@ -15,12 +15,14 @@ for (const k of ['glossy_plain', 'anime_kv', 'glossy_kv']) { const x = S.styles[
 assert.equal(sv.format, 'structured'); assert(sv.rules && sv.section1 && sv.section1_worlds.samguk && sv.section1_worlds.fantasy);
 let n = 0;
 for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) {
-  const p = P.build(D, S, key, w, { style: STYLE });
+  const p = P.build(D, S, key, w, { style: STYLE, shot: { frame: 'free' } });
   assert(p.startsWith(sv.rules), key + ' ' + w + ' 공통 규칙이 맨 앞');
   assert(p.includes(w === 'mecha' ? sv.section1 : sv.section1_worlds[w]), key + ' ' + w + ' 1절은 세계 몫');
   for (const name of ST.s2.concat(ST.s3, ST.s4)) assert(p.includes('\n' + name + (ST.heading.includes(name) ? ':' : ': [')), key + ' ' + w + ' 칸 ' + name);
   assert(!/\[\]|undefined|\{\w+\}/.test(p), key + ' ' + w + ' 빈 칸 · 못 채운 자리');
-  assert(p.includes('실루엣: [' + ST.fixed.silFree + ']'), '실루엣은 안 고르면 자유');
+  assert(p.includes('실루엣: [' + ST.fixed.silFree + ']'), '실루엣 free 면 자유');
+  const g0 = D.generals.find(g => g.key === key), ds = T.SILHOUETTES[w].find(m => m.key === g0.worlds[w].sil);
+  assert(ds && P.build(D, S, key, w, { style: STYLE }).includes('실루엣: [' + ds.kot), key + ' ' + w + ' 안 고르면 장수 설계 실루엣');
   n++;
 }
 /* 외형 값은 한글 표에 */
@@ -35,11 +37,15 @@ for (const [w, list] of Object.entries(T.SILHOUETTES)) { assert(list.length >= 1
 for (const [w, k] of [['samguk', 'water_sleeves'], ['fantasy', 'gown_armor']]) assert(P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: k } }).includes('실루엣: [' + T.SILHOUETTES[w].find(m => m.key === k).kot + ST.fixed.silFirst + ']'), w + ' 실루엣이 3절에 — 역할 옷보다 우선');
 for (const w of ['samguk', 'fantasy']) { const p2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: T.SILHOUETTES[w][0].key } }); assert(p2.includes('프레임 종류: [' + ST.fixed.frameKindSil.split('(')[0]), w + ' 실루엣을 고르면 역할 옷은 빠진다'); }
 assert(P.build(D, S, P.cards(D)[0], 'fantasy', { style: STYLE }).includes('디자인 방식: [' + ST.worlds.fantasy.designHead), '판타지는 서양 옷만을 맨 앞에');
-for (const w of ['samguk', 'fantasy']) { const on2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: T.SILHOUETTES[w][1].key } }), off2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE });
+for (const w of ['samguk', 'fantasy']) { const on2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: T.SILHOUETTES[w][1].key } }), off2 = P.build(D, S, P.cards(D)[0], w, { style: STYLE, shot: { frame: 'free' } });
   assert(on2.includes('지켜야 할 것: [' + ST.worlds[w].rulesSil + ']') && on2.includes('노출 범위: [' + ST.worlds[w].expoSil + ']'), w + ' 실루엣이면 옷 종류 없는 규칙 · 노출');
   assert(on2.includes(sv.section1_sil[w]) && !on2.includes(sv.section1_worlds[w]) && !/거즈|벨벳|흐르는 주름/.test(sv.section1_sil[w]), w + ' 실루엣이면 천 낱말 없는 1절');
   assert(on2.includes('캐릭터가 묻어나는 곳: [' + ST.fixed.traitsSil) && !off2.includes(ST.fixed.traitsSil), w + ' 실루엣이면 특징은 장신구로만');
   assert(off2.includes('지켜야 할 것: [' + ST.worlds[w].rules + ']') && off2.includes('노출 범위: [' + ST.worlds[w].expo + ']'), w + ' 안 고르면 그대로'); }
+/* 장수 설계 실루엣 — 모든 장수 · 세계에 표의 값, 갈래마다 고르게(tools/sil-spread.py — 사용자 2026-11-06 「장수마다 고르게 분배하자」) */
+for (const [w, list] of Object.entries(T.SILHOUETTES)) { const cnt = Object.fromEntries(list.map(m => [m.key, 0]));
+  for (const g of D.generals) { const k = ((g.worlds || {})[w] || {}).sil; assert(k in cnt, g.key + ' ' + w + ' 설계 실루엣 ' + k); cnt[k]++; }
+  const v = Object.values(cnt); assert(Math.max(...v) - Math.min(...v) <= 3, w + ' 실루엣 고르게 ' + JSON.stringify(cnt)); }
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */

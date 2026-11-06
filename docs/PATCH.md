@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 실루엣 — 장수마다 고르게 나눈 설계값
+- 사용자 「우리 실루엣 추가했잖아. 그것도 장수마다 고르게 분배하자」 — 장수 279명 × 세 세계에 실루엣 설계값 worlds.<세계>.sil(설계표). tools/sil-spread.py 가 역할(장수 · 책사 · 문관 · 군주)에 어울리는 갈래 안에서 가장 덜 쓰인 갈래를 골랐다 — 무협 · 판타지 갈래마다 19~21명, 메카 15~16명.
+- 관우는 사용자가 고른 세계컷(1,2,1)에 맞춰 무협 cape_general · 판타지 gown_armor · 메카 skirt_plate 로 먼저 박았다.
+- 생성기 실루엣 단계 — 안 고르면 「장수 설계값」(이름 표시), 새 「자유」(free)는 실루엣 없이. 조립부 silOf(고른 값 → 설계값 → free 면 없음). prompt-pack 도 같은 규칙.
+- 검사 — prompt-v2(모든 장수 · 세계에 표의 값 · 갈래별 차이 3 이하 · 안 고르면 설계 실루엣이 들어감), prompt-gpt(자유면 실루엣 줄 없음).
+
 ## 2026-11-06 · claude · 관우 얼굴 — 짧은 얼굴 · 덜 째진 눈
 - 사용자 「얼굴 길이를 좀 줄이고, 째진 눈을 좀 보완해야 될 거 같아」 — 세 세계 공통 얼굴(worlds.samguk) 얼굴형 oval → heart, 눈 narrow_upturned → almond_wide, 앞머리 none → side_swept(드러난 이마가 얼굴을 길게 보이게 함).
 - 눈꼬리 eye_tilt up → level, 성정 줄 'long phoenix eyes' → 'gracefully lifted almond eyes'. 봉황 눈 기운은 윙 아이라인(mark)만으로 남김. 요약 · face_note 함께 고침.
