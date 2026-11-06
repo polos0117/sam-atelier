@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 화풍 키 kv_jp_mobile — 일본 모바일게임 리얼 CG
+- 사용자가 가져온 일본 리얼 모바일게임 조운 지시문을 공방 꼴로 옮김(사용자 「이것도 옮겨줘」). 머리말 · STYLE · 재질 줄 · 구도 · ANATOMY 는 그 글 그대로, 인물 · 옷 · 실루엣 · 색 · 노출 · 장면은 설계표에서. 기본 화풍(kv_kmmo_23d)은 그대로.
+- buildKv 에 outSwap(판마다 공용 줄 속 낱말 바꿔 적기) — jp 판은 노출 줄의 「keep the costume WORLD describes」 를 「described above」 로.
+- 검사 prompt-v2 — 장수 279 × 세계 3 이 jp 꼴로 빈 칸 없이. docs/STYLE_LAB.md 표에 한 줄.
+
 ## 2026-11-06 · claude · 일상컷 피부 광택 — 단계 고르기
 - 사용자 「그 일상컷 광택효과를 선택 할 수 있게하자. 단계별로」 — 일상컷 장면에 gloss 칸(lib/prompt-spec.js CASUAL.glosses): matte 광택 없음 · soft 은은하게 · dewy 촉촉하게 · glossy 반짝이게. 모두 SKIN: 한 줄이라 GPT 구조형 「Skin finish」 로 그대로 간다.
 - 안 고르면 화풍 기본(style.json casualSkin — kv_kmmo_23d 는 dewy 와 같은 글이라 지금까지 지시문 그대로). 조립부 buildCasual 이 고른 단계 → 화풍 기본 순, glossDefault 내보냄.

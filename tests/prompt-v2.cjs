@@ -46,6 +46,12 @@ for (const w of ['samguk', 'fantasy']) { const on2 = P.build(D, S, P.cards(D)[0]
 for (const [w, list] of Object.entries(T.SILHOUETTES)) { const cnt = Object.fromEntries(list.map(m => [m.key, 0]));
   for (const g of D.generals) { const k = ((g.worlds || {})[w] || {}).sil; assert(k in cnt, g.key + ' ' + w + ' 설계 실루엣 ' + k); cnt[k]++; }
   const v = Object.values(cnt); assert(Math.max(...v) - Math.min(...v) <= 3, w + ' 실루엣 고르게 ' + JSON.stringify(cnt)); }
+/* kv_jp_mobile(2026-11-06 사용자 「이것도 옮겨줘」) — 일본 리얼 모바일게임 지시문 꼴: 머리말 · STYLE · ANATOMY 는 그 글, 인물 · 옷 · 장면은 설계표에서. 칸이 다 차고, 공용 줄의 WORLD 칸 이름은 바꿔 적는다 */
+{ const jv = S.styles.kv_jp_mobile.versions.find(v => v.v === S.styles.kv_jp_mobile.current); let nj = 0;
+  for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: 'kv_jp_mobile' });
+    assert(p.startsWith('Use case: stylized-concept.') && p.includes(jv.section1) && p.includes('\n\nANATOMY: Exactly one head') && p.includes('COMPOSITION AND SCENE: Single vertical 2:3'), key + ' ' + w + ' jp 꼴');
+    assert(!/\{\w+\}|undefined|WORLD describes/.test(p), key + ' ' + w + ' jp 빈 칸'); nj++; }
+  console.log('PASS kv_jp_mobile: ' + nj + '장'); }
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */
