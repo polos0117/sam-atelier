@@ -48,7 +48,7 @@ for (const [w, list] of Object.entries(T.SILHOUETTES)) { const cnt = Object.from
   const v = Object.values(cnt); assert(Math.max(...v) - Math.min(...v) <= 3, w + ' 실루엣 고르게 ' + JSON.stringify(cnt)); }
 /* kv_jp_mobile(2026-11-06 사용자 「이것도 옮겨줘」) — 일본 리얼 모바일게임 지시문 꼴: 머리말 · STYLE · ANATOMY 는 그 글, 인물 · 옷 · 장면은 설계표에서. 칸이 다 차고, 공용 줄의 WORLD 칸 이름은 바꿔 적는다 */
 /* kv_jp_paint(같은 날 사용자 「이거 화풍추가」) — 일본 유화풍 지시문 꼴, ANATOMY AND FINISH */
-for (const [sk, anat] of [['kv_jp_mobile', 'ANATOMY: Exactly one head'], ['kv_jp_paint', 'ANATOMY AND FINISH: One head']]) { const jv = S.styles[sk].versions.find(v => v.v === S.styles[sk].current); let nj = 0;
+for (const [sk, anat] of [['kv_jp_mobile', 'ANATOMY: Exactly one head'], ['kv_jp_paint', 'ANATOMY AND FINISH: One head'], ['kv_anime_gloss', 'ANATOMY AND FINISH: One head']]) { const jv = S.styles[sk].versions.find(v => v.v === S.styles[sk].current); let nj = 0;
   for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: sk });
     assert(p.startsWith('Use case: stylized-concept.') && p.includes(jv.section1) && p.includes('\n\n' + anat) && p.includes('COMPOSITION AND SCENE: Single vertical 2:3'), key + ' ' + w + ' ' + sk + ' 꼴');
     assert(!/\{\w+\}|undefined|WORLD describes/.test(p), key + ' ' + w + ' ' + sk + ' 빈 칸'); nj++; }

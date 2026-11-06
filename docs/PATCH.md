@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 화풍 키 kv_anime_gloss — 포켓몬 공방 애니 광택
+- 사용자 「포켓몬 공방의 애니광택 도 등록해줘」 — pkm-atelier anime_gloss(data/concept-mecha.json) 의 머리말 · STYLE · 끝맺음 빛을 kv_jp_paint 와 같은 틀(CHARACTER · COSTUME · COMPOSITION · ANATOMY AND FINISH, 인물 · 옷 · 장면은 설계표)에.
+- 색 줄 — 세력 색을 흰 · 은 저채도 파스텔 안에서, 가장 짙은 것이 강조색 하나. 재질 줄 — 젖지 않은 자연광 윤기. 일상컷 피부 광택 기본 soft(은은하게).
+- 생성기 화풍 고르개에 자동으로 뜬다. 검사 prompt-v2 — 장수 279 × 세계 3 빈 칸 없음.
+
 ## 2026-11-07 · claude · 생성기 화풍 고르개 — 빈 칸 고침
 - 사용자 「칸만 생기고 값이 안보이는데」 — 페이지(prompt.html)는 새 판인데 브라우저가 lib/studio.js?v=4 옛 판을 캐시에서 써 목록을 못 채웠고, .style-pick {display:flex} 가 hidden 을 덮어 빈 칸이 드러났다.
 - 스크립트 판 번호 올림(studio.js v5 · words.js v6 — 모든 페이지 · prompt-spec.js v2 · prompt-sam.js v2 · studio.css v5), .style-pick[hidden] {display:none}.
