@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 관우 얼굴 설계 부드럽게
+- 설계표 관우 — 무협 얼굴형 long → oval, 눈썹 straight_thick → angled_sharp, 코 aquiline → straight_narrow, 입술 thin_long → soft_medium, 표식 red_lip → winged_liner. 봉황 눈 · 녹색 눈 · 구릿빛 피부 · 긴 포니테일 그대로(사용자 「리얼해서 그런가 못생기게 나오네」 「붉은 입술도 너무 튀니까 다르게 가자」).
+
 ## 2026-11-06 · claude · 일상컷 하관 — 참고 그림 얼굴형 기준
 - API 일상컷 FACE 줄(lib/prompt-sam.js REF_FACE)에 각도 문장 — 낮은 · 높은 카메라 · 턱 괴기 · 옆모습 · 돌아보기에서도 참고 그림의 얼굴형 · 턱 길이 · 얼굴 길이 대 폭 비율, 원근 · 자세가 하관을 늘이거나 턱을 무겁게 하지 않는다. GPT 구조형(lib/prompt-gpt.js)의 「small, soft chin」 절대 표현도 같은 참고 그림 기준 문장으로(사용자 「래퍼런스 이미지의 얼굴형을 유지한다 이런식으로」).
 

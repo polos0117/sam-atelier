@@ -695,11 +695,11 @@
      "skin_tone": "golden_tan",
      "eye_size": "medium",
      "eye_tilt": "up",
-     "mark": "red_lip",
+     "mark": "winged_liner",
      "expr": "calm",
-     "brows": "straight_thick",
-     "nose": "aquiline",
-     "lips": "thin_long"
+     "brows": "angled_sharp",
+     "nose": "straight_narrow",
+     "lips": "soft_medium"
     },
     "silhouette": {
      "body": "tall_curvy",
@@ -712,7 +712,7 @@
        "bangs": "none"
       },
       "face": {
-       "face_shape": "long",
+       "face_shape": "oval",
        "eyes": "narrow_upturned"
       }
      },
@@ -737,7 +737,8 @@
       }
      }
     },
-    "why": "긴 수염 → 바닥까지 닿는 매끈한 검은 머리(비단 주머니). 붉은 얼굴 → 붉은 기 도는 구릿빛 · 붉은 입술, 봉황 눈 → 치켜 올라간 긴 눈. 초록 전포는 촉 팔레트"
+    "why": "긴 수염 → 바닥까지 닿는 매끈한 검은 머리(비단 주머니). 붉은 얼굴 → 붉은 기 도는 구릿빛 · 붉은 입술, 봉황 눈 → 치켜 올라간 긴 눈. 초록 전포는 촉 팔레트",
+    "face_note": "2026-11-06 사용자 「리얼해서 그런가 못생기게 나오네」 「붉은 입술도 너무 튀니까 다르게 가자」 — 무협 얼굴형 long → oval, 눈썹 straight_thick → angled_sharp, 코 aquiline → straight_narrow, 입술 thin_long → soft_medium, 표식 red_lip → winged_liner(봉황 눈을 날개 아이라인으로). 봉황 눈 · 녹색 눈 · 구릿빛 피부 · 긴 포니테일은 그대로"
    },
    "worlds": {
     "samguk": {
