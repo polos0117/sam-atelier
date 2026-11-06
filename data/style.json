@@ -778,6 +778,99 @@
      ]
     }
    ]
+  },
+  "kv_jp_paint": {
+   "name": "일본 유화풍 게임 일러스트",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "format": "kv",
+     "adopted": "2026-11-06",
+     "by": "claude",
+     "why": "사용자가 가져온 일본 유화풍 조운 지시문(Use case · STYLE · CHARACTER · COSTUME AND EQUIPMENT · COMPOSITION AND SCENE · ANATOMY AND FINISH)을 공방 구조로 — 사용자 「이거 화풍추가 … 넣어줘」. 머리말 · STYLE · 재질 줄 · 구도 · ANATOMY AND FINISH 는 그 글 그대로, 인물 · 옷(costumeRole) · 실루엣 · 색 · 노출 · 장면 · 대표 물건은 설계표에서. 조운 시험(틀 옮김 세 세계 + 일상컷 아홉, 2026-11-06)을 옮긴 꼴 — 그 시험의 세밀 의상 문구는 조운 손 글이라 여기선 역할 × 세계 의상 문장을 쓴다",
+     "head": "Use case: stylized-concept. Create ONE finished illustration of {name_en} of the Three Kingdoms personified as a beautiful adult human woman. Brand-new image from text only.",
+     "faceWorld": "samguk",
+     "swap": {
+      "hair": {
+       "hime_cut": "long straight hair",
+       "wolf_cut": "long softly layered waves"
+      },
+      "bangs": {
+       "one_eye": "side-swept bangs with both eyes fully visible"
+      },
+      "nose": {
+       "small_button": "a small refined nose with a softly defined bridge"
+      },
+      "eyes": {
+       "droopy_soft": "almond-shaped eyes",
+       "round_large": "almond-shaped eyes"
+      },
+      "eye_size": {
+       "large": "realistically proportioned eyes",
+       "small": "small, narrow eyes"
+      }
+     },
+     "s2": "CHARACTER: A single woman, the female personification of {name_en} ({name_ko}), {title}; her nature: {traits}. {age} A refined, beautiful face — {face}; {impression}; expression: {expr}. Eyes and skin: {eyes}, {skin}. Hair: {hair}. Graceful, curvaceous adult physique — {body}; balanced natural proportions around 7.5 heads tall and a natural neck.{look_extra}",
+     "genre": {
+      "samguk": "Chinese martial design.",
+      "fantasy": "Western high-fantasy knightly design.",
+      "mecha": "Far-future mecha design."
+     },
+     "s3": "COSTUME AND EQUIPMENT: {costume}{silhouette} Colours: {palette}. The armour has beautifully painted metallic reflections, while the silk has a softer lustre. {genre}{exposure}{outfit} Signature item: {hold}, its entire length visible within the composition.",
+     "mechaFrame": ". Faction mecha design: {design}; the plating reads as solid engraved metal armour, not cloth.",
+     "silhouetteHead": " Overall silhouette: {sil} — only the overall shape is fixed; design the details freely.",
+     "s4": "COMPOSITION AND SCENE: Single vertical 2:3 full-body illustration, head to boots visible with comfortable margins. {pose}. Setting: {bg} — softly painted, it provides atmospheric depth without competing with her face and silhouette.{custom} Her hair and the loose fabric of her costume drift in a gentle breeze. Clear directional light brings out the face, the costume and hair, with restrained atmospheric glow{time}.\n\nANATOMY AND FINISH: One head, exactly two arms and two legs. Both natural human hands visible, five fingers on each hand, anatomically correct grip and clear wrists. No extra limbs, missing hands or cropped weapon. No other characters, text, lettering, logos, watermark, border or UI.",
+     "poseDefault": "A composed, heroic standing pose, slightly turned toward the viewer. One hand naturally grips her signature item beside her — if it is a long weapon, held upright with its butt resting on the ground — fully visible within the composition; the other hand rests openly beside her hip, clearly separated from the torso",
+     "timeHead": " — {time}",
+     "noteHead": " Note: ",
+     "ageHead": "Age: ",
+     "exprDefault": "a calm, composed expression",
+     "lookHead": " Chosen look: ",
+     "costumeSwap": [
+      [
+       "her faction's colours",
+       "the palette below"
+      ]
+     ],
+     "hairMute": {
+      "drop": "\\b(?:vivid|bright|glossy|polished)\\s+",
+      "prefix": "muted, low-saturation "
+     },
+     "exposureAlways": true,
+     "casualSkin": "SKIN: dewy, moist, softly glowing skin on every bare area — face, shoulders, chest, arms and legs — with a fresh luminous sheen: soft glossy highlights on the cheekbones, nose bridge, lips, collarbones, shoulders and the curves of the body, modelled by gentle tonal shading; healthy and hydrated rather than oily or sweaty, and never a plastic, airbrushed doll finish.",
+     "section1": "STYLE: High-quality Japanese painterly fantasy game character illustration, an exquisite finished promotional key visual. Refined Japanese illustrated character design with richly layered painterly colour, subtle visible brushwork, beautifully modelled light and shadow, delicate edge control and crisp focal details. An elegant adult face with expressive almond-shaped eyes, a compact oval face, softly defined jaw, delicately sculpted nose and natural lips. Luminous, rich colours and cinematic depth; finely painted skin and hair, convincing metal and fabric. Keep the entire image coherent as a polished painting. No flat cel shading, photographic appearance or plastic 3D-render finish.",
+     "costumeRole": {
+      "lord": {
+       "samguk": "Elaborate Han-dynasty ruler's regalia with aged-gold ornamentation: layered silk robes with broad embroidered sleeves over a fitted armoured bodice and a structured waist, sculpted dragon-head shoulder guards, engraved gold borders and richly embroidered fabric, a wide sash with a gold belt ornament and jade pendants, long layered skirts and a flowing cape, heeled boots with gold detailing. An ornate guan crown with horizontal hairpins and delicate hanging ornaments decorates her hair.",
+       "fantasy": "Elaborate Western high-fantasy monarch's regalia with aged-gold ornamentation — no East-Asian robes or armour: a sculpted cuirass with engraved borders, articulated pauldrons and gauntlets, a long heraldic tabard embroidered with her crest, layered armoured skirts and a fur-trimmed royal mantle, heeled armoured boots. A slim jewelled crown decorates her hair.",
+       "mecha": "Elaborate command-type mecha armour with aged-gold ornamentation: sculpted angular shoulder units with command fins, layered hard-surface plates with engraved borders, a fitted armoured bodice with an emblem core and a structured waist, articulated armoured skirts and rigid cape-like binder plates, heeled armoured boots. A crowned command head unit with a small antenna crest sits behind her hair, leaving her face fully visible."
+      },
+      "general": {
+       "samguk": "Elaborate Three Kingdoms war-general's armour with aged-gold ornamentation: sculpted beast-head shoulder guards, layered lamellar plates laced over a silk battle robe, engraved borders and richly embroidered fabric, a fitted armoured bodice and structured waist, a belt ornament with tassels, long layered armoured skirts and a flowing war cape, heeled armoured boots. A small war crown or headband with hairpins decorates her hair.",
+       "fantasy": "Elaborate Western high-fantasy knight-champion's armour with aged-gold ornamentation — no East-Asian robes or armour: fitted articulated plate with engraved borders, sculpted pauldrons, gauntlets and greaves, a heraldic tabard over the plate, layered armoured skirts and a battle cape, heeled armoured boots. A slim circlet decorates her hair.",
+       "mecha": "Elaborate assault-type mecha armour with aged-gold ornamentation: heavy sculpted shoulder plates, layered hard-surface armour with engraved borders, a fitted armoured bodice and structured waist, reinforced articulated limbs, compact thruster packs and armoured skirts, heeled armoured boots. A sleek crested head unit sits behind her hair, leaving her face fully visible."
+      },
+      "strategist": {
+       "samguk": "Elaborate strategist's scholar robes with aged-gold ornamentation: flowing layered silk robes with wide embroidered sleeves over a fitted bodice and a structured waist, a light lacquered shoulder mantle, engraved and embroidered borders, a wide sash with a jade pendant and tassels, long layered skirts, heeled boots. A scholar's guan cap or silk ribbon with hairpins decorates her hair.",
+       "fantasy": "Elaborate Western high-fantasy archmage-strategist's robes with aged-gold ornamentation — no East-Asian robes or armour: layered robes with runic and star-chart embroidery, a high collar, a fitted corseted bodice and structured waist, light ornamental pauldrons, a long flowing overrobe, heeled boots. A slim jewelled circlet decorates her hair.",
+       "mecha": "Elaborate tactical electronic-warfare mecha armour with aged-gold ornamentation: slender layered hard-surface plating with engraved borders, a fitted armoured bodice and structured waist, light articulated limbs, holographic map projectors at the wrists, small floating drone bits and armoured skirts, heeled armoured boots. A sensor-array head unit sits behind her hair, leaving her face fully visible."
+      },
+      "official": {
+       "samguk": "Elaborate Han court official's dress with aged-gold ornamentation: layered silk robes with broad embroidered sleeves over a fitted bodice and a structured waist, a broad belt with a hanging seal cord and jade pendants, engraved and embroidered borders, long layered skirts and a flowing outer robe, heeled boots. A black court cap with hairpins decorates her hair.",
+       "fantasy": "Elaborate Western high-fantasy royal chancellor's dress with aged-gold ornamentation — no East-Asian robes or armour: a long embroidered coat with a stole over a fitted corseted bodice and a structured waist, ornamental shoulder pieces, a seal ring, layered skirts, heeled boots. A slim circlet decorates her hair.",
+       "mecha": "Elaborate support-and-logistics mecha armour with aged-gold ornamentation: lighter layered hard-surface plating with engraved borders, a fitted armoured bodice and structured waist, data panels and small shield units, articulated utility sub-arms folded at her back and armoured skirts, heeled armoured boots. A compact head unit sits behind her hair, leaving her face fully visible."
+      }
+     },
+     "sectionGap": true,
+     "outSwap": [
+      [
+       "keep the costume WORLD describes, material and palette",
+       "keep the costume described above, its material and palette"
+      ]
+     ]
+    }
+   ]
   }
  }
 }

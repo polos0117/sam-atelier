@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 일상컷 얼굴 자연광 공통 · 화풍 키 kv_jp_paint
+- 사용자 「일상컷에서는 얼굴에도 자연광 느낌을 추가해줄래?」 → 「이거 화풍추가랑 자연광은 일상컷 공통으로 넣어줘」.
+- 얼굴 자연광 — lib/prompt-spec.js CASUAL.faceLight(LIGHT: 한 줄 — 장면의 빛이 제 방향 · 색온도로 얼굴에, 눈썹 · 코 · 턱 밑 그늘, 주변 반사광, 따로 노는 스튜디오 조명 없음. 첨부 그림의 조명을 얼굴에서만 덮어쓰고 그림결은 그대로). buildCasual 이 피부 광택 줄 다음에 모든 화풍 일상컷에 싣는다(자연판 꼴도). lib/prompt-gpt.js 가 「Light on her face」 칸으로 옮긴다. 조운 일상컷 아홉으로 시험(빛이 장면 색으로 얼굴에 묻음).
+- 화풍 키 kv_jp_paint(일본 유화풍 게임 일러스트, 시험 키) — 사용자가 가져온 두 번째 조운 지시문 꼴. 머리말 · STYLE · 재질 줄 · 구도 · ANATOMY AND FINISH 는 그 글, 나머지는 설계표. 기본 화풍은 그대로 kv_kmmo_23d.
+- 검사 prompt-v2 — kv_jp_paint 장수 279 × 세계 3 빈 칸 없음, 일상컷 자연광 줄이 모든 화풍에 있고 세계 그림엔 없음.
+
 ## 2026-11-07 · claude · 화풍 키 kv_jp_mobile — 일본 모바일게임 리얼 CG
 - 사용자가 가져온 일본 리얼 모바일게임 조운 지시문을 공방 꼴로 옮김(사용자 「이것도 옮겨줘」). 머리말 · STYLE · 재질 줄 · 구도 · ANATOMY 는 그 글 그대로, 인물 · 옷 · 실루엣 · 색 · 노출 · 장면은 설계표에서. 기본 화풍(kv_kmmo_23d)은 그대로.
 - buildKv 에 outSwap(판마다 공용 줄 속 낱말 바꿔 적기) — jp 판은 노출 줄의 「keep the costume WORLD describes」 를 「described above」 로.

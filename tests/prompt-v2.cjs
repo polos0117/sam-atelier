@@ -47,11 +47,12 @@ for (const [w, list] of Object.entries(T.SILHOUETTES)) { const cnt = Object.from
   for (const g of D.generals) { const k = ((g.worlds || {})[w] || {}).sil; assert(k in cnt, g.key + ' ' + w + ' 설계 실루엣 ' + k); cnt[k]++; }
   const v = Object.values(cnt); assert(Math.max(...v) - Math.min(...v) <= 3, w + ' 실루엣 고르게 ' + JSON.stringify(cnt)); }
 /* kv_jp_mobile(2026-11-06 사용자 「이것도 옮겨줘」) — 일본 리얼 모바일게임 지시문 꼴: 머리말 · STYLE · ANATOMY 는 그 글, 인물 · 옷 · 장면은 설계표에서. 칸이 다 차고, 공용 줄의 WORLD 칸 이름은 바꿔 적는다 */
-{ const jv = S.styles.kv_jp_mobile.versions.find(v => v.v === S.styles.kv_jp_mobile.current); let nj = 0;
-  for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: 'kv_jp_mobile' });
-    assert(p.startsWith('Use case: stylized-concept.') && p.includes(jv.section1) && p.includes('\n\nANATOMY: Exactly one head') && p.includes('COMPOSITION AND SCENE: Single vertical 2:3'), key + ' ' + w + ' jp 꼴');
-    assert(!/\{\w+\}|undefined|WORLD describes/.test(p), key + ' ' + w + ' jp 빈 칸'); nj++; }
-  console.log('PASS kv_jp_mobile: ' + nj + '장'); }
+/* kv_jp_paint(같은 날 사용자 「이거 화풍추가」) — 일본 유화풍 지시문 꼴, ANATOMY AND FINISH */
+for (const [sk, anat] of [['kv_jp_mobile', 'ANATOMY: Exactly one head'], ['kv_jp_paint', 'ANATOMY AND FINISH: One head']]) { const jv = S.styles[sk].versions.find(v => v.v === S.styles[sk].current); let nj = 0;
+  for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: sk });
+    assert(p.startsWith('Use case: stylized-concept.') && p.includes(jv.section1) && p.includes('\n\n' + anat) && p.includes('COMPOSITION AND SCENE: Single vertical 2:3'), key + ' ' + w + ' ' + sk + ' 꼴');
+    assert(!/\{\w+\}|undefined|WORLD describes/.test(p), key + ' ' + w + ' ' + sk + ' 빈 칸'); nj++; }
+  console.log('PASS ' + sk + ': ' + nj + '장'); }
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */
@@ -87,6 +88,10 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     const cut = C.plan(card, [1], [], { seed: 5 }).cuts[0], cp = C.record(card, 'samguk', cut).prompt;
     assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', {}).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음');
     /* 피부 광택 단계(2026-11-06 「광택효과를 선택 할 수 있게 … 단계별로」) — 고르면 그 단계 줄 하나만, 안 고르면 화풍 기본 */
+    /* 얼굴 자연광 — 일상컷 공통(2026-11-06 「자연광은 일상컷 공통으로」), 세계 그림엔 없다 */
+    assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', {}).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
+    { const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8')), { n: n0, ...sc0 } = cut;
+      for (const sk of Object.keys(S.styles)) assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(T.CASUAL.faceLight), sk + ' 일상컷 얼굴 자연광'); }
     const GL = T.CASUAL.glosses; assert.equal(GL.map(g => g.key).join(), 'matte,soft,dewy,glossy', '광택 네 단계');
     assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, S.default), kv.casualSkin);
     for (const g of GL) { assert(g.en.startsWith('SKIN: ') && g.ko, g.key);
