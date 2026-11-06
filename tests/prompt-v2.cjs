@@ -61,14 +61,14 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
 /* 기준 판 kv_kmmo_lock(2026-11-05 기본) — 영문 네 칸, 1절 고정, 얼굴 · 헤어는 세 세계 같은 값, 흔들리는 값은 바꿔 끼움, 손에는 지정한 물건만 */
 { assert.equal(S['default'], 'kv_kmmo_lock');
   const kv = S.styles.kv_kmmo_lock.versions.find(v => v.v === S.styles.kv_kmmo_lock.current); assert.equal(kv.format, 'kv');
-  assert(/FACIAL DESIGN LOCK/.test(kv.section1) && /GENRE LOCK/.test(kv.section1) && /semi-realistic/.test(kv.section1) && !/anime|gacha|JP/i.test(kv.section1), '1절 — 반실사 + 두 고정, 애니 낱말 없음');
+  assert(/GENRE LOCK/.test(kv.section1) && /Korean MMORPG/.test(kv.section1) && !/anime|gacha|JP/i.test(kv.section1), '1절 — 한국 MMORPG + 장르 고정, 애니 낱말 없음');
   let nk = 0;
   for (const key of P.cards(D)) { const ps = ['samguk', 'fantasy', 'mecha'].map(w => P.build(D, S, key, w, {}));
-    const face = ps.map(p => (p.match(/Face: [^\n]*?Eyes: [^.]*\./) || [])[0]);
+    const face = ps.map(p => { const i = p.indexOf('A small, refined, beautiful'), j = p.indexOf(kv.s3.split('{')[0]); return i >= 0 && j > i ? p.slice(i, j) : ''; });   /* 얼굴부터 2절 끝까지 — 세 세계 같다(성정 줄은 세계 덧줄이 있어 뺀다) */
     assert(face[0] && face[0] === face[1] && face[1] === face[2], key + ' 세 세계 같은 얼굴 · 헤어');
-    for (const p of ps) { assert(p.startsWith(kv.head) && p.includes(kv.section1) && /\n3\. COSTUME — /.test(p) && /\n4\. SCENE\n/.test(p) && p.includes('no cup, goblet or other props'), key + ' 네 칸');
+    for (const p of ps) { assert(p.startsWith(kv.head.split('{')[0]) && p.includes(kv.section1) && p.includes(kv.s3.split('{')[0]) && p.includes(kv.s4.split('\n')[0]) && p.includes('no cup, goblet or other props'), key + ' 네 칸');
       assert(!/hime cut|wolf cut|button nose|droopy|falling over one eye|\{/.test(p), key + ' 흔들리는 값 · 빈 칸'); assert(!/anime|manga|gacha/i.test(p.split('\n\n').slice(2).join(' ')), key + ' 2 · 3 · 4절에 애니 낱말 없음'); assert(/Hair: muted, low-saturation /.test(p) && !/Hair: [^.]*\b(?:vivid|bright) /.test(p), key + ' 머리색만 저채도(v3)'); assert(/never thin, flat or boyishly straight/.test(p) && /EXPOSURE \(bold\)/.test(p), key + ' v4 볼륨 · 기본 노출'); nk++; } }
-  const mh = P.build(D, S, '맹획', 'mecha', {}); assert(/faction frame: bronze-gold and deep-crimson/.test(mh) && /painted like heavy fantasy plate/.test(mh), '메카 — 무리 설계 · 판금처럼');
+  const mh = P.build(D, S, '맹획', 'mecha', {}); assert(/[Ff]action (?:mecha design|frame): bronze-gold and deep-crimson/.test(mh) && /solid engraved metal armour/.test(mh), '메카 — 무리 설계 · 판금처럼');
   assert(P.build(D, S, '맹획', 'mecha', { shot: { frame: 'full_armor' } }).includes('Overall silhouette: '), '실루엣을 고르면 3절에');
   /* v5(2026-11-06) — 일상컷에만 촉촉한 피부 광택 줄, 세계 그림엔 없다 */
   if (kv.casualSkin) { const C = require('../tools/casual-plan.cjs'), card = C.cardOf('조조'); card.world = 'samguk';

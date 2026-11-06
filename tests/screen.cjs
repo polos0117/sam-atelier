@@ -179,7 +179,7 @@ const P = ctx0.window.AtelierPrompt;
     const st = await state(v.page), want = P.build(D, S, '관우', 'samguk', { style: S['default'], notes: st.notes['관우|samguk'] || {}, look: st.looks['관우|samguk'], shot: st.shots['관우|samguk'] });
     const got = await promptOf(v.page);
     assert.equal(got, want, '화면 지시문 = 조립기');
-    assert.match(got, /Guan Yu/); assert.match(got, /3\. COSTUME — WUXIA/);   /* 기본 판 kv_kmmo_lock(2026-11-05) — 영문 네 칸 */ assert.match(got, /Green Dragon Crescent Blade/);
+    assert.match(got, /Guan Yu/); assert.match(got, /COSTUME[^\n]*WUXIA/);   /* 기본 판 kv_kmmo_lock(2026-11-05) — 영문 네 칸 */ assert.match(got, /Green Dragon Crescent Blade/);
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_samguk_' + S['default'] + '_f\\.webp'), '파일 이름');
     assert.match(v.page.url(), /card=%EA%B4%80%EC%9A%B0|card=관우/); assert.match(v.page.url(), /world=samguk/);
     await noOverflow(v.page, vp.width + ' 생성기 세계');

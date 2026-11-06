@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-06 · claude · 기준 판 v6 — 2.3D 세계 그림 꼴 · 역할 × 세계 의상 문장
+- kv_kmmo_lock v6(current) — 세계 그림 머리말 · STYLE · CHARACTER · COSTUME AND EQUIPMENT · POSE AND SETTING 꼴(사용자 2.3D 지시문), 역할 × 세계 의상 열두 칸(costumeRole), 노출 줄 유지. lib/prompt-sam.js buildKv — 머리말에 장수 이름 채우기 · costumeRole · 칸 사이 빈 줄(sectionGap). 검사 tests/prompt-v2.cjs · screen.cjs 를 판 틀에 맞춤(사용자 「노출 줄 넣어서 v6으로 생성기에 넣어줘」).
+
 ## 2026-11-06 · claude · 기준 판 v5 — user_kv 1절 · 일상컷 피부 광택
 - kv_kmmo_lock v5(current) — 머리말 · 1절을 사용자 영문 네 칸(user_kv)으로, 2 · 3 · 4절 틀을 그 말투로. 일상컷에만 촉촉한 피부 광택 줄(casualSkin, lib/prompt-sam.js buildCasual). GPT 구조형 일상컷은 SKIN 줄을 Skin finish 칸으로(lib/prompt-gpt.js). 검사 tests/prompt-v2.cjs — 일상컷엔 있고 세계 그림엔 없다(사용자 「2번으로 생성기 기본 판에 넣어줘」).
 
