@@ -28,6 +28,7 @@ for (const key of pickKeys) {
       assert.equal(rec.ref, `${key}_${w}_${C.STYLE}_f.webp`, '참고 그림은 그 세계 그림');
       assert(rec.prompt.length > 500 && rec.treeV === 2 && rec.world === w);
       /* 일상컷 얼굴 · 화풍은 첨부 그림에 맡긴다(2026-11-03) — 화풍 문장 · 나이 줄 대신 「첨부 그림 그대로」 · FACE 줄, 표정은 얼굴 안에서만 */
+      if (/^Create ONE finished illustration\. Use case: identity-preserve/.test(rec.prompt)) assert(rec.prompt.includes('IDENTITY AND ART STYLE LOCK') && rec.prompt.includes('CHANGE ONLY CLOTHING') && !/overall_intensity|skin_exposure|SKIN: dewy/.test(rec.prompt), '자연판 일상컷 — 편집 · 잠금 · 바꿀 것만, 강도 · 노출 축 · 광택 줄 없음'); else
       assert(rec.prompt.includes("STYLE: keep the attached image's rendering exactly") && rec.prompt.includes('FACE: exactly the face of the attached image') && !rec.prompt.includes('AGE: the same adult woman') && !/MMORPG/.test(rec.prompt), '일상컷 화풍 · 얼굴은 첨부 그림 그대로');
       assert(!/EXPRESSION: /.test(rec.prompt) || /EXPRESSION: [^\n]*Show it mildly/.test(rec.prompt), '일상컷 표정은 얼굴 안에서만');
     }
