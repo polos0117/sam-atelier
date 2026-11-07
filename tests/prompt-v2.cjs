@@ -88,6 +88,10 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     const cut = C.plan(card, [1], [], { seed: 5 }).cuts[0], cp = C.record(card, 'samguk', cut).prompt;
     assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', {}).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음');
     /* 피부 광택 단계(2026-11-06 「광택효과를 선택 할 수 있게 … 단계별로」) — 고르면 그 단계 줄 하나만, 안 고르면 화풍 기본 */
+    /* 2026-11-07 「조명 : 참고 그림 그대로 빼고 > 자연광」 · 「일상컷 케릭터에 몸 라인을 강조하는 문구」 — STYLE 줄은 조명을 넘기지 않고, 몸 라인 줄은 일상컷 공통 · 세계 그림엔 없다 */
+    assert(!/lighting quality/.test(cp) && /^STYLE: keep the attached image's rendering exactly/m.test(cp), '일상컷 STYLE 줄에 조명 없음');
+    assert(T.CASUAL.bodyLine.startsWith('BODY LINE: ') && cp.includes(T.CASUAL.bodyLine) && !P.build(D, S, '조조', 'samguk', {}).includes(T.CASUAL.bodyLine), '일상컷 몸 라인 줄');
+    assert(/face and body/.test(T.CASUAL.faceLight), '자연광은 몸까지');
     /* 얼굴 자연광 — 일상컷 공통(2026-11-06 「자연광은 일상컷 공통으로」), 세계 그림엔 없다 */
     assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', {}).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
     { const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8')), { n: n0, ...sc0 } = cut;
