@@ -68,3 +68,18 @@
 ## 5. 중단과 재개
 
 도감의 진행(`n칸`)과 `data/img.json` 을 보고 빈 자리부터. 도감의 빈 칸을 누르면 그 장수 · 세계의 생성기가 열린다. 세력 하나 또는 손 설계 묶음을 끝까지 그린 뒤 다음으로.
+
+## 6. 화풍 비교 탭에 올리기 (등록 아님)
+
+화풍 비교 그림은 도감 그림이 아니다 — `img/` · `data/img.json` 에 넣지 않고, 화풍 탭(`styles.html`)의 묶음으로만 올린다(2026-11-07 사용자 「화풍탭에 … 추가되게」).
+
+- 묶음 열쇠는 하나를 먼저 정해 세션 모두에게 같이 준다(`python3 tools/style-compare.py next` — 날짜, 같은 날 또 있으면 날짜-2 · 날짜-3). 세션이 세계 하나씩(무협 · 판타지 · 메카) 나눠 그려도 **같은 열쇠**로 올리면 한 묶음에 합쳐진다. 한 묶음은 장수 하나.
+- 세션마다 제 몫만:
+  ```
+  python3 tools/style-compare.py put <열쇠> --card <장수> --style <화풍 열쇠> --world <samguk|fantasy|mecha> \
+      --world-img <세계 그림> --casual-img <근접 일상컷> [--casual-note "<일상컷 장면 한 줄>"] [--note "<화풍 한 줄 소감>"]
+  ```
+  화풍마다 한 번씩. webp + thumb 를 그림 저장소 `style-test/compare/<열쇠>/` 에 넣고 `data/style-compare.json` 의 묶음을 맞춘다. 이미 있는 파일은 덮어쓰지 않는다(일부러 바꿀 때만 `--replace`).
+- 올리기: 그림 저장소(`sam-atelier-img`) 먼저 커밋 · `git pull --rebase` · 푸시, 그다음 코드 저장소(`data/style-compare.json`).
+  다른 세션과 목록 파일이 부딪치면 `git checkout --theirs data/style-compare.json && python3 tools/style-compare.py sync <열쇠>` 뒤 `git add` · `git rebase --continue` — 폴더의 파일로 목록을 다시 맞춘다.
+- 아직 안 올린 세계는 화면에 「그림 없음」 칸으로 뜬다. `python3 tools/style-compare.py check` 가 겹침 · 빠진 목록을 본다.

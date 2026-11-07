@@ -18,7 +18,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
 <link rel="stylesheet" href="lib/workspace.css?v=5">
 <script src="lib/workspace-theme.js?v=2"></script>
-<script src="lib/words.js?v=8"></script>
+<script src="lib/words.js?v=9"></script>
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/sam.css?v=7">
@@ -85,7 +85,7 @@ function App(){
   const kindLabel=(k,w)=>k==='casual'?W('styles.kind.casual')+' — '+(r.casual[w]||''):W('styles.kind.'+k);
   const open=(list,i)=>()=>setBox({list,i});
   const bar=h('div',{class:'sc-bar'},
-    rounds.length>1?h('label',{class:'grp'},h('span',{class:'sc-lab'},W('styles.round')),h('select',{value:r.key,onChange:e=>{ setRk(e.currentTarget.value); setBox(null); }},rounds.map(x=>h('option',{key:x.key,value:x.key},W('styles.round.item',{key:x.key,card:x.card,title:x.title||''}))))):null,
+    rounds.length>1?h('label',{class:'grp'},h('span',{class:'sc-lab'},W('styles.round')),h('select',{value:r.key,onChange:e=>{ setRk(e.currentTarget.value); setBox(null); }},rounds.map(x=>h('option',{key:x.key,value:x.key},x.title?W('styles.round.item',{key:x.key,card:x.card,title:x.title}):W('styles.round.short',{key:x.key,card:x.card}))))):null,
     h('div',{class:'grp',role:'group','aria-label':W('styles.view')},['style','world'].map(v=>h('button',{type:'button','aria-pressed':String(view===v),onClick:()=>setView(v)},W('styles.view.'+v)))),
     view==='world'?h('div',{class:'grp',role:'group','aria-label':W('styles.world')},WORLDS.map(w=>h('button',{type:'button','aria-pressed':String(wsel===w),onClick:()=>setWsel(w)},W('world.'+w)))):null,
     h('div',{class:'grp',role:'group','aria-label':W('styles.kind')},KINDS.map(k=>h('button',{type:'button','aria-pressed':String(kinds.includes(k)),onClick:()=>toggleKind(k)},W('styles.kind.'+k)))));

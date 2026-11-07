@@ -13,6 +13,7 @@ for r in d['rounds']:
 img = os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')
 if os.path.isdir(img):
     subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'style-compare.py'), 'check', img], check=True)
+    # 세션마다 세계 하나씩 — 빈 칸은 괜찮다(--strict 아님)
     nk = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'style-compare.py'), 'next', keys[0][:10]], check=True, capture_output=True, text=True).stdout.strip()
     assert nk not in keys and nk.startswith(keys[0][:10] + '-'), nk
 print('PASS 화풍 비교 묶음: ' + str(len(keys)))
