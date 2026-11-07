@@ -165,16 +165,17 @@ const P = ctx0.window.AtelierPrompt;
     assert.deepEqual(v.errors, [], '도감 콘솔'); checks += 7; await v.ctx.close();
 
     /* ── 화풍 비교(2026-11-07 「네비게이션바에 화풍탭을 추가해서 비교하기 쉽게」) — 항해에 화풍 탭, 화풍별 · 세계별 보기, 크게 보기 ── */
-    { const W = ctx0.window.W, SC = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/style-compare.json'), 'utf8')), n = SC.rounds[0].styles.length;
+    { const W = ctx0.window.W, SC = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/style-compare.json'), 'utf8')), R0 = SC.rounds.slice().sort((a, b) => a.key < b.key ? 1 : -1)[0], n = R0.styles.length, nk = (R0.kinds || ['world', 'casual']).length;   /* 화면은 최신 묶음을 연다 */
       const sv = await open('/styles.html', vp);
       await sv.page.waitForSelector('.sc-cell');
       assert.equal(await sv.page.locator('.workspace-nav a[aria-current="page"]').getAttribute('href'), 'styles.html', '화풍 탭');
       assert.equal(await sv.page.locator('.sc-style').count(), n, '화풍마다 한 칸');
-      assert.equal(await sv.page.locator('.sc-cell').count(), n * 3 * 2, '세계 셋 × 세계 그림 · 일상컷');
+      assert.equal(await sv.page.locator('.sc-cell').count(), n * 3 * nk, '세계 셋 × 묶음의 갈래');
       await sv.page.click('.sc-bar button:has-text("' + W('styles.view.world') + '")');
-      assert.equal(await sv.page.locator('.sc-cell').count(), n * 2, '세계별 — 화풍이 한 줄로');
-      await sv.page.click('.sc-bar button:has-text("' + W('styles.kind.old') + '")');
-      assert.equal(await sv.page.locator('.sc-cell').count(), n * 3, '예전 줄 — 없는 화풍은 빈 칸');
+      assert.equal(await sv.page.locator('.sc-cell').count(), n * nk, '세계별 — 화풍이 한 줄로');
+      if (R0.styles.some(x => x.old)) { await sv.page.click('.sc-bar button:has-text("' + W('styles.kind.old') + '")');
+        assert.equal(await sv.page.locator('.sc-cell').count(), n * (nk + 1), '예전 줄 — 없는 화풍은 빈 칸'); }
+      if (SC.rounds.length > 1) assert.equal(await sv.page.locator('.sc-bar select option').count(), SC.rounds.length, '묶음 고르개');
       await sv.page.locator('.sc-cell button').first().click();
       assert(await sv.page.locator('.lightbox').isVisible(), '크게 보기'); await sv.page.keyboard.press('Escape');
       assert.match(sv.page.url(), /view=world/);
