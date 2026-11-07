@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 화풍 비교 — 묶음을 쌓기(덮어쓰기 없음)
+- 사용자 「화풍탭에 이미지 올리면 덮어씌워지나? 아님 추가되나?」 → 「응 추가되게 바꿔주는데 날짜 겹치는건 어떻게돼?」 — 그림을 묶음 폴더로(sam-atelier-img style-test/compare/2026-11-07/). 묶음 열쇠는 날짜, 같은 날 또 올리면 날짜-2 · 날짜-3 …
+- tools/style-compare.py — next [날짜](목록 · 그림 저장소 폴더 둘 다 보고 다음 빈 열쇠) · check(열쇠 꼴 · 겹침 · 묶음마다 화풍 × 세계 × 갈래 파일과 thumb).
+- styles.html — 묶음이 둘 이상이면 위에 고르개(최신이 맨 위 · 기본), 주소 ?r=. 검사 tests/style-compare.py.
+
 ## 2026-11-07 · claude · 화풍 비교 탭 — styles.html
 - 사용자 「각 이미지 공방에 네비게이션바에 화풍탭을 추가해서 비교하기 쉽게 올려줄래?」 — 머리 항해에 「화풍」(lib/workspace-ui.js PAGES, 도감 다음). styles.html — 조조를 화풍 일곱(2.3D 기본 · 기준 판 · 프로모 · 일본 리얼 CG · 일본 유화풍 · 게임 키아트 · 한국형 글로시)으로 세계 그림 셋 + 근접 일상컷, 예전 등록 그림 줄. 보기 화풍별 · 세계별, 갈래(세계 그림 · 근접 일상컷 · 예전 그림), 크게 보기, 주소 ?view=&w=&kind=.
 - 그림 42장은 sam-atelier-img style-test/compare/(webp + thumb) — 등록 그림이 아니라 img.json · 도감 · 등록 워크플로와 무관. 목록 data/style-compare.json(rounds — 다음 비교 묶음은 여기에 더한다).

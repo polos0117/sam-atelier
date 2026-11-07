@@ -10,14 +10,15 @@
      같은 장수를 화풍마다 세 세계 그림 + 그 그림을 붙인 근접 일상컷으로 나란히 본다. 목록은 data/style-compare.json,
      그림은 그림 저장소 style-test/compare/(등록 그림 아님 — 도감에는 안 뜬다), 예전 줄은 등록된 그림(img/).
      보기 둘: 화풍별(화풍 하나에 세계 셋 — 세계 그림 · 일상컷 · 예전) · 세계별(세계 하나에 화풍 일곱이 한 줄로).
-     주소 ?view=&w=&kind= 로 다시 연다. 누르면 크게 — 같은 줄 안에서 ← → 로 넘긴다. -->
+     묶음(rounds)은 더하기만 한다 — 그림은 style-test/compare/<묶음 열쇠>/, 열쇠는 날짜(같은 날 또 올리면 날짜-2 …, tools/style-compare.py next). 위의 고르개로 묶음을 고르고 기본은 최신.
+     주소 ?r=&view=&w=&kind= 로 다시 연다. 누르면 크게 — 같은 줄 안에서 ← → 로 넘긴다. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
 <link rel="stylesheet" href="lib/workspace.css?v=5">
 <script src="lib/workspace-theme.js?v=2"></script>
-<script src="lib/words.js?v=7"></script>
+<script src="lib/words.js?v=8"></script>
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/sam.css?v=7">
@@ -28,6 +29,8 @@
 .sc-bar {position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 0;margin:0 0 12px;background:var(--card);border-bottom:1px solid var(--line)}
 .sc-bar .grp {display:flex;gap:4px;flex-wrap:wrap;margin-right:8px}
 .sc-bar button {min-height:36px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--text);font:inherit;font-size:13px;cursor:pointer}
+.sc-bar select {min-height:36px;max-width:100%;font:inherit;font-size:13px;padding:4px 8px}
+.sc-lab {font-size:13px;color:var(--muted);margin-right:4px}
 .sc-bar button[aria-pressed="true"] {background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .sc-style {margin:0 0 28px}
 .sc-style h2 {display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0 0 4px;font-size:18px}
@@ -54,10 +57,10 @@ import {useState,useEffect} from 'https://esm.sh/preact@10.24.3/hooks';
 import {WorkspaceHeader} from './lib/workspace-ui.js?v=4';
 const W=window.W, WORLDS=['samguk','fantasy','mecha'], KINDS=['world','casual','old'];
 const q=k=>{ try { return new URLSearchParams(location.search).get(k); } catch(e){ return null; } };
-function urlOf(d,s,w,kind){
+function urlOf(d,r,s,w,kind){
   if(kind==='old') return s.old&&s.old[w] ? {full:d.oldBase+s.old[w], thumb:d.oldBase+'thumb/'+s.old[w]} : null;
-  const f=s.key+'_'+w+'_'+kind+'.webp';
-  return {full:d.base+f, thumb:d.base+'thumb/'+f};
+  const f=s.key+'_'+w+'_'+kind+'.webp', b=d.base+encodeURIComponent(r.key)+'/';
+  return {full:b+f, thumb:b+'thumb/'+f};
 }
 function Cell({u,label,open}){
   if(!u) return h('figure',{class:'sc-cell'},h('div',{class:'sc-empty'},W('styles.none')),h('figcaption',null,label));
@@ -70,18 +73,19 @@ function App(){
   const [view,setView]=useState(q('view')==='world'?'world':'style');
   const [wsel,setWsel]=useState(WORLDS.includes(q('w'))?q('w'):'samguk');
   const [kinds,setKinds]=useState(()=>{ const k=(q('kind')||'').split(',').filter(x=>KINDS.includes(x)); return k.length?k:['world','casual']; });
-  const [box,setBox]=useState(null);
+  const [box,setBox]=useState(null), [rk,setRk]=useState(q('r')||'');
   useEffect(()=>{ fetch('data/style-compare.json',{cache:'no-cache'}).then(r=>r.json()).then(setD).catch(e=>setErr(e.message)); },[]);
-  useEffect(()=>{ try { const u=new URL(location.href); u.searchParams.set('view',view); u.searchParams.set('w',wsel); u.searchParams.set('kind',kinds.join(',')); history.replaceState(null,'',u); } catch(e){} },[view,wsel,kinds]);
+  useEffect(()=>{ try { const u=new URL(location.href); u.searchParams.set('view',view); u.searchParams.set('w',wsel); u.searchParams.set('kind',kinds.join(',')); if(rk) u.searchParams.set('r',rk); history.replaceState(null,'',u); } catch(e){} },[view,wsel,kinds,rk]);
   useEffect(()=>{ if(!box) return; const k=e=>{ if(e.key==='Escape') setBox(null); if(e.key==='ArrowRight') step(1); if(e.key==='ArrowLeft') step(-1); }; addEventListener('keydown',k); return ()=>removeEventListener('keydown',k); },[box]);
   function step(n){ setBox(b=>b?{...b,i:(b.i+n+b.list.length)%b.list.length}:b); }
   if(err) return h('p',{class:'sc-lede'},W('styles.fail',{what:err}));
   if(!d) return h('p',{class:'sc-lede'},W('styles.loading'));
-  const r=d.rounds[0];
+  const rounds=d.rounds.slice().sort((a,b)=>a.key<b.key?1:a.key>b.key?-1:0), r=rounds.find(x=>x.key===rk)||rounds[0];
   const toggleKind=k=>setKinds(ks=>ks.includes(k)?(ks.length>1?ks.filter(x=>x!==k):ks):KINDS.filter(x=>ks.includes(x)||x===k));
   const kindLabel=(k,w)=>k==='casual'?W('styles.kind.casual')+' — '+(r.casual[w]||''):W('styles.kind.'+k);
   const open=(list,i)=>()=>setBox({list,i});
   const bar=h('div',{class:'sc-bar'},
+    rounds.length>1?h('label',{class:'grp'},h('span',{class:'sc-lab'},W('styles.round')),h('select',{value:r.key,onChange:e=>{ setRk(e.currentTarget.value); setBox(null); }},rounds.map(x=>h('option',{key:x.key,value:x.key},W('styles.round.item',{key:x.key,card:x.card,title:x.title||''}))))):null,
     h('div',{class:'grp',role:'group','aria-label':W('styles.view')},['style','world'].map(v=>h('button',{type:'button','aria-pressed':String(view===v),onClick:()=>setView(v)},W('styles.view.'+v)))),
     view==='world'?h('div',{class:'grp',role:'group','aria-label':W('styles.world')},WORLDS.map(w=>h('button',{type:'button','aria-pressed':String(wsel===w),onClick:()=>setWsel(w)},W('world.'+w)))):null,
     h('div',{class:'grp',role:'group','aria-label':W('styles.kind')},KINDS.map(k=>h('button',{type:'button','aria-pressed':String(kinds.includes(k)),onClick:()=>toggleKind(k)},W('styles.kind.'+k)))));
@@ -90,13 +94,13 @@ function App(){
     body=r.styles.map(s=>h('section',{class:'sc-style',key:s.key,id:s.key},
       h('h2',null,s.name,s.default?h('span',{class:'def'},W('styles.default')):null,h('small',null,s.key)),
       h('p',{class:'sc-note'},s.note),
-      kinds.map(k=>{ const list=WORLDS.map(w=>({u:urlOf(d,s,w,k),label:s.name+' · '+W('world.'+w)+' · '+kindLabel(k,w)})).filter(x=>x.u);
+      kinds.map(k=>{ const list=WORLDS.map(w=>({u:urlOf(d,r,s,w,k),label:s.name+' · '+W('world.'+w)+' · '+kindLabel(k,w)})).filter(x=>x.u);
         return h('div',{class:'sc-row',key:k},h('h3',null,W('styles.kind.'+k)),
-          h('div',{class:'sc-grid'},WORLDS.map(w=>{ const u=urlOf(d,s,w,k), lab=W('world.'+w); return h(Cell,{key:w,u,label:lab,open:open(list,list.findIndex(x=>x.u&&u&&x.u.full===u.full))}); }))); })));
+          h('div',{class:'sc-grid'},WORLDS.map(w=>{ const u=urlOf(d,r,s,w,k), lab=W('world.'+w); return h(Cell,{key:w,u,label:lab,open:open(list,list.findIndex(x=>x.u&&u&&x.u.full===u.full))}); }))); })));
   } else {
-    body=kinds.map(k=>{ const list=r.styles.map(s=>({u:urlOf(d,s,wsel,k),label:s.name+' · '+W('world.'+wsel)+' · '+kindLabel(k,wsel)})).filter(x=>x.u);
+    body=kinds.map(k=>{ const list=r.styles.map(s=>({u:urlOf(d,r,s,wsel,k),label:s.name+' · '+W('world.'+wsel)+' · '+kindLabel(k,wsel)})).filter(x=>x.u);
       return h('section',{class:'sc-style',key:k},h('h2',null,W('world.'+wsel)+' · '+kindLabel(k,wsel)),
-        h('div',{class:'sc-grid many'},r.styles.map(s=>{ const u=urlOf(d,s,wsel,k); return h(Cell,{key:s.key,u,label:s.name,open:open(list,list.findIndex(x=>x.u&&u&&x.u.full===u.full))}); }))); });
+        h('div',{class:'sc-grid many'},r.styles.map(s=>{ const u=urlOf(d,r,s,wsel,k); return h(Cell,{key:s.key,u,label:s.name,open:open(list,list.findIndex(x=>x.u&&u&&x.u.full===u.full))}); }))); });
   }
   const cur=box&&box.list[box.i];
   return h('div',{class:'sc-wrap'},
