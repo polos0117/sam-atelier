@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · gpt · 조조 판타지 화풍 비교 원거리 8장 추가
+- data/style-compare.json — 2026-11-07-2 묶음의 fantasy 칸에 8개 화풍별 기존 원거리 일상컷을 tools/style-compare.py put --far-img로 추가. 등불 축제 거리 전신 장면과 하단 화풍 표기를 유지하고 원거리 설명을 연결. 도감 등록 없이 비교 탭에만 표시.
+
 ## 2026-11-07 · gpt · 조조 무협 화풍 비교 원거리 8장 추가
 - data/style-compare.json — 2026-11-07-2 묶음의 samguk 칸에 8개 화풍별 기존 원거리 일상컷을 tools/style-compare.py put --far-img로 추가. 등불 축제 거리의 전신 컷과 하단 화풍 표기를 유지하고, far 갈래와 장면 설명을 연결. 도감 등록 없이 비교 탭에만 표시.
 
