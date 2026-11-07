@@ -77,9 +77,10 @@
 - 세션마다 제 몫만:
   ```
   python3 tools/style-compare.py put <열쇠> --card <장수> --style <화풍 열쇠> --world <samguk|fantasy|mecha> \
-      --world-img <세계 그림> --casual-img <근접 일상컷> [--casual-note "<일상컷 장면 한 줄>"] [--note "<화풍 한 줄 소감>"]
+      --world-img <세계 그림> --casual-img <근접 일상컷> --far-img <원거리 일상컷> \
+      [--casual-note "<근접 장면 한 줄>"] [--far-note "<원거리 장면 한 줄>"] [--note "<화풍 한 줄 소감>"]
   ```
-  화풍마다 한 번씩. webp + thumb 를 그림 저장소 `style-test/compare/<열쇠>/` 에 넣고 `data/style-compare.json` 의 묶음을 맞춘다. 이미 있는 파일은 덮어쓰지 않는다(일부러 바꿀 때만 `--replace`).
+  화풍마다 한 번씩(그림은 있는 것만 — 세 갈래 가운데 하나만 있어도 된다). webp + thumb 를 그림 저장소 `style-test/compare/<열쇠>/` 에 넣고 `data/style-compare.json` 의 묶음을 맞춘다. 이미 있는 파일은 덮어쓰지 않는다(일부러 바꿀 때만 `--replace`).
 - 올리기: 그림 저장소(`sam-atelier-img`) 먼저 커밋 · `git pull --rebase` · 푸시, 그다음 코드 저장소(`data/style-compare.json`).
   다른 세션과 목록 파일이 부딪치면 `git checkout --theirs data/style-compare.json && python3 tools/style-compare.py sync <열쇠>` 뒤 `git add` · `git rebase --continue` — 폴더의 파일로 목록을 다시 맞춘다.
 - 아직 안 올린 세계는 화면에 「그림 없음」 칸으로 뜬다. `python3 tools/style-compare.py check` 가 겹침 · 빠진 목록을 본다.

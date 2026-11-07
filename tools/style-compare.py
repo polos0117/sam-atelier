@@ -7,7 +7,8 @@
       세션 여럿이 한 묶음을 나눠 그릴 때는 열쇠를 먼저 하나 정해 모두에게 같이 준다.
 
   python3 tools/style-compare.py put <열쇠> --card <장수> --style <화풍> --world <samguk|fantasy|mecha>
-          [--world-img <세계 그림 png/webp>] [--casual-img <근접 일상컷 png/webp>] [--casual-note <일상컷 장면 한 줄>] [--note <화풍 한 줄>]
+          [--world-img <세계 그림>] [--casual-img <근접 일상컷>] [--far-img <원거리 일상컷>]
+          [--casual-note <근접 장면 한 줄>] [--far-note <원거리 장면 한 줄>] [--note <화풍 한 줄>]
       그림을 webp(+ thumb)로 그림 저장소 style-test/compare/<열쇠>/ 에 넣고 목록의 그 묶음을 맞춘다(없으면 만든다).
       같은 파일이 이미 있으면 멈춘다(덮어쓰지 않음 — 일부러 바꿀 때만 --replace).
 
@@ -23,7 +24,7 @@ import json, os, re, sys, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data', 'style-compare.json')
 IMG = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')   # 검사용 — 다른 자리 그림 저장소
-WORLDS, KINDS = ['samguk', 'fantasy', 'mecha'], ['world', 'casual']
+WORLDS, KINDS = ['samguk', 'fantasy', 'mecha'], ['world', 'casual', 'far']   # casual = 근접 일상컷, far = 원거리 일상컷(2026-11-07 「원거리 일상컷도 있는데」)
 KEY_RE = r'\d{4}-\d{2}-\d{2}(-\d+)?'
 STYLE_ORDER = None
 
@@ -70,7 +71,7 @@ def files_in(key, img=IMG):
     if not os.path.isdir(d):
         return out
     for f in os.listdir(d):
-        m = re.fullmatch(r'(.+)_(samguk|fantasy|mecha)_(world|casual)\.webp', f)
+        m = re.fullmatch(r'(.+)_(samguk|fantasy|mecha)_(world|casual|far)\.webp', f)
         if m:
             out.setdefault(m.group(1), set()).add((m.group(2), m.group(3)))
     return out
@@ -80,7 +81,7 @@ def round_of(d, key, card=None):
     for r in d['rounds']:
         if r['key'] == key:
             return r
-    r = {'key': key, 'date': key[:10], 'card': card or '', 'model': 'gpt-image-2.6', 'title': '', 'casual': {}, 'styles': []}
+    r = {'key': key, 'date': key[:10], 'card': card or '', 'model': 'gpt-image-2.6', 'title': '', 'kinds': [], 'casual': {}, 'far': {}, 'styles': []}
     d['rounds'].append(r)
     return r
 
@@ -93,6 +94,8 @@ def sync_round(d, key, img=IMG):
     old = {s['key']: s for s in r['styles']}
     order = list(S['styles'].keys())
     keys = sorted(set(old) | set(have), key=lambda k: order.index(k) if k in order else 999)
+    got = {kind for v in have.values() for _, kind in v} | set(r.get('kinds') or [])
+    r['kinds'] = [k for k in KINDS if k in got]   # 이 묶음에 있는 갈래 — 화면은 이것만 단추로 보인다
     r['styles'] = [{'key': k, 'name': (S['styles'].get(k) or {}).get('name', k), 'default': k == S['default'],
                     'note': (old.get(k) or {}).get('note', ''), 'old': (old.get(k) or {}).get('old')} for k in keys]
     return r
@@ -125,7 +128,7 @@ def put(a):
         sys.exit('세계는 samguk · fantasy · mecha')
     pics = [(k, opt.get(k + '_img')) for k in KINDS if opt.get(k + '_img')]
     if not pics:
-        sys.exit('--world-img 나 --casual-img 가 하나는 있어야 한다')
+        sys.exit('--world-img · --casual-img · --far-img 가운데 하나는 있어야 한다')
     d = load()
     r = round_of(d, key, opt.get('card'))
     if opt.get('card') and r.get('card') and r['card'] != opt['card']:
@@ -142,6 +145,8 @@ def put(a):
         print('넣음', f'style-test/compare/{key}/{name}')
     if opt.get('casual_note'):
         r.setdefault('casual', {})[w] = opt['casual_note']
+    if opt.get('far_note'):
+        r.setdefault('far', {})[w] = opt['far_note']
     sync_round(d, key)
     if opt.get('note'):
         for s in r['styles']:
@@ -165,7 +170,7 @@ def check(img, strict):
             if not have.get(s['key']):
                 errs.append(f'{k}: 목록의 화풍 {s["key"]} 그림이 하나도 없다')
             for w in WORLDS:
-                for kind in KINDS:
+                for kind in (r.get('kinds') or KINDS):
                     f = f"{s['key']}_{w}_{kind}.webp"
                     for sub in ('', 'thumb/'):
                         if not os.path.exists(os.path.join(folder(k, img), sub + f)):

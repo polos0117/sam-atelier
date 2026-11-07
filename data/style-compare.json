@@ -16,14 +16,28 @@
    },
    "styles": [
     {
-     "key": "kv_kmmo_23d",
-     "name": "한국 MMORPG 2.3D",
-     "default": true,
-     "note": "지금 기본 화풍. 예전 그림과 거의 같게 다시 나온다.",
+     "key": "game_keyart",
+     "name": "게임 키아트 2.5D",
+     "default": false,
+     "note": "애니 얼굴에 선명한 2.5D 프로모 느낌. 예전 그림 없음.",
+     "old": null
+    },
+    {
+     "key": "glossy_kr_game",
+     "name": "한국형 글로시 게임 일러스트",
+     "default": false,
+     "note": "광택이 강하고 화사한 MMORPG 일러스트. 예전 그림 없음.",
+     "old": null
+    },
+    {
+     "key": "kr_mmorpg",
+     "name": "한국 MMORPG 프로모",
+     "default": false,
+     "note": "예전 줄 = API 2.5 로 뽑은 원본. 지금 모델에서도 어둡고 묵직한 남색 · 깃발 · 잔이 2.5 쪽에 가깝다.",
      "old": {
-      "samguk": "조조_samguk_kv_kmmo_23d_f.webp",
-      "fantasy": "조조_fantasy_kv_kmmo_23d_f.webp",
-      "mecha": "조조_mecha_kv_kmmo_23d_f.webp"
+      "samguk": "조조_samguk_kr_mmorpg_f.webp",
+      "fantasy": "조조_fantasy_kr_mmorpg_f.webp",
+      "mecha": "조조_mecha_kr_mmorpg_f.webp"
      }
     },
     {
@@ -38,14 +52,14 @@
      }
     },
     {
-     "key": "kr_mmorpg",
-     "name": "한국 MMORPG 프로모",
-     "default": false,
-     "note": "예전 줄 = API 2.5 로 뽑은 원본. 지금 모델에서도 어둡고 묵직한 남색 · 깃발 · 잔이 2.5 쪽에 가깝다.",
+     "key": "kv_kmmo_23d",
+     "name": "한국 MMORPG 2.3D",
+     "default": true,
+     "note": "지금 기본 화풍. 예전 그림과 거의 같게 다시 나온다.",
      "old": {
-      "samguk": "조조_samguk_kr_mmorpg_f.webp",
-      "fantasy": "조조_fantasy_kr_mmorpg_f.webp",
-      "mecha": "조조_mecha_kr_mmorpg_f.webp"
+      "samguk": "조조_samguk_kv_kmmo_23d_f.webp",
+      "fantasy": "조조_fantasy_kv_kmmo_23d_f.webp",
+      "mecha": "조조_mecha_kv_kmmo_23d_f.webp"
      }
     },
     {
@@ -61,23 +75,14 @@
      "default": false,
      "note": "붓 터치가 보이는 유화 채색, 차분한 남보라 톤.",
      "old": null
-    },
-    {
-     "key": "game_keyart",
-     "name": "게임 키아트 2.5D",
-     "default": false,
-     "note": "애니 얼굴에 선명한 2.5D 프로모 느낌. 예전 그림 없음.",
-     "old": null
-    },
-    {
-     "key": "glossy_kr_game",
-     "name": "한국형 글로시 게임 일러스트",
-     "default": false,
-     "note": "광택이 강하고 화사한 MMORPG 일러스트. 예전 그림 없음.",
-     "old": null
     }
    ],
-   "title": "조조 — 화풍 일곱 다시 뽑기(모델 안정화 뒤)"
+   "title": "조조 — 화풍 일곱 다시 뽑기(모델 안정화 뒤)",
+   "far": {},
+   "kinds": [
+    "world",
+    "casual"
+   ]
   },
   {
    "key": "2026-11-07-2",
@@ -146,6 +151,11 @@
      "note": "",
      "old": null
     }
+   ],
+   "far": {},
+   "kinds": [
+    "world",
+    "casual"
    ]
   }
  ]

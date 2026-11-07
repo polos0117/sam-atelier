@@ -18,7 +18,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
 <link rel="stylesheet" href="lib/workspace.css?v=5">
 <script src="lib/workspace-theme.js?v=2"></script>
-<script src="lib/words.js?v=9"></script>
+<script src="lib/words.js?v=10"></script>
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/sam.css?v=7">
@@ -55,7 +55,7 @@
 import {h,render} from 'https://esm.sh/preact@10.24.3';
 import {useState,useEffect} from 'https://esm.sh/preact@10.24.3/hooks';
 import {WorkspaceHeader} from './lib/workspace-ui.js?v=4';
-const W=window.W, WORLDS=['samguk','fantasy','mecha'], KINDS=['world','casual','old'];
+const W=window.W, WORLDS=['samguk','fantasy','mecha'], KINDS=['world','casual','far','old'];   /* far = 원거리 일상컷(2026-11-07) — 묶음에 있는 갈래(r.kinds)만 단추로 */
 const q=k=>{ try { return new URLSearchParams(location.search).get(k); } catch(e){ return null; } };
 function urlOf(d,r,s,w,kind){
   if(kind==='old') return s.old&&s.old[w] ? {full:d.oldBase+s.old[w], thumb:d.oldBase+'thumb/'+s.old[w]} : null;
@@ -72,7 +72,7 @@ function App(){
   const [d,setD]=useState(null), [err,setErr]=useState('');
   const [view,setView]=useState(q('view')==='world'?'world':'style');
   const [wsel,setWsel]=useState(WORLDS.includes(q('w'))?q('w'):'samguk');
-  const [kinds,setKinds]=useState(()=>{ const k=(q('kind')||'').split(',').filter(x=>KINDS.includes(x)); return k.length?k:['world','casual']; });
+  const [kinds,setKinds]=useState(()=>{ const k=(q('kind')||'').split(',').filter(x=>KINDS.includes(x)); return k.length?k:['world','casual','far']; });
   const [box,setBox]=useState(null), [rk,setRk]=useState(q('r')||'');
   useEffect(()=>{ fetch('data/style-compare.json',{cache:'no-cache'}).then(r=>r.json()).then(setD).catch(e=>setErr(e.message)); },[]);
   useEffect(()=>{ try { const u=new URL(location.href); u.searchParams.set('view',view); u.searchParams.set('w',wsel); u.searchParams.set('kind',kinds.join(',')); if(rk) u.searchParams.set('r',rk); history.replaceState(null,'',u); } catch(e){} },[view,wsel,kinds,rk]);
@@ -81,24 +81,25 @@ function App(){
   if(err) return h('p',{class:'sc-lede'},W('styles.fail',{what:err}));
   if(!d) return h('p',{class:'sc-lede'},W('styles.loading'));
   const rounds=d.rounds.slice().sort((a,b)=>a.key<b.key?1:a.key>b.key?-1:0), r=rounds.find(x=>x.key===rk)||rounds[0];
+  const avail=KINDS.filter(k=>k==='old'?r.styles.some(s=>s.old):(r.kinds||['world','casual']).includes(k)), shown=kinds.filter(k=>avail.includes(k)), kv=shown.length?shown:avail.slice(0,1);
   const toggleKind=k=>setKinds(ks=>ks.includes(k)?(ks.length>1?ks.filter(x=>x!==k):ks):KINDS.filter(x=>ks.includes(x)||x===k));
-  const kindLabel=(k,w)=>k==='casual'?W('styles.kind.casual')+' — '+(r.casual[w]||''):W('styles.kind.'+k);
+  const kindLabel=(k,w)=>(k==='casual'||k==='far')&&(r[k]||{})[w]?W('styles.kind.'+k)+' — '+r[k][w]:W('styles.kind.'+k);
   const open=(list,i)=>()=>setBox({list,i});
   const bar=h('div',{class:'sc-bar'},
     rounds.length>1?h('label',{class:'grp'},h('span',{class:'sc-lab'},W('styles.round')),h('select',{value:r.key,onChange:e=>{ setRk(e.currentTarget.value); setBox(null); }},rounds.map(x=>h('option',{key:x.key,value:x.key},x.title?W('styles.round.item',{key:x.key,card:x.card,title:x.title}):W('styles.round.short',{key:x.key,card:x.card}))))):null,
     h('div',{class:'grp',role:'group','aria-label':W('styles.view')},['style','world'].map(v=>h('button',{type:'button','aria-pressed':String(view===v),onClick:()=>setView(v)},W('styles.view.'+v)))),
     view==='world'?h('div',{class:'grp',role:'group','aria-label':W('styles.world')},WORLDS.map(w=>h('button',{type:'button','aria-pressed':String(wsel===w),onClick:()=>setWsel(w)},W('world.'+w)))):null,
-    h('div',{class:'grp',role:'group','aria-label':W('styles.kind')},KINDS.map(k=>h('button',{type:'button','aria-pressed':String(kinds.includes(k)),onClick:()=>toggleKind(k)},W('styles.kind.'+k)))));
+    h('div',{class:'grp',role:'group','aria-label':W('styles.kind')},avail.map(k=>h('button',{type:'button','aria-pressed':String(kv.includes(k)),onClick:()=>toggleKind(k)},W('styles.kind.'+k)))));
   let body;
   if(view==='style'){
     body=r.styles.map(s=>h('section',{class:'sc-style',key:s.key,id:s.key},
       h('h2',null,s.name,s.default?h('span',{class:'def'},W('styles.default')):null,h('small',null,s.key)),
       h('p',{class:'sc-note'},s.note),
-      kinds.map(k=>{ const list=WORLDS.map(w=>({u:urlOf(d,r,s,w,k),label:s.name+' · '+W('world.'+w)+' · '+kindLabel(k,w)})).filter(x=>x.u);
+      kv.map(k=>{ const list=WORLDS.map(w=>({u:urlOf(d,r,s,w,k),label:s.name+' · '+W('world.'+w)+' · '+kindLabel(k,w)})).filter(x=>x.u);
         return h('div',{class:'sc-row',key:k},h('h3',null,W('styles.kind.'+k)),
           h('div',{class:'sc-grid'},WORLDS.map(w=>{ const u=urlOf(d,r,s,w,k), lab=W('world.'+w); return h(Cell,{key:w,u,label:lab,open:open(list,list.findIndex(x=>x.u&&u&&x.u.full===u.full))}); }))); })));
   } else {
-    body=kinds.map(k=>{ const list=r.styles.map(s=>({u:urlOf(d,r,s,wsel,k),label:s.name+' · '+W('world.'+wsel)+' · '+kindLabel(k,wsel)})).filter(x=>x.u);
+    body=kv.map(k=>{ const list=r.styles.map(s=>({u:urlOf(d,r,s,wsel,k),label:s.name+' · '+W('world.'+wsel)+' · '+kindLabel(k,wsel)})).filter(x=>x.u);
       return h('section',{class:'sc-style',key:k},h('h2',null,W('world.'+wsel)+' · '+kindLabel(k,wsel)),
         h('div',{class:'sc-grid many'},r.styles.map(s=>{ const u=urlOf(d,r,s,wsel,k); return h(Cell,{key:s.key,u,label:s.name,open:open(list,list.findIndex(x=>x.u&&u&&x.u.full===u.full))}); }))); });
   }
