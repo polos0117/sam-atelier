@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 한국 MMORPG 프로모 v5 — 일상컷 묶음
+- 사용자 「mmorpg 프로모에 일상컷 규칙을 지금 처럼 추가해서 테스트 이미지 만들어줘」 — kr_mmorpg v5 = v4 + casualKit(kv_cgi_hikey 와 같은 꼴): STYLE 은 이 화풍 일상컷 글의 렌더링만(몸 · 조명 · 번들거림 말 빼고), FACE 끝에 설계 얼굴, SKIN 설계 피부색 칸, LIGHT 하이키. 세계 그림 지시문은 v4 와 글자 하나 같다.
+- 시험 — 사마의 프로모 세계 그림 셋에 근접 · 원거리 여섯(화풍 비교 2026-11-08-2 와 같은 장면).
+
 ## 2026-11-08 · claude · kv_cgi_hikey 일상컷 묶음(casualKit)
 - 사용자 「skin,light는 바꿔주고, style은 지시문 쪽, 얼굴묘사는 지시문 쪽인데 원래 케릭터의 설계 외형으로. body line은 지금 공방 유지」 — 화풍 판에 casualKit(style · face · skin · light)이 있으면 일상컷이: STYLE 은 「첨부 그림 그대로」 대신 그 화풍 글, FACE 줄은 피부결 금지 문장을 빼고 끝에 설계 얼굴(얼굴 목록 · 눈 색 · 인상 — kvLook, 세계 그림 2절과 같은 글), SKIN 은 설계 피부색 칸, LIGHT 는 하이키(앞 보조광 · 장면 빛의 절제된 림 · 피부 물들지 않게 · 얕은 심도).
 - BODY LINE · 노출 · 장면 · 손 줄은 그대로, 고른 광택 단계는 SKIN 뒤에. 지금은 kv_cgi_hikey 만 casualKit — 다른 화풍 일상컷은 그대로(검사로 확인). 검사 prompt-v2.

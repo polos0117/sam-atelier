@@ -40,7 +40,7 @@
   },
   "kr_mmorpg": {
    "name": "한국 MMORPG 프로모",
-   "current": "v4",
+   "current": "v5",
    "versions": [
     {
      "v": "v1",
@@ -142,6 +142,35 @@
       "v3 — 「elegant elongated proportions」 를 「긴 다리 · 가는 허리 위에 가슴 · 골반 · 허벅지의 둥근 볼륨」 으로(체형은 설계표 SILHOUETTE 가 쥔다)",
       "v4 — 볼륨은 가슴에만 두고 골반 · 허벅지는 「어깨와 균형 맞는 현실적 비율, 긴 다리, 과장된 허벅지 · 골반 · 하체 쏠림 없게」 로 상한(GPT 세션이 「hips and thighs 볼륨 · never thin」 을 끝까지 키웠다, API 는 흘렸다)"
      ]
+    },
+    {
+     "v": "v5",
+     "adopted": "2026-11-08",
+     "by": "claude",
+     "text": "Premium Korean MMORPG promotional character render — an in-engine 3D character model with hand-painted textures, not flat cel shading and not a 2D anime illustration: semi-realistic volumetric forms, porcelain skin with a soft subsurface glow and glossy specular highlights, a small refined face with delicate realistic-anime features, long legs and a narrow waist on a full, curvaceous figure in the body type SILHOUETTE names — soft, rounded volume at the bust, and hips and thighs kept in realistic human proportion: long, shapely legs, never oversized thighs, exaggerated hips or a bottom-heavy figure; never thin, flat or boyishly straight. Polished metal, silk and gems catch sharp highlights. Extremely intricate ornamented costume — filigree metalwork, jewel inlays, layered translucent fabrics and fine embroidery. Character-select-screen lighting: strong rim light, soft key light on the face, drifting light particles, atmospheric depth with a softly blurred background. Luxurious, high-detail finish.",
+     "casual": "Premium Korean MMORPG promotional character render: a semi-realistic, painterly 3D finish with porcelain skin and a soft subsurface glow, a small refined face with delicate realistic-anime features, long legs and a narrow waist on a full, curvaceous figure with soft volume at the bust, and hips and thighs in realistic human proportion — long, shapely legs, never oversized thighs or exaggerated hips. Glossy specular highlights on skin, fabric and jewellery. Refined fabric and accessory rendering with fine jewellery detail. Ethereal rim lighting, drifting light particles and atmospheric depth with a softly blurred background. Luxurious, high-detail, character-select-screen quality.",
+     "lead": true,
+     "worlds": {
+      "samguk": {
+       "costume": "Martial-fantasy glamour: silk sashes and ribbons flowing in the wind, a sheer layered skirt, jade and gold jewellery at the hair and waist.",
+       "scene": "MOOD: bold martial-fantasy key art — high contrast, wind-swept silk and hair, drifting petals and embers, dynamic contrapposto."
+      },
+      "fantasy": {
+       "costume": "Celestial ornament: feather-and-gold wing-shaped ornaments at the shoulders or back, a translucent gauze overskirt, a jewelled circlet.",
+       "scene": "MOOD: serene celestial key art — pastel sky light, a soft halo of light behind her, floating golden light particles and drifting feathers."
+      },
+      "mecha": {
+       "scene": "MOOD: sleek sci-fi key art — clean reflective plates, glowing light lines, hovering light particles and a soft bloom."
+      }
+     },
+     "check": "semi-realistic Korean MMORPG promo render — porcelain skin, intricate filigree costume, rim light and particles; one figure, no readable text but a single banner character.",
+     "why": "v4 + 일상컷 묶음(casualKit) — 사용자 2026-11-08 「mmorpg 프로모에 일상컷 규칙을 지금 처럼 추가해서 테스트 이미지 만들어줘」. kv_cgi_hikey 와 같은 꼴: STYLE 은 이 화풍의 일상컷 글에서 렌더링만(몸 · 조명 · 번들거림 말은 빼고 — 몸은 BODY LINE, 조명 · 피부는 아래 칸), FACE 끝에 설계 얼굴, SKIN 은 설계 피부색 칸, LIGHT 는 하이키. 세계 그림 글(text)은 v4 그대로",
+     "casualKit": {
+      "style": "Premium Korean MMORPG promotional character render: a semi-realistic, painterly 3D finish with a soft subsurface glow on the skin and a small refined face with delicate realistic-anime features. Refined fabric and accessory rendering with fine jewellery detail; polished metal, silk and gems catch sharp highlights. Luxurious, high-detail, character-select-screen quality — the same rendering quality as the attached image. No visible outlines or flat cel shading.",
+      "face": "Her designed face, exactly as in the attached image: {face}; {eyes}; {impression}. Keep every one of these features and their proportions — the expression may change only the brows, eyelids and mouth.",
+      "skin": "SKIN: her own skin tone — {skin} — rendered luminous and lifelike: bright, softly glowing diffuse midtones on the face, neck, shoulders, collarbone, arms and every exposed area, not only in the specular highlights; one consistent underlying complexion across the whole body, varying only with light and shadow. Shadows stay clean and warm within her own skin tone — never grey-violet, muddy brown, blue-grey or heavily desaturated. Delicate natural microtexture, lifelike subsurface scattering and smoothly dimensional shading; small localized highlights — any water or sweat only as small droplets and thin trails that do not change the skin colour, never a thick or uniformly glossy coating. Do not whiten or darken her skin tone; no orange, yellow or bronze tint, no chalky whiteness, blown-out highlights or ashen cast.",
+      "light": "LIGHT: a bright, elegant high-key cinematic colour treatment with luminous skin and clean colour separation. Soft bright frontal light gently lifts her face and exposed skin, keeping the midtones bright, translucent and evenly readable, with facial dimension preserved around the eyes, nose, cheeks, lips and jaw and gentle, colour-clean shadows. The scene's own light — daylight, sunset, window light, lamplight or night light — comes from behind and to one side as restrained rim highlights along her hair, shoulders and silhouette, and colours the background and reflections, but never tints her skin orange, yellow, blue, purple or grey. No heavy colour grade, dark crushed contrast, cool desaturation, chalky skin or excessive bloom. The face and nearby hair are sharply resolved; the surroundings fall into gentle shallow depth of field."
+     }
     }
    ]
   },
