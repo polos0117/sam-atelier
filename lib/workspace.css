@@ -397,3 +397,9 @@ html:has(.dex-page) {height:100%;overflow:hidden;overscroll-behavior:none}
 .appearance-extra {grid-column:1/-1;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;padding-top:10px;border-top:1px solid var(--line)}
 .appearance-extra button {flex:none;width:100%;min-height:42px;padding:6px 10px;font-size:12px;font-weight:700;border-radius:8px}
 .appearance-extra .header-help[aria-pressed="true"] {color:var(--gold);border-color:var(--gold);background:var(--accent-soft)}
+/* 좁은 화면 — 항해 탭이 일곱(화풍 비교 2026-11-07)이 되며 글자가 겹쳤다. 탭은 제 폭을 지키고 줄은 옆으로 민다 */
+@media (max-width:599px) {
+  .workspace-nav {overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .workspace-nav::-webkit-scrollbar {display:none}
+  .workspace-nav a {flex:0 0 auto;padding:0 10px}
+}

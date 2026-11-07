@@ -1,0 +1,82 @@
+{
+ "version": 1,
+ "note": "화풍 비교(styles.html) — 같은 장수(조조)를 화풍마다 세 세계 그림 + 그 그림을 붙인 근접 일상컷으로. 그림은 그림 저장소 style-test/compare/ (등록 그림 아님), 예전 줄은 등록된 그림(img/). 2026-11-07 사용자 「각 이미지 공방에 네비게이션바에 화풍탭을 추가해서 비교하기 쉽게 올려줄래?」",
+ "base": "https://polos0117.github.io/sam-atelier-img/style-test/compare/",
+ "oldBase": "https://polos0117.github.io/sam-atelier-img/img/",
+ "rounds": [
+  {
+   "key": "r20261107",
+   "date": "2026-11-07",
+   "card": "조조",
+   "model": "gpt-image-2.6",
+   "casual": {
+    "samguk": "다리 위 · 등불 · 아침 로브(가슴 위)",
+    "fantasy": "강가 선착장 · 브이(클로즈업)",
+    "mecha": "현관 · 볼에 손(클로즈업)"
+   },
+   "styles": [
+    {
+     "key": "kv_kmmo_23d",
+     "name": "한국 MMORPG 2.3D",
+     "default": true,
+     "note": "지금 기본 화풍. 예전 그림과 거의 같게 다시 나온다.",
+     "old": {
+      "samguk": "조조_samguk_kv_kmmo_23d_f.webp",
+      "fantasy": "조조_fantasy_kv_kmmo_23d_f.webp",
+      "mecha": "조조_mecha_kv_kmmo_23d_f.webp"
+     }
+    },
+    {
+     "key": "kv_kmmo_lock",
+     "name": "한국 MMORPG 기준 판",
+     "default": false,
+     "note": "2.3D 앞의 기준 판. 구도 · 옷 모양까지 예전과 비슷하다.",
+     "old": {
+      "samguk": "조조_samguk_kv_kmmo_lock_f.webp",
+      "fantasy": "조조_fantasy_kv_kmmo_lock_f.webp",
+      "mecha": "조조_mecha_kv_kmmo_lock_f.webp"
+     }
+    },
+    {
+     "key": "kr_mmorpg",
+     "name": "한국 MMORPG 프로모",
+     "default": false,
+     "note": "예전 줄 = API 2.5 로 뽑은 원본. 지금 모델에서도 어둡고 묵직한 남색 · 깃발 · 잔이 2.5 쪽에 가깝다.",
+     "old": {
+      "samguk": "조조_samguk_kr_mmorpg_f.webp",
+      "fantasy": "조조_fantasy_kr_mmorpg_f.webp",
+      "mecha": "조조_mecha_kr_mmorpg_f.webp"
+     }
+    },
+    {
+     "key": "kv_jp_mobile",
+     "name": "일본 모바일게임 리얼 CG",
+     "default": false,
+     "note": "성숙한 리얼 CG 얼굴, 묵직한 금속, 시원한 낮빛.",
+     "old": null
+    },
+    {
+     "key": "kv_jp_paint",
+     "name": "일본 유화풍 게임 일러스트",
+     "default": false,
+     "note": "붓 터치가 보이는 유화 채색, 차분한 남보라 톤.",
+     "old": null
+    },
+    {
+     "key": "game_keyart",
+     "name": "게임 키아트 2.5D",
+     "default": false,
+     "note": "애니 얼굴에 선명한 2.5D 프로모 느낌. 예전 그림 없음.",
+     "old": null
+    },
+    {
+     "key": "glossy_kr_game",
+     "name": "한국형 글로시 게임 일러스트",
+     "default": false,
+     "note": "광택이 강하고 화사한 MMORPG 일러스트. 예전 그림 없음.",
+     "old": null
+    }
+   ]
+  }
+ ]
+}

@@ -17,7 +17,7 @@ const D = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sam-design.json'), 'u
 const S = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/style.json'), 'utf8'));
 /* 조립기를 노드에서도 — 화면의 지시문과 글자 그대로 같아야 한다 */
 const ctx0 = { window: {}, console }; vm.createContext(ctx0);
-for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx0);
+for (const f of ['lib/words.js', 'lib/prompt-spec.js', 'lib/look-spec.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx0);
 const P = ctx0.window.AtelierPrompt;
 
 (async () => {
@@ -164,6 +164,22 @@ const P = ctx0.window.AtelierPrompt;
     await noOverflow(v.page, vp.width + ' 도감');
     assert.deepEqual(v.errors, [], '도감 콘솔'); checks += 7; await v.ctx.close();
 
+    /* ── 화풍 비교(2026-11-07 「네비게이션바에 화풍탭을 추가해서 비교하기 쉽게」) — 항해에 화풍 탭, 화풍별 · 세계별 보기, 크게 보기 ── */
+    { const W = ctx0.window.W, SC = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/style-compare.json'), 'utf8')), n = SC.rounds[0].styles.length;
+      const sv = await open('/styles.html', vp);
+      await sv.page.waitForSelector('.sc-cell');
+      assert.equal(await sv.page.locator('.workspace-nav a[aria-current="page"]').getAttribute('href'), 'styles.html', '화풍 탭');
+      assert.equal(await sv.page.locator('.sc-style').count(), n, '화풍마다 한 칸');
+      assert.equal(await sv.page.locator('.sc-cell').count(), n * 3 * 2, '세계 셋 × 세계 그림 · 일상컷');
+      await sv.page.click('.sc-bar button:has-text("' + W('styles.view.world') + '")');
+      assert.equal(await sv.page.locator('.sc-cell').count(), n * 2, '세계별 — 화풍이 한 줄로');
+      await sv.page.click('.sc-bar button:has-text("' + W('styles.kind.old') + '")');
+      assert.equal(await sv.page.locator('.sc-cell').count(), n * 3, '예전 줄 — 없는 화풍은 빈 칸');
+      await sv.page.locator('.sc-cell button').first().click();
+      assert(await sv.page.locator('.lightbox').isVisible(), '크게 보기'); await sv.page.keyboard.press('Escape');
+      assert.match(sv.page.url(), /view=world/);
+      await noOverflow(sv.page, vp.width + ' 화풍 비교');
+      assert.deepEqual(sv.errors, [], '화풍 비교 콘솔'); checks += 9; await sv.ctx.close(); }
     /* ── 생성기 — 세력 › 장수 › 세계 그림 ── */
     v = await open('/prompt.html', vp);
     await v.page.waitForSelector('[data-faction]');

@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-07 · claude · 화풍 비교 탭 — styles.html
+- 사용자 「각 이미지 공방에 네비게이션바에 화풍탭을 추가해서 비교하기 쉽게 올려줄래?」 — 머리 항해에 「화풍」(lib/workspace-ui.js PAGES, 도감 다음). styles.html — 조조를 화풍 일곱(2.3D 기본 · 기준 판 · 프로모 · 일본 리얼 CG · 일본 유화풍 · 게임 키아트 · 한국형 글로시)으로 세계 그림 셋 + 근접 일상컷, 예전 등록 그림 줄. 보기 화풍별 · 세계별, 갈래(세계 그림 · 근접 일상컷 · 예전 그림), 크게 보기, 주소 ?view=&w=&kind=.
+- 그림 42장은 sam-atelier-img style-test/compare/(webp + thumb) — 등록 그림이 아니라 img.json · 도감 · 등록 워크플로와 무관. 목록 data/style-compare.json(rounds — 다음 비교 묶음은 여기에 더한다).
+- 좁은 화면 항해 — 탭이 일곱이 되며 글자가 겹쳐, 599px 아래에선 탭이 제 폭을 지키고 줄을 옆으로 민다(lib/workspace.css). 판 번호 workspace.css v5 · words.js v7 · workspace-ui.js v4(모든 페이지, 게임 draft.html 은 그대로).
+- 검사 tests/screen.cjs — 화풍 탭 · 화풍 일곱 칸 · 칸 수 · 세계별 · 예전 줄 · 크게 보기 · 넘침 없음(폰 · PC).
+
 ## 2026-11-07 · claude · 화풍 키 kv_anime_gloss — 포켓몬 공방 애니 광택
 - 사용자 「포켓몬 공방의 애니광택 도 등록해줘」 — pkm-atelier anime_gloss(data/concept-mecha.json) 의 머리말 · STYLE · 끝맺음 빛을 kv_jp_paint 와 같은 틀(CHARACTER · COSTUME · COMPOSITION · ANATOMY AND FINISH, 인물 · 옷 · 장면은 설계표)에.
 - 색 줄 — 세력 색을 흰 · 은 저채도 파스텔 안에서, 가장 짙은 것이 강조색 하나. 재질 줄 — 젖지 않은 자연광 윤기. 일상컷 피부 광택 기본 soft(은은하게).
