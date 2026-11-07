@@ -11,6 +11,10 @@
 - 사용자 「원거리 일상컷도 있는데」 — 갈래 셋: 세계 그림(world) · 근접 일상컷(casual) · 원거리 일상컷(far, 파일 <화풍>_<세계>_far.webp). put --far-img · --far-note, 묶음에 kinds(있는 갈래 — sync 가 폴더에서 맞춤)와 far(세계별 원거리 장면 한 줄).
 - styles.html — 묶음에 있는 갈래만 단추로, 기본은 셋 다. check 는 묶음의 kinds 만 본다. 앞 묶음 2026-11-07 은 kinds = 세계 그림 · 근접.
 
+## 2026-11-07 · gpt · 화풍 비교 2026-11-07-2 — 조조 무협 8쌍
+- data/style-compare.json — 조조 무협(samguk) 8가지 화풍의 세계 그림과 근접 일상컷을 tools/style-compare.py put으로 추가. 서재·손인사 장면과 하단 화풍 표기를 유지하고, 도감 등록 목록에는 넣지 않음. 동시 추가된 판타지·메카 목록과 설명은 sync 후 보존.
+- sam-atelier-img/style-test/compare/2026-11-07-2/ — 세계 그림 8장·근접 일상컷 8장과 각각의 썸네일을 그림 저장소에 먼저 반영.
+
 ## 2026-11-07 · gpt · 조조 메카 화풍 비교 8쌍 추가
 - data/style-compare.json — 2026-11-07-2 묶음에 화풍 8종의 메카 세계 그림과 근접 일상컷을 tools/style-compare.py put으로 추가. 화풍 표시가 있는 그림을 사용하고, 도감 등록 없이 화풍 비교 탭에서만 표시.
 
