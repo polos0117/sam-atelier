@@ -60,7 +60,8 @@ const q=k=>{ try { return new URLSearchParams(location.search).get(k); } catch(e
 function urlOf(d,r,s,w,kind){
   if(kind==='old') return s.old&&s.old[w] ? {full:d.oldBase+s.old[w], thumb:d.oldBase+'thumb/'+s.old[w]} : null;
   const f=s.key+'_'+w+'_'+kind+'.webp', b=d.base+encodeURIComponent(r.key)+'/';
-  return {full:b+f, thumb:b+'thumb/'+f};
+  const rev=((r.revisions||{})[w]||{})[kind], suffix=rev?'?v='+encodeURIComponent(rev):'';
+  return {full:b+f+suffix, thumb:b+'thumb/'+f+suffix};
 }
 function Cell({u,label,open}){
   if(!u) return h('figure',{class:'sc-cell'},h('div',{class:'sc-empty'},W('styles.none')),h('figcaption',null,label));
