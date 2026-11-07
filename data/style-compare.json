@@ -163,6 +163,82 @@
     "casual",
     "far"
    ]
+  },
+  {
+   "key": "2026-11-07-3",
+   "date": "2026-11-07",
+   "card": "유비",
+   "model": "image_gen (도구 기본)",
+   "title": "",
+   "kinds": [
+    "world",
+    "casual",
+    "far"
+   ],
+   "casual": {
+    "samguk": "거울 미궁 · 스트랩리스 새틴 드레스와 긴 장갑 · 얼굴 가까이 브이"
+   },
+   "far": {
+    "samguk": "온천 마을 족욕 · 양궁 운동복과 암가드 · 수건을 안고 걷는 전신"
+   },
+   "styles": [
+    {
+     "key": "game_keyart",
+     "name": "게임 키아트 2.5D",
+     "default": false,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "glossy_kr_game",
+     "name": "한국형 글로시 게임 일러스트",
+     "default": false,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "kr_mmorpg",
+     "name": "한국 MMORPG 프로모",
+     "default": false,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "kv_kmmo_lock",
+     "name": "한국 MMORPG 기준 판",
+     "default": false,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "kv_kmmo_23d",
+     "name": "한국 MMORPG 2.3D",
+     "default": true,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "kv_jp_mobile",
+     "name": "일본 모바일게임 리얼 CG",
+     "default": false,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "kv_jp_paint",
+     "name": "일본 유화풍 게임 일러스트",
+     "default": false,
+     "note": "",
+     "old": null
+    },
+    {
+     "key": "kv_anime_gloss",
+     "name": "애니 광택(포켓몬 공방)",
+     "default": false,
+     "note": "",
+     "old": null
+    }
+   ]
   }
  ]
 }
