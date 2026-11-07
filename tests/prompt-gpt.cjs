@@ -8,7 +8,7 @@ const R = path.join(__dirname, '..'), G = require('../lib/prompt-gpt.js'), C = r
 const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx);
   for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(R, f), 'utf8'), ctx);
   return ctx.window.AtelierPrompt; })();
-const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8')), STYLE = 'kr_mmorpg';   /* 구조형 옮기기는 영어 v1 지시문(kr_mmorpg) 몫 — 기본 판 kv_kmmo_lock(2026-11-05)은 이미 네 칸이라 옮기지 않는다(아래 묶음 확인) */
+const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = (x => (x.styles.kr_mmorpg.current = 'v4', x))(JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8'))), STYLE = 'kr_mmorpg';   /* 줄 단위 꼴 시험 — kr_mmorpg 는 v4 로 고정(v5 일상컷 묶음 · v6 세계 그림 끝 칸은 구조형으로 옮기지 않는 판, 2026-11-08) */   /* 구조형 옮기기는 영어 v1 지시문(kr_mmorpg) 몫 — 기본 판 kv_kmmo_lock(2026-11-05)은 이미 네 칸이라 옮기지 않는다(아래 묶음 확인) */
 const keys = P.cards(D), pick = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 14)) === 0).slice(0, 14);
 /* 실루엣 — 고르면 세계 글 뒤 한 줄, 「자유」(free)면 없음(안 고르면 장수 설계값 — 2026-11-06), 메카 아닌 세계엔 안 붙는다, 구조형은 옷 칸으로 옮긴다(2026-11-05) */
 { const k0 = keys[0];

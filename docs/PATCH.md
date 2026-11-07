@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 한국 MMORPG 프로모 v6 — 세계 그림 하이키
+- 사용자 「이렇게 수정해줘」 — kr_mmorpg v6 = v5 + 세계 그림: STYLE 의 캐릭터 선택창 조명 문장(강한 림 라이트) · 무협 MOOD 의 high contrast 빼고, 끝에 kv_cgi_hikey 의 SKIN COLOUR AND RENDERING(설계 피부색) · LIGHTING AND COLOUR(시간대 고르면 장면 빛에) · CAMERA AND COMPOSITION(worldTail — lib/prompt-sam.js build 가 줄 단위 판 끝에 붙인다). 일상컷 묶음은 v5 그대로.
+- 시험(사마의 무협 둘 + 일상컷 넷)과 같은 지시문임을 확인. 검사 prompt-v2(장수 279 × 세계 3, 맹획 청동 피부), prompt-gpt 는 줄 단위 꼴 시험이라 kr_mmorpg v4 로 고정.
+
 ## 2026-11-08 · claude · 한국 MMORPG 프로모 v5 — 일상컷 묶음
 - 사용자 「mmorpg 프로모에 일상컷 규칙을 지금 처럼 추가해서 테스트 이미지 만들어줘」 — kr_mmorpg v5 = v4 + casualKit(kv_cgi_hikey 와 같은 꼴): STYLE 은 이 화풍 일상컷 글의 렌더링만(몸 · 조명 · 번들거림 말 빼고), FACE 끝에 설계 얼굴, SKIN 설계 피부색 칸, LIGHT 하이키. 세계 그림 지시문은 v4 와 글자 하나 같다.
 - 시험 — 사마의 프로모 세계 그림 셋에 근접 · 원거리 여섯(화풍 비교 2026-11-08-2 와 같은 장면).

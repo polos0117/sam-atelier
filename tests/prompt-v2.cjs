@@ -67,6 +67,10 @@ for (const [sk, anat] of [['kv_jp_mobile', 'ANATOMY: Exactly one head'], ['kv_jp
     assert(/SKIN: her own skin tone — bronze-brown skin —/.test(cp) && cp.includes(K.light) && !cp.includes(T.CASUAL.faceLight), 'cgi 일상컷 피부색 칸 · 하이키');
     assert(/Her designed face, exactly as in the attached image: /.test(cp) && !/Do not add skin texture, pores/.test(cp) && cp.includes(T.CASUAL.bodyLine), 'cgi 일상컷 설계 얼굴 · 몸 라인'); }
   console.log('PASS kv_cgi_hikey: ' + nh + '장'); }
+/* kr_mmorpg v6(2026-11-08 「이렇게 수정해줘」) — 세계 그림에 강한 림 · high contrast 없고, 끝에 피부색 · 조명 · 카메라 칸(설계 피부색) */
+{ for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: 'kr_mmorpg' });
+    assert(!/strong rim light|high contrast/.test(p) && /\n\nSKIN COLOUR AND RENDERING:\nHer own skin tone — /.test(p) && /\n\nLIGHTING AND COLOUR:\n/.test(p) && /\n\nCAMERA AND COMPOSITION:\n/.test(p) && !/\{\w+\}|undefined/.test(p), key + ' ' + w + ' 프로모 v6'); }
+  assert(/Her own skin tone — bronze-brown skin —/.test(P.build(D, S, '맹획', 'samguk', { style: 'kr_mmorpg' })), '프로모 v6 맹획 피부색'); }
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */
