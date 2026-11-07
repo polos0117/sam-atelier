@@ -328,6 +328,86 @@
      "old": null
     }
    ]
+  },
+  {
+   "key": "2026-11-07-5",
+   "date": "2026-11-07",
+   "card": "제갈량",
+   "model": "gpt-image-2.6",
+   "title": "제갈량 — 화풍 여덟, 일상컷은 앞모습만(자연광 · 몸 라인 · 2.3D v3)",
+   "kinds": [
+    "world",
+    "casual",
+    "far"
+   ],
+   "casual": {
+    "samguk": "얼음 궁전 · 화보 쿠튀르(궤도 링) · 두 손으로 소품 감싼 가슴 위(정면)",
+    "fantasy": "카페 · 오프숄더 바디콘 · 벽에 기대 팔짱(가슴 위 3/4 정면)",
+    "mecha": "온천 마을 · 터틀넥 + 슬릿 펜슬 스커트 · 엄지 척(허리 위 정면)"
+   },
+   "far": {
+    "samguk": "현관 · 펑크 · 쪼그려 앉아 소품 보기(전신 정면)",
+    "fantasy": "구름 위 정자 · 화이트·골드 화보 쿠튀르 · 발목 교차하고 앉기(전신 3/4 정면)",
+    "mecha": "세계의 정원 연못 · 린넨 라운지 세트 · 무릎 꿇고 두 손 모으기(3/4 정면)"
+   },
+   "styles": [
+    {
+     "key": "game_keyart",
+     "name": "게임 키아트 2.5D",
+     "default": false,
+     "note": "게임 키아트 2.5D. 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "glossy_kr_game",
+     "name": "한국형 글로시 게임 일러스트",
+     "default": false,
+     "note": "한국형 글로시. 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "kr_mmorpg",
+     "name": "한국 MMORPG 프로모",
+     "default": false,
+     "note": "프로모(API 2.5 때 글). 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "kv_kmmo_lock",
+     "name": "한국 MMORPG 기준 판",
+     "default": false,
+     "note": "기준 판(체형 문장은 그대로). 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "kv_kmmo_23d",
+     "name": "한국 MMORPG 2.3D",
+     "default": true,
+     "note": "기본 2.3D v3 — 세계 그림에 새 체형(가는 허리 · 넓은 골반 · 허벅지 위쪽)이 들어간 판. 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "kv_jp_mobile",
+     "name": "일본 모바일게임 리얼 CG",
+     "default": false,
+     "note": "일본 리얼 CG. 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "kv_jp_paint",
+     "name": "일본 유화풍 게임 일러스트",
+     "default": false,
+     "note": "일본 유화풍. 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    },
+    {
+     "key": "kv_anime_gloss",
+     "name": "애니 광택(포켓몬 공방)",
+     "default": false,
+     "note": "애니 광택(포켓몬 공방). 일상컷은 모든 화풍에 자연광 · BODY LINE 줄.",
+     "old": null
+    }
+   ]
   }
  ]
 }

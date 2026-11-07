@@ -83,4 +83,5 @@
   화풍마다 한 번씩(그림은 있는 것만 — 세 갈래 가운데 하나만 있어도 된다). webp + thumb 를 그림 저장소 `style-test/compare/<열쇠>/` 에 넣고 `data/style-compare.json` 의 묶음을 맞춘다. 이미 있는 파일은 덮어쓰지 않는다(일부러 바꿀 때만 `--replace`).
 - 올리기: 그림 저장소(`sam-atelier-img`) 먼저 커밋 · `git pull --rebase` · 푸시, 그다음 코드 저장소(`data/style-compare.json`).
   다른 세션과 목록 파일이 부딪치면 `git checkout --theirs data/style-compare.json && python3 tools/style-compare.py sync <열쇠>` 뒤 `git add` · `git rebase --continue` — 폴더의 파일로 목록을 다시 맞춘다.
+- **비교용 일상컷은 앞모습만**(사용자 2026-11-07 「화풍비교용에서는 일상컷은 앞모습만 써줘」) — 계획기에서 몸이 정면 · 3/4 정면이고 고개도 몸과 같이(옆으로 돌림 · 어깨 너머 아님), 시선이 카메라나 든 소품인 컷만 고른다. 옆모습 · 뒷모습 · 돌아보기는 쓰지 않는다. 같은 묶음 안 화풍끼리는 같은 장면.
 - 아직 안 올린 세계는 화면에 「그림 없음」 칸으로 뜬다. `python3 tools/style-compare.py check` 가 겹침 · 빠진 목록을 본다.
