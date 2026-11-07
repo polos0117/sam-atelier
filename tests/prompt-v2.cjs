@@ -53,6 +53,13 @@ for (const [sk, anat] of [['kv_jp_mobile', 'ANATOMY: Exactly one head'], ['kv_jp
     assert(p.startsWith('Use case: stylized-concept.') && p.includes(jv.section1) && p.includes('\n\n' + anat) && p.includes('COMPOSITION AND SCENE: Single vertical 2:3'), key + ' ' + w + ' ' + sk + ' 꼴');
     assert(!/\{\w+\}|undefined|WORLD describes/.test(p), key + ' ' + w + ' ' + sk + ' 빈 칸'); nj++; }
   console.log('PASS ' + sk + ': ' + nj + '장'); }
+/* kv_cgi_hikey(2026-11-08 「스타일, 조명, 피부, 카메라」) — 사마의 지시문의 네 칸, 피부색은 장수 설계값({skin})을 지킨다 */
+{ let nh = 0;
+  for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: 'kv_cgi_hikey' }), g = D.generals.find(x => x.key === key);
+    assert(p.includes('\nSKIN COLOUR AND RENDERING:\nHer own skin tone — ') && p.includes('\n\nLIGHTING AND COLOUR:\n') && p.includes('\n\nCAMERA AND COMPOSITION:\n'), key + ' ' + w + ' cgi 칸');
+    assert(!/\{\w+\}|undefined|rosy porcelain|late-afternoon/.test(p), key + ' ' + w + ' cgi 빈 칸 · 사마의 전용 말'); nh++; }
+  assert(/Her own skin tone — bronze-brown skin —/.test(P.build(D, S, '맹획', 'samguk', { style: 'kv_cgi_hikey' })), '맹획 피부색 그대로');
+  console.log('PASS kv_cgi_hikey: ' + nh + '장'); }
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */
