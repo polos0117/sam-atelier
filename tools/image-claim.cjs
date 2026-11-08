@@ -18,7 +18,7 @@ const fs = require('node:fs'), path = require('node:path'), cp = require('node:c
 const ROOT = path.join(__dirname, '..');
 const read = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
 /* 몫 — null 이면 없다(원소 공방과 같게) */
-const DAILY_MAX = null, EXECUTION_MAX = null, CASUAL_N = 5;
+const DAILY_MAX = null, EXECUTION_MAX = null, CASUAL_N = 6;   /* 2026-11-09 「일상컷 생성수를 6장으로」 */
 
 /* ── 공방마다 다른 것: 그림 저장소 이름 · 차례 · 한 캐릭터의 빈 자리 ── */
 const IMG_REPO = 'sam-atelier-img', WHAT = '카드';
@@ -27,7 +27,7 @@ const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console };
   return ctx.window.AtelierPrompt; })();
 /* 차례는 설계표(게임 표) 차례 — 세력 하나를 끝까지 그린 뒤 다음으로(IMAGE_RULES 5절) */
 function order() { const D = read('data/sam-design.json'); return P.cards(D).map(k => ({ key: k, title: (P.card(D, k) || {}).ko || k })); }
-/* 한 장수의 빈 자리 — 세계 셋마다 세계 그림 + 일상컷 다섯 장(세계마다 따로 센다, 번호도 세계마다) */
+/* 한 장수의 빈 자리 — 세계 셋마다 세계 그림 + 일상컷 여섯 장(세계마다 따로 센다, 번호도 세계마다) */
 function missing(key) {
   const D = read('data/sam-design.json'), st = read('data/style.json')['default'];
   const by = (((((read('data/img.json').img || {})[key] || {}).byStyle || {})[st]) || {}).byForm || {}, out = [];

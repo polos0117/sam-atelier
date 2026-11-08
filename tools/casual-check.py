@@ -1,8 +1,9 @@
-"""일상컷 묶음 검사(2026-11-02) — 세계마다 다섯 장 중 두 장은 정해 둔 갈래로(사용자 「란제리풍·수영복·역할극, 세계 안의 방·목욕·지붕·여관·서재·부엌·군영 이거는 각각 1장해서 2장은 확정으로」).
+"""일상컷 묶음 검사(2026-11-02) — 세계마다 여섯 장 중 세 장은 정해 둔 갈래로(2026-11-09 — 전엔 다섯 장 중 두 장)(사용자 「란제리풍·수영복·역할극, 세계 안의 방·목욕·지붕·여관·서재·부엌·군영 이거는 각각 1장해서 2장은 확정으로」).
 
   노출 갈래 한 장  — 의상 계열이 란제리풍 · 수영복 · 역할극 (casual-tree.json required.outfits)
   세계 안 갈래 한 장 — 시대 「세계 안」 의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복 (required.world)
-  두 장은 서로 다른 컷이어야 한다(한 장이 둘 다 맞아도 한 갈래만 채운다). 나머지 세 장은 자유.
+  상황 노출 한 장   — 젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈(scene.situ, 2026-11-09 「1번 내용을 필수갈래에」), 위 두 갈래가 아닌 컷
+  세 장은 서로 다른 컷이어야 한다(한 장이 둘 다 맞아도 한 갈래만 채운다). 나머지 세 장은 자유. 옛 묶음(상황 갈래 전 — 기록 scene 에 situ 칸이 아예 없다)은 상황 칸이 없어도 된다.
 
 그림 저장소(sam-atelier-img)의 기록 records/<장수>/<세계>-casualN.<화풍>-ui.json 의 scene 을 읽는다.
   python3 tools/casual-check.py                 # 일상컷이 있는 장수 전부
@@ -18,7 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMGR = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')
 REQ = json.load(open(os.path.join(ROOT, 'data/casual-tree.json'), encoding='utf-8'))['required']
 WORLDS = ['samguk', 'fantasy', 'mecha']
-PER_WORLD = 5
+PER_WORLD = 6   # 사용자 2026-11-09 「일상컷 생성수를 6장으로」 — 옛 묶음(기록에 situ 칸이 없다)은 상황 갈래 전이라 상황 칸이 비어도 실패로 치지 않는다
 
 
 def kind(scene):
@@ -30,7 +31,12 @@ def kind(scene):
     w = REQ['world']
     if s.get('era') == w['era'] and s.get('place') in w['places'] and s.get('ofam') in w['outfits']:
         out.add('inworld')
+    if s.get('situ') and not out:
+        out.add('situ')   # 셋째 필수(2026-11-09) — 상황 노출, 노출 · 세계 안 갈래 컷과 다른 컷
     return out
+
+
+new = {}   # (장수, 세계) → 그 세계에 상황 칸(scene.situ)이 있는 기록이 있나 — 옛 기록엔 그 칸 자체가 없다
 
 
 def cuts(card):
@@ -41,6 +47,8 @@ def cuts(card):
             continue
         d = json.load(open(f, encoding='utf-8'))
         by.setdefault(m.group(1), {})[int(m.group(2))] = kind(d.get('scene'))
+        if 'situ' in (d.get('scene') or {}):
+            new[(card, m.group(1))] = True
     return by
 
 
@@ -104,12 +112,15 @@ def main(argv):
             if not ks:
                 continue
             a, b = fill(ks)
+            c = next((n for n, k in ks.items() if 'situ' in k), None)
             left = PER_WORLD - len(ks)
             need = [x for x, ok in (('노출 갈래(란제리풍·수영복·역할극)', a), ('세계 안 갈래(방·목욕·지붕·여관·서재·부엌·군영·정원·다리·사당·숲길·나루)', b)) if not ok]
+            if not c and any('situ' in k for k in ks.values()) is False and new.get((card, w)):
+                need.append('상황 노출(젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈)')
             state = '맞음' if not need else ('남은 %d칸에 %s' % (left, ' · '.join(need)) if len(need) <= left else '모자람 — ' + ' · '.join(need))
             if need and len(need) > left:
                 bad += 1
-            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', state)
+            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · 상황 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', 'casual%d' % c if c else '없음', state)
             if plan or need or len(argv) > 0:
                 print(line)
         hits = cross(card)

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* 지시문 묶음 — 브라우저 없이 생성기와 같은 지시문·기록을 파일로(element-atelier 의 tools/prompt-pack.cjs 를 옮겼다 — 2026-11-02 사용자 「1,2,3 다 해줘」).
    GPT 세션은 브라우저를 못 띄운다 — 생성기 화면(lib/studio.js)이 부르는 조립부(lib/prompt-sam.js 의 build · buildCasual)를
-   같은 값으로 불러, 한 카드의 자리(사는 세계마다 세계 그림 한 장 + 일상컷 다섯 장 — IMAGE_RULES 2절)의 지시문과 기록을 쓴다.
+   같은 값으로 불러, 한 카드의 자리(사는 세계마다 세계 그림 한 장 + 일상컷 여섯 장 — IMAGE_RULES 2절)의 지시문과 기록을 쓴다.
    기록(<자리>-ui.json)은 생성기 「기록 내보내기」 와 같은 꼴에 생성기 저장값(storage)을 더한 것 — 그 storage 를 생성기에 넣으면 같은 지시문이 나온다.
 
    node tools/prompt-pack.cjs init <카드> --dir <작업 폴더> [--plan <세계 하나의 plan.json> …]
@@ -14,7 +14,7 @@
    자리 — <세계>(세계 그림 — 첨부 없이 한 장씩) · <세계>-casualN(일상컷 — 그 세계 그림 첨부). 화풍은 늘 기본(data/style.json default). 고칠 수 있는 칸:
      worlds.<세계>   notes(scene · outfit · custom — 직접 입력, why) · look(params · faceDesignOn · silhouetteOn · exposure — 표에 없는 외형은 직접 입력이라 why) ·
                      shot(scene — 설계표 장면 변주 열쇠 · time · pose · expr · frame(실루엣 — 세계마다 제 갈래 · 비우면 장수 설계값 worlds.<세계>.sil · free 면 없음) — 표의 값)
-     casual.<자리>   scene · outfit · custom(직접 입력 — why) · exposure(moderate · low — 그 컷만 피부 노출 축을 낮춘다, why 필요) · gloss(피부 광택 matte · soft · dewy · glossy — 비우면 화풍 기본) · 나머지는 계획 그대로
+     casual.<자리>   scene · outfit · custom(직접 입력 — why) · exposure(moderate · low — 그 컷만 피부 노출 축을 낮춘다, why 필요) · gloss(피부 광택 matte · soft · dewy · glossy — 비우면 화풍 기본) · situ(none — 상황 노출 컷이 노출을 낮춰도 막혔을 때만 상황을 뺀다, why 필요) · 나머지는 계획 그대로
      세계 그림의 노출은 worlds.<세계>.look.exposure. 낮추는 것은 필터 거절 뒤 노출 낮추기(사용자 2026-11-01 「필터 문제로 막히면 재시도 후, 노출 수위를 낮춰가며 재시도로」 — IMAGE_RULES 1절) 에만 */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm'), crypto = require('node:crypto');
@@ -58,7 +58,7 @@ function initSettings(card, planPaths) {
     _: 'tools/prompt-pack.cjs 의 설정 — 고칠 수 있는 칸만 있다. 직접 입력(글 칸 · 표에 없는 외형)엔 why 에 까닭을 적는다. 고친 뒤 build',
     card: card.key, style: STYLE, plans: plans.map(p => p.path),
     worlds: Object.fromEntries(card.worlds.map(w => [w, { notes: {}, look: { params: {}, faceDesignOn: true, silhouetteOn: true, exposure: T.EXPOSURE_DEFAULT }, shot: {}, why: '' }])),
-    casual: Object.fromEntries(slots(card, plans).filter(s => s.kind === 'casual').map(s => [s.slot, { scene: '', outfit: '', custom: '', gloss: '', color: '', denier: '', why: '' }]))
+    casual: Object.fromEntries(slots(card, plans).filter(s => s.kind === 'casual').map(s => [s.slot, { scene: '', outfit: '', custom: '', gloss: '', color: '', denier: '', situ: '', why: '' }]))
   };
 }
 
@@ -96,7 +96,8 @@ function validate(set, card, plans) {
   for (const s of cs) {
     const x = (set.casual || {})[s];
     if (!x) { errs.push('casual.' + s + ' 가 없다'); continue; }
-    unknown(x, [...TEXT, 'exposure', 'gloss', 'color', 'denier', 'why'], 'casual.' + s);
+    unknown(x, [...TEXT, 'exposure', 'gloss', 'color', 'denier', 'situ', 'why'], 'casual.' + s);
+    if (x.situ != null && x.situ !== '') { if (x.situ !== 'none') errs.push('casual.' + s + '.situ 는 none(빼기)만 — 상황은 계획기가 정한다'); else if (!(x.why || '').trim()) errs.push('casual.' + s + '.situ 를 뺐는데 why(막힌 까닭)가 비었다'); }   /* 상황 노출(2026-11-09) — 막혔을 때 노출 낮추기와 같은 몫 */
     if (x.denier != null && x.denier !== '' && x.denier !== 'none' && !(T.CASUAL.deniers || []).some(g => g.key === x.denier)) errs.push('casual.' + s + '.denier 는 ' + T.CASUAL.deniers.map(g => g.key).join(' · ') + ' · none 중 하나(비우면 계획기가 정한 값)');
     if (x.color != null && x.color !== '' && !(T.CASUAL.colors || []).some(g => g.key === x.color)) errs.push('casual.' + s + '.color 는 ' + T.CASUAL.colors.map(g => g.key).join(' · ') + ' 중 하나(비우면 계획기가 고른 갈래)');
     if (x.gloss != null && x.gloss !== '' && !(T.CASUAL.glosses || []).some(g => g.key === x.gloss)) errs.push('casual.' + s + '.gloss 는 ' + T.CASUAL.glosses.map(g => g.key).join(' · ') + ' 중 하나(비우면 화풍 기본)');
@@ -133,6 +134,7 @@ function recordOf(card, set, s) {
   if (x.exposure) scene.axes.skin_exposure = x.exposure;
   if (x.gloss) scene.gloss = x.gloss;
   if (x.color) scene.color = x.color;
+  if (x.situ === 'none') delete scene.situ;   /* 상황 노출(2026-11-09) — 막혀 뺄 때만 */
   if (x.denier === 'none') delete scene.denier; else if (x.denier) scene.denier = x.denier;   /* 데니어(2026-11-08) — none 이면 비침 줄 없이 */   /* 옷 색 갈래(2026-11-08) — 비우면 계획기가 나눠 준 갈래 */   /* 피부 광택 단계(2026-11-06) — 비우면 화풍 기본 */
   return { ...P.casualRecord(D, S, card.key, scene, { world: s.world, style: STYLE, tree, tree2 }, n), record: PLAN.recordRel(card.key, s.world, n), storage: storageOf(card, s, x, scene) };
 }

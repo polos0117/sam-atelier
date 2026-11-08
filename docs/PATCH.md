@@ -7,6 +7,14 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 일상컷 여섯 장 · 상황 노출(셋째 필수) · 모험가 · 신화 드레이프 · 유니폼 · 잠옷 · 장소 아홉
+- 사용자 「응 1번이랑 2번,3번 넣어주고 장소도 일부 추가해줘. 1번 내용을 필수갈래에 넣어줘. 그러면 필수컷이 3장은 확정이고. 일상컷 생성수를 6장으로 늘려줘」 — lib/prompt-spec.js CASUAL.situations(젖은 옷 · 바람에 날림 · 반쯤 푼 차림 · 흘러내린 어깨끈, fit · skip) · situLine, lib/prompt-sam.js situsFor · situFits, 장면 칸 situ 가 맞는 옷에만 Outfit 줄 끝에 「; right now — …」(옷 갈아입는 중은 필터에 잘 걸려 뺐다)
+- tools/casual-plan.cjs — CASUAL_N 6, 셋째 필수 갈래: 여섯 장 중 한 장(노출 · 세계 안 갈래가 아닌 컷)에 그 옷에 맞는 상황 하나(situate, 다른 세계 묶음이 쓴 상황은 뒤로), check 에 상황 노출 컷 · 맞는 옷 · 한 장까지. 시대 몫 무대·환상 둘(ERA_QUOTA). 옛 다섯 장 묶음은 상황 없이 맞다
+- data/casual-tree.json — 새 계열 모험가(카우걸 · 프린지 조끼 · 해적 코르셋 · 해적 선장 · 정글 탐험가 · 사막 탐험가 · 보물 사냥꾼 · 사파리 원피스 · 비행사) · 신화 드레이프(그리스 키톤 · 한쪽 어깨 여신 · 짧은 페플로스 · 아라비안 나이트 · 로마 스톨라 · 이집트 리넨 · 바다 님프 · 토가 미니), 지금 현실 · 무대·환상 시대에. 역할극에 바텐더 · 다이너 웨이트리스 · 오피스룩(승무원풍은 이미 있었다), 란제리풍에 네글리제 · 실크 파자마. 옷 계열 16 → 18, 옷 304 → 326. required.situ · note
+- 장소 아홉 — 목장 · 레트로 다이너 · 저녁 사무실 · 공항 라운지(지금 현실), 해적선 갑판 · 정글 유적 · 사막 오아시스 · 대리석 신전 · 대리석 목욕궁(무대·환상). 받침 · 하는 일 · 소품 자리는 닮은 장소에서 본떴다(data/casual-tree-v2.json places). 어색한 조합 둘(드레이프로 운동 · 사무실 · 공항, 모험가로 목욕 · 격식 자리). 손 자세 기본값 adventure pocket
+- lib/studio.js · lib/words.js — 생성기 「상황」 단계(데니어 다음, 안 고르면 없음, 다 랜덤이면 열에 셋 · 맞는 옷만). tools/prompt-pack.cjs casual.<자리>.situ none(막혔을 때만 빼기, why). tools/casual-check.py 여섯 장 · 상황 갈래(기록에 situ 칸이 없는 옛 묶음은 빼고), tools/image-claim.cjs CASUAL_N 6
+- 문서 IMAGE_RULES(상황 노출 · 여섯 장 · 세 갈래 · 필터 순서에 상황 빼기) · docs/IMAGE_AUTOMATION · AGENTS. 검사 casual-plan(여섯 장 · 상황 넷 · 새 계열 · 옛 다섯 장 묶음). ?v= words 14 · prompt-spec 14 · prompt-sam 12 · studio 8
+
 ## 2026-11-09 · claude · 노출 쪽 옷 아홉 — 역할극 · 동탄룩에
 - 사용자 「새 계열 추가 안중에 몇 의상은 지금 우리가 쓰고 있는 갈래에도 추가 가능할거 같은데」 — data/casual-tree.json 역할극 · 직업 의상(노출 갈래)에 race_model · expo_model · idol_stage · dance_crew · cabaret_dancer, 동탄룩에 club_mesh · club_metallic · club_cutout · festival_chain(옷 295 → 304).
 - 벨리댄스 · 쇼걸 · 살사 · 재즈 무대(무대 · 판타지 의상) · 레이버(서브컬처) · 레트로 레이서(역할극)는 이미 있어 뺐다. tools/casual-tree.py · casual-tree-v2.py check 통과. 문서 IMAGE_RULES 2절.

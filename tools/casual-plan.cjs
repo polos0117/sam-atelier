@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-/* 일상컷 묶음 계획 — 한 장수의 한 세계 일상컷 다섯 장을 서로 겹치지 않게 한 번에 짠다(2026-11-02, element-atelier 의 tools/casual-plan.cjs 를 삼국지 꼴로 —
-   사용자 「일상컷 계획 도구도 옮겨와줘」). 장수는 세계마다 다른 사람이라 **세계마다 다섯 장**(그 세계 그림을 참고 그림으로, IMAGE_RULES 2절).
+/* 일상컷 묶음 계획 — 한 장수의 한 세계 일상컷 여섯 장(2026-11-09 — 전엔 다섯)을 서로 겹치지 않게 한 번에 짠다(2026-11-02, element-atelier 의 tools/casual-plan.cjs 를 삼국지 꼴로 —
+   사용자 「일상컷 계획 도구도 옮겨와줘」). 장수는 세계마다 다른 사람이라 **세계마다 여섯 장**(그 세계 그림을 참고 그림으로, IMAGE_RULES 2절).
 
    생성기(lib/studio.js)와 같은 lib/casual-tree-v2.js · lib/prompt-sam.js 로 칸마다 장면을 고르고, 생성기 「기록 내보내기」 와 같은 꼴의
    기록(<세계>-casualN.<화풍>-ui.json)과 지시문을 쓴다. 지키는 묶음 규칙(한 세계 묶음 안):
-     - 두 장은 정해 둔 갈래(사용자 2026-11-02 「각각 1장해서 2장은 확정」) — 노출 갈래 한 장(란제리풍 · 수영복 · 역할극 의상) +
+     - 세 장은 정해 둔 갈래(사용자 2026-11-02 「각각 1장해서 2장은 확정」 · 2026-11-09 「1번 내용을 필수갈래에 … 필수컷이 3장은 확정」 — 셋째는 상황 노출 한 장, situate) — 노출 갈래 한 장(란제리풍 · 수영복 · 역할극 의상) +
        세계 안 갈래 한 장(세계 안의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복), 서로 다른 컷. tools/casual-check.py 와 같은 판정
      - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대는 한 가지 두 번까지, 네 장 이상이면 네 시대(지금 현실 · 역사의 자리 · 세계 안 · 무대·환상) 다
      - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 · 가까운 컷 하나씩은 꼭) · 몸 방향 한 가지는 두 번까지 · 머리 「어깨 너머」 는 한 장까지
@@ -14,11 +14,11 @@
    이미 그림이 있는 번호는 짜지 않고, 그 세계의 기록(--records)은 겹침 검사에만 쓴다.
 
      node tools/casual-plan.cjs <장수> --world <세계> [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
-   --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 다섯 장이 되게 — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
+   --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 여섯 장이 되게 — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
    --records 를 안 주면 옆의 sam-atelier-img/records/<장수>. --out 을 주면 칸마다 기록 · 지시문과 plan.json 을 쓴다.
      node tools/casual-plan.cjs <장수> --world <세계> --check <기록 폴더> [--from N]   # 올리기 전 — 그 세계 묶음이 위 규칙을 다 지키나(다른 세계와 같은 장면도). --from: N 번부터의 새 묶음만, 옛 묶음은 겹침에만
      node tools/casual-plan.cjs <장수> --world all [--fresh] --out <폴더>   # 세계 셋을 한 번에(폴더 아래 plan-<세계>) — 세계끼리 장면을 돌려쓰지 않는다
-   --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 다섯 장(옛 묶음과도 겹치지 않게). --others a.json,b.json: 아직 안 올린 다른 계획도 겹침에 넣는다.
+   --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 여섯 장(옛 묶음과도 겹치지 않게). --others a.json,b.json: 아직 안 올린 다른 계획도 겹침에 넣는다.
    세계끼리 · 묶음끼리: 같은 장소는 안 되고(세계 안 장소는 세계마다 다른 곳이라 옷 · 자세까지 같을 때만), 같은 옷 계열로 같은 자세 추천도 안 된다(2026-11-02 — 네 장수가 세 세계에 같은 장면 한 벌을 썼다) */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
@@ -29,7 +29,7 @@ for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js',
 const T = ctx.window.AtelierSpec, CT = ctx.window.AtelierCasualTree, C2 = ctx.window.AtelierCasualTreeV2, P = ctx.window.AtelierPrompt;
 const D = JSON.parse(read('data/sam-design.json')), S = JSON.parse(read('data/style.json'));
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json'));
-const T2 = C2.make(tree2, tree), STYLE = S['default'], CASUAL_N = 5;
+const T2 = C2.make(tree2, tree), STYLE = S['default'], CASUAL_N = 6;   /* 사용자 2026-11-09 「일상컷 생성수를 6장으로 늘려줘」 — 전엔 다섯 */
 
 const EXPOSE_TYPES = ['lingerie', 'swimwear', 'roleplay'];   /* 노출 갈래 — 장수마다 돌려 가며 */
 const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
@@ -43,11 +43,16 @@ const EXPR_CASUAL = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistf
 const EXPR_SKIP = Object.keys(tree2.expressions || {}).filter(k => !EXPR_CASUAL.includes(k));
 const EXPRS = EXPR_CASUAL.filter(k => (tree2.expressions || {})[k]);
 const ERA_WEIGHT = { now: 5, heritage: 2, nation: 2, fantasy: 1 };
-/* 한 묶음 다섯 장의 시대 몫 — 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(2026-11-02 사용자 「지금 현실 비중을 높여줘」 —
+/* 한 묶음의 시대 몫 — 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(2026-11-02 사용자 「지금 현실 비중을 높여줘」 —
    기록 159장 중 지금 현실이 31장(19%)이고 세계 안이 88장이었다. 안 쓴 장소 51 곳이 다 지금 현실에 있다). 칸마다 「쓴 수 ÷ 몫」 이 가장 낮은 시대부터 */
-const ERA_QUOTA = { now: 2, nation: 1, heritage: 1, fantasy: 1 };
+/* 2026-11-09 여섯 장 — 하나 더는 무대·환상(새 계열 모험가 · 신화 드레이프가 사는 곳). 한 시대 두 장까지(check)라 지금 현실은 둘 그대로 */
+const ERA_QUOTA = { now: 2, nation: 1, heritage: 1, fantasy: 2 };
 const FIXED_AXES = { overall_intensity: 'strong', skin_exposure: 'bold' };
 const DRINKS = ['cup', 'drink_glass', 'water_bottle', 'teapot'];
+/* 상황 노출(사용자 2026-11-09 「1번 내용을 필수갈래에 넣어줘. 그러면 필수컷이 3장은 확정」) — 여섯 장 중 한 장, 노출 갈래 · 세계 안 갈래와 다른 컷에
+   젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈 중 그 옷에 맞는 것 하나(T.CASUAL.situations). 다른 세계 묶음이 쓴 상황은 뒤로 */
+const SITUS = (T.CASUAL.situations || []).map(x => x.key);
+const SITU_NO_FRAME = ['face_close'];   /* 얼굴 클로즈업엔 옷이 안 보여 상황이 안 산다(손상향 시험 계획 — 젖은 옷이 클로즈업에) */
 
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 const pick = (r, list) => list[Math.floor(r() * list.length)];
@@ -183,7 +188,12 @@ function check(cuts, card, base = [], others = []) {
   over('마실 것', c => { const u = C2.use(T2, c.use); return u && DRINKS.includes(u.prop) && 'drink'; }, 1);
   over('그 장수의 물건', c => sigProp(c) && 'signature', 2);
   over('어색한 조합', c => C2.awkward(T2, c.ofam, c.place).length && 'awkward', 1);
-  over('동탄룩', c => c.ofam === 'dongtan' && 'dongtan', 1);   /* 2026-11-03 더한 계열 — 안 쓴 계열이라 무게가 커서 묶음마다 한 장까지 */
+  over('동탄룩', c => c.ofam === 'dongtan' && 'dongtan', 1);
+  /* 셋째 필수 — 상황 노출 한 장(여섯 장 묶음부터 — 옛 다섯 장 묶음은 이 갈래 전), 노출 · 세계 안 갈래 컷과 다른 컷 */
+  over('상황 노출', c => c.situ && 'situ', 1);
+  for (const c of cuts) if (c.situ && !P.situFits(c.situ, outfitEn(c))) errs.push(`칸 ${c.n || '?'}: 상황 ${c.situ} 는 이 옷에 안 맞는다`);
+  for (const c of cuts) if (c.situ && SITU_NO_FRAME.includes(c.frame)) errs.push(`칸 ${c.n || '?'}: 상황 노출은 얼굴 클로즈업에 두지 않는다`);
+  if (all.length >= CASUAL_N && !all.some(c => c.situ && !requiredType(c))) errs.push('상황 노출 컷이 없다 — 노출 · 세계 안 갈래와 다른 컷 한 장');   /* 2026-11-03 더한 계열 — 안 쓴 계열이라 무게가 커서 묶음마다 한 장까지 */
   if (card.g.signature_hold.length && all.length >= 3 && !all.some(sigProp)) errs.push('그 장수의 물건을 든 컷이 없다(한두 장)');
   if (all.length >= 3) {
     if (!all.some(c => FAR.includes(c.frame))) errs.push('먼 컷(전신·환경)이 없다');
@@ -235,7 +245,17 @@ function denierize(cuts, rd = Math.random) {
   }
   return cuts;
 }
-const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 )/;
+/* 상황 — 상황 칸(situAt)에 그 옷에 맞는 것 하나. 이미 있는 컷 · 다른 세계 묶음이 쓴 상황은 뒤로. 장면과 따로 된 난수 */
+function situate(cuts, at, old = [], others = [], rs = Math.random) {
+  const used = new Set([...old, ...others].map(c => c.situ).filter(Boolean));
+  cuts.forEach((c, i) => {
+    if (i !== at) { delete c.situ; return; }
+    const fit = P.situsFor(outfitEn(c)); let pool = fit.filter(k => !used.has(k)); if (!pool.length) pool = fit;
+    if (pool.length) c.situ = pool[Math.floor(rs() * pool.length)]; else delete c.situ;
+  });
+  return cuts;
+}
+const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |상황 노출 컷이 없다)/;
 function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [] } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
   const mix = [...(card.key + '|' + (card.world || ''))].reduce((h, ch) => Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0, 2166136261);
@@ -244,6 +264,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
   /* 정해 둔 두 갈래 중 아직 없는 것을 앞 칸부터 — 노출 갈래는 장수마다 란제리풍 · 수영복 · 역할극을 돌려 가며 */
   const wants = [oldEx ? '' : (required || EXPOSE_TYPES[Math.max(0, ci) % EXPOSE_TYPES.length]), oldIn ? '' : 'nation'].filter(Boolean);
   const needSig = card.g.signature_hold.length > 0 && !old.some(sigProp) && slots.length >= 3;
+  const needSitu = slots.length + old.length >= CASUAL_N && !old.some(c => c.situ && !requiredType(c));
   const oldFrames = new Set(old.map(c => c.frame));
   for (let attempt = 1; attempt <= 400; attempt++) {
     let frames = FRAMES.filter(f => !oldFrames.has(f)).sort(() => r() - 0.5);
@@ -264,6 +285,9 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     }
     const tail = eras.slice(wants.length).sort(() => r() - 0.5); eras.splice(wants.length, tail.length, ...tail);
     const free = slots.length - wants.length, sigAt = needSig && free > 0 ? wants.length + Math.floor(r() * free) : -1, cuts = [];
+    /* 상황 칸 — 정해 둔 칸 뒤, 그 장수의 물건 칸과 다른 칸(빈 칸이 하나뿐이면 같은 칸) */
+    let situAt = -1;
+    if (needSitu && free > 0) { const pool = []; for (let i = wants.length; i < slots.length; i++) if ((i !== sigAt || free === 1) && !SITU_NO_FRAME.includes(frames[i])) pool.push(i); if (!pool.length) continue; situAt = pool[Math.floor(r() * pool.length)]; }
     for (let i = 0; i < slots.length; i++) {
       let got = null;
       for (let k = 0; k < 60 && !got; k++) {
@@ -271,12 +295,14 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
         const want = wants[i] || '', sc = slot(r, card, want, { frame: frames[i], wantSig: i === sigAt && !want, era: eras[i], usage: here, rUse });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
+        if (i === situAt && !P.situsFor(outfitEn(cand)).length) continue;   /* 상황 칸엔 상황이 붙는 옷만 */
+        if (i === situAt) cand.situ = P.situsFor(outfitEn(cand))[0];   /* 자리 표시 — 묶음이 다 차면 situate 가 고른다 */
         if (!check([...cuts, cand], card, old, others).filter(e => !MUST.test(e)).length) got = cand;
       }
       if (!got) break;
       cuts.push(got);
     }
-    if (cuts.length === slots.length && !check(cuts, card, old, others).length) { colorize(cuts, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(cuts, rng((seed ^ mix ^ 0x165667b1) >>> 0)); return { cuts, attempt, required: [...old, ...cuts].map(requiredType).filter(Boolean).join(' · ') }; }
+    if (cuts.length === slots.length && !check(cuts, card, old, others).length) { colorize(cuts, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(cuts, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, situAt, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); return { cuts, attempt, required: [...[...old, ...cuts].map(requiredType).filter(Boolean), ...[...old, ...cuts].filter(c => c.situ).map(c => 'situ:' + c.situ)].join(' · ') }; }
   }
   throw new Error('규칙을 다 지키는 묶음을 못 찾았다 — 이미 있는 컷이 칸을 너무 많이 차지했는지 본다');
 }
@@ -329,7 +355,7 @@ function line(c) {
   const p = C2.place(T2, c.place) || {}, f = CT.family(tree, c.ofam) || {}, it = CT.item(tree, c.ofam, c.item), u = C2.use(T2, c.use), pr = by(tree2.presets, c.preset);
   const ko = (list, k) => (by(list, k) || {}).ko || k || '—', hand = k => k === 'prop' ? '소품' : ko(tree2.hands, k);
   return `${c.old ? '  (있음)' : '  '} ${c.n} ${requiredType(c) ? '★' : ' '}${C2.awkward(T2, c.ofam, c.place).length ? '⚠' : ' '} ${(CT.era(tree, c.era) || {}).ko} · ${p.ko} · ${f.ko}${it ? '(' + it.ko + ')' : ''} │ ${pr ? pr.ko : '—'} │ ` +
-    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}`;
+    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}`;
 }
 
 const FLAGS = new Set(['fresh']);
@@ -362,7 +388,7 @@ function main(argv) {
   for (const world of worlds) {
     card.world = world;
     const mine = allOld(world), taken = Math.max(0, ...mine.map(c => c.n), ...registered(card, world));
-    /* --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 다섯 장(사용자 2026-11-02 「대체하는건 아니고, 추가로」) */
+    /* --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 여섯 장(사용자 2026-11-02 「대체하는건 아니고, 추가로」) */
     const slots = opt.slots ? opt.slots.split(',').map(Number) : fresh ? Array.from({ length: CASUAL_N }, (_, i) => taken + 1 + i) : freeSlots(card, world);
     if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); continue; }
     const old = fresh ? [] : mine.filter(c => !slots.includes(c.n));
@@ -386,5 +412,5 @@ function main(argv) {
   }
   return 0;
 }
-module.exports = { cardOf, plan, colorize, denierize, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { cardOf, plan, colorize, denierize, situate, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));
