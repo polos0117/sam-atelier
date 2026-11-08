@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · gpt · 조조 MMORPG CG 세계컷과 일상컷 등록
+- data/img.json — 사용자 선택 세계컷 2·2·2 세 장과 크기 문구가 복원된 생성기(96c4201)로 새로 생성한 일상컷 세계별 여섯 장, 총 21장을 등록 도구로 추가. 기존 화풍·그림 보존
+- 그림 저장소 records/조조 — 원문 지시문, 참고 이미지 해시, 1024×1536 검사, 장면 차이와 메카 일상1의 거절 두 번 후 moderate 생성 기록. 새 묶음 세 세계의 구성·겹침 검사 통과
+
 ## 2026-11-09 · claude · 짧은 지시문에 그림 크기(1024×1536) 다시
 - 사용자 「우리 이미지 크기 설정 없어졌나?」 — 짧은 일상컷(2026-11-08) · 짧은 세계 그림(2026-11-09)으로 바꾸며 FRAME 줄과 함께 1024×1536 이 빠졌다. API 는 size 값으로 맞게 나왔지만 GPT 세션은 지시문 글만 받아 크기를 못 받았다(짧은 일상컷은 2:3 도 없었다)
 - lib/prompt-spec.js WORLD_SHORT.head 「vertical 2:3 (1024×1536)」 · CASUAL.short.output 「Output: one vertical 2:3 image, 1024×1536.」, lib/prompt-sam.js buildCasualShort 가 첫 줄 다음에. 검사 prompt-v2 · screen · casual-plan. ?v= prompt-spec 16 · prompt-sam 14
