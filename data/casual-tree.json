@@ -5066,6 +5066,26 @@
      "key": "dongtan_tube_leggings",
      "ko": "튜브탑 + 하이웨이스트 레깅스",
      "en": "a tight tube top under an open cropped cardigan with glossy high-waisted leggings that outline the hips and legs"
+    },
+    {
+     "key": "club_mesh",
+     "ko": "클럽 — 시스루 메시 탑 + 레더 미니",
+     "en": "a club outfit — a sheer mesh long-sleeve top over a bandeau and a glossy leather mini skirt, strappy heels"
+    },
+    {
+     "key": "club_metallic",
+     "ko": "클럽 — 메탈릭 슬립 미니",
+     "en": "a club outfit — a liquid-metallic cowl-neck slip mini dress with thin straps and strappy heels"
+    },
+    {
+     "key": "club_cutout",
+     "ko": "클럽 — 컷아웃 바디콘",
+     "en": "a club outfit — a body-hugging bodycon dress with geometric cut-outs at the waist and a low back"
+    },
+    {
+     "key": "festival_chain",
+     "ko": "페스티벌 — 바디체인 + 크롭 + 데님 숏츠",
+     "en": "a music-festival outfit — a crochet crop top with a delicate body chain, frayed denim micro shorts and ankle boots"
     }
    ]
   },
@@ -6020,6 +6040,31 @@
      "key": "mechanic_jumpsuit",
      "ko": "정비용 점프수트",
      "en": "a fitted mechanic's work jumpsuit with rolled sleeves and no real logos"
+    },
+    {
+     "key": "race_model",
+     "ko": "서킷 레이싱 모델",
+     "en": "a modern circuit race-queen outfit — a glossy fitted crop top and hot pants in team colours with a sponsor-free racing jacket over one shoulder, knee-high boots and a team umbrella"
+    },
+    {
+     "key": "expo_model",
+     "ko": "박람회 · 게임쇼 모델",
+     "en": "a game-show booth model outfit — a sleek bodycon mini dress with glowing trim and a fitted cropped jacket, thigh-high boots"
+    },
+    {
+     "key": "idol_stage",
+     "ko": "K-팝 아이돌 무대 의상",
+     "en": "a K-pop idol stage outfit — a sparkling cropped corset top, high-waisted hot pants with a sheer side panel and glossy knee-high boots"
+    },
+    {
+     "key": "dance_crew",
+     "ko": "댄스 크루 무대",
+     "en": "a dance-crew stage outfit — a cropped tank top, a cargo mini skirt with chains and fingerless gloves"
+    },
+    {
+     "key": "cabaret_dancer",
+     "ko": "카바레 댄서",
+     "en": "a cabaret dancer costume — a fitted sequined bodysuit with a sheer flowing overskirt open at the front and long satin gloves"
     }
    ],
    "en": "a playful adult event costume inspired by an occupation or role — clearly a costume, not a real uniform, no real insignia"

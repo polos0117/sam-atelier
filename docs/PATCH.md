@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 노출 쪽 옷 아홉 — 역할극 · 동탄룩에
+- 사용자 「새 계열 추가 안중에 몇 의상은 지금 우리가 쓰고 있는 갈래에도 추가 가능할거 같은데」 — data/casual-tree.json 역할극 · 직업 의상(노출 갈래)에 race_model · expo_model · idol_stage · dance_crew · cabaret_dancer, 동탄룩에 club_mesh · club_metallic · club_cutout · festival_chain(옷 295 → 304).
+- 벨리댄스 · 쇼걸 · 살사 · 재즈 무대(무대 · 판타지 의상) · 레이버(서브컬처) · 레트로 레이서(역할극)는 이미 있어 뺐다. tools/casual-tree.py · casual-tree-v2.py check 통과. 문서 IMAGE_RULES 2절.
+
 ## 2026-11-09 · claude · 일상컷 목욕 차림(수건 · 페슈테말 · 찜질복) 줄이기
 - 사용자 「수건 감는 옷 많이 나오던데 이전부터」 — 등록 일상컷 864장 중 목욕 계열 10.8%, 계획기 12.7% 로 옷 계열 가운데 가장 많았다(목욕 장소 · 세계 안 목욕탕이 많아서).
 - tools/casual-plan.cjs — 옷 계열을 고를 때 목욕 계열 무게 1/4(FAM_WEIGHT, 정해 둔 갈래 길에도), 한 장수의 세계 셋 통틀어 목욕 차림 한 장까지(check). 계획 비율 12.7% → 6.3%. 검사 casual-plan. 문서 IMAGE_RULES 2절.
