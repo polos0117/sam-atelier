@@ -196,14 +196,14 @@ const P = ctx0.window.AtelierPrompt;
     const st = await state(v.page), want = P.build(D, S, '관우', 'samguk', { style: S['default'], notes: st.notes['관우|samguk'] || {}, look: st.looks['관우|samguk'], shot: st.shots['관우|samguk'] });
     const got = await promptOf(v.page);
     assert.equal(got, want, '화면 지시문 = 조립기');
-    assert.match(got, /Guan Yu/); assert.match(got, /COSTUME[^\n]*WUXIA|WORLD — THREE KINGDOMS ERA/);   /* 기본 판 kv(2026-11-05~) 영문 네 칸 · kr_mmorpg v6(2026-11-08~) 줄 꼴 */ assert.match(got, /Green Dragon Crescent Blade/);
+    assert.match(got, /Guan Yu/); assert.match(got, /COSTUME[^\n]*WUXIA|WORLD — THREE KINGDOMS ERA|^A full-body vertical 2:3 character card image/);   /* 기본 판 kv(2026-11-05~) 영문 네 칸 · kr_mmorpg v6(2026-11-08~) 줄 꼴 */ assert.match(got, /Green Dragon Crescent Blade/);
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_samguk_' + S['default'] + '_f\\.webp'), '파일 이름');
     assert.match(v.page.url(), /card=%EA%B4%80%EC%9A%B0|card=관우/); assert.match(v.page.url(), /world=samguk/);
     /* 화풍 고르개(2026-11-06 「생성기에 화풍추가해주고, 변경 기능 만들어줘」) — 맨 위가 기본(''), 고르면 지시문 · 파일 이름이 그 화풍, 기본으로 돌아오면 그대로 */
     { const ov = await v.page.$$eval('#st-style option', os => os.map(o => o.value));
       assert.equal(ov[0], '', '화풍 맨 위는 기본'); assert(ov.includes('kv_jp_paint') && ov.includes('kv_jp_mobile') && !ov.includes(S['default']), '화풍 목록');
       await v.page.selectOption('#st-style', 'kv_jp_paint');
-      assert.match(await promptOf(v.page), /^Use case: stylized-concept\./, '고른 화풍 지시문');
+      assert.match(await promptOf(v.page), /^Use case: stylized-concept\.|^A full-body vertical 2:3[^\n]*\n\nStyle: High-quality Japanese painterly/, '고른 화풍 지시문');   /* 짧은 세계 그림(2026-11-08)이면 화풍 단락이 그 화풍 글 */
       assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), /관우_samguk_kv_jp_paint_f\.webp/, '고른 화풍 파일 이름');
       await v.page.selectOption('#st-style', ''); assert.equal(await promptOf(v.page), want, '기본으로 돌아옴'); }
     await noOverflow(v.page, vp.width + ' 생성기 세계');

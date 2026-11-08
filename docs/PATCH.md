@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 짧은 세계 그림 · 기본 화풍 MMORPG CG
+- 사용자 「화풍글 다 축소판으로 해주고, mmorpg cg를 공방 기본키로 해줘. 이미지 몆 개 생성해보고 쭉 갈지 바꿀지 볼게」 — data/style.json default mmorpg_cg, 꼭대기 worldShort: true(모든 화풍 짧은 세계 그림, 구조판 빼고), mmorpg_cg worldLight.
+- lib/prompt-sam.js buildWorldShort · worldShortOn — 줄 꼴 판의 긴 지시문에서 설계 칸만 뽑아 400~600낱말: 머리말 · 화풍 단락(shortStyle) · 얼굴 · 체형 · 전설 · 의상 · 노출 · 무기 · 자세 · 표정 · 배경 · 장면 · 시간대 · 덧붙임 · 구도 · 빛 · 세계 경계. lib/prompt-spec.js WORLD_SHORT. tools/prompt-pack.cjs — 짧은 세계 · 짧은 일상은 GPT 묶음에 영문 그대로.
+- 검사 prompt-v2(옛 꼴 검사는 worldShort 끈 사본, 짧은 세계 그림 검사 더함) · prompt-gpt · screen. ?v= prompt-spec 12 · prompt-sam 10. 문서 IMAGE_RULES 1절.
+
 ## 2026-11-09 · claude · MMORPG CG 화풍 · 화풍 비교 묶음 2026-11-09(짧은 지시문)
 - 사용자 「화풍문구는 지금처럼 축소판으로 가고 mmorpg cg만 추가해서 공방의 화풍비교 메뉴에 올려줘」 — data/style.json 에 mmorpg_cg(짧은 화풍 단락 · 짧은 일상컷 · 일상 빛 줄).
 - data/style-compare.json · 그림 저장소 style-test/compare/2026-11-09 — 조조, 공방 화풍 9 + MMORPG CG × 세계 셋 × (세계 그림 · 일상 허리 위). 세계 그림은 짧은 지시문(약 400낱말 — 전설 줄 · 수염 없음 · 세계 경계 · 판타지 구도 줄), 일상은 짧은 일상컷(A안). docs/STYLE_LAB.md 표에 한 줄.

@@ -6,7 +6,7 @@ const assert = require('node:assert/strict'), fs = require('node:fs'), path = re
 const R = path.join(__dirname, '..'), ctx = { window: {}, console }; vm.createContext(ctx);
 for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(R, f), 'utf8'), ctx);
 const P = ctx.window.AtelierPrompt, T = ctx.window.AtelierSpec, ST = T.STRUCT;
-const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8'));
+const D = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), S = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8')), SS = JSON.parse(JSON.stringify(S)); S.worldShort = false;   /* 긴 세계 그림 꼴 검사 — 짧은 꼴(2026-11-08 기본)은 SS 로 따로 본다 */
 const STYLE = process.env.V2_STYLE || 'glossy_plain', sv = S.styles[STYLE].versions.find(v => v.v === S.styles[STYLE].current);
 /* 세 판 다 구조판 — glossy_plain(지금 v2) · anime_kv · glossy_kv(앞 판) */
 for (const k of ['glossy_plain', 'anime_kv', 'glossy_kv']) { const x = S.styles[k].versions.find(v => v.v === S.styles[k].current); assert(x.format === 'structured' && x.section1 && x.section1_worlds.samguk && x.section1_sil.fantasy, k); }
@@ -136,3 +136,15 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
       assert.equal(pp.split('\n').filter(l => !l.startsWith('SKIN:')).join('\n'), cp.split('\n').filter(l => !l.startsWith('SKIN:')).join('\n'), g.key + ' 광택 줄 말고는 같다'); } }
   console.log('PASS 기준 판: ' + nk + '장'); }
 console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).length + ' × 세계 3) — 칸 빠짐없이 · 외형 한글 표 · 1절 세계 몫 · 메카 실루엣 · 자세 · 시간대 · 장면 · 기본 화풍 그대로');
+
+/* 짧은 세계 그림(2026-11-08 「화풍글 다 축소판으로 해주고, mmorpg cg를 공방 기본키로」) — 기본 화풍 mmorpg_cg, 모든 줄 꼴 · kv 판이 짧은 꼴(구조판 빼고).
+   꼭 남는 줄: 수염 없음 · 전설 · 세계 경계 · 구도 · 화풍 단락(shortStyle), 600낱말 안 */
+{ assert.equal(SS['default'], 'mmorpg_cg'); let nw = 0;
+  for (const key of P.cards(D).filter((k, i) => i % 7 === 0)) for (const w of ['samguk', 'fantasy', 'mecha']) for (const st of ['mmorpg_cg', 'kv_jp_paint', 'glossy_kr_game', 'kr_promo_hikey']) {
+    const p = P.build(D, SS, key, w, { style: st });
+    assert(p.startsWith('A full-body vertical 2:3 character card image of ') && p.includes('no beard, moustache or facial hair') && p.includes('\n\nStyle: ' + P.shortStyle(SS, st)) && p.includes(T.WORLD_SHORT.composition) && p.includes(T.WORLD_SHORT.guard[w]), key + ' ' + w + ' ' + st + ' 짧은 세계 그림');
+    assert(p.split(/\s+/).length < 700 && !/\{\w+\}|undefined/.test(p), key + ' ' + w + ' ' + st + ' 짧고 빈 칸 없음'); nw++; }
+  assert(/Her legend: [^\n]*purple beard/.test(P.build(D, SS, '손권', 'samguk', {})), '손권 — 전설 줄(수염은 머리색으로)');
+  assert(/EXPOSURE \(bold\): her mecha frame is cut open by design in only these places/.test(P.build(D, SS, '장료', 'mecha', {})), '메카 두 곳 노출 줄');
+  assert(!P.build(D, SS, '관우', 'samguk', { style: 'glossy_plain' }).startsWith('A full-body vertical'), '구조판은 긴 꼴 그대로');
+  console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
