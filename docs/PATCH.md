@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 짧은 일상컷 — 세계 그림의 관 · 머리 장식은 두고 온다
+- 사용자 「응 b는 고쳐줘」 — 장료 일상 세 장에 세계 그림의 초승달 관 · 깃털이 남았다(짧은 꼴에서 WARDROBE 를 빼면서 「관 · 예복 장식 가져오지 마」 도 빠졌다). lib/prompt-spec.js CASUAL.short.headwear 한 줄(관 · 티아라 · 투구 · 깃털 · 머리 장식 · 갑옷 · 예복 없이, 머리는 일상 옷에 맞게, 장신구는 아래 한 개만), lib/prompt-sam.js 전설 줄 앞에. 검사 casual-plan. ?v= prompt-spec 13 · prompt-sam 11.
+
 ## 2026-11-09 · claude · 짧은 세계 그림 · 기본 화풍 MMORPG CG
 - 사용자 「화풍글 다 축소판으로 해주고, mmorpg cg를 공방 기본키로 해줘. 이미지 몆 개 생성해보고 쭉 갈지 바꿀지 볼게」 — data/style.json default mmorpg_cg, 꼭대기 worldShort: true(모든 화풍 짧은 세계 그림, 구조판 빼고), mmorpg_cg worldLight.
 - lib/prompt-sam.js buildWorldShort · worldShortOn — 줄 꼴 판의 긴 지시문에서 설계 칸만 뽑아 400~600낱말: 머리말 · 화풍 단락(shortStyle) · 얼굴 · 체형 · 전설 · 의상 · 노출 · 무기 · 자세 · 표정 · 배경 · 장면 · 시간대 · 덧붙임 · 구도 · 빛 · 세계 경계. lib/prompt-spec.js WORLD_SHORT. tools/prompt-pack.cjs — 짧은 세계 · 짧은 일상은 GPT 묶음에 영문 그대로.
