@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 세계 그림 얼굴 비율 줄 · 눈꼬리 문구 누그러뜨림
+- 사용자 「삼국시대 이미지 생성시에 다른 세계에 비해 턱을 과장되고, 길게 그리고, 눈도 더 째져서 그리는데」 → 「a+b 넣고 조조 제갈량으로 시험해줘」 — 설계표 삼국시대 얼굴형이 끝이 좁아지는 얼굴 · V라인 46%(판타지 · 메카 25%), 한 · 중국 단서가 무협 얼굴을 부르고, 높은 관이 얼굴을 늘렸다
+- lib/prompt-spec.js WORLD_SHORT.face — 짧은 중안부 · 둥근 턱선 · 작은 턱, 관은 머리선 위(얼굴을 늘리지 않음), 눈은 설계대로 자연스러운 크기(실눈 아님). lib/prompt-sam.js buildWorldShort 가 Her 줄 다음에(세 세계 같다). 눈꼬리 up 「tilting sharply upward」 → 「slightly lifted」
+- 시험 5장(조조 후 둘 · 제갈량 전 하나 · 후 둘, MMORPG CG) — 조조 턱 · 얼굴 길이가 줄고 눈이 덜 째짐. ?v= prompt-spec 15 · prompt-sam 13
+
 ## 2026-11-09 · claude · 일상컷 여섯 장 · 상황 노출(셋째 필수) · 모험가 · 신화 드레이프 · 유니폼 · 잠옷 · 장소 아홉
 - 사용자 「응 1번이랑 2번,3번 넣어주고 장소도 일부 추가해줘. 1번 내용을 필수갈래에 넣어줘. 그러면 필수컷이 3장은 확정이고. 일상컷 생성수를 6장으로 늘려줘」 — lib/prompt-spec.js CASUAL.situations(젖은 옷 · 바람에 날림 · 반쯤 푼 차림 · 흘러내린 어깨끈, fit · skip) · situLine, lib/prompt-sam.js situsFor · situFits, 장면 칸 situ 가 맞는 옷에만 Outfit 줄 끝에 「; right now — …」(옷 갈아입는 중은 필터에 잘 걸려 뺐다)
 - tools/casual-plan.cjs — CASUAL_N 6, 셋째 필수 갈래: 여섯 장 중 한 장(노출 · 세계 안 갈래가 아닌 컷)에 그 옷에 맞는 상황 하나(situate, 다른 세계 묶음이 쓴 상황은 뒤로), check 에 상황 노출 컷 · 맞는 옷 · 한 장까지. 시대 몫 무대·환상 둘(ERA_QUOTA). 옛 다섯 장 묶음은 상황 없이 맞다
