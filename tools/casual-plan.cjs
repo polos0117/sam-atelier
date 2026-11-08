@@ -91,9 +91,13 @@ const sigProp = c => { const u = C2.use(T2, c.use); return !!u && u.prop === 'si
    전엔 4 와 1/(1+횟수)² — 안 쓴 값이 한 번 쓴 값보다 16 배, 이제 96 배. 길(자세 추천 × 장소) · 옷 계열 횟수도 센다 */
 const WEIGHT_UNUSED = 12;
 const wOf = n => n ? 1 / Math.pow(1 + n, 3) : WEIGHT_UNUSED;
-function lean(r, list, count, key = x => x) {
+/* 옷 계열 무게 — 목욕 차림(수건 · 페슈테말 · 찜질복 · 가운)이 계획 12.7% · 등록 10.8% 로 계열 가운데 가장 많았다(사용자 2026-11-09 「수건 감는 옷 많이 나오던데 이전부터」).
+   목욕 계열 장소 · 세계 안 목욕탕이 많아 그렇다 — 고를 때 무게를 줄이고, 한 장수의 세 세계 통틀어 한 장까지(check) */
+const FAM_WEIGHT = { bath: 0.25 };
+const famW = sc => FAM_WEIGHT[(sc && sc.ofam) || sc] || 1;
+function lean(r, list, count, key = x => x, factor = () => 1) {
   if (!list.length) return undefined;
-  const w = list.map(x => wOf((count || {})[key(x)] || 0)), sum = w.reduce((a, b) => a + b, 0);
+  const w = list.map(x => wOf((count || {})[key(x)] || 0) * factor(x)), sum = w.reduce((a, b) => a + b, 0);
   let x = r() * sum; for (let i = 0; i < list.length; i++) { x -= w[i]; if (x < 0) return list[i]; }
   return list[list.length - 1];
 }
@@ -115,11 +119,11 @@ const pathKey = (preset, place) => preset + '@' + place;
 function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = '', usage = {}, rUse = r } = {}) {
   const g = card.g, U = usageOf(usage);
   let sc;
-  if (reqType) { const paths = requiredPaths(reqType).filter(x => !wantEra || x.era === wantEra); if (!paths.length) return null; sc = { ...lean(r, paths, U.place, x => x.place) }; }
+  if (reqType) { const paths = requiredPaths(reqType).filter(x => !wantEra || x.era === wantEra); if (!paths.length) return null; sc = { ...lean(r, paths, U.place, x => x.place, famW) }; }
   else {
     const era = wantEra || weighted(r, ERA_WEIGHT), place = lean(r, C2.choices(T2, { era }, 'place', null), U.place);
     if (!place) return null;
-    sc = { era, place, ofam: lean(r, C2.choices(T2, { era, place }, 'ofam', null), U.ofam) };
+    sc = { era, place, ofam: lean(r, C2.choices(T2, { era, place }, 'ofam', null), U.ofam, x => x, famW) };
   }
   sc.treeV = 2; sc.prop = wantSig ? '0' : '';
   const presets = presetsAt(sc, g).filter(p => (!frame || p.frame === frame) && (!wantSig || p.prop_kind));
@@ -200,6 +204,7 @@ function check(cuts, card, base = [], others = []) {
     if (same.length && (!inWorld(c) || same.some(o => o.ofam === c.ofam))) errs.push(`칸 ${c.n || '?'}: 장소 ${c.place} 는 다른 세계 · 다른 묶음이 쓴 곳`);
     if (c.preset && others.some(o => o.preset === c.preset)) errs.push(`칸 ${c.n || '?'}: 자세 추천 ${c.preset} 는 다른 세계 · 다른 묶음이 쓴 구도`);
     const ok = outfitKey(c); if (ok && others.some(o => outfitKey(o) === ok)) errs.push(`칸 ${c.n || '?'}: 옷 ${ok} 는 다른 세계 · 다른 묶음이 입은 옷`);
+    if (c.ofam === 'bath' && others.some(o => o.ofam === 'bath')) errs.push(`칸 ${c.n || '?'}: 목욕 차림은 한 장수의 세계 셋 통틀어 한 장까지(2026-11-09)`);
   }
   return errs;
 }

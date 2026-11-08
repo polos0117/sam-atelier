@@ -53,6 +53,11 @@ for (const key of pickKeys) {
 if (SHORT) { const card = C.cardOf('조조'), forms = new Set(); let legend = 0;
   for (const w of card.worlds) { card.world = w; for (const c of C.plan(card, [1, 2, 3, 4, 5], [], { seed: 21 }).cuts) { const p = C.record(card, w, c).prompt, m = p.match(/appears only as (.+?) modelled on its shape/); assert(m, '조조 무기 장신구 줄'); forms.add(m[1]); if (/may show in the outfit's details/.test(p)) legend++; } }
   assert(forms.size >= 4, '장신구 꼴이 고르게 — ' + [...forms].join(' · ')); assert.equal(legend, 15, '전설은 옷 · 장신구에'); }
+/* 목욕 차림은 덜 — 계획 12.7% → 8% 아래, 다른 세계가 쓴 목욕 차림이면 잡는다(2026-11-09 「수건 감는 옷 많이 나오던데」) */
+{ let b = 0, t = 0; for (const k of ['조조', '유비', '관우', '손권', '장료', '손상향', '제갈량', '주유']) for (const w of ['samguk', 'fantasy', 'mecha']) { const cd = C.cardOf(k); cd.world = w; for (const s2 of [1, 2]) for (const x of C.plan(cd, [1, 2, 3, 4, 5], [], { seed: s2 }).cuts) { t++; if (x.ofam === 'bath') b++; } }
+  assert(b / t < 0.08, '목욕 차림 비율 ' + b + '/' + t);
+  const cd = C.cardOf('조조'); cd.world = 'fantasy'; const one = C.plan(cd, [1, 2, 3, 4, 5], [], { seed: 3 }).cuts[0];
+  assert(C.check([{ ...one, ofam: 'bath', item: 'towel_wrap' }], cd, [], [{ ofam: 'bath', item: 'spa_robe', place: '__x' }]).some(e => /목욕 차림/.test(e)), '세계 셋 통틀어 목욕 차림 한 장'); }
 /* 데니어는 랜덤 — 닿는 옷 컷의 대략 열에 여섯(넓게: 3할 ~ 9할) */
 assert(dn.fit > 20 && dn.set / dn.fit > 0.3 && dn.set / dn.fit < 0.9, '데니어 비율 ' + dn.set + '/' + dn.fit);
 /* 이미 있는 두 장 위에 세 장 — 겹침은 있는 것까지 센다 */
