@@ -11,7 +11,7 @@ const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console };
 const keys = P.cards(D), pickKeys = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 12)) === 0).slice(0, 12);
 const TS = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx); vm.runInContext(fs.readFileSync(path.join(__dirname, '../lib/prompt-spec.js'), 'utf8'), ctx); return ctx.window.AtelierSpec; })();
 const SJ = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8')), SR = SJ.styles[C.STYLE], KIT = (SR.versions.find(v => v.v === SR.current) || {}).casualKit;   /* 기본 화풍에 일상컷 묶음이 있으면(kr_mmorpg v5~, 2026-11-08 기본) 그 글로 */
-let n = 0;
+let n = 0; const dn = { fit: 0, set: 0 };
 for (const key of pickKeys) {
   const card = C.cardOf(key);
   for (const w of card.worlds) for (const seed of [3, 11]) {
@@ -24,6 +24,7 @@ for (const key of pickKeys) {
     assert(inw.every(c => c.era === 'nation'), '세계 안 갈래는 세계 안 시대');
     assert.equal(new Set(res.cuts.map(c => c.era)).size, 4, key + ' ' + w + ' 네 시대 다');
     { const cs = res.cuts.map(c => c.color).filter(Boolean); assert.equal(new Set(cs).size, cs.length, key + ' ' + w + ' 옷 색 갈래가 묶음 안에서 겹치지 않는다'); }
+    dn.fit += res.cuts.filter(c => P.denierFits(C.outfitEn(c))).length; dn.set += res.cuts.filter(c => c.denier).length;
     for (const c of res.cuts) {
       const rec = C.record(card, w, c);
       assert.equal(rec.file, `${key}_${w}_${C.STYLE}_f_casual${c.n}.webp`);
@@ -39,10 +40,16 @@ for (const key of pickKeys) {
       const CL = TS.CASUAL.colors.find(x => x.key === c.color), ol = (rec.prompt.match(/^Outfit: .*$/m) || [''])[0];
       if (P.colorFixed(C.outfitEn(c))) assert(!c.color && !/the outfit colour reads clearly/.test(ol), key + ' 색이 박힌 옷엔 색 줄 없음');
       else assert(CL && ol.includes(CL.en), key + ' ' + w + ' 옷 색 줄 — ' + ol.slice(0, 80));
+      /* 데니어(2026-11-08) — 닿는 옷에만, 고르면 Outfit 줄에 그 데니어, 노출 축은 그대로 */
+      if (c.denier) { const DN = TS.CASUAL.deniers.find(x => x.key === c.denier); assert(DN && P.denierFits(C.outfitEn(c)) && ol.includes(DN.top + '-denier yarn') && ol.includes('fully opaque lining over the bust and the hips'), key + ' 데니어 줄 — ' + ol.slice(0, 80)); }
+      else assert(!/-denier yarn/.test(ol), key + ' 데니어 안 고른 컷엔 비침 줄 없음');
+      if (!P.denierFits(C.outfitEn(c))) assert(!c.denier, key + ' 데니어는 닿는 옷에만');
     }
     n++;
   }
 }
+/* 데니어는 랜덤 — 닿는 옷 컷의 대략 열에 여섯(넓게: 3할 ~ 9할) */
+assert(dn.fit > 20 && dn.set / dn.fit > 0.3 && dn.set / dn.fit < 0.9, '데니어 비율 ' + dn.set + '/' + dn.fit);
 /* 이미 있는 두 장 위에 세 장 — 겹침은 있는 것까지 센다 */
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'casual-plan-'));
 try {
