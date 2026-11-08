@@ -62,7 +62,9 @@ for (const [sk, anat] of [['kv_jp_mobile', 'ANATOMY: Exactly one head'], ['kv_jp
   /* 일상컷 묶음(casualKit) — STYLE 은 화풍 글, FACE 끝에 설계 얼굴, SKIN · LIGHT 는 피부색 칸 · 하이키, BODY LINE 은 그대로 */
   { const Cp = require('../tools/casual-plan.cjs'), card = Cp.cardOf('맹획'); card.world = 'samguk'; const cut = Cp.plan(card, [1], [], { seed: 5 }).cuts[0], { n, ...sc } = cut;
     const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8'));
-    const cp = P.casualRecord(D, S, '맹획', sc, { world: 'samguk', style: 'kv_cgi_hikey', tree: tr, tree2: tr2 }, n).prompt, K = S.styles.kv_cgi_hikey.versions[0].casualKit;
+    const SC0 = JSON.parse(JSON.stringify(S)); SC0.styles.kv_cgi_hikey.versions[0].casualShort = false;   /* 옛 꼴(일상컷 묶음) 검사 — 짧은 꼴이 기본이 된 뒤(2026-11-08)엔 판을 끄고 본다 */
+    const cp = P.casualRecord(D, SC0, '맹획', sc, { world: 'samguk', style: 'kv_cgi_hikey', tree: tr, tree2: tr2 }, n).prompt, K = S.styles.kv_cgi_hikey.versions[0].casualKit;
+    assert(P.casualRecord(D, S, '맹획', sc, { world: 'samguk', style: 'kv_cgi_hikey', tree: tr, tree2: tr2 }, n).prompt.includes('\n\nStyle: High-end cinematic character CGI'), 'cgi 짧은 일상컷 — 화풍 단락');
     assert(cp.includes('STYLE: ' + K.style) && !/keep the attached image's rendering exactly/.test(cp), 'cgi 일상컷 STYLE 은 화풍 글');
     assert(/SKIN: her own skin tone — bronze-brown skin —/.test(cp) && cp.includes(K.light) && !cp.includes(T.CASUAL.faceLight), 'cgi 일상컷 피부색 칸 · 하이키');
     assert(/Her designed face, exactly as in the attached image: /.test(cp) && !/Do not add skin texture, pores/.test(cp) && cp.includes(T.CASUAL.bodyLine), 'cgi 일상컷 설계 얼굴 · 몸 라인'); }
@@ -112,7 +114,8 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
   /* v5(2026-11-06) — 일상컷에만 촉촉한 피부 광택 줄, 세계 그림엔 없다 */
   if (kv.casualSkin) { const C = require('../tools/casual-plan.cjs'), card = C.cardOf('조조'); card.world = 'samguk';
     const TR = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), TR2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8'));
-    const KR = c => { const { n: cn, ...csc } = c; return P.casualRecord(D, S, '조조', csc, { world: 'samguk', style: KVK, tree: TR, tree2: TR2 }, cn).prompt; };   /* 기본이 kr_mmorpg 로 바뀐 뒤(2026-11-08)에도 기준 판 일상컷으로 */
+    const SL = JSON.parse(JSON.stringify(S)); SL.styles[KVK].versions.find(v => v.v === SL.styles[KVK].current).casualShort = false;   /* 옛 꼴 일상컷 검사 — 짧은 꼴이 기본이 된 뒤(2026-11-08)엔 판을 끄고 본다 */
+    const KR = c => { const { n: cn, ...csc } = c; return P.casualRecord(D, SL, '조조', csc, { world: 'samguk', style: KVK, tree: TR, tree2: TR2 }, cn).prompt; };   /* 기본이 kr_mmorpg 로 바뀐 뒤(2026-11-08)에도 기준 판 일상컷으로 */
     const cut = C.plan(card, [1], [], { seed: 5 }).cuts[0], cp = KR(cut);
     assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', { style: KVK }).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음');
     /* 피부 광택 단계(2026-11-06 「광택효과를 선택 할 수 있게 … 단계별로」) — 고르면 그 단계 줄 하나만, 안 고르면 화풍 기본 */
@@ -123,7 +126,7 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     /* 얼굴 자연광 — 일상컷 공통(2026-11-06 「자연광은 일상컷 공통으로」), 세계 그림엔 없다 */
     assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', { style: KVK }).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
     { const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8')), { n: n0, ...sc0 } = cut;
-      for (const sk of Object.keys(S.styles)) { const sv0 = S.styles[sk].versions.find(v => v.v === S.styles[sk].current) || {}, kit = sv0.casualKit; if (sv0.casualShort) { assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(sv0.casualLight || T.CASUAL.short.light), sk + ' 짧은 일상컷 조명 줄'); continue; }   /* 판이 제 일상컷 조명(casualKit.light)을 가지면 그것 */
+      for (const sk of Object.keys(S.styles)) { const sv0 = S.styles[sk].versions.find(v => v.v === S.styles[sk].current) || {}, kit = sv0.casualKit; if (P.casualShortOn(S, sk)) { assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(sv0.casualLight || T.CASUAL.short.light), sk + ' 짧은 일상컷 조명 줄'); continue; }   /* 판이 제 일상컷 조명(casualKit.light)을 가지면 그것 */
         assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(kit ? kit.light : T.CASUAL.faceLight), sk + ' 일상컷 조명 줄'); } }
     const GL = T.CASUAL.glosses; assert.equal(GL.map(g => g.key).join(), 'matte,soft,dewy,glossy', '광택 네 단계');
     assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, KVK), kv.casualSkin);
