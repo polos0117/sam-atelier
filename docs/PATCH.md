@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 노출 줄 「가슴 · 골반 가림」 → 「중요 부위 가림」
+- 사용자 「가슴 골반 가리라는 문구가 세게 작용하는거 같은데. 그거보단 중요부위 가리는걸로 수정해야 될 거 같아」.
+- lib/prompt-spec.js — 세계 과감 노출 셋 · 일상컷 노출 축(먼 컷 · 가까운 컷 · 보통)의 「Chest and pelvis covered」 · 「chest covered」 를 「Intimate areas covered」 로, 한글 풀이도 「중요 부위」. lib/prompt-sam.js — exposureLine 이 외형 표(game 그대로 옮긴 look-spec)의 글도 나갈 때 바꾼다(intimate).
+- lib/words.js 생성기 노출 풀이(보통 · 과감 — 메카 두 곳 열기도). 옛 구조판(glossy_kv 등) 글은 그대로. ?v= prompt-spec 8 · prompt-sam 6 · words 12. 문서 IMAGE_RULES 2절.
+
 ## 2026-11-08 · claude · 메카 과감 노출을 장수마다 두 곳만
 - 사용자 「세계컷 메카는 한번에 너무 많이 연거 같으니, 랜덤적으로 몇 군데만 여느식으로 설계 변경을 하자」 — 네 곳(어깨 · 위팔 / 가슴 창 / 허리 / 허벅지) 가운데 장수 · 세계마다 두 곳만, 나머지는 장갑 그대로.
 - lib/prompt-spec.js 메카 exposureOpen · exposureOpenN(2) · exposureOpenTpl, lib/prompt-sam.js exposureOpenOf(열쇠 해시 — 같은 장수는 늘 같은 곳) · exposureLine 에 장수 열쇠. 장수 279명에 조합 여섯이 40~52명씩.
