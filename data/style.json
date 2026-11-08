@@ -1267,6 +1267,21 @@
      }
     }
    ]
+  },
+  "mmorpg_cg": {
+   "name": "MMORPG CG",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-08",
+     "by": "사용자 2026-11-08 「화풍문구는 지금처럼 축소판으로 가고 mmorpg cg만 추가해서 공방의 화풍비교 메뉴에 올려줘」 — 짧은 지시문 시험(게임 키아트 3D 네 갈래)의 한국 MMORPG CG 단락",
+     "text": "Korean MMORPG 3D key art — a semi-realistic 3D beauty with a small refined face and delicate realistic-anime features, porcelain skin with a soft glow, extremely ornate engraved armour and jewellery with glossy highlights, a strong rim light and drifting light particles, a luxurious promotional finish.",
+     "casual": "Korean MMORPG 3D key art — a semi-realistic 3D beauty with a small refined face and delicate realistic-anime features, porcelain skin with a soft glow, extremely ornate engraved armour and jewellery with glossy highlights, a strong rim light and drifting light particles, a luxurious promotional finish.",
+     "casualShort": true,
+     "casualLight": "Light: the place's own light, with a strong soft rim light tracing her hair and shoulders, glossy highlights on skin and jewellery and drifting light particles — a luxurious promotional glow."
+    }
+   ]
   }
  }
 }

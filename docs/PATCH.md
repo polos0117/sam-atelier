@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · MMORPG CG 화풍 · 화풍 비교 묶음 2026-11-09(짧은 지시문)
+- 사용자 「화풍문구는 지금처럼 축소판으로 가고 mmorpg cg만 추가해서 공방의 화풍비교 메뉴에 올려줘」 — data/style.json 에 mmorpg_cg(짧은 화풍 단락 · 짧은 일상컷 · 일상 빛 줄).
+- data/style-compare.json · 그림 저장소 style-test/compare/2026-11-09 — 조조, 공방 화풍 9 + MMORPG CG × 세계 셋 × (세계 그림 · 일상 허리 위). 세계 그림은 짧은 지시문(약 400낱말 — 전설 줄 · 수염 없음 · 세계 경계 · 판타지 구도 줄), 일상은 짧은 일상컷(A안). docs/STYLE_LAB.md 표에 한 줄.
+
 ## 2026-11-09 · claude · 짧은 일상컷을 모든 화풍에
 - 사용자 「다른 화풍도 켜주고」 — lib/prompt-spec.js CASUAL.shortAll, lib/prompt-sam.js casualShortOn(판 casualShort: false 면 옛 꼴, 구조판은 빼고) · shortStyle(일상 묶음 글 > 일상 글 > 세계 글 > kv 1절에서 머리 · 장르 고정 뗀 앞 문장들, 120낱말까지). 고른 피부 광택 단계는 짧은 꼴에도 그 줄 하나.
 - 검사 prompt-v2 — 옛 꼴(기준 판 광택 · cgi 일상 묶음) 검사는 판을 끈 사본으로, 화풍마다 짧은 꼴 빛 줄. ?v= prompt-spec 11 · prompt-sam 9. 문서 IMAGE_RULES 2절.
