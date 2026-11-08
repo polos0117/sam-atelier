@@ -72,6 +72,13 @@ assert.equal(S.styles.kr_mmorpg.current, 'v4', 'kr_mmorpg 는 옛 그림(v1~v4) 
 { for (const key of P.cards(D)) for (const w of ['samguk', 'fantasy', 'mecha']) { const p = P.build(D, S, key, w, { style: 'kr_promo_hikey' });
     assert(!/strong rim light|high contrast/.test(p) && /\n\nSKIN COLOUR AND RENDERING:\nHer own skin tone — /.test(p) && /\n\nLIGHTING AND COLOUR:\n/.test(p) && /\n\nCAMERA AND COMPOSITION:\n/.test(p) && !/\{\w+\}|undefined/.test(p), key + ' ' + w + ' 프로모 v6'); }
   assert(/Her own skin tone — bronze-brown skin —/.test(P.build(D, S, '맹획', 'samguk', { style: 'kr_promo_hikey' })), '프로모 v6 맹획 피부색'); }
+/* 메카 과감 노출은 네 곳 가운데 장수마다 두 곳만(2026-11-08 「랜덤적으로 몇 군데만」) — 같은 장수는 늘 같은 두 곳, 조합 여섯이 다 쓰인다 */
+{ const MW = T.WORLDS.find(w => w.key === 'mecha'), combos = new Set();
+  for (const key of P.cards(D)) { const op = P.exposureOpenOf(key, 'mecha'); assert.equal(op.length, 2, key + ' 메카 열린 곳 둘');
+    assert.deepEqual(P.exposureOpenOf(key, 'mecha'), op, key + ' 같은 장수는 같은 곳'); combos.add(op.map(o => o.key).join('+'));
+    const ex = (P.build(D, S, key, 'mecha', { style: 'kr_promo_hikey' }).match(/^EXPOSURE \(bold\):.*$/m) || [''])[0];
+    assert(ex.includes('in only these places') && op.every(o => ex.includes(o.en)) && MW.exposureOpen.filter(o => !op.includes(o)).every(o => !ex.includes(o.en)), key + ' 메카 노출 줄 — 고른 두 곳만'); }
+  assert.equal(combos.size, 6, '메카 열린 곳 조합 여섯이 다 쓰인다'); }
 /* 1절 세계 몫엔 SF 낱말이 없다 */
 for (const w of ['samguk', 'fantasy']) assert(!/SF|기계|장갑|크롬|발광|나사|케이블|도장/.test(sv.section1_worlds[w]), w + ' 1절에 SF 낱말');
 /* 메카 실루엣 · 고른 자세 · 시간대 · 장면 변주 */

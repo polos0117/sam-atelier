@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 메카 과감 노출을 장수마다 두 곳만
+- 사용자 「세계컷 메카는 한번에 너무 많이 연거 같으니, 랜덤적으로 몇 군데만 여느식으로 설계 변경을 하자」 — 네 곳(어깨 · 위팔 / 가슴 창 / 허리 / 허벅지) 가운데 장수 · 세계마다 두 곳만, 나머지는 장갑 그대로.
+- lib/prompt-spec.js 메카 exposureOpen · exposureOpenN(2) · exposureOpenTpl, lib/prompt-sam.js exposureOpenOf(열쇠 해시 — 같은 장수는 늘 같은 곳) · exposureLine 에 장수 열쇠. 장수 279명에 조합 여섯이 40~52명씩.
+- 검사 prompt-v2 — 장수마다 두 곳 · 늘 같은 곳 · 노출 줄에 고른 곳만 · 조합 여섯 다. ?v= prompt-spec 7 · prompt-sam 5. 문서 IMAGE_RULES 2절.
+
 ## 2026-11-08 · claude · GPT 세션 — 노출은 세션이 줄이지 않는다 · 검수에 노출
 - 사용자 「이거 gpt세션에서도 해봐야돼 거기선 의도적으로 줄이는거 같아」 — 기록(장수 126자리)을 보니 낸 지시문 sha256 은 생성기 글과 다 같고, 노출을 낮춘 8자리는 모두 안전 필터 거절 뒤였다. 남는 건 image_gen 쪽 출력이 지정보다 약하게 나오는 것.
 - docs/IMAGE_AUTOMATION.md 4절 — 검수에 「노출이 지정대로인가」(qa.exposure: match · weaker · stronger), weaker 면 같은 지시문으로 한 번 다시(다시 그리는 것 여섯 가지로), 「노출은 세션이 줄이지 않는다 — 막혔을 때만 1절 순서」. 7절 qa 꼴에 exposure.
