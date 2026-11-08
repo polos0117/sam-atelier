@@ -10,7 +10,7 @@ const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console };
   return ctx.window.AtelierPrompt; })();
 const keys = P.cards(D), pickKeys = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 12)) === 0).slice(0, 12);
 const TS = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx); vm.runInContext(fs.readFileSync(path.join(__dirname, '../lib/prompt-spec.js'), 'utf8'), ctx); return ctx.window.AtelierSpec; })();
-const SJ = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8')), SR = SJ.styles[C.STYLE], KIT = (SR.versions.find(v => v.v === SR.current) || {}).casualKit;   /* 기본 화풍에 일상컷 묶음이 있으면(kr_mmorpg v5~, 2026-11-08 기본) 그 글로 */
+const SJ = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8')), SR = SJ.styles[C.STYLE], KIT = (SR.versions.find(v => v.v === SR.current) || {}).casualKit, SHORT = !!(SR.versions.find(v => v.v === SR.current) || {}).casualShort;   /* 기본 화풍에 일상컷 묶음이 있으면(kr_mmorpg v5~, 2026-11-08 기본) 그 글로 */
 let n = 0; const dn = { fit: 0, set: 0 };
 for (const key of pickKeys) {
   const card = C.cardOf(key);
@@ -32,10 +32,11 @@ for (const key of pickKeys) {
       assert.equal(rec.ref, `${key}_${w}_${C.STYLE}_f.webp`, '참고 그림은 그 세계 그림');
       assert(rec.prompt.length > 500 && rec.treeV === 2 && rec.world === w);
       /* 일상컷 얼굴 · 화풍은 첨부 그림에 맡긴다(2026-11-03) — 화풍 문장 · 나이 줄 대신 「첨부 그림 그대로」 · FACE 줄, 표정은 얼굴 안에서만 */
+      if (SHORT) assert(rec.prompt.includes(TS.CASUAL.short.face) && /\n\nStyle: /.test(rec.prompt) && rec.prompt.includes(TS.CASUAL.short.end) && !/^(?:WARDROBE|SKIN|ANGLE|OUTPUT|AGE|ANATOMY|DESIGN \(accessory hints only\)):/m.test(rec.prompt), '짧은 일상컷 — 얼굴 길이 줄 · 화풍 단락 · 빠진 칸(2026-11-08)'); else
       if (KIT) assert(rec.prompt.includes('STYLE: ' + KIT.style) && rec.prompt.includes('FACE: exactly the face of the attached image') && rec.prompt.includes('SKIN: her own skin tone') && !rec.prompt.includes('AGE: the same adult woman'), '일상컷 묶음 화풍(casualKit) — 화풍 글 · 첨부 얼굴 · 피부색 칸'); else
       if (/^Create ONE finished illustration\. Use case: identity-preserve/.test(rec.prompt)) assert(rec.prompt.includes('IDENTITY AND ART STYLE LOCK') && rec.prompt.includes('CHANGE ONLY CLOTHING') && !/overall_intensity|skin_exposure|SKIN: dewy/.test(rec.prompt), '자연판 일상컷 — 편집 · 잠금 · 바꿀 것만, 강도 · 노출 축 · 광택 줄 없음'); else
       assert(rec.prompt.includes("STYLE: keep the attached image's rendering exactly") && rec.prompt.includes('FACE: exactly the face of the attached image') && !rec.prompt.includes('AGE: the same adult woman') && !/MMORPG/.test(rec.prompt), '일상컷 화풍 · 얼굴은 첨부 그림 그대로');
-      assert(!/EXPRESSION: /.test(rec.prompt) || /EXPRESSION: [^\n]*Show it mildly/.test(rec.prompt), '일상컷 표정은 얼굴 안에서만');
+      assert(SHORT || !/EXPRESSION: /.test(rec.prompt) || /EXPRESSION: [^\n]*Show it mildly/.test(rec.prompt), '일상컷 표정은 얼굴 안에서만');
       /* 옷 색 갈래(2026-11-08) — 색이 박히지 않은 옷엔 갈래 한 줄, 박힌 옷엔 없음 */
       const CL = TS.CASUAL.colors.find(x => x.key === c.color), ol = (rec.prompt.match(/^Outfit: .*$/m) || [''])[0];
       if (P.colorFixed(C.outfitEn(c))) assert(!c.color && !/the outfit colour reads clearly/.test(ol), key + ' 색이 박힌 옷엔 색 줄 없음');
@@ -48,6 +49,10 @@ for (const key of pickKeys) {
     n++;
   }
 }
+/* 짧은 일상컷 — 무기 장신구 꼴이 장마다 갈린다(머리꽂이 고정 아님), 전설은 옷 · 장신구에 드러나도 된다(2026-11-08) */
+if (SHORT) { const card = C.cardOf('조조'), forms = new Set(); let legend = 0;
+  for (const w of card.worlds) { card.world = w; for (const c of C.plan(card, [1, 2, 3, 4, 5], [], { seed: 21 }).cuts) { const p = C.record(card, w, c).prompt, m = p.match(/appears only as (.+?) modelled on its shape/); assert(m, '조조 무기 장신구 줄'); forms.add(m[1]); if (/may show in the outfit's details/.test(p)) legend++; } }
+  assert(forms.size >= 4, '장신구 꼴이 고르게 — ' + [...forms].join(' · ')); assert.equal(legend, 15, '전설은 옷 · 장신구에'); }
 /* 데니어는 랜덤 — 닿는 옷 컷의 대략 열에 여섯(넓게: 3할 ~ 9할) */
 assert(dn.fit > 20 && dn.set / dn.fit > 0.3 && dn.set / dn.fit < 0.9, '데니어 비율 ' + dn.set + '/' + dn.fit);
 /* 이미 있는 두 장 위에 세 장 — 겹침은 있는 것까지 센다 */
@@ -119,7 +124,7 @@ try {
     const cuts = C.plan(card, [1, 2, 3, 4, 5], [], { seed: 7 }).cuts;
     for (const c of cuts) {
       const p = C.record(card, card.world, c).prompt;
-      assert.equal(p.includes('SIGNATURE ACCESSORY'), weapon, key + ' — 장신구 줄');
+      assert.equal(p.includes('SIGNATURE ACCESSORY') || /\nAccessory: off duty she carries no weapon/.test(p), weapon, key + ' — 장신구 줄');   /* 짧은 판은 Accessory: 줄(2026-11-08) */
       if (weapon) assert(!p.includes('SIGNATURE ITEM SHAPE') && !p.includes(P.holdOf(card.c) + ' in'), key + ' — 무기를 들지 않는다');
     }
     if (!weapon) assert(cuts.some(c => /sig_/.test(c.use || '')), key + ' — 무기 아닌 물건은 한두 장 든다');

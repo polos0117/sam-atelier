@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 짧은 일상컷 — 기본 화풍 kr_promo_hikey v2
+- 사용자 「지금까지 일상컷 틀어지는 이유가 여기있었네」 → 「긴얼굴은 아직도 있어서 이것만 막고, 시그니처 악세사리는 머리핀 고정보다는 다양하게 … 의상에 전설금지는 없는게 낫었겠네」 — 일상컷 1,660낱말 → 400낱말 안팎.
+- lib/prompt-spec.js CASUAL.short(참고 그림 · 얼굴 길이 · 화풍 단락 꼬리 · 노출 축 · 몸 · 전설 · 무기 장신구 여덟 꼴 · 빛 · 끝 줄), lib/prompt-sam.js buildCasualShort(판에 casualShort 가 있으면 — 계획 칸은 그대로, SKIN · LIGHT · FACE 질감 · WORLD · WARDROBE · ANGLE · OUTPUT · DESIGN · 해부 묶음 · 강도 축은 뺀다), data/style.json kr_promo_hikey v2(casualShort · casualLight, 세계 그림은 v1 그대로).
+- lib/prompt-gpt.js — 짧은 판은 구조형으로 옮기지 않고 그대로. 검사 casual-plan(짧은 꼴 · 장신구 꼴 넷 이상 · 전설 줄) · prompt-v2(빛 줄) · prompt-gpt · screen 을 새 꼴에 맞췄다. ?v= prompt-spec 10 · prompt-sam 8. 문서 IMAGE_RULES 2절.
+
 ## 2026-11-08 · claude · 장수 기본 나이 한 단계 어리게
 - 사용자 「장수들 기본 나이 설계를 지금보다 한단계 어리게 해줘」 — data/sam-design.json 279명 look.face.age 를 한 단계씩: 30대 후반 18 → 30대 초반, 30대 초반 75 → 20대 후반, 20대 후반 125 → 20대 중반, 20대 중반 53 → 20대 초반, 20대 초반 8 은 그대로. 지금 20대 초반 61 · 중반 125 · 후반 75 · 30대 초반 18.
 - tools/sam-design.py — 자동 설계 나이 갈래에서 early_30s 를 뺐다(20대 초 · 중 · 후반). 이미 등록된 그림은 그대로 — 새로 그리는 것부터.

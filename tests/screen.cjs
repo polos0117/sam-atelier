@@ -217,6 +217,7 @@ const P = ctx0.window.AtelierPrompt;
     await toDone(v.page);
     const cp = await promptOf(v.page);
     if (/^Create ONE finished illustration\. Use case: identity-preserve/.test(cp)) assert.match(cp, /IDENTITY AND ART STYLE LOCK/);   /* 자연판(v7) */
+    else if (/^Use the attached image as the reference/.test(cp)) { assert.match(cp, /Guan Yu/); assert.match(cp, /\n\nStyle: /); }   /* 짧은 판(2026-11-08) */
     else { assert.match(cp, /^INPUT: the attached image/); assert.match(cp, /female personification of Guan Yu/); assert.match(cp, /SCENE \(chosen\)/); }
     assert.doesNotMatch(cp, /element|chemical symbol|atomic number/i, '원소 말이 남지 않았다');
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_mecha_' + S['default'] + '_f_casual1\\.webp'));

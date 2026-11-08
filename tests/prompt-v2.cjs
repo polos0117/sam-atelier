@@ -123,7 +123,7 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     /* 얼굴 자연광 — 일상컷 공통(2026-11-06 「자연광은 일상컷 공통으로」), 세계 그림엔 없다 */
     assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', { style: KVK }).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
     { const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8')), { n: n0, ...sc0 } = cut;
-      for (const sk of Object.keys(S.styles)) { const kit = (S.styles[sk].versions.find(v => v.v === S.styles[sk].current) || {}).casualKit;   /* 판이 제 일상컷 조명(casualKit.light)을 가지면 그것 */
+      for (const sk of Object.keys(S.styles)) { const sv0 = S.styles[sk].versions.find(v => v.v === S.styles[sk].current) || {}, kit = sv0.casualKit; if (sv0.casualShort) { assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(sv0.casualLight || T.CASUAL.short.light), sk + ' 짧은 일상컷 조명 줄'); continue; }   /* 판이 제 일상컷 조명(casualKit.light)을 가지면 그것 */
         assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(kit ? kit.light : T.CASUAL.faceLight), sk + ' 일상컷 조명 줄'); } }
     const GL = T.CASUAL.glosses; assert.equal(GL.map(g => g.key).join(), 'matte,soft,dewy,glossy', '광택 네 단계');
     assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, KVK), kv.casualSkin);
