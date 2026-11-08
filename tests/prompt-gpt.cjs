@@ -60,6 +60,7 @@ try {
   cp.execFileSync(process.execPath, [path.join(R, 'tools/prompt-pack.cjs'), 'build', '--dir', path.join(tmp, 'pack')], { stdio: 'pipe' });
   for (const f of ['samguk-gpt.md', 'samguk-casual1-gpt.md', 'samguk-casual2-gpt.md', 'fantasy-gpt.md']) assert(fs.existsSync(path.join(tmp, 'pack', f)), f);
   assert(fs.readFileSync(path.join(tmp, 'pack', 'INDEX.md'), 'utf8').includes('구조형 sha256'));
+  assert(/세계 그림 → 멈춤 → 일상컷/.test(fs.readFileSync(path.join(tmp, 'pack', 'INDEX.md'), 'utf8')), 'INDEX — 세계 그림 뒤 멈추고 사용자가 고른 뒤 일상컷(2026-11-08)');
   const DV = S.styles[S['default']].versions.find(v => v.v === S.styles[S['default']].current), rd = f => fs.readFileSync(path.join(tmp, 'pack', f), 'utf8');
   if (DV.format === 'kv' || DV.worldTail) assert.equal(rd('samguk-gpt.md'), rd('samguk-prompt.txt'), '기준 판 · 화풍 칸 판(kr_mmorpg v6) 세계 그림은 영문 그대로');
   if (DV.casualKit) assert.equal(rd('samguk-casual1-gpt.md'), rd('samguk-casual1-prompt.txt'), '일상컷 묶음 판(kr_mmorpg v5~) 일상컷은 영문 그대로 — 화풍 글 · 설계 얼굴을 지키게');

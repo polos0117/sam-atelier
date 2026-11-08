@@ -159,7 +159,8 @@ function build(dir) {
   }
   const rows = out.map(({ s, rec, gpt }, i) => `| ${i + 1} | ${s.slot} | ${s.kind === 'world' ? '세계 그림(첨부 없이)' : '일상(버전2)'} | ${s.attach.join(' + ') || '없음'} | ${rec.file} | ${rec.record} | ${sha(rec.prompt).slice(0, 12)} | ${sha(gpt).slice(0, 12)} |`);
   fs.writeFileSync(path.join(dir, 'INDEX.md'), `# ${card.key}(${card.c.ko}) — 지시문 묶음\n\n만든 때 ${new Date().toISOString()} · 화풍 ${STYLE} · 사는 세계 ${card.worlds.join(' · ')} · 계획 ${plans.map(p => p.world).join(' · ') || '없음(일상 자리 없음)'}\n\n` +
-    '차례대로 그린다. 세계 그림은 기준 그림 없이 한 장씩, 일상컷은 그 세계 그림(이 세션의 원본, 이미 등록된 것이면 그림 저장소의 webp)을 붙인다. 고치지 않고 그대로 낸다 — ' +
+    '**세계 그림 → 멈춤 → 일상컷.** 세계 그림은 세계마다 2~3장(기준 그림 없이 한 장씩)을 뽑아 사용자에게 보이고 **멈추고 묻는다** — 사용자가 고르기 전엔 일상컷으로 넘어가지 않고 세계 그림도 올리지 않는다. 고른 장만 올린다(IMAGE_RULES.md 1절, 2026-11-08).\n\n' +
+    '차례대로 그린다. 일상컷은 그 세계 그림(이 세션의 원본, 이미 등록된 것이면 그림 저장소의 webp)을 붙인다. 고치지 않고 그대로 낸다 — ' +
     'GPT 세션은 세계 그림에 `<세계>-prompt.txt`, 일상컷에 `<세계>-casualN-gpt.md`(크기 1024×1536 지정). API · 생성기는 모두 `<자리>-prompt.txt`(docs/IMAGE_AUTOMATION.md 3절).\n\n' +
     '| 차례 | 자리 | 갈래 | 첨부 | 올릴 파일 | 기록 자리 | 지시문 sha256 | 구조형 sha256 |\n|---|---|---|---|---|---|---|---|\n' + rows.join('\n') + '\n');
   console.log(`${card.key}(${card.c.ko}) — ${out.length} 자리 → ${dir}`);
