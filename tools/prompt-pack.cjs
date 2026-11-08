@@ -143,9 +143,12 @@ function build(dir) {
   /* GPT 세션용 구조형 — 같은 지시문을 칸으로 옮긴 것. 일상컷의 몸 볼륨은 그 세계 그림 SILHOUETTE 의 체형 칸에서 */
   const bodyOf = w => { const m = (P.build(D, S, card.key, w, { style: STYLE }) || '').match(/^SILHOUETTE:\s*([^;\n]+)/m); return m ? m[1] : P.bodyText(D, card.key, w); };
   /* 기준 판(format kv, 2026-11-05)의 세계 그림은 이미 칸으로 나뉜 영문 네 칸 — 구조형으로 옮기지 않고 그대로 낸다 */
-  const KV = ((S.styles[STYLE].versions || []).find(v => v.v === S.styles[STYLE].current) || {}).format === 'kv';
+  /* 화풍 칸이 따로 붙는 판(worldTail — kr_mmorpg v6: 피부색 · 조명 · 카메라 칸)도 그대로 — 옛 구조형 화풍 칸(림 조명)이 그 칸과 부딪친다.
+     일상컷 묶음(casualKit — 화풍 글 · 설계 얼굴 · 피부색 · 하이키)이 있는 판의 일상컷도 그대로 — 구조형은 화풍 · 설계 얼굴을 버린다(2026-11-08 kr_mmorpg 기본) */
+  const SV = (S.styles[STYLE].versions || []).find(v => v.v === S.styles[STYLE].current) || {}, KV = SV.format === 'kv' || !!SV.worldTail, KIT = !!SV.casualKit;
   for (const o of out) {
-    const g = o.s.kind === 'world' ? (KV ? { text: o.rec.prompt, unknown: [] } : GPT.world(o.rec.prompt)) : GPT.casual(o.rec.prompt, { bodyText: bodyOf(o.s.world) });
+    const same = { text: o.rec.prompt, unknown: [] };
+    const g = o.s.kind === 'world' ? (KV ? same : GPT.world(o.rec.prompt)) : (KIT ? same : GPT.casual(o.rec.prompt, { bodyText: bodyOf(o.s.world) }));
     if (g.unknown.length) { console.error('  X ' + o.s.slot + ' 구조형에 못 옮긴 줄: ' + g.unknown.map(l => l.slice(0, 50)).join(' | ')); return 1; }
     o.gpt = g.text;
   }

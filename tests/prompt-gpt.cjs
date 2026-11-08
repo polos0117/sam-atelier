@@ -60,6 +60,8 @@ try {
   cp.execFileSync(process.execPath, [path.join(R, 'tools/prompt-pack.cjs'), 'build', '--dir', path.join(tmp, 'pack')], { stdio: 'pipe' });
   for (const f of ['samguk-gpt.md', 'samguk-casual1-gpt.md', 'samguk-casual2-gpt.md', 'fantasy-gpt.md']) assert(fs.existsSync(path.join(tmp, 'pack', f)), f);
   assert(fs.readFileSync(path.join(tmp, 'pack', 'INDEX.md'), 'utf8').includes('구조형 sha256'));
-  if (S.styles[S['default']].versions.find(v => v.v === S.styles[S['default']].current).format === 'kv') assert.equal(fs.readFileSync(path.join(tmp, 'pack', 'samguk-gpt.md'), 'utf8'), fs.readFileSync(path.join(tmp, 'pack', 'samguk-prompt.txt'), 'utf8'), '기준 판 세계 그림은 영문 네 칸 그대로');
+  const DV = S.styles[S['default']].versions.find(v => v.v === S.styles[S['default']].current), rd = f => fs.readFileSync(path.join(tmp, 'pack', f), 'utf8');
+  if (DV.format === 'kv' || DV.worldTail) assert.equal(rd('samguk-gpt.md'), rd('samguk-prompt.txt'), '기준 판 · 화풍 칸 판(kr_mmorpg v6) 세계 그림은 영문 그대로');
+  if (DV.casualKit) assert.equal(rd('samguk-casual1-gpt.md'), rd('samguk-casual1-prompt.txt'), '일상컷 묶음 판(kr_mmorpg v5~) 일상컷은 영문 그대로 — 화풍 글 · 설계 얼굴을 지키게');
 } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
 console.log(`PASS GPT 구조형: 세계 그림 ${nw} · 일상컷 ${nc} — 못 옮긴 줄 없음 · 고정 화풍 칸 · 세력 팔레트 · 손에 든 것 · 일상은 화풍 칸 없이 첨부 그림 · 작은 턱 · 체형 볼륨 · 묶음 도구가 <자리>-gpt.md`);

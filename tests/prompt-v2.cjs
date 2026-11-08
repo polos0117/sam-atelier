@@ -90,35 +90,37 @@ assert(!P.build(D, S, k0, 'samguk', { style: STYLE, shot: { frame: 'full_armor' 
 /* 기본 화풍은 그대로 */
 assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'kr_mmorpg 는 영어 지시문 그대로');
 /* 기준 판 kv_kmmo_lock(2026-11-05 기본) — 영문 네 칸, 1절 고정, 얼굴 · 헤어는 세 세계 같은 값, 흔들리는 값은 바꿔 끼움, 손에는 지정한 물건만 */
-{ assert(['kv_kmmo_lock', 'kv_kmmo_23d'].includes(S['default']));
-  const KV0 = S.styles[S['default']], kv = KV0.versions.find(v => v.v === KV0.current); assert.equal(kv.format, 'kv');
+{ assert(S.styles[S['default']], '기본 화풍이 표에 있다');   /* 기본은 kr_mmorpg(2026-11-08 「mmorpg 프로모로 기본 화풍」) — kv 꼴 검사는 그 앞 기본 kv_kmmo_23d 로 */
+  const KVK = 'kv_kmmo_23d', KV0 = S.styles[KVK], kv = KV0.versions.find(v => v.v === KV0.current); assert.equal(kv.format, 'kv');
   assert(/GENRE LOCK/.test(kv.section1) && /Korean MMORPG/.test(kv.section1) && !/anime|gacha|JP/i.test(kv.section1), '1절 — 한국 MMORPG + 장르 고정, 애니 낱말 없음');
   let nk = 0;
-  for (const key of P.cards(D)) { const ps = ['samguk', 'fantasy', 'mecha'].map(w => P.build(D, S, key, w, {}));
+  for (const key of P.cards(D)) { const ps = ['samguk', 'fantasy', 'mecha'].map(w => P.build(D, S, key, w, { style: KVK }));
     const face = ps.map(p => { const i = p.search(/A (?:small, )?refined, beautiful/), j = p.indexOf(kv.s3.split('{')[0]); return i >= 0 && j > i ? p.slice(i, j) : ''; });   /* 얼굴부터 2절 끝까지 — 세 세계 같다(성정 줄은 세계 덧줄이 있어 뺀다) */
     assert(face[0] && face[0] === face[1] && face[1] === face[2], key + ' 세 세계 같은 얼굴 · 헤어');
     for (const p of ps) { assert(p.startsWith(kv.head.split('{')[0]) && p.includes(kv.section1) && p.includes(kv.s3.split('{')[0]) && p.includes(kv.s4.split('\n')[0]) && p.includes('no cup, goblet or other props'), key + ' 네 칸');
       assert(!/hime cut|wolf cut|button nose|droopy|falling over one eye|\{/.test(p), key + ' 흔들리는 값 · 빈 칸'); assert(!/anime|manga|gacha/i.test(p.split('\n\n').slice(2).join(' ')), key + ' 2 · 3 · 4절에 애니 낱말 없음'); assert(/Hair: muted, low-saturation /.test(p) && !/Hair: [^.]*\b(?:vivid|bright) /.test(p), key + ' 머리색만 저채도(v3)'); assert(/never thin, flat or boyishly straight/.test(p) && /EXPOSURE \(bold\)/.test(p), key + ' v4 볼륨 · 기본 노출'); nk++; } }
-  const mh = P.build(D, S, '맹획', 'mecha', {}); assert(/[Ff]action (?:mecha design|frame): bronze-gold and deep-crimson/.test(mh) && /solid engraved metal armour/.test(mh), '메카 — 무리 설계 · 판금처럼');
-  assert(P.build(D, S, '맹획', 'mecha', { shot: { frame: 'full_armor' } }).includes('Overall silhouette: '), '실루엣을 고르면 3절에');
+  const mh = P.build(D, S, '맹획', 'mecha', { style: KVK }); assert(/[Ff]action (?:mecha design|frame): bronze-gold and deep-crimson/.test(mh) && /solid engraved metal armour/.test(mh), '메카 — 무리 설계 · 판금처럼');
+  assert(P.build(D, S, '맹획', 'mecha', { style: KVK, shot: { frame: 'full_armor' } }).includes('Overall silhouette: '), '실루엣을 고르면 3절에');
   /* v5(2026-11-06) — 일상컷에만 촉촉한 피부 광택 줄, 세계 그림엔 없다 */
   if (kv.casualSkin) { const C = require('../tools/casual-plan.cjs'), card = C.cardOf('조조'); card.world = 'samguk';
-    const cut = C.plan(card, [1], [], { seed: 5 }).cuts[0], cp = C.record(card, 'samguk', cut).prompt;
-    assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', {}).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음');
+    const TR = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), TR2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8'));
+    const KR = c => { const { n: cn, ...csc } = c; return P.casualRecord(D, S, '조조', csc, { world: 'samguk', style: KVK, tree: TR, tree2: TR2 }, cn).prompt; };   /* 기본이 kr_mmorpg 로 바뀐 뒤(2026-11-08)에도 기준 판 일상컷으로 */
+    const cut = C.plan(card, [1], [], { seed: 5 }).cuts[0], cp = KR(cut);
+    assert(cp.includes(kv.casualSkin), '일상컷에 피부 광택 줄'); assert(!P.build(D, S, '조조', 'samguk', { style: KVK }).includes(kv.casualSkin), '세계 그림엔 피부 광택 줄 없음');
     /* 피부 광택 단계(2026-11-06 「광택효과를 선택 할 수 있게 … 단계별로」) — 고르면 그 단계 줄 하나만, 안 고르면 화풍 기본 */
     /* 2026-11-07 「조명 : 참고 그림 그대로 빼고 > 자연광」 · 「일상컷 케릭터에 몸 라인을 강조하는 문구」 — STYLE 줄은 조명을 넘기지 않고, 몸 라인 줄은 일상컷 공통 · 세계 그림엔 없다 */
     assert(!/lighting quality/.test(cp) && /^STYLE: keep the attached image's rendering exactly/m.test(cp), '일상컷 STYLE 줄에 조명 없음');
-    assert(T.CASUAL.bodyLine.startsWith('BODY LINE: ') && cp.includes(T.CASUAL.bodyLine) && !P.build(D, S, '조조', 'samguk', {}).includes(T.CASUAL.bodyLine), '일상컷 몸 라인 줄');
+    assert(T.CASUAL.bodyLine.startsWith('BODY LINE: ') && cp.includes(T.CASUAL.bodyLine) && !P.build(D, S, '조조', 'samguk', { style: KVK }).includes(T.CASUAL.bodyLine), '일상컷 몸 라인 줄');
     assert(/face and body/.test(T.CASUAL.faceLight), '자연광은 몸까지');
     /* 얼굴 자연광 — 일상컷 공통(2026-11-06 「자연광은 일상컷 공통으로」), 세계 그림엔 없다 */
-    assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', {}).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
+    assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', { style: KVK }).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
     { const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8')), { n: n0, ...sc0 } = cut;
       for (const sk of Object.keys(S.styles)) { const kit = (S.styles[sk].versions.find(v => v.v === S.styles[sk].current) || {}).casualKit;   /* 판이 제 일상컷 조명(casualKit.light)을 가지면 그것 */
         assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(kit ? kit.light : T.CASUAL.faceLight), sk + ' 일상컷 조명 줄'); } }
     const GL = T.CASUAL.glosses; assert.equal(GL.map(g => g.key).join(), 'matte,soft,dewy,glossy', '광택 네 단계');
-    assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, S.default), kv.casualSkin);
+    assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, KVK), kv.casualSkin);
     for (const g of GL) { assert(g.en.startsWith('SKIN: ') && g.ko, g.key);
-      const c2 = JSON.parse(JSON.stringify(cut)); c2.gloss = g.key; const pp = C.record(card, 'samguk', c2).prompt;
+      const c2 = JSON.parse(JSON.stringify(cut)); c2.gloss = g.key; const pp = KR(c2);
       assert(pp.includes(g.en) && GL.filter(o => o.key !== g.key).every(o => !pp.includes(o.en)), g.key + ' 단계 줄 하나만');
       assert.equal(pp.split('\n').filter(l => !l.startsWith('SKIN:')).join('\n'), cp.split('\n').filter(l => !l.startsWith('SKIN:')).join('\n'), g.key + ' 광택 줄 말고는 같다'); } }
   console.log('PASS 기준 판: ' + nk + '장'); }

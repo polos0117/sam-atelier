@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 기본 화풍을 한국 MMORPG 프로모(kr_mmorpg v6)로
+- 사용자 「mmorpg 프로모로 기본 화풍 해줘」 — data/style.json 의 default 를 kv_kmmo_23d 에서 kr_mmorpg(v6)로. 생성기 · 도감 · 묶음 도구 · 그림 작업 잠금이 이 화풍을 기본으로 쓴다.
+- GPT 세션 묶음(tools/prompt-pack.cjs) — 화풍 칸이 붙는 판(worldTail)의 세계 그림, 일상컷 묶음(casualKit)이 있는 판의 일상컷은 영문 지시문 그대로 낸다(옛 구조형은 피부색 · 조명 칸을 못 옮기고, 화풍 글 · 설계 얼굴을 버린다).
+- 검사 — prompt-v2 의 기준 판(kv 꼴) 검사는 kv_kmmo_23d 로 고정, casual-plan 은 casualKit 판 일상컷 꼴, prompt-gpt 는 기본 판이 영문 그대로인지, screen 도감 화풍 고르개는 기본이 아닌 첫 화풍으로.
+- kv_kmmo_23d 로 올린 그림은 그대로 — 도감 화풍 고르개에서 따로 본다. 문서: IMAGE_RULES · AGENTS · STYLE_LAB · IMAGE_AUTOMATION.
+
 ## 2026-11-08 · claude · 한국 MMORPG 프로모 v6 — 세계 그림 하이키
 - 사용자 「이렇게 수정해줘」 — kr_mmorpg v6 = v5 + 세계 그림: STYLE 의 캐릭터 선택창 조명 문장(강한 림 라이트) · 무협 MOOD 의 high contrast 빼고, 끝에 kv_cgi_hikey 의 SKIN COLOUR AND RENDERING(설계 피부색) · LIGHTING AND COLOUR(시간대 고르면 장면 빛에) · CAMERA AND COMPOSITION(worldTail — lib/prompt-sam.js build 가 줄 단위 판 끝에 붙인다). 일상컷 묶음은 v5 그대로.
 - 시험(사마의 무협 둘 + 일상컷 넷)과 같은 지시문임을 확인. 검사 prompt-v2(장수 279 × 세계 3, 맹획 청동 피부), prompt-gpt 는 줄 단위 꼴 시험이라 kr_mmorpg v4 로 고정.
