@@ -99,7 +99,7 @@ EXPR = {
 SKIN = ['fair', 'porcelain', 'warm_beige', 'olive', 'golden_tan', 'fair', 'warm_beige']
 SKIN_SOUTH = ['golden_tan', 'bronze', 'deep_brown']
 AXES = {
- 'age': ['early_20s', 'mid_20s', 'late_20s', 'early_30s'],
+ 'age': ['early_20s', 'mid_20s', 'late_20s'],   # 2026-11-08 사용자 「장수들 기본 나이 설계를 지금보다 한단계 어리게」 — early_30s 를 뺐다(있던 장수는 한 단계씩 내림)
  'eye_size': ['small', 'medium', 'large'], 'eye_tilt': ['up', 'level', 'down'],
  'mark': ['bare', 'mole_eye', 'winged_liner', 'red_lip', 'freckles', 'blush', 'smoky', 'gloss', 'scar', 'dark_lip'],
  'brows': ['straight_thick', 'arched_thin', 'soft_round', 'angled_sharp', 'low_heavy', 'feathered', 'straight_thin', 'high_arched'],

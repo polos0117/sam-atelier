@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 장수 기본 나이 한 단계 어리게
+- 사용자 「장수들 기본 나이 설계를 지금보다 한단계 어리게 해줘」 — data/sam-design.json 279명 look.face.age 를 한 단계씩: 30대 후반 18 → 30대 초반, 30대 초반 75 → 20대 후반, 20대 후반 125 → 20대 중반, 20대 중반 53 → 20대 초반, 20대 초반 8 은 그대로. 지금 20대 초반 61 · 중반 125 · 후반 75 · 30대 초반 18.
+- tools/sam-design.py — 자동 설계 나이 갈래에서 early_30s 를 뺐다(20대 초 · 중 · 후반). 이미 등록된 그림은 그대로 — 새로 그리는 것부터.
+
 ## 2026-11-08 · claude · 일상컷 데니어(옷의 비침) — 노출과 따로, 랜덤
 - 사용자 「데니어 설정값 넣어서 랜덤하게 설정될 수 있게 해줘. 기존 노출설정값 과는 별개로」 — 장료 오프숄더 니트 25D(은은함) · 조운 가죽 이너 25D(가슴까지 비침) 시험을 보고 상의 40 · 60 · 80, 타이츠 25 · 40 · 60, 가슴 · 골반 불투명 안감.
 - lib/prompt-spec.js CASUAL.deniers · denierLine · denierFit · denierSkip, lib/prompt-sam.js denierFits · Outfit 줄 끝. 생성기(lib/studio.js) 「데니어」 단계, tools/casual-plan.cjs denierize(닿는 옷 컷 열에 여섯, 묶음 안 갈래 돌림, 따로 된 난수), tools/prompt-pack.cjs casual.<자리>.denier(none 이면 뺀다).
