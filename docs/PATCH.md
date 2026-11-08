@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 기본 화풍을 새 열쇠 kr_promo_hikey 로 — 옛 kr_mmorpg 그림과 안 겹치게
+- 사용자 「기존 이미지 있으니까 새화풍키로 만들어줘. 이전 이미지랑 안겹치게」 — kr_mmorpg 의 v6 을 새 열쇠 kr_promo_hikey(한국 MMORPG 프로모 하이키) v1 으로 떼어 내 기본으로. 파일 이름 · 도감 자리 · 그림 작업 잠금이 옛 kr_mmorpg 그림(v1~v4, 장수 42명)과 겹치지 않는다.
+- kr_mmorpg 는 current 를 v4(옛 그림의 판)로 되돌렸다 — v5 · v6 은 기록으로 남는다.
+- 검사 prompt-v2 의 v6 칸 검사는 kr_promo_hikey 로, kr_mmorpg 는 v4 인지. 문서: IMAGE_RULES · AGENTS · STYLE_LAB(새 줄) · IMAGE_AUTOMATION.
+
 ## 2026-11-08 · claude · 기본 화풍을 한국 MMORPG 프로모(kr_mmorpg v6)로
 - 사용자 「mmorpg 프로모로 기본 화풍 해줘」 — data/style.json 의 default 를 kv_kmmo_23d 에서 kr_mmorpg(v6)로. 생성기 · 도감 · 묶음 도구 · 그림 작업 잠금이 이 화풍을 기본으로 쓴다.
 - GPT 세션 묶음(tools/prompt-pack.cjs) — 화풍 칸이 붙는 판(worldTail)의 세계 그림, 일상컷 묶음(casualKit)이 있는 판의 일상컷은 영문 지시문 그대로 낸다(옛 구조형은 피부색 · 조명 칸을 못 옮기고, 화풍 글 · 설계 얼굴을 버린다).
