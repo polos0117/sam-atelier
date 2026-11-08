@@ -142,7 +142,7 @@ console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).
 { assert.equal(SS['default'], 'mmorpg_cg'); let nw = 0;
   for (const key of P.cards(D).filter((k, i) => i % 7 === 0)) for (const w of ['samguk', 'fantasy', 'mecha']) for (const st of ['mmorpg_cg', 'kv_jp_paint', 'glossy_kr_game', 'kr_promo_hikey']) {
     const p = P.build(D, SS, key, w, { style: st });
-    assert(p.startsWith('A full-body vertical 2:3 character card image of ') && p.includes('no beard, moustache or facial hair') && p.includes('\n\nStyle: ' + P.shortStyle(SS, st)) && p.includes(T.WORLD_SHORT.composition) && p.includes(T.WORLD_SHORT.guard[w]), key + ' ' + w + ' ' + st + ' 짧은 세계 그림');
+    assert(p.startsWith('A full-body vertical 2:3 (1024×1536) character card image of ') && p.includes('no beard, moustache or facial hair') && p.includes('\n\nStyle: ' + P.shortStyle(SS, st)) && p.includes(T.WORLD_SHORT.composition) && p.includes(T.WORLD_SHORT.guard[w]), key + ' ' + w + ' ' + st + ' 짧은 세계 그림');
     assert(p.split(/\s+/).length < 700 && !/\{\w+\}|undefined/.test(p), key + ' ' + w + ' ' + st + ' 짧고 빈 칸 없음'); nw++; }
   assert(/Her legend: [^\n]*purple beard/.test(P.build(D, SS, '손권', 'samguk', {})), '손권 — 전설 줄(수염은 머리색으로)');
   assert(/EXPOSURE \(bold\): her mecha frame is cut open by design in only these places/.test(P.build(D, SS, '장료', 'mecha', {})), '메카 두 곳 노출 줄');

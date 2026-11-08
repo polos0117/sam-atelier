@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 짧은 지시문에 그림 크기(1024×1536) 다시
+- 사용자 「우리 이미지 크기 설정 없어졌나?」 — 짧은 일상컷(2026-11-08) · 짧은 세계 그림(2026-11-09)으로 바꾸며 FRAME 줄과 함께 1024×1536 이 빠졌다. API 는 size 값으로 맞게 나왔지만 GPT 세션은 지시문 글만 받아 크기를 못 받았다(짧은 일상컷은 2:3 도 없었다)
+- lib/prompt-spec.js WORLD_SHORT.head 「vertical 2:3 (1024×1536)」 · CASUAL.short.output 「Output: one vertical 2:3 image, 1024×1536.」, lib/prompt-sam.js buildCasualShort 가 첫 줄 다음에. 검사 prompt-v2 · screen · casual-plan. ?v= prompt-spec 16 · prompt-sam 14
+
 ## 2026-11-09 · claude · 세계 그림 얼굴 비율 줄 · 눈꼬리 문구 누그러뜨림
 - 사용자 「삼국시대 이미지 생성시에 다른 세계에 비해 턱을 과장되고, 길게 그리고, 눈도 더 째져서 그리는데」 → 「a+b 넣고 조조 제갈량으로 시험해줘」 — 설계표 삼국시대 얼굴형이 끝이 좁아지는 얼굴 · V라인 46%(판타지 · 메카 25%), 한 · 중국 단서가 무협 얼굴을 부르고, 높은 관이 얼굴을 늘렸다
 - lib/prompt-spec.js WORLD_SHORT.face — 짧은 중안부 · 둥근 턱선 · 작은 턱, 관은 머리선 위(얼굴을 늘리지 않음), 눈은 설계대로 자연스러운 크기(실눈 아님). lib/prompt-sam.js buildWorldShort 가 Her 줄 다음에(세 세계 같다). 눈꼬리 up 「tilting sharply upward」 → 「slightly lifted」
