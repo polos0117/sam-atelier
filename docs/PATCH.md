@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 판타지 · 메카 세계 그림의 무기를 그 세계 것으로
+- 사용자 「무기 이미지가 판타지랑 메카에서 좀 더 그쪽 세계 느낌이 났으면 좋겠어」 — SIGNATURE 줄이 「in the form this WORLD gives it」 한마디뿐이라 판타지 · 메카에서도 삼국지 무기 그대로 나왔다.
+- lib/prompt-spec.js WORLDS 판타지 · 메카에 sigForm — 판타지: 같은 갈래 · 실루엣의 서양 판타지 물건(강철 · 미스릴 · 룬 · 보석 날밑 · 문장 장식, 중국식 장식 · 술 · 한자 없음). 메카: 같은 갈래 · 실루엣의 미래 하이테크 무장(합금 판 · 기계 관절 · 에너지 날 · 발광 코어는 발광선 색, 나무 · 술 · 청동 없음).
+- lib/prompt-sam.js — 줄 꼴 판의 SIGNATURE 줄과 kv 판 3절 「Her signature item — … —」 에 붙인다. 삼국시대 · 일상컷 장신구는 그대로. ?v= 올림(prompt-spec 4 · prompt-sam 4). 문서 IMAGE_RULES 2절.
+
 ## 2026-11-08 · claude · 일상컷 옷 색 갈래 — 생성기 단계 · 묶음 도구가 다섯 장에 다르게
 - 사용자 「일상컷 생성 옵션에 의상색 관련 다양성은 없었나?」 → 「응 넣어줘」 — 옷 295개 중 색이 이름에 박힌 건 48개뿐이라 나머지는 모델이 흰 · 아이보리 · 베이지로 몰렸다.
 - lib/prompt-spec.js CASUAL.colors 여덟 갈래(파스텔 · 비비드 · 어스톤 · 모노톤 · 주얼톤 · 데님 · 무늬 · 뉴트럴) · colorLine · colorFixed(색 · 무늬가 박힌 옷 판정). lib/prompt-sam.js — Outfit 줄 끝에 색 갈래, 박힌 옷은 그대로(P.colorFixed).
