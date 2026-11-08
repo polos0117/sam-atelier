@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-08 · claude · 일상컷 옷 색 갈래 — 생성기 단계 · 묶음 도구가 다섯 장에 다르게
+- 사용자 「일상컷 생성 옵션에 의상색 관련 다양성은 없었나?」 → 「응 넣어줘」 — 옷 295개 중 색이 이름에 박힌 건 48개뿐이라 나머지는 모델이 흰 · 아이보리 · 베이지로 몰렸다.
+- lib/prompt-spec.js CASUAL.colors 여덟 갈래(파스텔 · 비비드 · 어스톤 · 모노톤 · 주얼톤 · 데님 · 무늬 · 뉴트럴) · colorLine · colorFixed(색 · 무늬가 박힌 옷 판정). lib/prompt-sam.js — Outfit 줄 끝에 색 갈래, 박힌 옷은 그대로(P.colorFixed).
+- 생성기(lib/studio.js) 「옷 색」 단계 — 안 고르면 옷 제 색, 다 랜덤이면 대개 하나. tools/casual-plan.cjs colorize — 한 묶음 안 서로 다른 갈래, 있는 컷 · 다른 세계 묶음 갈래는 뒤로. tools/prompt-pack.cjs settings casual.<자리>.color.
+- 검사 casual-plan — 묶음 안 갈래 겹침 없음 · 색 줄 · 박힌 옷엔 없음. ?v= 올림(words 11 · prompt-spec 3 · prompt-sam 3 · studio 6). 문서 IMAGE_RULES 2절.
+
 ## 2026-11-08 · gpt · 손권 선택한 세계 그림 3장과 일상컷 15장 등록
 - data/img.json — 등록기로 kr_promo_hikey 삼국시대·판타지·메카 세계 그림과 세계별 일상컷 다섯 장씩 추가. 사용자가 삼국 1번·판타지 2번·메카 2번을 선택한 뒤 진행했으며 기존 화풍과 인물 설계를 보존.
 - sam-atelier-img의 img/·records/손권/ — WebP 18장·생성기 원문·참조/원본 해시·AI 검수 기록. 새 화풍 계획은 화풍 열쇠를 붙인 별도 파일로 보존. 반환된 이미지의 노출 검열 재생성 없음. 이미지가 반환되지 않은 삼국 일상1만 규칙의 재시도·노출 단계·계획기 재계획을 거쳤고 메카 일상2는 동일 지시문 재시도로 확보. 구도·표정·배경 글자 등 계획과 다른 결과는 qa.passed=false로 기록.

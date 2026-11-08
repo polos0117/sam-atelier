@@ -200,6 +200,21 @@ function check(cuts, card, base = [], others = []) {
   }
   return errs;
 }
+/* 옷 색 갈래(2026-11-08 「일상컷 생성 옵션에 의상색 관련 다양성은 없었나?」 → 「응 넣어줘」) — 색이 박히지 않은 옷마다 서로 다른 갈래를 준다.
+   이미 있는 컷 · 다른 세계 묶음이 쓴 갈래는 뒤로(다 쓰면 다시 처음부터). 장면 고르기(씨앗 r)와 따로 굴려 옛 씨앗의 장면이 그대로다 */
+const COLORS = (T.CASUAL.colors || []).map(c => c.key);
+function outfitEn(c) { const it = C2.item(T2, c.ofam, c.item), fm = C2.family(T2, c.ofam); return (c.outfit || '').trim() || (it && it.en) || (fm && fm.en) || ''; }
+function colorize(cuts, old = [], others = [], rc = Math.random) {
+  const used = new Set([...old, ...others].map(c => c.color).filter(Boolean)), mine = new Set();
+  for (const c of cuts) {
+    if (P.colorFixed(outfitEn(c))) { delete c.color; continue; }
+    let pool = COLORS.filter(k => !used.has(k) && !mine.has(k));
+    if (!pool.length) pool = COLORS.filter(k => !mine.has(k));
+    if (!pool.length) pool = COLORS.slice();
+    c.color = pool[Math.floor(rc() * pool.length)]; mine.add(c.color);
+  }
+  return cuts;
+}
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 )/;
 function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [] } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
@@ -241,7 +256,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
       if (!got) break;
       cuts.push(got);
     }
-    if (cuts.length === slots.length && !check(cuts, card, old, others).length) return { cuts, attempt, required: [...old, ...cuts].map(requiredType).filter(Boolean).join(' · ') };
+    if (cuts.length === slots.length && !check(cuts, card, old, others).length) { colorize(cuts, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); return { cuts, attempt, required: [...old, ...cuts].map(requiredType).filter(Boolean).join(' · ') }; }
   }
   throw new Error('규칙을 다 지키는 묶음을 못 찾았다 — 이미 있는 컷이 칸을 너무 많이 차지했는지 본다');
 }
@@ -351,5 +366,5 @@ function main(argv) {
   }
   return 0;
 }
-module.exports = { cardOf, plan, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { cardOf, plan, colorize, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));

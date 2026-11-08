@@ -58,7 +58,7 @@ function initSettings(card, planPaths) {
     _: 'tools/prompt-pack.cjs 의 설정 — 고칠 수 있는 칸만 있다. 직접 입력(글 칸 · 표에 없는 외형)엔 why 에 까닭을 적는다. 고친 뒤 build',
     card: card.key, style: STYLE, plans: plans.map(p => p.path),
     worlds: Object.fromEntries(card.worlds.map(w => [w, { notes: {}, look: { params: {}, faceDesignOn: true, silhouetteOn: true, exposure: T.EXPOSURE_DEFAULT }, shot: {}, why: '' }])),
-    casual: Object.fromEntries(slots(card, plans).filter(s => s.kind === 'casual').map(s => [s.slot, { scene: '', outfit: '', custom: '', gloss: '', why: '' }]))
+    casual: Object.fromEntries(slots(card, plans).filter(s => s.kind === 'casual').map(s => [s.slot, { scene: '', outfit: '', custom: '', gloss: '', color: '', why: '' }]))
   };
 }
 
@@ -96,7 +96,8 @@ function validate(set, card, plans) {
   for (const s of cs) {
     const x = (set.casual || {})[s];
     if (!x) { errs.push('casual.' + s + ' 가 없다'); continue; }
-    unknown(x, [...TEXT, 'exposure', 'gloss', 'why'], 'casual.' + s);
+    unknown(x, [...TEXT, 'exposure', 'gloss', 'color', 'why'], 'casual.' + s);
+    if (x.color != null && x.color !== '' && !(T.CASUAL.colors || []).some(g => g.key === x.color)) errs.push('casual.' + s + '.color 는 ' + T.CASUAL.colors.map(g => g.key).join(' · ') + ' 중 하나(비우면 계획기가 고른 갈래)');
     if (x.gloss != null && x.gloss !== '' && !(T.CASUAL.glosses || []).some(g => g.key === x.gloss)) errs.push('casual.' + s + '.gloss 는 ' + T.CASUAL.glosses.map(g => g.key).join(' · ') + ' 중 하나(비우면 화풍 기본)');
     if (x.exposure != null && x.exposure !== '') { if (!['moderate', 'low'].includes(x.exposure)) errs.push('casual.' + s + '.exposure 는 moderate · low(낮추기만)'); else if (!(x.why || '').trim()) errs.push('casual.' + s + '.exposure 를 낮췄는데 why(막힌 까닭)가 비었다'); }
     if (TEXT.some(k => (x[k] || '').trim()) && !(x.why || '').trim()) errs.push('casual.' + s + ' 에 직접 입력이 있는데 why 가 비었다');
@@ -129,7 +130,8 @@ function recordOf(card, set, s) {
   const scene = { ...cut, axes: { ...FIXED, ...(cut.axes || {}) }, aspect: '2:3', unlocked: cut.unlocked || [] };
   for (const k of TEXT) if ((x[k] || '').trim()) scene[k] = x[k]; else delete scene[k];
   if (x.exposure) scene.axes.skin_exposure = x.exposure;
-  if (x.gloss) scene.gloss = x.gloss;   /* 피부 광택 단계(2026-11-06) — 비우면 화풍 기본 */
+  if (x.gloss) scene.gloss = x.gloss;
+  if (x.color) scene.color = x.color;   /* 옷 색 갈래(2026-11-08) — 비우면 계획기가 나눠 준 갈래 */   /* 피부 광택 단계(2026-11-06) — 비우면 화풍 기본 */
   return { ...P.casualRecord(D, S, card.key, scene, { world: s.world, style: STYLE, tree, tree2 }, n), record: PLAN.recordRel(card.key, s.world, n), storage: storageOf(card, s, x, scene) };
 }
 
