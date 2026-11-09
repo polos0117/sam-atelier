@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 스킬 api25 · tools/api-draw.cjs · API 생성 탭 그림 남기기
+- 사용자 「2.5로 이미지 뽑는거 스킬로 만들어둘까?」 → 「응 만들어줘」 — .claude/skills/api25/SKILL.md(세계 네 장 → 멈춤 → 일상 여섯 장 → 올리기, GPT 설계 글은 Claude · GPT 세션, 크레딧 먼저 말하기). tools/api-draw.cjs: brief · world · free · casual(편집 · 참고 그림 · 옷 자유 글) · usage · sheet · stage(webp · 기록 · 덮지 않음), 막히면 같은 지시문 한 번 더 → 건너뛰고 종료 3, --exposure 로 낮추기. tools/casual-plan.cjs --style(api25 로 빈 번호 · 기록). 검사 tests/api-draw.cjs(가짜 서버).
+- 사용자 「api 호출해서 이미지 만든 뒤에, 뒤로 가기 누르면 앞화면에서 만든 이미지는 사라지는거야?」 — 그랬다(화면 메모리만). lib/api-run.js: 뽑은 그림 · 기록을 이 브라우저 IndexedDB(samguk_api results, 최근 60장)에 남겨 뒤로 가기 · 새로 고침 뒤에도 보이고, 「지우기」 로 뺀다. IMAGE_RULES 7절. ?v= api-run 4 · words 18.
+
 ## 2026-11-09 · claude · GPT 세션이 설계 지시문 — 그림은 API(free-brief · API 탭 불러오기)
 - 사용자 「gpt 세션에서도 내 git 읽을 수 있으니까 git에 올려놓고 추론 해달라고 부탁해도 되겠네. 이미지 생성은 api 로 하고」 → 「응 만들어줘」 — tools/free-brief.cjs: 그림 저장소 free/<장수>/ 에 GPT 자유 설계 주문(세계마다) · 옷 자유 컷 주문(계획의 ofree 컷) · REQUEST.md(GPT 세션 부탁 글), free/outfit-catalog.md. 이미 있는 주문은 덮지 않는다(--force), GPT 가 쓴 -gpt*.txt 는 건드리지 않는다.
 - lib/api-run.js — GPT 모드에 「GPT 세션이 쓴 지시문」: git(Pages free/<장수>/<자리>.<화풍>-gptN.txt)에서 불러오기 · 붙여 넣기 → 대화 모델 없이 이미지 API 로. 기록 chat_model gpt-session · free_source · free_prompt. 문서 IMAGE_AUTOMATION 9절 · IMAGE_RULES 7절. 조조 세계 셋 주문을 그림 저장소에 올렸다. ?v= api-run 3 · words 17 · api.css 2.

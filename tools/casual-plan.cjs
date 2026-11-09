@@ -13,7 +13,7 @@
        한 번도 안 쓴 값은 무게 12, 쓴 값은 1/(1+횟수)³(2026-11-02 「가중치 올려줘」 — 전엔 4 와 ²)
    이미 그림이 있는 번호는 짜지 않고, 그 세계의 기록(--records)은 겹침 검사에만 쓴다.
 
-     node tools/casual-plan.cjs <장수> --world <세계> [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
+     node tools/casual-plan.cjs <장수> --world <세계> [--style <화풍>] [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
    --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 여섯 장이 되게 — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
    --records 를 안 주면 옆의 sam-atelier-img/records/<장수>. --out 을 주면 칸마다 기록 · 지시문과 plan.json 을 쓴다.
      node tools/casual-plan.cjs <장수> --world <세계> --check <기록 폴더> [--from N]   # 올리기 전 — 그 세계 묶음이 위 규칙을 다 지키나(다른 세계와 같은 장면도). --from: N 번부터의 새 묶음만, 옛 묶음은 겹침에만
@@ -29,7 +29,10 @@ for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js',
 const T = ctx.window.AtelierSpec, CT = ctx.window.AtelierCasualTree, C2 = ctx.window.AtelierCasualTreeV2, P = ctx.window.AtelierPrompt;
 const D = JSON.parse(read('data/sam-design.json')), S = JSON.parse(read('data/style.json'));
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json'));
-const T2 = C2.make(tree2, tree), STYLE = S['default'], CASUAL_N = 6;   /* 사용자 2026-11-09 「일상컷 생성수를 6장으로 늘려줘」 — 전엔 다섯 */
+/* --style <화풍> — 그 화풍의 등록 · 기록으로 빈 번호를 센다(2026-11-09 2.5 API 판 api25 — 기본 화풍 그림과 따로). 모듈로 불리면 늘 기본 화풍 */
+const ARG_STYLE = require.main === module && process.argv.indexOf('--style') > 0 ? process.argv[process.argv.indexOf('--style') + 1] : '';
+if (ARG_STYLE && !S.styles[ARG_STYLE]) { console.error('화풍이 없다: ' + ARG_STYLE); process.exit(2); }
+const T2 = C2.make(tree2, tree), STYLE = ARG_STYLE || S['default'], CASUAL_N = 6;   /* 사용자 2026-11-09 「일상컷 생성수를 6장으로 늘려줘」 — 전엔 다섯 */
 
 const EXPOSE_TYPES = ['lingerie', 'swimwear', 'roleplay'];   /* 노출 갈래 — 장수마다 돌려 가며 */
 const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
