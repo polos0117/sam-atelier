@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT 세계 그림 네 장(우리 설계 둘 · GPT 임의 설계 둘) · 일상컷 옷 자유 컷 한 장
+- 사용자 「gpt에서 삼국지에 세계컷 생성할때, 생성 이미지 총4장으로 고정하고, 2장은 우리쪽 설계, 2장은 gpt 임의 설계로 하게 해줘. 그리고 일상컷도 1장은 gpt에게 노출의상 자유롭게 만들어달라고 해줘」
+- lib/prompt-spec.js WORLD_FREE(설계 주문 — 누구 · 전설은 영감으로만 · 세계 · 화풍 · 1024×1536 · 노출 bold · 얼굴 비율 · 구도 · 끝 줄만 정하고 얼굴 · 머리 · 옷 · 실루엣 · 색 · 무기 꼴 · 자세 · 장면은 GPT 가 지어 제 지시문을 쓴다) · OUTFIT_FREE. lib/prompt-sam.js buildWorldFree, 장면 칸 ofree 면 Outfit 줄이 OUTFIT_FREE
+- tools/prompt-pack.cjs — 세계 그림 자리마다 <세계>-free.txt, INDEX 「세계마다 네 장 — 우리 설계 둘 + GPT 설계 둘, 우리 설계 1 · 2 / GPT 설계 1 · 2 로 보이고 멈춘다 · GPT 설계를 고르면 generation.design gpt_free · free_prompt」, 프롬프트 임의 수정 금지의 정해 둔 사유에 설계 주문을 더함
+- tools/casual-plan.cjs freeOutfit — 여섯 장 중 한 장(필수 · 상황 · 얼굴 클로즈업이 아닌 컷)이 옷 자유, 옷 색 · 데니어 없음, 둘 칸이 없으면 다시 짠다. 검사 casual-plan · prompt-v2. 문서 IMAGE_RULES 1 · 2절 · IMAGE_AUTOMATION. ?v= prompt-spec 17 · prompt-sam 15
+
 ## 2026-11-09 · gpt · 조조 MMORPG CG 세계컷과 일상컷 등록
 - data/img.json — 사용자 선택 세계컷 2·2·2 세 장과 크기 문구가 복원된 생성기(96c4201)로 새로 생성한 일상컷 세계별 여섯 장, 총 21장을 등록 도구로 추가. 기존 화풍·그림 보존
 - 그림 저장소 records/조조 — 원문 지시문, 참고 이미지 해시, 1024×1536 검사, 장면 차이와 메카 일상1의 거절 두 번 후 moderate 생성 기록. 새 묶음 세 세계의 구성·겹침 검사 통과

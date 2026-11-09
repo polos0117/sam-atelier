@@ -27,6 +27,10 @@ for (const key of pickKeys) {
     assert.equal(si.length, 1, key + ' ' + w + ' 상황 노출 한 장');
     assert(!C.requiredType(si[0]) && P.situFits(si[0].situ, C.outfitEn(si[0])), key + ' ' + w + ' 상황 컷은 다른 두 갈래와 다른 컷 · 맞는 옷');
     situSeen.add(si[0].situ); res.cuts.forEach(c => famSeen.add(c.ofam));
+    /* 옷 자유 컷(2026-11-09) — 한 장, 필수 · 상황 · 얼굴 클로즈업이 아닌 컷, 색 · 데니어 없음, Outfit 줄이 GPT 노출 의상 주문 */
+    { const fr = res.cuts.filter(c => c.ofree); assert.equal(fr.length, 1, key + ' ' + w + ' 옷 자유 한 장');
+      assert(!C.requiredType(fr[0]) && !fr[0].situ && fr[0].frame !== 'face_close' && !fr[0].color && !fr[0].denier, key + ' ' + w + ' 옷 자유 컷');
+      assert((C.record(card, w, fr[0]).prompt.match(/^Outfit: .*$/m) || [''])[0].startsWith(TS.OUTFIT_FREE), key + ' 옷 자유 줄'); }
     assert(inw.every(c => c.era === 'nation'), '세계 안 갈래는 세계 안 시대');
     assert.equal(new Set(res.cuts.map(c => c.era)).size, 4, key + ' ' + w + ' 네 시대 다');
     { const cs = res.cuts.map(c => c.color).filter(Boolean); assert.equal(new Set(cs).size, cs.length, key + ' ' + w + ' 옷 색 갈래가 묶음 안에서 겹치지 않는다'); }
@@ -45,6 +49,7 @@ for (const key of pickKeys) {
       assert(SHORT || !/EXPRESSION: /.test(rec.prompt) || /EXPRESSION: [^\n]*Show it mildly/.test(rec.prompt), '일상컷 표정은 얼굴 안에서만');
       /* 옷 색 갈래(2026-11-08) — 색이 박히지 않은 옷엔 갈래 한 줄, 박힌 옷엔 없음 */
       const CL = TS.CASUAL.colors.find(x => x.key === c.color), ol = (rec.prompt.match(/^Outfit: .*$/m) || [''])[0];
+      if (c.ofree) { assert(ol.startsWith(TS.OUTFIT_FREE) && !c.color && !c.denier); continue; }
       if (P.colorFixed(C.outfitEn(c))) assert(!c.color && !/the outfit colour reads clearly/.test(ol), key + ' 색이 박힌 옷엔 색 줄 없음');
       else assert(CL && ol.includes(CL.en), key + ' ' + w + ' 옷 색 줄 — ' + ol.slice(0, 80));
       /* 데니어(2026-11-08) — 닿는 옷에만, 고르면 Outfit 줄에 그 데니어, 노출 축은 그대로 */

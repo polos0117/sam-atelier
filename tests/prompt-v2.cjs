@@ -147,4 +147,14 @@ console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).
   assert(/Her legend: [^\n]*purple beard/.test(P.build(D, SS, '손권', 'samguk', {})), '손권 — 전설 줄(수염은 머리색으로)');
   assert(/EXPOSURE \(bold\): her mecha frame is cut open by design in only these places/.test(P.build(D, SS, '장료', 'mecha', {})), '메카 두 곳 노출 줄');
   assert(!P.build(D, SS, '관우', 'samguk', { style: 'glossy_plain' }).startsWith('A full-body vertical'), '구조판은 긴 꼴 그대로');
-  console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
+  /* GPT 임의 설계 주문(2026-11-09 「2장은 우리쪽 설계, 2장은 gpt 임의 설계로」) — 정해 둔 것(누구 · 세계 · 화풍 · 크기 · 노출 · 얼굴 비율 · 구도)만, 설계표 얼굴 · 옷은 없다 */
+{
+  const SF = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8'));
+  for (const key of ['조조', '제갈량', '손상향']) for (const w of P.worldsOf(D, key)) {
+    const t = P.buildWorldFree(D, SF, key, w, { style: SF.default }), our = P.build(D, SF, key, w, { style: SF.default });
+    assert(t.startsWith('Design brief') && t.includes('1024×1536') && t.includes(T.WORLD_FREE.free) && t.includes('Style (fixed): ' + P.shortStyle(SF, SF.default)) && t.includes(T.WORLD_SHORT.composition) && t.includes('Exposure (fixed): bold'), key + ' ' + w + ' 설계 주문');
+    const her = (our.match(/^Her: (.*)$/m) || [])[1] || '';
+    assert(her && !t.includes(her.slice(0, 40)) && !/^Outfit: /m.test(t), key + ' ' + w + ' 설계표 얼굴 · 옷은 싣지 않는다');
+  }
+}
+console.log('PASS 짧은 세계 그림: ' + nw + '장'); }

@@ -191,6 +191,7 @@ function check(cuts, card, base = [], others = []) {
   over('동탄룩', c => c.ofam === 'dongtan' && 'dongtan', 1);
   /* 셋째 필수 — 상황 노출 한 장(여섯 장 묶음부터 — 옛 다섯 장 묶음은 이 갈래 전), 노출 · 세계 안 갈래 컷과 다른 컷 */
   over('상황 노출', c => c.situ && 'situ', 1);
+  over('옷 자유', c => c.ofree && 'ofree', 1);
   for (const c of cuts) if (c.situ && !P.situFits(c.situ, outfitEn(c))) errs.push(`칸 ${c.n || '?'}: 상황 ${c.situ} 는 이 옷에 안 맞는다`);
   for (const c of cuts) if (c.situ && SITU_NO_FRAME.includes(c.frame)) errs.push(`칸 ${c.n || '?'}: 상황 노출은 얼굴 클로즈업에 두지 않는다`);
   if (all.length >= CASUAL_N && !all.some(c => c.situ && !requiredType(c))) errs.push('상황 노출 컷이 없다 — 노출 · 세계 안 갈래와 다른 컷 한 장');   /* 2026-11-03 더한 계열 — 안 쓴 계열이라 무게가 커서 묶음마다 한 장까지 */
@@ -255,6 +256,17 @@ function situate(cuts, at, old = [], others = [], rs = Math.random) {
   });
   return cuts;
 }
+/* 옷 자유 컷(사용자 2026-11-09 「일상컷도 1장은 gpt에게 노출의상 자유롭게 만들어달라고 해줘」) — 여섯 장 중 한 장, 필수 갈래 · 상황 컷이 아니고
+   얼굴 클로즈업이 아닌 컷. Outfit 줄이 「노출 의상을 네가 지어라」(T.OUTFIT_FREE)로 바뀌어 옷 색 · 데니어는 없다. 장소 · 자세 · 구도는 계획 그대로 */
+function freeOutfit(cuts, old = [], rf = Math.random) {
+  cuts.forEach(c => { delete c.ofree; });
+  if (old.some(c => c.ofree) || old.length + cuts.length < CASUAL_N) return cuts;
+  const pool = cuts.filter(c => !requiredType(c) && !c.situ && !SITU_NO_FRAME.includes(c.frame));
+  if (!pool.length) return cuts;
+  const c = pool[Math.floor(rf() * pool.length)];
+  c.ofree = true; delete c.color; delete c.denier;
+  return cuts;
+}
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |상황 노출 컷이 없다)/;
 function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [] } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
@@ -302,7 +314,9 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
       if (!got) break;
       cuts.push(got);
     }
-    if (cuts.length === slots.length && !check(cuts, card, old, others).length) { colorize(cuts, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(cuts, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, situAt, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); return { cuts, attempt, required: [...[...old, ...cuts].map(requiredType).filter(Boolean), ...[...old, ...cuts].filter(c => c.situ).map(c => 'situ:' + c.situ)].join(' · ') }; }
+    if (cuts.length === slots.length && !check(cuts, card, old, others).length) { colorize(cuts, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(cuts, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, situAt, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0));
+      if (old.length + cuts.length >= CASUAL_N && !old.some(c => c.ofree) && !cuts.some(c => c.ofree)) continue;   /* 옷 자유 컷을 둘 칸이 없으면 다시 */
+      return { cuts, attempt, required: [...[...old, ...cuts].map(requiredType).filter(Boolean), ...[...old, ...cuts].filter(c => c.situ).map(c => 'situ:' + c.situ)].join(' · ') }; }
   }
   throw new Error('규칙을 다 지키는 묶음을 못 찾았다 — 이미 있는 컷이 칸을 너무 많이 차지했는지 본다');
 }
@@ -355,7 +369,7 @@ function line(c) {
   const p = C2.place(T2, c.place) || {}, f = CT.family(tree, c.ofam) || {}, it = CT.item(tree, c.ofam, c.item), u = C2.use(T2, c.use), pr = by(tree2.presets, c.preset);
   const ko = (list, k) => (by(list, k) || {}).ko || k || '—', hand = k => k === 'prop' ? '소품' : ko(tree2.hands, k);
   return `${c.old ? '  (있음)' : '  '} ${c.n} ${requiredType(c) ? '★' : ' '}${C2.awkward(T2, c.ofam, c.place).length ? '⚠' : ' '} ${(CT.era(tree, c.era) || {}).ko} · ${p.ko} · ${f.ko}${it ? '(' + it.ko + ')' : ''} │ ${pr ? pr.ko : '—'} │ ` +
-    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}`;
+    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}${c.ofree ? ' · 옷 자유(GPT 노출 의상)' : ''}`;
 }
 
 const FLAGS = new Set(['fresh']);
@@ -412,5 +426,5 @@ function main(argv) {
   }
   return 0;
 }
-module.exports = { cardOf, plan, colorize, denierize, situate, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { cardOf, plan, colorize, denierize, situate, freeOutfit, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));
