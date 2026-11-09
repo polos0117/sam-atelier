@@ -46,6 +46,8 @@ node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 
 세계 그림 `world … --exposure moderate`(그다음 `low`), 일상컷 `casual … --slots N --exposure N=moderate`(그다음 `low`) — 노출 말고 다른 말은 바꾸지 않는다.
 적게에서도 막히면 그 칸만 계획을 바꾼다(일상컷 `casual-plan --slots N --seed <다른 수>`, 세계 그림은 장면 · 자세 칸). 그래도 막히면 그 자리는 멈추고 보고한다.
 
+무기 · 손에 든 물건이 잘리거나 꺾이거나 몸 뒤로 지나가도 **다시 뽑지 않는다** — 시트에 보일 때 한 줄로 알리기만(사용자 2026-11-09 「삼국지 쪽에 무기 잘리는걸로는 이미지 재생성 안하게해줘」).
+
 ## 4. 올리기
 
 사용자에게 시트로 보이고 「올릴까?」 — 좋다면:
