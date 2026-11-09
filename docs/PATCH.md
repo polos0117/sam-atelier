@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-10 · claude · 짧은 판 세계 그림 — 무기의 세계 꼴 설명까지
+- 사용자 「응 그것도 같이 고쳐줘」 — lib/prompt-sam.js buildWorldShort(생성기의 짧은 판 우리 설계)도 SIGNATURE ITEM 을 ':' 앞에서 잘라 판타지 룬 · 마법 빛, 메카 에너지 날 · 발광 코어 설명이 빠졌다. 이제 She holds 줄에 설명까지. 판타지 무기 설명이 60낱말쯤 늘어 tests/prompt-v2.cjs 짧은 판 낱말 한도 700 → 780(넘던 것 3,348장 중 6장, 714낱말까지), 판타지 룬 · 메카 에너지 날 검사 더함. prompt-sam ?v=25.
+
 ## 2026-11-10 · claude · GPT 설계 주문 — 무기의 세계 꼴 설명(룬 · 빛 · 에너지 날)까지
 - 사용자 「삼국지 쪽에서 gpt 설계쪽에는 무기가 중세나 메카로 넘어가면 룬이나 빔 효과가 없어지는거 같아」 — lib/prompt-sam.js buildWorldFree 가 SIGNATURE ITEM 의 세계 꼴을 ':' 앞에서 잘라 「reimagined as a Western high-fantasy version … same silhouette」 만 남겼다. 이제 뒤 설명(판타지: 미스릴 · 새긴 룬 · 날과 룬을 따라 도는 마법 빛 · 보석 받침, 메카: 패널 선 · 에미터 · 에너지 날 · 플라스마 날 · 발광 코어)까지 Weapon 줄에. 검사 tests/prompt-v2.cjs, api25 스킬 fixed 칸 설명. prompt-sam ?v=24. 짧은 판 세계 그림(buildWorldShort)도 같은 자르기가 있다 — 사용자에게 물음.
 
