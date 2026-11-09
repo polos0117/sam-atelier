@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT 설계 주문 — 역할의 위엄 줄(군주 · 무장 · 책사 · 문관)
+- 사용자 「gpt 설계 1번은 뭔가 조촐하네」 → 「B로 넣고」 — 조조 API 시험에서 기마 무장형이 단출하게 나왔다. lib/prompt-spec.js WORLD_FREE.rank(역할마다 지위가 한눈에 읽히게 · 겹겹이 화려하게 · 단출하지 않게), lib/prompt-sam.js buildWorldFree 가 장수 역할의 줄을 싣는다. IMAGE_RULES 1절. 검사 prompt-v2. ?v= prompt-spec 21 · prompt-sam 18
+
 ## 2026-11-09 · claude · GPT 설계 주문 — 우리 실루엣 위에 전설에서 딴 그 장수만의 아이디어 하나
 - 사용자 「우리 실루엣 목록에서 고르는데 저 깃털처럼 겹친 갑편 치마 느낌처럼 본인만의 생각을 담으면 좋을것 같은데」 → 「응 좋은 아이디어야」 — lib/prompt-spec.js WORLD_FREE.costume: 고른 실루엣의 큰 모양은 지키고 전설에서 딴 비틀기 하나를 의상 구조(겹침 · 재단)에, 무늬 · 장신구로만은 아니게. second 에 다른 비틀기. IMAGE_RULES 1절. 검사 prompt-v2. ?v= prompt-spec 20
 
