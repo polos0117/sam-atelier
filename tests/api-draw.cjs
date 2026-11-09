@@ -27,7 +27,7 @@ srv.listen(0, async () => {
     const p2 = JSON.parse(fs.readFileSync(path.join(planDir, 'samguk-casual2.api25-ui.json'), 'utf8')).prompt; const p1 = JSON.parse(fs.readFileSync(path.join(planDir, 'samguk-casual1.api25-ui.json'), 'utf8')).prompt, mk = p2.split('\n').find(l => /^Place: /.test(l)); assert(mk && !p1.includes(mk), '막을 줄은 2번에만'); block.add(mk);
     r = await run(['casual', path.join(planDir, 'plan.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out]);
     const c1rec = fs.existsSync(path.join(out, 'samguk-casual1_record.json')) ? JSON.parse(fs.readFileSync(path.join(out, 'samguk-casual1_record.json'), 'utf8')) : null;
-    assert(c1rec && c1rec.generation.endpoint === 'images/edits' && c1rec.generation.ref_sha256 && !/^LIGHT: natural light/m.test(c1rec.prompt), '일상컷 — 편집 API · 참고 그림 · 11-02 꼴');
+    assert(c1rec && c1rec.generation.endpoint === 'images/edits' && c1rec.generation.ref_sent && c1rec.generation.ref_sent.size[0] === 768 && c1rec.generation.ref_sha256 && !/^LIGHT: natural light/m.test(c1rec.prompt), '일상컷 — 편집 API · 참고 그림 · 11-02 꼴');
     assert(r.status === 3 && /막혀 건너뛴 자리: samguk-casual2/.test(r.stdout) && calls.filter(c => c.startsWith('/images/edits')).length === 3, '막힌 컷은 한 번 더 뒤 건너뛴다(종료 3)');
     r = await run(['usage', out]); assert(/막힘 2/.test(r.stdout) && /gpt-image-2.5-sunburst · images\/generations — 3장/.test(r.stdout), '사용량 합계: ' + r.stdout);
     r = await run(['stage', '조조', '--img', img, path.join(out, 'samguk-ours1.png') + '=samguk', path.join(out, 'samguk-casual1.png') + '=samguk-casual1']); assert.equal(r.status, 0, r.stderr);

@@ -6,7 +6,7 @@
    node tools/api-draw.cjs brief  <장수> <세계> [--style api25]                       GPT 자유 설계 주문을 찍는다(Claude 가 읽고 지시문을 쓴다)
    node tools/api-draw.cjs world  <장수> <세계> --out <폴더> [--n 2] [--exposure moderate|low]   우리 설계 n 장 → <세계>-ours1.png …
    node tools/api-draw.cjs free   <장수> <세계> --text <글 파일> --tag gpt1 --out <폴더>        GPT 설계 글로 한 장 → <세계>-gpt1.png
-   node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--exposure N=moderate|low]
+   node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--exposure N=moderate|low] [--ref-size 768|0]
                                                                                      일상컷(편집 API) → <세계>-casualN.png. 옷 자유 컷(ofree)은 --free 로 받은 글(Outfit 줄만 바꾼 것)
    node tools/api-draw.cjs usage  <폴더>                                              그 폴더의 호출 · 토큰 합계(usage.jsonl)
    node tools/api-draw.cjs sheet  <out.jpg> <그림>… [--labels a,b,…]                   붙여 보기(사용자에게 보여 줄 때)
@@ -49,23 +49,30 @@ async function call(url, body, isForm) {
   return j;
 }
 /* 한 장 — 막히면 같은 지시문으로 한 번 더(retries 에 남긴다) */
-async function draw({ model, quality, prompt, ref, out, name, exposure }) {
-  const retries = [];
+/* 참고 그림은 줄여 보낸다 — 기본 768×1152(사용자 2026-11-09 「응 768로 기본값 넣어줘」 — 조조 무협 일상 1 시험: 입력 3,122 → 2,450, 얼굴 · 화풍은 같았다). --ref-size 0 이면 원본 그대로 */
+function shrinkRef(ref, out, w) {
+  if (!w) return ref;
+  const h = Math.round(w * 1.5), dst = path.join(out, '.ref-' + w + '-' + path.basename(ref).replace(/\.(webp|png|jpe?g)$/i, '') + '.png');
+  if (!fs.existsSync(dst)) py(`import sys\nfrom PIL import Image\nImage.open(sys.argv[1]).convert('RGB').resize((int(sys.argv[3]),int(sys.argv[4])),Image.LANCZOS).save(sys.argv[2])`, [ref, dst, String(w), String(h)]);
+  return dst;
+}
+async function draw({ model, quality, prompt, ref, out, name, exposure, refSize }) {
+  const retries = [], sent = ref ? shrinkRef(ref, out, refSize) : null;
   for (let n = 1; n <= 2; n++) {
     const t0 = Date.now();
     try {
       let j, endpoint;
       if (ref) {
-        const fd = new FormData(), buf = fs.readFileSync(ref);
+        const fd = new FormData(), buf = fs.readFileSync(sent);
         fd.append('model', model); fd.append('prompt', prompt); fd.append('size', SIZE); fd.append('quality', quality); fd.append('n', '1');
-        fd.append('image[]', new Blob([buf], { type: ref.endsWith('.webp') ? 'image/webp' : 'image/png' }), path.basename(ref));
+        fd.append('image[]', new Blob([buf], { type: sent.endsWith('.webp') ? 'image/webp' : 'image/png' }), path.basename(sent));
         j = await call(BASE + '/images/edits', fd, true); endpoint = 'images/edits';
       } else { j = await call(BASE + '/images/generations', { model, prompt, n: 1, size: SIZE, quality, output_format: 'png' }); endpoint = 'images/generations'; }
       const png = Buffer.from(j.data[0].b64_json, 'base64'), file = path.join(out, name + '.png');
       fs.writeFileSync(file, png);
       retries.push({ n, status: 'ok', exposure: exposure || 'bold' });
       const gen = { tool: 'tools/api-draw.cjs', model, endpoint, size: [1024, 1536], quality, usage: j.usage || null, seconds: (Date.now() - t0) / 1000, png_sha256: sha(png), prompt_sha256: sha(prompt), retries, date: new Date().toISOString().slice(0, 10) };
-      if (ref) gen.ref_sha256 = sha(fs.readFileSync(ref));
+      if (ref) { gen.ref_sha256 = sha(fs.readFileSync(ref)); if (sent !== ref) gen.ref_sent = { size: [refSize, Math.round(refSize * 1.5)], sha256: sha(fs.readFileSync(sent)) }; }
       logUsage(out, { name, model, endpoint, output_tokens: (j.usage || {}).output_tokens || null, input_tokens: (j.usage || {}).input_tokens || null, seconds: gen.seconds, at: new Date().toISOString() });
       console.log(name + ' 받았다 ' + gen.seconds.toFixed(1) + '초 · 출력 ' + ((j.usage || {}).output_tokens || '?'));
       return gen;
@@ -110,7 +117,7 @@ async function cmdCasual(o) {
     const rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2 }, n);
     let prompt = rec.prompt;
     if (cut.ofree) { if (!o.free[n]) { console.log(name + ' — 옷 자유 컷: --free ' + n + '=<글 파일> 이 없어 건너뛴다'); blocked.push(name + '(글 없음)'); continue; } prompt = fs.readFileSync(o.free[n], 'utf8').trim(); }
-    const gen = await draw({ model, quality: o.quality, prompt, ref: o.ref, out, name, exposure: exp });
+    const gen = await draw({ model, quality: o.quality, prompt, ref: o.ref, out, name, exposure: exp, refSize: o['ref-size'] == null ? 768 : Number(o['ref-size']) });
     if (gen.blocked) { blocked.push(name); continue; }
     if (cut.ofree) { gen.design = 'ofree'; gen.free_prompt = prompt; gen.free_by = o.by || 'claude'; }
     writeRec(out, name, { ...rec, generation: gen });
