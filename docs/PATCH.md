@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · API 생성 탭 — GPT 설계는 두 단계(gpt-5-mini · 추론 minimal)
+- 사용자 「c로 쓰는게 토큰이 엄청드네」 → 「1,2번 우선 지시문으로만 한번 써서 조조로 확인해줘」 → 「응 그렇게 고쳐줘」 — 조조 무협 GPT 설계를 Responses 그림 도구(gpt-5)로 한 번에 그리면 입력 4,657 · 출력 3,209(추론 1,728) · 67초, 지시문만(gpt-5-mini · minimal)이면 입력 1,061 · 출력 1,231 · 추론 0 · 13초.
+- lib/api-run.js — GPT 자유 설계 · 옷 자유 컷은 두 단계: ① 대화 모델이 그림 없이 지시문만(writeGpt, 기본 gpt-5-mini · 추론 minimal, 고르개 gpt-5 · low · medium, 「GPT 지시문만 받기」 로 먼저 볼 수 있다 — 옷 자유는 Outfit 줄만 바꾸고 다른 줄은 그대로) ② 그 글을 이미지 API(고른 그림 모델)로. 기록 generation 에 chat_model · chat_effort · chat_usage · free_prompt. 3번(Claude 가 설계를 쓰는 것)은 따로 도구 없이 대화로. IMAGE_RULES 7절 · ?v= api-run 2 · words 16.
+
 ## 2026-11-09 · claude · 2.5 API 판(api25) · API 프롬프트 탭 · API 생성 탭
 - 사용자 「2.5로 해야겠다. 2.5용 프롬포트에 2.6용으로 만든 기능들 좀 추가하자」 → 「A는 4,5,6,7,8,9번, B는 1,2,3,4,5,8번 … 나머지는 빼도 되잖아」 — data/style.json 새 열쇠 api25(kr_mmorpg v3 글 · model gpt-image-2.5-sunburst · 긴 꼴 · legacy25: 11-08 전 나이 · 얼굴 머리말 윤곽 · 비율 꼬리 없음 · 눈꼬리 「sharply upward」 · 일상컷 첨부 잠금 · 자연광 · 몸 라인 없음). lib/prompt-sam.js 가 legacy25 를 읽는다(세계 그림 나이 · 얼굴 줄, 일상컷 refLock · LIGHT · BODY LINE, GPT 자유 설계 주문의 나이).
 - 「따로 API 용 프롬포트 탭」 — promptapi.html(생성기를 api25 로 고정, 따로 저장, 다 지으면 「API 생성으로 보내기」 — 세계 그림 우리 설계 · GPT 자유 설계, 일상컷 옷 자유 컷 체크). 「탭 하나 더 해서 내가 API 쓸 수 있게」 — api.html · lib/api-run.js · lib/api.css: 키는 브라우저에만, 세계 그림 images/generations · 일상컷 images/edits(참고 그림: 방금 뽑은 것 IndexedDB → 등록된 것 → 파일) · GPT 설계 · 옷 자유 Responses(gpt-5 + image_generation 도구 2.5 — 조조 한 장으로 확인), PNG · 기록 내려받기. 머리 메뉴 아홉(전장 메뉴는 폰에서 옆으로 밀기).
