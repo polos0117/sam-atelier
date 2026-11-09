@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT · Claude 자유 설계는 우리 갈래에 없는 것 위주로
+- 사용자 「gpt나 너한테 맡긴다면 지금 우리쪽 갈래나 의상 등 없는거 위주로 자유롭게 맡긴다고 해줘. 있는걸로 해도 되는데, 최대한 없는걸로」 — lib/prompt-spec.js WORLD_FREE.avoid(그 세계 실루엣 열을 싣고 없는 꼴 먼저) · OUTFIT_FREE(일상 옷 계열 목록을 싣고 없는 꼴 먼저), lib/prompt-sam.js buildWorldFree 가 실루엣 목록을 채운다. IMAGE_RULES 1절. ?v= prompt-spec 18 · prompt-sam 16
+
 ## 2026-11-09 · claude · GPT 세계 그림 네 장(우리 설계 둘 · GPT 임의 설계 둘) · 일상컷 옷 자유 컷 한 장
 - 사용자 「gpt에서 삼국지에 세계컷 생성할때, 생성 이미지 총4장으로 고정하고, 2장은 우리쪽 설계, 2장은 gpt 임의 설계로 하게 해줘. 그리고 일상컷도 1장은 gpt에게 노출의상 자유롭게 만들어달라고 해줘」
 - lib/prompt-spec.js WORLD_FREE(설계 주문 — 누구 · 전설은 영감으로만 · 세계 · 화풍 · 1024×1536 · 노출 bold · 얼굴 비율 · 구도 · 끝 줄만 정하고 얼굴 · 머리 · 옷 · 실루엣 · 색 · 무기 꼴 · 자세 · 장면은 GPT 가 지어 제 지시문을 쓴다) · OUTFIT_FREE. lib/prompt-sam.js buildWorldFree, 장면 칸 ofree 면 Outfit 줄이 OUTFIT_FREE
