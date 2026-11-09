@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT 설계 주문 — 피부색도 우리 설계값
+- 사용자(감녕) 「gpt도 피부색은 설계값 따르도록 바꿔줘」 — lib/prompt-spec.js WORLD_FREE.skin("Skin tone (fixed — ours): {skin}. Keep exactly this skin tone.") · free · second 문구에 피부색, lib/prompt-sam.js buildWorldFree 가 설계 look.face.skin_tone 을 FACE_DESIGN 영어로 넣는다(삼국지만). 검사 tests/prompt-v2.cjs 설계 주문에 피부색 줄. IMAGE_RULES 1절 · api25 스킬 fixed 칸에 피부색. prompt-spec ?v=27 · prompt-sam ?v=23.
+
 ## 2026-11-09 · claude · 피부 어휘 honey_tan 추가 · 감녕 꿀빛 피부로
 - 사용자 「태닝이랑 중간색이 있을까?」 → 「honey tan으로」 — lib/prompt-spec.js skin_tone 에 honey_tan(햇볕에 살짝 그을린 꿀빛 피부, "light honey-tan skin")을 olive 와 golden_tan 사이에. 감녕 skin_tone warm_beige → honey_tan. prompt-spec ?v=26.
 
