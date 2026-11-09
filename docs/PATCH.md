@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 2.5 API 판(api25) · API 프롬프트 탭 · API 생성 탭
+- 사용자 「2.5로 해야겠다. 2.5용 프롬포트에 2.6용으로 만든 기능들 좀 추가하자」 → 「A는 4,5,6,7,8,9번, B는 1,2,3,4,5,8번 … 나머지는 빼도 되잖아」 — data/style.json 새 열쇠 api25(kr_mmorpg v3 글 · model gpt-image-2.5-sunburst · 긴 꼴 · legacy25: 11-08 전 나이 · 얼굴 머리말 윤곽 · 비율 꼬리 없음 · 눈꼬리 「sharply upward」 · 일상컷 첨부 잠금 · 자연광 · 몸 라인 없음). lib/prompt-sam.js 가 legacy25 를 읽는다(세계 그림 나이 · 얼굴 줄, 일상컷 refLock · LIGHT · BODY LINE, GPT 자유 설계 주문의 나이).
+- 「따로 API 용 프롬포트 탭」 — promptapi.html(생성기를 api25 로 고정, 따로 저장, 다 지으면 「API 생성으로 보내기」 — 세계 그림 우리 설계 · GPT 자유 설계, 일상컷 옷 자유 컷 체크). 「탭 하나 더 해서 내가 API 쓸 수 있게」 — api.html · lib/api-run.js · lib/api.css: 키는 브라우저에만, 세계 그림 images/generations · 일상컷 images/edits(참고 그림: 방금 뽑은 것 IndexedDB → 등록된 것 → 파일) · GPT 설계 · 옷 자유 Responses(gpt-5 + image_generation 도구 2.5 — 조조 한 장으로 확인), PNG · 기록 내려받기. 머리 메뉴 아홉(전장 메뉴는 폰에서 옆으로 밀기).
+- 검사 prompt-v2(api25 — 옛 나이 · 얼굴 · 눈꼬리 + 실루엣 · 무기 · 노출 · 표정, 일상컷 11-02 꼴). IMAGE_RULES 7절. ?v= prompt-sam 22 · studio 9 · words 15 · workspace-ui 5 · battle.css 4.
+
 ## 2026-11-09 · claude · 손권 눈색 — 짙은 쪽빛(인디고)
 - 사용자 「삼국지 손권 눈색 설계를 초록보다는 진한 푸른 계열로 바꿔줘」 → 「인디고가 어울릴거 같아」 — 눈 색 어휘에 indigo(「deep indigo-blue eyes」 · 짙은 쪽빛(인디고) 눈)를 더했다(lib/look-spec.js VOCAB_EN · lib/prompt-spec.js 한글 표 · tools/port-look-spec.cjs EXTRA). data/sam-design.json 손권 look.face.eye_color emerald → indigo, title · traits · look.why · summary.ko 의 초록 · 에메랄드 말도 고침. 이미 그린 손권 그림은 그대로. ?v= look-spec 2 · prompt-spec 25.
 

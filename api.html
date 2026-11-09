@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<title>삼국지 공방</title>
+<!-- API 생성(2026-11-09 — 사용자 「탭 하나 더 해서 내가 API 쓸 수 있게도 해줄 수 있나?」) — API 프롬프트 탭(promptapi.html)이 보낸 지시문을 OpenAI 그림 API 로 그린다(lib/api-run.js).
+     키는 이 브라우저에만 둔다(이 탭, 또는 「이 기기에 저장」). 그림 · 기록은 내려받아 그림 저장소에 올린다 — 등록은 IMAGE_RULES.md 그대로. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
+<link rel="stylesheet" href="lib/workspace.css?v=5">
+<script src="lib/workspace-theme.js?v=2"></script>
+<script src="lib/words.js?v=15"></script>
+<script src="lib/img.js?v=1"></script>
+<script src="lib/fresh.js?v=1"></script>
+<link rel="stylesheet" href="lib/room.css?v=1">
+<link rel="stylesheet" href="lib/sam.css?v=7">
+<link rel="stylesheet" href="lib/studio.css?v=5">
+<link rel="stylesheet" href="lib/material.css?v=6">
+<link rel="stylesheet" href="lib/api.css?v=1">
+</head>
+<body class="prompt-page lab-page api-page">
+<div class="wrap"><div id="app"></div>
+<main class="studio-wrap">
+  <p class="lede" id="lede"></p>
+  <section class="panel api-key">
+    <label class="axis" for="key"><span class="lbl" id="key-label"></span><input type="password" id="key" autocomplete="off" spellcheck="false"></label>
+    <p class="row"><label class="unlock"><input type="checkbox" id="remember"> <span id="remember-label"></span></label><button type="button" class="btn" id="forget"></button></p>
+    <p class="note" id="key-note"></p>
+  </section>
+  <section class="panel" id="job" aria-live="polite"></section>
+  <p class="rand"><button type="button" class="btn pri" id="run"></button></p>
+  <p id="status" role="status"></p>
+  <section id="results" class="api-results"></section>
+</main>
+</div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {WorkspaceHeader} from './lib/workspace-ui.js?v=5';
+render(h(WorkspaceHeader,{page:'api'}),document.getElementById('app'));
+window.AtelierFresh.watch();
+</script>
+<script>
+(function () {
+  var W = window.W;
+  document.getElementById('lede').textContent = W('api.lede');
+  document.getElementById('key-label').textContent = W('api.key');
+  document.getElementById('remember-label').textContent = W('api.key.remember');
+  document.getElementById('forget').textContent = W('api.key.forget');
+  document.getElementById('key-note').textContent = W('api.key.note');
+})();
+</script>
+<script src="lib/api-run.js?v=1"></script>
+</body>
+</html>

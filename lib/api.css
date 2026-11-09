@@ -1,0 +1,11 @@
+/* API 생성 탭(api.html) — 생성기 판(studio.css) 위에 몇 줄만 */
+.api-page .api-key input[type=password]{width:100%;max-width:520px;font:inherit;padding:8px 10px;border-radius:8px;border:1px solid var(--line,#ccd)}
+.api-page .api-ref{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0}
+.api-page .api-ref img{width:72px;height:108px;object-fit:cover;border-radius:6px}
+.api-page .api-opts{display:flex;gap:12px;flex-wrap:wrap}
+.api-page textarea{width:100%;font:12px/1.5 ui-monospace,monospace}
+.api-page #status.bad,.api-page .bad{color:#b3261e}
+.api-page .api-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:16px}
+.api-page .api-res{margin:0}
+.api-page .api-res img{width:100%;border-radius:8px;display:block}
+.api-page .api-res figcaption{display:flex;flex-direction:column;gap:4px;margin-top:6px;word-break:break-all}

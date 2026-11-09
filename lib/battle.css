@@ -134,7 +134,9 @@ body.battle-page {margin:0;min-height:100vh;min-height:100dvh;background:var(--b
   .b-bar {grid-template-columns:auto 1fr}
   .b-worlds {grid-column:1/-1;order:2;justify-self:stretch;display:grid;grid-template-columns:repeat(3,1fr)}
   .b-worlds button {min-height:44px}
-  .b-pages {justify-self:end}
+  .b-pages {justify-self:end;min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none}   /* 화면이 아홉이 되며(2026-11-09 API 탭 둘) 폰에서 넘쳤다 — 옆으로 밀어 본다 */
+  .b-pages::-webkit-scrollbar {display:none}
+  .b-pages a {flex:none}
   .b-pages a {padding:0 5px;font-size:12px}
   .b-count {margin-left:0}
   .b-peek-wrap {place-items:start stretch;padding:calc(10px + env(safe-area-inset-top)) 10px 10px;overflow-y:auto}

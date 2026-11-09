@@ -127,7 +127,9 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     assert(T.CASUAL.faceLight.startsWith('LIGHT: ') && cp.includes(T.CASUAL.faceLight) && !P.build(D, S, '조조', 'samguk', { style: KVK }).includes(T.CASUAL.faceLight), '일상컷 얼굴 자연광 줄');
     { const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8')), { n: n0, ...sc0 } = cut;
       for (const sk of Object.keys(S.styles)) { const sv0 = S.styles[sk].versions.find(v => v.v === S.styles[sk].current) || {}, kit = sv0.casualKit; if (P.casualShortOn(S, sk)) { assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(sv0.casualLight || T.CASUAL.short.light), sk + ' 짧은 일상컷 조명 줄'); continue; }   /* 판이 제 일상컷 조명(casualKit.light)을 가지면 그것 */
-        assert(P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt.includes(kit ? kit.light : T.CASUAL.faceLight), sk + ' 일상컷 조명 줄'); } }
+        const lp = P.casualRecord(D, S, '조조', sc0, { world: 'samguk', style: sk, tree: tr, tree2: tr2 }, n0).prompt;
+        if (sv0.legacy25) { assert(!lp.includes(T.CASUAL.faceLight) && !lp.includes(T.CASUAL.bodyLine) && /^STYLE: (?!keep the attached)/m.test(lp) && /^AGE: the same adult woman/m.test(lp) && !/^FACE: exactly the face/m.test(lp), sk + ' 2.5 API 판 — 자연광 · 몸 라인 · 첨부 잠금 없음(11-02 꼴)'); continue; }   /* 2.5 API 판(2026-11-09) */
+        assert(lp.includes(kit ? kit.light : T.CASUAL.faceLight), sk + ' 일상컷 조명 줄'); } }
     const GL = T.CASUAL.glosses; assert.equal(GL.map(g => g.key).join(), 'matte,soft,dewy,glossy', '광택 네 단계');
     assert.equal(GL.find(g => g.key === 'dewy').en, kv.casualSkin, '촉촉하게 = 기준 판 기본 광택 글'); assert.equal(P.glossDefault(S, KVK), kv.casualSkin);
     for (const g of GL) { assert(g.en.startsWith('SKIN: ') && g.ko, g.key);
@@ -158,3 +160,17 @@ console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).
   }
 }
 console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
+
+/* 2.5 API 판(api25, 2026-11-09 — 사용자 「A는 4~9번, B는 1~5 · 8번 … 나머지는 빼도 되잖아」) — 11-02 조조 무협 기록(kr_mmorpg v3 · gpt-image-2.5)과 견준다:
+   옛 그대로 — 11-08 전 나이 · 얼굴 머리말(윤곽 · 비율 꼬리 없음) · 눈꼬리 「sharply upward」, 더한 것 — 실루엣 줄 · 무기 한 자루 · 「중요 부위」 · 은은한 표정 */
+{
+  const v = S.styles.api25.versions.find(x => x.v === S.styles.api25.current), lg = v.legacy25;
+  assert(v.model === 'gpt-image-2.5-sunburst' && v.worldShort === false && v.casualShort === false && Object.keys(lg.ageOld).length === D.generals.length, 'api25 판 칸');
+  const t = P.build(D, S, '조조', 'samguk', { style: 'api25' }), f = (t.match(/^FACE — .*$/m) || [''])[0];
+  assert(/^STYLE: Premium Korean MMORPG promotional character render/m.test(t) && /^OUTFIT SILHOUETTE: /m.test(t) && t.includes('It is one whole object drawn once') && /Intimate areas covered/.test(t), 'api25 세계 그림 — 더한 것');
+  assert(/^AGE: early thirties/m.test(t) && f.endsWith('.') && !/Whatever the face shape|Face proportions/.test(f) && /tilting sharply upward/.test(f), 'api25 세계 그림 — 옛 나이 · 얼굴 머리말 · 눈꼬리');
+  assert(!/^AGE: early thirties/m.test(P.build(D, S, '조조', 'samguk', { style: 'kr_mmorpg' })), '다른 판은 지금 나이 그대로');
+  assert(/two|only these places/.test((P.build(D, S, '조조', 'mecha', { style: 'api25' }).match(/^EXPOSURE.*$/m) || [''])[0]), 'api25 메카 과감 두 곳');
+  console.log('PASS 2.5 API 판(api25): 옛 나이 · 얼굴 머리말 · 눈꼬리 + 실루엣 · 무기 · 노출 · 표정, 일상컷 11-02 꼴');
+}
+
