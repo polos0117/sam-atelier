@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT 설계 주문 — 머리색은 우리 설계값
+- 사용자 「gpt에 세계컷 맡길때는 머리색까진 고정하는게 좋을거 같네. 마음에 안들면 설계를 바꾸는게 날 거 같아」 — lib/prompt-spec.js WORLD_FREE: free 에서 머리색을 빼고(얼굴 · 눈색 · 헤어스타일 · 화장 · 표정 · 자세 · 장면만 자유) 「머리색도 우리 것」, 새 줄 hair(「Hair colour (fixed — ours): {설계 머리색}. Keep exactly this hair colour; only the hairstyle is yours.」), second 는 「다른 얼굴 · 헤어스타일(머리색은 같게)」.
+- 조립부 buildWorldFree 가 그 세계 설계 머리색(lookOf silhouette.hair_color)을 채운다. 검사 · 문서(지시문 묶음 INDEX 안내 등) 고침. ?v= prompt-spec 24 · prompt-sam 21.
+
 ## 2026-11-09 · claude · 화풍 — 한국형 글로시 반실사(glossy_kr_semireal)
 - 사용자 「한국형 글로시에 반실사 느낌을 더하면 어떨까?」 → 「응 진행해줘」 — data/style.json 에 glossy_kr_semireal(한국형 글로시 반실사): 글로시의 애니 얼굴을 반실사 얼굴 구조(자연스러운 눈 크기 · 콧대 · 광대 · 입술, 은은한 피부 결 · 피하 온기, 사실적인 빛 감쇠)로, 마감은 글로시 일러스트 그대로(사진 · 3D 렌더 아님). 원래 글로시는 그대로. docs/STYLE_LAB.md 한 줄.
 - 화풍 비교 묶음 2026-11-09(조조)에 세계 셋 · 일상 허리 위 여섯 장 — 같은 묶음의 글로시 지시문에서 화풍 단락만 바꿨다(일상은 반실사 세계 그림 첨부), 필터 없음.
