@@ -60,4 +60,4 @@ node tools/api-draw.cjs stage <장수> --img ../sam-atelier-img $W/<세계>-<고
 
 ## 5. 끝에 알린다
 
-`node tools/api-draw.cjs usage $W` — 그림 몇 장 · 막힘 · 출력 토큰 합계, 그리고 대화에서 세어 온 누적 이미지 수.
+`node tools/api-draw.cjs usage $W` — 그 장수의 그림 몇 장 · 막힘 · 출력 토큰 합계. 누적 이미지 수는 세지 않는다(사용자 2026-11-09 「이제 이미지 수 세주는거 안해도 돼」).
