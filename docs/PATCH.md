@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT 세션이 설계 지시문 — 그림은 API(free-brief · API 탭 불러오기)
+- 사용자 「gpt 세션에서도 내 git 읽을 수 있으니까 git에 올려놓고 추론 해달라고 부탁해도 되겠네. 이미지 생성은 api 로 하고」 → 「응 만들어줘」 — tools/free-brief.cjs: 그림 저장소 free/<장수>/ 에 GPT 자유 설계 주문(세계마다) · 옷 자유 컷 주문(계획의 ofree 컷) · REQUEST.md(GPT 세션 부탁 글), free/outfit-catalog.md. 이미 있는 주문은 덮지 않는다(--force), GPT 가 쓴 -gpt*.txt 는 건드리지 않는다.
+- lib/api-run.js — GPT 모드에 「GPT 세션이 쓴 지시문」: git(Pages free/<장수>/<자리>.<화풍>-gptN.txt)에서 불러오기 · 붙여 넣기 → 대화 모델 없이 이미지 API 로. 기록 chat_model gpt-session · free_source · free_prompt. 문서 IMAGE_AUTOMATION 9절 · IMAGE_RULES 7절. 조조 세계 셋 주문을 그림 저장소에 올렸다. ?v= api-run 3 · words 17 · api.css 2.
+
 ## 2026-11-09 · claude · API 생성 탭 — GPT 설계는 두 단계(gpt-5-mini · 추론 minimal)
 - 사용자 「c로 쓰는게 토큰이 엄청드네」 → 「1,2번 우선 지시문으로만 한번 써서 조조로 확인해줘」 → 「응 그렇게 고쳐줘」 — 조조 무협 GPT 설계를 Responses 그림 도구(gpt-5)로 한 번에 그리면 입력 4,657 · 출력 3,209(추론 1,728) · 67초, 지시문만(gpt-5-mini · minimal)이면 입력 1,061 · 출력 1,231 · 추론 0 · 13초.
 - lib/api-run.js — GPT 자유 설계 · 옷 자유 컷은 두 단계: ① 대화 모델이 그림 없이 지시문만(writeGpt, 기본 gpt-5-mini · 추론 minimal, 고르개 gpt-5 · low · medium, 「GPT 지시문만 받기」 로 먼저 볼 수 있다 — 옷 자유는 Outfit 줄만 바꾸고 다른 줄은 그대로) ② 그 글을 이미지 API(고른 그림 모델)로. 기록 generation 에 chat_model · chat_effort · chat_usage · free_prompt. 3번(Claude 가 설계를 쓰는 것)은 따로 도구 없이 대화로. IMAGE_RULES 7절 · ?v= api-run 2 · words 16.

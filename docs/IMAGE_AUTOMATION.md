@@ -120,3 +120,12 @@ node tools/image-claim.cjs done <장수> --execution $ATELIER_EXECUTION_ID
 
 - 계획기 없이 일상컷 장면을 짜지 않는다 · 세계 셋에 같은 장면을 돌려쓰지 않는다 · 계획 · 지시문을 손으로 고쳐 내지 않는다.
 - 남의 잠금 · 기록 · 그림을 고치지 않는다 · 검수 실패를 통과로 바꾸지 않는다 · 같은 자리를 여러 번 다시 그려 고르지 않는다(4절의 여섯 가지만 한 번) · 화풍을 바꾸지 않는다(늘 기본) · 게임(`draft.html` · `images/`)을 건드리지 않는다.
+
+## 9. GPT 세션이 설계 지시문만 — 그림은 API (2026-11-09)
+
+사용자 「gpt 세션에서도 내 git 읽을 수 있으니까 git에 올려놓고 추론 해달라고 부탁해도 되겠네. 이미지 생성은 api 로 하고」 — GPT 자유 설계(세계 그림 네 장 중 둘)와 일상컷 옷 자유 컷의 「설계 글」 은 ChatGPT 세션이 쓰고(구독 — API 대화 토큰 0), 그림은 API 생성 탭(`api.html`)이 2.5 로 그린다.
+
+1. 주문 올리기 — `node tools/free-brief.cjs <장수> [--style api25] [--plan <계획 plan.json> …]` 가 그림 저장소 `free/<장수>/` 에 `<세계>.<화풍>-brief.txt`(세계마다) · `<세계>-casualN.<화풍>-brief.txt`(계획의 옷 자유 컷마다) · `REQUEST.md`(부탁 글), `free/outfit-catalog.md` 를 쓴다. 그림 저장소에서 일반 push.
+2. GPT 세션에 `free/<장수>/REQUEST.md` 를 그대로 붙여 넣는다 — 세션은 주문을 읽고 **그림 없이** 지시문 글만 `<세계>.<화풍>-gpt1.txt` · `-gpt2.txt`(서로 다르게) · `<세계>-casualN.<화풍>-gpt1.txt`(Outfit 줄만 바꾼 것)로 같은 폴더에 올린다. 「fixed」 칸(실루엣 목록 · 무기 · 색 · 노출 · 얼굴 비율 · 구도)은 그대로, 이미 있는 `-gpt*.txt` 는 덮지 않는다.
+3. API 프롬프트 탭에서 그 자리를 「GPT 자유 설계로 보내기」(일상컷은 옷 자유 컷 체크) → API 생성 탭의 「GPT 세션이 쓴 지시문」 에서 「git 에서 N번 불러오기」(Pages 가 돈 뒤) 또는 붙여 넣기 → 「그리기」. 대화 모델은 부르지 않는다. 기록 `generation` 에 `chat_model: gpt-session` · `free_source`(git 경로 또는 pasted) · `free_prompt`(그 글).
+
