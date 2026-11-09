@@ -38,6 +38,21 @@
     }
    ]
   },
+  "glossy_kr_semireal": {
+   "name": "한국형 글로시 반실사",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-09",
+     "by": "claude — 사용자 2026-11-09 「한국형 글로시에 반실사 느낌을 더하면 어떨까?」 → 「응 진행해줘」",
+     "text": "Glossy Korean mobile-game character art with a semi-realistic touch: an elegant face with realistic facial structure and proportions — natural eye size, a defined nose bridge, soft cheekbones and full lips — keeping delicate realistic-anime features; skin with a soft subsurface warmth and subtle natural texture; smooth dimensional shading with realistic light falloff on the face, body and fabric; luminous colour accents and refined costume and accessory rendering. Keep highlights selective, the finish a polished illustration rather than a photograph or a 3D render, and the figure sharply readable.",
+     "casual": "Glossy Korean mobile-game character art with a semi-realistic touch: an elegant face with realistic facial structure and proportions — natural eye size, a defined nose bridge, soft cheekbones and full lips — keeping delicate realistic-anime features; skin with a soft subsurface warmth and subtle natural texture; smooth dimensional shading with realistic light falloff on the face, body and fabric; luminous colour accents and refined fabric and accessory rendering. Keep highlights selective, the finish a polished illustration rather than a photograph or a 3D render, and the figure sharply readable.",
+     "check": "glossy Korean mobile-game illustration with a semi-realistic face — realistic facial structure, natural skin texture, selective highlights; a polished illustration, not a photo or 3D render; one figure, no readable text.",
+     "why": "한국형 글로시(glossy_kr_game v1)의 「우아한 애니 얼굴」 을 반실사 얼굴 구조(자연스러운 눈 크기 · 콧대 · 광대 · 입술, 은은한 피부 결 · 피하 온기, 사실적인 빛 감쇠)로 바꾸고 마감은 글로시 일러스트 그대로(사진 · 3D 렌더 아님) — 이미 있는 반실사 3D 렌더 화풍(mmorpg_cg · 프로모 하이키 · kmmo_lock)과 겹치지 않게"
+    }
+   ]
+  },
   "kr_mmorpg": {
    "name": "한국 MMORPG 프로모",
    "current": "v4",
