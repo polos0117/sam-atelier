@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · gpt · 손권 MMORPG CG — 선택 세계컷 3·4·3과 일상컷 열여덟 등록
+- data/img.json — 생성기로 등록한 손권 mmorpg_cg 세계컷 3장과 일상컷 18장을 더했다. 기존 화풍 그림은 보존했다.
+- 그림 저장소 sam-atelier-img — 선택한 GPT 설계 세계컷과 세계별 일상컷 6장씩, 프롬프트·참고 이미지 해시·검수·계획 기록을 함께 반영했다. 삼국 일상2는 눈색 불일치로 같은 지시문을 한 번 재시도했고, 노출을 이유로 생성된 그림을 재생성하지 않았다. 이미지 커밋 79ec633.
+
 ## 2026-11-09 · claude · 여포 api25 — 2.5 API 로 세계 그림 셋 · 일상컷 열여덟
 - 사용자 「여포 2.5 api로 작업해줘」 → 「다 다시 만들어줘」(세계 그림 둘째 판) → 「3,1,1」 — 무협 GPT 설계 1(Claude 작성, 호랑이 머리 견갑 · 꿩깃) · 판타지 · 메카 우리 설계 1. 옷 자유: 무협 4 종이접기 주름 세일천 비스티에 · 판타지 4 라피아 · 개오지 조개 · 메카 3 빈티지 볼링 셔츠. 노출 moderate: 판타지 일상 6 · 메카 일상 1. 그림 42 · 호출 54 · 막힘 12 · 출력 14,406 토큰. 그림 저장소 98dffc6.
 
@@ -1028,3 +1032,4 @@
 - lib/img.js · tools/register-images.py · tools/make-thumbs.py · tools/roster.py · .github/workflows/register-images.yml · data/img.json — 그림 저장소 sam-atelier-img 로 등록 자동화. 한글 파일 이름이 git 이력에서 갇히지 않게 core.quotepath 를 끈다.
 - tests/screen.cjs · tests/words.cjs · tests/look-spec.cjs · tests/register-images.py — 도감 · 생성기 화면(폰 · PC), 게임 파일은 낱말 검사 밖.
 - AGENTS.md · CLAUDE.md · IMAGE_RULES.md · README.md — 자리와 규칙.
+
