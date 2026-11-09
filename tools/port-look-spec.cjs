@@ -15,7 +15,7 @@ const EXTRA = {
     ink_green: 'ink-black hair with a deep green sheen', jade_green: 'pale jade-green hair', chestnut: 'warm chestnut-brown hair', dark_brown: 'dark brown hair',
     dark_auburn: 'dark auburn hair with red highlights', plum_black: 'plum-black hair with a violet sheen', copper: 'polished copper-red hair'
   },
-  eye_color: { violet: 'pale violet eyes', graphite_grey: 'graphite-grey eyes' },
+  eye_color: { violet: 'pale violet eyes', graphite_grey: 'graphite-grey eyes', indigo: 'deep indigo-blue eyes' /* 손권(사용자 2026-11-09 「인디고가 어울릴거 같아」) */ },
   /* 글래머러스한 체형 — 원소 공방과 같은 넷(사용자 2026-11-01 「hourglass, voluptuous 등 글래머러스한 몸매가 더 많았으면」) */
   body: {
     hourglass: 'hourglass-figured — full bust and hips, distinctly narrow-waisted',

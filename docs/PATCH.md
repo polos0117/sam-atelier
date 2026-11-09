@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 손권 눈색 — 짙은 쪽빛(인디고)
+- 사용자 「삼국지 손권 눈색 설계를 초록보다는 진한 푸른 계열로 바꿔줘」 → 「인디고가 어울릴거 같아」 — 눈 색 어휘에 indigo(「deep indigo-blue eyes」 · 짙은 쪽빛(인디고) 눈)를 더했다(lib/look-spec.js VOCAB_EN · lib/prompt-spec.js 한글 표 · tools/port-look-spec.cjs EXTRA). data/sam-design.json 손권 look.face.eye_color emerald → indigo, title · traits · look.why · summary.ko 의 초록 · 에메랄드 말도 고침. 이미 그린 손권 그림은 그대로. ?v= look-spec 2 · prompt-spec 25.
+
 ## 2026-11-09 · gpt · 유비 MMORPG CG — 세계컷 1·1·1과 일상컷 18장
 - sam-atelier-img/img/유비_*_mmorpg_cg_f*.webp · records/유비/ — 사용자가 고른 삼국시대·판타지·메카 1번 세 장과 세계별 일상컷 여섯 장을 새로 등록. 생성기 원문과 각 세계 선택 원본을 참조했으며 파일 이름·1024×1536·세 세계 계획 검사를 통과했다. 기존 그림과 옛 계획은 보존하고 새 계획은 화풍 열쇠를 붙여 별도 기록했다.
 - data/img.json — 등록기가 새 세계컷 3장·일상컷 18장의 도감 주소를 추가한다. 반환된 그림은 노출을 이유로 재생성하지 않았다. 판타지 일상1은 실제 거절 후 노출을 두 단계 내려 반환됐고, 메카 일상3은 끊긴 우산 자루 때문에 같은 원문으로 한 번 교정했으나 꺾임이 남아 검수 실패로 기록했다. 다른 구도·표정 차이도 해당 기록에 보존했다.

@@ -9222,20 +9222,20 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "벽안자염의 오 황제 — 붉은 술 달린 황제 검 · 에메랄드 눈 · 자줏빛 붉은 머리 · 풍만형"
+    "ko": "벽안자염의 오 황제 — 붉은 술 달린 황제 검 · 쪽빛 눈 · 자줏빛 붉은 머리 · 풍만형"
    },
    "title": {
-    "en": "the emperor of Wu, master of the Yangtze, famed for her green eyes and purple beard"
+    "en": "the emperor of Wu, master of the Yangtze, famed for her deep indigo eyes and purple beard"
    },
    "traits": {
-    "en": "striking emerald-green eyes and dark violet-red hair (her legendary 'purple beard'), steady judgment and trust in her ministers, a fearless tiger hunter, holding the Yangtze against two empires"
+    "en": "striking deep indigo-blue eyes and dark violet-red hair (her legendary 'blue eyes and purple beard'), steady judgment and trust in her ministers, a fearless tiger hunter, holding the Yangtze against two empires"
    },
    "hold": {
     "en": "an imperial jian sword with a red tassel"
    },
    "look": {
     "face": {
-     "eye_color": "emerald",
+     "eye_color": "indigo",
      "age": "early_20s",
      "impression": "regal",
      "skin_tone": "fair",
@@ -9283,7 +9283,7 @@
       }
      }
     },
-    "why": "벽안자염(碧眼紫髥) — 에메랄드 눈 · 자줏빛 붉은 머리. 범을 사냥하는 담력 → 풍만하고 당당한 몸"
+    "why": "벽안자염(碧眼紫髥) — 짙은 쪽빛(인디고) 눈(사용자 2026-11-09 「초록보다는 진한 푸른 계열로」 → 「인디고가 어울릴거 같아」, 전엔 에메랄드) · 자줏빛 붉은 머리. 범을 사냥하는 담력 → 풍만하고 당당한 몸"
    },
    "worlds": {
     "samguk": {
