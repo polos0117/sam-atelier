@@ -274,7 +274,7 @@
   },
   "kr_promo_hikey_oil": {
    "name": "한국 MMORPG 프로모 하이키 유화",
-   "current": "v1",
+   "current": "v2",
    "versions": [
     {
      "v": "v1",
@@ -307,6 +307,39 @@
      "worldTail": "SKIN COLOUR AND RENDERING:\nHer own skin tone — {skin} — rendered luminous and lifelike: bright, softly glowing diffuse midtones on the face, neck, shoulders, arms, hands and exposed legs, not only in the specular highlights; one consistent underlying complexion across the whole body, varying only with light and shadow. Shadows stay clean and warm within her own skin tone — never grey-violet, muddy brown, blue-grey or heavily desaturated. Delicate satin-like highlights, subtle texture, lifelike translucency and softly dimensional shading. Do not whiten or darken her skin tone, do not clip highlights or remove all shadows; no chalky, ashen, waxy or uniformly glossy skin, and the costume or setting never tints her skin.\n\nLIGHTING AND COLOUR:\nA bright, elegant high-key cinematic grade with luminous skin and clean colour separation. Soft bright frontal fill light gently lifts the face and exposed skin, keeping the midtones bright, translucent and evenly readable, with gentle, open, colour-clean shadows around the eyes, nose, lips, neck and limbs. The scene's own light{time} comes from behind and to one side as a restrained rim, tracing hair strands, shoulder edges and fabric. Reflections from the costume, stone, metal or sky never cast a strong blue, purple, grey or orange tint on her skin. No heavy colour grade, dark crushed contrast, muddy shadows or cool desaturation.\n\nCAMERA AND COMPOSITION:\nVertical 2:3 full-body framing with modest headroom and clear space below the boots; the figure occupies most of the image height, and her head, hair ornaments, both hands, her signature item and both boots stay inside the frame. Natural portrait perspective — no wide-angle distortion and no exaggerated low camera angle; facial and body proportions stay balanced. She is sharply resolved from face to boots, the distance falls into gentle optical blur with clear atmospheric depth, and her face keeps enough detail to read her eyes, features and expression. No text, logo or watermark.",
      "casualShort": true,
      "casualLight": "Light: the place's own light, with a soft rim light tracing her hair and shoulders and glossy highlights on skin and jewellery — the luxurious promotional glow of the attached image."
+    },
+    {
+     "v": "v2",
+     "adopted": "2026-11-09",
+     "by": "claude — 사용자 2026-11-09 화풍 글을 직접 주고(「한국 MMORPG 프로모션 키아트, 밝고 우아한 하이키 유화 느낌. 부드럽고 풍부한 밝은 자연광, 은은한 그림자, 밝고 맑은 피부, 색이 씻겨나가지 않는 선명하고 풍성한 중간색. 유화의 섬세한 붓결과 겹겹의 색층, 부드러운 경계와 선택적으로 정교한 얼굴 및 복식 디테일, 비단과 금속의 차별화된 회화적 질감. 고품질 한국 판타지 MMORPG 광고 일러스트의 정제된 아름다움과 빛나는 유화의 표현을 결합」) 「응 v2로 진행해줘」",
+     "text": "Korean MMORPG promotional key art in a bright, elegant high-key oil-painting style. Soft, rich, bright natural light with gentle, subtle shadows; luminous, clear skin; vivid, full-bodied midtones that never wash out. Delicate oil brushwork and layered glazes of colour, soft edges with selectively refined detail on the face and costume, and distinct painterly textures for silk and metal. The refined beauty of a premium Korean fantasy MMORPG advertisement illustration, combined with the glow of a luminous oil painting.",
+     "casual": "Korean MMORPG promotional key art in a bright, elegant high-key oil-painting style. Soft, rich, bright natural light with gentle, subtle shadows; luminous, clear skin; vivid, full-bodied midtones that never wash out. Delicate oil brushwork and layered glazes of colour, soft edges with selectively refined detail on the face and costume, and distinct painterly textures for silk and metal. The refined beauty of a premium Korean fantasy MMORPG advertisement illustration, combined with the glow of a luminous oil painting.",
+     "lead": true,
+     "worlds": {
+      "samguk": {
+       "costume": "Martial-fantasy glamour: silk sashes and ribbons flowing in the wind, a sheer layered skirt, jade and gold jewellery at the hair and waist.",
+       "scene": "MOOD: bold martial-fantasy key art — wind-swept silk and hair, drifting petals and embers, dynamic contrapposto."
+      },
+      "fantasy": {
+       "costume": "Celestial ornament: feather-and-gold wing-shaped ornaments at the shoulders or back, a translucent gauze overskirt, a jewelled circlet.",
+       "scene": "MOOD: serene celestial key art — pastel sky light, a soft halo of light behind her, floating golden light particles and drifting feathers."
+      },
+      "mecha": {
+       "scene": "MOOD: sleek sci-fi key art — clean reflective plates, glowing light lines, hovering light particles and a soft bloom."
+      }
+     },
+     "check": "bright, elegant high-key oil-painting Korean MMORPG key art — soft natural light, clear luminous skin, vivid midtones, visible brushwork; one figure, no readable text but a single banner character.",
+     "why": "v1 은 하이키 3D 렌더 글(「in-engine 3D character model … not a 2D illustration」 · 촘촘한 장식 · 날카로운 광택)에 유화 문장 하나를 붙인 것이라 수소에선 거의 티가 안 났다 — 화풍 글(text · casual · casualKit.style)을 사용자 글의 영어로 통째로 바꾸고, 빛은 하이키 정면 보조광 · 뒤 테두리 빛 대신 부드럽고 밝은 자연광 · 은은한 그림자 · 씻기지 않는 중간색(worldLight · casualLight · casualKit.light · worldTail 의 LIGHTING AND COLOUR 칸)",
+     "casualKit": {
+      "style": "Korean MMORPG promotional key art in a bright, elegant high-key oil-painting style. Soft, rich, bright natural light with gentle, subtle shadows; luminous, clear skin; vivid, full-bodied midtones that never wash out. Delicate oil brushwork and layered glazes of colour, soft edges with selectively refined detail on the face and costume, and distinct painterly textures for silk and metal. The refined beauty of a premium Korean fantasy MMORPG advertisement illustration, combined with the glow of a luminous oil painting — the same rendering quality as the attached image.",
+      "face": "Her designed face, exactly as in the attached image: {face}; {eyes}; {impression}. Keep every one of these features and their proportions — the expression may change only the brows, eyelids and mouth.",
+      "skin": "SKIN: her own skin tone — {skin} — rendered luminous and lifelike: bright, softly glowing diffuse midtones on the face, neck, shoulders, collarbone, arms and every exposed area, not only in the specular highlights; one consistent underlying complexion across the whole body, varying only with light and shadow. Shadows stay clean and warm within her own skin tone — never grey-violet, muddy brown, blue-grey or heavily desaturated. Delicate natural microtexture, lifelike subsurface scattering and smoothly dimensional shading; small localized highlights — any water or sweat only as small droplets and thin trails that do not change the skin colour, never a thick or uniformly glossy coating. Do not whiten or darken her skin tone; no orange, yellow or bronze tint, no chalky whiteness, blown-out highlights or ashen cast.",
+      "light": "LIGHT: the place's own soft, rich, bright natural light with gentle, subtle shadows; luminous, clear skin and vivid, full-bodied midtones that never wash out. Clean colour separation; the scene's light colours the background but never tints her skin. The face and nearby hair are sharply resolved; the surroundings fall into gentle shallow depth of field."
+     },
+     "worldTail": "SKIN COLOUR AND RENDERING:\nHer own skin tone — {skin} — rendered luminous and lifelike: bright, softly glowing diffuse midtones on the face, neck, shoulders, arms, hands and exposed legs, not only in the specular highlights; one consistent underlying complexion across the whole body, varying only with light and shadow. Shadows stay clean and warm within her own skin tone — never grey-violet, muddy brown, blue-grey or heavily desaturated. Delicate satin-like highlights, subtle texture, lifelike translucency and softly dimensional shading. Do not whiten or darken her skin tone, do not clip highlights or remove all shadows; no chalky, ashen, waxy or uniformly glossy skin, and the costume or setting never tints her skin.\n\nLIGHTING AND COLOUR:\nSoft, rich, bright natural light with gentle, subtle shadows{time}; luminous, clear skin and vivid, full-bodied midtones that never wash out. Clean colour separation, no heavy colour grade, dark crushed contrast, muddy shadows or cool desaturation, and reflections never tint her skin.\n\nCAMERA AND COMPOSITION:\nVertical 2:3 full-body framing with modest headroom and clear space below the boots; the figure occupies most of the image height, and her head, hair ornaments, both hands, her signature item and both boots stay inside the frame. Natural portrait perspective — no wide-angle distortion and no exaggerated low camera angle; facial and body proportions stay balanced. She is sharply resolved from face to boots, the distance falls into gentle optical blur with clear atmospheric depth, and her face keeps enough detail to read her eyes, features and expression. No text, logo or watermark.",
+     "casualShort": true,
+     "casualLight": "Light: the place's own soft, rich, bright natural light with gentle, subtle shadows — luminous, clear skin and vivid, full-bodied midtones that never wash out, as in the attached image.",
+     "worldLight": "Light: soft, rich, bright natural light with gentle, subtle shadows — luminous, clear skin and vivid, full-bodied midtones that never wash out."
     }
    ]
   },
