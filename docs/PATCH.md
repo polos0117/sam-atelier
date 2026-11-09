@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · GPT 설계 주문 — 의상은 우리 실루엣에서 · 무기와 색은 우리 것 · 일상 옷 자유는 목록 밖으로
+- 사용자 「세계컷 의상과 무기는 우리가 만든 의상들 안에서 선택하게 하자. 의상과 무기만이고, 그 외의 얼굴이나 헤어색, 스타일은 자유롭게」 · 「고치면 좋을 점 1번은 넣어주고」 · 「일상컷도 우리쪽 의상자료를 참고하라고해서 여기 없는걸 선택하라고 하자」 — Responses API 시험(조조 GPT 설계 두 장이 거의 같았다)
+- lib/prompt-spec.js WORLD_FREE — free(얼굴 · 눈색 · 머리색 · 헤어 · 화장 · 표정 · 자세 · 장면만 자유) · costume(그 세계 실루엣 목록에서 하나) · weapon(우리 무기) · palette(우리 색) · second(둘째 장은 확실히 다르게), avoid 는 뺐다. OUTFIT_FREE — 묶음의 outfit-catalog.md 를 읽고 거기 없는 옷을 Outfit 줄에 써 넣는다
+- lib/prompt-sam.js buildWorldFree 가 실루엣 목록 · 무기 · 색을 채운다. tools/prompt-pack.cjs outfit-catalog.md · INDEX 안내 · 임의 수정 금지 사유에 옷 자유 줄 채우기. 문서 IMAGE_RULES · IMAGE_AUTOMATION. 검사 prompt-v2. ?v= prompt-spec 19 · prompt-sam 17
+
 ## 2026-11-09 · claude · GPT · Claude 자유 설계는 우리 갈래에 없는 것 위주로
 - 사용자 「gpt나 너한테 맡긴다면 지금 우리쪽 갈래나 의상 등 없는거 위주로 자유롭게 맡긴다고 해줘. 있는걸로 해도 되는데, 최대한 없는걸로」 — lib/prompt-spec.js WORLD_FREE.avoid(그 세계 실루엣 열을 싣고 없는 꼴 먼저) · OUTFIT_FREE(일상 옷 계열 목록을 싣고 없는 꼴 먼저), lib/prompt-sam.js buildWorldFree 가 실루엣 목록을 채운다. IMAGE_RULES 1절. ?v= prompt-spec 18 · prompt-sam 16
 
