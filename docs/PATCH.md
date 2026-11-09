@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · gpt · 유비 MMORPG CG — 세계컷 1·1·1과 일상컷 18장
+- sam-atelier-img/img/유비_*_mmorpg_cg_f*.webp · records/유비/ — 사용자가 고른 삼국시대·판타지·메카 1번 세 장과 세계별 일상컷 여섯 장을 새로 등록. 생성기 원문과 각 세계 선택 원본을 참조했으며 파일 이름·1024×1536·세 세계 계획 검사를 통과했다. 기존 그림과 옛 계획은 보존하고 새 계획은 화풍 열쇠를 붙여 별도 기록했다.
+- data/img.json — 등록기가 새 세계컷 3장·일상컷 18장의 도감 주소를 추가한다. 반환된 그림은 노출을 이유로 재생성하지 않았다. 판타지 일상1은 실제 거절 후 노출을 두 단계 내려 반환됐고, 메카 일상3은 끊긴 우산 자루 때문에 같은 원문으로 한 번 교정했으나 꺾임이 남아 검수 실패로 기록했다. 다른 구도·표정 차이도 해당 기록에 보존했다.
+
 ## 2026-11-09 · claude · GPT 설계 주문 — 머리색은 우리 설계값
 - 사용자 「gpt에 세계컷 맡길때는 머리색까진 고정하는게 좋을거 같네. 마음에 안들면 설계를 바꾸는게 날 거 같아」 — lib/prompt-spec.js WORLD_FREE: free 에서 머리색을 빼고(얼굴 · 눈색 · 헤어스타일 · 화장 · 표정 · 자세 · 장면만 자유) 「머리색도 우리 것」, 새 줄 hair(「Hair colour (fixed — ours): {설계 머리색}. Keep exactly this hair colour; only the hairstyle is yours.」), second 는 「다른 얼굴 · 헤어스타일(머리색은 같게)」.
 - 조립부 buildWorldFree 가 그 세계 설계 머리색(lookOf silhouette.hair_color)을 채운다. 검사 · 문서(지시문 묶음 INDEX 안내 등) 고침. ?v= prompt-spec 24 · prompt-sam 21.
