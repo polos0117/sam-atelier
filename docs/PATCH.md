@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 스킬 api25 — 옷 자유 컷끼리 겹치지 않게 · 목록에 안 더한다
+- 사용자 「옷 자유컷 짜낼만한게 있어?」 → 「이걸 얘기해주면 너가 쓸 자료가 더 없어지잖아」 — 옷 목록(갈래)은 그대로 두고, 목록 밖은 옷 자유 컷 몫. 스킬에 한 줄: 옷 자유 글을 쓰기 전 앞선 옷 자유 컷(records 의 free_prompt)을 보고 같은 옷 · 같은 결을 다시 쓰지 않는다.
+
 ## 2026-11-09 · claude · 스킬 api25 · tools/api-draw.cjs · API 생성 탭 그림 남기기
 - 사용자 「2.5로 이미지 뽑는거 스킬로 만들어둘까?」 → 「응 만들어줘」 — .claude/skills/api25/SKILL.md(세계 네 장 → 멈춤 → 일상 여섯 장 → 올리기, GPT 설계 글은 Claude · GPT 세션, 크레딧 먼저 말하기). tools/api-draw.cjs: brief · world · free · casual(편집 · 참고 그림 · 옷 자유 글) · usage · sheet · stage(webp · 기록 · 덮지 않음), 막히면 같은 지시문 한 번 더 → 건너뛰고 종료 3, --exposure 로 낮추기. tools/casual-plan.cjs --style(api25 로 빈 번호 · 기록). 검사 tests/api-draw.cjs(가짜 서버).
 - 사용자 「api 호출해서 이미지 만든 뒤에, 뒤로 가기 누르면 앞화면에서 만든 이미지는 사라지는거야?」 — 그랬다(화면 메모리만). lib/api-run.js: 뽑은 그림 · 기록을 이 브라우저 IndexedDB(samguk_api results, 최근 60장)에 남겨 뒤로 가기 · 새로 고침 뒤에도 보이고, 「지우기」 로 뺀다. IMAGE_RULES 7절. ?v= api-run 4 · words 18.

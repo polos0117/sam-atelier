@@ -37,6 +37,7 @@ node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 
 ```
 
 - 옷 자유 컷(계획에 「옷 자유」)은 Claude 가 그 컷 지시문의 **Outfit 줄만** 우리 옷 목록(`data/casual-tree.json` outfits)에 없는 노출 의상으로 바꿔 쓴 글을 `--free N=` 로 준다. 다른 줄은 한 글자도 바꾸지 않는다.
+- 옷 자유 글을 쓰기 전에 그림 저장소 `records/*/*-casual*.api25-ui.json` 의 `generation.free_prompt` 를 훑어 **앞선 옷 자유 컷과 같은 옷 · 같은 결을 다시 쓰지 않는다**. 옷 목록(갈래)에 새 옷을 더하지 않는다 — 목록에 없는 쪽이 옷 자유 컷의 몫이다(사용자 2026-11-09 「이걸 얘기해주면 너가 쓸 자료가 더 없어지잖아」).
 - 참고 그림은 그 세계에서 사용자가 고른 그림.
 
 ## 3. 막히면(IMAGE_RULES 1절)
