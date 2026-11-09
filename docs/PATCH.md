@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 피부 어휘 honey_tan 추가 · 감녕 꿀빛 피부로
+- 사용자 「태닝이랑 중간색이 있을까?」 → 「honey tan으로」 — lib/prompt-spec.js skin_tone 에 honey_tan(햇볕에 살짝 그을린 꿀빛 피부, "light honey-tan skin")을 olive 와 golden_tan 사이에. 감녕 skin_tone warm_beige → honey_tan. prompt-spec ?v=26.
+
 ## 2026-11-09 · claude · 감녕 피부 — 황금빛 태닝에서 따뜻한 베이지로
 - 사용자 「우리쪽 설계를 지금보다 연한색이었음 해」 — data/sam-design.json 감녕 look.face.skin_tone golden_tan → warm_beige(한 단계 연하게).
 
