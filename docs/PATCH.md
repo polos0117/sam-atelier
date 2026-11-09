@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-09 · claude · 감녕 api25 — 2.5 API 로 세계 그림 셋 · 일상컷 열여덟
+- 사용자 「감녕 2.5 만들어줘」 → 피부 golden_tan → warm_beige → honey_tan 으로 우리 설계 1·2 를 두 번 다시 뽑고 「1,1,2」 — 세 세계 모두 우리 설계. 옷 자유: 무협 3 부클레 크롭 재킷 · 판타지 5 시어링 항공 재킷 패션위크 · 메카 3 은빛 망사 크롭. 메카 일상 4 보통 노출, 메카 일상 1 은 적게까지 막혀 그 칸만 다시 짬(지하철역 새틴 → 다이너 오픈 셔츠). 그림 42 · 호출 56 · 출력 14,406 토큰. 그림 저장소 7c07fe0.
+
 ## 2026-11-09 · claude · GPT 설계 주문 — 피부색도 우리 설계값
 - 사용자(감녕) 「gpt도 피부색은 설계값 따르도록 바꿔줘」 — lib/prompt-spec.js WORLD_FREE.skin("Skin tone (fixed — ours): {skin}. Keep exactly this skin tone.") · free · second 문구에 피부색, lib/prompt-sam.js buildWorldFree 가 설계 look.face.skin_tone 을 FACE_DESIGN 영어로 넣는다(삼국지만). 검사 tests/prompt-v2.cjs 설계 주문에 피부색 줄. IMAGE_RULES 1절 · api25 스킬 fixed 칸에 피부색. prompt-spec ?v=27 · prompt-sam ?v=23.
 
