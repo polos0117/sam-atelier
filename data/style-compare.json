@@ -574,7 +574,7 @@
    "date": "2026-11-09",
    "card": "조조",
    "model": "gpt-image-2.6",
-   "title": "짧은 지시문 — 공방 화풍 9 + MMORPG CG",
+   "title": "짧은 지시문 — 공방 화풍 9 + MMORPG CG + 프로모 하이키 유화",
    "kinds": [
     "world",
     "casual"
@@ -610,8 +610,15 @@
     {
      "key": "kr_promo_hikey",
      "name": "한국 MMORPG 프로모 하이키",
-     "default": true,
+     "default": false,
      "note": "짧은 지시문(세계 약 400낱말 · 일상 약 200낱말) — 화풍 단락은 화풍 글을 줄인 것",
+     "old": null
+    },
+    {
+     "key": "kr_promo_hikey_oil",
+     "name": "한국 MMORPG 프로모 하이키 유화",
+     "default": false,
+     "note": "프로모 하이키 + 유화 채색 한 문장 — 하이키보다 따뜻하고 진하며 배경에 붓 결. 지시문은 하이키 줄과 화풍 단락만 다르다(무협 세계 그림은 필터에 한 번 막혀 같은 지시문으로 다시).",
      "old": null
     },
     {
@@ -652,7 +659,7 @@
     {
      "key": "mmorpg_cg",
      "name": "MMORPG CG",
-     "default": false,
+     "default": true,
      "note": "짧은 지시문(세계 약 400낱말 · 일상 약 200낱말) — 화풍 단락은 화풍 글을 줄인 것",
      "old": null
     }
