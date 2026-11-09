@@ -4,7 +4,7 @@
   python3 tools/sil-spread.py           비어 있는 장수 · 세계만 채운다(이미 적힌 값은 건드리지 않는다)
   python3 tools/sil-spread.py --check   모든 장수 · 세계에 표에 있는 실루엣이 있는지, 갈래마다 몇 명인지만 본다(안 쓴다)
 
-나누는 법 — 역할마다 어울리는 갈래 묶음(POOLS) 안에서, 지금까지 가장 적게 쓰인 갈래를 고른다
+나누는 법 — 역할마다 어울리는 갈래 묶음(lib/prompt-spec.js SIL_POOLS) 안에서, 지금까지 가장 적게 쓰인 갈래를 고른다
 (같으면 그 세력에서 덜 쓰인 것, 그래도 같으면 열쇠 해시). 장수 순서도 해시라 다시 돌려도 같은 결과.
 실루엣 열쇠는 lib/prompt-spec.js 의 SAMGUK_SILHOUETTES · FANTASY_SILHOUETTES · MECHA_SILHOUETTES 에서 읽는다.
 """
@@ -15,29 +15,18 @@ DESIGN = os.path.join(ROOT, 'data', 'sam-design.json')
 SPEC = os.path.join(ROOT, 'lib', 'prompt-spec.js')
 WORLDS = {'samguk': 'SAMGUK_SILHOUETTES', 'fantasy': 'FANTASY_SILHOUETTES', 'mecha': 'MECHA_SILHOUETTES'}
 
-# 역할 → 세계 → 어울리는 갈래. 모든 갈래가 적어도 한 역할에 들어 있어야 한다(검사).
-POOLS = {
-    'general': {
-        'samguk': ['heavy_general', 'cavalry', 'cape_general', 'layered_skirt', 'fur_mantle', 'wanderer', 'archer', 'shadow_garb', 'light_dancer'],
-        'fantasy': ['full_plate', 'ranger', 'gown_armor', 'paladin_cape', 'dark_spiked', 'wild_warrior', 'dragon_scale', 'winged', 'elven_leaf'],
-        'mecha': ['heavy_assault', 'power_limbs', 'knight_plate', 'light_agile', 'full_armor', 'slim_suit', 'skirt_plate', 'tail_unit', 'segmented_parts', 'cape_plates'],
-    },
-    'strategist': {
-        'samguk': ['scholar_robe', 'celestial_shawl', 'water_sleeves', 'wanderer', 'light_dancer'],
-        'fantasy': ['mage_robe', 'battle_mage', 'elven_leaf', 'priestess', 'noble_coat'],
-        'mecha': ['float_units', 'wing_binder', 'halo_crown', 'hover_rings', 'frame_exposed', 'slim_suit', 'long_coat_plate'],
-    },
-    'official': {
-        'samguk': ['scholar_robe', 'court_regalia', 'celestial_shawl', 'water_sleeves', 'phoenix_crown', 'light_dancer', 'shadow_garb', 'archer'],
-        'fantasy': ['noble_coat', 'priestess', 'mage_robe', 'elven_leaf', 'gown_armor', 'ranger', 'battle_mage'],
-        'mecha': ['sub_arms', 'big_backpack', 'float_units', 'long_coat_plate', 'frame_exposed', 'segmented_parts', 'hover_rings'],
-    },
-    'lord': {
-        'samguk': ['court_regalia', 'phoenix_crown', 'cape_general', 'heavy_general', 'layered_skirt'],
-        'fantasy': ['crown_regalia', 'paladin_cape', 'gown_armor', 'dragon_scale', 'winged', 'noble_coat', 'dark_spiked'],
-        'mecha': ['halo_crown', 'cape_plates', 'wing_binder', 'knight_plate', 'long_coat_plate', 'full_armor', 'skirt_plate'],
-    },
-}
+# 역할 → 세계 → 어울리는 갈래 — lib/prompt-spec.js 의 SIL_POOLS 한 곳에서 읽는다(GPT 임의 설계 주문의 의상 목록도 같은 묶음, 2026-11-09).
+# 모든 갈래가 적어도 한 역할에 들어 있어야 한다(검사).
+
+
+def spec_pools():
+    src = open(SPEC, encoding='utf-8').read()
+    m = re.search(r'var SIL_POOLS = (\{.*?\n  \});', src, re.S)
+    body = re.sub(r'/\*.*?\*/', '', m.group(1), flags=re.S)
+    return json.loads(re.sub(r'(\w+):', r'"\1":', body.replace("'", '"')))
+
+
+POOLS = spec_pools()
 
 
 def spec_keys():
