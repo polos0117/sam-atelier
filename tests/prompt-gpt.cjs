@@ -64,7 +64,7 @@ try {
   assert(/프롬프트 임의 수정 금지 — 이미지 모델에도 똑같다/.test(fs.readFileSync(path.join(tmp, 'pack', 'INDEX.md'), 'utf8')), 'INDEX — 프롬프트 임의 수정 금지(2026-11-08)');
   assert(/세계 그림 → 멈춤 → 일상컷/.test(fs.readFileSync(path.join(tmp, 'pack', 'INDEX.md'), 'utf8')), 'INDEX — 세계 그림 뒤 멈추고 사용자가 고른 뒤 일상컷(2026-11-08)');
   const S0 = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8')), DV = S0.styles[S0['default']].versions.find(v => v.v === S0.styles[S0['default']].current), rd = f => fs.readFileSync(path.join(tmp, 'pack', f), 'utf8');
-  if (DV.format === 'kv' || DV.worldTail || S0.worldShort) assert.equal(rd('samguk-gpt.md'), rd('samguk-prompt.txt'), '기준 판 · 화풍 칸 판(kr_mmorpg v6) 세계 그림은 영문 그대로');
-  if (DV.casualKit || DV.casualShort) assert.equal(rd('samguk-casual1-gpt.md'), rd('samguk-casual1-prompt.txt'), '일상컷 묶음 판(kr_mmorpg v5~) 일상컷은 영문 그대로 — 화풍 글 · 설계 얼굴을 지키게');
+  if (DV.legacy25 || DV.format === 'kv' || DV.worldTail || S0.worldShort) assert.equal(rd('samguk-gpt.md'), rd('samguk-prompt.txt'), '기준 판 · 화풍 칸 판(kr_mmorpg v6) 세계 그림은 영문 그대로');
+  if (DV.legacy25 || DV.casualKit || DV.casualShort) assert.equal(rd('samguk-casual1-gpt.md'), rd('samguk-casual1-prompt.txt'), '일상컷 묶음 판(kr_mmorpg v5~) 일상컷은 영문 그대로 — 화풍 글 · 설계 얼굴을 지키게');
 } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
 console.log(`PASS GPT 구조형: 세계 그림 ${nw} · 일상컷 ${nc} — 못 옮긴 줄 없음 · 고정 화풍 칸 · 세력 팔레트 · 손에 든 것 · 일상은 화풍 칸 없이 첨부 그림 · 작은 턱 · 체형 볼륨 · 묶음 도구가 <자리>-gpt.md`);

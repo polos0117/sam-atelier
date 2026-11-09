@@ -141,7 +141,7 @@ console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).
 
 /* 짧은 세계 그림(2026-11-08 「화풍글 다 축소판으로 해주고, mmorpg cg를 공방 기본키로」) — 기본 화풍 mmorpg_cg, 모든 줄 꼴 · kv 판이 짧은 꼴(구조판 빼고).
    꼭 남는 줄: 수염 없음 · 전설 · 세계 경계 · 구도 · 화풍 단락(shortStyle), 600낱말 안 */
-{ assert.equal(SS['default'], 'mmorpg_cg'); let nw = 0;
+{ assert.equal(SS['default'], 'kr_mmorpg_26'); SS['default'] = 'mmorpg_cg'; let nw = 0;   /* 기본은 2.5 글 판 kr_mmorpg_26(2026-11-10) — 짧은 판 검사는 앞 기본 mmorpg_cg 를 기본으로 둔 사본으로 */
   for (const key of P.cards(D).filter((k, i) => i % 7 === 0)) for (const w of ['samguk', 'fantasy', 'mecha']) for (const st of ['mmorpg_cg', 'kv_jp_paint', 'glossy_kr_game', 'kr_promo_hikey']) {
     const p = P.build(D, SS, key, w, { style: st });
     assert(p.startsWith('A full-body vertical 2:3 (1024×1536) character card image of ') && p.includes('no beard, moustache or facial hair') && p.includes('\n\nStyle: ' + P.shortStyle(SS, st)) && p.includes(T.WORLD_SHORT.composition) && p.includes(T.WORLD_SHORT.guard[w]), key + ' ' + w + ' ' + st + ' 짧은 세계 그림');
@@ -156,7 +156,7 @@ console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).
 {
   const SF = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8'));
   for (const key of ['조조', '제갈량', '손상향']) for (const w of P.worldsOf(D, key)) {
-    const t = P.buildWorldFree(D, SF, key, w, { style: SF.default }), our = P.build(D, SF, key, w, { style: SF.default });
+    const t = P.buildWorldFree(D, SF, key, w, { style: SF.default }), our = P.build(D, SF, key, w, { style: 'mmorpg_cg' });   /* 우리 설계의 「Her:」 줄은 짧은 판에서 꺼낸다(기본이 긴 2.5 글 판이 된 2026-11-10 부터) */
     assert(t.startsWith('Design brief') && t.includes('1024×1536') && t.includes(T.WORLD_FREE.free) && t.includes(T.WORLD_FREE.second) && t.includes('Costume (choose one of ours, then add your own idea): ') && t.includes('one signature idea of your own drawn from her legend') && T.SILHOUETTES[w].every(x => t.includes(x.en.split(' — ')[0].replace(/\.$/, '')) === T.SIL_POOLS[P.card(D, key).general.role][w].includes(x.key)) && /\n\nWeapon \(fixed — ours\): /.test(t) && (w !== 'fantasy' || /\n\nWeapon \(fixed — ours\): [^\n]*engraved runes[^\n]*magical glow/.test(t)) && (w !== 'mecha' || /\n\nWeapon \(fixed — ours\): [^\n]*energy edge/.test(t)) && t.includes(T.WORLD_FREE.rank[P.card(D, key).general.role]) && (w === 'mecha') === t.includes(T.WORLD_FREE.mecha) && /\n\nHair colour \(fixed — ours\): [a-z]/.test(t) && t.includes('\n\nSkin tone (fixed — ours): ' + T.FACE_DESIGN.skin_tone[(P.card(D, key).general.look.face || {}).skin_tone] + '. Keep exactly this skin tone.') && !/hair colour, hairstyle/.test(t) && t.includes('Style (fixed): ' + P.shortStyle(SF, SF.default)) && t.includes(T.WORLD_SHORT.composition) && t.includes('Exposure (fixed): bold'), key + ' ' + w + ' 설계 주문');
     const her = (our.match(/^Her: (.*)$/m) || [])[1] || '';
     assert(her && !t.includes(her.slice(0, 40)) && !/^Outfit: /m.test(t), key + ' ' + w + ' 설계표 얼굴 · 옷은 싣지 않는다');
