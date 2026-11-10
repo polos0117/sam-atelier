@@ -1435,3 +1435,18 @@ Vertical 2:3 full-body composition, entire head to footwear inside the frame wit
 - 얼굴은 크게 안 바뀐다. 옛 글이 조금 더 매끈하고 화사하고, 새 글은 일본 유화풍에서 붓질이 얼굴까지 와 조금 거칠다. 2.3D · 하이키 유화는 새 글이 더 차분하다.
 - 옷 · 구도 · 무기는 같다 — 칸 꼴이 지킨다.
 - 한 장씩 — 경향으로만 본다.
+
+## 피부 말 「tan」 시험 (2026-11-10) — 바꾸지 않고 둠
+
+사용자 「피부톤에 tan 이라는 단어가 좀 세게 작용하지 않아?」 → 「응 시험해줘」 → 「2.6에서도」 → 「원소쪽도」 → 「이대루 두자」. 지시문은 피부 말만 바꾸고 한 장씩(경향만).
+
+| 말 | 삼국지 황충 무협(api25 글) 2.5 · 2.6 | 원소 수소 연료 가문주 판타지(일본 유화 애니) 2.5 · 2.6 |
+|---|---|---|
+| golden tan skin(지금) | 그을린 구릿빛 · 광택, 2.6 이 더 진하다 | 짙은 갈색(두 모델) — 반실사보다 훨씬 진하다 |
+| warm golden-beige skin | 가장 밝다(두 모델) | 2.5 는 밝아짐, 2.6 은 여전히 그을린 갈색 |
+| light golden-brown skin | 2.5 중간, 2.6 은 tan 과 비슷 | tan 과 거의 같다 |
+| light warm-beige skin with a golden undertone | — | 2.6 에서 A 보다 확실히 밝지만 살짝 그을린 쪽 |
+
+- 「tan」 은 「햇볕에 그을린 몸」 으로 읽혀 의도보다 진하게 간다 — 2.6 · 2D 애니에서 더 세다.
+- 원소 쪽은 설계의 「fierce, wild ferocity」 · 「smoky dark eye makeup」 같은 거친 인상이 애니의 짙은 피부 정형으로 당겼을 수도 있다(짐작, 따로 확인 안 함).
+- 바꾼다면 안: 삼국지 golden_tan → warm golden-beige skin, 원소 golden_tan → light warm-beige skin with a golden undertone, honey_tan → light honey-beige skin(열쇠는 그대로, 영어만). 그림은 스크래치패드 tan/ — 올리지 않음. 출력 2.5 343 × 6 · 2.6 1,132 × 7.
