@@ -7,6 +7,13 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-10 · claude · 칸 꼴 정리판 — 짧은 판 화풍 열셋을 다섯 칸으로
+- 사용자 「화풍비교 전에 kv 꼴에 맞춰서 줄꼴 문장들 좀 옮기자. 지금 정리가 너무 안되어 있다」 → 「문구도 다 정리하자 … api25는 안건드리는게 맞아」 → 「응 이 틀로 진행해줘」.
+- lib/prompt-spec.js SECTIONS · lib/prompt-sam.js sectionsOn · buildWorldSections · buildCasualSections, data/style.json 꼭대기 sections: true — 짧은 판이던 화풍 열셋(줄 꼴 일곱 · kv 꼴 여섯)이 세계 그림 다섯 칸(화풍 · 인물 · 의상과 장비 · 장면 · 제약) · 일상컷 네 칸(지킬 것 · 바꿀 것 · 장면 · 제약)으로. 겹친 문장 하나로 · 금지 나열은 긍정문 · 제약은 끝 칸. 일상컷에 몸 지키는 줄(팔 둘 다리 둘 · 손 연결 · 틀 밖으로 이어짐) · 「자세와 카메라는 장면 글에서」 되살림.
+- api25 · kr_mmorpg_26(2.5 글) · 구조판은 그대로(검사: api25 지시문 같음). 옛 짧은 판 조립부는 남김(sections: false 면 되돌아감).
+- 얼굴 · 머리는 우선 세 세계 같게(SECTIONS.faceWorld = samguk) — 문앙 화풍 비교 뒤 푼다.
+- 검사 tests/prompt-v2.cjs(칸 꼴 세계 그림 480장 · 일상컷 12장, 옛 꼴 검사는 sections 를 끄고) · tests/screen.cjs. prompt-spec ?v=28 · prompt-sam ?v=26. IMAGE_RULES 1절 · docs/STYLE_LAB.md.
+
 ## 2026-11-10 · claude · 네 칸 정리판 — 할 일 적어 둠
 - docs/STYLE_LAB.md 「네 칸 정리판 — 진행 중」: 줄 꼴을 칸으로 묶고 문구를 정리하는 새 꼴을 만든다(api25 는 그대로). 잊지 말 것 — 정리판은 우선 세 세계 같은 얼굴, 문앙 화풍 비교 뒤 세계별 얼굴로 푼다(사용자 「근데 또 까먹을 수도 있어」).
 

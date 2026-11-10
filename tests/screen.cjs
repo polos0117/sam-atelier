@@ -203,7 +203,7 @@ const P = ctx0.window.AtelierPrompt;
     { const ov = await v.page.$$eval('#st-style option', os => os.map(o => o.value));
       assert.equal(ov[0], '', '화풍 맨 위는 기본'); assert(ov.includes('kv_jp_paint') && ov.includes('kv_jp_mobile') && !ov.includes(S['default']), '화풍 목록');
       await v.page.selectOption('#st-style', 'kv_jp_paint');
-      assert.match(await promptOf(v.page), /^Use case: stylized-concept\.|^A full-body vertical 2:3[^\n]*\n\nStyle: High-quality Japanese painterly/, '고른 화풍 지시문');   /* 짧은 세계 그림(2026-11-08)이면 화풍 단락이 그 화풍 글 */
+      assert.match(await promptOf(v.page), /^Use case: stylized-concept\.|^A full-body vertical 2:3[^\n]*\n\nStyle: High-quality Japanese painterly|^A full-body character card illustration[^\n]*\n\n1\. STYLE\nHigh-quality Japanese painterly/, '고른 화풍 지시문');   /* 짧은 세계 그림(2026-11-08)이면 화풍 단락이 그 화풍 글 */
       assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), /관우_samguk_kv_jp_paint_f\.webp/, '고른 화풍 파일 이름');
       await v.page.selectOption('#st-style', ''); assert.equal(await promptOf(v.page), want, '기본으로 돌아옴'); }
     await noOverflow(v.page, vp.width + ' 생성기 세계');
