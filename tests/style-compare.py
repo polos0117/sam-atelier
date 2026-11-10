@@ -10,7 +10,7 @@ S = json.load(open(os.path.join(ROOT, 'data', 'style.json'), encoding='utf-8'))
 for r in d['rounds']:
     for s in r['styles']:
         assert s['key'] in S['styles'], s['key']
-img = os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')
+img = os.path.join(os.path.dirname(ROOT), 'style-atelier-img')   # 화풍 시험 그림 자리(2026-11-10 옮김)
 if os.path.isdir(img):
     subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'style-compare.py'), 'check', img], check=True)
     # 세션마다 세계 하나씩 — 빈 칸은 괜찮다(--strict 아님)

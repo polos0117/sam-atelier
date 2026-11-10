@@ -9,7 +9,7 @@
   python3 tools/style-compare.py put <열쇠> --card <장수> --style <화풍> --world <samguk|fantasy|mecha>
           [--world-img <세계 그림>] [--casual-img <근접 일상컷>] [--far-img <원거리 일상컷>]
           [--casual-note <근접 장면 한 줄>] [--far-note <원거리 장면 한 줄>] [--note <화풍 한 줄>]
-      그림을 webp(+ thumb)로 그림 저장소 style-test/compare/<열쇠>/ 에 넣고 목록의 그 묶음을 맞춘다(없으면 만든다).
+      그림을 webp(+ thumb)로 그림 저장소 sam-style-test/compare/<열쇠>/ 에 넣고 목록의 그 묶음을 맞춘다(없으면 만든다).
       같은 파일이 이미 있으면 멈춘다(덮어쓰지 않음 — 일부러 바꿀 때만 --replace).
 
   python3 tools/style-compare.py sync <열쇠>
@@ -18,12 +18,12 @@
 
   python3 tools/style-compare.py check [그림 저장소] [--strict]
       열쇠 꼴 · 겹침 · 목록에 적힌 화풍마다 그림이 하나라도 있나. --strict 면 화풍 × 세계 × 갈래가 다 있어야 한다.
-그림 저장소는 기본 옆의 ../sam-atelier-img. put · sync 뒤 두 저장소를 따로 올린다(그림 저장소 먼저).
+그림 저장소는 기본 옆의 ../style-atelier-img(sam-style-test/ — 2026-11-10 옮김). put · sync 뒤 두 저장소를 따로 올린다(그림 저장소 먼저).
 """
 import json, os, re, sys, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data', 'style-compare.json')
-IMG = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')   # 검사용 — 다른 자리 그림 저장소
+IMG = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'style-atelier-img')   # 화풍 시험 그림 자리 — 2026-11-10 sam-atelier-img/style-test 에서 style-atelier-img/sam-style-test 로 옮겼다(삼국지 그림 저장소 Pages 1GB 한도, 사용자 「이미지 옮겨줄 수 있어?」). 검사용 — 다른 자리
 WORLDS, KINDS = ['samguk', 'fantasy', 'mecha'], ['world', 'casual', 'far']   # casual = 근접 일상컷, far = 원거리 일상컷(2026-11-07 「원거리 일상컷도 있는데」)
 KEY_RE = r'\d{4}-\d{2}-\d{2}(-\d+)?'
 STYLE_ORDER = None
@@ -44,12 +44,12 @@ def styles_json():
 
 
 def folder(key, img=IMG):
-    return os.path.join(img, 'style-test', 'compare', key)
+    return os.path.join(img, 'sam-style-test', 'compare', key)
 
 
 def taken(img=IMG):
     keys = {r['key'] for r in load()['rounds']}
-    d = os.path.join(img, 'style-test', 'compare')
+    d = os.path.join(img, 'sam-style-test', 'compare')
     if os.path.isdir(d):
         keys |= {k for k in os.listdir(d) if os.path.isdir(os.path.join(d, k))}
     return keys
@@ -140,9 +140,9 @@ def put(a):
         name = f'{st}_{w}_{kind}.webp'
         full, thumb = os.path.join(folder(key), name), os.path.join(folder(key), 'thumb', name)
         if os.path.exists(full) and not opt.get('replace'):
-            sys.exit(f'이미 있다: style-test/compare/{key}/{name} — 덮어쓰지 않는다(일부러 바꿀 때만 --replace)')
+            sys.exit(f'이미 있다: sam-style-test/compare/{key}/{name} — 덮어쓰지 않는다(일부러 바꿀 때만 --replace)')
         to_webp(src, full, thumb)
-        print('넣음', f'style-test/compare/{key}/{name}')
+        print('넣음', f'sam-style-test/compare/{key}/{name}')
     if opt.get('casual_note'):
         r.setdefault('casual', {})[w] = opt['casual_note']
     if opt.get('far_note'):
@@ -174,7 +174,7 @@ def check(img, strict):
                     f = f"{s['key']}_{w}_{kind}.webp"
                     for sub in ('', 'thumb/'):
                         if not os.path.exists(os.path.join(folder(k, img), sub + f)):
-                            (errs if strict else warns).append(f'없는 파일: style-test/compare/{k}/{sub}{f}')
+                            (errs if strict else warns).append(f'없는 파일: sam-style-test/compare/{k}/{sub}{f}')
         for sk in have:
             if sk not in {s['key'] for s in r['styles']}:
                 errs.append(f'{k}: 폴더에 있는 화풍 {sk} 이 목록에 없다(sync {k})')
