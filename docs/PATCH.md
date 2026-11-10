@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-10 · claude · 피부 말 tan 을 beige 로
+- golden_tan 영어 'golden tan skin' → 'warm golden-beige skin', honey_tan 'light honey-tan skin' → 'light honey-beige skin' — 「tan」 이 그을린 피부로 읽혀 진하게 갔다(STYLE_LAB 시험). 열쇠는 그대로
+- 한국어 이름표도 태닝 · 그을린 → 베이지로. prompt-spec ?v=29. 올린 그림은 그대로, 새 문장부터
+
 ## 2026-11-10 · claude · 화풍 시험 그림 자리를 style-atelier-img/sam-style-test 로
 - 사용자 「이미지 옮겨줄 수 있어?」 — 그림 저장소가 823MB(Pages 한도 1GB). 화풍 시험 그림 207MB(style-test/)를 화풍공방 그림 저장소로 옮겼다(style-atelier-img b948317)
 - `data/style-compare.json` base → https://polos0117.github.io/style-atelier-img/sam-style-test/compare/. `tools/style-compare.py` · `tests/style-compare.py` — 기본 자리 ../style-atelier-img/sam-style-test

@@ -1436,9 +1436,9 @@ Vertical 2:3 full-body composition, entire head to footwear inside the frame wit
 - 옷 · 구도 · 무기는 같다 — 칸 꼴이 지킨다.
 - 한 장씩 — 경향으로만 본다.
 
-## 피부 말 「tan」 시험 (2026-11-10) — 바꾸지 않고 둠
+## 피부 말 「tan」 시험 (2026-11-10) — 바꿈
 
-사용자 「피부톤에 tan 이라는 단어가 좀 세게 작용하지 않아?」 → 「응 시험해줘」 → 「2.6에서도」 → 「원소쪽도」 → 「이대루 두자」. 지시문은 피부 말만 바꾸고 한 장씩(경향만).
+사용자 「피부톤에 tan 이라는 단어가 좀 세게 작용하지 않아?」 → 「응 시험해줘」 → 「2.6에서도」 → 「원소쪽도」 → 「이대루 두자」 → 「아 아니 바꾸자. 잘못 얘기했네」. 지시문은 피부 말만 바꾸고 한 장씩(경향만).
 
 | 말 | 삼국지 황충 무협(api25 글) 2.5 · 2.6 | 원소 수소 연료 가문주 판타지(일본 유화 애니) 2.5 · 2.6 |
 |---|---|---|
@@ -1449,4 +1449,4 @@ Vertical 2:3 full-body composition, entire head to footwear inside the frame wit
 
 - 「tan」 은 「햇볕에 그을린 몸」 으로 읽혀 의도보다 진하게 간다 — 2.6 · 2D 애니에서 더 세다.
 - 원소 쪽은 설계의 「fierce, wild ferocity」 · 「smoky dark eye makeup」 같은 거친 인상이 애니의 짙은 피부 정형으로 당겼을 수도 있다(짐작, 따로 확인 안 함).
-- 바꾼다면 안: 삼국지 golden_tan → warm golden-beige skin, 원소 golden_tan → light warm-beige skin with a golden undertone, honey_tan → light honey-beige skin(열쇠는 그대로, 영어만). 그림은 스크래치패드 tan/ — 올리지 않음. 출력 2.5 343 × 6 · 2.6 1,132 × 7.
+- 바꿨다: 삼국지 golden_tan → warm golden-beige skin, honey_tan → light honey-beige skin, 원소 golden_tan → light warm-beige skin with a golden undertone(열쇠는 그대로, 영어 · 한국어 이름표만 — `lib/prompt-spec.js`). 이미 올린 그림 · 기록은 그대로, 새로 뽑는 문장부터. 그림은 스크래치패드 tan/ — 올리지 않음. 출력 2.5 343 × 6 · 2.6 1,132 × 7.
