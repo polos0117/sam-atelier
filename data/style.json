@@ -4,7 +4,7 @@
  "default": "kr_mmorpg_26",
  "styles": {
   "game_keyart": {
-   "name": "게임 키아트 2.5D",
+   "name": "애니 선화 · 셀~소프트 채색 — 자연광 (게임 키아트 2.5D)",
    "current": "v1",
    "versions": [
     {
@@ -22,7 +22,7 @@
    ]
   },
   "glossy_kr_game": {
-   "name": "한국형 글로시 게임 일러스트",
+   "name": "애니 소프트 셰이딩 — 선택적 광택 (한국형 글로시)",
    "current": "v1",
    "versions": [
     {
@@ -39,7 +39,7 @@
    ]
   },
   "glossy_kr_semireal": {
-   "name": "한국형 글로시 반실사",
+   "name": "반실사 매끄러운 페인팅 — 선택적 광택 (한국형 글로시 반실사)",
    "current": "v1",
    "versions": [
     {
@@ -54,7 +54,7 @@
    ]
   },
   "kr_mmorpg": {
-   "name": "한국 MMORPG 프로모",
+   "name": "반실사 회화적 3D — 광택 · 림 라이트 (한국 MMORPG 프로모)",
    "current": "v4",
    "versions": [
     {
@@ -220,7 +220,7 @@
    ]
   },
   "api25": {
-   "name": "한국 MMORPG 프로모 · 2.5 API",
+   "name": "반실사 회화적 3D — 광택 · 림 라이트 (한국 MMORPG 프로모 · 2.5 API)",
    "current": "v1",
    "versions": [
     {
@@ -542,7 +542,7 @@
    ]
   },
   "kr_mmorpg_26": {
-   "name": "한국 MMORPG 프로모 · 2.6(2.5 글)",
+   "name": "반실사 회화적 3D — 광택 · 림 라이트 (한국 MMORPG 프로모 · 2.6에 2.5 글)",
    "current": "v1",
    "versions": [
     {
@@ -864,7 +864,7 @@
    ]
   },
   "kr_promo_hikey": {
-   "name": "한국 MMORPG 프로모 하이키",
+   "name": "반실사 회화적 3D — 선명한 하이라이트 (한국 MMORPG 프로모 하이키)",
    "current": "v2",
    "versions": [
     {
@@ -932,7 +932,7 @@
    ]
   },
   "kr_promo_hikey_oil": {
-   "name": "한국 MMORPG 프로모 하이키 유화",
+   "name": "반실사 매끄러운 유화풍 — 밝은 하이키 (한국 MMORPG 프로모 하이키 유화)",
    "current": "v2",
    "versions": [
     {
@@ -1085,7 +1085,7 @@
    ]
   },
   "kv_kmmo_lock": {
-   "name": "한국 MMORPG 기준 판",
+   "name": "반실사 매끄러운 페인팅 — 절제된 광택 (한국 MMORPG 기준 판)",
    "current": "v5",
    "versions": [
     {
@@ -1369,7 +1369,7 @@
    "note": "v5 까지 — 조조 세 세계 · 일상컷 1~5 가 이 판(v5)으로 올라가 있다. v6 · v7 은 kv_kmmo_23d v1 · v2 로 옮겼다(2026-11-06)."
   },
   "kv_kmmo_23d": {
-   "name": "한국 MMORPG 2.3D",
+   "name": "일러스트형 얼굴 · 매끄러운 페인팅 — 절제된 하이라이트 (한국 MMORPG 2.3D)",
    "current": "v3",
    "versions": [
     {
@@ -1626,7 +1626,7 @@
    ]
   },
   "kv_jp_mobile": {
-   "name": "일본 모바일게임 리얼 CG",
+   "name": "반실사 매끄러운 페인팅 — 무광 새틴 · 시네마틱 조명 (일본 모바일 리얼 CG)",
    "current": "v1",
    "versions": [
     {
@@ -1719,7 +1719,7 @@
    ]
   },
   "kv_jp_paint": {
-   "name": "일본 유화풍 게임 일러스트",
+   "name": "반실사 붓 터치가 드러나는 페인팅 — 깊은 명암 (일본 유화풍)",
    "current": "v1",
    "versions": [
     {
@@ -1812,7 +1812,7 @@
    ]
   },
   "kv_anime_gloss": {
-   "name": "애니 광택(포켓몬 공방)",
+   "name": "애니 셀 채색 — 파스텔 하이키 · 광택 (애니 광택)",
    "current": "v1",
    "versions": [
     {
@@ -1905,7 +1905,7 @@
    ]
   },
   "kv_cgi_hikey": {
-   "name": "시네마틱 CGI 하이키",
+   "name": "실사 CG — 사진 같은 피부 · 재질 (시네마틱 CGI 하이키)",
    "current": "v1",
    "versions": [
     {
@@ -1999,7 +1999,7 @@
    ]
   },
   "mmorpg_cg": {
-   "name": "MMORPG CG",
+   "name": "반실사 3D 렌더 — 강한 광택 · 림 라이트 (MMORPG CG)",
    "current": "v1",
    "versions": [
     {
