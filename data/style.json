@@ -2065,40 +2065,6 @@
     }
    ]
   },
-  "watercolor": {
-   "name": "수채 · 담채풍 — 종이 여백",
-   "current": "v1",
-   "versions": [
-    {
-     "v": "v1",
-     "adopted": "2026-11-10",
-     "by": "claude — 사용자 2026-11-10 「지금 화풍키들은 그대로두고, 지금 다듬은 기준으로 주력화풍과 테스트할만한 화풍들을 좀 새롭게 만들어볼까? 안써본 느낌도 더해보고」 → 「화풍 더 추가해서 10개정도로 맞추고 세계그림만 만들어보자. 모델은 2.6으로」",
-     "why": "다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」만, 빛 · 광택은 따로(worldLight · casualLight). 칸 꼴 정리판으로 짓는다. 투명한 겹침 · 번짐 · 종이 여백 — 불투명하고 정교한 게임 채색과 크게 다르다.",
-     "text": "Watercolour character illustration on textured paper. A refined, lightly stylised anime face; transparent layered washes, soft bleeding edges and fine pencil or ink linework, with the white of the paper left for highlights and open margins.",
-     "casual": "Watercolour character illustration on textured paper. A refined, lightly stylised anime face; transparent layered washes, soft bleeding edges and fine pencil or ink linework, with the white of the paper left for highlights and open margins.",
-     "worldLight": "Light: soft diffuse daylight, pale airy colour, no glossy highlights — the brightest areas are bare paper.",
-     "casualLight": "Light: soft diffuse daylight, pale airy colour, no glossy highlights — the brightest areas are bare paper.",
-     "model": "gpt-image-2.6-sunburst"
-    }
-   ]
-  },
-  "gouache": {
-   "name": "과슈풍 — 무광 색면",
-   "current": "v1",
-   "versions": [
-    {
-     "v": "v1",
-     "adopted": "2026-11-10",
-     "by": "claude — 사용자 2026-11-10 「지금 화풍키들은 그대로두고, 지금 다듬은 기준으로 주력화풍과 테스트할만한 화풍들을 좀 새롭게 만들어볼까? 안써본 느낌도 더해보고」 → 「화풍 더 추가해서 10개정도로 맞추고 세계그림만 만들어보자. 모델은 2.6으로」",
-     "why": "다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」만, 빛 · 광택은 따로(worldLight · casualLight). 칸 꼴 정리판으로 짓는다. 불투명 무광 색면 · 부드러운 붓 자국 — 수채보다 단단하고 디지털 페인팅보다 포근하다.",
-     "text": "Gouache character illustration. A gently stylised face between anime and semi-realistic; opaque matte colour shapes with soft visible brush marks and simple flat-to-soft shading in a limited, harmonious palette.",
-     "casual": "Gouache character illustration. A gently stylised face between anime and semi-realistic; opaque matte colour shapes with soft visible brush marks and simple flat-to-soft shading in a limited, harmonious palette.",
-     "worldLight": "Light: warm, even light with soft shadow shapes; matte surfaces throughout, no specular gloss.",
-     "casualLight": "Light: warm, even light with soft shadow shapes; matte surfaces throughout, no specular gloss.",
-     "model": "gpt-image-2.6-sunburst"
-    }
-   ]
-  },
   "styl3d": {
    "name": "스타일라이즈드 3D — 애니메이션 영화풍",
    "current": "v1",
@@ -2146,40 +2112,6 @@
      "casual": "Painterly fantasy character illustration with bold brushwork. An idealised semi-realistic face; thick confident strokes, forms built from large shapes of colour, and detail spent only on the face and a few focal ornaments.",
      "worldLight": "Light: strong directional light with clear light and shadow shapes; rich colour, matte paint texture.",
      "casualLight": "Light: strong directional light with clear light and shadow shapes; rich colour, matte paint texture.",
-     "model": "gpt-image-2.6-sunburst"
-    }
-   ]
-  },
-  "retro_cel": {
-   "name": "레트로 셀 애니풍 — 고른 빛",
-   "current": "v1",
-   "versions": [
-    {
-     "v": "v1",
-     "adopted": "2026-11-10",
-     "by": "claude — 사용자 2026-11-10 「지금 화풍키들은 그대로두고, 지금 다듬은 기준으로 주력화풍과 테스트할만한 화풍들을 좀 새롭게 만들어볼까? 안써본 느낌도 더해보고」 → 「화풍 더 추가해서 10개정도로 맞추고 세계그림만 만들어보자. 모델은 2.6으로」",
-     "why": "다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」만, 빛 · 광택은 따로(worldLight · casualLight). 칸 꼴 정리판으로 짓는다. 명확한 선 · 적은 명암 단계 — 파스텔 · 광택 셀(kv_anime_gloss)과 다른 고전 애니 감각.",
-     "text": "Retro hand-painted cel-animation character art. A classic anime face with clean dark linework, two or three flat shading steps per colour and simple shaped highlights.",
-     "casual": "Retro hand-painted cel-animation character art. A classic anime face with clean dark linework, two or three flat shading steps per colour and simple shaped highlights.",
-     "worldLight": "Light: even studio-like light, slightly muted film colour, no soft glow or bloom.",
-     "casualLight": "Light: even studio-like light, slightly muted film colour, no soft glow or bloom.",
-     "model": "gpt-image-2.6-sunburst"
-    }
-   ]
-  },
-  "ink_color": {
-   "name": "수묵 담채풍 — 먹선과 여백",
-   "current": "v1",
-   "versions": [
-    {
-     "v": "v1",
-     "adopted": "2026-11-10",
-     "by": "claude — 사용자 2026-11-10 「지금 화풍키들은 그대로두고, 지금 다듬은 기준으로 주력화풍과 테스트할만한 화풍들을 좀 새롭게 만들어볼까? 안써본 느낌도 더해보고」 → 「화풍 더 추가해서 10개정도로 맞추고 세계그림만 만들어보자. 모델은 2.6으로」",
-     "why": "다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」만, 빛 · 광택은 따로(worldLight · casualLight). 칸 꼴 정리판으로 짓는다. 먹선 · 광물성 담채 · 여백 — 삼국지 소재와 맞는 동양화 느낌(같은 날 Claude 가 더한 열째).",
-     "text": "East Asian ink-and-colour character painting on silk or paper. An elegant, lightly stylised face drawn with fine ink lines; expressive brush-drawn ink outlines of varying weight, pale mineral colour washes laid inside them and broad areas left as empty ground.",
-     "casual": "East Asian ink-and-colour character painting on silk or paper. An elegant, lightly stylised face drawn with fine ink lines; expressive brush-drawn ink outlines of varying weight, pale mineral colour washes laid inside them and broad areas left as empty ground.",
-     "worldLight": "Light: no cast light — soft flat illumination, subdued mineral colour with a few saturated accents, no gloss.",
-     "casualLight": "Light: no cast light — soft flat illumination, subdued mineral colour with a few saturated accents, no gloss.",
      "model": "gpt-image-2.6-sunburst"
     }
    ]

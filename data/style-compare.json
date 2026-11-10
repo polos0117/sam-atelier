@@ -677,7 +677,7 @@
    "date": "2026-11-10",
    "card": "문앙",
    "model": "gpt-image-2.6",
-   "title": "새로 쓴 화풍 열 — 다듬은 기준(화풍 문단 + 빛 · 광택 따로), 칸 꼴 정리판, 세계 그림만",
+   "title": "새로 쓴 화풍 여섯 — 다듬은 기준(화풍 문단 + 빛 · 광택 따로), 칸 꼴 정리판, 세계 그림만",
    "kinds": [
     "world"
    ],
@@ -706,20 +706,6 @@
      "old": null
     },
     {
-     "key": "watercolor",
-     "name": "수채 · 담채풍 — 종이 여백",
-     "default": false,
-     "note": "수채 — 종이 여백 · 번짐 · 옅은 색, 갑옷 세부는 그대로 살아 있다",
-     "old": null
-    },
-    {
-     "key": "gouache",
-     "name": "과슈풍 — 무광 색면",
-     "default": false,
-     "note": "과슈 — 무광 색면, 따뜻하고 포근하다",
-     "old": null
-    },
-    {
      "key": "styl3d",
      "name": "스타일라이즈드 3D — 애니메이션 영화풍",
      "default": false,
@@ -738,20 +724,6 @@
      "name": "반실사 두꺼운 붓질 페인팅 — 강한 방향광",
      "default": false,
      "note": "두꺼운 붓질 — 덩어리 중심, 강한 방향광",
-     "old": null
-    },
-    {
-     "key": "retro_cel",
-     "name": "레트로 셀 애니풍 — 고른 빛",
-     "default": false,
-     "note": "레트로 셀 — 굵은 선 · 납작한 명암 단계, 옛 애니 얼굴",
-     "old": null
-    },
-    {
-     "key": "ink_color",
-     "name": "수묵 담채풍 — 먹선과 여백",
-     "default": false,
-     "note": "수묵 담채 — 바랜 종이 바탕 · 먹선 · 옅은 광물색",
      "old": null
     }
    ]

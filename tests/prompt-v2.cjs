@@ -142,8 +142,8 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
 {
   assert(SX.sections === true && T.SECTIONS && T.SECTIONS.faceWorld === 'samguk', '칸 꼴 스위치 · 얼굴은 우선 세 세계 같게(비교 뒤 푼다 — docs/STYLE_LAB.md)');
   const SEC13 = ['mmorpg_cg', 'kr_mmorpg', 'kr_promo_hikey', 'kr_promo_hikey_oil', 'glossy_kr_game', 'glossy_kr_semireal', 'game_keyart', 'kv_kmmo_lock', 'kv_kmmo_23d', 'kv_jp_mobile', 'kv_jp_paint', 'kv_anime_gloss', 'kv_cgi_hikey',
-    'semi_smooth', 'semi_oil_classic', 'anime_brush', 'watercolor', 'gouache', 'styl3d', 'anime_matte', 'semi_impasto', 'retro_cel', 'ink_color'];   /* 뒤 열은 다듬은 기준으로 새로 쓴 화풍(2026-11-10) */
-  assert.deepEqual(Object.keys(SX.styles).filter(k => P.sectionsOn(SX, k, 'world')), Object.keys(SX.styles).filter(k => SEC13.includes(k)), '칸 꼴 화풍 스물셋(짧은 판이던 열셋 + 새로 쓴 열)');
+    'semi_smooth', 'semi_oil_classic', 'anime_brush', 'styl3d', 'anime_matte', 'semi_impasto'];   /* 뒤 여섯은 다듬은 기준으로 새로 쓴 화풍(2026-11-10 — 열 가운데 수채 · 과슈 · 레트로 셀 · 수묵 담채는 뺐다) */
+  assert.deepEqual(Object.keys(SX.styles).filter(k => P.sectionsOn(SX, k, 'world')), Object.keys(SX.styles).filter(k => SEC13.includes(k)), '칸 꼴 화풍 열아홉(짧은 판이던 열셋 + 새로 쓴 여섯)');
   for (const k of ['api25', 'kr_mmorpg_26', 'glossy_plain', 'glossy_kv', 'anime_kv']) assert(!P.sectionsOn(SX, k, 'world') && !P.sectionsOn(SX, k, 'casual'), k + ' 는 칸 꼴이 아니다');
   for (const key of P.cards(D).filter((k, i) => i % 9 === 0)) for (const w of ['samguk', 'fantasy', 'mecha']) assert.equal(P.build(D, SX, key, w, { style: 'api25' }), P.build(D, S, key, w, { style: 'api25' }), key + ' ' + w + ' api25 는 그대로');
   let ns = 0;

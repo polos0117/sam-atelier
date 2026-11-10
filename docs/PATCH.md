@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-10 · claude · 새 화풍 열에서 넷을 뺐다 — 수채 · 과슈 · 레트로 셀 · 수묵 담채
+- 사용자 「아까 10개 보내준거에서 4,5,9,10 은 빼자」 — `watercolor` · `gouache` · `retro_cel` · `ink_color` 를 `data/style.json` 과 화풍 비교 묶음 `2026-11-10`(목록 · 그림 12장 + 썸네일)에서 뺐다. 남은 여섯: `semi_smooth` · `semi_oil_classic` · `anime_brush` · `styl3d` · `anime_matte` · `semi_impasto`
+- `docs/STYLE_LAB.md` 에 뺀 내용과 나라 이름 시험(애니 계열 — Japanese / Korean / 없음, 얼굴에 주로 먹힌다) 결과를 적었다. 화풍 글에는 아직 안 넣음
+
 ## 2026-11-10 · claude · 새 화풍 열 — 다듬은 기준으로 쓰고 문앙 세계 그림 비교
 - 사용자 「지금 화풍키들은 그대로두고 … 좀 새롭게 만들어볼까? 안써본 느낌도 더해보고」 → 「화풍 더 추가해서 10개정도로 맞추고 세계그림만 만들어보자. 모델은 2.6으로」 — data/style.json 에 새 열쇠 열(semi_smooth 주력 후보 · semi_oil_classic · anime_brush · watercolor · gouache · styl3d · anime_matte · semi_impasto · retro_cel · ink_color). 화풍 문단은 「전체 방향 + 얼굴과 채색」, 빛 · 광택은 worldLight · casualLight 로 따로. 옛 열쇠 · 지시문은 그대로.
 - 문앙 세 세계를 2.6 으로 한 장씩(서른 장 · 막힘 없음 · 출력 33,960 토큰) — 화풍 비교 묶음 2026-11-10(세계 그림만), 그림 저장소 afd3623.
