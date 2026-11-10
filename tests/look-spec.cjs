@@ -46,6 +46,17 @@ for (const g of D.generals) {
   for (const [w, lk] of Object.entries(g.look.worlds)) { checkBox('장수 ' + g.key + ' ' + w, 'face', lk.face || {}); checkBox('장수 ' + g.key + ' ' + w, 'silhouette', lk.silhouette || {});
     assert((lk.silhouette || {}).hair && (lk.face || {}).face_shape && (lk.face || {}).eyes, '장수 ' + g.key + ' ' + w + ' 머리 · 얼굴형 · 눈'); }
 }
+/* 눈 크기 · 눈꼬리가 그 세계 눈 모양과 부딪치지 않는다(사용자 2026-11-10 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」 — 문앙 무협이
+   「smaller, narrower eyes … — large round eyes」 로 나갔다. 고치는 규칙은 tools/sam-design.py fix_eye_clash — 모양을 살리고 그 세계에서만 맞춘다) */
+{ const CLASH = [['eye_size', 'small', ['round_large', 'almond_wide']], ['eye_size', 'large', ['narrow_upturned', 'phoenix', 'monolid_long']],
+    ['eye_tilt', 'down', ['narrow_upturned', 'phoenix', 'cat']], ['eye_tilt', 'up', ['droopy_soft']]];
+  for (const g of D.generals) for (const [w, lk] of Object.entries(g.look.worlds)) {
+    const f = Object.assign({}, g.look.face, lk.face || {});
+    for (const [k, v, shapes] of CLASH) assert(!(f[k] === v && shapes.includes(f.eyes)), '장수 ' + g.key + ' ' + w + ' ' + k + ' ' + v + ' 가 눈 모양 ' + f.eyes + ' 와 부딪친다');
+  }
+  const mw = D.generals.find(g => g.key === '문앙');
+  assert.equal(Object.assign({}, mw.look.face, mw.look.worlds.samguk.face).eye_size, 'large', '문앙 무협은 크고 둥근 눈');
+}
 /* 화면 이름(LOOK_KO)은 설계 칸과 같은 열쇠 */
 assert(same(Object.keys(S.LOOK_KO.face), Object.keys(S.FACE_PARAM)) && same(Object.keys(S.LOOK_KO.sil), Object.keys(S.SIL_PARAM)), 'LOOK_KO 열쇠');
 console.log('PASS 외형 표: 선택지 ' + S.PARAM_DEFS.length + ' · 어휘 ' + Object.keys(S.VOCAB_EN).length + ' 묶음 · 노출 · 설계표 look ' + nLook + '칸(장수 ' + D.generals.length + ') 어휘에 다 있음');

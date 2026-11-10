@@ -137,6 +137,27 @@ def weighted(lst, w, key, salt):
     return lst[-1]
 
 
+# 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪치면 그 세계에서만 맞춘다 — 모양을 살린다
+# (사용자 2026-11-10 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」 — 문앙 eye_size small + 무협 round_large 가
+#  「smaller, narrower eyes … — large round eyes」 로 한 줄에 나갔다. tests/look-spec.cjs 가 같은 규칙을 본다)
+EYE_SIZE_FIX = {('small', 'round_large'): 'large', ('small', 'almond_wide'): 'medium',
+                ('large', 'narrow_upturned'): 'medium', ('large', 'phoenix'): 'medium', ('large', 'monolid_long'): 'medium'}
+EYE_TILT_FIX = {('down', 'narrow_upturned'): 'up', ('down', 'phoenix'): 'up', ('down', 'cat'): 'up', ('up', 'droopy_soft'): 'down'}
+
+
+def fix_eye_clash(look):
+    """look.worlds.<세계>.face 에 eye_size · eye_tilt 를 덮어 써서 부딪침을 없앤다. 고친 자리 목록을 돌려준다"""
+    out = []
+    for w, lw in (look.get('worlds') or {}).items():
+        f = dict(look.get('face') or {}, **(lw.get('face') or {}))
+        for key, table in (('eye_size', EYE_SIZE_FIX), ('eye_tilt', EYE_TILT_FIX)):
+            to = table.get((f.get(key), f.get('eyes')))
+            if to:
+                lw.setdefault('face', {})[key] = to
+                out.append((w, key, f.get(key), to, f.get('eyes')))
+    return out
+
+
 def auto_look(g):
     k, fac, role = g['key'], g['faction'], g['role']
     face = {'eye_color': pick(EYE_COLOR[fac], k, 2), 'impression': pick(IMPRESSION[role], k, 3), 'expr': pick(EXPR[role], k, 4),
@@ -154,7 +175,9 @@ def auto_look(g):
         worlds[w] = {'silhouette': {'hair': ws['hair'], 'bangs': ws['bangs']}, 'face': {'face_shape': ws['face_shape'], 'eyes': ws['eyes']}}
         if w == 'mecha' and ws['hair'] == 'updo_bun':
             worlds[w]['silhouette']['hair'] = 'ponytail'
-    return {'face': face, 'silhouette': sil, 'worlds': worlds,
+    look = {'face': face, 'silhouette': sil, 'worlds': worlds}
+    fix_eye_clash(look)
+    return {'face': face, 'silhouette': sil, 'worlds': look['worlds'],
             'why': '자동 — 세력 팔레트에서 머리·눈 색, 역할에서 인상·표정, 나머지는 장수 열쇠로 돌렸다. 세계마다 헤어·앞머리·얼굴형·눈이 다르다(세계마다 다른 사람). 손으로 고치면 designed 를 hand 로.'}
 
 
