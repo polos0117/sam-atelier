@@ -1250,3 +1250,43 @@ an assault-type mecha frame — heavy armor plates, thruster packs, reinforced l
 4. SCENE
 Vertical 2:3 full-body composition, entire head to footwear inside the frame with comfortable margins. A poised standing stance turned three-quarters, head toward the viewer, holding her signature item naturally; both hands visible. Background: a futuristic southern mountain fortress terrace — mechanical citadel structures integrated with misty forested cliffs and waterfalls, softly blurred. Lighting: warm-neutral soft key light on the face (the same in every genre), environmental light only on the background, gentle rim light. No text, logos, watermark, UI, collage or additional characters.
 ```
+
+## 2.5 ↔ 2.6 비교 시험 — 얼굴 · 마감 · 채색 (2026-11-10)
+
+사용자 「2.5에서는 미형이 잘 됐는데 2.6에서는 잘 안돼」 → 같은 지시문을 두 모델에 넣어 본 기록. **전부 한 장씩만 본 결과**라 경향이지 확정이 아니다. 시험 그림은 그림 저장소에 올리지 않았다. 모델은 `gpt-image-2.5-sunburst` · `gpt-image-2.6-sunburst`, API, 1024×1536 · quality medium.
+
+### 같은 지시문인데도 다른 점(모델 취향)
+
+- 장료 무협 · 문앙 메카의 2.5 지시문(api25, 약 900~960낱말)을 글자 그대로 2.6 에 — 2.6 은 턱이 넓고 눈매가 세고, 가슴 · 어깨 · 허벅지를 더 크게, 장식을 더 촘촘하게 그린다. 「거친」 장수가 아니어도(문앙) 같다.
+- 얼굴형 · 눈썹 · 코 · 입술 문구를 빼도 인상은 조금만 풀렸다 — 얼굴 문구가 주범이 아니다.
+- `complexity: low`(2.6 에 생긴 설정, 기본 high) — 얼굴이 조금 부드러워지고 35초 → 19초. 2.5 만큼 여려지진 않는다.
+- 짧은 판 `mmorpg_cg`(「게임 엔진 3D 모델」 화풍 글)의 번들거리는 광택 · 피규어 같은 3D 느낌은 화풍 글 탓 — 2.5 글로 바꾸면 많이 빠진다. 그래서 기본 화풍을 `kr_mmorpg_26`(2.5 글 · model 2.6)로 옮겼다.
+- 원소 공방(일본 유화 애니 화풍)은 반대로 갈린다 — 2.6 이 애니 얼굴을 잘 따르고, 2.5 는 제 취향인 반실사 얼굴 · 어두운 회화 마감으로 끌려간다.
+
+### 채색 — 2.6 을 2.5 색감으로 맞추려면 발광 선
+
+같은 지시문 그림을 재 보면 2.6 이 채도가 높고(문앙 메카 0.37 대 0.18) 밝고 어두운 영역이 절반이다. 문앙 메카로 여섯 장:
+
+| 판 | 채도 | 밝기 | 어두운 영역 |
+|---|---|---|---|
+| 2.5(목표) | 0.181 | 0.294 | 10.2% |
+| 2.6 그대로 | 0.366 | 0.347 | 5.1% |
+| 화풍 글에 채색 문장(낮은 채도 · 어두운 노출 · 절제된 하이라이트) | 0.225 | 0.309 | 0.0% — 안개 낀 듯 뿌옇다 |
+| 위 + 「그림자는 검정까지 · 안개 없음 · 발광은 밝고 또렷하게」 | 0.324 | 0.294 | 6.8% — 채도가 도로 오른다 |
+| 위 + 색 이름을 어둡게(blue-black · gunmetal) | 0.323 | 0.272 | 10.9% — 판은 어두워지나 채도 그대로 |
+| 위 + 발광 선 · 배경 행성을 누름 | 0.182 | 0.270 | 14.8% — 거의 흑백 |
+| **원래 세력색 + 발광 선 · 배경 행성만 누름** | **0.197** | **0.288** | **10.0%** |
+
+- **판을 파랗고 밝게 만든 것은 색 이름(`navy blue`)이 아니라 진한 발광 선이었다** — 발광이 판과 화면 전체를 물들인다. 세력 · 무리 색 이름은 건드릴 필요가 없다.
+- 맞은 판에서 바꾼 문구(문앙 메카 지시문 기준):
+  - 화풍 줄 — `glossy specular highlights` → `small restrained highlights`, `Polished metal, silk and gems catch sharp highlights.` → `Metal, silk and gems keep a satin, softly painted surface with only small restrained highlights.`
+  - 화풍 줄 끝에 — `Colour: a muted, low-saturation palette — every colour stays greyed and restrained, with a single accent colour kept for lights and glowing details, which are thin and sparse, a pale near-white with only a faint blue tint — they light only their own edges and never tint the plates or the scene blue; strong tonal contrast — the shadows fall to deep near-black while the air stays crisp and clear, with no haze, fog or milky veil over the scene; softly blended painterly shading rather than a glossy render; no vivid, neon or candy-bright saturation.`
+  - 메카 설계 줄 — `cold blue glow lines` → `thin, sparse glow lines in a pale, desaturated white-blue`
+  - 세계 줄 — `a cold blue planet` → `a dim, grey-blue planet`
+- 다른 길 둘은 덜 좋았다: 2.5 그림을 채색 참고로 붙이면 구도가 딸려 온다(입력 토큰 +864). 뽑은 뒤 색 보정은 수치는 맞지만 광택 · 3D 느낌은 그대로고, 2.6 이 그림마다 채도를 다르게 올려 고정 조리법이 안 통한다.
+- **적용하지 않았다** — 사용자 「발광선이 문제였다는 것만 알았으면 됐어 … 2.6은 지금 색감으로 한 번 놔둬보자. 나중에 혹시나 색감 맞출일 있으면 발광선쪽만 건드리면 되니까」. 위나라 메카 한 장으로 맞춘 것이라 다른 세력 · 세계는 확인 전. 발광 선 문구는 세력 · 무리마다 메카 설계 줄에 따로 있다(`data/sam-design.json` factions · camps 의 mecha design).
+
+### 가려내지 못한 것
+
+- 2.6 일상컷의 팔 잘림 · 추가 팔 · 걷는 컷의 돌아간 다리 — 조조 걷는 컷을 2.6 API 로 짧은 판 · 긴 판 2장씩 뽑았으나 네 장 다 멀쩡했다. 그림 저장소 일상컷 기록의 검수 칸(GPT 가 씀)은 거의 다 「연결 정상」이라 결함 수를 못 센다.
+- GPT 세션과 API 의 차이 — 같은 지시문 · 같은 참고 그림인데 세션 컷은 참고 그림의 부츠가 딸려 왔다(한 장). 사용자: 세계 그림에서 하관이 크고 길고 눈이 째지는 경향이 세션에서 유독 심하다, 방지 문구가 있어도 그랬다. 세션이 그림 도구에 실제로 넘긴 글 · 설정은 기록에 안 남는다. 결함 난 컷을 장수 · 세계 · 번호로 모아 두고 데이터가 쌓이면 다시 본다.
