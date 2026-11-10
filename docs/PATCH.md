@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-10 · claude · 옛 화풍 넷을 다듬은 기준으로 새로 썼다 — 일본 유화풍 · 2.3D · 일본 가챠 애니 광택 · 하이키 유화
+- 사용자 「응 1~4번 넷 가져와서 이것도 만들어줘」 — `kv_jp_paint` → `semi_paint_jp`, `kv_kmmo_23d` → `illus_23d`, `kv_anime_gloss` → `anime_gloss_jp`, `kr_promo_hikey_oil` → `oil_hikey`. 화풍 문단(전체 방향 + 얼굴과 채색) · 빛 따로 · 나라 말은 살렸다 · 2.6 · 칸 꼴. 옛 열쇠는 그대로
+- 문앙 세 세계를 한 장씩(12장) 그려 화풍 비교 묶음 `2026-11-10` 에 더했다(이제 화풍 열). `docs/STYLE_LAB.md` 에 표 · 본 느낌
+
 ## 2026-11-10 · claude · 새 화풍 열에서 넷을 뺐다 — 수채 · 과슈 · 레트로 셀 · 수묵 담채
 - 사용자 「아까 10개 보내준거에서 4,5,9,10 은 빼자」 — `watercolor` · `gouache` · `retro_cel` · `ink_color` 를 `data/style.json` 과 화풍 비교 묶음 `2026-11-10`(목록 · 그림 12장 + 썸네일)에서 뺐다. 남은 여섯: `semi_smooth` · `semi_oil_classic` · `anime_brush` · `styl3d` · `anime_matte` · `semi_impasto`
 - `docs/STYLE_LAB.md` 에 뺀 내용과 나라 이름 시험(애니 계열 — Japanese / Korean / 없음, 얼굴에 주로 먹힌다) 결과를 적었다. 화풍 글에는 아직 안 넣음

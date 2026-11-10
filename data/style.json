@@ -2115,6 +2115,74 @@
      "model": "gpt-image-2.6-sunburst"
     }
    ]
+  },
+  "semi_paint_jp": {
+   "name": "반실사 붓 터치가 드러나는 페인팅 — 깊은 명암 (일본 유화풍 · 새 판)",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-10",
+     "by": "claude — 사용자 2026-11-10 「이전 화풍표에서 지금표로 가져올만한 거 또 뭐가 있을까?」 → 「응 1~4번 넷 가져와서 이것도 만들어줘」",
+     "why": "옛 화풍 kv_jp_paint 를 다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」, 빛 · 광택은 따로. 옛 글의 나라 말은 살린다(같은 날 나라 이름 시험 — 얼굴에 먹힌다). 지금 표의 두꺼운 붓질(semi_impasto)은 붓 느낌이 약했다 — 반실사 얼굴 + 보이는 붓질 축.",
+     "text": "Japanese painterly fantasy game character illustration, a finished promotional key visual. An elegant adult semi-realistic face, finely painted; richly layered painterly colour with subtle visible brushwork, delicate edge control and crisp focal detail on the face and ornaments. Skin, hair, metal and fabric are all painted, never rendered or photographic.",
+     "casual": "Japanese painterly fantasy game character illustration, a finished promotional key visual. An elegant adult semi-realistic face, finely painted; richly layered painterly colour with subtle visible brushwork, delicate edge control and crisp focal detail on the face and ornaments. Skin, hair, metal and fabric are all painted, never rendered or photographic.",
+     "worldLight": "Light: beautifully modelled light and shadow — a clear key light with deep, soft shadows; luminous, rich colour with cinematic depth; matte painted surfaces with small painted highlights.",
+     "casualLight": "Light: beautifully modelled light and shadow — a clear key light with deep, soft shadows; luminous, rich colour with cinematic depth; matte painted surfaces with small painted highlights.",
+     "model": "gpt-image-2.6-sunburst"
+    }
+   ]
+  },
+  "illus_23d": {
+   "name": "일러스트형 얼굴 · 매끄러운 페인팅 — 절제된 하이라이트 (한국 MMORPG 2.3D · 새 판)",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-10",
+     "by": "claude — 사용자 2026-11-10 「이전 화풍표에서 지금표로 가져올만한 거 또 뭐가 있을까?」 → 「응 1~4번 넷 가져와서 이것도 만들어줘」",
+     "why": "옛 화풍 kv_kmmo_23d 를 다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」, 빛 · 광택은 따로. 옛 글의 나라 말은 살린다(같은 날 나라 이름 시험 — 얼굴에 먹힌다). 애니와 반실사 사이 — 그린 얼굴에 살짝 입체.",
+     "text": "Korean MMORPG official character illustration, about 2.3D — between a flat illustration and a 3D render. An elegant illustrated face that stays recognisably drawn, with softly dimensional modelling; refined painted shading, smooth skin and precise material rendering of metal, embroidered fabric and flowing hair.",
+     "casual": "Korean MMORPG official character illustration, about 2.3D — between a flat illustration and a 3D render. An elegant illustrated face that stays recognisably drawn, with softly dimensional modelling; refined painted shading, smooth skin and precise material rendering of metal, embroidered fabric and flowing hair.",
+     "worldLight": "Light: a clean, soft key light with carefully controlled highlights; rich, clear colour and gentle shadows; any glowing details stay thin and small.",
+     "casualLight": "Light: a clean, soft key light with carefully controlled highlights; rich, clear colour and gentle shadows; any glowing details stay thin and small.",
+     "model": "gpt-image-2.6-sunburst"
+    }
+   ]
+  },
+  "anime_gloss_jp": {
+   "name": "애니 셀 채색 — 파스텔 하이키 · 광택 (일본 가챠 애니 · 새 판)",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-10",
+     "by": "claude — 사용자 2026-11-10 「이전 화풍표에서 지금표로 가져올만한 거 또 뭐가 있을까?」 → 「응 1~4번 넷 가져와서 이것도 만들어줘」",
+     "why": "옛 화풍 kv_anime_gloss 를 다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」, 빛 · 광택은 따로. 옛 글의 나라 말은 살린다(같은 날 나라 이름 시험 — 얼굴에 먹힌다). 선화 + 셀 채색 + 하이키 축(뺀 레트로 셀과 달리 요즘 가챠 일러스트). 옛 글의 「흰 · 은색 위주 파스텔 팔레트」 는 세력색과 부딪쳐 「옷 색을 파스텔 쪽으로 밝게」 로만.",
+     "text": "Polished Japanese anime gacha character illustration in clean 2D. An elegant adult anime face with large, finely detailed eyes with layered highlights and a soft blush; crisp thin dark linework, hair drawn as many fine strands with light along every lock, soft airy cel-to-gradient shading. The face and body stay visibly illustrated in 2D, never a 3D render.",
+     "casual": "Polished Japanese anime gacha character illustration in clean 2D. An elegant adult anime face with large, finely detailed eyes with layered highlights and a soft blush; crisp thin dark linework, hair drawn as many fine strands with light along every lock, soft airy cel-to-gradient shading. The face and body stay visibly illustrated in 2D, never a 3D render.",
+     "worldLight": "Light: bright, high-key outdoor daylight; her costume colours lifted toward soft pastel tints while the darkest accents stay deep and clean; a broad, soft sunlit sheen on skin, hair and armour, never wet, oily or plastic; gentle bloom and a few small sparkles in the air.",
+     "casualLight": "Light: bright, high-key outdoor daylight; her costume colours lifted toward soft pastel tints while the darkest accents stay deep and clean; a broad, soft sunlit sheen on skin, hair and armour, never wet, oily or plastic; gentle bloom and a few small sparkles in the air.",
+     "model": "gpt-image-2.6-sunburst"
+    }
+   ]
+  },
+  "oil_hikey": {
+   "name": "반실사 매끄러운 유화풍 — 밝은 하이키 (한국 MMORPG 프로모 유화 · 새 판)",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-11-10",
+     "by": "claude — 사용자 2026-11-10 「이전 화풍표에서 지금표로 가져올만한 거 또 뭐가 있을까?」 → 「응 1~4번 넷 가져와서 이것도 만들어줘」",
+     "why": "옛 화풍 kr_promo_hikey_oil 를 다듬은 기준(docs/STYLE_LAB.md 「화풍 글 쓰는 법 · 이름 붙이는 법」)으로 새로 쓴 판 — 화풍 문단은 「전체 방향 + 얼굴과 채색」, 빛 · 광택은 따로. 옛 글의 나라 말은 살린다(같은 날 나라 이름 시험 — 얼굴에 먹힌다). 지금 표의 유화(semi_oil_classic)는 어두운 고전 초상 하나 — 밝은 유화 축.",
+     "text": "Korean MMORPG promotional key art in a luminous oil-painting style. A mature, idealised semi-realistic beauty with a small, soft face; delicate oil brushwork and layered glazes of colour, soft edges, refined detail kept for the face and costume, and silk and metal each with their own painterly texture.",
+     "casual": "Korean MMORPG promotional key art in a luminous oil-painting style. A mature, idealised semi-realistic beauty with a small, soft face; delicate oil brushwork and layered glazes of colour, soft edges, refined detail kept for the face and costume, and silk and metal each with their own painterly texture.",
+     "worldLight": "Light: soft, rich, bright natural light with gentle, subtle shadows; luminous, clear skin and vivid, full-bodied midtones that never wash out; small, soft highlights.",
+     "casualLight": "Light: soft, rich, bright natural light with gentle, subtle shadows; luminous, clear skin and vivid, full-bodied midtones that never wash out; small, soft highlights.",
+     "model": "gpt-image-2.6-sunburst"
+    }
+   ]
   }
  },
  "worldShort": true,
