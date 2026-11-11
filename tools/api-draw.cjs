@@ -32,6 +32,7 @@ function parse(argv) {
     if (!a.startsWith('--')) { o._.push(a); continue; }
     const k = a.slice(2), v = argv[i + 1];
     if (k === 'free' || (k === 'exposure' && /=/.test(v || ''))) { const [n, x] = v.split('='); o[k][n] = x; i++; continue; }
+    if (k === 'force') { o.force = true; continue; }   /* 내린 화풍도 그린다 */
     if (k === 'slots') { o.slots = v.split(',').map(Number); i++; continue; }
     o[k] = v; i++;
   }
@@ -170,6 +171,7 @@ im.save(sys.argv[2],'WEBP',quality=90,method=6)`, [png, dst]);
 async function main() {
   const [cmd, ...rest] = process.argv.slice(2), o = parse(rest);
   if (!S.styles[o.style]) throw new Error('화풍이 없다: ' + o.style);
+  if (S.styles[o.style].retired && !o.force) throw new Error('내린 화풍이다(' + S.styles[o.style].retired + '): ' + o.style + ' — 그래도 그리려면 --force');
   if (cmd === 'brief') { process.stdout.write(P.buildWorldFree(D, S, o._[0], o._[1], { style: o.style }) + '\n'); return 0; }
   if (cmd === 'usage') { cmdUsage(o); return 0; }
   if (cmd === 'sheet') { cmdSheet(o); return 0; }

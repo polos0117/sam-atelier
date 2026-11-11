@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · 도감에 그림 없는 화풍 내림
+- 사용자 「등록 안된 화풍들 내리고 난뒤에는 생성기 구조별로 어떻게 되는지 다시 표로 보여줘」 — style.json 화풍 스물하나에 retired · retired_why(지우지 않음). 생성기 화풍 고르개에서 뺌(lib/studio.js), api-draw 는 --force 없이 안 그림. 기본 kr_drawn_rim_dewy · 구조판 탭 몫 glossy_plain 은 그림이 없어도 둠
+- 앞 커밋에서 빠뜨린 prompt-sam.js ?v= 26→27, studio.js 9→10. 검사: prompt-v2(살아 있는 화풍 여덟) · screen(고르개에 내린 화풍 없음). IMAGE_RULES 1절
+
 ## 2026-11-11 · claude · kr_drawn_rim_dewy — 화풍공방 시험 지시문과 맞춤
 - 사용자 「머리말이랑 얼굴 비율, 일상컷 꼴, Avoid 는 화풍공방 테스트 문구랑 맞춰줘야 테스트한것처럼 그려지지 않을까?」 — 판 몫 칸: worldHead(character image) · worldFace(in this style 없이) · worldStyleAfter(Skin finish, 얼굴 줄 뒤) · avoid(세계 5칸 끝 Avoid · 일상컷 끝 AVOID) · casualLegacy api25(일상컷만 2.5 글 긴 꼴) · casualStyleAfter(SKIN FINISH, STYLE 바로 뒤). 조립부(lib/prompt-sam.js)는 이 칸이 있는 판에만
 - 확인: 화풍공방 18차 일상컷과 같은 장면 15장 글자까지 같음, 세계 그림은 머리 장식 · 노출만 다름(공방 그대로 둠). 묶음 도구 casualLegacy 일상컷도 영문 그대로. 검사: prompt-v2 · casual-plan · screen · prompt-gpt

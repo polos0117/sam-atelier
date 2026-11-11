@@ -170,6 +170,10 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
       assert(!/\{\w+\}|undefined|  /.test(p) && !/^(?:overall_intensity|skin_exposure):/m.test(p), '문앙 일상 ' + n + ' ' + st + ' 빈 칸 없음'); nc++; }
     console.log('PASS 칸 꼴 정리판: 세계 그림 ' + ns + '장 · 일상컷 ' + nc + '장 — 다섯 칸 · 겹침 없음 · api25 그대로 · 얼굴 세 세계 같게'); }
 }
+/* 내린 화풍(2026-11-11 「등록 안된 화풍들 내리고」) — 지우지 않고 retired 표시만, 기본 · 구조판 탭 몫은 살아 있다 */
+{ const live = Object.keys(S.styles).filter(k => !S.styles[k].retired);
+  assert.deepEqual(live.sort(), ['api25', 'glossy_plain', 'kr_drawn_rim_dewy', 'kr_mmorpg', 'kr_promo_hikey', 'kv_kmmo_23d', 'kv_kmmo_lock', 'mmorpg_cg'], '살아 있는 화풍');
+  assert(!S.styles[S['default']].retired, '기본 화풍은 내리지 않는다'); Object.keys(S.styles).filter(k => S.styles[k].retired).forEach(k => assert(S.styles[k].retired_why, k + ' 내린 까닭')); }
 console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).length + ' × 세계 3) — 칸 빠짐없이 · 외형 한글 표 · 1절 세계 몫 · 메카 실루엣 · 자세 · 시간대 · 장면 · 기본 화풍 그대로');
 
 /* 짧은 세계 그림(2026-11-08 「화풍글 다 축소판으로 해주고, mmorpg cg를 공방 기본키로」) — 기본 화풍 mmorpg_cg, 모든 줄 꼴 · kv 판이 짧은 꼴(구조판 빼고).
