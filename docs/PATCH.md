@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · 칸 머리 · 해부 줄을 core 칸 틀에서
+- core v4 블록 — 칸 꼴 조립(buildWorldSections)이 칸 머리 · 해부 줄 · Avoid 줄을 AtelierSpec.CORE_FRAME 에서 읽는다(없으면 제 표). 기본 화풍 세계 지시문 837개 한 글자도 안 바뀜
+- 사용자 2026-11-11 「다른거 먼저 3단계 진행해줘」
+- prompt.html · promptapi.html prompt-spec ?v=35 · look-spec ?v=6 · prompt-sam ?v=30
+
 ## 2026-11-11 · claude · core v3 — 각진 얼굴 · 광대 · 웃는 입 글
 - lib/ 끝 core 블록을 v3 로 — square_soft 「softly squared face with a rounded jaw」, angular 「refined face with a clean, softly tapered outline」, wide_smile 「a wide mouth with softly upturned corners」. 기본 화풍 세계 지시문 15개(하후돈 · 장료 · 육손 · 장합 · 손견 × 세계 3)의 Face 줄만
 - 시험 한 쌍씩(장료 · 장합, 2.6)에서 그림 차이는 거의 없었다 — 부딪히는 말 정리. 사용자 2026-11-11 「정리하는 김에 깔끔하게 하는게 낫지?」
