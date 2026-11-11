@@ -126,6 +126,11 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
       assert(!/\{\w+\}|undefined|  /.test(p) && !/^(?:overall_intensity|skin_exposure):/m.test(p), '문앙 일상 ' + n + ' ' + st + ' 빈 칸 없음'); nc++; }
     console.log('PASS 칸 꼴 정리판: 세계 그림 ' + ns + '장 · 일상컷 ' + nc + '장 — 다섯 칸 · 겹침 없음 · api25 그대로 · 얼굴 세 세계 같게'); }
 }
+/* 칸 꼴 — 직접 고른 외형 · 얼굴 끈 Face 줄(2026-11-11 「응 둘 다 고쳐줘」 — 원소와 같은 구멍) */
+{ for (const key of ['관우', '문앙', '조조']) for (const w of ['samguk', 'fantasy', 'mecha']) {
+    const pk = P.build(D, SX, key, w, { look: { params: { 'hair color': 'silver' } } }), base = P.build(D, SX, key, w, {}), off = P.build(D, SX, key, w, { look: { faceDesignOn: false } });
+    assert(pk.split('\n').includes('Chosen look (overrides the automatic look): hair color: silver.') && !base.includes('Chosen look'), key + ' ' + w + ' 고른 머리색 줄');
+    const fl = off.split('\n').find(l => l.startsWith('Face —')); assert(fl && /no beard or facial hair\.$/.test(fl) && !/:\s*\.$/.test(fl), key + ' ' + w + ' 얼굴 끈 Face 줄: ' + fl); } }
 /* 내린 화풍(2026-11-11 「등록 안된 화풍들 내리고」) — 지우지 않고 retired 표시만, 기본은 살아 있다 */
 { const live = Object.keys(S.styles).filter(k => !S.styles[k].retired);
   assert.deepEqual(live.sort(), ['api25', 'kr_drawn_rim_dewy', 'kr_mmorpg', 'kr_promo_hikey', 'kv_kmmo_23d', 'kv_kmmo_lock', 'mmorpg_cg'], '살아 있는 화풍');
