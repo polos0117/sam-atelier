@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-/* 일상컷 묶음 계획 — 한 장수의 한 세계 일상컷 여섯 장(2026-11-09 — 전엔 다섯)을 서로 겹치지 않게 한 번에 짠다(2026-11-02, element-atelier 의 tools/casual-plan.cjs 를 삼국지 꼴로 —
-   사용자 「일상컷 계획 도구도 옮겨와줘」). 장수는 세계마다 다른 사람이라 **세계마다 여섯 장**(그 세계 그림을 참고 그림으로, IMAGE_RULES 2절).
+/* 일상컷 묶음 계획 — 한 장수의 한 세계 일상컷 일곱 장(2026-11-11 — 11-09 여섯, 전엔 다섯)을 서로 겹치지 않게 한 번에 짠다(2026-11-02, element-atelier 의 tools/casual-plan.cjs 를 삼국지 꼴로 —
+   사용자 「일상컷 계획 도구도 옮겨와줘」). 장수는 세계마다 다른 사람이라 **세계마다 일곱 장**(그 세계 그림을 참고 그림으로, IMAGE_RULES 2절).
 
    생성기(lib/studio.js)와 같은 lib/casual-tree-v2.js · lib/prompt-sam.js 로 칸마다 장면을 고르고, 생성기 「기록 내보내기」 와 같은 꼴의
    기록(<세계>-casualN.<화풍>-ui.json)과 지시문을 쓴다. 지키는 묶음 규칙(한 세계 묶음 안):
      - 세 장은 정해 둔 갈래(사용자 2026-11-02 「각각 1장해서 2장은 확정」 · 2026-11-09 「1번 내용을 필수갈래에 … 필수컷이 3장은 확정」 — 셋째는 상황 노출 한 장, situate) — 노출 갈래 한 장(란제리풍 · 수영복 · 역할극 의상) +
        세계 안 갈래 한 장(세계 안의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복), 서로 다른 컷. tools/casual-check.py 와 같은 판정
+     - 자유 설계 두 장(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 … 필수갈래랑 상황노출 두개를 묶어서 이렇게 가자. 그리고 지금 맡겨놓은 일상컷 1장도 같이 이런식으로」) —
+       옷 자유 컷(ofree) 하나 + 갈래 자유 컷(ofree + ofreeFamily — 필수 노출 갈래 큰 범위 + ofreeSitu 'free' — 상황은 맡은 쪽이 짓는다, 같은 날 「상황도 열어주자. 옷도 이제 큰범위로만 지정해줘」) 하나, 필수 셋과 다른 컷. 지시문은 장면 줄 대신 자유 설계 덩어리(lib/prompt-spec.js FREE_DESIGN),
+       최근 장면(ofreeRecent — 그림 저장소 기록의 최근 여덟 + 같은 묶음의 다른 컷)을 피하라고 적는다. 칸의 장면 값은 트리에 맞는 그림자 — 그리지 않고 묶음 규칙 · 겹침 · 쓴 횟수 셈에서도 뺀다
      - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대는 한 가지 두 번까지, 네 장 이상이면 네 시대(지금 현실 · 역사의 자리 · 세계 안 · 무대·환상) 다
      - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 · 가까운 컷 하나씩은 꼭) · 몸 방향 한 가지는 두 번까지 · 머리 「어깨 너머」 는 한 장까지
      - 소품은 칸마다 다르게 · 그 장수의 물건(설계표 hold, 없으면 역할의 것)을 든 컷은 한두 장 · 마실 것은 한 장까지 · ⚠ 어색한 조합은 한 장까지
@@ -14,11 +17,11 @@
    이미 그림이 있는 번호는 짜지 않고, 그 세계의 기록(--records)은 겹침 검사에만 쓴다.
 
      node tools/casual-plan.cjs <장수> --world <세계> [--style <화풍>] [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
-   --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 여섯 장이 되게 — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
+   --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 일곱 장이 되게(여섯 장을 다 그린 세계는 일곱째 — 갈래 자유 컷 — 하나만) — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
    --records 를 안 주면 옆의 sam-atelier-img/records/<장수>. --out 을 주면 칸마다 기록 · 지시문과 plan.json 을 쓴다.
      node tools/casual-plan.cjs <장수> --world <세계> --check <기록 폴더> [--from N]   # 올리기 전 — 그 세계 묶음이 위 규칙을 다 지키나(다른 세계와 같은 장면도). --from: N 번부터의 새 묶음만, 옛 묶음은 겹침에만
      node tools/casual-plan.cjs <장수> --world all [--fresh] --out <폴더>   # 세계 셋을 한 번에(폴더 아래 plan-<세계>) — 세계끼리 장면을 돌려쓰지 않는다
-   --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 여섯 장(옛 묶음과도 겹치지 않게). --others a.json,b.json: 아직 안 올린 다른 계획도 겹침에 넣는다.
+   --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 일곱 장(옛 묶음과도 겹치지 않게). --others a.json,b.json: 아직 안 올린 다른 계획도 겹침에 넣는다.
    세계끼리 · 묶음끼리: 같은 장소는 안 되고(세계 안 장소는 세계마다 다른 곳이라 옷 · 자세까지 같을 때만), 같은 옷 계열로 같은 자세 추천도 안 된다(2026-11-02 — 네 장수가 세 세계에 같은 장면 한 벌을 썼다) */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
@@ -32,7 +35,7 @@ const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read(
 /* --style <화풍> — 그 화풍의 등록 · 기록으로 빈 번호를 센다(2026-11-09 2.5 API 판 api25 — 기본 화풍 그림과 따로). 모듈로 불리면 늘 기본 화풍 */
 const ARG_STYLE = require.main === module && process.argv.indexOf('--style') > 0 ? process.argv[process.argv.indexOf('--style') + 1] : '';
 if (ARG_STYLE && !S.styles[ARG_STYLE]) { console.error('화풍이 없다: ' + ARG_STYLE); process.exit(2); }
-const T2 = C2.make(tree2, tree), STYLE = ARG_STYLE || S['default'], CASUAL_N = 6;   /* 사용자 2026-11-09 「일상컷 생성수를 6장으로 늘려줘」 — 전엔 다섯 */
+const T2 = C2.make(tree2, tree), STYLE = ARG_STYLE || S['default'], CASUAL_N = 7;   /* 사용자 2026-11-11 「한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게 추가해줘. 그럼 일상컷은 총 7장 되는거야」 — 11-09 「6장으로」, 전엔 다섯 */
 
 const EXPOSE_TYPES = ['lingerie', 'swimwear', 'roleplay'];   /* 노출 갈래 — 장수마다 돌려 가며 */
 const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
@@ -168,10 +171,12 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
 
 /* 묶음 규칙 — 틀린 것 목록. base 는 이미 있는 컷(그 세계): 그것들이 벌써 넘긴 한도는 그만큼 올려 준다 */
 function check(cuts, card, base = [], others = []) {
-  const all = [...base, ...cuts], errs = [];
+  /* 자유 설계 컷(ofree)의 장면 값은 그림자 — 장면 규칙(갈래 · 장소 · 시대 · 구도 · 소품 · 세계 사이 겹침)은 나머지 컷만으로 센다(2026-11-11) */
+  const ALL = [...base, ...cuts], errs = [], all = ALL.filter(c => !c.ofree), B = base.filter(c => !c.ofree), N = cuts.filter(c => !c.ofree);
+  others = others.filter(o => !o.ofree);
   const count = (f, xs) => xs.reduce((m, c) => { const k = f(c); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});
-  const over = (name, f, most) => {
-    const m = count(f, all), b = count(f, base);
+  const over = (name, f, most, xs = all, bs = B) => {
+    const m = count(f, xs), b = count(f, bs);
     Object.entries(m).forEach(([k, n]) => { if (n > Math.max(most, b[k] || 0)) errs.push(`${name} ${k} 가 ${n} 번(${most} 번까지)`); });
   };
   /* 두 장은 정해 둔 갈래 — 노출 한 장 · 세계 안 한 장, 서로 다른 컷 */
@@ -182,7 +187,7 @@ function check(cuts, card, base = [], others = []) {
   over('의상 계열', c => c.ofam !== 'everyday' && c.ofam, 1);
   over('평상복', c => c.ofam === 'everyday' && c.ofam, 2);
   over('시대', c => c.era, 2);
-  if (cuts.length >= 4) { const eras = new Set(all.map(c => c.era)), want = Math.min(tree.eras.length, all.length); if (eras.size < want) errs.push(`시대가 ${eras.size} 가지뿐이다(${want} 가지 다)`); }
+  if (N.length >= 4) { const eras = new Set(all.map(c => c.era)), want = Math.min(tree.eras.length, all.length); if (eras.size < want) errs.push(`시대가 ${eras.size} 가지뿐이다(${want} 가지 다)`); }
   over('프레이밍', c => c.frame, Math.max(1, Math.ceil(all.length / FRAMES.length)));
   over('자세 추천', c => c.preset, 1);
   over('몸 방향', c => c.body, 2);
@@ -194,10 +199,26 @@ function check(cuts, card, base = [], others = []) {
   over('동탄룩', c => c.ofam === 'dongtan' && 'dongtan', 1);
   /* 셋째 필수 — 상황 노출 한 장(여섯 장 묶음부터 — 옛 다섯 장 묶음은 이 갈래 전), 노출 · 세계 안 갈래 컷과 다른 컷 */
   over('상황 노출', c => c.situ && 'situ', 1);
-  over('옷 자유', c => c.ofree && 'ofree', 1);
+  over('옷 자유', c => c.ofree && !c.ofreeFamily && !c._fam && 'ofree', 1, ALL, base);   /* _fam — 계획 중 갈래 자유 칸 자리 표시 */
+  over('갈래 자유', c => c.ofree && c.ofreeFamily && 'family', 1, ALL, base);
+  /* 자유 설계 두 장(2026-11-11) — 필수 셋(노출 · 세계 안 · 상황 노출)과 다른 컷. 갈래 자유 컷은 필수 노출 갈래 중 그 묶음 노출 갈래 컷과 다른 것 + 그 묶음 상황 노출 컷과 다른 상황 */
+  const exFam = new Set(all.map(requiredType).filter(t => EXPOSE_TYPES.includes(t))), situUsed = new Set(all.filter(c => c.situ).map(c => c.situ));
+  for (const c of cuts) {
+    if (c.ofree && c.situ) errs.push(`칸 ${c.n || '?'}: 자유 설계 컷은 상황 노출 컷과 다른 칸`);   /* 필수 갈래는 위에서 — 자유 설계 컷 말고 다른 컷이 채워야 한다 */
+    if (c.ofreeFamily && !c.ofree) errs.push(`칸 ${c.n || '?'}: 갈래가 있는데 자유 설계 컷이 아니다`);
+    if (!c.ofreeFamily) continue;
+    if (!EXPOSE_TYPES.includes(c.ofreeFamily)) errs.push(`칸 ${c.n || '?'}: 갈래 자유 ${c.ofreeFamily} 는 필수 노출 갈래(${EXPOSE_TYPES.join(' · ')})가 아니다`);
+    else if (exFam.has(c.ofreeFamily)) errs.push(`칸 ${c.n || '?'}: 갈래 자유 ${c.ofreeFamily} 는 이 묶음의 노출 갈래 컷과 같다`);
+    if (c.ofreeSitu === 'free') { /* 열린 상황(2026-11-11 「상황도 열어주자」) — 맡은 쪽이 짓는다 */ }
+    else if (!SITUS.includes(c.ofreeSitu)) errs.push(`칸 ${c.n || '?'}: 갈래 자유 컷의 상황 ${c.ofreeSitu || '(없음)'} 가 'free' 도 상황 표에도 없다`);
+    else if (situUsed.has(c.ofreeSitu)) errs.push(`칸 ${c.n || '?'}: 갈래 자유 상황 ${c.ofreeSitu} 는 이 묶음의 상황 노출 컷과 같다`);
+  }
+  if (ALL.length >= CASUAL_N && !ALL.some(c => c.ofree && c.ofreeFamily)) errs.push('갈래 자유 컷이 없다 — 일곱 장 묶음엔 필수 갈래 + 상황을 묶은 자유 설계 한 장');   /* 옛 여섯 장 묶음은 이 칸 전이라 그대로 맞다 */
   for (const c of cuts) if (c.situ && !P.situFits(c.situ, outfitEn(c))) errs.push(`칸 ${c.n || '?'}: 상황 ${c.situ} 는 이 옷에 안 맞는다`);
+  for (const c of cuts) if (c.situ && requiredType(c)) errs.push(`칸 ${c.n || '?'}: 상황 노출은 노출 · 세계 안 갈래 컷과 다른 컷에`);
   for (const c of cuts) if (c.situ && SITU_NO_FRAME.includes(c.frame)) errs.push(`칸 ${c.n || '?'}: 상황 노출은 얼굴 클로즈업에 두지 않는다`);
-  if (all.length >= CASUAL_N && !all.some(c => c.situ && !requiredType(c))) errs.push('상황 노출 컷이 없다 — 노출 · 세계 안 갈래와 다른 컷 한 장');   /* 2026-11-03 더한 계열 — 안 쓴 계열이라 무게가 커서 묶음마다 한 장까지 */
+  /* 상황 노출 — 여섯 장 이상 묶음에 한 장. 일곱째 하나만 더 짤 수 있는 옛 묶음(상황 컷 없이 여섯 장)은 갈래 자유 컷의 상황으로 채운다(2026-11-11) */
+  if (ALL.length >= CASUAL_N - 1 && !all.some(c => c.situ && !requiredType(c)) && !ALL.some(c => c.ofree && c.ofreeSitu)) errs.push('상황 노출 컷이 없다 — 노출 · 세계 안 갈래와 다른 컷 한 장');   /* 2026-11-03 더한 계열 — 안 쓴 계열이라 무게가 커서 묶음마다 한 장까지 */
   if (card.g.signature_hold.length && all.length >= 3 && !all.some(sigProp)) errs.push('그 장수의 물건을 든 컷이 없다(한두 장)');
   if (all.length >= 3) {
     if (!all.some(c => FAR.includes(c.frame))) errs.push('먼 컷(전신·환경)이 없다');
@@ -213,7 +234,7 @@ function check(cuts, card, base = [], others = []) {
   const inWorld = c => (C2.place(T2, c.place) || {}).eras && /^nation_/.test(c.place);
   /* 같은 옷도 세계끼리 · 묶음끼리 돌려입지 않는다(사용자 2026-11-08 「무협에서 니트 상의했으면 메카에서도 …」 → 「응 막아줘」) — 옷(item)이 같으면, 옷 없이 계열만이면 그 계열(평상복 계열 자체는 빼고) */
   const outfitKey = c => c.item ? c.ofam + '/' + c.item : (c.ofam && c.ofam !== 'everyday' ? c.ofam : '');
-  for (const c of cuts) {
+  for (const c of N) {
     const same = others.filter(o => o.place && o.place === c.place);
     if (same.length && (!inWorld(c) || same.some(o => o.ofam === c.ofam))) errs.push(`칸 ${c.n || '?'}: 장소 ${c.place} 는 다른 세계 · 다른 묶음이 쓴 곳`);
     if (c.preset && others.some(o => o.preset === c.preset)) errs.push(`칸 ${c.n || '?'}: 자세 추천 ${c.preset} 는 다른 세계 · 다른 묶음이 쓴 구도`);
@@ -259,19 +280,65 @@ function situate(cuts, at, old = [], others = [], rs = Math.random) {
   });
   return cuts;
 }
-/* 옷 자유 컷(사용자 2026-11-09 「일상컷도 1장은 gpt에게 노출의상 자유롭게 만들어달라고 해줘」) — 여섯 장 중 한 장, 필수 갈래 · 상황 컷이 아니고
-   얼굴 클로즈업이 아닌 컷. Outfit 줄이 「노출 의상을 네가 지어라」(T.OUTFIT_FREE)로 바뀌어 옷 색 · 데니어는 없다. 장소 · 자세 · 구도는 계획 그대로 */
-function freeOutfit(cuts, old = [], rf = Math.random) {
-  cuts.forEach(c => { delete c.ofree; });
-  if (old.some(c => c.ofree) || old.length + cuts.length < CASUAL_N) return cuts;
-  const pool = cuts.filter(c => !requiredType(c) && !c.situ && !SITU_NO_FRAME.includes(c.frame));
-  if (!pool.length) return cuts;
-  const c = pool[Math.floor(rf() * pool.length)];
-  c.ofree = true; delete c.color; delete c.denier;
+/* 자유 설계 컷 둘(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 … 필수갈래랑 상황노출 두개를 묶어서 이렇게 가자. 그리고 지금 맡겨놓은 일상컷 1장도 같이 이런식으로」) —
+   칸은 plan() 이 미리 정한다(필수 셋 · 그 장수의 물건 칸이 아닌 칸, ofree). 칸의 장면 값은 그림자(check 가 장면 규칙에서 뺀다 — 그리지 않는다).
+   ① 갈래 자유 컷(일곱 장 묶음에 꼭 — 2026-11-11 「한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게」): ofreeFamily(필수 노출 갈래 중 그 묶음 노출 갈래 컷과 다른 것) +
+      ofreeSitu 'free'(상황은 표에서 고르지 않고 맡은 쪽이 짓는다 — 우리 넷이 아닌 것 먼저, 같은 날 「상황도 열어주자」). 갈래는 큰 범위만 — 목록에서 골라도, 지어도 되나 목록 밖 먼저. 다른 세계 묶음이 쓴 갈래는 뒤로
+   ② 옷 자유 컷(2026-11-09 「일상컷도 1장은 gpt에게 노출의상 자유롭게 만들어달라고 해줘」): ofree 만 — 칸이 남으면(여섯 장을 다 그린 묶음에 일곱째 하나만 짤 때는 ① 만).
+   옷 색 · 데니어 · 상황(situ)은 없다. 갈래를 고를 수 없으면(묶음의 다른 컷이 노출 갈래 셋을 다 썼다) false */
+function freeOutfit(cuts, old = [], rf = Math.random, others = []) {
+  const real = [...old, ...cuts].filter(c => !c.ofree);
+  for (const c of cuts) if (c.ofree) { delete c.color; delete c.denier; delete c.situ; delete c.ofreeFamily; delete c.ofreeSitu; }
+  const fc = cuts.find(c => c._fam); if (!fc) return true;
+  delete fc._fam;
+  const later = (keys, used) => { const fresh = keys.filter(k => !used.has(k)); return fresh.length ? fresh : keys; };
+  const exFam = new Set(real.map(requiredType).filter(t => EXPOSE_TYPES.includes(t)));
+  const fams = later(EXPOSE_TYPES.filter(k => !exFam.has(k)), new Set(others.map(o => o.ofreeFamily).filter(Boolean)));
+  if (!fams.length) return false;
+  fc.ofreeFamily = fams[Math.floor(rf() * fams.length)]; fc.ofreeSitu = 'free';
+  return true;
+}
+/* 최근 장면(2026-11-11 — 자유 설계 덩어리의 「Recent scenes to avoid」) — 장소 + 하는 일, 영어로 짧게.
+   계획 칸은 장소 글의 첫 마디 — 소품 동작(없으면 자세). 자유 설계로 그린 컷은 기록의 채운 덩어리(Place · Activity 줄)에서 */
+const firstClause = s => String(s || '').split(/[,;.]| — /)[0].trim();
+function sceneEn(c, world) {
+  if (!c) return '';
+  const p = C2.place(T2, c.place), u = C2.use(T2, c.use), pr = u && C2.prop(T2, u.prop), po = by(tree2.postures, c.posture);
+  const place = p ? firstClause(P.placeEn(p, world)) : '';
+  const act = firstClause(u ? u.en.replace('{prop}', pr && !pr.signature ? pr.en : 'her keepsake') : (po ? po.en : ''));
+  return [place, act].filter(Boolean).join(' — ');
+}
+function blockScene(text) {
+  const t = String(text || ''), i = t.indexOf('FREE DESIGN:'); if (i < 0) return '';
+  const get = h => { const m = new RegExp('^' + h + ':\\s*(.+)$', 'm').exec(t.slice(i)); return m && !/^…/.test(m[1].trim()) ? firstClause(m[1]) : ''; };
+  return [get('Place'), get('Activity')].filter(Boolean).join(' — ');
+}
+/* 그림 저장소 기록에서 최근 n 장면 — 기록의 imported · generation.date · date 가 늦은 것부터(같으면 파일 시각) */
+function recentScenes(dir, n = 8) {
+  if (!dir || !fs.existsSync(dir)) return [];
+  const rows = [];
+  for (const k of fs.readdirSync(dir)) {
+    const d = path.join(dir, k); if (!fs.statSync(d).isDirectory()) continue;
+    for (const f of fs.readdirSync(d).filter(x => /^(\w+)-casual\d+\.[a-z0-9_]+-ui\.json$/.test(x))) {
+      let r; try { r = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')); } catch (e) { continue; }
+      const g = r.generation || {}, sc = r.scene || {};
+      const text = sc.ofree ? (blockScene(g.free_design) || blockScene(g.free_prompt) || (/FREE DESIGN:/.test(g.free_prompt || '') ? '' : sceneEn(sc, r.world))) : sceneEn(sc, r.world);
+      if (text) rows.push({ text, at: String(r.imported || g.date || r.date || ''), mt: fs.statSync(path.join(d, f)).mtimeMs });
+    }
+  }
+  rows.sort((a, b) => (b.at > a.at ? 1 : b.at < a.at ? -1 : b.mt - a.mt));
+  const out = []; for (const r of rows) { if (!out.includes(r.text)) out.push(r.text); if (out.length >= n) break; }
+  return out;
+}
+/* 자유 설계 컷마다 피할 장면 — 최근 장면 + 같은 묶음의 다른 컷(자유 설계 컷은 빼고) */
+function recentize(cuts, old = [], recent = [], world = '') {
+  const same = [...old, ...cuts].filter(c => !c.ofree).map(c => sceneEn(c, world)).filter(Boolean);
+  const list = [...new Set([...recent, ...same])];
+  for (const c of cuts) if (c.ofree) c.ofreeRecent = list.join('; ');
   return cuts;
 }
-const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |상황 노출 컷이 없다)/;
-function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [] } = {}) {
+const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |상황 노출 컷이 없다|갈래 자유 컷이 없다)/;
+function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [], recent = [] } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
   const mix = [...(card.key + '|' + (card.world || ''))].reduce((h, ch) => Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0, 2166136261);
   const rUse = rng((seed ^ mix ^ 0x5bd1e995) >>> 0), r = rng((seed ^ mix) >>> 0);
@@ -279,30 +346,42 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
   /* 정해 둔 두 갈래 중 아직 없는 것을 앞 칸부터 — 노출 갈래는 장수마다 란제리풍 · 수영복 · 역할극을 돌려 가며 */
   const wants = [oldEx ? '' : (required || EXPOSE_TYPES[Math.max(0, ci) % EXPOSE_TYPES.length]), oldIn ? '' : 'nation'].filter(Boolean);
   const needSig = card.g.signature_hold.length > 0 && !old.some(sigProp) && slots.length >= 3;
-  const needSitu = slots.length + old.length >= CASUAL_N && !old.some(c => c.situ && !requiredType(c));
-  const oldFrames = new Set(old.map(c => c.frame));
+  /* 칸 몫(2026-11-11 일곱 장) — 정해 둔 칸 뒤로 갈래 자유 · 상황 노출 · 그 장수의 물건 · 옷 자유 차례. 칸이 모자라면(옛 여섯 장 위 일곱째 하나) 갈래 자유만 —
+     그때 상황 노출이 없던 옛 묶음은 갈래 자유 컷의 상황이 그 몫(check) */
+  const total = slots.length + old.length, room = slots.length - wants.length;
+  const needFam = total >= CASUAL_N && room > 0 && !old.some(c => c.ofree && c.ofreeFamily);
+  const needSitu = total >= CASUAL_N - 1 && room - (needFam ? 1 : 0) > 0 && !old.some(c => c.situ && !requiredType(c));
+  const needOut = total >= CASUAL_N && !old.some(c => c.ofree && !c.ofreeFamily);
+  const oldFrames = new Set(old.filter(c => !c.ofree).map(c => c.frame));
   for (let attempt = 1; attempt <= 400; attempt++) {
     let frames = FRAMES.filter(f => !oldFrames.has(f)).sort(() => r() - 0.5);
     if (frames.length < slots.length) frames = frames.concat(FRAMES.slice().sort(() => r() - 0.5)).slice(0, slots.length);
     frames = frames.slice(0, slots.length);
-    const seen = [...old, ...frames.map(frame => ({ frame }))];
-    if (slots.length + old.length >= 3 && (!seen.some(c => FAR.includes(c.frame)) || !seen.some(c => NEAR.includes(c.frame)))) continue;
-    /* 시대 — 칸마다 먼저 나눠 준다. 이미 있는 컷까지 세어 몫(ERA_QUOTA)에 비해 가장 덜 쓴 시대부터(같으면 무게대로) */
+    /* 칸 나누기 — 정해 둔 칸 뒤를 섞어 갈래 자유 → 상황(얼굴 클로즈업 아닌 칸) → 그 장수의 물건 → 옷 자유 */
+    const idx = []; for (let i = wants.length; i < slots.length; i++) idx.push(i);
+    idx.sort(() => r() - 0.5);
+    const famAt = needFam ? idx.shift() : -1;
+    let situAt = -1;
+    if (needSitu) { const j = idx.findIndex(i => !SITU_NO_FRAME.includes(frames[i])); if (j < 0) continue; situAt = idx.splice(j, 1)[0]; }
+    const sigAt = needSig ? (idx.length ? idx.shift() : situAt) : -1;
+    const outAt = needOut && idx.length ? idx.shift() : -1;
+    const isFreeAt = i => i === famAt || i === outAt;
+    const seen = [...old.filter(c => !c.ofree), ...frames.filter((f, i) => !isFreeAt(i)).map(frame => ({ frame }))];
+    if (seen.length >= 3 && (!seen.some(c => FAR.includes(c.frame)) || !seen.some(c => NEAR.includes(c.frame)))) continue;
+    /* 시대 — 칸마다 먼저 나눠 준다. 이미 있는 컷까지 세어 몫(ERA_QUOTA)에 비해 가장 덜 쓴 시대부터(같으면 무게대로). 자유 설계 칸은 몫 밖(그림자) */
     const ERAS = tree.eras.map(e => e.key), cnt = Object.fromEntries(ERAS.map(e => [e, 0]));
-    old.forEach(c => { if (c.era in cnt) cnt[c.era]++; });
+    old.filter(c => !c.ofree).forEach(c => { if (c.era in cnt) cnt[c.era]++; });
     /* 세계 안 갈래 칸은 「세계 안」 시대로 먼저 세고, 나머지 칸에 덜 쓴 시대부터(같으면 무게대로) 나눈 뒤 정해 둔 칸 뒤쪽만 섞는다 */
     if (wants.includes('nation')) cnt.nation++;
     const eras = [];
     for (let i = 0; i < slots.length; i++) {
       if (wants[i] === 'nation') { eras.push('nation'); continue; }
+      if (isFreeAt(i)) { eras.push(weighted(r, ERA_WEIGHT)); continue; }
       const ratio = x => cnt[x] / (ERA_QUOTA[x] || 1), lo = Math.min(...ERAS.map(ratio)), e = weighted(r, Object.fromEntries(ERAS.filter(x => ratio(x) === lo).map(x => [x, ERA_WEIGHT[x] || 1])));
       eras.push(e); cnt[e]++;
     }
-    const tail = eras.slice(wants.length).sort(() => r() - 0.5); eras.splice(wants.length, tail.length, ...tail);
-    const free = slots.length - wants.length, sigAt = needSig && free > 0 ? wants.length + Math.floor(r() * free) : -1, cuts = [];
-    /* 상황 칸 — 정해 둔 칸 뒤, 그 장수의 물건 칸과 다른 칸(빈 칸이 하나뿐이면 같은 칸) */
-    let situAt = -1;
-    if (needSitu && free > 0) { const pool = []; for (let i = wants.length; i < slots.length; i++) if ((i !== sigAt || free === 1) && !SITU_NO_FRAME.includes(frames[i])) pool.push(i); if (!pool.length) continue; situAt = pool[Math.floor(r() * pool.length)]; }
+    { const at = []; for (let i = wants.length; i < slots.length; i++) if (!isFreeAt(i)) at.push(i); const tail = at.map(i => eras[i]).sort(() => r() - 0.5); at.forEach((i, j) => { eras[i] = tail[j]; }); }
+    const cuts = [];
     for (let i = 0; i < slots.length; i++) {
       let got = null;
       for (let k = 0; k < 60 && !got; k++) {
@@ -310,6 +389,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
         const want = wants[i] || '', sc = slot(r, card, want, { frame: frames[i], wantSig: i === sigAt && !want, era: eras[i], usage: here, rUse });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
+        if (isFreeAt(i)) { cand.ofree = true; if (i === famAt) cand._fam = true; got = cand; break; }   /* 자유 설계 칸 — 그림자 장면, 규칙 셈 밖 */
         if (i === situAt && !P.situsFor(outfitEn(cand)).length) continue;   /* 상황 칸엔 상황이 붙는 옷만 */
         if (i === situAt) cand.situ = P.situsFor(outfitEn(cand))[0];   /* 자리 표시 — 묶음이 다 차면 situate 가 고른다 */
         if (!check([...cuts, cand], card, old, others).filter(e => !MUST.test(e)).length) got = cand;
@@ -317,9 +397,14 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
       if (!got) break;
       cuts.push(got);
     }
-    if (cuts.length === slots.length && !check(cuts, card, old, others).length) { colorize(cuts, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(cuts, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, situAt, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0));
-      if (old.length + cuts.length >= CASUAL_N && !old.some(c => c.ofree) && !cuts.some(c => c.ofree)) continue;   /* 옷 자유 컷을 둘 칸이 없으면 다시 */
-      return { cuts, attempt, required: [...[...old, ...cuts].map(requiredType).filter(Boolean), ...[...old, ...cuts].filter(c => c.situ).map(c => 'situ:' + c.situ)].join(' · ') }; }
+    /* 묶음 규칙(자유 설계 칸 전) → 색 · 데니어 · 상황 · 갈래 자유를 나눈 뒤 다시 한 번 */
+    if (cuts.length === slots.length && !check(cuts, card, old, others).filter(e => !/^갈래 자유 컷이 없다|^상황 노출 컷이 없다/.test(e)).length) {
+      const real = cuts.filter(c => !c.ofree);
+      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, situAt, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0));
+      if (!freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0), others) || check(cuts, card, old, others).length) { cuts.forEach(c => { delete c._fam; }); continue; }
+      recentize(cuts, old, recent, card.world || '');
+      return { cuts, attempt, required: [...[...old, ...cuts].filter(c => !c.ofree).map(requiredType).filter(Boolean), ...[...old, ...cuts].filter(c => c.situ).map(c => 'situ:' + c.situ), ...[...old, ...cuts].filter(c => c.ofreeFamily).map(c => 'free:' + c.ofreeFamily + '+' + c.ofreeSitu)].join(' · ') };
+    }
   }
   throw new Error('규칙을 다 지키는 묶음을 못 찾았다 — 이미 있는 컷이 칸을 너무 많이 차지했는지 본다');
 }
@@ -358,7 +443,7 @@ function sceneUsage(dir, skip) {
     if (k === skip || !fs.statSync(path.join(dir, k)).isDirectory()) continue;
     for (const f of fs.readdirSync(path.join(dir, k)).filter(x => /-casual\d+\.[a-z_]+-ui\.json$/.test(x))) {
       let sc; try { sc = JSON.parse(fs.readFileSync(path.join(dir, k, f), 'utf8')).scene; } catch (e) { continue; }
-      if (!sc) continue;
+      if (!sc || (sc.ofree && 'ofreeRecent' in sc)) continue;   /* 자유 설계 컷(2026-11-11 꼴)의 장면 값은 그림자 — 그리지 않았다 */
       const u = C2.use(T2, sc.use);
       if (u && u.prop !== 'signature') add(out.prop, u.prop);
       add(out.place, sc.place); add(out.item, sc.item); add(out.preset, sc.preset); add(out.posture, sc.posture); add(out.expr, sc.expr); add(out.ofam, sc.ofam);
@@ -372,7 +457,7 @@ function line(c) {
   const p = C2.place(T2, c.place) || {}, f = CT.family(tree, c.ofam) || {}, it = CT.item(tree, c.ofam, c.item), u = C2.use(T2, c.use), pr = by(tree2.presets, c.preset);
   const ko = (list, k) => (by(list, k) || {}).ko || k || '—', hand = k => k === 'prop' ? '소품' : ko(tree2.hands, k);
   return `${c.old ? '  (있음)' : '  '} ${c.n} ${requiredType(c) ? '★' : ' '}${C2.awkward(T2, c.ofam, c.place).length ? '⚠' : ' '} ${(CT.era(tree, c.era) || {}).ko} · ${p.ko} · ${f.ko}${it ? '(' + it.ko + ')' : ''} │ ${pr ? pr.ko : '—'} │ ` +
-    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}${c.ofree ? ' · 옷 자유(GPT 노출 의상)' : ''}`;
+    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}${c.ofree ? (c.ofreeFamily ? ` · 갈래 자유(장면 자유 설계 — ${c.ofreeFamily} + ${c.ofreeSitu === 'free' ? '상황 자유' : '상황 ' + ko(T.CASUAL.situations, c.ofreeSitu)})` : ' · 옷 자유(장면 자유 설계)') : ''}`;
 }
 
 const FLAGS = new Set(['fresh']);
@@ -408,10 +493,12 @@ function main(argv) {
     /* --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 여섯 장(사용자 2026-11-02 「대체하는건 아니고, 추가로」) */
     const slots = opt.slots ? opt.slots.split(',').map(Number) : fresh ? Array.from({ length: CASUAL_N }, (_, i) => taken + 1 + i) : freeSlots(card, world);
     if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); continue; }
+    /* (여섯 장을 다 그린 세계면 일곱째 — 갈래 자유 컷 — 하나만 짜인다) */
     const old = fresh ? [] : mine.filter(c => !slots.includes(c.n));
+    { const lost = registered(card, world).filter(n => !mine.some(c => c.n === n)); if (lost.length && !fresh) console.log(`  ! ${world} 등록된 일상컷 ${lost.join(',')} 의 기록이 ${recDir} 에 없다 — 그림 저장소를 pull 한 뒤 다시(기록 없이는 필수 갈래 · 자유 설계 칸을 셀 수 없다)`); }
     const others = [...card.worlds.filter(w => w !== world).flatMap(allOld), ...(fresh ? mine : []), ...extra, ...planned];
     const seed = seed0 + worlds.indexOf(world);
-    const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key), others });
+    const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key), others, recent: recentScenes(usageDir) });
     planned.push(...res.cuts);
     console.log(`${key} ${world} 일상컷 묶음 — 칸 ${slots.join(',')} · 정해 둔 갈래 ${res.required} · 시도 ${res.attempt} · seed ${seed}${fresh ? ' · 새 묶음(옛 묶음과 겹치지 않게)' : ''}`);
     for (const c of [...old, ...res.cuts].sort((a, b) => a.n - b.n)) console.log(line(c));
@@ -429,5 +516,5 @@ function main(argv) {
   }
   return 0;
 }
-module.exports = { cardOf, plan, colorize, denierize, situate, freeOutfit, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));

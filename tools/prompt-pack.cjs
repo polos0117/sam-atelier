@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* 지시문 묶음 — 브라우저 없이 생성기와 같은 지시문·기록을 파일로(element-atelier 의 tools/prompt-pack.cjs 를 옮겼다 — 2026-11-02 사용자 「1,2,3 다 해줘」).
    GPT 세션은 브라우저를 못 띄운다 — 생성기 화면(lib/studio.js)이 부르는 조립부(lib/prompt-sam.js 의 build · buildCasual)를
-   같은 값으로 불러, 한 카드의 자리(사는 세계마다 세계 그림 한 장 + 일상컷 여섯 장 — IMAGE_RULES 2절)의 지시문과 기록을 쓴다.
+   같은 값으로 불러, 한 카드의 자리(사는 세계마다 세계 그림 한 장 + 일상컷 일곱 장 — IMAGE_RULES 2절)의 지시문과 기록을 쓴다.
    기록(<자리>-ui.json)은 생성기 「기록 내보내기」 와 같은 꼴에 생성기 저장값(storage)을 더한 것 — 그 storage 를 생성기에 넣으면 같은 지시문이 나온다.
 
    node tools/prompt-pack.cjs init <카드> --dir <작업 폴더> [--plan <세계 하나의 plan.json> …]
@@ -14,7 +14,7 @@
    자리 — <세계>(세계 그림 — 첨부 없이 한 장씩) · <세계>-casualN(일상컷 — 그 세계 그림 첨부). 화풍은 늘 기본(data/style.json default). 고칠 수 있는 칸:
      worlds.<세계>   notes(scene · outfit · custom — 직접 입력, why) · look(params · faceDesignOn · silhouetteOn · exposure — 표에 없는 외형은 직접 입력이라 why) ·
                      shot(scene — 설계표 장면 변주 열쇠 · time · pose · expr · frame(실루엣 — 세계마다 제 갈래 · 비우면 장수 설계값 worlds.<세계>.sil · free 면 없음) — 표의 값)
-     casual.<자리>   scene · outfit · custom(직접 입력 — why) · exposure(moderate · low — 그 컷만 피부 노출 축을 낮춘다, why 필요) · gloss(피부 광택 matte · soft · dewy · glossy — 비우면 화풍 기본) · situ(none — 상황 노출 컷이 노출을 낮춰도 막혔을 때만 상황을 뺀다, why 필요) · 나머지는 계획 그대로
+     casual.<자리>   scene · outfit · custom(직접 입력 — why) · exposure(moderate · low — 그 컷만 피부 노출 축을 낮춘다, why 필요) · gloss(피부 광택 matte · soft · dewy · glossy — 비우면 화풍 기본) · situ(none — 상황 노출 컷 · 갈래 자유 컷이 노출을 낮춰도 막혔을 때만 상황을 뺀다, why 필요) · 나머지는 계획 그대로
      세계 그림의 노출은 worlds.<세계>.look.exposure. 낮추는 것은 필터 거절 뒤 노출 낮추기(사용자 2026-11-01 「필터 문제로 막히면 재시도 후, 노출 수위를 낮춰가며 재시도로」 — IMAGE_RULES 1절) 에만 */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm'), crypto = require('node:crypto');
@@ -134,7 +134,7 @@ function recordOf(card, set, s) {
   if (x.exposure) scene.axes.skin_exposure = x.exposure;
   if (x.gloss) scene.gloss = x.gloss;
   if (x.color) scene.color = x.color;
-  if (x.situ === 'none') delete scene.situ;   /* 상황 노출(2026-11-09) — 막혀 뺄 때만 */
+  if (x.situ === 'none') { delete scene.situ; delete scene.ofreeSitu; }   /* 상황 노출(2026-11-09) — 막혀 뺄 때만(갈래 자유 컷의 상황도, 2026-11-11) */
   if (x.denier === 'none') delete scene.denier; else if (x.denier) scene.denier = x.denier;   /* 데니어(2026-11-08) — none 이면 비침 줄 없이 */   /* 옷 색 갈래(2026-11-08) — 비우면 계획기가 나눠 준 갈래 */   /* 피부 광택 단계(2026-11-06) — 비우면 화풍 기본 */
   return { ...P.casualRecord(D, S, card.key, scene, { world: s.world, style: STYLE, tree, tree2 }, n), record: PLAN.recordRel(card.key, s.world, n), storage: storageOf(card, s, x, scene) };
 }
@@ -175,8 +175,8 @@ function build(dir) {
   const rows = out.map(({ s, rec, gpt }, i) => `| ${i + 1} | ${s.slot} | ${s.kind === 'world' ? '세계 그림(첨부 없이)' : '일상(버전2)'} | ${s.attach.join(' + ') || '없음'} | ${rec.file} | ${rec.record} | ${sha(rec.prompt).slice(0, 12)} | ${sha(gpt).slice(0, 12)} |`);
   fs.writeFileSync(path.join(dir, 'INDEX.md'), `# ${card.key}(${card.c.ko}) — 지시문 묶음\n\n만든 때 ${new Date().toISOString()} · 화풍 ${STYLE} · 사는 세계 ${card.worlds.join(' · ')} · 계획 ${plans.map(p => p.world).join(' · ') || '없음(일상 자리 없음)'}\n\n` +
     '**세계 그림 → 멈춤 → 일상컷.** 세계 그림은 세계마다 **네 장**(기준 그림 없이 한 장씩) — **두 장은 우리 설계 `<세계>-prompt.txt` 그대로, 두 장은 GPT 임의 설계 `<세계>-free.txt`**(설계 주문 — 의상은 우리 실루엣 목록 가운데 역할 묶음에서 하나 · 무기 · 색 · 머리색은 우리 것, 얼굴 · 눈색 · 헤어스타일 · 자세 · 장면은 GPT 가 지어 제 지시문을 쓴다, 둘째 장은 첫째와 확실히 다르게, 사용자 2026-11-09). 네 장을 「우리 설계 1 · 2 / GPT 설계 1 · 2」 로 붙여 사용자에게 보이고 **멈추고 묻는다** — 사용자가 고르기 전엔 일상컷으로 넘어가지 않고 세계 그림도 올리지 않는다. 고른 장만 올리고, GPT 설계 장이면 기록 `generation.design: "gpt_free"` 와 GPT 가 실제로 넘긴 지시문 글(`generation.free_prompt`)을 남긴다(IMAGE_RULES.md 1절).\n\n' +
-    '**일상컷 옷 자유 컷 한 장** — 계획에 「옷 자유」 로 적힌 컷은 Outfit 줄이 「노출 의상을 네가 지어라」 다. 이 묶음의 `outfit-catalog.md`(우리가 이미 쓰는 옷 전부)를 읽고 **거기 없는 옷**을 지어 그 Outfit 줄에만 써 넣은 뒤 그린다 — 다른 줄은 그대로, 실제로 넘긴 글은 기록 `generation.free_prompt`.\n\n' +
-    '**프롬프트 임의 수정 금지 — 이미지 모델에도 똑같다.** 생성 규칙에 정해진 변경 사유(안전 필터 순서 · 사용자가 직접 시킨 수정 · settings 덧붙임 뒤 build · GPT 임의 설계 주문 `<세계>-free.txt` 로 제 지시문 쓰기 · 옷 자유 컷의 Outfit 줄 채우기) 외에는 낱말 하나도 고치지 않는다. 이미지 모델(image_gen)에도 파일 글을 요약 · 번역 · 다듬기 없이 그대로 넘기고 고쳐 쓰지 말고 그대로 그리게 한다. 고친 사유는 기록에(IMAGE_RULES.md 1절).\n\n' +
+    '**일상컷 자유 설계 두 장(옷 자유 · 갈래 자유)** — 계획에 「옷 자유」 · 「갈래 자유」 로 적힌 컷은 장면 줄 대신 `FREE DESIGN` 덩어리다(사용자 2026-11-11 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 …」). 그 장수에게서 출발해 덩어리의 「…」 다섯 줄(Place · Activity · Pose · Framing · Outfit)을 채운 뒤 그린다 — 최근 장면 줄과 겹치지 않게, 옷은 이 묶음의 `outfit-catalog.md`(우리가 이미 쓰는 옷 전부)에 **없는 것**, 갈래 자유 컷은 적힌 옷 갈래 안에서(목록에서 골라도 되나 목록 밖 먼저) 짓고 상황 노출 순간도 직접 짓는다(우리 넷이 아닌 것 먼저). 다른 줄은 그대로, 채운 덩어리는 기록 `generation.free_design`, 실제로 넘긴 글은 `generation.free_prompt`.\n\n' +
+    '**프롬프트 임의 수정 금지 — 이미지 모델에도 똑같다.** 생성 규칙에 정해진 변경 사유(안전 필터 순서 · 사용자가 직접 시킨 수정 · settings 덧붙임 뒤 build · GPT 임의 설계 주문 `<세계>-free.txt` 로 제 지시문 쓰기 · 일상컷 자유 설계 덩어리 채우기) 외에는 낱말 하나도 고치지 않는다. 이미지 모델(image_gen)에도 파일 글을 요약 · 번역 · 다듬기 없이 그대로 넘기고 고쳐 쓰지 말고 그대로 그리게 한다. 고친 사유는 기록에(IMAGE_RULES.md 1절).\n\n' +
     '**노출은 세션이 줄이지 않는다.** 노출 줄을 빼거나 누그러뜨리거나 단계를 미리 낮추지 않는다 — 안전 필터가 실제로 막았을 때만 IMAGE_RULES.md 1절 순서대로. 검수에 `qa.exposure`(match · weaker · stronger), weaker 면 같은 지시문으로 한 번 다시(docs/IMAGE_AUTOMATION.md 4절).\n\n' +
     '차례대로 그린다. 일상컷은 그 세계 그림(이 세션의 원본, 이미 등록된 것이면 그림 저장소의 webp)을 붙인다. 고치지 않고 그대로 낸다 — ' +
     'GPT 세션은 세계 그림에 `<세계>-prompt.txt`, 일상컷에 `<세계>-casualN-gpt.md`(크기 1024×1536 지정). API · 생성기는 모두 `<자리>-prompt.txt`(docs/IMAGE_AUTOMATION.md 3절).\n\n' +

@@ -7,7 +7,9 @@
    node tools/api-draw.cjs world  <장수> <세계> --out <폴더> [--n 2] [--exposure moderate|low]   우리 설계 n 장 → <세계>-ours1.png …
    node tools/api-draw.cjs free   <장수> <세계> --text <글 파일> --tag gpt1 --out <폴더>        GPT 설계 글로 한 장 → <세계>-gpt1.png
    node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--exposure N=moderate|low] [--ref-size 768|0]
-                                                                                     일상컷(편집 API) → <세계>-casualN.png. 옷 자유 컷(ofree)은 --free 로 받은 글(Outfit 줄만 바꾼 것)
+                                                                                     일상컷(편집 API) → <세계>-casualN.png. 자유 설계 컷(옷 자유 · 갈래 자유 — 계획의 ofree)은
+                                                                                     --free 로 받은 채운 자유 설계 덩어리(FREE DESIGN … Outfit 줄 — 지시문 전체를 줘도 그 덩어리만 쓴다)를
+                                                                                     지시문의 빈 덩어리 자리에 넣는다(2026-11-11 — 다른 줄은 늘 조립부 그대로). 기록 free_design · free_prompt
    node tools/api-draw.cjs usage  <폴더>                                              그 폴더의 호출 · 토큰 합계(usage.jsonl)
    node tools/api-draw.cjs sheet  <out.jpg> <그림>… [--labels a,b,…]                   붙여 보기(사용자에게 보여 줄 때)
    node tools/api-draw.cjs stage  <장수> --img <그림 저장소> <png>=<자리>…                 webp(품질 90) + 기록을 그림 저장소에 둔다(commit 은 하지 않는다)
@@ -86,6 +88,16 @@ async function draw({ model, quality, prompt, ref, out, name, exposure, refSize 
   }
   return { blocked: true, retries };
 }
+/* 채운 덩어리가 틀을 지켰나 — 설계 다섯 줄(Place · Activity · Pose · Framing · Outfit)만 채우고 나머지 줄은 낱말 그대로. 틀린 것 목록 */
+function freeBlockErrors(filled, tpl) {
+  const trim = x => String(x || '').trim(); var errs = [], F = String(filled || '').split('\n'), Tl = String(tpl || '').split('\n'), design = /^(Place|Activity|Pose|Framing|Outfit): /;
+  Tl.filter(function (l) { return !design.test(l); }).forEach(function (l) { if (F.indexOf(l) < 0) errs.push('고치면 안 되는 줄이 바뀌었다: ' + l.slice(0, 60)); });
+  ['Place', 'Activity', 'Pose', 'Framing', 'Outfit'].forEach(function (h) {
+    var l = F.filter(function (x) { return x.indexOf(h + ': ') === 0; })[0];
+    if (!l) errs.push(h + ' 줄이 없다'); else if (/^…/.test(trim(l.slice(h.length + 2)))) errs.push(h + ' 줄을 안 채웠다');
+  });
+  return errs;
+}
 function writeRec(out, name, rec) { fs.writeFileSync(path.join(out, name + '_record.json'), JSON.stringify(rec, null, 1) + '\n'); }
 
 async function cmdWorld(o) {
@@ -117,10 +129,18 @@ async function cmdCasual(o) {
     const scene = { ...sc, axes: { ...FIXED, ...(sc.axes || {}), skin_exposure: exp }, aspect: '2:3', unlocked: sc.unlocked || [] };
     const rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2 }, n);
     let prompt = rec.prompt;
-    if (cut.ofree) { if (!o.free[n]) { console.log(name + ' — 옷 자유 컷: --free ' + n + '=<글 파일> 이 없어 건너뛴다'); blocked.push(name + '(글 없음)'); continue; } prompt = fs.readFileSync(o.free[n], 'utf8').trim(); }
+    /* 자유 설계 컷(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 …」) — 채운 덩어리를 받아 빈 덩어리 자리에. 틀(머리 · 최근 장면 · 필수 갈래 · 상황 줄)은 낱말 그대로여야 한다 */
+    let block = '';
+    if (cut.ofree) {
+      if (!o.free[n]) { console.log(name + ' — 자유 설계 컷: --free ' + n + '=<채운 덩어리 파일> 이 없어 건너뛴다'); blocked.push(name + '(글 없음)'); continue; }
+      const tpl = P.freeBlockOf(prompt), got = fs.readFileSync(o.free[n], 'utf8').trim(); block = P.freeBlockOf(got) || '';
+      const errs = !tpl ? ['지시문에 자유 설계 덩어리가 없다'] : !block ? ['--free ' + n + ' 글에 FREE DESIGN … Outfit 덩어리가 없다'] : freeBlockErrors(block, tpl);
+      if (errs.length) { console.log(name + ' — 자유 설계 덩어리가 틀을 안 지켰다: ' + errs.join(' · ')); blocked.push(name + '(덩어리 틀림)'); continue; }
+      prompt = prompt.replace(tpl, () => block);
+    }
     const gen = await draw({ model, quality: o.quality, prompt, ref: o.ref, out, name, exposure: exp, refSize: o['ref-size'] == null ? 768 : Number(o['ref-size']) });
     if (gen.blocked) { blocked.push(name); continue; }
-    if (cut.ofree) { gen.design = 'ofree'; gen.free_prompt = prompt; gen.free_by = o.by || 'claude'; }
+    if (cut.ofree) { gen.design = cut.ofreeFamily ? 'ofree_family' : 'ofree'; gen.free_design = block; gen.free_prompt = prompt; gen.free_by = o.by || 'claude'; }
     writeRec(out, name, { ...rec, generation: gen });
   }
   return blocked;

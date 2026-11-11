@@ -34,6 +34,21 @@ srv.listen(0, async () => {
     assert(fs.existsSync(path.join(img, 'img', '조조_samguk_api25_f.webp')) && fs.existsSync(path.join(img, 'img', '조조_samguk_api25_f_casual1.webp')), 'stage — webp');
     const sr = JSON.parse(fs.readFileSync(path.join(img, 'records', '조조', 'samguk-casual1.api25-ui.json'), 'utf8')); assert(sr.ref === '조조_samguk_api25_f.webp' && sr.generation.webp.quality === 90, 'stage — 기록');
     r = await run(['stage', '조조', '--img', img, path.join(out, 'samguk-ours2.png') + '=samguk']); assert(r.status !== 0 && /덮지 않는다/.test(r.stderr), 'stage — 있으면 멈춘다');
-    console.log('PASS 2.5 API 그리기 도구: 세계 그림 · GPT 설계 · 일상컷(편집 · 참고 그림) · 막힘 한 번 더 → 건너뜀 · 사용량 · stage(webp · 기록 · 덮지 않음)');
+    /* 자유 설계 컷(2026-11-11) — 일곱 장 계획의 갈래 자유 컷 하나: 채운 덩어리를 받아 빈 덩어리 자리에, 틀 줄을 바꾸거나 안 채우면 건너뛴다 */
+    const p7 = path.join(tmp, 'plan7'); cp.execFileSync(process.execPath, [path.join(R, 'tools/casual-plan.cjs'), '조조', '--world', 'fantasy', '--style', 'api25', '--slots', '1,2,3,4,5,6,7', '--records', path.join(tmp, 'norec'), '--usage', 'none', '--seed', '4', '--out', p7], { stdio: 'pipe' });
+    const pl7 = JSON.parse(fs.readFileSync(path.join(p7, 'plan.json'), 'utf8')), fam = pl7.cuts.find(c => c.ofree && c.ofreeFamily);
+    assert(fam && pl7.cuts.filter(c => c.ofree).length === 2, '일곱 장 계획 — 자유 설계 두 장(옷 자유 · 갈래 자유)');
+    fs.writeFileSync(path.join(p7, 'one.json'), JSON.stringify({ ...pl7, cuts: [fam] }));
+    const tplP = fs.readFileSync(path.join(p7, 'fantasy-casual' + fam.n + '-prompt.txt'), 'utf8'), tpl = tplP.slice(tplP.indexOf('FREE DESIGN:'), tplP.indexOf('\n', tplP.indexOf('\nOutfit: ') + 1));
+    const filled = tpl.replace('Place: …', 'Place: a rain-swept rooftop greenhouse at dusk').replace('Activity: …', 'Activity: repotting a stubborn orchid').replace('Pose: …', 'Pose: kneeling on one knee').replace('Framing: …', 'Framing: waist-up, slightly high angle').replace(/^Outfit: …$/m, 'Outfit: a sheer-paneled one-piece swimsuit under an open rain shell').trim();
+    fs.writeFileSync(path.join(tmp, 'free-ok.txt'), 'Here is the prompt:\n' + filled); fs.writeFileSync(path.join(tmp, 'free-bad.txt'), filled.replace(/^Situation \(required\):.*$/m, 'Situation (required): none'));
+    fs.writeFileSync(path.join(tmp, 'free-empty.txt'), tpl);
+    r = await run(['casual', path.join(p7, 'one.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out]); assert(r.status === 3 && /글 없음/.test(r.stdout), '자유 설계 컷 — 글이 없으면 건너뛴다');
+    r = await run(['casual', path.join(p7, 'one.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out, '--free', fam.n + '=' + path.join(tmp, 'free-bad.txt')]); assert(r.status === 3 && /틀을 안 지켰다/.test(r.stdout), '자유 설계 컷 — 필수 줄을 바꾸면 건너뛴다');
+    r = await run(['casual', path.join(p7, 'one.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out, '--free', fam.n + '=' + path.join(tmp, 'free-empty.txt')]); assert(r.status === 3 && /안 채웠다/.test(r.stdout), '자유 설계 컷 — 안 채우면 건너뛴다');
+    r = await run(['casual', path.join(p7, 'one.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out, '--free', fam.n + '=' + path.join(tmp, 'free-ok.txt')]); assert.equal(r.status, 0, r.stdout + r.stderr);
+    const fg = JSON.parse(fs.readFileSync(path.join(out, 'fantasy-casual' + fam.n + '_record.json'), 'utf8')).generation;
+    assert(fg.design === 'ofree_family' && fg.free_design === filled && fg.free_prompt === tplP.trim().replace(tpl, filled) && !/^(Place|Outfit): …/m.test(fg.free_prompt), '자유 설계 기록 — 채운 덩어리 · 넘긴 지시문(다른 줄은 조립부 그대로)');
+    console.log('PASS 2.5 API 그리기 도구: 세계 그림 · GPT 설계 · 일상컷(편집 · 참고 그림) · 막힘 한 번 더 → 건너뜀 · 사용량 · stage(webp · 기록 · 덮지 않음) · 자유 설계 덩어리(받기 · 틀 검사 · 기록)');
   } catch (e) { console.error(e); process.exitCode = 1; } finally { srv.close(); fs.rmSync(tmp, { recursive: true, force: true }); }
 });

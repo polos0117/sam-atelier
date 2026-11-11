@@ -1,4 +1,4 @@
-"""일상컷 묶음 검사(2026-11-02) — 세계마다 여섯 장 중 세 장은 정해 둔 갈래로(2026-11-09 — 전엔 다섯 장 중 두 장)(사용자 「란제리풍·수영복·역할극, 세계 안의 방·목욕·지붕·여관·서재·부엌·군영 이거는 각각 1장해서 2장은 확정으로」).
+"""일상컷 묶음 검사(2026-11-02) — 세계마다 일곱 장 중 세 장은 정해 둔 갈래로 + 일곱째 갈래 자유 컷(2026-11-11 — 11-09 여섯 장 중 세 장, 전엔 다섯 장 중 두 장)(사용자 「란제리풍·수영복·역할극, 세계 안의 방·목욕·지붕·여관·서재·부엌·군영 이거는 각각 1장해서 2장은 확정으로」).
 
   노출 갈래 한 장  — 의상 계열이 란제리풍 · 수영복 · 역할극 (casual-tree.json required.outfits)
   세계 안 갈래 한 장 — 시대 「세계 안」 의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복 (required.world)
@@ -19,13 +19,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMGR = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')
 REQ = json.load(open(os.path.join(ROOT, 'data/casual-tree.json'), encoding='utf-8'))['required']
 WORLDS = ['samguk', 'fantasy', 'mecha']
-PER_WORLD = 6   # 사용자 2026-11-09 「일상컷 생성수를 6장으로」 — 옛 묶음(기록에 situ 칸이 없다)은 상황 갈래 전이라 상황 칸이 비어도 실패로 치지 않는다
+PER_WORLD = 7   # 사용자 2026-11-11 「한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게 추가해줘. 그럼 일상컷은 총 7장 되는거야」(11-09 「6장으로」) — 옛 묶음(기록에 situ 칸이 없다)은 상황 갈래 전이라 상황 칸이 비어도 실패로 치지 않는다.
+#                 일곱째는 갈래 자유 컷(scene.ofree + ofreeFamily · ofreeSitu — 필수 노출 갈래 + 상황을 묶은 자유 설계, tools/casual-plan.cjs) — 옛 묶음은 없어도 맞고, 여섯 장 묶음은 --plan 일 때 남은 한 칸으로 알린다
 
 
 def kind(scene):
     """한 컷이 맞는 갈래 — {'expose', 'inworld'} 의 부분집합"""
     s = scene or {}
     out = set()
+    if s.get('ofree') and 'ofreeRecent' in s:   # 자유 설계 컷(2026-11-11 꼴) — 장면 값은 그림자라 갈래로 안 센다
+        return {'family'} if s.get('ofreeFamily') else set()
     if s.get('ofam') in REQ['outfits']:
         out.add('expose')
     w = REQ['world']
@@ -33,10 +36,13 @@ def kind(scene):
         out.add('inworld')
     if s.get('situ') and not out:
         out.add('situ')   # 셋째 필수(2026-11-09) — 상황 노출, 노출 · 세계 안 갈래 컷과 다른 컷
+    if s.get('ofree') and s.get('ofreeFamily') and not out:
+        out.add('family')   # 일곱째(2026-11-11) — 갈래 자유 컷(장면 자유 설계, 칸의 장면 값은 그림자라 갈래 판정에 안 쓴다)
     return out
 
 
 new = {}   # (장수, 세계) → 그 세계에 상황 칸(scene.situ)이 있는 기록이 있나 — 옛 기록엔 그 칸 자체가 없다
+new7 = {}  # (장수, 세계) → 일곱 장 꼴(2026-11-11 — 자유 설계 칸 scene.ofreeRecent · ofreeFamily)의 기록이 있나 — 옛 여섯 장 묶음은 갈래 자유 칸 없이 맞다
 
 
 def cuts(card):
@@ -49,6 +55,8 @@ def cuts(card):
         by.setdefault(m.group(1), {})[int(m.group(2))] = kind(d.get('scene'))
         if 'situ' in (d.get('scene') or {}):
             new[(card, m.group(1))] = True
+        if 'ofreeRecent' in (d.get('scene') or {}) or (d.get('scene') or {}).get('ofreeFamily'):
+            new7[(card, m.group(1))] = True
     return by
 
 
@@ -59,6 +67,8 @@ def scenes(card):
         if not m or m.group(1) not in WORLDS:
             continue
         s = json.load(open(f, encoding='utf-8')).get('scene') or {}
+        if s.get('ofree') and 'ofreeRecent' in s:
+            continue   # 자유 설계 컷(2026-11-11 꼴) — 그림자 장면은 겹침에 안 센다
         out.append((m.group(1), int(m.group(2)), s.get('place'), s.get('ofam'), s.get('preset')))
     return out
 
@@ -115,12 +125,15 @@ def main(argv):
             c = next((n for n, k in ks.items() if 'situ' in k), None)
             left = PER_WORLD - len(ks)
             need = [x for x, ok in (('노출 갈래(란제리풍·수영복·역할극)', a), ('세계 안 갈래(방·목욕·지붕·여관·서재·부엌·군영·정원·다리·사당·숲길·나루)', b)) if not ok]
-            if not c and any('situ' in k for k in ks.values()) is False and new.get((card, w)):
+            fam = next((n for n, k in ks.items() if 'family' in k), None)
+            if not c and not fam and any('situ' in k for k in ks.values()) is False and new.get((card, w)):   # 갈래 자유 컷의 상황도 그 몫(옛 여섯 장 위 일곱째, 2026-11-11)
                 need.append('상황 노출(젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈)')
+            if not fam and (new7.get((card, w)) or (plan and len(ks) < PER_WORLD)):
+                need.append('갈래 자유(필수 노출 갈래 + 상황 — 자유 설계)')
             state = '맞음' if not need else ('남은 %d칸에 %s' % (left, ' · '.join(need)) if len(need) <= left else '모자람 — ' + ' · '.join(need))
             if need and len(need) > left:
                 bad += 1
-            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · 상황 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', 'casual%d' % c if c else '없음', state)
+            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · 상황 %s · 갈래 자유 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', 'casual%d' % c if c else '없음', 'casual%d' % fam if fam else '없음', state)
             if plan or need or len(argv) > 0:
                 print(line)
         hits = cross(card)
