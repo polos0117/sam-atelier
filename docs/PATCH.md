@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · 구조판 지움
+- 사용자 「구조판은 지워줘」 — 프롬프트 v2 탭(prompt2.html · 머리 메뉴 · 낱말 nav.prompt2 · prompt2.*) · lib/studio.js V2 꼴(samguk_studio_v2) · lib/prompt-sam.js buildStruct · structVer(와 그것만 쓰던 도우미) · lib/prompt-spec.js STRUCT 표 · data/style.json 구조판 화풍 셋(glossy_plain · glossy_kv · anime_kv — 등록 그림 없음)을 지웠다. 다른 화풍 지시문은 그대로
+- tests/prompt-v2.cjs 구조판 검사만 빼고 나머지 그대로 · AGENTS · IMAGE_RULES · docs/STYLE_LAB 은 「2026-11-11 지웠다」 로. ?v= words 19 · workspace-ui 6 · prompt-spec 30 · prompt-sam 28 · studio 11
+
 ## 2026-11-11 · claude · 도감에 그림 없는 화풍 내림
 - 사용자 「등록 안된 화풍들 내리고 난뒤에는 생성기 구조별로 어떻게 되는지 다시 표로 보여줘」 — style.json 화풍 스물하나에 retired · retired_why(지우지 않음). 생성기 화풍 고르개에서 뺌(lib/studio.js), api-draw 는 --force 없이 안 그림. 기본 kr_drawn_rim_dewy · 구조판 탭 몫 glossy_plain 은 그림이 없어도 둠
 - 앞 커밋에서 빠뜨린 prompt-sam.js ?v= 26→27, studio.js 9→10. 검사: prompt-v2(살아 있는 화풍 여덟) · screen(고르개에 내린 화풍 없음). IMAGE_RULES 1절

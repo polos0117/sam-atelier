@@ -1295,7 +1295,7 @@ Vertical 2:3 full-body composition, entire head to footwear inside the frame wit
 
 사용자 「화풍비교 전에 kv 꼴에 맞춰서 줄꼴 문장들 좀 옮기자. 지금 정리가 너무 안되어 있다」 → 「문구도 다 정리하자. 지금은 좀 난잡한거 같아. api25는 안건드리는게 맞아」. 줄 꼴(17줄)을 칸(화풍 · 인물 · 의상과 장비 · 장면 · 제약)으로 묶고 겹친 문장 · 금지 나열을 정리한 새 꼴. `api25`(2.5 로 그리는 판)는 건드리지 않는다.
 
-**넣은 것(2026-11-10)** — `lib/prompt-spec.js` `SECTIONS`(문구 표) · `lib/prompt-sam.js` `sectionsOn` · `buildWorldSections` · `buildCasualSections`, 판(`data/style.json`) 꼭대기 `"sections": true`. 짧은 판이던 화풍 열셋(줄 꼴 일곱 · kv 꼴 여섯)이 모두 이 꼴로 지어지고, 화풍마다 다른 것은 1칸의 화풍 문단(+ 판에 있으면 세계 몫 의상 · 분위기 · 빛 문장)뿐이다. `api25` · `kr_mmorpg_26`(2.5 글) · 구조판은 그대로. 옛 짧은 판 조립부(`buildWorldShort` · `buildCasualShort`)는 남겨 둬 `sections: false` 면 되돌아간다.
+**넣은 것(2026-11-10)** — `lib/prompt-spec.js` `SECTIONS`(문구 표) · `lib/prompt-sam.js` `sectionsOn` · `buildWorldSections` · `buildCasualSections`, 판(`data/style.json`) 꼭대기 `"sections": true`. 짧은 판이던 화풍 열셋(줄 꼴 일곱 · kv 꼴 여섯)이 모두 이 꼴로 지어지고, 화풍마다 다른 것은 1칸의 화풍 문단(+ 판에 있으면 세계 몫 의상 · 분위기 · 빛 문장)뿐이다. `api25` · `kr_mmorpg_26`(2.5 글)는 그대로. 옛 짧은 판 조립부(`buildWorldShort` · `buildCasualShort`)는 남겨 둬 `sections: false` 면 되돌아간다.
 
 - 세계 그림 다섯 칸 — 머리말(크기 · 누구) / 1 STYLE(화풍 문단 · 얼굴 비율 한 문단) / 2 CHARACTER(나이 · 얼굴 · 몸과 머리 · 표정 · 전설 · 몸 개수) / 3 COSTUME AND EQUIPMENT(의상 · 실루엣 · 색과 메카 설계 · 무기 · 노출) / 4 SCENE(세계 · 장소 · 분위기 · 자세 · 빛 · 구도) / 5 CONSTRAINTS(인물 하나 · 글자 규칙 · 세계 경계). 문앙 메카 줄 꼴 1,060낱말 → 약 715낱말.
 - 일상컷 네 칸 — 머리말(편집 · 크기 · 앞 대화 그림 쓰지 않기) / 1 KEEP(얼굴 · 색 · 몸 · 마감, 화풍 문단) / 2 CHANGE(입은 것 다 두고 오기 · 자세와 카메라는 장면 글에서 · 옷 · 장신구 · 전설) / 3 SCENE(계획 칸) / 4 CONSTRAINTS(팔 둘 다리 둘 · 손은 손목 · 팔뚝으로 어깨에 · 틀 밖으로 이어짐 — 짧은 판에서 빠졌던 몸 지키는 줄).
@@ -1360,7 +1360,7 @@ Vertical 2:3 full-body composition, entire head to footwear inside the frame wit
 | `kv_anime_gloss` | 애니 셀 채색 — 파스텔 하이키 · 광택 (애니 광택) | 애니 광택(포켓몬 공방) |
 | `kv_cgi_hikey` | 실사 CG — 사진 같은 피부 · 재질 (시네마틱 CGI 하이키) | 시네마틱 CGI 하이키 |
 
-구조판 셋(`glossy_kv` · `anime_kv` · `glossy_plain`)은 그대로.
+구조판 셋(`glossy_kv` · `anime_kv` · `glossy_plain`)은 2026-11-11 지웠다(사용자 「구조판은 지워줘」).
 
 이름과 글이 어긋난 곳(글을 고칠지는 사용자가 정한다 — 고치면 그림이 달라진다):
 
