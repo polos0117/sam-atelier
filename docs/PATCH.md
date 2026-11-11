@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · API 생성 탭 — 일감의 그림 모델이 먼저
+- 사용자 「2.5api 로 작업 지시할 때, gpt 에 맡기는 작업은 웬지 2.6api로 쓰는거 같은 기분인데 확인 좀 부탁해」 — 확인: tools/api-draw.cjs 로 그린 GPT 설계(gpt_free 31장 · 옷 자유 ofree 96장)는 기록 모델 2.5 · 출력 343(2.5 크기), 2.6(1,132)은 없었다
+- API 생성 탭(lib/api-run.js)은 이 기기에 저장된 그림 모델(samguk_api_opt)이 일감의 모델(화풍 판 model — api25 는 2.5)보다 먼저였다 — 한 번 2.6 을 고르면 그 뒤 api25 일감 · GPT 설계 일감도 2.6 으로 그렸다. 일감의 모델이 먼저, 저장값은 일감에 모델이 없을 때만. 고르개로 바꾸면 그 장만. api-run ?v=6
+
 ## 2026-11-11 · claude · 얼굴 낱말 — 눈 크기 보통에서 사실형 말 빼기
 - 사용자 「응 삼국지도 바꿔줘」 — 원소 공방과 같이 lib/prompt-spec.js eye_size.medium 「moderately sized, realistically proportioned eyes」 → 「medium-sized eyes」(설계표 173명이 쓰는 값). prompt-spec ?v=31. 올린 그림 · 기록은 그대로, 새 지시문부터(기본 · api25 · kv 판 모두 — 관우 무협으로 확인)
 - 그대로 둔 것: kv_kmmo_lock · kv_kmmo_23d 판의 얼굴 규칙(큰 눈 → realistically proportioned eyes, 그 화풍의 반실사 맞춤)과 GPT 구조형 틀(lib/prompt-gpt.js 반실사 3D 얼굴 줄) — 화풍 몫이라 낱말표와 따로
