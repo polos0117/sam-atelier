@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · 상황 붙은 일상컷에서 「nothing slipped off」 빼기
+- 노출 축 글(skin_exposure bold)의 「; nothing slipped off(아무것도 흘러내리지 않게)」 를 상황이 붙은 컷(상황 노출 situ · 갈래 자유 설계 컷 ofreeSitu)에서만 뺀다 — 흘러내린 어깨끈 · 반쯤 푼 차림 같은 상황과 부딪혔다. 다른 컷은 그대로(lib/prompt-sam.js noSlipOff)
+- 사용자 2026-11-11 「2번 고쳐줘」 · prompt-sam ?v=33 · tests/casual-plan · prompt-v2 통과
+
 ## 2026-11-11 · claude · 일상컷 일곱 장 — 자유 설계 두 장(옷 자유 · 갈래 자유)
 - 사용자 「응 한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게 추가해줘. 그럼 일상컷은 총 7장 되는거야」 → 「장소·활동·자세·구도·의상을 자유롭게 설계해줘. 캐릭터의 특징에서 출발해, 예상하지 못했지만 그 캐릭터에게 자연스럽게 어울리는 일상의 한 순간을 보여줘. 참신함은 장식의 양보다 상황과 행동에서 만들어줘. 최근 작업과 비슷한 장면은 피하고, 얼굴·화풍·인체 규칙은 유지해줘. 필수갈래랑 상황노출 두개를 묶어서 이렇게 가자. 그리고 지금 맡겨놓은 일상컷 1장도 같이 이런식으로」 → 「상황도 열어주자. 옷도 이제 큰범위로만 지정해줘. 수영복갈래면 우리쪽에서 선택해도 되고, 본인이 골라도 되는데, 최대한 우리쪽에 없는걸 고르게.」
 - lib/prompt-spec.js — FREE_DESIGN 한 곳(머리 · Recent scenes · Place/Activity/Pose/Framing/Outfit 「…」 · 갈래 큰 범위 줄 familyNames · 열린 상황 situFree · 맡기는 글 ask), OUTFIT_FREE 는 FREE_DESIGN.outfit 를 가리킨다(core 블록은 그대로)
