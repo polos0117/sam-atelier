@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · kr_drawn_rim_dewy — 화풍공방 시험 지시문과 맞춤
+- 사용자 「머리말이랑 얼굴 비율, 일상컷 꼴, Avoid 는 화풍공방 테스트 문구랑 맞춰줘야 테스트한것처럼 그려지지 않을까?」 — 판 몫 칸: worldHead(character image) · worldFace(in this style 없이) · worldStyleAfter(Skin finish, 얼굴 줄 뒤) · avoid(세계 5칸 끝 Avoid · 일상컷 끝 AVOID) · casualLegacy api25(일상컷만 2.5 글 긴 꼴) · casualStyleAfter(SKIN FINISH, STYLE 바로 뒤). 조립부(lib/prompt-sam.js)는 이 칸이 있는 판에만
+- 확인: 화풍공방 18차 일상컷과 같은 장면 15장 글자까지 같음, 세계 그림은 머리 장식 · 노출만 다름(공방 그대로 둠). 묶음 도구 casualLegacy 일상컷도 영문 그대로. 검사: prompt-v2 · casual-plan · screen · prompt-gpt
+
 ## 2026-11-11 · claude · 새 기본 화풍 kr_drawn_rim_dewy — 화풍공방 확정 화풍 + 몸 피부 물광
 - 사용자 「우선 삼국지는 지금 확정화풍에 피부효과 추가로 공방에도 적용해서, 그림모델 2.6의 기본화풍으로 설정해줘」 — data/style.json kr_drawn_rim_dewy v1(style-atelier kr_drawn_brush_rim = km2-il2-ba3-rg2-x01 + dewy_body v1): text · casual = 화풍 문단 + Skin finish, worldLight = rim_gloss v2, model 2.6. default kr_mmorpg_26 → kr_drawn_rim_dewy
 - 세계 그림 · 일상컷 칸 꼴(긴 꼴 일상컷은 STYLE 이 첨부 그림 잠금이라 물광 글이 빠진다). 화풍공방 avoid 는 칸이 없어 빠짐 — 글이 맡는다

@@ -156,7 +156,7 @@ function build(dir) {
   /* 화풍 칸이 따로 붙는 판(worldTail — kr_promo_hikey: 피부색 · 조명 · 카메라 칸)도 그대로 — 옛 구조형 화풍 칸(림 조명)이 그 칸과 부딪친다.
      일상컷 묶음(casualKit — 화풍 글 · 설계 얼굴 · 피부색 · 하이키)이 있는 판의 일상컷도 그대로 — 구조형은 화풍 · 설계 얼굴을 버린다(2026-11-08 kr_promo_hikey 기본) */
   const SV = (S.styles[STYLE].versions || []).find(v => v.v === S.styles[STYLE].current) || {}, LEG = !!SV.legacy25,   /* 2.5 글 판(legacy25 — api25 · kr_mmorpg_26, 2026-11-10)은 세계 그림 · 일상컷 모두 영문 그대로 — 구조형으로 옮기면 2.5 글이 아니게 된다 */
-    KV = LEG || SV.format === 'kv' || !!SV.worldTail || P.worldShortOn(S, STYLE), KIT = LEG || !!SV.casualKit || P.casualShortOn(S, STYLE);
+    KV = LEG || SV.format === 'kv' || !!SV.worldTail || P.worldShortOn(S, STYLE), KIT = LEG || !!SV.casualLegacy || !!SV.casualKit || P.casualShortOn(S, STYLE);   /* casualLegacy(일상컷만 2.5 글 긴 꼴 — kr_drawn_rim_dewy, 2026-11-11)도 영문 그대로 */
   for (const o of out) {
     const same = { text: o.rec.prompt, unknown: [] };
     const g = o.s.kind === 'world' ? (KV ? same : GPT.world(o.rec.prompt)) : (KIT ? same : GPT.casual(o.rec.prompt, { bodyText: bodyOf(o.s.world) }));

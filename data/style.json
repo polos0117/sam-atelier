@@ -2192,9 +2192,9 @@
      "v": "v1",
      "adopted": "2026-11-11",
      "by": "claude — 사용자 2026-11-11 「우선 삼국지는 지금 확정화풍에 피부효과 추가로 공방에도 적용해서, 그림모델 2.6의 기본화풍으로 설정해줘」",
-     "why": "화풍공방(style-atelier) 확정 화풍 kr_drawn_brush_rim = km2-il2-ba3-rg2-x01(방향 kr_mmorpg v2 · 얼굴 illustrated v2 · 채색 brush_anime v3 · 조명 rim_gloss v2 · 이펙트 none) + 피부 마감 dewy_body v1. 문앙으로 1~15차 시험 — 반복 4~5 · 무협 · 판타지 · 메카 안정, 물광은 「피부에 입체감이 더 생겼네」. 세계 그림은 칸 꼴 정리판(화풍공방 시험 꼴과 같다 — 화풍 문단 + Skin finish, 장면에 Light 줄). 일상컷도 칸 꼴(짧은 꼴) — 2.6 긴 꼴은 STYLE 칸이 「첨부 그림 그대로」 잠금이라 화풍 · 물광 글이 빠진다. 칸 꼴은 화풍 단락(화풍 글 + Skin finish)이 그대로 들어간다(화풍공방 일상컷 18장은 2.5 글 긴 꼴의 STYLE 줄만 바꿔 그렸다 — 꼴은 다르다). 화풍공방의 avoid(눈가 파란 기 · 얼굴 광 · 땀 · 기름 피부)는 이 판에 칸이 없어 빠진다 — 눈가 파란 기는 rim_gloss v2 글(warm-neutral sheen)이, 얼굴 광은 Skin finish 끝말(her face keeps a soft, natural finish)이 맡는다",
-     "text": "Korean MMORPG character artwork. A recognisably drawn face with gently simplified anatomical structure. 2D painting with visible brushwork: layered strokes of colour, soft broken edges, thin coloured linework and a few crisp accents on the face and costume. Skin finish: dewy, glass-like highlights on the skin of her shoulders, arms, collarbones and legs — a soft, luminous wet-look sheen that follows the body's forms; her face keeps a soft, natural finish.",
-     "casual": "Korean MMORPG character artwork. A recognisably drawn face with gently simplified anatomical structure. 2D painting with visible brushwork: layered strokes of colour, soft broken edges, thin coloured linework and a few crisp accents on the face and costume. Skin finish: dewy, glass-like highlights on the skin of her shoulders, arms, collarbones and legs — a soft, luminous wet-look sheen that follows the body's forms; her face keeps a soft, natural finish.",
+     "why": "화풍공방(style-atelier) 확정 화풍 kr_drawn_brush_rim = km2-il2-ba3-rg2-x01(방향 kr_mmorpg v2 · 얼굴 illustrated v2 · 채색 brush_anime v3 · 조명 rim_gloss v2 · 이펙트 none) + 피부 마감 dewy_body v1. 문앙으로 1~15차 시험 — 반복 4~5 · 무협 · 판타지 · 메카 안정, 물광은 「피부에 입체감이 더 생겼네」. 화풍공방 시험 지시문과 맞춘다(사용자 2026-11-11 「머리말이랑 얼굴 비율, 일상컷 꼴, Avoid 는 화풍공방 테스트 문구랑 맞춰줘야」): 세계 그림 — 칸 꼴 + 판 몫 머리말(worldHead 「character image」) · 얼굴 비율 줄(worldFace 「in this style」 없이) · 얼굴 줄 뒤 Skin finish(worldStyleAfter) · 5칸 끝 Avoid(avoid), 장면 Light 줄(worldLight). 일상컷 — api25 의 2.5 글 긴 꼴(casualLegacy)에 STYLE 만 화풍 문단, 바로 뒤 SKIN FINISH(casualStyleAfter), 끝에 AVOID. 머리 장식 · 노출은 공방 그대로(사용자 「캐릭터 얼굴이나 화풍에 영향가는게 아니라 상관은 없는데」).",
+     "text": "Korean MMORPG character artwork. A recognisably drawn face with gently simplified anatomical structure. 2D painting with visible brushwork: layered strokes of colour, soft broken edges, thin coloured linework and a few crisp accents on the face and costume.",
+     "casual": "Korean MMORPG character artwork. A recognisably drawn face with gently simplified anatomical structure. 2D painting with visible brushwork: layered strokes of colour, soft broken edges, thin coloured linework and a few crisp accents on the face and costume.",
      "worldLight": "Light: a soft key light with a strong rim light tracing her hair, shoulders and armour; bright, crisp specular highlights on metal and jewellery, and a clean, warm-neutral sheen on her skin.",
      "casualLight": "",
      "model": "gpt-image-2.6-sunburst",
@@ -2203,7 +2203,17 @@
       "confirmed": "kr_drawn_brush_rim",
       "id": "km2-il2-ba3-rg2-x01",
       "skin": "dewy_body@v1"
-     }
+     },
+     "worldStyleAfter": "Skin finish: dewy, glass-like highlights on the skin of her shoulders, arms, collarbones and legs — a soft, luminous wet-look sheen that follows the body's forms; her face keeps a soft, natural finish.",
+     "casualStyleAfter": "SKIN FINISH: dewy, glass-like highlights on the skin of her shoulders, arms, collarbones and legs — a soft, luminous wet-look sheen that follows the body's forms; her face keeps a soft, natural finish.",
+     "avoid": [
+      "a blue or bruise-like tint on the skin around the eyes",
+      "glossy or shiny highlights on the face",
+      "sweaty, oily or plastic-looking skin"
+     ],
+     "worldHead": "A full-body character image, vertical 2:3 (1024×1536): {name_en} of the Romance of the Three Kingdoms, reimagined as an adult woman — {title}.",
+     "worldFace": "Her face is small and soft: a short midface, a softly rounded jaw and a small chin, about 1.3 times as long as it is wide, with her eyes open at their natural size. Bangs, side locks and headpieces frame the face without lengthening it.",
+     "casualLegacy": "api25"
     }
    ]
   }
