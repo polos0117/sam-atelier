@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · 얼굴 낱말 — 눈 크기 보통에서 사실형 말 빼기
+- 사용자 「응 삼국지도 바꿔줘」 — 원소 공방과 같이 lib/prompt-spec.js eye_size.medium 「moderately sized, realistically proportioned eyes」 → 「medium-sized eyes」(설계표 173명이 쓰는 값). prompt-spec ?v=31. 올린 그림 · 기록은 그대로, 새 지시문부터(기본 · api25 · kv 판 모두 — 관우 무협으로 확인)
+- 그대로 둔 것: kv_kmmo_lock · kv_kmmo_23d 판의 얼굴 규칙(큰 눈 → realistically proportioned eyes, 그 화풍의 반실사 맞춤)과 GPT 구조형 틀(lib/prompt-gpt.js 반실사 3D 얼굴 줄) — 화풍 몫이라 낱말표와 따로
+
 ## 2026-11-11 · claude · 구조판 지움
 - 사용자 「구조판은 지워줘」 — 프롬프트 v2 탭(prompt2.html · 머리 메뉴 · 낱말 nav.prompt2 · prompt2.*) · lib/studio.js V2 꼴(samguk_studio_v2) · lib/prompt-sam.js buildStruct · structVer(와 그것만 쓰던 도우미) · lib/prompt-spec.js STRUCT 표 · data/style.json 구조판 화풍 셋(glossy_plain · glossy_kv · anime_kv — 등록 그림 없음)을 지웠다. 다른 화풍 지시문은 그대로
 - tests/prompt-v2.cjs 구조판 검사만 빼고 나머지 그대로 · AGENTS · IMAGE_RULES · docs/STYLE_LAB 은 「2026-11-11 지웠다」 로. ?v= words 19 · workspace-ui 6 · prompt-spec 30 · prompt-sam 28 · studio 11
