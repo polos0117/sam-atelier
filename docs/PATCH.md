@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · gpt · 조조 필수갈래 GPT 일상7 추가
+- data/img.json — 새 규칙에 따라 삼국·판타지·메카의 일상7을 추가. 필수갈래+상황 자유 설계, 실제 설계와 지시문을 기록에 보존. 기존 세계컷과 일상1~6 유지. 세 세계 묶음 검사 및 1024×1536 확인.
+
 ## 2026-11-11 · claude · 상황 붙은 일상컷에서 「nothing slipped off」 빼기
 - 노출 축 글(skin_exposure bold)의 「; nothing slipped off(아무것도 흘러내리지 않게)」 를 상황이 붙은 컷(상황 노출 situ · 갈래 자유 설계 컷 ofreeSitu)에서만 뺀다 — 흘러내린 어깨끈 · 반쯤 푼 차림 같은 상황과 부딪혔다. 다른 컷은 그대로(lib/prompt-sam.js noSlipOff)
 - 사용자 2026-11-11 「2번 고쳐줘」 · prompt-sam ?v=33 · tests/casual-plan · prompt-v2 통과
