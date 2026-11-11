@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · gpt · 하후연 api25 — 세계 그림 4·4·4와 일상컷 열여덟 등록
+- 사용자 「하후연 작업해줘」 → 「4,4,4」: 세 세계 모두 GPT2 선택. 옷 자유는 무협4 사시코 스티치 · 판타지6 실크 요요 · 메카6 페이퍼 레더. 무협 일상3 첫 요청만 거절, 동일 지시문 재요청으로 성공해 모든 컷 bold 유지. 그림30 · 호출31 · 거절1 · 출력10,290토큰. 선택 그림21장·기록/계획24개를 사용자 「올려줘」 승인으로 그림 저장소 c6ca8ff에 게시.
+- 검수: 선택 후보의 쌍도는 유지. 일상 무협1·6·판타지2·4·5·6·메카1 손 좌우, 무협6 의상과 판타지3 몸 방향, 판타지6 서예와 메카4 비석 글자를 qa.passed=false로 보존. 원본 PNG·실제 지시문·API 시도 기록 보존. 세 세계 계획 및 PNG/WebP 크기·디코딩·원본/선택참고 해시·모델 검사 통과. 기존 화풍 보존.
+
 ## 2026-11-11 · claude · 칸 꼴 세계 그림 — 서로 부딪히던 글 셋 고침(감사 S2 · S5 · S6)
 - S2 메카 의상 줄: 「plates … cover her whole frame(온몸을 덮는다)」 → 「cover her frame except at the openings named under Exposure(노출에 적힌 구멍만 빼고 덮는다)」 — 노출 줄 「이 곳만 연다」 와 부딪혔다(줄 꼴의 「except where EXPOSURE opens it」 가 칸 꼴에서 빠졌던 것). 메카 279
 - S5 실루엣 줄: 「The overall shape is fixed; the details are free(전체 모양 고정, 세부 자유)」 → 「This silhouette sets the overall shape of the costume above — keep its materials, ornaments and rank in this shape; the details are free(이 실루엣이 위 의상의 전체 모양을 정한다 — 재질 · 장식 · 계급은 이 모양 안에, 세부는 자유)」 — 역할 의상과 모양이 다를 때 어느 쪽인지 없었다(줄 꼴의 overrides 문장이 칸 꼴에서 빠졌던 것). 837 전부
