@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · core v1 낱말 쓰기
+- 화풍공방 core/v1/vocab.json 을 lib/prompt-spec.js(FACE_DESIGN · EXPRESSION_DETAIL) · lib/look-spec.js(VOCAB_EN) 끝 「core:v1」 블록으로(사용자 「응 원소 글로 하고 core v1 만들어줘」). 손으로 고치지 않는다 — 바꿀 땐 화풍공방 core 를 고치고 node ../style-atelier/core/sync.cjs .
+- 삼국지에서 바뀐 것: golden_tan 「warm golden-beige skin」 → 원소 글 「light warm-beige skin with a golden undertone」(장수 37명). 나머지는 이미 같은 글. tests/core-sync.cjs. prompt-spec ?v=32 · look-spec ?v=3
+
 ## 2026-11-11 · claude · 칸 꼴 세계 그림 — 고른 외형 싣기 · 얼굴 끈 Face 줄
 - 사용자 「응 둘 다 고쳐줘」(원소 짧은 판에서 찾은 구멍) — 삼국지 칸 꼴(buildWorldSections, 기본 kr_drawn_rim_dewy · kr_promo_hikey 등)에도 같았다: 생성기에서 직접 고른 외형(머리색 등)이 안 실렸고, 얼굴 싣기를 끄면 「…no beard or facial hair: .」 로 끝났다
 - 2. CHARACTER 의 Body and hair 줄 뒤에 「Chosen look (overrides the automatic look): hair color: silver.」, 얼굴 끈 Face 줄은 「…no beard or facial hair.」(수염 없음 규칙은 남김). 2.5 글 꼴(api25)은 원래 IDENTITY 칸으로 실려 그대로. prompt-sam ?v=29, 검사 prompt-v2(관우 · 문앙 · 조조 × 세 세계). 고른 게 없으면 지시문은 그대로(확정 화풍 비교 같음)
