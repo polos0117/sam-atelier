@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · core v2 — 긴 얼굴 글
+- lib/ 끝 core 블록을 v2 로 — face_shape.long 「long face」 → 「gently long oval face」(감사 E2 · X9). 기본 화풍 세계 지시문 15개(장수 5 × 세계 3)의 Face 줄만 바뀜
+- 사용자 2026-11-11 시험(원소 금 두 쌍) 뒤 「넣어주고, 그대로 두고, 설계값 모순만 바꿔줘」 — 눈 small · 인상 fierce 글은 그대로, 눈 크기 ↔ 모양 모순은 11-10 fix_eye_clash 로 이미 0
+- prompt.html · promptapi.html prompt-spec ?v=33 · look-spec ?v=4
+
 ## 2026-11-11 · claude · core v1 낱말 쓰기
 - 화풍공방 core/v1/vocab.json 을 lib/prompt-spec.js(FACE_DESIGN · EXPRESSION_DETAIL) · lib/look-spec.js(VOCAB_EN) 끝 「core:v1」 블록으로(사용자 「응 원소 글로 하고 core v1 만들어줘」). 손으로 고치지 않는다 — 바꿀 땐 화풍공방 core 를 고치고 node ../style-atelier/core/sync.cjs .
 - 삼국지에서 바뀐 것: golden_tan 「warm golden-beige skin」 → 원소 글 「light warm-beige skin with a golden undertone」(장수 37명). 나머지는 이미 같은 글. tests/core-sync.cjs. prompt-spec ?v=32 · look-spec ?v=3
