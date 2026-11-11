@@ -7,6 +7,13 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-11 · claude · 칸 꼴 세계 그림 — 서로 부딪히던 글 셋 고침(감사 S2 · S5 · S6)
+- S2 메카 의상 줄: 「plates … cover her whole frame(온몸을 덮는다)」 → 「cover her frame except at the openings named under Exposure(노출에 적힌 구멍만 빼고 덮는다)」 — 노출 줄 「이 곳만 연다」 와 부딪혔다(줄 꼴의 「except where EXPOSURE opens it」 가 칸 꼴에서 빠졌던 것). 메카 279
+- S5 실루엣 줄: 「The overall shape is fixed; the details are free(전체 모양 고정, 세부 자유)」 → 「This silhouette sets the overall shape of the costume above — keep its materials, ornaments and rank in this shape; the details are free(이 실루엣이 위 의상의 전체 모양을 정한다 — 재질 · 장식 · 계급은 이 모양 안에, 세부는 자유)」 — 역할 의상과 모양이 다를 때 어느 쪽인지 없었다(줄 꼴의 overrides 문장이 칸 꼴에서 빠졌던 것). 837 전부
+- S6 무협 노출 줄(칸 꼴에서만, SECTIONS.world.exposeFix): 「bare shoulders and arms where the outer robe is cut away by design(겉옷을 잘라 낸 곳에 맨 어깨와 팔)」 → 「bare upper arms above detached wide sleeves (and bare shoulders where no shoulder guard sits)(떼어 낸 넓은 소매 위 맨 위팔, 어깨 갑옷 없는 쪽은 맨 어깨도)」, 「armor pieces stay on」 → 「any armor pieces stay on(갑옷 조각이 있으면)」 — 넓은 소매 · 어깨 갑옷과 부딪혔다. 무협 279. 표(WORLDS exposureBold)는 줄 꼴 api25 도 쓰므로 그대로
+- S1(입술 광택 · 스모키 ↔ 얼굴 광택 금지)은 그대로. 사용자 2026-11-11 「s1은 안바꿀거고」 · 「이기는걸 테스트하는게 아니라 문구를 수정해야지 않을까?」
+- prompt.html · promptapi.html prompt-spec ?v=36 · prompt-sam ?v=31, 검사 전부 통과
+
 ## 2026-11-11 · gpt · 장각 api25 — 세계 그림 2·1·3과 일상컷 열여덟 등록
 - 사용자 「장각 작업해줘」 → 「2,1,3」: 무협 우리2 · 판타지 우리1 · 메카 GPT1. 옷 자유는 무협3 지퍼 장식 · 판타지5 헤링본 케이플릿 · 메카5 담요 스티치 펠트. 무협 일상1과 메카 일상4는 low 단계로 통과, 모든 API 거절·단계 이력 보존. 그림30 · 호출42 · 거절12 · 출력10,290토큰. 선택 그림21장·기록/계획24개를 사용자 「올려줘」 승인으로 그림 저장소 101ac3c에 게시.
 - 검수: 선택 세계 그림의 지팡이 상단 잘림과 메카3 헤어 차이를 보존. 일상 무협2·6·메카1·2 의상 변형, 무협3 얼굴 방향과 소품 잘림, 메카1·4·5 배경/소품 글자, 메카4 눈색 및 메카5 넓어진 구도를 qa.passed=false로 기록. 세 세계 계획 검사와 PNG/WebP 크기·디코딩·원본 및 선택참고 해시·모델 검사 통과. 기존 화풍 보존.
