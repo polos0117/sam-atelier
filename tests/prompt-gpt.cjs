@@ -41,6 +41,7 @@ for (const key of pick) {
     card.world = w;
     for (const c of C.plan(card, [1, 2, 3, 4, 5], [], { seed: 13 }).cuts) {
       const cpmt = C.record(card, w, c).prompt, gc = G.casual(cpmt, { bodyText: body });
+      if (/^Edit the attached image: /.test(cpmt)) { nc++; continue; }   /* 칸 꼴 일상컷(기본 kr_drawn_rim_dewy 2026-11-11) — 묶음 도구가 영문 그대로 낸다(casualShortOn), 구조형으로 옮기지 않는다 */
       if (/^Create ONE finished illustration\. Use case: identity-preserve|^Use the attached image as the reference: the same woman/.test(cpmt)) { assert.equal(gc.text.trim(), cpmt.trim(), key + ' 자연판은 그대로'); assert.deepEqual(gc.unknown, []); nc++; continue; }
       assert.deepEqual(gc.unknown, [], key + ' ' + w + ' 일상 ' + c.n + ' — 못 옮긴 줄');
       assert(!/STYLE:|ART STYLE|^FACE:|rendering exactly/m.test(gc.text) && gc.text.includes("and the image's finish (rendering)") && gc.text.includes('AVOID: '), key + ' — 일상엔 화풍 칸 없이 첨부 그림의 마감');

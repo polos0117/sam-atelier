@@ -142,8 +142,8 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
 {
   assert(SX.sections === true && T.SECTIONS && T.SECTIONS.faceWorld === 'samguk', '칸 꼴 스위치 · 얼굴은 우선 세 세계 같게(비교 뒤 푼다 — docs/STYLE_LAB.md)');
   const SEC13 = ['mmorpg_cg', 'kr_mmorpg', 'kr_promo_hikey', 'kr_promo_hikey_oil', 'glossy_kr_game', 'glossy_kr_semireal', 'game_keyart', 'kv_kmmo_lock', 'kv_kmmo_23d', 'kv_jp_mobile', 'kv_jp_paint', 'kv_anime_gloss', 'kv_cgi_hikey',
-    'semi_smooth', 'semi_oil_classic', 'anime_brush', 'styl3d', 'anime_matte', 'semi_impasto', 'semi_paint_jp', 'illus_23d', 'anime_gloss_jp', 'oil_hikey'];   /* 뒤 열은 다듬은 기준으로 새로 쓴 화풍(2026-11-10 — 열 가운데 수채 · 과슈 · 레트로 셀 · 수묵 담채는 뺐다 · 옛 화풍 넷을 새로 썼다) */
-  assert.deepEqual(Object.keys(SX.styles).filter(k => P.sectionsOn(SX, k, 'world')), Object.keys(SX.styles).filter(k => SEC13.includes(k)), '칸 꼴 화풍 스물셋(짧은 판이던 열셋 + 새로 쓴 열)');
+    'semi_smooth', 'semi_oil_classic', 'anime_brush', 'styl3d', 'anime_matte', 'semi_impasto', 'semi_paint_jp', 'illus_23d', 'anime_gloss_jp', 'oil_hikey', 'kr_drawn_rim_dewy'];   /* + 화풍공방 확정 화풍(기본, 2026-11-11) */   /* 뒤 열은 다듬은 기준으로 새로 쓴 화풍(2026-11-10 — 열 가운데 수채 · 과슈 · 레트로 셀 · 수묵 담채는 뺐다 · 옛 화풍 넷을 새로 썼다) */
+  assert.deepEqual(Object.keys(SX.styles).filter(k => P.sectionsOn(SX, k, 'world')), Object.keys(SX.styles).filter(k => SEC13.includes(k)), '칸 꼴 화풍 스물넷(짧은 판이던 열셋 + 새로 쓴 열 + 화풍공방 확정)');
   for (const k of ['api25', 'kr_mmorpg_26', 'glossy_plain', 'glossy_kv', 'anime_kv']) assert(!P.sectionsOn(SX, k, 'world') && !P.sectionsOn(SX, k, 'casual'), k + ' 는 칸 꼴이 아니다');
   for (const key of P.cards(D).filter((k, i) => i % 9 === 0)) for (const w of ['samguk', 'fantasy', 'mecha']) assert.equal(P.build(D, SX, key, w, { style: 'api25' }), P.build(D, S, key, w, { style: 'api25' }), key + ' ' + w + ' api25 는 그대로');
   let ns = 0;
@@ -173,7 +173,7 @@ console.log('PASS 프롬프트 v2: 구조판 ' + n + '장(장수 ' + P.cards(D).
 
 /* 짧은 세계 그림(2026-11-08 「화풍글 다 축소판으로 해주고, mmorpg cg를 공방 기본키로」) — 기본 화풍 mmorpg_cg, 모든 줄 꼴 · kv 판이 짧은 꼴(구조판 빼고).
    꼭 남는 줄: 수염 없음 · 전설 · 세계 경계 · 구도 · 화풍 단락(shortStyle), 600낱말 안 */
-{ assert.equal(SS['default'], 'kr_mmorpg_26'); SS['default'] = 'mmorpg_cg'; let nw = 0;   /* 기본은 2.5 글 판 kr_mmorpg_26(2026-11-10) — 짧은 판 검사는 앞 기본 mmorpg_cg 를 기본으로 둔 사본으로 */
+{ assert.equal(SS['default'], 'kr_drawn_rim_dewy'); SS['default'] = 'mmorpg_cg'; let nw = 0;   /* 기본은 2.5 글 판 kr_mmorpg_26(2026-11-10) — 짧은 판 검사는 앞 기본 mmorpg_cg 를 기본으로 둔 사본으로 */
   for (const key of P.cards(D).filter((k, i) => i % 7 === 0)) for (const w of ['samguk', 'fantasy', 'mecha']) for (const st of ['mmorpg_cg', 'kv_jp_paint', 'glossy_kr_game', 'kr_promo_hikey']) {
     const p = P.build(D, SS, key, w, { style: st });
     assert(p.startsWith('A full-body vertical 2:3 (1024×1536) character card image of ') && p.includes('no beard, moustache or facial hair') && p.includes('\n\nStyle: ' + P.shortStyle(SS, st)) && p.includes(T.WORLD_SHORT.composition) && p.includes(T.WORLD_SHORT.guard[w]), key + ' ' + w + ' ' + st + ' 짧은 세계 그림');
