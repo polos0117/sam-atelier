@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 새 체형 슬림 근육형(lean_toned) — 축융 · 감녕 · 여령기 · 하후연 · 능통 · 왕이
+- 사용자 「체형중에 살짝 여성의 11자 복근이나, 날씬한 근육이 있는 체형은 없을까?」 → 「응 넣어줘. 장수는 몇명 골라줘. 축융은 들어갔으면 해.」
+- lib/look-spec.js VOCAB_EN.body.lean_toned — lean and toned — a slim, firm waist with softly defined vertical abs and lightly sculpted arms and shoulders, a full bust(삼국지 몫 낱말, core 블록 밖). tools/sam-design.py BODY 에 무게 0(자동 돌림 값 그대로, 손으로만).
+- data/sam-design.json — 축융(hourglass) · 감녕 · 여령기(curvy_athletic) · 하후연(pear_curvy) · 능통(busty_slender) · 왕이(willowy_curvy) → lean_toned, body_note · summary 끝 「슬림 근육형」. 이미 그린 그림은 그대로 — 다음 그림부터.
+
 ## 2026-11-12 · gpt · 악진 세계컷 2·3·1과 일상컷 21장 등록
 - data/img.json — 기본 화풍 kr_drawn_rim_dewy에 선택한 세계컷 3장과 세계별 일상컷 7장씩 총 24장을 등록 도구로 추가. 이미지·참조·실제 지시문·계획·검수 기록은 sam-atelier-img cfd9d549에 보존. 기존 장수와 옛 화풍 데이터 보존.
 

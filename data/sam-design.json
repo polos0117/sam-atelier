@@ -4885,7 +4885,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "질풍의 장수 — 가벼운 쌍도 · 바람 같은 경갑 · 벚꽃 분홍 머리 · 날 선 · 골반 굴곡형"
+    "ko": "질풍의 장수 — 가벼운 쌍도 · 바람 같은 경갑 · 벚꽃 분홍 머리 · 날 선 · 슬림 근육형"
    },
    "title": {
     "en": "the lightning-fast general of Wei who marched five hundred li in three days"
@@ -4911,7 +4911,7 @@
      "lips": "thin_bow"
     },
     "silhouette": {
-     "body": "pear_curvy",
+     "body": "lean_toned",
      "hair_color": "cherry_pink"
     },
     "worlds": {
@@ -4948,7 +4948,8 @@
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「사흘에 오백 리를 달리는 장수」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 위 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
-    "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 ink_blue → cherry_pink, 눈 steel_blue → graphite_grey(머리 45 · 눈 27가지에서 고르게)"
+    "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 ink_blue → cherry_pink, 눈 steel_blue → graphite_grey(머리 45 · 눈 27가지에서 고르게)",
+    "body_note": "2026-11-12 pear_curvy → lean_toned(슬림 근육형) — 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 · 「장수는 몇명 골라줘. 축융은 들어갔으면 해」"
    },
    "worlds": {
     "samguk": {
@@ -7546,7 +7547,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "기성의 활 — 전투 활 · 성벽 위의 궁수 · 딸기 금발 머리 · 사나운 · 낭창한 굴곡형"
+    "ko": "기성의 활 — 전투 활 · 성벽 위의 궁수 · 딸기 금발 머리 · 사나운 · 슬림 근육형"
    },
    "title": {
     "en": "the lady who took up the bow herself on the walls of Ji"
@@ -7572,7 +7573,7 @@
      "lips": "soft_medium"
     },
     "silhouette": {
-     "body": "willowy_curvy",
+     "body": "lean_toned",
      "hair_color": "strawberry_blonde"
     },
     "worlds": {
@@ -7611,7 +7612,8 @@
     "why": "시안(claude 2026-11-02) — 게임 일화 「기성의 성벽에서 제 손으로 활을 잡았다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 위 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 ink_blue → strawberry_blonde, 눈 leaf_green → teal(머리 45 · 눈 27가지에서 고르게)",
-    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_tilt down→up(cat). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
+    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_tilt down→up(cat). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
+    "body_note": "2026-11-12 willowy_curvy → lean_toned(슬림 근육형) — 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 · 「장수는 몇명 골라줘. 축융은 들어갔으면 해」"
    },
    "worlds": {
     "samguk": {
@@ -9880,7 +9882,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "금범적 — 방울 단 해적 칼 · 방울과 깃 · 밝은 빨강 머리 · 사나운 · 탄탄한 굴곡형"
+    "ko": "금범적 — 방울 단 해적 칼 · 방울과 깃 · 밝은 빨강 머리 · 사나운 · 슬림 근육형"
    },
    "title": {
     "en": "the former river pirate who raided Cao Cao's camp with a hundred raiders and bells"
@@ -9906,7 +9908,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "curvy_athletic",
+     "body": "lean_toned",
      "hair_color": "bright_red"
     },
     "worlds": {
@@ -9941,7 +9943,8 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-02) — 게임 일화 「방울을 달고 백 기로 조조 진영을 헤집었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로."
+    "why": "시안(claude 2026-11-02) — 게임 일화 「방울을 달고 백 기로 조조 진영을 헤집었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
+    "body_note": "2026-11-12 curvy_athletic → lean_toned(슬림 근육형) — 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 · 「장수는 몇명 골라줘. 축융은 들어갔으면 해」"
    },
    "worlds": {
     "samguk": {
@@ -10831,7 +10834,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "원수와 한 진영 — 삼절곤 · 원수와 나란히 · 하늘빛 머리 · 말괄량이 · 가늘고 풍만한 형"
+    "ko": "원수와 한 진영 — 삼절곤 · 원수와 나란히 · 하늘빛 머리 · 말괄량이 · 슬림 근육형"
    },
    "title": {
     "en": "the young general who fought beside her father's killer"
@@ -10857,7 +10860,7 @@
      "lips": "plush_pout"
     },
     "silhouette": {
-     "body": "busty_slender",
+     "body": "lean_toned",
      "hair_color": "sky_blue"
     },
     "worlds": {
@@ -10897,7 +10900,8 @@
     "why": "시안(claude 2026-11-02) — 게임 일화 「아비의 원수와 한 진영에서 싸웠다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 오 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 flame_orange → sky_blue, 눈 ember → leaf_green(머리 45 · 눈 27가지에서 고르게)",
-    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_tilt down→up(phoenix) · fantasy eye_tilt down→up(cat). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
+    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_tilt down→up(phoenix) · fantasy eye_tilt down→up(cat). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
+    "body_note": "2026-11-12 busty_slender → lean_toned(슬림 근육형) — 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 · 「장수는 몇명 골라줘. 축융은 들어갔으면 해」"
    },
    "worlds": {
     "samguk": {
@@ -17253,7 +17257,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "비도의 여왕 — 비도 묶음 · 불꽃의 여왕 · 먹빛 남색 머리 · 사나운 · 모래시계형"
+    "ko": "비도의 여왕 — 비도 묶음 · 불꽃의 여왕 · 먹빛 남색 머리 · 사나운 · 슬림 근육형"
    },
    "title": {
     "en": "the queen of the Nanman, thrower of flying daggers"
@@ -17279,7 +17283,7 @@
      "lips": "thin_long"
     },
     "silhouette": {
-     "body": "hourglass",
+     "body": "lean_toned",
      "hair_color": "ink_blue"
     },
     "worlds": {
@@ -17319,7 +17323,8 @@
     "why": "시안(claude 2026-11-02) — 게임 일화 「비도를 던지는 남만의 여왕」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 군웅 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 dark_brown → ink_blue, 눈 crimson → dark_brown(머리 45 · 눈 27가지에서 고르게)",
-    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_size large→medium(narrow_upturned) · mecha eye_size large→medium(monolid_long). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
+    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_size large→medium(narrow_upturned) · mecha eye_size large→medium(monolid_long). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
+    "body_note": "2026-11-12 hourglass → lean_toned(슬림 근육형) — 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 · 「장수는 몇명 골라줘. 축융은 들어갔으면 해」"
    },
    "worlds": {
     "samguk": {
@@ -26331,7 +26336,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "여포의 딸 — 방천화극 · 아버지의 꿩깃 · 옥빛 머리 · 사나운 · 탄탄한 굴곡형"
+    "ko": "여포의 딸 — 방천화극 · 아버지의 꿩깃 · 옥빛 머리 · 사나운 · 슬림 근육형"
    },
    "title": {
     "en": "Lü Bu's daughter, heir to her father's halberd on the walls of Xiapi"
@@ -26357,7 +26362,7 @@
      "lips": "soft_medium"
     },
     "silhouette": {
-     "body": "curvy_athletic",
+     "body": "lean_toned",
      "hair_color": "jade_green"
     },
     "worlds": {
@@ -26397,7 +26402,8 @@
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "lips_note": "2026-11-03 「저렇게 호탕하게 웃는 얼굴은 빼자」 — 입술 wide_smile(크게 웃는 입) → soft_medium",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 violet → jade_green, 눈 gold → gold(머리 45 · 눈 27가지에서 고르게)",
-    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_tilt down→up(narrow_upturned). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
+    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_tilt down→up(narrow_upturned). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
+    "body_note": "2026-11-12 curvy_athletic → lean_toned(슬림 근육형) — 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 · 「장수는 몇명 골라줘. 축융은 들어갔으면 해」"
    },
    "worlds": {
     "samguk": {
