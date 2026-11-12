@@ -90,6 +90,32 @@ ok(by['유비'].trait === 'benevolent' && by['손권'].trait === 'defender', '�
   ok(R.styleScore(mx, by['조운'], ['공손찬'], 2) === 30 && R.styleScore(db, by['조운'], ['공손찬'], 2) === 0, '손권형 기질도 진영 셈을 따른다');
 }
 
+/* ── 군웅록 roleMap — 여포 · 장수 · 장각 · 맹획은 군웅록에서만 군주(기질 lordAs), 본편은 본디 역할 ── */
+{
+  const four = { 여포: 'valor', 장수: 'defender', 장각: 'benevolent', 맹획: 'valor' };
+  for (const [k, t] of Object.entries(four)) {
+    ok(mx.by[k].role === 'lord' && mx.by[k].cat === 'lord' && mx.by[k].trait === t && mx.by[k].asLord, k + ' — 군웅록에서 군주 · ' + t);
+    ok(db.by[k].role !== 'lord' && db.by[k].cat !== 'lord' && !db.by[k].trait, k + ' — 본편은 본디 역할 ' + db.by[k].role);
+    ok(mx.by[k].cls === db.by[k].cls && mx.by[k].pw === db.by[k].pw, k + ' — 갈래 · 전력(본디 역할 가중)은 그대로');
+  }
+  ok(db.by['여포'].cat === 'general' && db.by['장각'].cat === 'staff', '본편 — 여포는 무장, 장각은 참모(책사)');
+  ok(mx.list.find(c => c.key === '맹획').cat === 'lord' && db.list.find(c => c.key === '맹획').cat === 'general', 'view 의 list 도 따라간다');
+  ok(R.counts(mx, ['여포', '유비']).lord === 2 && R.counts(db, ['여포', '유비']).lord === 1, '정원 셈');
+  ok(R.overflow(mx, ['여포', '유비']) === 1 && R.overflow(db, ['여포', '유비']) === 0, '군웅록에선 여포 + 유비 = 군주 정원 초과');
+  const ev = R.evaluateRaw(mx, ['여포', '고순', '장료', '진궁']), lord = ev.rows.find(r => r.kind === 'lord');
+  ok(lord && lord.lord === '여포' && lord.v > 0, '군웅록 — 여포가 주공 그릇 ' + (lord && lord.label));
+  ok(!R.evaluateRaw(db, ['여포', '고순', '장료', '진궁']).rows.some(r => r.kind === 'lord'), '본편 — 여포는 주공이 아니다');
+  /* 군주를 가진 진영에 여포는 막힌다(군웅록), 본편이면 무장 자리라 열린다 */
+  for (const [v, want] of [[mx, false], [db, true]]) {
+    const st = R.newGame(db, { keys: db.list.map(c => c.key), seed: 44, lv: 0, first: 'me', players: 2, fmode: v.mode });
+    st.mine.push('조조'); st.pack[0].k = '여포'; st.pool = st.pool.filter(k => k !== '여포' && k !== '조조');
+    ok(R.legal(v, st, 'me').includes(0) === want, (v.mode === 'mx' ? '군웅록' : '본편') + ' — 군주 있는 진영에 여포 ' + (want ? '열림' : '막힘'));
+    let aiOk = true;
+    for (let i = 0; i < 5 && R.turn(st) === 'me'; i++) { R.ensureChoices(v, st, 'me'); const a = R.aiAct(v, st, 'me'); if (a.type === 'pick' && a.key === '여포' && v.mode === 'mx') aiOk = false; }
+    ok(aiOk, 'AI 도 군웅록 정원으로 고른다');
+  }
+}
+
 /* ── 판 돌리기 — 모든 자리 AI ── */
 function play(seed, keys, lvMe, lvFoe, o) {
   o = o || {};
@@ -102,7 +128,7 @@ function play(seed, keys, lvMe, lvFoe, o) {
     if (!seat) { R.endRound(v, st); continue; }
     R.ensureChoices(v, st, seat);
     const team = R.teamOf(st, seat).slice(), legal = R.legal(v, st, seat), open = R.openIdx(st);
-    const raw = open.filter(i => { const c = by[st.pack[i].k]; return team.length >= R.FINAL || R.counts(v, team)[c.cat] < R.CAPS[c.cat]; });
+    const raw = open.filter(i => { const c = v.by[st.pack[i].k]; return team.length >= R.FINAL || R.counts(v, team)[c.cat] < R.CAPS[c.cat]; });
     const act = R.aiAct(v, st, seat, seat === 'me' ? lvMe : lvFoe, seat === 'me' ? (o.styleMe || 0) : undefined);
     if (act.type === 'reroll') { assert.strictEqual(R.turn(st), seat, '다시 뽑아도 차례는 그대로'); continue; }
     assert(legal.includes(act.idx), `AI 가 고를 수 없는 카드를 골랐다 (씨앗 ${seed} ${st.round}진)`);
