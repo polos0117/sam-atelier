@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 슬림 근육형 일상컷에 식스팩 줄
+- 사용자 「일상컷에 은은한 왕자 복근 지시써서 만들어줘」 → 「11자 말고 식스팩쪽으로」 → 「응 식스팩 줄로 정식으로 넣어줘」 — 축융 메카 일상(2.6) 줄 없음 · 11자 · 식스팩 세 장을 견줘 고름.
+- lib/prompt-spec.js T.CASUAL.bodyExtra.lean_toned + lib/prompt-sam.js midriffLine — 긴 꼴 ANATOMY 뒤 MIDRIFF:, 짧은 꼴 · 칸 꼴 Midriff:. 시험 글에 「드러난 배에만 · 배를 덮는 옷이면 덮은 채로」 조건을 앞뒤로 더함(줄이 옷을 바꾸지 않게).
+- 확인: 축융 메카 일상 일곱 칸이 kr_drawn_rim_dewy · api25 · kv_kmmo_lock · mmorpg_cg 모두 실림, 관우(다른 체형)는 없음. tests/prompt-v2 · prompt-gpt 통과. prompt-spec ?v=39 · prompt-sam ?v=34.
+
 ## 2026-11-12 · claude · 새 체형 슬림 근육형(lean_toned) — 축융 · 감녕 · 여령기 · 하후연 · 능통 · 왕이
 - 사용자 「체형중에 살짝 여성의 11자 복근이나, 날씬한 근육이 있는 체형은 없을까?」 → 「응 넣어줘. 장수는 몇명 골라줘. 축융은 들어갔으면 해.」
 - lib/look-spec.js VOCAB_EN.body.lean_toned — lean and toned — a slim, firm waist with softly defined vertical abs and lightly sculpted arms and shoulders, a full bust(삼국지 몫 낱말, core 블록 밖). tools/sam-design.py BODY 에 무게 0(자동 돌림 값 그대로, 손으로만).
