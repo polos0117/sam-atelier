@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · gpt · 여몽 기본 화풍 세계컷 선택 2·2·1 및 일상 21장 등록
+- data/img.json — kr_drawn_rim_dewy 세계 3장과 일상 21장을 등록 도구로 추가, 기존 화풍과 다른 장수 항목 보존
+
 ## 2026-11-12 · claude · 검사 정리 — 얼린 게임 검사 · core 대조 지우고 느린 검사 반복 줄임
 - tests/regression.cjs · tests/assets.cjs · tests/dot-screen.cjs(+ tests/fixtures/make-sprites.py) — 지움. 사용자 「필요없고 쓸데없이 시간만 잡아먹는 검사들 좀 없애줘」. 게임 draft.html 은 손대지 않기로 했고(11-02 이후 안 바뀜), 도트 무장은 draft.html 만 열고 data/sprites.json 인물이 0 — 87초
 - tests/core-sync.cjs — 지움. 화풍공방 tests/core.cjs 가 같은 대조를 한다
