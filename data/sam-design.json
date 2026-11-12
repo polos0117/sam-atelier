@@ -8058,13 +8058,6 @@
     "mecha": {
      "sil": "segmented_parts"
     }
-   },
-   "palette_accent": {
-    "from": [
-     "촉한",
-     "공손찬"
-    ],
-    "en": "jade green and imperial gold (Shu Han), pure white and silver (Gongsun Zan)"
    }
   },
   {
@@ -9483,12 +9476,6 @@
     "mecha": {
      "sil": "halo_crown"
     }
-   },
-   "palette_accent": {
-    "from": [
-     "원술"
-    ],
-    "en": "imperial yellow and royal purple (Yuan Shu)"
    }
   },
   {
@@ -15131,12 +15118,6 @@
     "fantasy": {
      "sil": "priestess"
     }
-   },
-   "palette_accent": {
-    "from": [
-     "한조정"
-    ],
-    "en": "Han black and vermilion (the Han court)"
    }
   },
   {
@@ -28069,7 +28050,7 @@
   }
  ],
  "career_palettes": {
-  "note": "군웅록(옛 게임 확장팩 mx 의 장수 이력 career) 기준 의상색 — 대표 세력 색이 주색, 거쳐 온 다른 세력 색 두 가지를 덧색으로(사용자 2026-11-12 「장수 설계 의상색 팔렛트를 군웅록 기준으로 하는건 어때?」 → 「군웅록 기준이면 사마의나 사마사 등은 조위, 진 아닌가」 → 주색 + 덧색 안 「응 1번으로 진행해주는데 좀 안어울리는 장수가 있는지 한 번 봐줘」). 새 세력 색은 아래, 나머지는 세력 · 무리 색.",
+  "note": "군웅록(옛 게임 확장팩 mx 의 장수 이력 career) 기준 의상색 — 대표 세력 색이 주색, 거쳐 온 다른 세력 색 두 가지를 덧색으로(사용자 2026-11-12 「장수 설계 의상색 팔렛트를 군웅록 기준으로 하는건 어때?」 → 「군웅록 기준이면 사마의나 사마사 등은 조위, 진 아닌가」 → 주색 + 덧색 안 「응 1번으로 진행해주는데 좀 안어울리는 장수가 있는지 한 번 봐줘」). 새 세력 색은 아래, 나머지는 세력 · 무리 색. 초선 · 손책 · 전예는 덧색을 뺐다(사용자 2026-11-12 「추천한3명은 덧색 빼줘」 — 초선 연핑크 설계 · 손책 붉은색 · 전예는 촉 · 공손찬에 잠깐).",
   "new": {
    "진": {
     "en": "deep plum purple, black lacquer, silver and pale gold",
