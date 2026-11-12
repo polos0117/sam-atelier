@@ -36,8 +36,9 @@ const TABLES = ['lib/words.js', 'lib/prompt-spec.js', 'lib/look-spec.js'];
    다 빼고 나면 이 줄을 지운다. */
 const PENDING = {};
 /* 게임(군막) — 기존 게임은 그대로 둔다(사용자 2026-11-02 「기존 게임은 그대로 두고」). draft.html(2026-11-02 index.html 에서 옮겼다)과 게임만 쓰는 lib 는 낱말 표 밖이다.
-   sprite-actor · speech · today 는 공방 모음이 원본인 공용 모듈(README 「공용 모듈」) */
-const GAME = ['draft.html', 'lib/speech.js', 'lib/today.js', 'lib/sprite-actor.js'];
+   sprite-actor · speech · today 는 공방 모음이 원본인 공용 모듈(README 「공용 모듈」).
+   새 판 draft2.html(2026-11-12, 만드는 중)도 게임이다 — 말은 lib/draft2/ 안에 있다(이 검사는 lib 아래 폴더를 안 본다) */
+const GAME = ['draft.html', 'draft2.html', 'lib/speech.js', 'lib/today.js', 'lib/sprite-actor.js'];
 const targets = [];
 for (const dir of ['.', 'lib']) {
   for (const f of fs.readdirSync(dir)) {

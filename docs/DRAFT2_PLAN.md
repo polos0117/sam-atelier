@@ -30,7 +30,15 @@
 
 ## 4. 만드는 차례
 
-1. 그림 카드 · 세계 고르기 · 지명 흐름 옮기기
+1. 그림 카드 · 세계 고르기 · 지명 흐름 옮기기 — **했다**(2026-11-12)
+   - `draft2.html` — Phaser 4.2.1(jsdelivr 고정) · 스크립트 태그, JS 를 고치면 `?v=` 를 올린다.
+   - `lib/draft2/rules.js` — 규칙(정원 · 채점 · 카드 뽑기 · AI · 편성 · 이어하기 모양). Phaser 없는 순수 모듈 — 브라우저 `window.Draft2Rules`, node `require`. 난수는 상태 안의 씨앗(같은 씨앗 → 같은 판).
+   - `lib/draft2/art.js` — 세계 그림 고르기(기본 화풍 → style.json 차례)와 받기(둥근 모서리 · 아래 그늘을 구운 텍스처, 못 받으면 도장 카드).
+   - `lib/draft2/ui.js` — 글 · 단추 · 장수 카드 그리기, HTML 창(결의 · 열전 · 채점표 · 규칙). `lib/draft2/scenes.js` — Boot · Title · Setup · Draft · Lineup · Result. `lib/draft2/main.js` — 게임 · 화면 맞춤(기기 화소 2까지). `lib/draft2/draft2.css`.
+   - `tools/draft2-extract.cjs` → `data/draft2-combos.json` — 옛 판의 결의 250(혈연 34 · 불화 48) · 결속 표 · 군웅 계수.
+   - 검사 `tests/draft2-rules.cjs`(node) · `tests/draft2-screen.cjs`(브라우저 — 한 판 끝까지).
+   - 옛 판과 다른 것: 능력치는 새 자료, 진영 결속은 위 · 촉 · 오 · 군웅 넷(옛 기본 「군웅록」 의 이력 세력 대신 — 군웅 무리 `camp` 는 뒤에), 적장 기질은 판마다 다섯 가운데 하나(고르개 없음), 유비형 · 사마의형 기질이 불화 짝을 반기던 것을 뺐다. 결과는 임시(옛 판처럼 점수 비교 — 2단계 전장이 들어오면 바뀐다).
+   - 아직 안 옮긴 것: 금지 지명 · 등급 지명 · 안개 · 셋이 겨루기 · 전적 · 도장첩 · 복기.
 2. 전장 배치 · 겨루기
 3. 결의 효과 · 후군 계략
 4. 연출(카드 홀로 · 뒤집기 · 흔들림 · 깃발)

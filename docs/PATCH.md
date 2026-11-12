@@ -7,6 +7,13 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 새 판(draft2) 1단계 — 그림 카드 · 세계 고르기 · 지명 흐름
+- draft2.html · lib/draft2/(rules · art · ui · scenes · main · draft2.css) — Phaser 4.2.1 새 판. 타이틀 → 세계 고르기(세계 셋 · 그림 있는 장수만/전체 279 · 하수/중수/고수 · 오늘의 대국) → 13진 × 후보 6장 지명(정원 군주1 · 무장5 · 참모5, 예비 둘, 다시 뽑기, 뽑으면 +얼마 · 결의 진척) → 11명 편성(추천) → 임시 결과(전력 + 결속 + 결의 + 주공, 채점표). 규칙은 Phaser 없는 순수 모듈 rules.js, 저장 samguk_draft2_*. 첫 화면 · 머리 메뉴엔 아직 안 붙임
+- tools/draft2-extract.cjs → data/draft2-combos.json — 옛 draft.html 의 결의 250 · 결속 표 · 군웅 계수를 읽어 쓴다(draft.html 은 읽기만, 다시 돌려도 같은 글자)
+- tests/draft2-rules.cjs · tests/draft2-screen.cjs — 뽑기 결과 · 정원 · 채점 · AI 가 고를 수 있는 카드만 · 씨앗이 같으면 같은 판 / 브라우저로 한 판 끝까지(폰 그림 사본 · PC 그림 막힘 → 도장 카드 · 이어하기)
+- tests/words.cjs — draft2.html 을 게임 파일로(옛 판처럼 낱말 표 밖, 말은 lib/draft2 안)
+- AGENTS.md · docs/DRAFT2_PLAN.md — 화면 표에 새 판 한 줄(만드는 중) · 검사 줄, 4절 1단계 했다 · 파일 · 옛 판과 다른 것
+
 ## 2026-11-12 · claude · 새 판(draft2) 장수 자료 — 능력치 다듬기 · 갈래 · 군주 기질
 - 사용자 「코에이 삼국지나 이런거 기준으로 조금 다듬었으면 해」 — data/draft2-generals.json(새 판 전용, 옛 draft.html · sam-design.json 그대로). 140명 조정, 닻 여포 무력 100 · 제갈량 지력 100 · 조조 통솔 96 · 순욱 정치 98.
 - 갈래 열(맹장 · 기병장 · 수비장 · 수군장 · 궁장 · 군사 · 모사 · 내정관 · 외교관 · 이인), 주 궁장 하후연 · 태사자 · 엄안 · 장임 · 왕이 · 문빙, 부 궁장 조창 · 문추 · 조휴, 궁장 거점에 모사도 맞음, 군주 기질에 수성(손권 · 유표 · 유장 · 유선).
