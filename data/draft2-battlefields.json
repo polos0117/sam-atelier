@@ -1,0 +1,87 @@
+{
+ "version": 1,
+ "note": "새 판(draft2) 전장 거점 꼴 — data/battles.json(battle.html 의 지도 · 자리)은 그대로 두고, 거점마다 겨루는 꼴(type)만 여기. 사용자 2026-11-12 「둘씩 돌아가며로 하고 2단계 진행해줘」. 꼴마다 겨루는 값 · 맞는 갈래는 types, 거점 이름은 battles.json 의 slots(공통 이름)을 보고 정했다. 애매한 거점은 why.",
+ "types": {
+  "fort": {"ko": "성루", "glyph": "城", "stat": "통솔", "fit": ["guard"]},
+  "front": {"ko": "앞길", "glyph": "鋒", "stat": "무력", "fit": ["vanguard"]},
+  "raid": {"ko": "기습", "glyph": "騎", "stat": "(무력+통솔)/2", "fit": ["cavalry"]},
+  "water": {"ko": "물길", "glyph": "水", "stat": "통솔", "fit": ["navy"]},
+  "height": {"ko": "고지", "glyph": "弓", "stat": "(무력+지력)/2", "fit": ["archer", "schemer"]},
+  "scheme": {"ko": "계략", "glyph": "計", "stat": "지력", "fit": ["schemer"]},
+  "supply": {"ko": "보급", "glyph": "糧", "stat": "정치", "fit": ["steward"]},
+  "hq": {"ko": "본진", "glyph": "帥", "stat": "군주면 (통솔+지력+정치)/3 + 그릇, 아니면 (통솔+지력)/2", "fit": ["lord", "marshal"]},
+  "mystic": {"ko": "특수", "glyph": "星", "stat": "지력", "fit": ["mystic", "marshal"]}
+ },
+ "fields": [
+  {"key": "hulao", "ko": "호로관", "year": 191, "slots": [
+   {"key": "gate", "ko": "관문 성루", "type": "fort"},
+   {"key": "gate_front", "ko": "관문 앞길", "type": "front"},
+   {"key": "cliff_l", "ko": "왼쪽 벼랑", "type": "height"},
+   {"key": "cliff_r", "ko": "오른쪽 벼랑", "type": "height"},
+   {"key": "vanguard", "ko": "선봉 진지", "type": "front", "why": "선봉 진지 — 맨 앞에서 부딪치는 자리라 앞길"},
+   {"key": "main", "ko": "본진", "type": "hq"},
+   {"key": "supply", "ko": "보급로", "type": "supply"},
+   {"key": "river", "ko": "계곡 물길", "type": "water"}
+  ]},
+  {"key": "changban", "ko": "장판파", "year": 208, "slots": [
+   {"key": "bridge", "ko": "장판교", "type": "front", "why": "장판교 — 장비가 홀로 막은 다리, 앞길"},
+   {"key": "bridge_front", "ko": "다리 앞", "type": "front"},
+   {"key": "forest", "ko": "숲 매복", "type": "scheme"},
+   {"key": "refugees", "ko": "피란 행렬", "type": "hq", "why": "본진이 따로 없다 — 유비와 백성이 있는 피란 행렬을 본진으로(가장 가까운 거점)"},
+   {"key": "hill", "ko": "언덕 망루", "type": "height"},
+   {"key": "pursuit", "ko": "추격로", "type": "raid"},
+   {"key": "ford", "ko": "여울", "type": "water"},
+   {"key": "rear", "ko": "뒤쪽 길", "type": "raid", "why": "뒤쪽 길 — 돌아 들어가는 길이라 기습로"}
+  ]},
+  {"key": "hanzhong", "ko": "한중", "year": 219, "slots": [
+   {"key": "peak_b", "ko": "서쪽 봉우리 진채", "type": "height", "why": "봉우리 위 진채 — 정군산처럼 내려치는 높은 자리라 망루"},
+   {"key": "peak_a", "ko": "동쪽 봉우리 진채", "type": "fort", "why": "봉우리 진채 — 버티고 지키는 진채라 성루"},
+   {"key": "valley", "ko": "골짜기", "type": "scheme", "why": "골짜기 — 매복 자리"},
+   {"key": "river", "ko": "한수", "type": "water"},
+   {"key": "plank", "ko": "잔도", "type": "raid", "why": "잔도 — 좁은 벼랑길을 달려 드는 길이라 기습로"},
+   {"key": "depot", "ko": "보급창", "type": "supply"},
+   {"key": "pass", "ko": "고갯길", "type": "raid"},
+   {"key": "camp", "ko": "본영", "type": "hq"}
+  ]},
+  {"key": "guandu", "ko": "관도", "year": 200, "slots": [
+   {"key": "fortress", "ko": "관도 성채", "type": "fort"},
+   {"key": "trench", "ko": "참호", "type": "fort"},
+   {"key": "siege", "ko": "공성 진지", "type": "front", "why": "공성 진지 — 성을 들이치는 앞자리"},
+   {"key": "mound", "ko": "토산", "type": "height", "why": "토산 — 원소군이 쌓아 활을 쏜 높은 자리"},
+   {"key": "main", "ko": "원소 본진", "type": "hq"},
+   {"key": "depot", "ko": "오소 곡창", "type": "supply"},
+   {"key": "ford", "ko": "황하 나루", "type": "water"},
+   {"key": "flank", "ko": "기습로", "type": "raid"}
+  ]},
+  {"key": "yiling", "ko": "이릉", "year": 222, "slots": [
+   {"key": "camp_head", "ko": "선두 진채", "type": "fort"},
+   {"key": "camp_mid", "ko": "가운데 진채", "type": "hq", "why": "본진이 따로 없다 — 칠백 리 진채의 가운데, 유비가 있던 자리를 본진으로(가장 가까운 거점)"},
+   {"key": "camp_tail", "ko": "후미 진채", "type": "fort"},
+   {"key": "river", "ko": "장강 물길", "type": "water"},
+   {"key": "ridge", "ko": "산마루 매복", "type": "scheme"},
+   {"key": "fire", "ko": "불길 시작점", "type": "scheme", "why": "불길 시작점 — 육손의 화공 자리"},
+   {"key": "ford", "ko": "나루", "type": "water"},
+   {"key": "retreat", "ko": "퇴로", "type": "raid"}
+  ]},
+  {"key": "chibi", "ko": "적벽", "year": 208, "slots": [
+   {"key": "fleet", "ko": "연환선", "type": "water"},
+   {"key": "cliff", "ko": "적벽", "type": "height"},
+   {"key": "north", "ko": "북안 진영", "type": "fort", "why": "북안 진영 — 맞은편 진영을 지키는 자리라 성루"},
+   {"key": "south", "ko": "남안 진영", "type": "hq", "why": "본진이 따로 없다 — 주유가 지휘한 남안 진영을 본진으로(가장 가까운 거점)"},
+   {"key": "fireships", "ko": "화공선", "type": "scheme", "why": "화공선 — 황개의 화공, 물길보다 꾀"},
+   {"key": "wind", "ko": "동남풍 물길", "type": "mystic", "why": "동남풍 물길 — 제갈량이 바람을 빈 특수 거점"},
+   {"key": "island", "ko": "강 가운데 섬", "type": "height", "why": "강 가운데 섬 — 높이 솟아 내려다보는 자리"},
+   {"key": "harbor", "ko": "나루", "type": "water"}
+  ]},
+  {"key": "wuzhang", "ko": "오장원", "year": 234, "slots": [
+   {"key": "plateau", "ko": "오장원 본영", "type": "hq"},
+   {"key": "tent", "ko": "대장 막사", "type": "hq", "why": "대장 막사 — 본영과 함께 본진(둘)"},
+   {"key": "river", "ko": "위수", "type": "water"},
+   {"key": "wei_camp", "ko": "위군 진영", "type": "fort"},
+   {"key": "fields", "ko": "둔전", "type": "supply"},
+   {"key": "bridge", "ko": "다리", "type": "front"},
+   {"key": "cliff", "ko": "벼랑길", "type": "scheme", "why": "벼랑길 — 표에서 벼랑길은 꾀(매복)"},
+   {"key": "lookout", "ko": "별 보는 언덕", "type": "mystic", "why": "별 보는 언덕 — 제갈량의 특수 거점"}
+  ]}
+ ]
+}

@@ -61,4 +61,17 @@ for (const x of B.betray) {
   assert(role[x.a] && role[x.b] && x.a !== x.b, `배신 ${x.a}-${x.b}: 장수 목록에 없다`);
   assert(x.v < 0 && x.why, `배신 ${x.a}-${x.b}: 음수 · 까닭`);
 }
-console.log('draft2-data ok —', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length);
+/* 전장 거점 꼴 — data/draft2-battlefields.json: 전장 일곱, 거점이 battles.json 과 같고, 꼴은 표에, 본진(hq)이 하나 이상 */
+const BF = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-battlefields.json'), 'utf8'));
+const BT = JSON.parse(fs.readFileSync(path.join(root, 'data/battles.json'), 'utf8'));
+assert.strictEqual(BF.fields.length, 7, '전장 일곱');
+assert.deepStrictEqual(BF.fields.map(f => f.key), BT.battles.map(b => b.key), '전장 차례가 battles.json 과 같다');
+const fitOk = new Set(Object.keys(D.classes).concat(['lord']));
+for (const [t, e] of Object.entries(BF.types)) { assert(e.ko && e.glyph && e.stat && e.fit.length, `꼴 ${t}`); for (const f of e.fit) assert(fitOk.has(f), `꼴 ${t}: 갈래 ${f}`); }
+for (const f of BF.fields) {
+  const b = BT.battles.find(x => x.key === f.key);
+  assert.deepStrictEqual(f.slots.map(s => s.key + ':' + s.ko), b.slots.map(s => s.key + ':' + s.ko), `${f.key}: 거점이 battles.json 과 같다`);
+  for (const sl of f.slots) assert(BF.types[sl.type], `${f.key} ${sl.key}: 꼴 ${sl.type}`);
+  assert(f.slots.some(sl => sl.type === 'hq'), `${f.key}: 본진이 없다`);
+}
+console.log('draft2-data ok —', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length, '· 전장', BF.fields.length);

@@ -33,8 +33,8 @@ const doTao = CB.combos.find(c => c.n === '도원결의');
 ok(doTao && doTao.t[3] === 90 && doTao.m.join() === '유비,관우,장비', '도원결의 3인 90');
 
 /* ── 자료 → 카드 ── */
-const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn;
-const db = R.buildDB(GN, S, CB, PK, FC, BD), mx = R.view(db, 'mx');
+const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn, BF = J('data/draft2-battlefields.json');
+const db = R.buildDB(GN, S, CB, PK, FC, BD, BF), mx = R.view(db, 'mx');
 ok(db.mode === 'base' && mx.mode === 'mx' && R.view(mx, 'base') === db && R.view(db, 'mx') === mx, '진영 셈 view');
 ok(db.list.length === 279, '장수 279');
 const by = db.by;
@@ -154,11 +154,22 @@ function play(seed, keys, lvMe, lvFoe, o) {
   /* 선공은 진마다 한 자리씩 돈다 */
   st.log.forEach((row, r) => assert.strictEqual(row.first, st.seats[(r + st.first) % st.seats.length], '선공 차례'));
   const res = R.finalize(v, st, st.lineup);
+  assert.strictEqual(st.phase, 'battle', '편성 다음은 전장');
+  assert(db.fields[st.field] && st.battle.field === st.field, '전장은 판 처음에 정한 것');
+  while (st.phase === 'battle') {
+    const m = R.curMatch(st);
+    assert.strictEqual(m.a, 'me', '남은 판은 아군 판');
+    const dep = R.deployAI(v, R.battleTeam(st, 'me'), st.field, 0);
+    R.myDeploy(v, st, dep);
+  }
   assert.strictEqual(res.me.total, R.evaluateRaw(v, st.lineup).total);
   assert.strictEqual(res.sides.length, st.seats.length);
   res.sides.slice(1).forEach(x => assert.strictEqual(x.ev.total, R.bestLineup(v, R.teamOf(st, x.seat)).score));
-  assert.strictEqual(res.rank, 1 + res.sides.filter(x => x.ev.total > res.me.total).length, '순위');
+  assert.strictEqual(res.rank, 1 + res.sides.filter(x => x.ev.total > res.me.total).length, '편성 점수 순위');
   assert.strictEqual(st.phase, 'done');
+  assert.strictEqual(st.battle.matches.length, st.seats.length === 3 ? 3 : 1, '판 수(3인 리그 셋)');
+  assert(st.battle.matches.every(m => m.res && m.res.slots.length === 8), '판마다 거점 여덟');
+  assert.strictEqual(res.league.length, st.seats.length);
   return st;
 }
 const order = A.styleOrder(J('data/style.json')), IMG = J('data/img.json').img;
@@ -233,6 +244,92 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
   ok(BD.betray.every(x => !CB.combos.some(c => c.m.includes(x.a) && c.m.includes(x.b) && Object.values(c.t).some(v => v < 0))), '배신은 결의 불화와 겹치지 않는다');
   const bo = R.bondsOf(mx, ['원소', '진림', '진궁']);
   ok(bo.lord === '원소' && bo.reunion.join() === '진림' && bo.betray.some(x => x.a === '진궁' && !x.got && x.miss === '조조'), '결의 창 — 재회 · 배신 진척');
+}
+/* ── 2단계 전장 ── */
+{
+  const v = mx, team = ['유비', '관우', '장비', '조운', '마초', '황충', '제갈량', '방통', '법정', '미축', '손건'];
+  /* 값 · 맞춤 배수 */
+  const g = by['관우'];
+  ok(R.slotValue(v, '관우', 'front').v === Math.round(g.s.war * R.FIT_MAIN * 10) / 10 && R.slotValue(v, '관우', 'front').fit === 'main', '관우 앞길 — 무력 × 주 갈래 1.15');
+  ok(R.slotValue(v, '관우', 'water').v === Math.round(g.s.lead * R.FIT_SUB * 10) / 10 && R.slotValue(v, '관우', 'water').fit === 'sub', '관우 물길 — 통솔 × 부 갈래(수군장) 1.07');
+  ok(R.slotValue(v, '관우', 'supply').v === g.s.pol && !R.slotValue(v, '관우', 'supply').fit, '안 맞으면 그대로');
+  const yb = by['유비'], hq = (yb.s.lead + yb.s.int + yb.s.pol) / 3 + R.lordRate(yb);
+  ok(R.slotValue(v, '유비', 'hq').v === Math.round(hq * R.FIT_MAIN * 10) / 10, '군주 본진 — (통솔+지력+정치)/3 + 그릇, 맞춤');
+  ok(R.slotValue(v, '유비', 'front').v === yb.s.war, '군주를 본진 밖에 두면 그냥 능력치');
+  ok(R.slotValue(mx, '여포', 'hq').fit === 'main' && !R.slotValue(db, '여포', 'hq').fit, '군웅록의 여포는 군주로 본진에 맞다');
+  ok(R.slotValue(v, '제갈량', 'hq').v === Math.round((by['제갈량'].s.lead + by['제갈량'].s.int) / 2 * R.FIT_MAIN * 10) / 10, '군사(marshal)는 본진에 맞다');
+  /* 배치가 합법인지 */
+  for (const f of db.fieldList) {
+    const dep = R.deployAI(v, team, f, 0);
+    const chk = R.validDeploy(v, team, f, dep);
+    ok(chk.ok && chk.full && Object.keys(dep).length === 8 && new Set(Object.values(dep)).size === 8 && Object.values(dep).every(k => team.includes(k)), f + ' — 추천 배치 8명 · 겹침 없음 · 11명 안');
+  }
+  ok(!R.validDeploy(v, team, 'chibi', { fleet: '관우', cliff: '관우' }).ok, '한 사람 두 거점은 안 된다');
+  ok(!R.validDeploy(v, team, 'chibi', { fleet: '조조' }).ok && !R.validDeploy(v, team, 'chibi', { nowhere: '관우' }).ok, '편성 밖 장수 · 없는 거점은 안 된다');
+  /* 헝가리안이 가능한 모든 배치보다 작지 않은지 — 작은 표로 다 따져 본다 */
+  const brute = (val) => { let best = -1; const n = val.length, m = val[0].length, used = new Array(m).fill(false); (function go(i, t) { if (i === n) { best = Math.max(best, t); return; } for (let j = 0; j < m; j++) if (!used[j]) { used[j] = true; go(i + 1, t + val[i][j]); used[j] = false; } })(0, 0); return best; };
+  const tmp = { rng: 99 };
+  for (let k = 0; k < 30; k++) {
+    const n = 2 + (k % 4), m = n + (k % 3), val = Array.from({ length: n }, () => Array.from({ length: m }, () => Math.round(R.rand(tmp) * 100)));
+    const a = R.assign(val, n, m), got = a.reduce((t, j, i) => t + val[i][j], 0);
+    assert.strictEqual(got, brute(val), '헝가리안 최적'); checks++;
+  }
+  /* AI 배치가 무작위 배치보다 합이 크다 */
+  for (const f of db.fieldList) {
+    const best = R.depSum(v, f, R.deployAI(v, team, f, 0)), fl = db.fields[f];
+    for (let k = 0; k < 20; k++) {
+      const sh = team.slice().sort(() => R.rand(tmp) - 0.5), dep = {}; fl.slots.forEach((s, i) => { dep[s.key] = sh[i]; });
+      assert(R.depSum(v, f, dep) <= best + 1e-9, f + ' 무작위 배치가 더 크다'); checks++;
+    }
+  }
+  /* 승패와 동점 규칙 — 가짜 거점 표로 */
+  const sb = { fields: { t: { key: 't', slots: [['a', 'front'], ['b', 'front'], ['c', 'hq'], ['d', 'front'], ['e', 'front'], ['f', 'front'], ['g', 'front'], ['h', 'front']].map(([key, type]) => ({ key, ko: key, type })) } } };
+  const tv = Object.assign(Object.create(v), sb);
+  const strong = ['여포', '장비', '관우', '조운', '마초', '허저', '전위', '황충'], weak = ['간옹', '미축', '손건', '이적', '진림', '왕랑', '화흠', '장소'];
+  const mk = (ks) => { const d = {}; 'abcdefgh'.split('').forEach((x, i) => { if (ks[i]) d[x] = ks[i]; }); return d; };
+  const r1 = R.fight(tv, { rng: 5 }, 't', mk(strong), mk(weak));
+  ok(r1.wa === 8 && r1.winner === 'a' && r1.by === 'count', '거점 수로 이긴다 8:0');
+  const r2 = R.fight(tv, { rng: 5 }, 't', mk(strong.slice(0, 4)), {});
+  ok(r2.wa === 4 && r2.wb === 0 && r2.slots.filter(x => !x.win).length === 4, '비어 있는 거점은 상대 것, 둘 다 비면 아무도');
+  /* 4:4 — 본진(c)을 쥔 쪽 */
+  const left = { a: '여포', b: '장비', c: '조조', d: '관우', e: '미축', f: '손건', g: '간옹', h: '이적' }, right = { a: '왕랑', b: '화흠', c: '유선', d: '장소', e: '마초', f: '허저', g: '전위', h: '황충' };
+  const r3 = R.fight(tv, { rng: 5 }, 't', left, right);
+  ok(r3.wa === 4 && r3.wb === 4 && r3.by === 'hq' && r3.winner === 'a' && r3.slots.find(x => x.key === 'c').win === 'a', '4:4 → 본진을 쥔 쪽 ' + r3.wa + ':' + r3.wb + ' ' + r3.by);
+  const sb2 = { fields: { t: { key: 't', slots: 'abcdefgh'.split('').map(key => ({ key, ko: key, type: 'front' })) } } };
+  const tv2 = Object.assign(Object.create(v), sb2);
+  const r4 = R.fight(tv2, { rng: 5 }, 't', { a: '여포', b: '장비', c: '관우', d: '조운', e: '간옹', f: '미축', g: '손건', h: '이적' }, { a: '간옹', b: '미축', c: '손건', d: '이적', e: '허저', f: '전위', g: '마초', h: '황충' });
+  ok(r4.wa === 4 && r4.wb === 4 && r4.by === 'margin' && r4.winner === (r4.ma > r4.mb ? 'a' : 'b'), '본진도 없으면 이긴 거점 값 차이 합 ' + r4.ma + ' / ' + r4.mb);
+  ok(r1.slots.every(x => x.close === (Math.abs(x.ja - x.jb) / Math.max(x.ja, x.jb, 1) < R.CLOSE)), '접전 표시는 3% 안쪽');
+  ok(r1.slots.every(x => Math.abs(x.ja / x.va.v - 1) <= R.JITTER + 0.002), '흔들림은 ±6%');
+  /* 씨앗 재현 — 같은 씨앗이면 같은 판 · 같은 리그 */
+  const run = (seed, players) => { const st = R.newGame(db, { keys: db.list.map(c => c.key), seed, lv: 1, players, fmode: 'mx' }); const vv = R.view(db, 'mx'); let gg = 0;
+    while (st.phase === 'draft' && gg++ < 400) { const s2 = R.turn(st); if (!s2) { R.endRound(vv, st); continue; } R.ensureChoices(vv, st, s2); R.aiAct(vv, st, s2); }
+    R.finalize(vv, st, st.lineup); while (st.phase === 'battle') R.myDeploy(vv, st, R.deployAI(vv, R.battleTeam(st, 'me'), st.field, 0)); return st; };
+  const s1 = run(321, 3), s2 = run(321, 3), s3 = run(322, 3);
+  ok(JSON.stringify(s1.battle) === JSON.stringify(s2.battle) && JSON.stringify(s1.result.league) === JSON.stringify(s2.result.league), '전장 — 씨앗이 같으면 같은 리그');
+  ok(JSON.stringify(s1.battle) !== JSON.stringify(s3.battle), '씨앗이 다르면 다르다');
+  /* 리그 순위 — 승수 → 거점 합 → 편성 점수 */
+  const lg = s1.result.league;
+  ok(lg.length === 3 && s1.battle.matches.map(m => m.a + '-' + m.b).join() === 'me-foe,me-foe2,foe-foe2', '리그 세 판 — 아군 · 적장1, 아군 · 적장2, 적장끼리');
+  ok(lg.reduce((t, r) => t + r.w + r.d / 2, 0) === 3 && lg.every((r, i) => i === 0 || (lg[i - 1].w > r.w || lg[i - 1].w === r.w && (lg[i - 1].slots > r.slots || lg[i - 1].slots === r.slots && lg[i - 1].score >= r.score))), '순위 차례');
+  const fake = { seats: ['me', 'foe', 'foe2'], result: { sides: [{ seat: 'me', ev: { total: 900 } }, { seat: 'foe', ev: { total: 1000 } }, { seat: 'foe2', ev: { total: 800 } }] },
+    battle: { matches: [{ a: 'me', b: 'foe', res: { wa: 5, wb: 3, winner: 'a' } }, { a: 'me', b: 'foe2', res: { wa: 3, wb: 5, winner: 'b' } }, { a: 'foe', b: 'foe2', res: { wa: 4, wb: 4, winner: 'a' } }] } };
+  const fl = R.standings(v, fake);
+  ok(fl.map(r => r.seat).join() === 'foe2,me,foe' && fl.every(r => r.w === 1) && fl.map(r => r.slots).join() === '9,8,7', '모두 1승 → 거점 합 9 · 8 · 7 — ' + fl.map(r => r.seat + r.slots).join(' '));
+  fake.battle.matches[1].res = { wa: 4, wb: 4, winner: 'a' }; fake.battle.matches[0].res = { wa: 4, wb: 4, winner: 'a' }; fake.battle.matches[2].res = { wa: 4, wb: 4, winner: null };
+  const f2 = R.standings(v, fake);
+  ok(f2[0].seat === 'me' && f2[0].w === 2 && f2[1].seat === 'foe' && f2[2].seat === 'foe2' && f2[1].d === 1, '승수가 먼저, 같으면 거점 합 → 편성 점수(적장1 1000 > 적장2 800) — ' + f2.map(r => r.seat + r.w + '/' + r.slots + '/' + r.score).join(' '));
+  /* 전장 고르기 — 연도 쪽 · 직접 */
+  ok(R.pickField(v, 5, 'w194') === 'hulao' && ['chibi', 'changban'].includes(R.pickField(v, 5, 'jb208')) && R.pickField(v, 5, 'mx', 'yiling') === 'yiling', '연도에 맞는 전장 · 직접 고르기');
+  ok(R.newGame(db, { keys: db.list.map(c => c.key), seed: 8, field: 'guandu' }).field === 'guandu', '설정의 전장');
+  const a2 = R.newGame(db, { keys: db.list.map(c => c.key), seed: 8 }), b2 = R.newGame(db, { keys: db.list.map(c => c.key), seed: 8, field: 'guandu' });
+  ok(JSON.stringify(a2.pack) === JSON.stringify(b2.pack), '전장을 골라도 지명 판은 같다');
+  /* 이어하기 — 전장 중 */
+  const mid = run(77, 3);
+  const st5 = R.newGame(db, { keys: db.list.map(c => c.key), seed: 77, lv: 1, players: 3, fmode: 'mx' });
+  { const vv = R.view(db, 'mx'); let gg = 0; while (st5.phase === 'draft' && gg++ < 400) { const s2 = R.turn(st5); if (!s2) { R.endRound(vv, st5); continue; } R.ensureChoices(vv, st5, s2); R.aiAct(vv, st5, s2); } R.finalize(vv, st5, st5.lineup); }
+  ok(st5.phase === 'battle' && R.restore(db, JSON.parse(JSON.stringify(st5))) !== null, '전장 중에도 이어하기');
+  void mid;
 }
 /* 3인전 견제 — 앞선 상대를 1.2배 · 뒤진 상대 0.85배(같으면 앞 자리를 앞선 쪽으로), 2인은 그대로 */
 {

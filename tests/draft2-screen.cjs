@@ -1,6 +1,6 @@
 /* 새 판(draft2) 브라우저 검사 — 한 판을 처음부터 결과까지 자동으로 둔다(세계 하나 · 「그림 있는 장수만」 · 하수, ?fast=1).
    폰 판은 처음 설정 그대로(3인 · 군웅록 — 기본값인지도 본다), PC 판은 2인 · 본편 네 진영으로 고른다.
-   폰(390×844) — 그림을 그림 저장소 대신 이 기기의 사본(../sam-atelier-img/img 또는 IMG_DIR)에서 받아 카드에 그림이 오르는지,
+   폰(390×844) — 그림 · 전장 지도를 그림 저장소 대신 이 기기의 사본(../sam-atelier-img 또는 IMG_DIR)에서 받아 카드 · 지도에 오르는지, 3인 리그 끝까지,
    PC(1280×800) — 그림 주소를 막아 도장 글자 카드로 떨어지는지 · 중간에 새로 고쳐 이어하기. 두 번 다 페이지 오류 0 · 결과 화면까지.
    Phaser 는 CDN(jsdelivr) 주소를 이 기기의 같은 판(PHASER_JS 또는 node_modules 의 phaser@4.2.1)으로 돌린다 — 바깥은 다 막는다.
    SHOT_DIR 을 주면 세계 고르기 · 지명 중 화면을 남긴다.
@@ -11,6 +11,7 @@ const { chromium } = require('playwright');
 const ROOT = path.resolve(__dirname, '..'), PORT = +(process.env.PORT || 8790), BASE = 'http://127.0.0.1:' + PORT;
 const PHASER_URL = 'https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js';
 const IMG_URL = 'https://polos0117.github.io/sam-atelier-img/img/';
+const MAP_URL = 'https://polos0117.github.io/sam-atelier-img/backgrounds/battles/';
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.json': 'application/json', '.css': 'text/css', '.webp': 'image/webp', '.png': 'image/png' };
 
 function phaserFile() {
@@ -24,6 +25,7 @@ function phaserFile() {
 }
 const PHASER = phaserFile();
 const IMG_DIR = process.env.IMG_DIR || path.join(ROOT, '..', 'sam-atelier-img', 'img');
+const MAP_DIR = path.join(IMG_DIR, '..', 'backgrounds', 'battles');
 const SHOT = process.env.SHOT_DIR;
 
 const server = http.createServer((q, s) => {
@@ -38,6 +40,10 @@ async function open(br, viewport, withArt) {
   await ctx.route(/^https?:\/\/(?!127\.0\.0\.1)/, r => {
     const u = r.request().url();
     if (u.split('?')[0] === PHASER_URL) return r.fulfill({ status: 200, contentType: 'text/javascript', body: PHASER });
+    if (withArt && u.startsWith(MAP_URL)) {
+      const f = path.join(MAP_DIR, decodeURIComponent(u.slice(MAP_URL.length).split('?')[0]));
+      if (f.startsWith(MAP_DIR) && fs.existsSync(f)) return r.fulfill({ status: 200, contentType: 'image/webp', headers: { 'access-control-allow-origin': '*' }, body: fs.readFileSync(f) });
+    }
     if (withArt && u.startsWith(IMG_URL)) {
       const rel = decodeURIComponent(u.slice(IMG_URL.length).split('?')[0]), f = path.join(IMG_DIR, rel);
       if (f.startsWith(IMG_DIR) && fs.existsSync(f)) { served++; return r.fulfill({ status: 200, contentType: 'image/webp', headers: { 'access-control-allow-origin': '*' }, body: fs.readFileSync(f) }); }
@@ -76,23 +82,57 @@ async function playDraft(page, limit) {
   }
   return { picks, scene: await page.evaluate(() => window.D2.scene()) };
 }
-async function finish(page, shot) {
+/* 편성 → 전장(배치 · 겨루기, 3인은 리그 세 판) → 결과. shot 이면 배치 · 겨루기 공개 중 · 결과(리그) 스크린샷 */
+async function finish(page, shot, reloadAtDeploy) {
   await sceneIs(page, 'Lineup', 20000);
-  if (shot) { await page.waitForTimeout(300); await page.screenshot({ path: shot + '-lineup.png' }); }
   const st = await page.evaluate(() => window.D2.state());
   assert.equal(st.phase, 'lineup');
   for (const s of st.seats) assert.equal((s === 'me' ? st.mine : st[s]).length, 13, s + ' 13명');
   await tap(page, 'confirm');
+  let mine = 0;
+  for (let guard = 0; guard < 8; guard++) {
+    const k = await page.waitForFunction(() => ['Deploy', 'Clash', 'Result'].includes(window.D2.scene()) && window.D2.scene(), null, { timeout: 15000 }).then(h => h.jsonValue());
+    if (k === 'Result') break;
+    if (k === 'Deploy') {
+      if (reloadAtDeploy && !mine) {   /* 배치 중 새로 고쳐도 이어진다 */
+        reloadAtDeploy = false;
+        await page.reload(); await sceneIs(page, 'Title', 20000);
+        await tap(page, 'resume'); await sceneIs(page, 'Deploy');
+      }
+      const b = await page.evaluate(() => window.D2.state().battle);
+      assert.equal(b.matches[b.i].a, 'me', '배치는 아군 판');
+      const slots = await page.evaluate(() => window.D2.hits().filter(h => h.id.startsWith('slot:')).length);
+      assert.equal(slots, 8, '거점 여덟');
+      /* 장수 하나를 골라 거점에 — 누르기로 배치 */
+      await tap(page, 'clear'); await tap(page, 'gen:0'); await tap(page, (await page.evaluate(() => window.D2.hits().find(h => h.id.startsWith('slot:')).id)));
+      assert.equal(Object.keys(await page.evaluate(() => window.D2.state().battle.draft)).length, 1, '장수 → 거점 누르기 배치');
+      await tap(page, 'auto');
+      const d = await page.evaluate(() => window.D2.state().battle.draft);
+      assert.equal(Object.keys(d).length, 8, '추천 배치 여덟'); assert.equal(new Set(Object.values(d)).size, 8, '겹침 없음');
+      if (shot && !mine) { await page.waitForTimeout(400); await page.screenshot({ path: shot + '-deploy.png' }); }
+      if (shot && !mine) await page.evaluate(() => { window.Draft2Scenes.G.fast = false; });   // 공개를 보통 속도로 한 번 찍는다
+      await tap(page, 'go');
+      await sceneIs(page, 'Clash');
+      if (shot && !mine) { await page.waitForTimeout(1700); await page.screenshot({ path: shot + '-clash.png' }); await page.evaluate(() => { window.Draft2Scenes.G.fast = true; }); }
+      mine++;
+      continue;
+    }
+    if (await page.evaluate(() => window.D2.hits().some(h => h.id === 'skip'))) await tap(page, 'skip');
+    await tap(page, 'next');
+    await page.waitForFunction(() => window.D2.scene() !== 'Clash', null, { timeout: 10000 });
+  }
   await sceneIs(page, 'Result');
+  assert.equal(mine, st.seats.length === 3 ? 2 : 1, '아군 판 수');
   if (shot) { await page.waitForTimeout(300); await page.screenshot({ path: shot + '-result.png' }); }
-  const res = await page.evaluate(() => window.D2.state().result);
-  assert.equal(res.mine.length, 11); assert.equal(res.foe.length, 11);
-  assert.equal(typeof res.me.total, 'number'); assert(res.me.rows.length > 2, '채점 줄');
-  assert.equal(res.sides.length, st.seats.length); assert(res.sides.every(x => x.team.length === 11 && x.rank >= 1 && x.rank <= st.seats.length), '순위');
+  const fin = await page.evaluate(() => window.D2.state()), res = fin.result;
+  assert.equal(fin.phase, 'done');
+  assert.equal(fin.battle.matches.length, st.seats.length === 3 ? 3 : 1); assert(fin.battle.matches.every(m => m.res && m.res.slots.length === 8), '판마다 거점 여덟');
+  for (const m of fin.battle.matches) assert(Object.keys(m.dep.a).length === 8 && Object.keys(m.dep.b).length === 8 && m.res.wa + m.res.wb === 8, '양쪽 여덟 · 거점마다 승부 ' + m.a + '-' + m.b + ' ' + JSON.stringify(m.res.slots.filter(x => !x.win)));
+  assert.equal(res.league.length, st.seats.length); assert(res.league.every(r => r.rank >= 1 && r.rank <= st.seats.length), '리그 순위');
+  assert.equal(res.mine.length, 11); assert.equal(res.sides.length, st.seats.length);
   await tap(page, 'score');
   await page.waitForSelector('.d2-sheet .d2-score');
-  assert.equal(await page.locator('.d2-sheet .d2-score').count(), st.seats.length, '채점표 — 자리마다');
-  assert(await page.locator('.d2-sheet .d2-score .d2-fac').count() > 0, '채점표 결속 줄에 세력색');
+  assert.equal(await page.locator('.d2-sheet .d2-score').count(), st.seats.length, '채점표(편성 점수) — 자리마다');
   if (shot) { await page.waitForTimeout(250); await page.screenshot({ path: shot + '-score.png' }); }
   await page.click('.d2-x');
   assert.equal(await page.locator('.d2-veil').count(), 0, '창 닫힘');
@@ -181,7 +221,7 @@ async function finish(page, shot) {
       await page.setViewportSize({ width: 1280, height: 800 }); await page.waitForTimeout(300);
       const rest = await playDraft(page);
       assert.equal(rest.scene, 'Lineup');
-      await finish(page);
+      await finish(page, null, true);
       const ac = await page.evaluate(() => window.D2.art());
       assert.equal(ac.ok, 0, '그림 주소를 막았으니 받은 그림 없음'); assert(ac.fail > 0, '받지 못한 그림 → 도장 카드');
       assert.deepEqual(errors, [], 'PC — 페이지 오류');
