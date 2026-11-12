@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 새 판 draft2 를 머리 메뉴 · 첫 화면 메뉴에
+- 사용자 「삼국지 드래프트 새로 만든거 그거는 네비에 안붙어있던데」 — lib/workspace-ui.js PAGES 에 draft2(드래프트 다음), 낱말 nav.draft2 · title.draft2 「드래프트 · 전장」, index.html 메뉴 여섯. words.js ?v=21 · workspace-ui.js ?v=7. tests/screen.cjs 메뉴 여섯 — 통과.
+
 ## 2026-11-12 · claude · 둘째 그림 저장소 sam-atelier-img-2 열기 — 새 그림은 여기
 - 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 · 「저장소 만들고 토큰 넣었어」 — 첫 저장소 sam-atelier-img 가 GitHub 크기 약 1.0 GB 로 찼다(Pages 권장 1 GB). 0 번 sam-atelier-img 닫힘(교체만 · 잠금 · free 주문 · 배경은 그대로), 1 번 sam-atelier-img-2 열림(새 그림 · 새 기록). 그림은 옮기지도 지우지도 않았다
 - lib/img.js — BASES 에 둘째 저장소 주소. 화면은 where 로 파일마다 제 저장소(한 장수가 두 저장소에 나뉘어도). ?v=2 로 올림(api · battle · dex · draft2 · hall · prompt · promptapi · styles)
