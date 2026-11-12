@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · gpt · 감녕 기본 화풍 세계컷 및 일상컷 24장 등록
+- data/img.json — 사용자 선택 삼국시대 2 · 판타지 1 · 메카 1의 세계컷 3장과 세계별 일상컷 7장씩을 kr_drawn_rim_dewy로 등록. 새 그림과 생성·검수 기록은 sam-atelier-img-2에 추가하고 기존 그림은 보존. 생성기 기록 기반 필수 갈래 및 세계별 7장 검사 통과.
+
 ## 2026-11-12 · claude · 새 판 draft2 를 머리 메뉴 · 첫 화면 메뉴에
 - 사용자 「삼국지 드래프트 새로 만든거 그거는 네비에 안붙어있던데」 — lib/workspace-ui.js PAGES 에 draft2(드래프트 다음), 낱말 nav.draft2 · title.draft2 「드래프트 · 전장」, index.html 메뉴 여섯. words.js ?v=21 · workspace-ui.js ?v=7. tests/screen.cjs 메뉴 여섯 — 통과.
 
