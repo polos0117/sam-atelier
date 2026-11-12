@@ -101,7 +101,6 @@ node tests/words.cjs && node tests/look-spec.cjs && node tests/patch.cjs && node
 python3 tests/register-images.py && python3 tests/make-thumbs.py
 python3 tests/casual-tree.py && python3 tests/casual-tree-v2.py && node tests/casual-tree.cjs && node tests/casual-tree-v2.cjs
 ESM_DIR=<preact 가 든 node_modules> CHROMIUM_PATH=<chrome> node tests/screen.cjs     # 도감 · 생성기, 폰 · PC
-node tests/assets.cjs && node tests/regression.cjs                                    # 게임
 node tools/draft2-extract.cjs [--check] && node tests/draft2-data.cjs && node tests/draft2-rules.cjs   # 새 판 — 결의 · 확장팩 뽑기(draft.html 은 읽기만) · 장수 자료 · 규칙(군웅록 · 3인전 포함)
 PHASER_JS=<phaser@4.2.1 dist/phaser.min.js> [IMG_DIR=<그림 사본>] [SHOT_DIR=<폴더>] node tests/draft2-screen.cjs   # 새 판 한 판 끝까지(폰 · PC, 포트 8790)
 ```

@@ -7,6 +7,14 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 검사 정리 — 얼린 게임 검사 · core 대조 지우고 느린 검사 반복 줄임
+- tests/regression.cjs · tests/assets.cjs · tests/dot-screen.cjs(+ tests/fixtures/make-sprites.py) — 지움. 사용자 「필요없고 쓸데없이 시간만 잡아먹는 검사들 좀 없애줘」. 게임 draft.html 은 손대지 않기로 했고(11-02 이후 안 바뀜), 도트 무장은 draft.html 만 열고 data/sprites.json 인물이 0 — 87초
+- tests/core-sync.cjs — 지움. 화풍공방 tests/core.cjs 가 같은 대조를 한다
+- tests/casual-plan.cjs — 장수 12 → 6 · 씨앗 둘(셋) → 하나, 단언은 그대로. 170초 → 90초
+- tests/casual-tree-v2.cjs — 랜덤 2000 → 300 · 바꾸기 1500 → 200(다른 공방과 같은 수). 98초 → 33초
+- tests/prompt-gpt.cjs — 장수 14 → 3(구조형 옮기기는 옛 판 kr_mmorpg v4 · mmorpg_cg 만 쓰는 길). 46초 → 10초
+- AGENTS.md 검사 블록 · README.md 검증 · tests/screen.cjs 머리 주석 — 지운 검사 줄 걷기
+
 ## 2026-11-12 · claude · draft2 — 지명 화면 가볍게(바뀐 조각만 다시 그리기)
 - 사용자 「드래프트 선택에서 선택시랑 카드가 펼쳐질때 느낌이 무거워」 — lib/draft2/scenes.js Draft 장면이 고를 때마다 화면 전체(글 140여 개)를 지우고 다시 만들던 것을, 조각(배경 · 머리 · 카드 여섯 · 진영 칸 · 아래 줄)마다 서명을 보고 바뀐 조각만 다시 만들게.
 - 고르기 한 번 18ms → 5ms(PC 측정, 휴대폰은 배수만큼 더 차이). 적장 지명은 그 카드 · 그 진영 칸 · 머리만, 새 진은 카드 여섯만. scenes.js ?v=7.

@@ -8,7 +8,7 @@ const D = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/sam-design.js
 const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx);
   for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, '..', f), 'utf8'), ctx);
   return ctx.window.AtelierPrompt; })();
-const keys = P.cards(D), pickKeys = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 12)) === 0).slice(0, 12);
+const keys = P.cards(D), pickKeys = keys.filter((k, i) => i % Math.max(1, Math.floor(keys.length / 6)) === 0).slice(0, 6);
 const TS = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx); vm.runInContext(fs.readFileSync(path.join(__dirname, '../lib/prompt-spec.js'), 'utf8'), ctx); return ctx.window.AtelierSpec; })();
 const SJ = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8')), SR = SJ.styles[C.STYLE], KIT = (SR.versions.find(v => v.v === SR.current) || {}).casualKit, SHORT = !!(SR.versions.find(v => v.v === SR.current) || {}).casualShort, LEG = !!((SR.versions.find(v => v.v === SR.current) || {}).legacy25 || (SR.versions.find(v => v.v === SR.current) || {}).casualLegacy);   /* casualLegacy — 일상컷만 2.5 글 긴 꼴(kr_drawn_rim_dewy 2026-11-11) */   /* 기본 화풍에 일상컷 묶음이 있으면(kr_mmorpg v5~, 2026-11-08 기본) 그 글로 */
 let n = 0; const dn = { fit: 0, set: 0 }, situSeen = new Set(), famSeen = new Set();
@@ -18,7 +18,7 @@ const famEn = k => FD.familyNames[k] || TREE1.outfits.find(o => o.key === k).en,
 const freeSeen = new Set(), freeSitu = new Set();
 for (const key of pickKeys) {
   const card = C.cardOf(key);
-  for (const w of card.worlds) for (const seed of [3, 11]) {
+  for (const w of card.worlds) for (const seed of [3]) {
     card.world = w;
     const res = C.plan(card, SEVEN, [], { seed, recent: ['a retro diner — holds a cup'] });
     assert.equal(res.cuts.length, 7, key + ' ' + w + ' 일곱 장');
@@ -138,7 +138,7 @@ try {
   const fresh = new Set(places.filter((k, i) => i % 3 === 0)), freshP = new Set(presets.filter((k, i) => i % 3 === 0)), freshE = new Set(exprs.filter((k, i) => i % 3 === 0));
   const heavy = (all, keep) => Object.fromEntries(all.filter(k => !keep.has(k)).map(k => [k, 12]));
   const usage = { prop: {}, place: heavy(places, fresh), item: {}, preset: heavy(presets, freshP), posture: {}, expr: heavy(exprs, freshE) };
-  const share = (u, f, set) => { let hit = 0, all = 0; for (const key of pickKeys) { const card = C.cardOf(key); card.world = card.worlds[0]; for (const seed of [3, 11, 29]) for (const c of C.plan(card, [1, 2, 3, 4, 5], [], { seed, usage: u }).cuts) { if (!c[f]) continue; all++; if (set.has(c[f])) hit++; } } return hit / all; };
+  const share = (u, f, set) => { let hit = 0, all = 0; for (const key of pickKeys) { const card = C.cardOf(key); card.world = card.worlds[0]; for (const seed of [3]) for (const c of C.plan(card, [1, 2, 3, 4, 5], [], { seed, usage: u }).cuts) { if (!c[f]) continue; all++; if (set.has(c[f])) hit++; } } return hit / all; };
   for (const [f, set, name] of [['place', fresh, '장소'], ['preset', freshP, '자세 추천']]) {   /* 표정은 고르게 뽑는다(2026-11-03) */
     const base = share({}, f, set), lean = share(usage, f, set);
     assert(lean > 0.6 && lean > base * 1.5, name + ' — 안 쓴 값 비율 ' + lean.toFixed(2) + ' (횟수 없이 ' + base.toFixed(2) + ')');
@@ -206,10 +206,10 @@ try {
    문구는 단서 두셋(2026-11-03 사용자 「표정 관련 문구가 과하게」) */
 {
   const ok = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistful', 'nostalgic', 'confident', 'proud', 'focused', 'half_smile', 'candid', 'relieved', 'wink', 'sensual', 'serious', 'curious'], seen = new Set();   /* 2026-11-03 「일상컷쪽이 더 그래」 — 은은한 열셋만 */
-  for (const key of pickKeys) { const card = C.cardOf(key); for (const w of card.worlds) { card.world = w; for (const seed of [3, 9]) for (const c of C.plan(card, SIX, [], { seed }).cuts) if (c.expr) seen.add(c.expr); } }
+  for (const key of pickKeys) { const card = C.cardOf(key); for (const w of card.worlds) { card.world = w; for (const seed of [3]) for (const c of C.plan(card, SIX, [], { seed }).cuts) if (c.expr) seen.add(c.expr); } }
   for (const k of seen) assert(ok.includes(k), '은은한 표정이 아닌 ' + k);
   assert(seen.size >= 10, '표정 ' + seen.size + ' 가지');
   const tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree-v2.json'), 'utf8'));
   for (const [k, v] of Object.entries(tr2.expressions)) assert(v.split(',').length <= 3 && !/jaw|clench|unsmiling|squeez|slack/.test(v), '표정 문구 ' + k + ': ' + v);
 }
-console.log(`PASS 일상컷 묶음 계획기: ${n} 묶음(장수 ${pickKeys.length} × 세계 셋 × 씨앗 둘)이 일곱 장 · 묶음 규칙 · 정해 둔 세 갈래 + 자유 설계 둘(옷 자유 · 갈래 자유 — 덩어리 · 최근 장면 · 갈래 겹침 없이 · 상황 열기, 옛 여섯 장 그대로 · 일곱째 하나만)(노출 · 세계 안 · 상황 노출 — 상황 넷 다, 새 계열 모험가 · 신화 드레이프) · 네 시대 · 기록 꼴, 있는 두 장 위에 세 장 · 카드 사이 안 쓴 장소 · 자세 추천 · 표정 먼저 · 세계 셋 한 번에 새 묶음(세계 · 옛 묶음 사이 같은 장면 없음) · 무기는 장신구로(부채 · 두루마리는 손에) · 시대 몫(지금 현실 둘) · 세계 안 갈래 장소 일곱 · 표정 후보(어색한 것 빼고 고르게, 문구 단서 두셋)`);
+console.log(`PASS 일상컷 묶음 계획기: ${n} 묶음(장수 ${pickKeys.length} × 세계 셋 × 씨앗 하나)이 일곱 장 · 묶음 규칙 · 정해 둔 세 갈래 + 자유 설계 둘(옷 자유 · 갈래 자유 — 덩어리 · 최근 장면 · 갈래 겹침 없이 · 상황 열기, 옛 여섯 장 그대로 · 일곱째 하나만)(노출 · 세계 안 · 상황 노출 — 상황 넷 다, 새 계열 모험가 · 신화 드레이프) · 네 시대 · 기록 꼴, 있는 두 장 위에 세 장 · 카드 사이 안 쓴 장소 · 자세 추천 · 표정 먼저 · 세계 셋 한 번에 새 묶음(세계 · 옛 묶음 사이 같은 장면 없음) · 무기는 장신구로(부채 · 두루마리는 손에) · 시대 몫(지금 현실 둘) · 세계 안 갈래 장소 일곱 · 표정 후보(어색한 것 빼고 고르게, 문구 단서 두셋)`);

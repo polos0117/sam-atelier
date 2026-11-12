@@ -48,13 +48,10 @@ AI도 13명을 지명한 뒤 동일한 추천 계산으로 11명을 확정합니
 ## 검증
 
 ```sh
-node tests/assets.cjs
-node tests/regression.cjs
 node tests/sprite-actor-copy.cjs
-CHROMIUM_PATH=<chrome> NODE_PATH=<playwright 가 있는 node_modules> node tests/dot-screen.cjs   # 도트 무장 — 군막 바닥 띠·인물 확대·지명 상세(시험 자료)
 ```
 
-회귀 검증은 DOM 대역으로 게임 함수를 실행하며 실제 브라우저 렌더링 검증을 대체하지 않습니다.
+게임(`draft.html`)은 손대지 않기로 해서 게임 회귀 · 초상 해시 · 도트 무장 화면 검사는 2026-11-12 지웠습니다.
 
 ## 공용 모듈
 

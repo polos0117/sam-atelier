@@ -1,6 +1,6 @@
 /* 일상컷 트리 버전2 모듈(lib/casual-tree-v2.js). node tests/casual-tree-v2.cjs
    - 검사기(tools/casual-tree-v2.py)와 같은 길: 자세 추천마다 쓸 수 있는 장소가 같다
-   - 다시 검사 뒤엔 어느 칸도 걸리지 않는다(랜덤 수천 번) — 두 손 칸 · 보이는 부위 · 다리 칸 · 받침 · 옷 특징 · 시선
+   - 다시 검사 뒤엔 어느 칸도 걸리지 않는다(랜덤 수백 번) — 두 손 칸 · 보이는 부위 · 다리 칸 · 받침 · 옷 특징 · 시선
    - 프레이밍을 넓혀 맞추지 않는다, 두 손 자세는 다른 손을 잠근다, 버전1 기록은 표로 옮긴다 */
 const assert = require('node:assert'), fs = require('node:fs'), path = require('node:path');
 global.window = global; require('../lib/casual-tree.js'); require('../lib/casual-tree-v2.js');
@@ -42,14 +42,14 @@ function valid(sc, where) {
   assert.equal(sc.treeV, 2);
 }
 const rnd = seeded(7);
-for (let i = 0; i < 2000; i++) {
+for (let i = 0; i < 300; i++) {
   const sc = C.random(t, {}, null, rnd, [], { preset: i % 2 === 0 });
   valid(sc, '랜덤 ' + i);
   if (i % 2 === 0 && sc.preset) assert(C.presetOk(t, sc, sc.preset), '랜덤 추천 ' + sc.preset);
 }
 /* 칸을 아무 값으로 바꿔도(트리 밖 값 포함) 다시 검사 뒤엔 맞다 */
 const r2 = seeded(11);
-for (let i = 0; i < 1500; i++) {
+for (let i = 0; i < 200; i++) {
   let sc = C.random(t, {}, null, r2);
   const k = C.ORDER[Math.floor(r2() * C.ORDER.length)], pool = k === 'place' ? t.v1.places.map(p => p.key) : [].concat(...['hands', 'legs', 'postures', 'supports', 'gaze', 'body', 'prop_uses'].map(n => t.v2[n].map(x => x.key)), Object.keys(t.v2.frames), ['prop', 'nope']);
   sc = C.set(t, sc, k, pool[Math.floor(r2() * pool.length)]);
@@ -251,4 +251,4 @@ assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 16, '�
 const r13 = seeded(13);
 for (let i = 0; i < 300; i++) valid(C.random(t, { era: i % 2 ? 'heritage' : 'nation' }, null, r13, ['era']), '삼국지 시대 랜덤 ' + i);
 
-console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 2000 · 바꾸기 1500 · 역사의 자리 · 세계 안 · 삼국지 소품');
+console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 300 · 바꾸기 200 · 역사의 자리 · 세계 안 · 삼국지 소품');
