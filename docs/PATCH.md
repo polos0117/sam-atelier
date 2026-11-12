@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-13 · claude · 새 체형 아담한 풍만형(petite_voluptuous) — 왕원희
+- 사용자 「키는 좀 작게하고 볼륨감은 키워줘」 → 「새 체형 텍스트 넣어서 무협컷 만들어줘볼래?」(아담한 굴곡형과 2.6 두 장 견줌) → 「응 새 체형으로 넣어서 왕원희에게 주고」.
+- lib/look-spec.js VOCAB_EN.body.petite_voluptuous — petite and short in stature yet voluptuous — a very full, heavy bust, a narrow waist and generously rounded hips on a small, compact frame, with realistic thighs and legs(삼국지 몫, core 블록 밖). tools/sam-design.py BODY 무게 0. 왕원희 body · summary 「아담한 풍만형」.
+
 ## 2026-11-13 · claude · 왕원희 체형 — 아담한 굴곡형
 - 사용자 「왕원희 설계를 지금보단 키는 좀 작게하고 볼륨감은 키워줘」 — busty_slender(가늘고 풍만한 형) → petite_curvy(아담한 굴곡형), body_note · summary. 아직 그림 없음.
 

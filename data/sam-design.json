@@ -7487,7 +7487,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "종회를 꿰뚫은 눈 — 비단 부채 · 꿰뚫는 눈 · 하늘빛 머리 · 날 선 · 아담한 굴곡형"
+    "ko": "종회를 꿰뚫은 눈 — 비단 부채 · 꿰뚫는 눈 · 하늘빛 머리 · 날 선 · 아담한 풍만형"
    },
    "title": {
     "en": "the perceptive lady who alone saw through Zhong Hui's treachery"
@@ -7513,7 +7513,7 @@
      "lips": "full_wide"
     },
     "silhouette": {
-     "body": "petite_curvy",
+     "body": "petite_voluptuous",
      "hair_color": "sky_blue"
     },
     "worlds": {
@@ -7553,7 +7553,7 @@
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 plum_black → sky_blue, 눈 sky_blue → rose(머리 45 · 눈 27가지에서 고르게)",
     "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — samguk eye_size large→medium(phoenix). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
-    "body_note": "2026-11-12 busty_slender → petite_curvy(아담한 굴곡형) — 사용자 「왕원희 설계를 지금보단 키는 좀 작게하고 볼륨감은 키워줘」"
+    "body_note": "2026-11-12 busty_slender → petite_curvy → petite_voluptuous(아담한 풍만형) — 사용자 「왕원희 설계를 지금보단 키는 좀 작게하고 볼륨감은 키워줘」 → 「새 체형 텍스트 넣어서 무협컷 만들어줘볼래?」(아담한 굴곡형과 나란히 견줌) → 「응 새 체형으로 넣어서 왕원희에게 주고」"
    },
    "worlds": {
     "samguk": {
