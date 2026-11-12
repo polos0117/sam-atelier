@@ -7,6 +7,13 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 새 판(draft2) — 3인전(정립) · 군웅록을 기본으로
+- lib/draft2/rules.js — 사용자 「3인전에 군웅록이 기본이 되게 만들어줘」. 진영 셈 view(군웅록: 거친 세력마다 결속 · 0.8배 · 주공 동향은 세력 하나라도 겹치면 · 적장 기치 +25 / 본편 네 진영), 셋째 자리(선공이 진마다 돈다 · 적장 견제는 앞선 상대 1.2배 · 뒤진 상대 0.85배 · 기질은 적장마다), 결과는 순위. 판 모양 v2 — 1단계 이어하기는 버린다
+- lib/draft2/scenes.js · ui.js · draft2.css · draft2.html(?v=2) — 설정에 인원(2인/3인 기본) · 진영 셈(군웅록 기본/본편), 저장된 설정은 지키고 없는 칸만 기본. 오늘의 대국 씨앗에 둘을 넣음. 카드 진영 칩은 이력을 세력 색으로(동탁·여포 · 무장), 진영 칸 셋(휴대폰 세로에 다 들어가게 · 점수 · 기치), 결과는 순위 표 · 채점표 셋
+- tools/draft2-extract.cjs → data/draft2-packs.json — 옛 PACKS(+ 덧붙인 Object.assign)를 읽기만 해서: 군웅록 career · synMul · bias · 세력 색, 다른 팩 넷(194 · 200 · 208 · 263)은 자료만. roleMap 은 자료에만 두고 안 쓴다
+- tests/draft2-rules.cjs · tests/draft2-screen.cjs — 군웅록 결속 · 견제 배수 · 3인 판(고를 수 있는 카드만 · 겹침 없음 · 선공 차례 · 씨앗 재현 · 순위), 브라우저는 기본값(3인 · 군웅록)으로 폰 한 판 · PC 는 2인 · 본편
+- docs/DRAFT2_PLAN.md · AGENTS.md — 1-2 했다(군웅록 · 3인전), 2단계 전장이 3인을 어떻게 받을지는 안 정했다는 메모
+
 ## 2026-11-12 · claude · 새 판(draft2) 1단계 — 그림 카드 · 세계 고르기 · 지명 흐름
 - draft2.html · lib/draft2/(rules · art · ui · scenes · main · draft2.css) — Phaser 4.2.1 새 판. 타이틀 → 세계 고르기(세계 셋 · 그림 있는 장수만/전체 279 · 하수/중수/고수 · 오늘의 대국) → 13진 × 후보 6장 지명(정원 군주1 · 무장5 · 참모5, 예비 둘, 다시 뽑기, 뽑으면 +얼마 · 결의 진척) → 11명 편성(추천) → 임시 결과(전력 + 결속 + 결의 + 주공, 채점표). 규칙은 Phaser 없는 순수 모듈 rules.js, 저장 samguk_draft2_*. 첫 화면 · 머리 메뉴엔 아직 안 붙임
 - tools/draft2-extract.cjs → data/draft2-combos.json — 옛 draft.html 의 결의 250 · 결속 표 · 군웅 계수를 읽어 쓴다(draft.html 은 읽기만, 다시 돌려도 같은 글자)

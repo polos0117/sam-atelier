@@ -1,4 +1,5 @@
 /* 새 판(draft2) 브라우저 검사 — 한 판을 처음부터 결과까지 자동으로 둔다(세계 하나 · 「그림 있는 장수만」 · 하수, ?fast=1).
+   폰 판은 처음 설정 그대로(3인 · 군웅록 — 기본값인지도 본다), PC 판은 2인 · 본편 네 진영으로 고른다.
    폰(390×844) — 그림을 그림 저장소 대신 이 기기의 사본(../sam-atelier-img/img 또는 IMG_DIR)에서 받아 카드에 그림이 오르는지,
    PC(1280×800) — 그림 주소를 막아 도장 글자 카드로 떨어지는지 · 중간에 새로 고쳐 이어하기. 두 번 다 페이지 오류 0 · 결과 화면까지.
    Phaser 는 CDN(jsdelivr) 주소를 이 기기의 같은 판(PHASER_JS 또는 node_modules 의 phaser@4.2.1)으로 돌린다 — 바깥은 다 막는다.
@@ -79,16 +80,18 @@ async function finish(page, shot) {
   await sceneIs(page, 'Lineup', 20000);
   if (shot) { await page.waitForTimeout(300); await page.screenshot({ path: shot + '-lineup.png' }); }
   const st = await page.evaluate(() => window.D2.state());
-  assert.equal(st.mine.length, 13); assert.equal(st.foe.length, 13); assert.equal(st.phase, 'lineup');
+  assert.equal(st.phase, 'lineup');
+  for (const s of st.seats) assert.equal((s === 'me' ? st.mine : st[s]).length, 13, s + ' 13명');
   await tap(page, 'confirm');
   await sceneIs(page, 'Result');
   if (shot) { await page.waitForTimeout(300); await page.screenshot({ path: shot + '-result.png' }); }
   const res = await page.evaluate(() => window.D2.state().result);
   assert.equal(res.mine.length, 11); assert.equal(res.foe.length, 11);
   assert.equal(typeof res.me.total, 'number'); assert(res.me.rows.length > 2, '채점 줄');
+  assert.equal(res.sides.length, st.seats.length); assert(res.sides.every(x => x.team.length === 11 && x.rank >= 1 && x.rank <= st.seats.length), '순위');
   await tap(page, 'score');
   await page.waitForSelector('.d2-sheet .d2-score');
-  assert.equal(await page.locator('.d2-sheet .d2-score').count(), 2, '채점표 두 편');
+  assert.equal(await page.locator('.d2-sheet .d2-score').count(), st.seats.length, '채점표 — 자리마다');
   await page.click('.d2-x');
   assert.equal(await page.locator('.d2-veil').count(), 0, '창 닫힘');
   assert.equal(await page.evaluate(() => { try { return localStorage.getItem('samguk_draft2_game_v1'); } catch (e) { return 'x'; } }), null, '끝난 판은 이어하기에서 지운다');
@@ -108,20 +111,27 @@ async function finish(page, shot) {
       await sceneIs(page, 'Title', 20000);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, '옆으로 넘치지 않음');
       await tap(page, 'new'); await sceneIs(page, 'Setup');
+      const on = await page.evaluate(() => window.D2.hits().filter(h => /^(players|fmode):/.test(h.id)).map(h => h.id));
+      assert.deepEqual(on.sort(), ['fmode:base', 'fmode:mx', 'players:2', 'players:3'], '인원 · 진영 셈 고르개');
       for (const id of ['world:samguk', 'scope:art', 'lv:0']) await tap(page, id);
       const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('samguk_draft2_cfg_v1')));
-      assert.deepEqual([cfg.world, cfg.scope, cfg.lv, cfg.daily], ['samguk', 'art', 0, false], '설정이 저장된다');
+      assert.deepEqual([cfg.world, cfg.scope, cfg.lv, cfg.daily, cfg.players, cfg.fmode], ['samguk', 'art', 0, false, 3, 'mx'], '설정 저장 · 처음은 3인 · 군웅록');
       if (art) await page.waitForFunction(() => window.D2.art().ok >= 3, null, { timeout: 15000 });
       await page.waitForTimeout(400);
       if (SHOT) await page.screenshot({ path: path.join(SHOT, 'draft2-setup-390.png') });
       await tap(page, 'start'); await sceneIs(page, 'Draft');
       const st0 = await page.evaluate(() => window.D2.state());
       assert.equal(st0.world, 'samguk'); assert.equal(st0.lv, 0); assert.equal(st0.pack.length, 6);
+      assert.equal(st0.players, 3); assert.equal(st0.fmode, 'mx'); assert.deepEqual(st0.seats, ['me', 'foe', 'foe2']);
       assert(st0.pool.length + 6 <= 60, '그림 있는 장수만 — ' + (st0.pool.length + 6));
       const first = await playDraft(page, 2);
       assert.equal(first.picks, 2);
       if (art) await page.waitForFunction(() => window.D2.art().ok >= 12, null, { timeout: 15000 });
       await page.waitForFunction(() => window.D2.myTurn(), null, { timeout: 10000 });
+      /* 휴대폰 세로 — 진영 칸 셋(13칸씩)과 후보 여섯 · 아래 줄이 다 화면 안 */
+      const inView = await page.evaluate(() => { const hs = window.D2.hits(); return { n: hs.length, out: hs.filter(h => h.x < 0 || h.y < 0 || h.x + h.w > innerWidth + 0.5 || h.y + h.h > innerHeight + 0.5).map(h => h.id), foe2: hs.filter(h => h.id.startsWith('foe2:')).length, cards: hs.filter(h => h.id.startsWith('card:')).length }; });
+      assert.deepEqual(inView.out, [], '화면 밖 — ' + inView.out.join(', '));
+      assert.equal(inView.cards, 6); assert(inView.foe2 >= 1, '적장2 칸');
       await page.waitForTimeout(500);
       if (SHOT) await page.screenshot({ path: path.join(SHOT, 'draft2-draft-390.png') });
       /* 결의 창 · 열전 창 */
@@ -133,7 +143,7 @@ async function finish(page, shot) {
       await finish(page, SHOT && path.join(SHOT, 'draft2-390'));
       if (art) assert(served() > 0 && (await page.evaluate(() => window.D2.art().ok)) > 0, '그림이 카드에 올랐다');
       assert.deepEqual(errors, [], '폰 — 페이지 오류');
-      console.log('폰 390 — 결과까지, 그림', art ? (await page.evaluate(() => window.D2.art().ok)) + '장' : '사본 없음(건너뜀)');
+      console.log('폰 390 — 3인 · 군웅록(기본) 결과까지, 그림', art ? (await page.evaluate(() => window.D2.art().ok)) + '장' : '사본 없음(건너뜀)');
       await ctx.close(); checks++;
     }
     /* ── PC · 그림 막힘 → 도장 카드, 중간에 새로 고쳐 이어하기 ── */
@@ -143,8 +153,10 @@ async function finish(page, shot) {
       await sceneIs(page, 'Title', 20000);
       assert.equal(await page.evaluate(() => window.D2.hits().some(h => h.id === 'resume')), false, '처음엔 이어하기 없음');
       await tap(page, 'new'); await sceneIs(page, 'Setup');
-      for (const id of ['world:fantasy', 'scope:art', 'lv:0']) await tap(page, id);
+      for (const id of ['world:fantasy', 'scope:art', 'lv:0', 'players:2', 'fmode:base']) await tap(page, id);
       await tap(page, 'start'); await sceneIs(page, 'Draft');
+      const s2 = await page.evaluate(() => window.D2.state());
+      assert.deepEqual([s2.players, s2.fmode, s2.foe2], [2, 'base', null], '2인 · 본편으로 고르면 그대로');
       const a = await playDraft(page, 3);
       assert.equal(a.picks, 3);
       const mid = await page.evaluate(() => window.D2.state());
@@ -166,7 +178,7 @@ async function finish(page, shot) {
       const ac = await page.evaluate(() => window.D2.art());
       assert.equal(ac.ok, 0, '그림 주소를 막았으니 받은 그림 없음'); assert(ac.fail > 0, '받지 못한 그림 → 도장 카드');
       assert.deepEqual(errors, [], 'PC — 페이지 오류');
-      console.log('PC 1280 — 그림 막힘 → 도장 카드 ' + ac.fail + '장, 이어하기, 결과까지');
+      console.log('PC 1280 — 2인 · 본편, 그림 막힘 → 도장 카드 ' + ac.fail + '장, 이어하기, 결과까지');
       await ctx.close(); checks++;
     }
   } finally { await br.close(); server.close(); }
