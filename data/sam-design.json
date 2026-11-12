@@ -4689,7 +4689,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "즐거운 마지막 황제 — 단술 잔 · 화려한 황제 예복 · 로즈골드 머리 · 나른한 · 낭창한 굴곡형"
+    "ko": "즐거운 마지막 황제 — 단술 잔 · 화려한 황제 예복 · 로즈골드 머리 · 나른한 · 아담한 풍만형"
    },
    "title": {
     "en": "the carefree last emperor of Shu — 'here I am happy and do not miss Shu'"
@@ -4715,7 +4715,7 @@
      "lips": "soft_medium"
     },
     "silhouette": {
-     "body": "willowy_curvy",
+     "body": "petite_voluptuous",
      "hair_color": "rose_gold"
     },
     "worlds": {
@@ -4754,7 +4754,8 @@
     "why": "시안(claude 2026-11-02) — 게임 일화 「즐거워 촉이 생각나지 않는다 하였다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 antique_gold → rose_gold, 눈 leaf_green → sapphire(머리 45 · 눈 27가지에서 고르게)",
-    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_size large→medium(phoenix). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
+    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_size large→medium(phoenix). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
+    "body_note": "2026-11-12 willowy_curvy → petite_voluptuous(아담한 풍만형) — 사용자 「남자장수 중에서는 누가 있을까」 → 「응 두케릭 넣어주고」"
    },
    "worlds": {
     "samguk": {
@@ -22557,7 +22558,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "서천 지도 — 서천 지도 · 소매 속 지도 · 끝이 붉은 검은 머리 · 날 선 · 아담한 굴곡형"
+    "ko": "서천 지도 — 서천 지도 · 소매 속 지도 · 끝이 붉은 검은 머리 · 날 선 · 아담한 풍만형"
    },
    "title": {
     "en": "the envoy who carried the map of Western Shu in her sleeve"
@@ -22583,7 +22584,7 @@
      "lips": "heart_full"
     },
     "silhouette": {
-     "body": "petite_curvy",
+     "body": "petite_voluptuous",
      "hair_color": "ombre_crimson"
     },
     "worlds": {
@@ -22622,7 +22623,8 @@
     "why": "시안(claude 2026-11-02) — 게임 일화 「서천 지도를 소매에 품고 다녔다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 군웅 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
     "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 bronze → ombre_crimson, 눈 crimson → teal(머리 45 · 눈 27가지에서 고르게)",
-    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_tilt down→up(narrow_upturned). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
+    "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_tilt down→up(narrow_upturned). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」",
+    "body_note": "2026-11-12 petite_curvy → petite_voluptuous(아담한 풍만형) — 사용자 「남자장수 중에서는 누가 있을까」 → 「응 두케릭 넣어주고」"
    },
    "worlds": {
     "samguk": {

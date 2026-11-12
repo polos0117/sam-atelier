@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-13 · claude · 장송 · 유선 체형 — 아담한 풍만형
+- 사용자 「응 두케릭 넣어주고」 — 장송(정사 短小 · 설명글 short stature, petite_curvy) · 유선(느긋한 매력 · 단것과 음악, willowy_curvy) → petite_voluptuous. 둘 다 아직 그림 없음.
+
 ## 2026-11-13 · claude · 소교 체형 — 아담한 풍만형
 - 사용자 「소교를 주고」 — busty_slender → petite_voluptuous(언니 대교는 모래시계형 그대로). 아직 그림 없음.
 
