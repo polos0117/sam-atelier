@@ -7,6 +7,14 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 새 판(draft2) — 군웅 균형 · 천하(연도) 고르기 · 군웅 세력 나눔 · 세력색 · 옛 주군 · 배신
+- lib/draft2/rules.js — 사용자 「군웅록 드래프트에서 이제 문제는 군웅들은 거의 승리를 못한다」 · 「군웅들도 하나로 묶기보다는 각각의 세력으로 나누고 세력색을」. 결속 곡선 3~5인을 빨리(11인 490), 군웅 연합(위촉오 아닌 세 세력 각 2인 +160 · 넷 +240 · 다섯 +310), 옛 주군 재회 +12(상한 36, 결의와 겹치면 빼고) · 배신 -30, 연도 팩 view(그해 세력 · 그해 장수만 · roleMap), 위촉오+군웅(군웅은 주 세력으로 나눔 · 기치 25), 3인 둘째 적장은 「군웅」 기치(bias×3). 시뮬 군웅록 200판 군웅 다수 29→133팀 · 1위 7→31%
+- data/draft2-factions.json · data/draft2-bonds.json — 새 판 전용 세력 22(한자 · 색 · 위촉오) · 연도 팩 별칭 · 결속 곡선 · 연합 / 옛 주군 값 · 배신 여덟(까닭). 옛 판 숫자 · sam-design.json 세력은 그대로
+- data/draft2-generals.json — 연도 팩 군주 마초 · 사마소 · 제갈탄에 lordAs
+- lib/draft2/scenes.js · ui.js · draft2.css · draft2.html(?v=) — 설정 「천하」 여섯(두 줄), 채점표 결속 줄 세력색 · 연합 · 옛 주군 · 배신 줄, 결과 표에 주 세력 · 옛 주군 · 배신, 결의 창에 옛 주군 · 배신 진척
+- tests/draft2-data.cjs · tests/draft2-rules.cjs · tests/draft2-screen.cjs — 세력 표(이력 · 연도 세력이 다 있음 · 색 형식 · 겹침) · 인연(사람 · 음수), 연도 팩 · 세력 나눔 · 연합 · 옛 주군(결의 겹침 · 상한) · 배신, 화면은 천하 여섯 · 군웅 기치 · 채점표 세력색
+- docs/DRAFT2_PLAN.md · AGENTS.md — 1-3 했다, 자료 파일 둘
+
 ## 2026-11-12 · claude · 공방 지도의 문에서 넘어올 때 페이드
 - index.html · hall.html · dex.html · battle.html · draft2.html · prompt.html · promptapi.html · api.html · styles.html — 머리(`<title>` 바로 아래)에 한 줄: `@view-transition { navigation: auto; }`(동작 줄이기면 꺼진다)와, 여기서 나갈 때는 전환을 그만두는 `pageswap` · 끊긴 전환의 콘솔 오류를 받아 두는 `pagereveal` 한 마디씩. 공방 지도(polos0117.github.io)의 대미궁에서 문을 누르면 이 페이지가 페이드로 들어온다 — 공방 안에서 쪽을 옮길 때는 전과 같다. 문서 간 전환을 모르는 브라우저도 전과 같다
 - draft.html — 넣지 않았다(게임은 그대로 둔다). 공방 지도는 이 페이지로 갈 때 전환을 걸지 않는다

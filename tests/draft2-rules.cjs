@@ -33,7 +33,8 @@ const doTao = CB.combos.find(c => c.n === '도원결의');
 ok(doTao && doTao.t[3] === 90 && doTao.m.join() === '유비,관우,장비', '도원결의 3인 90');
 
 /* ── 자료 → 카드 ── */
-const db = R.buildDB(GN, S, CB, PK), mx = R.view(db, 'mx');
+const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn;
+const db = R.buildDB(GN, S, CB, PK, FC, BD), mx = R.view(db, 'mx');
 ok(db.mode === 'base' && mx.mode === 'mx' && R.view(mx, 'base') === db && R.view(db, 'mx') === mx, '진영 셈 view');
 ok(db.list.length === 279, '장수 279');
 const by = db.by;
@@ -51,15 +52,18 @@ ok(by['유비'].trait === 'benevolent' && by['손권'].trait === 'defender', '�
 {
   const ev = R.evaluateRaw(db, ['유비', '관우', '장비']);
   ok(ev.rows.some(r => r.label === '도원결의' && r.v === 90), '도원결의 3인 → +90');
-  ok(ev.rows.some(r => r.kind === 'syn' && r.v === CB.syn[3]), '촉 3인 결속');
+  ok(ev.rows.some(r => r.kind === 'syn' && r.v === SY[3]), '촉 3인 결속');
   const lord = ev.rows.find(r => r.kind === 'lord');
   ok(lord && lord.lord === '유비' && lord.v > 0, '주공 그릇');
   ok(ev.total === ev.rows.reduce((s, r) => s + r.v, 0), '합계 = 줄의 합');
   const feud = R.evaluateRaw(db, ['양의', '위연']);
   ok(feud.rows.some(r => r.kind === 'feud' && r.v === -40), '불화 · 양의와 위연 → -40');
-  const qun = R.evaluateRaw(db, ['동탁', '여포', '초선', '이각']);
-  const syn = qun.rows.find(r => r.kind === 'syn' && r.fac === '군웅'), etc = qun.rows.find(r => r.kind === 'etc');
-  ok(syn && syn.v === Math.round(CB.syn[4] * 0.4) && etc && etc.v === Math.round(CB.syn[4] * 0.75) - Math.round(CB.syn[4] * 0.4), '군웅 4인 — 40% + 할거');
+  /* 위촉오+군웅(base) — 군웅을 한 덩어리로 묶지 않고 장수마다 주 세력 */
+  ok(Object.values(db.facs).every(f => f.length === 1 && f[0] !== '군웅'), '본편 셈에 「군웅」 한 덩어리가 없다');
+  ok(R.facOf(db, '관우') === '촉한' && R.facOf(db, '조조') === '조위' && R.facOf(db, '손권') === '동오' && R.facOf(db, '원소') === '원소' && R.facOf(db, '동탁') === '동탁', '위촉오는 그 나라, 군웅은 제 세력');
+  ok(S.generals.filter(g => g.faction === 'qun').every(g => FC.factions[R.facOf(db, g.key)]), '군웅 장수의 주 세력은 모두 세력 표에');
+  const qun = R.evaluateRaw(db, ['동탁', '이각', '곽사', '원소', '안량']);
+  ok(qun.rows.some(r => r.fac === '동탁' && r.v === SY[3]) && qun.rows.some(r => r.fac === '원소' && r.v === SY[2]) && !qun.rows.some(r => r.kind === 'etc'), '본편 — 동탁 3인 · 원소 2인 따로, 할거 40% 셈 없음');
   const h = R.hintOf(db, ['유비', '관우'], '장비');
   ok(h.d === R.evaluate(db, ['유비', '관우', '장비']).total - R.evaluate(db, ['유비', '관우']).total && h.names.some(n => n.label === '도원결의'), '뽑으면 +얼마 · 깊어지는 결의');
 }
@@ -78,15 +82,15 @@ ok(by['유비'].trait === 'benevolent' && by['손권'].trait === 'defender', '�
 {
   const team = ['동탁', '여포', '이각', '곽사'], ev = R.evaluateRaw(mx, team);
   const dong = ev.rows.find(r => r.kind === 'syn' && r.fac === '동탁');
-  ok(dong && dong.v === Math.round(CB.syn[4] * 0.8), '동탁 4인(여포는 동탁 · 여포 둘 다) — 0.8배 ' + (dong && dong.v));
+  ok(dong && dong.v === Math.round(SY[4] * 0.8), '동탁 4인(여포는 동탁 · 여포 둘 다) — 0.8배 ' + (dong && dong.v));
   ok(!ev.rows.some(r => r.fac === '여포'), '여포 세력 1인은 결속 없음');
-  ok(R.facsOf(mx, '여포').join() === '동탁,여포' && R.facOf(mx, '여포') === '여포' && R.facColor(mx, '여포') === PK.packs.mx.factions['여포'].c, '이력 · 마지막 세력 · 색');
+  ok(R.facsOf(mx, '여포').join() === '동탁,여포' && R.facOf(mx, '여포') === '여포' && R.facColor(mx, '여포') === FC.factions['여포'].c, '이력 · 마지막 세력 · 세력 표의 색');
   const base = R.evaluateRaw(db, team);
-  ok(base.rows.some(r => r.kind === 'syn' && r.fac === '군웅') && base.rows.some(r => r.kind === 'etc'), '본편으로 세면 군웅 4인 할거');
+  ok(base.rows.some(r => r.kind === 'syn' && r.fac === '동탁') && !base.rows.some(r => r.kind === 'etc'), '본편으로 세면 동탁 세력(여포는 주 세력 여포)');
   /* 조운: 공손찬 → 촉한. 유비(촉한) 주공이면 동향 */
   const ev2 = R.evaluateRaw(mx, ['유비', '조운', '전해']), lord = ev2.rows.find(r => r.kind === 'lord');
   ok(lord && /주공 유비/.test(lord.label) && /동향 2인/.test(lord.label), '조운은 공손찬 · 촉한 — 유비 주공과 동향(전해는 아님) ' + (lord && lord.label));
-  ok(ev2.rows.some(r => r.fac === '공손찬' && r.v === Math.round(CB.syn[2] * 0.8)) && ev2.rows.some(r => r.fac === '촉한'), '공손찬 2인 · 촉한 2인');
+  ok(ev2.rows.some(r => r.fac === '공손찬' && r.v === Math.round(SY[2] * 0.8)) && ev2.rows.some(r => r.fac === '촉한'), '공손찬 2인 · 촉한 2인');
   ok(R.styleScore(mx, by['조운'], ['공손찬'], 2) === 30 && R.styleScore(db, by['조운'], ['공손찬'], 2) === 0, '손권형 기질도 진영 셈을 따른다');
 }
 
@@ -120,7 +124,7 @@ ok(by['유비'].trait === 'benevolent' && by['손권'].trait === 'defender', '�
 function play(seed, keys, lvMe, lvFoe, o) {
   o = o || {};
   const st = R.newGame(db, { keys, seed, lv: lvFoe, players: o.players || 2, fmode: o.fmode || 'base' });
-  const v = R.view(db, st.fmode), all = new Set(keys), picks = {};
+  const v = R.view(db, st.fmode), all = new Set(keys.filter(k => R.inScope(v, k))), picks = {};
   st.seats.forEach(s => { picks[s] = []; });
   let guard = 0;
   while (st.phase === 'draft' && guard++ < 300) {
@@ -178,9 +182,57 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
   ok(JSON.stringify(a) === JSON.stringify(b), '3인전 — 씨앗이 같으면 같은 판');
   ok(JSON.stringify(a.log) !== JSON.stringify(c.log), '3인전 — 씨앗이 다르면 다른 판');
   ok(a.seats.join() === 'me,foe,foe2' && a.foe2.length === 13 && a.log[0].first === 'me' && a.log[1].first === 'foe' && a.log[2].first === 'foe2', '셋째 자리 · 선공이 셋으로 돈다');
-  ok(a.aiFac.foe && a.aiFac.foe2 && a.aiFac.foe !== a.aiFac.foe2, '적장 둘의 기치는 다르다');
+  ok(a.aiFac.foe && a.aiFac.foe2 === '군웅' && a.aiFac.foe !== a.aiFac.foe2, '적장 둘의 기치 — 둘째는 「군웅」');
   const d = play(9090, keys, 2, 2, { players: 3, fmode: 'base' });
-  ok(!d.aiFac.foe, '본편 셈엔 적장 기치가 없다(옛 판 본편처럼)');
+  ok(d.aiFac.foe && d.aiFac.foe2 === '군웅', '위촉오+군웅 셈도 기치를 든다');
+}
+/* ── 연도 팩 — 그해의 세력(facMap), 그해에 없는 장수는 나오지 않는다(옛 eraPool), 결속 배수 · 기치 · 군주 바꿈 ── */
+{
+  const y194 = R.view(db, 'w194'), y263 = R.view(db, 'end263');
+  ok(R.facOf(y194, '조조') === '조조군' && R.facColor(y194, '조조군') === FC.factions['조위'].c && R.isMajor(y194, '조조군') && !R.isMajor(y194, '원소군'), '194 — 조조군은 조위 색 · 위촉오');
+  ok(y194.synMul === 1.35 && y194.bias === 25 && y194.by['여포'].cat === 'lord' && y194.by['장수'].cat === 'lord', '194 — 결속 1.35배 · 여포 · 장수 군주');
+  ok(!R.inScope(y194, '강유') && R.inScope(y194, '조조'), '194 — 강유는 아직 없다');
+  const st = R.newGame(db, { keys: db.list.map(c => c.key), seed: 3, players: 3, fmode: 'w194' });
+  const all = st.pool.concat(st.pack.map(e => e.k));
+  ok(all.length === Object.keys(PK.packs.w194.facMap).length && all.every(k => PK.packs.w194.facMap[k]), '194 — 장수 범위는 그해 사람 ' + all.length);
+  ok(y263.by['사마소'].cat === 'lord' && y263.by['사마소'].trait === 'hegemon' && y263.by['제갈탄'].trait === 'defender', '263 — 사마소 · 제갈탄 군주(lordAs)');
+  ok(R.view(db, 'jb208').by['마초'].trait === 'valor', '208 — 마초 군주');
+  for (const m of ['w194', 'gd200', 'jb208']) { play(70 + m.length, db.list.map(c => c.key), 1, 2, { players: 3, fmode: m }); checks++; }
+  play(71, db.list.map(c => c.key), 1, 2, { players: 2, fmode: 'end263' }); checks++;
+}
+/* ── 군웅 연합 — 위촉오 아닌 세 세력 이상에서 각 둘 ── */
+{
+  const L = FC.cohesion.league;
+  const three = R.evaluateRaw(mx, ['원소', '안량', '동탁', '이각', '공손찬', '전해']).rows.find(r => r.kind === 'league');
+  ok(three && three.v === L.t[3] && three.facs.length === 3, '세 세력 각 둘 → ' + L.names[3] + ' ' + (three && three.v));
+  ok(!R.evaluateRaw(mx, ['원소', '안량', '동탁', '이각']).rows.some(r => r.kind === 'league'), '두 세력이면 연합 없음');
+  ok(!R.evaluateRaw(mx, ['조조', '조인', '유비', '관우', '원소', '안량']).rows.some(r => r.kind === 'league'), '위 · 촉 · 오는 연합에 안 센다');
+  const four = R.evaluateRaw(db, ['원소', '안량', '동탁', '이각', '공손찬', '전해', '유표', '채모']).rows.find(r => r.kind === 'league');
+  ok(four && four.v === L.t[4], '본편 셈에서도 네 세력 → ' + L.names[4]);
+}
+/* ── 옛 주군 재회 · 배신 ── */
+{
+  const ev = R.evaluateRaw(mx, ['원소', '진림']), b = ev.rows.find(r => r.kind === 'bond');
+  ok(b && b.v === BD.oldLord.v && b.who.join() === '진림', '원소 주공 · 진림(원소 → 조위) 재회 +' + BD.oldLord.v);
+  ok(!R.evaluateRaw(mx, ['공손찬', '조운']).rows.some(r => r.kind === 'bond'), '공손찬 · 조운은 결의 「백마의종」 이 이미 묶는다 — 재회로 안 센다');
+  ok(!R.evaluateRaw(mx, ['유비', '조운']).rows.some(r => r.kind === 'bond'), '마지막 세력이 주공 세력이면 재회가 아니다');
+  /* 결의가 이미 묶은 두 사람은 세지 않는다 */
+  const lords = mx.list.filter(c => c.role === 'lord');
+  let blocked = null;
+  for (const L of lords) { const lc = PK.packs.mx.career[L.key], lf = lc[lc.length - 1];
+    for (const c of mx.list) { const ca = PK.packs.mx.career[c.key]; if (c.key !== L.key && ca.includes(lf) && ca[ca.length - 1] !== lf && CB.combos.some(x => x.m.includes(L.key) && x.m.includes(c.key))) { blocked = [L.key, c.key]; break; } } if (blocked) break; }
+  ok(blocked && !R.evaluateRaw(mx, blocked).rows.some(r => r.kind === 'bond'), '결의와 겹치면 세지 않는다 — ' + blocked);
+  /* 상한 */
+  let big = null;
+  for (const L of lords) { const lc = PK.packs.mx.career[L.key], lf = lc[lc.length - 1];
+    const re = mx.list.filter(c => { const ca = PK.packs.mx.career[c.key]; return c.key !== L.key && c.role !== 'lord' && ca.includes(lf) && ca[ca.length - 1] !== lf && !CB.combos.some(x => x.m.includes(L.key) && x.m.includes(c.key)); }).map(c => c.key);
+    if (re.length * BD.oldLord.v > BD.oldLord.cap) { big = [L.key].concat(re.slice(0, 10)); break; } }
+  ok(big && R.evaluateRaw(mx, big).rows.find(r => r.kind === 'bond').v === BD.oldLord.cap, '한 편 상한 ' + BD.oldLord.cap);
+  const bt = R.evaluateRaw(db, ['진궁', '조조']).rows.find(r => r.kind === 'betray');
+  ok(bt && bt.v === -30, '배신 · 진궁과 조조 -30');
+  ok(BD.betray.every(x => !CB.combos.some(c => c.m.includes(x.a) && c.m.includes(x.b) && Object.values(c.t).some(v => v < 0))), '배신은 결의 불화와 겹치지 않는다');
+  const bo = R.bondsOf(mx, ['원소', '진림', '진궁']);
+  ok(bo.lord === '원소' && bo.reunion.join() === '진림' && bo.betray.some(x => x.a === '진궁' && !x.got && x.miss === '조조'), '결의 창 — 재회 · 배신 진척');
 }
 /* 3인전 견제 — 앞선 상대를 1.2배 · 뒤진 상대 0.85배(같으면 앞 자리를 앞선 쪽으로), 2인은 그대로 */
 {

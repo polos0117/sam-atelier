@@ -92,6 +92,8 @@ async function finish(page, shot) {
   await tap(page, 'score');
   await page.waitForSelector('.d2-sheet .d2-score');
   assert.equal(await page.locator('.d2-sheet .d2-score').count(), st.seats.length, '채점표 — 자리마다');
+  assert(await page.locator('.d2-sheet .d2-score .d2-fac').count() > 0, '채점표 결속 줄에 세력색');
+  if (shot) { await page.waitForTimeout(250); await page.screenshot({ path: shot + '-score.png' }); }
   await page.click('.d2-x');
   assert.equal(await page.locator('.d2-veil').count(), 0, '창 닫힘');
   assert.equal(await page.evaluate(() => { try { return localStorage.getItem('samguk_draft2_game_v1'); } catch (e) { return 'x'; } }), null, '끝난 판은 이어하기에서 지운다');
@@ -112,7 +114,9 @@ async function finish(page, shot) {
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, '옆으로 넘치지 않음');
       await tap(page, 'new'); await sceneIs(page, 'Setup');
       const on = await page.evaluate(() => window.D2.hits().filter(h => /^(players|fmode):/.test(h.id)).map(h => h.id));
-      assert.deepEqual(on.sort(), ['fmode:base', 'fmode:mx', 'players:2', 'players:3'], '인원 · 진영 셈 고르개');
+      assert.deepEqual(on.sort(), ['fmode:base', 'fmode:end263', 'fmode:gd200', 'fmode:jb208', 'fmode:mx', 'fmode:w194', 'players:2', 'players:3'], '인원 · 천하 고르개');
+      const offscreen = await page.evaluate(() => window.D2.hits().filter(h => h.y + h.h > innerHeight + 0.5).map(h => h.id));
+      assert.deepEqual(offscreen, [], '설정 — 화면 밖 단추');
       for (const id of ['world:samguk', 'scope:art', 'lv:0']) await tap(page, id);
       const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('samguk_draft2_cfg_v1')));
       assert.deepEqual([cfg.world, cfg.scope, cfg.lv, cfg.daily, cfg.players, cfg.fmode], ['samguk', 'art', 0, false, 3, 'mx'], '설정 저장 · 처음은 3인 · 군웅록');
@@ -132,6 +136,7 @@ async function finish(page, shot) {
       const inView = await page.evaluate(() => { const hs = window.D2.hits(); return { n: hs.length, out: hs.filter(h => h.x < 0 || h.y < 0 || h.x + h.w > innerWidth + 0.5 || h.y + h.h > innerHeight + 0.5).map(h => h.id), foe2: hs.filter(h => h.id.startsWith('foe2:')).length, cards: hs.filter(h => h.id.startsWith('card:')).length }; });
       assert.deepEqual(inView.out, [], '화면 밖 — ' + inView.out.join(', '));
       assert.equal(inView.cards, 6); assert(inView.foe2 >= 1, '적장2 칸');
+      assert.equal(await page.evaluate(() => window.D2.state().aiFac.foe2), '군웅', '둘째 적장은 군웅 기치');
       await page.waitForTimeout(500);
       if (SHOT) await page.screenshot({ path: path.join(SHOT, 'draft2-draft-390.png') });
       /* 결의 창 · 열전 창 */
@@ -153,6 +158,8 @@ async function finish(page, shot) {
       await sceneIs(page, 'Title', 20000);
       assert.equal(await page.evaluate(() => window.D2.hits().some(h => h.id === 'resume')), false, '처음엔 이어하기 없음');
       await tap(page, 'new'); await sceneIs(page, 'Setup');
+      const tx = await page.evaluate(() => window.D2.hits().filter(h => h.id.startsWith('fmode:')).map(h => h.id));
+      assert.deepEqual(tx, ['fmode:mx', 'fmode:w194', 'fmode:gd200', 'fmode:jb208', 'fmode:end263', 'fmode:base'], '천하 고르개 여섯');
       for (const id of ['world:fantasy', 'scope:art', 'lv:0', 'players:2', 'fmode:base']) await tap(page, id);
       await tap(page, 'start'); await sceneIs(page, 'Draft');
       const s2 = await page.evaluate(() => window.D2.state());

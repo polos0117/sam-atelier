@@ -35,4 +35,30 @@ assert.strictEqual(by['조조'].lead, 96); assert.strictEqual(by['순욱'].pol, 
 const P = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-packs.json'), 'utf8'));
 const byKey = Object.fromEntries(D.generals.map(g => [g.key, g]));
 for (const [k, r] of Object.entries(P.packs.mx.roleMap)) if (r === '군주' && role[k] !== 'lord') assert(byKey[k] && byKey[k].lordAs, `${k}: 군웅록 군주인데 lordAs 가 없다`);
-console.log('draft2-data ok —', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length);
+/* 연도 팩의 roleMap 군주도 lordAs 가 있다 */
+for (const [pk, p] of Object.entries(P.packs)) for (const [k, r] of Object.entries(p.roleMap || {})) if (r === '군주' && role[k] !== 'lord') assert(byKey[k] && byKey[k].lordAs, `${pk} ${k}: 군주인데 lordAs 가 없다`);
+
+/* 세력 표 — data/draft2-factions.json: 이력 · 연도 팩에 나오는 세력이 다 있고(별칭 포함), 색은 #RRGGBB, 겹치지 않게 */
+const F = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-factions.json'), 'utf8'));
+const hex = /^#[0-9A-F]{6}$/i, colors = new Set();
+for (const [f, e] of Object.entries(F.factions)) {
+  assert(hex.test(e.c), `${f}: 색 ${e.c}`); assert(e.h && [...e.h].length === 1, `${f}: 한자 한 글자`);
+  assert(!colors.has(e.c.toUpperCase()), `${f}: 색이 겹친다 ${e.c}`); colors.add(e.c.toUpperCase());
+}
+for (const [a, to] of Object.entries(F.alias)) assert(F.factions[to], `별칭 ${a} → ${to} 가 세력 표에 없다`);
+for (const [pk, p] of Object.entries(P.packs)) {
+  const names = new Set(Object.values(p.career || {}).flat().concat(Object.values(p.facMap || {})));
+  for (const f of names) assert(F.factions[f] || F.alias[f], `${pk}: 세력 ${f} 가 세력 표에 없다`);
+}
+assert(F.factions['조위'].c === '#3E5C8C' && F.factions['촉한'].c === '#4F7A4A' && F.factions['동오'].c === '#C0472F', '위 · 촉 · 오는 옛 판 색');
+const syn = F.cohesion.syn;
+for (let n = 3; n <= 11; n++) assert(syn[n] > syn[n - 1], `결속 곡선은 오른다 ${n}`);
+
+/* 인연 — data/draft2-bonds.json: 사람은 다 장수 목록에, 배신은 음수 · 까닭 */
+const B = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-bonds.json'), 'utf8'));
+assert(B.oldLord.v > 0 && B.oldLord.cap >= B.oldLord.v, '옛 주군 값 · 상한');
+for (const x of B.betray) {
+  assert(role[x.a] && role[x.b] && x.a !== x.b, `배신 ${x.a}-${x.b}: 장수 목록에 없다`);
+  assert(x.v < 0 && x.why, `배신 ${x.a}-${x.b}: 음수 · 까닭`);
+}
+console.log('draft2-data ok —', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length);

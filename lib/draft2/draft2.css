@@ -52,6 +52,7 @@ body { font-family: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", 
 .d2-score .k-feud td:last-child { color: var(--bad); }
 .d2-score .k-combo td:last-child, .d2-score .k-kin td:last-child { color: var(--gold2); }
 .d2-score tfoot td { padding-top: 8px; font-weight: 700; color: var(--gold2); border: 0; }
+.d2-fac { display: inline-block; padding: 0 6px; border-radius: 9px; background: var(--fc); color: #fff; font-weight: 700; font-size: 12px; line-height: 1.5; text-shadow: 0 1px 1px rgba(0, 0, 0, .45); }
 .d2-help { padding-left: 18px; }
 .d2-help li { margin: 6px 0; }
 @media (prefers-reduced-motion: reduce) { .d2-veil { transition: none; } }
