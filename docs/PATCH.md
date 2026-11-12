@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-13 · claude · core v6 · 새 체형 둘을 자동 돌림에도
+- lib/prompt-spec.js · lib/look-spec.js — core:v6 블록(화풍공방 core/sync.cjs). 체형 두 열쇠가 공통 낱말이 됐다
+- tools/sam-design.py BODY_W — lean_toned · petite_voluptuous 무게 0 → 2(드문 쪽, petite_curvy · strong_curvy 1 과 나머지 3~5 사이). 사용자 「다른 공방 케릭터설계 자동배분에는 써줘 케릭터 추가될 때 분배가 되지 않아?」. 돌림은 look 이 없는 새 장수만(seed) — seed 를 돌려 설계표 값 차이 0(장수 279 · auto 0) 확인, 기존 장수 체형 그대로
+- prompt.html · promptapi.html — prompt-spec.js · look-spec.js ?v= 올림
+
 ## 2026-11-13 · claude · 장송 · 유선 체형 — 아담한 풍만형
 - 사용자 「응 두케릭 넣어주고」 — 장송(정사 短小 · 설명글 short stature, petite_curvy) · 유선(느긋한 매력 · 단것과 음악, willowy_curvy) → petite_voluptuous. 둘 다 아직 그림 없음.
 

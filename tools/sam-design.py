@@ -83,9 +83,11 @@ EYE_COLOR = {
 # 볼륨 · 굴곡이 있는 체형만(사용자 2026-11-02 「체형을 전체적으로 볼륨감과 굴곡감이 느껴지게」). check 가 이 밖의 체형을 막는다
 # 2026-11-03 사용자 「외형 관련 분류가 부족하면 더 추가해도 괜찮아 … 돌려쓰는 입장이라 겹치는게 있을 수 밖에」 — 체형 · 머리 · 앞머리 · 얼굴형 · 눈매 · 눈썹 · 코 · 입술을 늘렸다
 BODY = ['hourglass', 'voluptuous', 'curvy_athletic', 'busty_slender', 'curvy', 'tall_curvy', 'strong_curvy', 'petite_curvy', 'pear_curvy', 'willowy_curvy', 'lean_toned', 'petite_voluptuous']
-# lean_toned(슬림 근육형 — 은은한 11자 복근) 은 2026-11-12 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」 — 손으로만 고른다(무게 0, 자동 돌림 값은 그대로)
-# petite_voluptuous(아담한 풍만형) 은 2026-11-12 사용자 「키는 좀 작게하고 볼륨감은 키워줘」 → 「새 체형으로 넣어서 왕원희에게 주고」 — 손으로만(무게 0)
-BODY_W = [5, 5, 4, 3, 3, 3, 1, 1, 3, 3, 0, 0]
+# lean_toned(슬림 근육형 — 은은한 11자 복근) 은 2026-11-12 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」,
+# petite_voluptuous(아담한 풍만형) 은 같은 날 「키는 좀 작게하고 볼륨감은 키워줘」 → 「새 체형으로 넣어서 왕원희에게 주고」 — 처음엔 손으로만(무게 0).
+# 같은 날 「다른 공방 케릭터설계 자동배분에는 써줘 케릭터 추가될 때 분배가 되지 않아?」 — 드문 쪽 무게 2 로 자동 돌림에도 넣었다.
+# 돌림은 look 이 없는 새 장수만(seed) — 이미 적힌 장수 279명의 체형은 그대로다
+BODY_W = [5, 5, 4, 3, 3, 3, 1, 1, 3, 3, 2, 2]
 IMPRESSION = {
  'lord': ['regal', 'glamorous', 'elegant', 'mature', 'cool', 'fierce'],
  'general': ['fierce', 'rugged', 'sharp', 'stoic', 'boyish', 'cool', 'cheerful', 'glamorous'],
