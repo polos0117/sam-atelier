@@ -6,7 +6,7 @@
 
 - `data/sam-design.json` — 설계표. 장수 279 는 게임 표에서 `python3 tools/sam-design.py seed` 가 받는다(게임은 읽기만).
 - `dex.html` — 세력 › 역할 › 장수, 장수마다 세계 셋. `prompt.html` — 세력 › 장수 › 세계 그림 · 일상컷 지시문.
-- 새 그림은 그림 저장소 `sam-atelier-img`(Pages)에 올리면 `그림 등록` 워크플로가 `data/img.json` 에 적는다. 게임의 `images/` 와 따로다.
+- 새 그림은 그림 저장소 `sam-atelier-img-2`(Pages, 2026-11-12 부터 — 첫 `sam-atelier-img` 는 차서 교체만)에 올리면 `그림 등록` 워크플로가 `data/img.json` 에 적는다(어느 저장소인지는 `where`). 게임의 `images/` 와 따로다.
 
 # 게임 — 삼국지 쟁탈전
 

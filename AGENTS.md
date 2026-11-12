@@ -81,7 +81,7 @@
 
 ### 5. 그림은 이 저장소에 두지 않는다
 
-새 그림은 `sam-atelier-img` 에 올린다(`lib/img.js` 의 BASES). `img/` 는 `.gitignore`. 등록은 `그림 등록` 워크플로(`tools/register-images.py`)가 `data/img.json` 에 적는다 — 손으로 고치지 않는다. 게임의 `images/` 는 게임 것이라 건드리지 않는다.
+그림 저장소는 둘이다(2026-11-12 — 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 · 「저장소 만들고 토큰 넣었어」, 첫 저장소가 약 1.0 GB 로 찼다): 0 번 `sam-atelier-img` 는 닫힘(이미 있는 이름의 교체만 · 잠금 `records/automation/claims/` · 설계 주문 `free/` · 배경은 그대로 여기), 1 번 `sam-atelier-img-2` 가 열림 — **새 그림과 그 기록은 `sam-atelier-img-2` 에 올린다**. 차례는 `lib/img.js` 의 BASES · `tools/register-images.py` 의 SHARDS · `tools/img-repos.cjs`(`IMAGE_RULES.md` 3절 「그림 저장소는 여럿이다」). 화면은 `data/img.json` 의 `where` 로 파일마다 제 저장소 주소를 찾는다. `img/` · `img-2/` 는 `.gitignore`. 등록은 `그림 등록` 워크플로(`tools/register-images.py`)가 두 저장소를 받아 `data/img.json` 에 적는다 — 손으로 고치지 않는다. 게임의 `images/` 는 게임 것이라 건드리지 않는다.
 
 ### 6. 고쳤으면 적는다
 

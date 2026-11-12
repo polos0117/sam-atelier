@@ -23,10 +23,11 @@ S = 'game_keyart'
 real_read = reg.roster.read
 
 
-def run(doc, folder, argv=(), day='2026-10-30'):
-    """img.json 만 바꿔 끼우고 설계표·화풍 기록은 실제 것을 읽는다. 매번 새로 읽어 앞 차례가 고친 것이 새지 않게"""
+def run(doc, folder, argv=(), day='2026-10-30', extra=()):
+    """img.json 만 바꿔 끼우고 설계표·화풍 기록은 실제 것을 읽는다. 매번 새로 읽어 앞 차례가 고친 것이 새지 않게.
+    extra — 둘째부터의 그림 저장소 자리(EXTRA_DIRS 차례)"""
     out = io.StringIO()
-    with patch.object(reg, 'IMG_DIR', folder), patch.object(reg, 'EXTRA_DIRS', []), patch.object(reg, 'today', return_value=day), \
+    with patch.object(reg, 'IMG_DIR', folder), patch.object(reg, 'EXTRA_DIRS', list(extra)), patch.object(reg, 'today', return_value=day), \
          patch.object(reg.roster, 'read', side_effect=lambda n: copy.deepcopy(doc) if n == 'img' else real_read(n)), \
          patch.object(reg.roster, 'art_size', return_value=[]), \
          patch.object(reg.roster, 'write') as write, \
@@ -90,6 +91,41 @@ with tempfile.TemporaryDirectory() as d:
     (Path(d) / f'관우_mecha_{S}_f_casual02.webp').touch()
     code, s2, out = run({'img': {}}, d)
     assert code == 1 and '중복' in out, out
+
+# 그림 저장소 둘(2026-11-12 — 0 번 sam-atelier-img 닫힘 · 1 번 sam-atelier-img-2 열림): 새 그림은 열린 저장소에서만 받고 where 에 1,
+# 닫힌 저장소엔 이미 적힌 이름(교체)만, 한 장수의 그림이 두 저장소에 나뉘어도 된다, 같은 이름을 둘에 두면 멈춘다
+with tempfile.TemporaryDirectory() as d0, tempfile.TemporaryDirectory() as d1:
+    assert reg.SHARDS == ['sam-atelier-img', 'sam-atelier-img-2'] and reg.EXTRA_DIRS == ['img-2'], reg.SHARDS
+    o = f'관우_samguk_{S}_f.webp'
+    n1, n2 = f'관우_fantasy_{S}_f.webp', f'관우_samguk_{S}_f_casual1.webp'
+    (Path(d0) / o).touch()
+    code, s0, out = run({'img': {}}, d0)
+    assert code == 0 and 'where' not in s0, out
+    for n in (n1, n2):
+        (Path(d1) / n).touch()
+    code, s1, out = run(s0, d0, extra=[d1])
+    assert code == 0 and s1['where'] == {n1: 1, n2: 1}, out
+    fe = s1['img']['관우']['byStyle'][S]['byForm']
+    assert fe['samguk'] == {'f': o, 'casual': {'f': [n2]}} and fe['fantasy'] == {'f': n1}, ('한 장수가 두 저장소에 나뉜다', fe)
+    assert '새 그림은 sam-atelier-img-2' in out, out
+    # 닫힌 저장소의 교체(이미 적힌 이름)는 그대로 받는다
+    code, s2, out = run(s1, d0, extra=[d1])
+    assert code == 0 and s2['where'] == s1['where'], out
+    # 닫힌 저장소에 새 이름 — 등록 전체를 멈춘다
+    bad = Path(d0) / f'관우_mecha_{S}_f.webp'; bad.touch()
+    code, s3, out = run(s1, d0, extra=[d1])
+    assert code == 1 and s3 is None and '닫힌 그림 저장소 sam-atelier-img 에 새 그림' in out, out
+    bad.unlink()
+    # 같은 이름을 두 저장소에
+    (Path(d0) / n1).touch()
+    code, s4, out = run(s1, d0, extra=[d1])
+    assert code == 1 and s4 is None and '같은 이름' in out, out
+    (Path(d0) / n1).unlink()
+    # 둘째 저장소를 못 받으면 그 자리(where)는 그대로 두고 --prune 은 하지 않는다
+    code, s5, out = run(s1, d0, extra=[d1 + '-없음'])
+    assert code == 0 and s5['where'] == s1['where'] and '못 받은 저장소 sam-atelier-img-2' in out, out
+    code, s6, out = run(s1, d0, ['--prune'], extra=[d1 + '-없음'])
+    assert code != 0 and s6 is None, out
 
 # 등록한 날(added) — 새로 적힌 것만 오늘, 있던 날짜는 그대로, 날짜를 지어내지 않는다
 with tempfile.TemporaryDirectory() as d:
@@ -166,4 +202,5 @@ with tempfile.TemporaryDirectory() as t:
         assert got == want, (name, got)
 print('PASS 그림 등록: 장수의 세계 그림(samguk·fantasy·mecha)·일상컷·특별컷 자리 · 다시 돌려도 그대로'
       ' · 일상컷은 세계 몫 안(참고 그림 = 세계 그림)·세계 없는 옛 시안은 화풍 몫 · 없는 세계·카드·화풍·성별 표시·밑줄 열쇠·세계 없는 세계 그림·세계 붙은 특별컷·연출컷·같은 자리는 저장 안 함'
+      ' · 그림 저장소 둘(새 그림은 열린 저장소 · where · 닫힌 저장소엔 교체만 · 같은 이름 둘 · 못 받은 저장소)'
       ' · 등록한 날(새 것만 오늘·있던 날짜 그대로·지어내지 않음·틀린 날짜 버림·--check·--prune) · git 이력 채우기(교체·지운 것·얕은 저장소 경계)')

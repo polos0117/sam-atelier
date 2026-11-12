@@ -2,7 +2,8 @@
 /* 이미지 작업 잠금 — GPT 세션이 같은 장수를 둘이 그리지 않게(docs/IMAGE_AUTOMATION.md). element-atelier 의 도구를 옮겼다(2026-11-02 사용자 「1,2,3 다 해줘」 — 맨 위 몇 줄만 삼국지 몫). 몫(하루 · 실행마다)은 원소처럼 없다.
    pkm-atelier 의 image-runner 가 하는 일 가운데 「누가 무엇을 그리나」 만 — 지시문은 tools/prompt-pack.cjs, 검수 · 올리기는 문서대로 한다.
 
-   잠금은 그림 저장소(옆의 sam-atelier-img)의 records/automation/claims/<카드>.json 하나다. 바꿀 때마다 그 파일만 커밋해 일반 push 한다 —
+   잠금은 첫 그림 저장소(옆의 sam-atelier-img)의 records/automation/claims/<카드>.json 하나다. 2026-11-12 둘째 저장소(sam-atelier-img-2)를 열어
+   새 그림 · 새 기록은 그쪽으로 가지만 잠금(자동화 상태)은 옮기지 않는다 — 여러 세션이 한 곳을 보게(tools/img-repos.cjs 의 STATE). 바꿀 때마다 그 파일만 커밋해 일반 push 한다 —
    그 사이 다른 세션이 밀었으면 push 가 거절되고 이 도구는 제 커밋을 되돌린 뒤 멈춘다(다시 받고 처음부터).
 
      node tools/image-claim.cjs status                                   # 잠금 · 오늘 쓴 몫 · 다음 차례
@@ -21,7 +22,7 @@ const read = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const DAILY_MAX = null, EXECUTION_MAX = null, CASUAL_N = 7;   /* 2026-11-11 「한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게 추가해줘. 그럼 일상컷은 총 7장 되는거야」 — 11-09 「6장으로」 */
 
 /* ── 공방마다 다른 것: 그림 저장소 이름 · 차례 · 한 캐릭터의 빈 자리 ── */
-const IMG_REPO = 'sam-atelier-img', WHAT = '카드';
+const IMG_REPO = require('./img-repos.cjs').STATE, WHAT = '카드';   /* 잠금 자리 — 첫 그림 저장소(닫혀도 자동화 상태는 여기) */
 const P = (() => { const vm = require('node:vm'), ctx = { window: {}, console }; vm.createContext(ctx);
   for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
   return ctx.window.AtelierPrompt; })();

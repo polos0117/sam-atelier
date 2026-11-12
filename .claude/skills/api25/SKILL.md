@@ -11,7 +11,7 @@ description: 삼국지 장수 그림을 OpenAI 그림 API(gpt-image-2.5-sunburst
 ## 0. 시작 전
 
 - 키는 환경 변수 `OPENAI_API_KEY` 로만 쓴다 — 값을 찍거나 파일 · 커밋에 적지 않는다. Node 는 `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt NODE_NO_WARNINGS=1` 을 붙인다(클라우드 세션).
-- 두 저장소를 받는다: `sam-atelier`(코드) · 옆 `sam-atelier-img`(그림). `git pull --rebase origin main`.
+- 세 저장소를 받는다: `sam-atelier`(코드) · 옆 `sam-atelier-img`(첫 그림 저장소 — 닫힘: 교체 · 잠금 · `free/` 주문) · 옆 `sam-atelier-img-2`(열린 그림 저장소 — **새 그림 · 새 기록은 여기**, 2026-11-12 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」, `IMAGE_RULES.md` 3절 「그림 저장소는 여럿이다」). 저장소마다 `git pull --rebase origin main`.
 - `node tools/image-claim.cjs status` 로 그 장수가 다른 세션에서 `working` 인지 본다 — 그렇다면 멈추고 묻는다.
 - **장수 하나당 33장**(세계 그림 4 × 3 + 일상컷 7 × 3 — 2026-11-11 사용자 「그럼 일상컷은 총 7장 되는거야」, 전엔 30장)과 예상 토큰(그림 한 장 출력 약 343)을 먼저 말하고 시작한다. 이미 등록된 `api25` 그림이 있으면 그 자리는 빼고 센다.
 - 작업 폴더는 스크래치패드 `api25/<장수>/` (`W`). 원본 PNG 는 여기 두고 그림 저장소엔 올리지 않는다.
@@ -25,7 +25,7 @@ node tools/api-draw.cjs free  <장수> <세계> --text $W/<세계>-gpt1.txt --ta
 ```
 
 - **GPT 설계 둘은 Claude 가 쓴다**(대화 토큰 0 — 사용자 「3번은 따로 도구없이 여기다가 얘기하면 되는거잖아」): 주문을 읽고 「fixed」 칸(의상은 그 역할 묶음 실루엣에서 하나 · 무기(세계 꼴 설명 — 판타지 룬 · 마법 빛, 메카 에너지 날 · 발광 코어까지 그대로 옮긴다) · 색 · 머리색 · 피부색 · 노출 · 얼굴 비율 · 구도)은 그대로, 얼굴 · 눈색 · 헤어스타일 · 화장 · 표정 · 자세 · 장면만 새로, 전설에서 딴 아이디어 하나를 의상 구조에. 둘째는 첫째와 확실히 다르게. 글자 · 문구를 그리게 하지 않는다(깃발 한 글자 말고).
-- 사용자가 「GPT 세션에 맡겨」 라고 하면 `node tools/free-brief.cjs <장수>` 로 주문을 그림 저장소 `free/<장수>/` 에 올리고 `REQUEST.md` 를 건넨다. 세션이 `-gpt1.txt` · `-gpt2.txt` 를 올리면 그 글로 `free … --by gpt-session`.
+- 사용자가 「GPT 세션에 맡겨」 라고 하면 `node tools/free-brief.cjs <장수>` 로 주문을 첫 그림 저장소(`sam-atelier-img`) `free/<장수>/` 에 올리고 `REQUEST.md` 를 건넨다. 세션이 `-gpt1.txt` · `-gpt2.txt` 를 올리면 그 글로 `free … --by gpt-session`.
 - 붙여 보여 주고 **멈춘다** — 세계마다 고를 때까지 일상컷으로 가지 않는다:
   `node tools/api-draw.cjs sheet $W/<세계>-sheet.jpg $W/<세계>-ours1.png $W/<세계>-ours2.png $W/<세계>-gpt1.png $W/<세계>-gpt2.png --labels 1,2,3,4` — 번호는 우리 설계 1 · 2, GPT 설계 3 · 4(사용자 2026-11-09 「gpt 가 만든건 3,4로 할게」). 사용자는 세계 차례(무협 · 판타지 · 메카)로 번호만 말한다 — 「1,1,2」
 
@@ -37,7 +37,7 @@ node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 
 ```
 
 - **자유 설계 두 장**(계획에 「옷 자유」 · 「갈래 자유」 — 사용자 2026-11-11 「장소·활동·자세·구도·의상을 자유롭게 설계해줘. 캐릭터의 특징에서 출발해, 예상하지 못했지만 그 캐릭터에게 자연스럽게 어울리는 일상의 한 순간을 보여줘. 참신함은 장식의 양보다 상황과 행동에서 만들어줘. 최근 작업과 비슷한 장면은 피하고, 얼굴·화풍·인체 규칙은 유지해줘. 필수갈래랑 상황노출 두개를 묶어서 이렇게 가자. 그리고 지금 맡겨놓은 일상컷 1장도 같이 이런식으로」)은 Claude 가 그 컷 지시문(`plan-<세계>/<세계>-casualN-prompt.txt`)의 **자유 설계 덩어리**(`FREE DESIGN:` 줄부터 `Outfit:` 줄까지)를 채운다 — 「…」 다섯 줄(Place · Activity · Pose · Framing · Outfit)만 그 장수(전설 · 성정)에서 출발한 뜻밖이지만 자연스러운 일상의 한 순간으로, 참신함은 장식이 아니라 상황 · 하는 일로. 옷은 우리 옷 목록(`data/casual-tree.json` outfits)에 없는 노출 의상. 갈래 자유 컷은 `Outfit family (required)` 의 갈래 안에서 짓고(큰 범위 — 우리 목록에서 골라도, 지어도 되나 목록에 없는 것 먼저) `Situation (required)` 의 상황 노출 순간을 직접 지어 장면에 담는다(우리 넷 — 젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈 — 이 아닌 것 먼저, 2026-11-11 「상황도 열어주자. 옷도 이제 큰범위로만 지정해줘 …」). 머리 줄 · `Recent scenes to avoid` · 필수 줄은 한 글자도 바꾸지 않는다. 채운 덩어리(지시문 전체를 줘도 된다 — 덩어리만 쓴다)를 파일로 `--free N=` 에 준다. 도구가 빈 덩어리 자리에 넣고(다른 줄은 조립부 그대로), 틀 줄이 바뀌었거나 안 채웠으면 그 칸을 건너뛴다. 기록 `generation.free_design`(채운 덩어리) · `free_prompt`(넘긴 글 전체).
-- 자유 설계 글을 쓰기 전에 그림 저장소 `records/*/*-casual*.api25-ui.json` 의 `generation.free_design`(없으면 `free_prompt`)을 훑어 **앞선 자유 설계 컷과 같은 장면 · 같은 옷 · 같은 결을 다시 쓰지 않는다**(지시문의 「Recent scenes to avoid」 도 피한다). 두 장끼리도 장소 · 하는 일 · 옷이 확실히 다르게. 옷 목록(갈래)에 새 옷을 더하지 않는다 — 목록에 없는 쪽이 옷 자유 컷의 몫이다(사용자 2026-11-09 「이걸 얘기해주면 너가 쓸 자료가 더 없어지잖아」).
+- 자유 설계 글을 쓰기 전에 두 그림 저장소의 `records/*/*-casual*.api25-ui.json` 의 `generation.free_design`(없으면 `free_prompt`)을 훑어 **앞선 자유 설계 컷과 같은 장면 · 같은 옷 · 같은 결을 다시 쓰지 않는다**(지시문의 「Recent scenes to avoid」 도 피한다). 두 장끼리도 장소 · 하는 일 · 옷이 확실히 다르게. 옷 목록(갈래)에 새 옷을 더하지 않는다 — 목록에 없는 쪽이 옷 자유 컷의 몫이다(사용자 2026-11-09 「이걸 얘기해주면 너가 쓸 자료가 더 없어지잖아」).
 - 참고 그림은 그 세계에서 사용자가 고른 그림. 도구가 768×1152 로 줄여 보낸다(기본, 기록 `generation.ref_sent` — 입력 토큰 약 22% 덜, 2026-11-09 시험에서 얼굴 · 화풍 같았다). 원본으로 보내려면 `--ref-size 0`.
 
 ## 3. 막히면(IMAGE_RULES 1절)
@@ -53,12 +53,12 @@ node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 
 사용자에게 시트로 보이고 「올릴까?」 — 좋다면:
 
 ```bash
-node tools/api-draw.cjs stage <장수> --img ../sam-atelier-img $W/<세계>-<고른 것>.png=<세계> $W/<세계>-casual1.png=<세계>-casual1 …
+node tools/api-draw.cjs stage <장수> --img ../sam-atelier-img-2 $W/<세계>-<고른 것>.png=<세계> $W/<세계>-casual1.png=<세계>-casual1 …
 ```
 
-- webp(품질 90, 1024×1536) + 기록(`records/<장수>/<세계>.api25-ui.json` · `<세계>-casualN.api25-ui.json`, `generation` 에 모델 · 엔드포인트 · 사용량 · png_sha256 · retries · GPT 설계 글)을 둔다. 같은 이름이 있으면 멈춘다 — 덮지 않는다.
+- webp(품질 90, 1024×1536) + 기록(`records/<장수>/<세계>.api25-ui.json` · `<세계>-casualN.api25-ui.json`, `generation` 에 모델 · 엔드포인트 · 사용량 · png_sha256 · retries · GPT 설계 글)을 열린 저장소 `sam-atelier-img-2` 에 둔다(`--img` 를 안 주면 그것, 닫힌 `sam-atelier-img` 는 도구가 막는다). 같은 이름이 두 그림 저장소 어디에든 있으면 멈춘다 — 덮지 않는다.
 - 일상 계획도 `records/<장수>/<세계>-casual-plan.api25.json` 으로 둔다.
-- 그림 저장소에 **장수 하나 한 커밋**, `pull --rebase` 뒤 일반 push. 썸네일 · `data/img.json` 은 워크플로가 한다. 코드 저장소 `docs/PATCH.md` 에 한 줄(patch-add).
+- `sam-atelier-img-2` 에 **장수 하나 한 커밋**, `pull --rebase` 뒤 일반 push. 썸네일 · `data/img.json` 은 워크플로가 한다. 코드 저장소 `docs/PATCH.md` 에 한 줄(patch-add).
 
 ## 5. 끝에 알린다
 

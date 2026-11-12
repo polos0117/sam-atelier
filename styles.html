@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="lib/workspace.css?v=5">
 <script src="lib/workspace-theme.js?v=2"></script>
 <script src="lib/words.js?v=20"></script>
+<script src="lib/img.js?v=2"></script>
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
 <link rel="stylesheet" href="lib/sam.css?v=7">
@@ -59,7 +60,8 @@ import {WorkspaceHeader} from './lib/workspace-ui.js?v=6';
 const W=window.W, WORLDS=['samguk','fantasy','mecha'], KINDS=['world','casual','far','old'];   /* far = 원거리 일상컷(2026-11-07) — 묶음에 있는 갈래(r.kinds)만 단추로 */
 const q=k=>{ try { return new URLSearchParams(location.search).get(k); } catch(e){ return null; } };
 function urlOf(d,r,s,w,kind){
-  if(kind==='old') return s.old&&s.old[w] ? {full:d.oldBase+s.old[w], thumb:d.oldBase+'thumb/'+s.old[w]} : null;
+  /* 예전 등록 그림 — 그 파일이 있는 그림 저장소(img.json 의 where, 2026-11-12 둘째 저장소)로. 등록부를 못 읽으면 oldBase(첫 저장소) */
+  if(kind==='old'){ const f=s.old&&s.old[w], IMG=window.AtelierImg; return f ? (IMG ? {full:IMG.imgURL(f), thumb:IMG.thumbURL(f)} : {full:d.oldBase+f, thumb:d.oldBase+'thumb/'+f}) : null; }
   const f=s.key+'_'+w+'_'+kind+'.webp', b=d.base+encodeURIComponent(r.key)+'/';
   const rev=((r.revisions||{})[w]||{})[kind], suffix=rev?'?v='+encodeURIComponent(rev):'';
   return {full:b+f+suffix, thumb:b+'thumb/'+f+suffix};
@@ -76,7 +78,7 @@ function App(){
   const [wsel,setWsel]=useState(WORLDS.includes(q('w'))?q('w'):'samguk');
   const [kinds,setKinds]=useState(()=>{ const k=(q('kind')||'').split(',').filter(x=>KINDS.includes(x)); return k.length?k:['world','casual','far']; });
   const [box,setBox]=useState(null), [rk,setRk]=useState(q('r')||'');
-  useEffect(()=>{ fetch('data/style-compare.json',{cache:'no-cache'}).then(r=>r.json()).then(setD).catch(e=>setErr(e.message)); },[]);
+  useEffect(()=>{ Promise.all([fetch('data/style-compare.json',{cache:'no-cache'}).then(r=>r.json()), window.AtelierImg?AtelierImg.load().catch(()=>null):null]).then(([j])=>setD(j)).catch(e=>setErr(e.message)); },[]);
   useEffect(()=>{ try { const u=new URL(location.href); u.searchParams.set('view',view); u.searchParams.set('w',wsel); u.searchParams.set('kind',kinds.join(',')); if(rk) u.searchParams.set('r',rk); history.replaceState(null,'',u); } catch(e){} },[view,wsel,kinds,rk]);
   useEffect(()=>{ if(!box) return; const k=e=>{ if(e.key==='Escape') setBox(null); if(e.key==='ArrowRight') step(1); if(e.key==='ArrowLeft') step(-1); }; addEventListener('keydown',k); return ()=>removeEventListener('keydown',k); },[box]);
   function step(n){ setBox(b=>b?{...b,i:(b.i+n+b.list.length)%b.list.length}:b); }

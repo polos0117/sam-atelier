@@ -78,7 +78,7 @@
 
 ## 3. 파일 이름과 자리
 
-그림 저장소 `sam-atelier-img` 의 `img/` 에 올린다.
+새 그림은 **열린 그림 저장소** `sam-atelier-img-2` 의 `img/` 에 올린다(2026-11-12 부터 — 아래 「그림 저장소는 여럿이다」).
 
 ```
 <장수>_<세계>_<화풍>_f.webp           세계 그림 — 세계는 samguk · fantasy · mecha
@@ -88,14 +88,36 @@
 
 장수 열쇠는 게임 표의 한글 이름 그대로(밑줄 없음). 기록은 `records/<장수>/<세계>.<화풍>-ui.json`(일상컷 `<세계>-casualN.<화풍>-ui.json`, `ref` 칸이 참고 그림).
 
+### 그림 저장소는 여럿이다 (2026-11-12)
+
+GitHub Pages 사이트 하나는 1 GB 까지라 첫 저장소가 차서(GitHub 크기 약 1.0 GB) 저장소를 나눴다. 사용자 2026-11-12 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 · 「저장소 만들고 토큰 넣었어」.
+기존 그림은 지우지도 옮기지도 않는다 — 옛 주소가 그대로 산다. pkm-atelier 가 같은 일을 먼저 했다(그쪽 `IMAGE_RULES.md` 의 같은 절).
+
+| 번호 | 저장소 | 상태 | 받는 것 |
+|---|---|---|---|
+| 0 | `sam-atelier-img` | 닫힘(2026-11-12, 약 1.0 GB) | 이미 있는 이름의 **교체**만 · 자동화 상태(잠금 `records/automation/claims/` · GPT 세션 설계 주문 `free/<장수>/` · `records/replacement.json`) · 배경(`backgrounds/`)은 그대로 여기 |
+| 1 | `sam-atelier-img-2` | 열림 | **새 그림 전부** · 새 그림의 기록(`records/<장수>/`) |
+
+- 새 그림은 **열린 저장소**(번호가 가장 큰 것)의 `img/` 에만, 그 기록도 같은 저장소의 `records/<장수>/` 에 올린다. 닫힌 저장소에 새 이름이
+  올라오면 등록이 전부 멈춘다(「닫힌 그림 저장소 … 에 새 그림」). `tools/api-draw.cjs stage` 는 `--img` 를 안 주면 열린 저장소에 두고, 닫힌 저장소엔 두지 않는다.
+- 이미 등록된 그림을 고쳐 그리는 교체(1절)는 그 파일이 지금 있는 저장소에 같은 이름으로 덮어쓴다.
+  어디 있는지는 `data/img.json` 의 `where` 에서 본다 — 적혀 있지 않으면 0 번이다. 교체 장부 `records/replacement.json` 은 0 번 하나에 적는다.
+- 같은 이름을 두 저장소에 두지 않는다(등록이 멈춘다). 다른 저장소로 옮기지도 않는다.
+- 한 장수의 그림이 두 저장소에 나뉘어도 된다(옛 화풍 그림은 0 번, 새 그림은 1 번). 등록기가 파일이 몇 번 저장소에 있는지 `where` 에 적고(0 번은 적지 않는다),
+  화면(도감 · 생성기 · 군막 · 전장 · 새 판 · API 생성 · 화풍 비교)은 `lib/img.js` 의 `BASES[번호]` 로 파일마다 주소를 만든다. 기록을 읽는 도구(계획기 `tools/casual-plan.cjs` · `tools/casual-check.py`)는 옆에 받아 둔 저장소 모두의 `records/` 를 읽는다.
+- 저장소 차례는 `lib/img.js` 의 `BASES`, `tools/register-images.py` 의 `SHARDS` · `EXTRA_DIRS`, `tools/img-repos.cjs`(Node 도구), `tools/casual-check.py` 의 `REPOS`, 등록 워크플로의 받기, `.gitignore` 가 같아야 한다 —
+  `node tests/img-shards.cjs` 가 맞춰 본다.
+- 열린 저장소가 900 MB 를 넘으면 그 저장소의 썸네일 워크플로가 경고를 띄운다. 그때 다음 저장소(`sam-atelier-img-3`)를 공개로 만들어 Pages(main, root)와 `CODE_REPO_TOKEN` 을 켜고,
+  그 저장소에 뼈대(README · `.nojekyll` · 썸네일 워크플로 · `img/` · `records/`)를 올린 뒤 위 차례 끝에 하나씩 붙인다. 앞 번호는 바꾸지 않는다.
+
 ## 4. 등록 — 올리면 자동이다
 
 1. 결과를 사람에게 보여 주고 「올릴까?」 를 묻는다(GPT 세션은 `docs/IMAGE_AUTOMATION.md` 0절 — 검수를 적고 바로 올린다).
-2. webp 를 `sam-atelier-img` 의 `img/` 에, 기록은 `records/` 에 일반 push. 썸네일은 만들지 않는다.
-3. 그림 저장소의 `썸네일` 워크플로가 `img/thumb/` 를 만들고 코드 저장소의 `그림 등록` 을 깨운다(그림 저장소 비밀 `CODE_REPO_TOKEN` 이 있을 때 — 없으면 코드 저장소가 매시 29분에 스스로).
-4. `그림 등록` 이 `tools/register-images.py` 로 `data/img.json` 에 적는다. 이름이 틀린 파일이 하나라도 있으면 아무것도 쓰지 않고 실패한다.
+2. webp 를 열린 그림 저장소(`sam-atelier-img-2`)의 `img/` 에, 기록은 그 저장소의 `records/` 에 일반 push(교체는 그 파일이 있는 저장소에 — 3절). 썸네일은 만들지 않는다.
+3. 그림 저장소의 `썸네일` 워크플로가 `img/thumb/` 를 만들고 코드 저장소의 `그림 등록` 을 깨운다(그림 저장소마다 비밀 `CODE_REPO_TOKEN` 이 있을 때 — 없으면 코드 저장소가 매시 29분에 스스로).
+4. `그림 등록` 이 두 그림 저장소를 받아 `tools/register-images.py` 로 `data/img.json` 에 적는다(둘째 저장소 그림은 `where` 에 1). 이름이 틀린 파일이 하나라도 있으면 아무것도 쓰지 않고 실패한다.
 
-자리에서 직접: `sam-atelier-img` 를 옆에 받고 `ln -s ../sam-atelier-img/img img` 뒤 `python3 tools/register-images.py --check` · `python3 tools/register-images.py`.
+자리에서 직접: 그림 저장소 둘을 옆에 받고 `ln -s ../sam-atelier-img/img img` · `ln -s ../sam-atelier-img-2/img img-2` 뒤 `python3 tools/register-images.py --check` · `python3 tools/register-images.py`.
 
 ## 5. 중단과 재개
 

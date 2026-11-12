@@ -21,7 +21,7 @@
     python3 tools/register-images.py            # data/img.json 에 없는 것을 더한다
     python3 tools/register-images.py --check    # 쓰지 않고 무엇이 달라지는지만 본다
     python3 tools/register-images.py --prune    # 파일이 사라진 항목도 지운다
-    python3 tools/register-images.py --backfill-added ../sam-atelier-img   # 날짜 없는 그림에 그림 저장소 git 이력의 날짜를(한 번)
+    python3 tools/register-images.py --backfill-added ../sam-atelier-img   # 날짜 없는 그림에 그림 저장소 git 이력의 날짜를(한 번 — 저장소마다 따로)
 
 등록한 날(added): img.json 의 "added" 에 {파일: "YYYY-MM-DD"} 로 적는다. 도감의 "최근 추가"·"새" 표가 읽는다.
 이번에 새로 적힌 파일만 오늘 날짜를 받고, 이미 있는 날짜는 그대로 둔다. 날짜를 지어내지 않는다 — 처음부터 있던
@@ -39,14 +39,16 @@ import roster
 # 그림이 사는 곳. GitHub 의 파일 목록 API 가 1000개에서 잘리므로 저장소 최상위가 아니라 img/ 에 둔다. img.json 에는
 # 폴더 없이 파일 이름만 적는다 — 주소는 화면 쪽 lib/img.js 가 붙인다(where 로 저장소를 고른다).
 IMG_DIR = "img"
-# 그림 저장소는 여럿이 될 수 있다(pkm 은 2026-10-13 에 둘이 됐다). 한 Pages 사이트는 1 GB 까지라 차면 새 그림은
-# 다음 저장소에 올린다. 지금은 하나다. 0 번이 IMG_DIR, 그 뒤가 EXTRA_DIRS 차례 — lib/img.js 의 BASES 와 같은 차례다
+# 그림 저장소는 여럿이다(pkm 은 2026-10-13 에 둘이 됐다). 한 Pages 사이트는 1 GB 까지라 차면 새 그림은
+# 다음 저장소에 올린다. 0 번이 IMG_DIR, 그 뒤가 EXTRA_DIRS 차례 — lib/img.js 의 BASES 와 같은 차례다
 # (tests/img-shards.cjs 가 맞춰 본다). 워크플로는 각 저장소의 img/ 를 이 이름으로 잇는다.
 # 어느 파일이 몇 번 저장소에 있는지는 img.json 의 where 에 적는다(0 번은 적지 않는다 — 옛 주소 그대로).
 # 새 그림은 "열린 저장소" 에만 받는다: 체크아웃에 있는 저장소 가운데 번호가 가장 큰 것.
 # 닫힌 저장소에는 이미 있는 이름의 교체만 받는다 — 새 이름이 오면 등록 전체를 멈춘다.
-SHARDS = ["sam-atelier-img"]
-EXTRA_DIRS = []
+#   0 sam-atelier-img    닫힘(2026-11-12, GitHub 크기 약 1.0 GB) — 교체만. 자동화 상태(잠금 · free 주문)는 그대로 여기
+#   1 sam-atelier-img-2  열림(2026-11-12 부터, 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」) — 새 그림 전부
+SHARDS = ["sam-atelier-img", "sam-atelier-img-2"]
+EXTRA_DIRS = ["img-2"]
 
 # 연출컷(action)은 받지 않는다 — 이름에 끼면 "이름 꼴이 안 맞는다" 로 선다
 PAT = re.compile(r"^(.+?)_(m|f|casual(\d+)|extra(\d+))\.webp$", re.I)

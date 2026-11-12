@@ -8,7 +8,9 @@
        2026-11-11 장소 · 활동 · 자세 · 구도 · 의상 자유). GPT 가 한 장 — <세계>-casualN.<화풍>-gpt1.txt(채운 지시문 전체)
      free/outfit-catalog.md — 우리 옷 목록(옷 자유가 「없는 옷」 을 짓게, tools/prompt-pack.cjs 와 같은 꼴)
      free/<장수>/REQUEST.md — GPT 세션에 그대로 붙여 넣을 부탁 글(읽을 파일 · 쓸 파일 이름 · 규칙)
-   이미 있는 주문은 덮지 않는다(--force 면 덮는다). GPT 가 쓴 -gpt*.txt 는 절대 건드리지 않는다. 올리기는 그림 저장소에서 일반 push. */
+   이미 있는 주문은 덮지 않는다(--force 면 덮는다). GPT 가 쓴 -gpt*.txt 는 절대 건드리지 않는다. 올리기는 그림 저장소에서 일반 push.
+   주문 자리는 첫 그림 저장소 sam-atelier-img 그대로다 — 2026-11-12 둘째 저장소(sam-atelier-img-2)를 열어 새 그림은 그쪽이지만 설계 주문(자동화 상태)은 옮기지 않는다
+   (api.html 이 그 주소에서 불러온다, tools/img-repos.cjs 의 STATE). */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const ROOT = path.join(__dirname, '..'), read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
@@ -21,7 +23,7 @@ const CASUAL_ASK = T.FREE_DESIGN.ask + ' Our outfit catalog is free/outfit-catal
 const WORLD_ASK = "Do not draw. Reply with only the final image prompt you would send to the image model, in English, nothing else.";
 
 function args(a) {
-  const o = { plans: [], style: 'api25', img: path.join(ROOT, '..', 'sam-atelier-img'), force: false };
+  const o = { plans: [], style: 'api25', img: require('./img-repos.cjs').statePath(), force: false };
   for (let i = 0; i < a.length; i++) {
     if (a[i] === '--style') o.style = a[++i]; else if (a[i] === '--plan') o.plans.push(a[++i]); else if (a[i] === '--img') o.img = a[++i]; else if (a[i] === '--force') o.force = true; else o.card = a[i];
   }

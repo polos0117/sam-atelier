@@ -5,18 +5,27 @@
   상황 노출 한 장   — 젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈(scene.situ, 2026-11-09 「1번 내용을 필수갈래에」), 위 두 갈래가 아닌 컷
   세 장은 서로 다른 컷이어야 한다(한 장이 둘 다 맞아도 한 갈래만 채운다). 나머지 세 장은 자유. 옛 묶음(상황 갈래 전 — 기록 scene 에 situ 칸이 아예 없다)은 상황 칸이 없어도 된다.
 
-그림 저장소(sam-atelier-img)의 기록 records/<장수>/<세계>-casualN.<화풍>-ui.json 의 scene 을 읽는다.
+그림 저장소(sam-atelier-img · sam-atelier-img-2 — 2026-11-12 부터 둘, 받아 둔 것 모두)의 기록 records/<장수>/<세계>-casualN.<화풍>-ui.json 의 scene 을 읽는다.
   python3 tools/casual-check.py                 # 일상컷이 있는 장수 전부
   python3 tools/casual-check.py 관우 조운        # 몇 명만
   python3 tools/casual-check.py --plan 관우      # 아직 안 그린 칸에 무엇을 넣어야 하나
 세계 사이 겹침도 함께 본다(사용자 2026-11-02 「무협·판타지·메카가 다 같은 구도의 장면」) — 세 세계가 같은 장면을 쓰면 안 된다:
   같은 장소(세계 안 nation_* 장소는 세계마다 다른 곳이 되니 옷 계열까지 같을 때만) · 같은 자세 추천(= 같은 구도).
   계획기(tools/casual-plan.cjs)와 같은 규칙이다. 옛 묶음의 겹침은 알리기만 하고 실패로 치지 않는다(덮지 않고 새 묶음을 더한다).
-그림 저장소 자리는 SAM_IMG 환경 변수(기본 ../sam-atelier-img)."""
+그림 저장소 자리는 SAM_IMG 환경 변수(여럿이면 경로 구분자 : 로, 기본 옆의 REPOS 가운데 받아 둔 것)."""
 import glob, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMGR = os.environ.get('SAM_IMG') or os.path.join(os.path.dirname(ROOT), 'sam-atelier-img')
+# 그림 저장소 차례 — lib/img.js BASES · tools/register-images.py SHARDS · tools/img-repos.cjs 와 같다(tests/img-shards.cjs 가 맞춰 본다).
+# 2026-11-12 둘째를 열었다(사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」) — 한 장수의 기록이 두 저장소에 나뉠 수 있어 둘 다 읽는다
+REPOS = ["sam-atelier-img", "sam-atelier-img-2"]
+IMGRS = [d for d in os.environ['SAM_IMG'].split(os.pathsep) if d] if os.environ.get('SAM_IMG') else \
+    [d for d in (os.path.join(os.path.dirname(ROOT), r) for r in REPOS) if os.path.isdir(d)]
+
+
+def recs(card, pat='*-casual*-ui.json'):
+    """받아 둔 그림 저장소 모두에서 records/<card>/<pat> — card 가 '*' 면 장수 전부"""
+    return [f for d in IMGRS for f in glob.glob(os.path.join(d, 'records', card, pat))]
 REQ = json.load(open(os.path.join(ROOT, 'data/casual-tree.json'), encoding='utf-8'))['required']
 WORLDS = ['samguk', 'fantasy', 'mecha']
 PER_WORLD = 7   # 사용자 2026-11-11 「한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게 추가해줘. 그럼 일상컷은 총 7장 되는거야」(11-09 「6장으로」) — 옛 묶음(기록에 situ 칸이 없다)은 상황 갈래 전이라 상황 칸이 비어도 실패로 치지 않는다.
@@ -47,7 +56,7 @@ new7 = {}  # (장수, 세계) → 일곱 장 꼴(2026-11-11 — 자유 설계 �
 
 def cuts(card):
     by = {}
-    for f in glob.glob(os.path.join(IMGR, 'records', card, '*-casual*-ui.json')):
+    for f in recs(card):
         m = re.match(r'(\w+)-casual(\d+)\.', os.path.basename(f))
         if not m or m.group(1) not in WORLDS:
             continue
@@ -62,7 +71,7 @@ def cuts(card):
 
 def scenes(card):
     out = []
-    for f in sorted(glob.glob(os.path.join(IMGR, 'records', card, '*-casual*-ui.json'))):
+    for f in sorted(recs(card)):
         m = re.match(r'(\w+)-casual(\d+)\.', os.path.basename(f))
         if not m or m.group(1) not in WORLDS:
             continue
@@ -113,7 +122,7 @@ def main(argv):
     plan = '--plan' in argv
     names = [a for a in argv if not a.startswith('--')]
     if not names:
-        names = sorted({os.path.basename(os.path.dirname(f)) for f in glob.glob(os.path.join(IMGR, 'records', '*', '*-casual*-ui.json'))})
+        names = sorted({os.path.basename(os.path.dirname(f)) for f in recs('*')})
     bad = dup = 0
     for card in names:
         by = cuts(card)

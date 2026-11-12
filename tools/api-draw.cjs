@@ -14,11 +14,13 @@
    node tools/api-draw.cjs sheet  <out.jpg> <그림>… [--labels a,b,…]                   붙여 보기(사용자에게 보여 줄 때)
    node tools/api-draw.cjs stage  <장수> --img <그림 저장소> <png>=<자리>…                 webp(품질 90) + 기록을 그림 저장소에 둔다(commit 은 하지 않는다)
                                                                                      자리 = <세계> | <세계>-casualN — 그 png 옆의 _record.json 을 기록으로. 같은 이름이 있으면 멈춘다
+                                                                                     --img 는 열린 그림 저장소(2026-11-12 부터 ../sam-atelier-img-2, 안 주면 그것 — tools/img-repos.cjs).
+                                                                                     닫힌 저장소(sam-atelier-img)엔 새 그림을 두지 않는다 · 같은 이름은 옆의 그림 저장소 모두에서 본다
    공통: [--style api25] [--model <그림 모델 — 기본 판의 model>] [--quality medium]
    필터: 안전 거절이면 같은 지시문으로 한 번 더, 또 막히면 그 자리를 건너뛰고 끝에 알린다(종료 코드 3). 노출 낮추기는 --exposure 로 다시 부른다(IMAGE_RULES 1절). */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm'), crypto = require('node:crypto'), cp = require('node:child_process');
-const ROOT = path.join(__dirname, '..'), read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
+const ROOT = path.join(__dirname, '..'), read = f => fs.readFileSync(path.join(ROOT, f), 'utf8'), REPOS = require('./img-repos.cjs');
 const ctx = { window: {}, console }; vm.createContext(ctx);
 for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(read(f), ctx);
 const P = ctx.window.AtelierPrompt, T = ctx.window.AtelierSpec;
@@ -168,7 +170,12 @@ im.save(out,quality=88)`, [outFile, o.labels || '', ...files]);
   console.log('→ ' + outFile);
 }
 function cmdStage(o) {
-  const card = o._[0], img = o.img; if (!img || !fs.existsSync(path.join(img, 'img'))) throw new Error('--img <그림 저장소> 가 아니다');
+  /* 새 그림 · 새 기록은 열린 저장소에만(2026-11-12 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 — 첫 저장소가 약 1.0 GB 로 찼다) */
+  const card = o._[0], img = path.resolve(o.img || REPOS.openPath()); if (!fs.existsSync(path.join(img, 'img'))) throw new Error('--img <그림 저장소> 가 아니다: ' + img);
+  const at = REPOS.REPOS.indexOf(path.basename(img));
+  if (at >= 0 && REPOS.REPOS[at] !== REPOS.OPEN) throw new Error(REPOS.REPOS[at] + ' 는 닫힌 그림 저장소다 — 새 그림은 ' + REPOS.OPEN + ' 에(--img ../' + REPOS.OPEN + ')');
+  /* 같은 이름은 옆에 받아 둔 그림 저장소 모두에서 본다 — 두 저장소에 같은 이름이 있으면 등록이 멈춘다 */
+  const twins = file => REPOS.REPOS.map(r => path.join(path.dirname(img), r, 'img', file)).filter(f => fs.existsSync(f));
   const pairs = o._.slice(1).map(x => { const i = x.lastIndexOf('='); return [x.slice(0, i), x.slice(i + 1)]; });
   for (const [png, slot] of pairs) {
     const m = slot.match(/^(samguk|fantasy|mecha)(?:-casual(\d+))?$/); if (!m) throw new Error('자리 꼴이 아니다: ' + slot);
@@ -176,7 +183,8 @@ function cmdStage(o) {
     const rec = JSON.parse(fs.readFileSync(recFile, 'utf8'));
     const file = m[2] ? P.casualFile(card, m[1], o.style, Number(m[2])) : P.fileName(card, m[1], o.style);
     const dst = path.join(img, 'img', file), recDst = path.join(img, 'records', card, m[2] ? `${m[1]}-casual${m[2]}.${o.style}-ui.json` : `${m[1]}.${o.style}-ui.json`);
-    if (fs.existsSync(dst) || fs.existsSync(recDst)) throw new Error('이미 있다 — 덮지 않는다: ' + (fs.existsSync(dst) ? dst : recDst));
+    const hit = [dst, recDst, ...twins(file)].find(f => fs.existsSync(f));
+    if (hit) throw new Error('이미 있다 — 덮지 않는다: ' + hit);
     py(`import sys
 from PIL import Image
 im=Image.open(sys.argv[1]).convert('RGB')

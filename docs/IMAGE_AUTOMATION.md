@@ -22,7 +22,9 @@ GPT 세션이 장수 그림을 채우는 길이다. 사람이 지켜보는 세�
 
 ## 1. 준비
 
-- `AGENTS.md` · `IMAGE_RULES.md` 를 먼저 읽는다. 코드(`sam-atelier`)와 그림(`sam-atelier-img`) 저장소를 **나란히** 받아 최신 `main` 으로 둔다.
+- `AGENTS.md` · `IMAGE_RULES.md` 를 먼저 읽는다. 코드(`sam-atelier`)와 그림 저장소 둘(`sam-atelier-img` · `sam-atelier-img-2`)을 **나란히** 받아 최신 `main` 으로 둔다.
+  그림 저장소는 2026-11-12 부터 둘이다(사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 — 첫 저장소가 약 1.0 GB 로 찼다, `IMAGE_RULES.md` 3절 「그림 저장소는 여럿이다」):
+  **새 그림 · 새 기록은 `sam-atelier-img-2`**, 잠금(`records/automation/claims/`) · 설계 주문(`free/`)은 **`sam-atelier-img` 그대로**. 교체는 그 파일이 있는 저장소(`data/img.json` 의 `where`).
   다른 세션도 같은 저장소에 민다 — push 전에 늘 `git pull --rebase origin main`. 남의 로컬 변경을 reset 하지 않는다.
 - Node 와 Python 3 + Pillow 가 있으면 된다. **브라우저는 쓰지 않는다** — 생성기 화면 대신 지시문 묶음(`tools/prompt-pack.cjs`)이 같은 글을 파일로 준다(생성기와 같은 조립부 `lib/prompt-sam.js`).
 - 실행 ID 를 **한 번** 정하고 이 실행의 모든 명령에 그대로 쓴다.
@@ -40,7 +42,7 @@ node tools/image-claim.cjs claim <장수> --execution $ATELIER_EXECUTION_ID
 ```
 
 - 차례는 설계표(게임 표) 차례 — **세력 하나를 끝까지 그린 뒤 다음 세력으로**(`IMAGE_RULES.md` 5절). 고르는 것은 도구가 한다. 몫(하루 · 실행마다)은 없다.
-- 잠금은 그림 저장소 `records/automation/claims/<장수>.json` 하나다. `claim` 은 그 파일만 커밋해 일반 push 한다 — 다른 세션이 먼저 밀었으면 거절되고 도구가 제 커밋을 되돌린다. 그때는 pull 하고 `status` 부터 다시.
+- 잠금은 첫 그림 저장소(`sam-atelier-img`) `records/automation/claims/<장수>.json` 하나다(둘째 저장소를 열어도 옮기지 않는다). `claim` 은 그 파일만 커밋해 일반 push 한다 — 다른 세션이 먼저 밀었으면 거절되고 도구가 제 커밋을 되돌린다. 그때는 pull 하고 `status` 부터 다시.
 - 잡힌 장수(`working` · `blocked`)는 건드리지 않는다. `blocked` 는 사용자가 정한 뒤 `release --approval '<사용자 말>'` 로만 푼다.
 - 한 장수의 빈 자리 = 사는 세계마다 세계 그림 · 일상컷 일곱 장 — 장수 하나 24(2026-11-11 사용자 「그럼 일상컷은 총 7장 되는거야」 — 11-09 여섯 · 21, 전엔 다섯, 기본 화풍 `kr_promo_hikey` — 2026-11-08, 그 앞 `kv_kmmo_23d` · `kv_kmmo_lock` · `kr_mmorpg`, `data/img.json`). 번호는 세계마다 따로, 비어 있는 가장 작은 것부터(`claim` 이 적어 준 `missing` 그대로).
 - **자동 설계(`designed: "auto"`) 장수는 그리기 전에 시안**(`IMAGE_RULES.md` 2절 · `AGENTS.md` 3절).
@@ -50,7 +52,7 @@ node tools/image-claim.cjs claim <장수> --execution $ATELIER_EXECUTION_ID
 작업 폴더(`$W`)는 세션 임시 자리에 둔다. **세계 셋을 한 번에** 짠다(세계끼리 장면을 돌려쓰지 않게 — `IMAGE_RULES.md` 2절):
 
 ```sh
-node tools/casual-plan.cjs <장수> --world all --records ../sam-atelier-img/records/<장수> --out $W      # $W/plan-<세계>/plan.json · 기록 · 지시문
+node tools/casual-plan.cjs <장수> --world all --out $W      # $W/plan-<세계>/plan.json · 기록 · 지시문 — 기록은 옆의 두 그림 저장소 records/<장수> 를 다 읽는다
 node tools/prompt-pack.cjs init <장수> --dir $W/pack --plan $W/plan-samguk/plan.json --plan $W/plan-fantasy/plan.json --plan $W/plan-mecha/plan.json
 node tools/prompt-pack.cjs build --dir $W/pack                                  # 자리마다 <자리>-prompt.txt(세계 그림에 낸다) · <자리>-gpt.md(일상컷에 낸다) · <자리>-ui.json · INDEX.md
 ```
@@ -71,7 +73,7 @@ node tools/prompt-pack.cjs build --dir $W/pack                                  
 
 - `INDEX.md` 의 차례대로, `claim` 의 `missing` 에 있는 자리만 그린다. 자리 하나에 생성 호출 한 번.
 - 세계 그림은 **기준 그림 없이** 한 장씩(세계마다 다른 사람). 일상컷은 그 세계 그림을 **꼭** 붙인다(이미지 편집 `images/edits` — 첨부 없이 뽑으면 다른 사람이 된다).
-  이 세션에서 받은 원본, 이미 등록된 세계 그림이면 그림 저장소의 `img/<파일>.webp`. 세계 그림이 없는 세계는 일상컷을 그리지 않는다.
+  이 세션에서 받은 원본, 이미 등록된 세계 그림이면 그 파일이 있는 그림 저장소(`where` — 없으면 `sam-atelier-img`)의 `img/<파일>.webp`. 세계 그림이 없는 세계는 일상컷을 그리지 않는다.
 - 크기는 1024×1536 — **이미지 도구의 크기 설정으로 세로 1024×1536 을 꼭 지정한다**(글만으로는 가로로 나온 적이 있다). 도구가 실제로 돌려준 파일만 쓴다.
 - **검수**(기록의 `qa` — 7절)를 구체적으로: 1024×1536 · 그녀 한 명(말 · 짐승 · 두 번째 인물 없음) · 깃발 · 인장의 한 글자 말고 읽히는 글자 · 로고 · 워터마크 · 틀 ·
   세계 그림이면 고른 세계대로인가(삼국시대가 일본 옷으로, 판타지가 한푸로 가지 않았나) · 일상컷이면 첨부한 세계 그림과 같은 얼굴 · 머리 · 몸인가, 계획 칸(시대 · 장소 · 의상 · 프레이밍 · 자세 · 두 손 · 소품)대로인가 ·
@@ -96,8 +98,8 @@ node tools/image-claim.cjs block <장수> --execution $ATELIER_EXECUTION_ID --re
 
 ## 6. 올리기와 끝
 
-1. 자리마다 원본을 WebP(품질 90, method 6, 1024×1536)로 바꾼다. 이름은 `INDEX.md` 의 「올릴 파일」(= `IMAGE_RULES.md` 3절). 같은 이름이 그림 저장소에 이미 있으면 멈춘다 — 덮지 않는다.
-2. 그림 저장소에 **한 장수 한 커밋**으로 일반 push: `img/<파일>.webp` 들과 `records/<장수>/` 의 기록 — 세계 그림 `<세계>.<화풍>-ui.json`, 일상컷 `<세계>-casualN.<화풍>-ui.json`, 일상 계획 `<세계>-casual-plan.json`.
+1. 자리마다 원본을 WebP(품질 90, method 6, 1024×1536)로 바꾼다. 이름은 `INDEX.md` 의 「올릴 파일」(= `IMAGE_RULES.md` 3절). 같은 이름이 그림 저장소(둘 중 어디든)에 이미 있으면 멈춘다 — 덮지 않는다.
+2. 열린 그림 저장소(`sam-atelier-img-2`)에 **한 장수 한 커밋**으로 일반 push: `img/<파일>.webp` 들과 `records/<장수>/` 의 기록 — 세계 그림 `<세계>.<화풍>-ui.json`, 일상컷 `<세계>-casualN.<화풍>-ui.json`, 일상 계획 `<세계>-casual-plan.json`.
    기록에 7절 칸을 더한다. **원본 PNG 는 올리지 않는다** — sha256 만. 썸네일 · `data/img.json` 은 손으로 만들지 않는다(워크플로가 한다).
 3. push 가 밀리면 `pull --rebase` 한 번. 그 사이 같은 파일 이름이 들어왔으면 멈추고 보고한다.
 4. `썸네일` · `그림 등록` 이 돈 뒤 코드 저장소를 pull 하고 `python3 tools/casual-check.py <장수>` 로 본다. 그리고:
@@ -127,7 +129,7 @@ node tools/image-claim.cjs done <장수> --execution $ATELIER_EXECUTION_ID
 
 사용자 「gpt 세션에서도 내 git 읽을 수 있으니까 git에 올려놓고 추론 해달라고 부탁해도 되겠네. 이미지 생성은 api 로 하고」 — GPT 자유 설계(세계 그림 네 장 중 둘)와 일상컷 자유 설계 컷(옷 자유 · 갈래 자유)의 「설계 글」 은 ChatGPT 세션이 쓰고(구독 — API 대화 토큰 0), 그림은 API 생성 탭(`api.html`)이 2.5 로 그린다.
 
-1. 주문 올리기 — `node tools/free-brief.cjs <장수> [--style api25] [--plan <계획 plan.json> …]` 가 그림 저장소 `free/<장수>/` 에 `<세계>.<화풍>-brief.txt`(세계마다) · `<세계>-casualN.<화풍>-brief.txt`(계획의 자유 설계 컷마다 — 지시문 + 「FREE DESIGN 덩어리만 채워라」) · `REQUEST.md`(부탁 글), `free/outfit-catalog.md` 를 쓴다. 그림 저장소에서 일반 push.
+1. 주문 올리기 — `node tools/free-brief.cjs <장수> [--style api25] [--plan <계획 plan.json> …]` 가 첫 그림 저장소(`sam-atelier-img` — 둘째를 열어도 주문 자리는 그대로) `free/<장수>/` 에 `<세계>.<화풍>-brief.txt`(세계마다) · `<세계>-casualN.<화풍>-brief.txt`(계획의 자유 설계 컷마다 — 지시문 + 「FREE DESIGN 덩어리만 채워라」) · `REQUEST.md`(부탁 글), `free/outfit-catalog.md` 를 쓴다. 그림 저장소에서 일반 push.
 2. GPT 세션에 `free/<장수>/REQUEST.md` 를 그대로 붙여 넣는다 — 세션은 주문을 읽고 **그림 없이** 지시문 글만 `<세계>.<화풍>-gpt1.txt` · `-gpt2.txt`(서로 다르게) · `<세계>-casualN.<화풍>-gpt1.txt`(자유 설계 덩어리의 「…」 다섯 줄만 채운 지시문 전체)로 같은 폴더에 올린다. 「fixed」 칸(실루엣 목록 · 무기 · 색 · 노출 · 얼굴 비율 · 구도)은 그대로, 이미 있는 `-gpt*.txt` 는 덮지 않는다.
 3. API 프롬프트 탭에서 그 자리를 「GPT 자유 설계로 보내기」(일상컷은 자유 설계 컷 체크 — 갈래 자유면 갈래 · 상황도) → API 생성 탭의 「GPT 세션이 쓴 지시문」 에서 「git 에서 N번 불러오기」(Pages 가 돈 뒤) 또는 붙여 넣기 → 「그리기」. 대화 모델은 부르지 않는다. 기록 `generation` 에 `chat_model: gpt-session` · `free_source`(git 경로 또는 pasted) · `free_prompt`(그 글).
 

@@ -1,4 +1,8 @@
 __pycache__/
 *.pyc
 node_modules/
+# 그림은 sam-atelier-img · sam-atelier-img-2 저장소에 둔다. 여기 img/ · img-2/ 는 화면 검사 · 등록용 임시 자리다(그림 저장소로 잇는 링크) — 올리지 않는다.
 /img
+/img-2
+/img-repo
+/img-repo-2

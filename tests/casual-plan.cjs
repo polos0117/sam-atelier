@@ -148,6 +148,16 @@ try {
   assert.deepEqual(C.plan(card, [1, 2, 3], [], { seed: 7, usage: { cup: 3 } }).cuts.length, 3, '옛 꼴(소품 → 횟수)도 받는다');
   const img = path.join(__dirname, '../../sam-atelier-img/records');
   if (fs.existsSync(img)) { const u = C.sceneUsage(img, '관우'); assert(Object.keys(u.place).length > 3 && Object.keys(u.preset).length > 3 && Object.keys(u.expr).length > 0, '그림 저장소 기록에서 센다'); }
+  /* 그림 저장소 둘(2026-11-12) — 한 장수의 기록이 두 저장소에 나뉘어도 옛 컷 · 쓴 횟수 · 최근 장면을 둘 다에서 읽는다 */
+  { const a = fs.mkdtempSync(path.join(os.tmpdir(), 'casual-a-')), b = fs.mkdtempSync(path.join(os.tmpdir(), 'casual-b-'));
+    try {
+      const c2 = C.cardOf('조운'); c2.world = 'samguk'; const cuts = C.plan(c2, [1, 2], [], { seed: 4 }).cuts;
+      for (const [dir, c] of [[a, cuts[0]], [b, cuts[1]]]) { fs.mkdirSync(path.join(dir, '조운'), { recursive: true }); fs.writeFileSync(path.join(dir, '조운', `samguk-casual${c.n}.${C.STYLE}-ui.json`), JSON.stringify(C.record(c2, 'samguk', c))); }
+      assert.deepEqual(C.oldCuts([path.join(a, '조운'), path.join(b, '조운'), path.join(a, '없음')], c2, 'samguk').map(c => c.n).sort(), [1, 2], '옛 컷 — 두 저장소');
+      const u1 = C.sceneUsage(a, ''), u2 = C.sceneUsage([a, b], '');
+      assert.equal(Object.values(u2.place).reduce((x, y) => x + y, 0), Object.values(u1.place).reduce((x, y) => x + y, 0) + 1, '쓴 횟수 — 두 저장소');
+    } finally { fs.rmSync(a, { recursive: true, force: true }); fs.rmSync(b, { recursive: true, force: true }); }
+  }
 }
 /* 세계 셋을 한 번에 · 새 묶음(2026-11-02, 사용자 「무협·판타지·메카가 다 같은 구도의 장면」 · 「대체하는건 아니고, 추가로」) —
    옛 다섯 장은 그대로 두고 그 뒤 번호로 새 다섯 장씩, 세 세계 · 옛 묶음 어느 것과도 같은 장면(장소 · 자세 추천)을 쓰지 않는다 */

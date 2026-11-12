@@ -12,20 +12,21 @@
      - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대는 한 가지 두 번까지, 네 장 이상이면 네 시대(지금 현실 · 역사의 자리 · 세계 안 · 무대·환상) 다
      - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 · 가까운 컷 하나씩은 꼭) · 몸 방향 한 가지는 두 번까지 · 머리 「어깨 너머」 는 한 장까지
      - 소품은 칸마다 다르게 · 그 장수의 물건(설계표 hold, 없으면 역할의 것)을 든 컷은 한두 장 · 마실 것은 한 장까지 · ⚠ 어색한 조합은 한 장까지
-     - 장수 사이에서도 안 쓴 트리 쪽 먼저: 그림 저장소 기록(--usage, 기본 옆의 sam-atelier-img/records)에서 장소 · 옷 계열 · 옷 · 자세 추천 · 자세 · 길(자세 추천 × 장소) · 소품을 센다(표정은 은은한 열일곱에서 고르게 — 2026-11-03) —
+     - 장수 사이에서도 안 쓴 트리 쪽 먼저: 그림 저장소 기록(--usage, 기본 옆의 그림 저장소 모두의 records — sam-atelier-img · sam-atelier-img-2, tools/img-repos.cjs)에서 장소 · 옷 계열 · 옷 · 자세 추천 · 자세 · 길(자세 추천 × 장소) · 소품을 센다(표정은 은은한 열일곱에서 고르게 — 2026-11-03) —
        한 번도 안 쓴 값은 무게 12, 쓴 값은 1/(1+횟수)³(2026-11-02 「가중치 올려줘」 — 전엔 4 와 ²)
    이미 그림이 있는 번호는 짜지 않고, 그 세계의 기록(--records)은 겹침 검사에만 쓴다.
 
      node tools/casual-plan.cjs <장수> --world <세계> [--style <화풍>] [--slots 1,2,3] [--records <그림 저장소>/records/<장수>] [--seed N] [--out <폴더>] [--usage <폴더>|none]
    --slots 를 안 주면 그 세계에 등록된 것(data/img.json)을 빼고 일곱 장이 되게(여섯 장을 다 그린 세계는 일곱째 — 갈래 자유 컷 — 하나만) — 번호는 세계마다 따로, 비어 있는 가장 작은 것부터.
-   --records 를 안 주면 옆의 sam-atelier-img/records/<장수>. --out 을 주면 칸마다 기록 · 지시문과 plan.json 을 쓴다.
+   --records 를 안 주면 옆의 그림 저장소 모두의 records/<장수>(2026-11-12 둘째 저장소 sam-atelier-img-2 — 한 장수의 기록이 두 저장소에 나뉠 수 있다). --out 을 주면 칸마다 기록 · 지시문과 plan.json 을 쓴다.
+   --usage 는 쉼표로 여럿을 줄 수 있다.
      node tools/casual-plan.cjs <장수> --world <세계> --check <기록 폴더> [--from N]   # 올리기 전 — 그 세계 묶음이 위 규칙을 다 지키나(다른 세계와 같은 장면도). --from: N 번부터의 새 묶음만, 옛 묶음은 겹침에만
      node tools/casual-plan.cjs <장수> --world all [--fresh] --out <폴더>   # 세계 셋을 한 번에(폴더 아래 plan-<세계>) — 세계끼리 장면을 돌려쓰지 않는다
    --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 일곱 장(옛 묶음과도 겹치지 않게). --others a.json,b.json: 아직 안 올린 다른 계획도 겹침에 넣는다.
    세계끼리 · 묶음끼리: 같은 장소는 안 되고(세계 안 장소는 세계마다 다른 곳이라 옷 · 자세까지 같을 때만), 같은 옷 계열로 같은 자세 추천도 안 된다(2026-11-02 — 네 장수가 세 세계에 같은 장면 한 벌을 썼다) */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
-const ROOT = path.join(__dirname, '..');
+const ROOT = path.join(__dirname, '..'), REPOS = require('./img-repos.cjs');
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const ctx = { window: {}, console }; vm.createContext(ctx);
 for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(read(f), ctx);
@@ -313,11 +314,12 @@ function blockScene(text) {
   const get = h => { const m = new RegExp('^' + h + ':\\s*(.+)$', 'm').exec(t.slice(i)); return m && !/^…/.test(m[1].trim()) ? firstClause(m[1]) : ''; };
   return [get('Place'), get('Activity')].filter(Boolean).join(' — ');
 }
-/* 그림 저장소 기록에서 최근 n 장면 — 기록의 imported · generation.date · date 가 늦은 것부터(같으면 파일 시각) */
-function recentScenes(dir, n = 8) {
-  if (!dir || !fs.existsSync(dir)) return [];
+/* 폴더 하나 또는 여럿(그림 저장소마다 — 2026-11-12) → 있는 폴더 목록 */
+const dirList = dir => [].concat(dir || []).filter(d => d && fs.existsSync(d));
+/* 그림 저장소 기록에서 최근 n 장면 — 기록의 imported · generation.date · date 가 늦은 것부터(같으면 파일 시각). dir 은 하나 또는 여럿 */
+function recentScenes(dirs, n = 8) {
   const rows = [];
-  for (const k of fs.readdirSync(dir)) {
+  for (const dir of dirList(dirs)) for (const k of fs.readdirSync(dir)) {
     const d = path.join(dir, k); if (!fs.statSync(d).isDirectory()) continue;
     for (const f of fs.readdirSync(d).filter(x => /^(\w+)-casual\d+\.[a-z0-9_]+-ui\.json$/.test(x))) {
       let r; try { r = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')); } catch (e) { continue; }
@@ -415,14 +417,13 @@ function record(card, world, cut) {
   const { n, ...scene } = cut;
   return { ...P.casualRecord(D, S, card.key, scene, { world, style: STYLE, tree, tree2 }, n), record: recordRel(card.key, world, n) };
 }
-/* 이미 있는 컷 — 그 세계의 기록(<세계>-casualN.<화풍>-ui.json) */
-function oldCuts(dir, card, world) {
-  if (!dir || !fs.existsSync(dir)) return [];
+/* 이미 있는 컷 — 그 세계의 기록(<세계>-casualN.<화풍>-ui.json). dir 은 하나 또는 여럿(그림 저장소마다 records/<장수> — 2026-11-12) */
+function oldCuts(dirs, card, world) {
   const re = new RegExp('^' + world + '-casual(\\d+)\\.' + STYLE + '-ui\\.json$');
-  return fs.readdirSync(dir).filter(f => re.test(f)).map(f => {
+  return dirList(dirs).flatMap(dir => fs.readdirSync(dir).filter(f => re.test(f)).map(f => {
     const rec = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
     return { n: Number(re.exec(f)[1]), ...C2.repair(T2, { ...rec.scene }, card.g), old: true };
-  });
+  }));
 }
 /* 등록된 그 세계의 일상컷 번호 */
 function registered(card, world) {
@@ -434,12 +435,11 @@ function freeSlots(card, world, want = CASUAL_N) {
   for (let n = 1; taken.size + out.length < want; n++) if (!taken.has(n)) out.push(n);
   return out;
 }
-/* 쓴 횟수 — 그림 저장소의 모든 장수 기록에서(그 장수는 빼고): 소품(그 장수의 물건은 빼고) · 장소 · 옷 · 자세 추천 · 자세 · 표정 */
-function sceneUsage(dir, skip) {
+/* 쓴 횟수 — 그림 저장소의 모든 장수 기록에서(그 장수는 빼고): 소품(그 장수의 물건은 빼고) · 장소 · 옷 · 자세 추천 · 자세 · 표정. dir 은 하나 또는 여럿(그림 저장소마다) */
+function sceneUsage(dirs, skip) {
   const out = EMPTY_USAGE();
-  if (!dir || !fs.existsSync(dir)) return out;
   const add = (m, k) => { if (k) m[k] = (m[k] || 0) + 1; };
-  for (const k of fs.readdirSync(dir)) {
+  for (const dir of dirList(dirs)) for (const k of fs.readdirSync(dir)) {
     if (k === skip || !fs.statSync(path.join(dir, k)).isDirectory()) continue;
     for (const f of fs.readdirSync(path.join(dir, k)).filter(x => /-casual\d+\.[a-z_]+-ui\.json$/.test(x))) {
       let sc; try { sc = JSON.parse(fs.readFileSync(path.join(dir, k, f), 'utf8')).scene; } catch (e) { continue; }
@@ -466,7 +466,8 @@ function main(argv) {
   for (let i = 1; i < argv.length; i++) { const k = argv[i].replace(/^--/, ''); opt[k] = FLAGS.has(k) ? true : argv[++i]; }   /* --fresh 는 값 없이 */
   let card;
   try { card = cardOf(key); } catch (e) { console.error(e.message + '\n' + fs.readFileSync(__filename, 'utf8').split('\n').slice(1, 20).join('\n')); return 2; }
-  const recDir = opt.records || path.join(ROOT, '..', 'sam-atelier-img', 'records', key);
+  /* 그 장수의 기록 — 받아 둔 그림 저장소 모두(2026-11-12 둘째 저장소 — 옛 기록은 sam-atelier-img, 새 기록은 sam-atelier-img-2) */
+  const recDir = opt.records ? [opt.records] : REPOS.recordDirs(key);
   /* 다른 세계의 컷(그리고 --fresh 면 같은 세계의 옛 묶음까지) — 장면을 돌려쓰지 않게 겹침만 본다 */
   const allOld = w => oldCuts(recDir, { ...card, world: w }, w);
   if (opt.check) {
@@ -484,7 +485,7 @@ function main(argv) {
   const worlds = opt.world === 'all' ? card.worlds : [opt.world];
   if (!worlds.every(w => card.worlds.includes(w))) { console.error(`${key} 는 ${card.worlds.join(' · ')} 에 산다 — --world 로 하나 또는 all`); return 2; }
   const fresh = 'fresh' in opt, seed0 = Number(opt.seed || Date.now() % 1e9);
-  const usageDir = opt.usage === 'none' ? '' : (opt.usage || path.join(ROOT, '..', 'sam-atelier-img', 'records'));
+  const usageDir = opt.usage === 'none' ? [] : opt.usage ? opt.usage.split(',') : REPOS.recordDirs();
   const extra = (opt.others || '').split(',').filter(Boolean).flatMap(f => JSON.parse(fs.readFileSync(f, 'utf8')).cuts || []);
   const planned = [];
   for (const world of worlds) {
@@ -495,7 +496,7 @@ function main(argv) {
     if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); continue; }
     /* (여섯 장을 다 그린 세계면 일곱째 — 갈래 자유 컷 — 하나만 짜인다) */
     const old = fresh ? [] : mine.filter(c => !slots.includes(c.n));
-    { const lost = registered(card, world).filter(n => !mine.some(c => c.n === n)); if (lost.length && !fresh) console.log(`  ! ${world} 등록된 일상컷 ${lost.join(',')} 의 기록이 ${recDir} 에 없다 — 그림 저장소를 pull 한 뒤 다시(기록 없이는 필수 갈래 · 자유 설계 칸을 셀 수 없다)`); }
+    { const lost = registered(card, world).filter(n => !mine.some(c => c.n === n)); if (lost.length && !fresh) console.log(`  ! ${world} 등록된 일상컷 ${lost.join(',')} 의 기록이 ${recDir.join(' · ') || '그림 저장소 records/' + key} 에 없다 — 그림 저장소를 pull 한 뒤 다시(기록 없이는 필수 갈래 · 자유 설계 칸을 셀 수 없다)`); }
     const others = [...card.worlds.filter(w => w !== world).flatMap(allOld), ...(fresh ? mine : []), ...extra, ...planned];
     const seed = seed0 + worlds.indexOf(world);
     const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key), others, recent: recentScenes(usageDir) });

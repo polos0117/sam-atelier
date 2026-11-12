@@ -7,6 +7,19 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-12 · claude · 둘째 그림 저장소 sam-atelier-img-2 열기 — 새 그림은 여기
+- 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 · 「저장소 만들고 토큰 넣었어」 — 첫 저장소 sam-atelier-img 가 GitHub 크기 약 1.0 GB 로 찼다(Pages 권장 1 GB). 0 번 sam-atelier-img 닫힘(교체만 · 잠금 · free 주문 · 배경은 그대로), 1 번 sam-atelier-img-2 열림(새 그림 · 새 기록). 그림은 옮기지도 지우지도 않았다
+- lib/img.js — BASES 에 둘째 저장소 주소. 화면은 where 로 파일마다 제 저장소(한 장수가 두 저장소에 나뉘어도). ?v=2 로 올림(api · battle · dex · draft2 · hall · prompt · promptapi · styles)
+- tools/register-images.py — SHARDS 둘 · EXTRA_DIRS img-2. 닫힌 저장소에 새 이름이 오면 등록 전체를 멈추는 규칙(open_at)은 그대로. tests/register-images.py 에 두 저장소 칸(where 1 · 교체 · 닫힌 저장소 새 이름 · 같은 이름 둘 · 못 받은 저장소)
+- .github/workflows/register-images.yml — sam-atelier-img-2 를 img-repo-2 로 받아(continue-on-error) img-2 로 잇는다. .gitignore — /img-2 · /img-repo · /img-repo-2
+- tools/img-repos.cjs(새) — Node 도구가 같이 쓰는 저장소 차례(REPOS · STATE 첫 저장소 · OPEN 열린 저장소 · recordDirs). tests/img-shards.cjs 가 BASES=SHARDS=워크플로=.gitignore=img-repos=casual-check REPOS 와 where 로 둘째 주소를 본다
+- tools/api-draw.cjs stage — --img 를 안 주면 열린 저장소, 닫힌 저장소엔 새 그림을 두지 않는다, 같은 이름은 옆 그림 저장소 모두에서 본다(tests/api-draw.cjs)
+- tools/casual-plan.cjs — 기록(--records)과 쓴 횟수 · 최근 장면(--usage)을 받아 둔 그림 저장소 모두에서 읽는다(--usage 쉼표로 여럿). tests/casual-plan.cjs 에 두 저장소 칸
+- tools/casual-check.py — REPOS 둘을 다 읽는다(SAM_IMG 는 : 로 여럿). 결과는 고치기 전과 같다
+- tools/image-claim.cjs · tools/free-brief.cjs · lib/api-run.js FREE — 잠금 · 설계 주문은 첫 저장소에 그대로(img-repos STATE). lib/api-run.js — 등록된 참고 그림을 받기 전에 등록부를 읽어 where 주소로(?v=8). styles.html — 예전 등록 그림도 where 주소로
+- IMAGE_RULES.md 3절 「그림 저장소는 여럿이다」 표 · 4절 · AGENTS.md 5절 · docs/IMAGE_AUTOMATION.md 1 · 2 · 3 · 4 · 6 · 9절 · .claude/skills/api25/SKILL.md(stage --img ../sam-atelier-img-2) · README.md — 새 그림은 sam-atelier-img-2
+- sam-atelier-img-2 — 뼈대(README · .nojekyll · 썸네일 워크플로 — 900 MB 경고 · img/ · records/) 첫 커밋
+
 ## 2026-11-12 · claude · 일상컷 체형 글 · 복근 줄 범위 기록(허저 시험)
 - 사용자 「2번이 더 자연스럽네. 근데 이제 마른 체형에선 그게 잘 안나오니까 넣는게 맞고」 — 허저(건장한 굴곡형) 2.6 일상 세 장(체형 글 / 없음 / 복근 줄)에서 없음이 가장 자연스러웠다. 체형 글은 일상컷에 싣지 않고, 식스팩 줄은 슬림 근육형에만 — IMAGE_RULES 1절 한 줄.
 
