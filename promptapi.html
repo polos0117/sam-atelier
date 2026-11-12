@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7f9fc">
 <title>삼국지 공방</title>
+<style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style><script>addEventListener('pageswap', e => { const t = e.viewTransition; if (t) { t.skipTransition(); t.ready.catch(() => {}); } }); addEventListener('pagereveal', e => { const t = e.viewTransition; if (t) t.ready.catch(() => {}); });</script>   <!-- 공방 지도(polos0117.github.io)의 문에서 넘어올 때 페이드로 들어온다(2026-11-12 — 그쪽 README 「방에 들어가는 연출」). 여기서 나갈 때는 전환을 걸지 않아 공방 안에서 쪽을 옮길 때는 전과 같다. 모르는 브라우저는 그냥 넘어온다 -->
 <!-- API 프롬프트(2026-11-09 — 사용자 「따로 API 용 프롬포트 탭 만들어줘」) — prompt.html 과 같은 생성기에 화풍을 2.5 API 판(api25 — gpt-image-2.5-sunburst 로 그릴 11-02 꼴 + 고른 기능)으로 고정. 다 지으면 「API 생성으로 보내기」 로 api.html 에 넘긴다. 아래는 prompt.html 설명 그대로.
      생성기 — 공방 모음 통합 생성기 꼴(한 단계씩, 칩·판·아래 막대). 세력 › 장수 › 갈래(세계 그림 · 일상컷) › 단계 → 지시문·파일 이름·기록. 원소 공방의 생성기를 옮겼다(2026-11-02).
      세계 그림(삼국시대 · 중세 판타지 · 메카)은 lib/prompt-sam.js build, 일상컷은 트리 버전2(lib/casual-tree-v2.js + data/casual-tree-v2.json, 시대·장소·의상은 버전1 표)로 buildCasual.

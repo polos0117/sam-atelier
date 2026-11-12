@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7f9fc">
 <title>삼국지 공방</title>
+<style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style><script>addEventListener('pageswap', e => { const t = e.viewTransition; if (t) { t.skipTransition(); t.ready.catch(() => {}); } }); addEventListener('pagereveal', e => { const t = e.viewTransition; if (t) t.ready.catch(() => {}); });</script>   <!-- 공방 지도(polos0117.github.io)의 문에서 넘어올 때 페이드로 들어온다(2026-11-12 — 그쪽 README 「방에 들어가는 연출」). 여기서 나갈 때는 전환을 걸지 않아 공방 안에서 쪽을 옮길 때는 전과 같다. 모르는 브라우저는 그냥 넘어온다 -->
 <!-- 도감 — 세력 하나의 장수들을 역할 차례(군주 · 무장 · 책사 · 문관)로. 장수마다 세계 그림 셋(삼국시대 · 중세 판타지 · 메카) + 접는 일상컷 · 다른 화풍, 크게 보기에서 넘기기 · 즐겨찾기.
      화면은 data/img.json 에 적힌 것만 그린다. 그림 저장소에 파일이 있어도 등록부에 적기 전에는 없는 것이다.
      글(이름 · 일화 · 능력치)은 data/sam-design.json 에서 온다 — 게임(index.html)의 표를 tools/sam-design.py 가 옮긴 것. 게임은 그대로 둔다.
