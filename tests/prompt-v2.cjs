@@ -49,9 +49,15 @@ assert.equal(S.styles.kr_mmorpg.current, 'v4', 'kr_mmorpg 는 옛 그림(v1~v4) 
 /* 군웅 무리별 세력색(2026-11-05) — 무리 palette · 메카 설계가 지시문에. 무리 색이 없으면(그 밖의 제후) 군웅 색 */
 { const qun = D.factions.find(f => f.key === 'qun');
   for (const cp of qun.camps) { const g = D.generals.find(x => x.camp === cp.key); if (!g) continue;
-    const want = cp.palette ? cp.palette.en : qun.palette.en;
+    const want = g.palette ? g.palette.en : cp.palette ? cp.palette.en : qun.palette.en;   /* 그 밖의 제후는 군웅록 대표 세력 색(장수 palette, 2026-11-12) */
     for (const w of ['samguk', 'mecha']) assert(P.build(D, S, g.key, w, { style: S['default'] }).includes(want), g.key + ' ' + w + ' 무리 색');
     if (cp.mecha) assert(P.build(D, S, g.key, 'mecha', { style: S['default'] }).includes(cp.mecha.design), g.key + ' 무리 메카 설계'); } }
+/* 군웅록 덧색(2026-11-12) — 거쳐 온 세력 색이 주색 뒤에, 관우는 조위 덧색 없음 */
+{ const by = k => P.build(D, S, k, 'samguk', { style: S['default'] });
+  assert(/with small accents of [^.]*\(the Sima Jin\)/.test(by('사마의')), '사마의 진 덧색');
+  assert(/accents of [^.]*\(Dong Zhuo\), [^.]*\(Zhang Xiu\)/.test(by('가후')), '가후 동탁 · 장수 덧색');
+  assert(!/with small accents/.test(by('관우')), '관우 덧색 없음');
+  assert(!/with small accents/.test(by('제갈량')), '한 세력만 거친 장수는 그대로'); }
 /* 기본 화풍은 그대로 */
 const k0 = P.cards(D)[0];
 assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'kr_mmorpg 는 영어 지시문 그대로');

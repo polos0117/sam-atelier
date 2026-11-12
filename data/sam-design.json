@@ -1010,6 +1010,12 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "공손찬"
+    ],
+    "en": "pure white and silver (Gongsun Zan)"
    }
   },
   {
@@ -1104,6 +1110,13 @@
     "mecha": {
      "sil": "knight_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "서량",
+     "장로"
+    ],
+    "en": "desert sand and rust orange (the Liang frontier), Taoist indigo and white (Zhang Lu)"
    }
   },
   {
@@ -1199,6 +1212,12 @@
     "mecha": {
      "sil": "cape_plates"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유표"
+    ],
+    "en": "teal green and river blue (Liu Biao)"
    }
   },
   {
@@ -1550,6 +1569,12 @@
     "mecha": {
      "sil": "hover_rings"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유장"
+    ],
+    "en": "deep forest green and bronze (Liu Zhang)"
    }
   },
   {
@@ -1644,6 +1669,12 @@
     "mecha": {
      "sil": "wing_binder"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -1740,6 +1771,12 @@
     "mecha": {
      "sil": "tail_unit"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -1836,6 +1873,12 @@
     "mecha": {
      "sil": "light_agile"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유표"
+    ],
+    "en": "teal green and river blue (Liu Biao)"
    }
   },
   {
@@ -1932,6 +1975,12 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "서량"
+    ],
+    "en": "desert sand and rust orange (the Liang frontier)"
    }
   },
   {
@@ -2312,6 +2361,12 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -2691,6 +2746,12 @@
     "mecha": {
      "sil": "full_armor"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "황건"
+    ],
+    "en": "turban yellow and earth brown (the Yellow Turbans)"
    }
   },
   {
@@ -2786,6 +2847,12 @@
     "mecha": {
      "sil": "light_agile"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유장"
+    ],
+    "en": "deep forest green and bronze (Liu Zhang)"
    }
   },
   {
@@ -3446,6 +3513,12 @@
     "mecha": {
      "sil": "full_armor"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "황건"
+    ],
+    "en": "turban yellow and earth brown (the Yellow Turbans)"
    }
   },
   {
@@ -3824,6 +3897,12 @@
     "mecha": {
      "sil": "segmented_parts"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "도겸"
+    ],
+    "en": "sea-salt blue and pearl white (Tao Qian)"
    }
   },
   {
@@ -4016,6 +4095,13 @@
     "mecha": {
      "sil": "float_units"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유표",
+     "유장"
+    ],
+    "en": "teal green and river blue (Liu Biao), deep forest green and bronze (Liu Zhang)"
    }
   },
   {
@@ -5437,6 +5523,12 @@
     "mecha": {
      "sil": "power_limbs"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "여포"
+    ],
+    "en": "scarlet red and burnished gold (Lü Bu)"
    }
   },
   {
@@ -5628,6 +5720,12 @@
     "mecha": {
      "sil": "knight_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "원소"
+    ],
+    "en": "imperial gold and deep navy (Yuan Shao)"
    }
   },
   {
@@ -6109,6 +6207,13 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "서량",
+     "장로"
+    ],
+    "en": "desert sand and rust orange (the Liang frontier), Taoist indigo and white (Zhang Lu)"
    }
   },
   {
@@ -6484,6 +6589,13 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "동탁",
+     "장수"
+    ],
+    "en": "blood crimson and black iron (Dong Zhuo), rust red and iron grey (Zhang Xiu)"
    }
   },
   {
@@ -6671,6 +6783,12 @@
     "mecha": {
      "sil": "frame_exposed"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -7242,6 +7360,12 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "한조정"
+    ],
+    "en": "Han black and vermilion (the Han court)"
    }
   },
   {
@@ -7338,6 +7462,12 @@
     "mecha": {
      "sil": "frame_exposed"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -7434,6 +7564,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -7528,6 +7664,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -7719,6 +7861,12 @@
     "mecha": {
      "sil": "float_units"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "원소"
+    ],
+    "en": "imperial gold and deep navy (Yuan Shao)"
    }
   },
   {
@@ -7910,6 +8058,13 @@
     "mecha": {
      "sil": "segmented_parts"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "촉한",
+     "공손찬"
+    ],
+    "en": "jade green and imperial gold (Shu Han), pure white and silver (Gongsun Zan)"
    }
   },
   {
@@ -8196,6 +8351,12 @@
     "mecha": {
      "sil": "full_armor"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유표"
+    ],
+    "en": "teal green and river blue (Liu Biao)"
    }
   },
   {
@@ -8670,6 +8831,12 @@
     "mecha": {
      "sil": "knight_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "여포"
+    ],
+    "en": "scarlet red and burnished gold (Lü Bu)"
    }
   },
   {
@@ -8862,6 +9029,13 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "한조정",
+     "동오"
+    ],
+    "en": "Han black and vermilion (the Han court), crimson red and gold (Eastern Wu)"
    }
   },
   {
@@ -8956,6 +9130,12 @@
     "mecha": {
      "sil": "sub_arms"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "한조정"
+    ],
+    "en": "Han black and vermilion (the Han court)"
    }
   },
   {
@@ -9050,6 +9230,11 @@
     "mecha": {
      "sil": "tail_unit"
     }
+   },
+   "palette": {
+    "en": "rust red, iron grey, dark olive and bronze",
+    "ko": "녹슨 빨강 · 쇠회색 · 짙은 올리브 · 청동",
+    "why": "군웅록 대표 세력 장수 색(2026-11-12)"
    }
   },
   {
@@ -9298,6 +9483,12 @@
     "mecha": {
      "sil": "halo_crown"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "원술"
+    ],
+    "en": "imperial yellow and royal purple (Yuan Shu)"
    }
   },
   {
@@ -9863,6 +10054,12 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "한조정"
+    ],
+    "en": "Han black and vermilion (the Han court)"
    }
   },
   {
@@ -9956,6 +10153,12 @@
     "mecha": {
      "sil": "cape_plates"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유표"
+    ],
+    "en": "teal green and river blue (Liu Biao)"
    }
   },
   {
@@ -13356,6 +13559,12 @@
     "mecha": {
      "sil": "cape_plates"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "동탁"
+    ],
+    "en": "blood crimson and black iron (Dong Zhuo)"
    }
   },
   {
@@ -14714,6 +14923,12 @@
     "mecha": {
      "sil": "sub_arms"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "동탁"
+    ],
+    "en": "blood crimson and black iron (Dong Zhuo)"
    }
   },
   {
@@ -14811,6 +15026,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -14910,6 +15131,12 @@
     "fantasy": {
      "sil": "priestess"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "한조정"
+    ],
+    "en": "Han black and vermilion (the Han court)"
    }
   },
   {
@@ -15005,6 +15232,12 @@
     "mecha": {
      "sil": "halo_crown"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and cold steel silver (Cao Wei)"
    }
   },
   {
@@ -15104,6 +15337,12 @@
     "mecha": {
      "sil": "sub_arms"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -16356,6 +16595,12 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -17137,6 +17382,11 @@
     "mecha": {
      "sil": "knight_plate"
     }
+   },
+   "palette": {
+    "en": "undyed linen white, bamboo green, ink grey and pale celadon",
+    "ko": "군웅록 재야 색",
+    "why": "군웅록 대표 세력 재야 색(2026-11-12)"
    }
   },
   {
@@ -17818,6 +18068,12 @@
     "mecha": {
      "sil": "frame_exposed"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -18493,6 +18749,11 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette": {
+    "en": "Han black and vermilion, gold and jade",
+    "ko": "군웅록 한조정 색",
+    "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
    }
   },
   {
@@ -19175,6 +19436,12 @@
     "mecha": {
      "sil": "cape_plates"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "장수"
+    ],
+    "en": "rust red and iron grey (Zhang Xiu)"
    }
   },
   {
@@ -19757,6 +20024,17 @@
     "mecha": {
      "sil": "sub_arms"
     }
+   },
+   "palette": {
+    "en": "sea-salt blue, pearl white, pale jade and silver",
+    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은",
+    "why": "군웅록 대표 세력 도겸 색(2026-11-12)"
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -19852,6 +20130,17 @@
     "mecha": {
      "sil": "sub_arms"
     }
+   },
+   "palette": {
+    "en": "sea-salt blue, pearl white, pale jade and silver",
+    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은",
+    "why": "군웅록 대표 세력 도겸 색(2026-11-12)"
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -19949,6 +20238,11 @@
     "mecha": {
      "sil": "segmented_parts"
     }
+   },
+   "palette": {
+    "en": "deep navy blue, black lacquer, cold steel silver, ivory white",
+    "ko": "군웅록 조위 색",
+    "why": "군웅록 대표 세력 조위 색(2026-11-12)"
    }
   },
   {
@@ -20047,6 +20341,11 @@
     "mecha": {
      "sil": "wing_binder"
     }
+   },
+   "palette": {
+    "en": "sea-salt blue, pearl white, pale jade and silver",
+    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은",
+    "why": "군웅록 대표 세력 도겸 색(2026-11-12)"
    }
   },
   {
@@ -20142,6 +20441,11 @@
     "mecha": {
      "sil": "halo_crown"
     }
+   },
+   "palette": {
+    "en": "imperial gold, deep navy, ivory white and bronze",
+    "ko": "군웅록 원소 색",
+    "why": "군웅록 대표 세력 원소 색(2026-11-12)"
    }
   },
   {
@@ -20629,6 +20933,11 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette": {
+    "en": "undyed linen white, bamboo green, ink grey and pale celadon",
+    "ko": "군웅록 재야 색",
+    "why": "군웅록 대표 세력 재야 색(2026-11-12)"
    }
   },
   {
@@ -20728,6 +21037,12 @@
     "mecha": {
      "sil": "power_limbs"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "장수"
+    ],
+    "en": "rust red and iron grey (Zhang Xiu)"
    }
   },
   {
@@ -20923,6 +21238,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "장수"
+    ],
+    "en": "rust red and iron grey (Zhang Xiu)"
    }
   },
   {
@@ -21022,6 +21343,12 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "장수"
+    ],
+    "en": "rust red and iron grey (Zhang Xiu)"
    }
   },
   {
@@ -21218,6 +21545,12 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -21413,6 +21746,17 @@
     "mecha": {
      "sil": "float_units"
     }
+   },
+   "palette": {
+    "en": "deep navy blue, black lacquer, cold steel silver, ivory white",
+    "ko": "군웅록 조위 색",
+    "why": "군웅록 대표 세력 조위 색(2026-11-12)"
+   },
+   "palette_accent": {
+    "from": [
+     "여포"
+    ],
+    "en": "scarlet red and burnished gold (Lü Bu)"
    }
   },
   {
@@ -21607,6 +21951,11 @@
     "mecha": {
      "sil": "halo_crown"
     }
+   },
+   "palette": {
+    "en": "Han black and vermilion, gold and jade",
+    "ko": "군웅록 한조정 색",
+    "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
    }
   },
   {
@@ -21801,6 +22150,11 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
+   },
+   "palette": {
+    "en": "Han black and vermilion, gold and jade",
+    "ko": "군웅록 한조정 색",
+    "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
    }
   },
   {
@@ -21990,6 +22344,13 @@
     "mecha": {
      "sil": "hover_rings"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유장",
+     "조위"
+    ],
+    "en": "deep forest green and bronze (Liu Zhang), deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -22086,6 +22447,12 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유장"
+    ],
+    "en": "deep forest green and bronze (Liu Zhang)"
    }
   },
   {
@@ -22180,6 +22547,13 @@
     "mecha": {
      "sil": "heavy_assault"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유장",
+     "조위"
+    ],
+    "en": "deep forest green and bronze (Liu Zhang), deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -22375,6 +22749,12 @@
     "mecha": {
      "sil": "slim_suit"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -22472,6 +22852,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -22665,6 +23051,12 @@
     "mecha": {
      "sil": "float_units"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -22762,6 +23154,12 @@
     "mecha": {
      "sil": "full_armor"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -22860,6 +23258,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "촉한"
+    ],
+    "en": "jade green and imperial gold (Shu Han)"
    }
   },
   {
@@ -23244,6 +23648,13 @@
     "mecha": {
      "sil": "cape_plates"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "동오",
+     "진"
+    ],
+    "en": "crimson red and gold (Eastern Wu), deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -23341,6 +23752,12 @@
     "mecha": {
      "sil": "cape_plates"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "동오"
+    ],
+    "en": "crimson red and gold (Eastern Wu)"
    }
   },
   {
@@ -23630,6 +24047,12 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -23724,6 +24147,12 @@
     "mecha": {
      "sil": "halo_crown"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -24011,6 +24440,12 @@
     "mecha": {
      "sil": "float_units"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -24107,6 +24542,12 @@
     "mecha": {
      "sil": "halo_crown"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -24201,6 +24642,12 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   },
   {
@@ -24391,6 +24838,11 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette": {
+    "en": "deep plum purple, black lacquer, silver and pale gold",
+    "ko": "짙은 자두빛 보라 · 검은 옻칠 · 은 · 옅은 금",
+    "why": "군웅록 대표 세력 진 색(2026-11-12)"
    }
   },
   {
@@ -24485,6 +24937,12 @@
     "mecha": {
      "sil": "heavy_assault"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -24971,6 +25429,12 @@
     "mecha": {
      "sil": "skirt_plate"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and black lacquer (the Sima Jin)"
    }
   },
   {
@@ -26219,6 +26683,12 @@
     "mecha": {
      "sil": "full_armor"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "동오"
+    ],
+    "en": "crimson red and gold (Eastern Wu)"
    }
   },
   {
@@ -26316,6 +26786,13 @@
     "mecha": {
      "sil": "power_limbs"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "도겸",
+     "동오"
+    ],
+    "en": "sea-salt blue and pearl white (Tao Qian), crimson red and gold (Eastern Wu)"
    }
   },
   {
@@ -26604,6 +27081,12 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "유장"
+    ],
+    "en": "deep forest green and bronze (Liu Zhang)"
    }
   },
   {
@@ -26697,6 +27180,12 @@
     "mecha": {
      "sil": "frame_exposed"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "조위"
+    ],
+    "en": "deep navy blue and black lacquer (Cao Wei)"
    }
   },
   {
@@ -26790,6 +27279,13 @@
     "mecha": {
      "sil": "big_backpack"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "원소",
+     "장양"
+    ],
+    "en": "imperial gold and deep navy (Yuan Shao), olive green and dusty tan (Zhang Yang)"
    }
   },
   {
@@ -26980,6 +27476,12 @@
     "mecha": {
      "sil": "segmented_parts"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "원소"
+    ],
+    "en": "imperial gold and deep navy (Yuan Shao)"
    }
   },
   {
@@ -27358,6 +27860,11 @@
     "mecha": {
      "sil": "full_armor"
     }
+   },
+   "palette": {
+    "en": "olive green, dusty tan, slate grey and brass",
+    "ko": "올리브 · 흙빛 황갈 · 청회색 · 놋쇠",
+    "why": "군웅록 대표 세력 장양 색(2026-11-12)"
    }
   },
   {
@@ -27451,6 +27958,11 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
+   },
+   "palette": {
+    "en": "tropical emerald, lotus pink, lacquer red and gold",
+    "ko": "남국 에메랄드 · 연꽃 분홍 · 옻칠 빨강 · 금",
+    "why": "군웅록 대표 세력 교주 색(2026-11-12)"
    }
   },
   {
@@ -27547,7 +28059,61 @@
     "mecha": {
      "sil": "power_limbs"
     }
+   },
+   "palette_accent": {
+    "from": [
+     "진"
+    ],
+    "en": "deep plum purple and silver (the Sima Jin)"
    }
   }
- ]
+ ],
+ "career_palettes": {
+  "note": "군웅록(옛 게임 확장팩 mx 의 장수 이력 career) 기준 의상색 — 대표 세력 색이 주색, 거쳐 온 다른 세력 색 두 가지를 덧색으로(사용자 2026-11-12 「장수 설계 의상색 팔렛트를 군웅록 기준으로 하는건 어때?」 → 「군웅록 기준이면 사마의나 사마사 등은 조위, 진 아닌가」 → 주색 + 덧색 안 「응 1번으로 진행해주는데 좀 안어울리는 장수가 있는지 한 번 봐줘」). 새 세력 색은 아래, 나머지는 세력 · 무리 색.",
+  "new": {
+   "진": {
+    "en": "deep plum purple, black lacquer, silver and pale gold",
+    "ko": "짙은 자두빛 보라 · 검은 옻칠 · 은 · 옅은 금"
+   },
+   "장수": {
+    "en": "rust red, iron grey, dark olive and bronze",
+    "ko": "녹슨 빨강 · 쇠회색 · 짙은 올리브 · 청동"
+   },
+   "도겸": {
+    "en": "sea-salt blue, pearl white, pale jade and silver",
+    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은"
+   },
+   "장양": {
+    "en": "olive green, dusty tan, slate grey and brass",
+    "ko": "올리브 · 흙빛 황갈 · 청회색 · 놋쇠"
+   },
+   "교주": {
+    "en": "tropical emerald, lotus pink, lacquer red and gold",
+    "ko": "남국 에메랄드 · 연꽃 분홍 · 옻칠 빨강 · 금"
+   }
+  },
+  "en_name": {
+   "조위": "Cao Wei",
+   "촉한": "Shu Han",
+   "동오": "Eastern Wu",
+   "진": "the Sima Jin",
+   "원소": "Yuan Shao",
+   "동탁": "Dong Zhuo",
+   "여포": "Lü Bu",
+   "원술": "Yuan Shu",
+   "공손찬": "Gongsun Zan",
+   "유표": "Liu Biao",
+   "유장": "Liu Zhang",
+   "장로": "Zhang Lu",
+   "서량": "the Liang frontier",
+   "남만": "the Nanman",
+   "황건": "the Yellow Turbans",
+   "한조정": "the Han court",
+   "재야": "her years as a recluse",
+   "장수": "Zhang Xiu",
+   "도겸": "Tao Qian",
+   "장양": "Zhang Yang",
+   "교주": "Jiaozhi"
+  }
+ }
 }
