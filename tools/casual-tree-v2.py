@@ -97,6 +97,9 @@ def use_fits(doc, use, pre):
         return False
     if use["zone"] not in frames[pre["frame"]]["zones"]:
         return False
+    # 뒤쪽 몸 방향(far)에선 옆에 내려 드는 동작(hips)만(2026-11-13, lib/casual-tree-v2.js useFits)
+    if by_key(doc["body"]).get(pre.get("body"), {}).get("far") and use["zone"] != "hips":
+        return False
     if pre.get("gaze") and use.get("gaze") and use["gaze"] != pre["gaze"]:
         return False
     # 「소품을 들여다봄」 은 들여다보는 동작(망원경 · 카메라)만
@@ -125,6 +128,8 @@ def preset_places(doc, v1, pre):
     rows += [hands.get(pre[s]) for s in SIDES if pre[s] not in ("prop",)]
     if pre.get("legs"):
         rows.append(legs.get(pre["legs"]))
+    if pre.get("gaze"):   # 시선도 장소 특징을 본다 — 창밖은 창, 위는 하늘(2026-11-13)
+        rows.append(by_key(doc["gaze"]).get(pre["gaze"]))
     rows = [r for r in rows if r]
     uses = [u for u in doc["prop_uses"] if use_fits(doc, u, pre)] if pre.get("prop_kind") else []
     props = by_key(doc["props"])
@@ -275,10 +280,34 @@ def check(doc, v1):
         if not any(place_ok(r, set(h)) for h in doc["places"].values()):
             err.append(f"자세 {r['key']} 를 받는 장소가 없다")
 
+    # 시선 · 카메라 — 장소 특징(needs) · 자세 계열(families)(2026-11-13)
+    for r in doc["gaze"]:
+        needs(f"시선 {r['key']}", r)
+    for r in doc["camera"]:
+        for fam in r.get("families", []):
+            ref(f"카메라 {r['key']}", fam, fams, "자세 계열")
+    # 자세가 받는 손(hands) · 받침의 손별 목록(hands_left · hands_right)
+    for name, rows in (("자세", doc["postures"]), ("받침", doc["supports"])):
+        for r in rows:
+            for col in (("hands",) if name == "자세" else ("hands_left", "hands_right")):
+                for k in r.get(col, []):
+                    if k != "prop":
+                        ref(f"{name} {r['key']} 의 {col}", k, hands, "손")
+    # 덧붙는 표 — 빛 · 화면 안 자리 · 배경 깊이 · 전경(계획기가 고른다, lib/casual-tree-v2.js aux)
+    for name in ("light", "spot", "depth", "view", "times"):
+        rows = doc.get(name, [])
+        keys(name, rows)
+        for r in rows:
+            english(f"{name} {r['key']}", r.get("en", ""))
+            needs(f"{name} {r['key']}", r)
+            for f in r.get("frames", []):
+                ref(f"{name} {r['key']}", f, frames, "프레이밍")
     # 손 자세
     for r in doc["hands"]:
         w = f"손 {r['key']}"
         needs(w, r)
+        for sd in r.get("sides", []):
+            ref(w, sd, SIDES, "손 쪽")
         if r["zone"] not in ("out", "any"):   # any — 「자연스럽게」, 어느 컷이든
             ref(w, r["zone"], zones, "부위")
         for p in r.get("postures", []):
@@ -466,6 +495,15 @@ def check(doc, v1):
                 err.append(f"{w} — {s} 손 {k} 의 자리 {h['zone']} 가 {p['frame']} 에 안 보인다")
             if h.get("postures") and p["posture"] not in h["postures"]:
                 err.append(f"{w} — {s} 손 {k} 는 자세 {p['posture']} 에서 못 한다")
+        if camera[p["camera"]].get("families") and po["family"] not in camera[p["camera"]]["families"]:
+            err.append(f"{w} — 카메라 {p['camera']} 는 자세 계열 {po['family']} 에서 못 쓴다")
+        for s in SIDES:
+            if po.get("hands") and p[s] not in po["hands"]:
+                err.append(f"{w} — 자세 {p['posture']} 가 {s} 손 {p[s]} 를 받지 않는다")
+            if p[s] != "prop" and hands[p[s]].get("sides") and s not in hands[p[s]]["sides"]:
+                err.append(f"{w} — 손 {p[s]} 는 {s} 손으로 못 한다")
+            if supports[p["support"]].get("hands_" + s) and p[s] not in supports[p["support"]]["hands_" + s]:
+                err.append(f"{w} — 받침 {p['support']} 이 {s} 손 {p[s]} 를 못 하게 한다")
         su = supports[p["support"]]
         for s in SIDES:
             if su.get("hands") and p[s] not in su["hands"]:

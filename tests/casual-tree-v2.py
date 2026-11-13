@@ -113,7 +113,7 @@ assert not any('since' in p for p in doc['props'])
 # 그 원소의 물건(2026-10-30 되살림 — 설계표 hold.en · 주민 object.en) — 알아볼 거리 소품은 signature 하나, 모든 장소, 동작 셋(들기 · 얼굴 옆 · 두 손)
 sig = [p for p in doc['props'] if p.get('signature')]
 assert [p['key'] for p in sig] == ['signature'] and sig[0]['places'] == ['*'], sig
-assert len([u for u in doc['prop_uses'] if u['prop'] == 'signature']) == 3
+assert len([u for u in doc['prop_uses'] if u['prop'] == 'signature']) == 4   # 옆에 내려 드는 동작(sig_low) 하나 더 — 뒤쪽 몸 방향용(2026-11-13)
 # 택시 뒷좌석에선 서지 않는다(2026-11-04) — 서는 자세는 upright 받침이 있는 장소만
 stands = [p for p in doc['postures'] if p['family'] in ('stand', 'walk')]
 assert stands and all('upright' in p.get('needs', []) for p in stands), stands

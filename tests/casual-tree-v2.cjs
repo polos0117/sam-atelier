@@ -134,7 +134,7 @@ n = C.fromV1(t, { era: 'now', place: 'home_living', act: 'read_book', ofam: 'eve
 assert.equal(n.right, 'arms_crossed'); assert.equal(n.left, 'arms_crossed'); valid(n, '버전1 팔짱');
 n = C.fromV1(t, { cat: 'everyday', ex: '' });
 assert(n.place && n.treeV === 2 && !('cat' in n)); valid(n, '아주 예전 갈래');
-for (const row of Object.values(t.v2.legacy.orients)) for (const [k, v] of Object.entries(row)) assert.equal(C.why(t, { frame: 'full_body' }, k, v), null, k + ' ' + v);
+for (const row of Object.values(t.v2.legacy.orients)) for (const [k, v] of Object.entries(row)) assert.equal(C.why(t, { frame: 'full_body', place: 'street_park' }, k, v), null, k + ' ' + v);   /* 시선은 장소 특징을 본다(2026-11-13) — 하늘이 보이는 공원에서 */
 
 /* 9. 고정 사례 — 규칙에 없던 충돌을 「이 조합은 빠져야 한다」 로 못 박는다(game 검토 2026-10-30). 랜덤 시험은 why() 가 맞다고 보는 것만 보므로 따로.
    game 의 알아볼 거리(signature · signature_hold) 사례는 뺐다 — 원소 표엔 알아볼 거리 소품이 없다 */
@@ -171,7 +171,7 @@ assert.notEqual(C.repair(t, Object.assign({}, dress, { right: 'pocket' })).right
 // 소품 동작과 손 자세는 같은 공간을 쓰지 않는다 — 카드(game 자리)는 없이, 랜덤 수백 번
 /* 손에 드는 그 원소의 물건(signature) — 2026-10-30 사용자 「일상컷에서 손에 드는 소품까지」. 카드가 signature_hold 를 주면 들고, 없으면(검사기 견주기) 된다고 본다 */
 assert.equal(t.v2.props.filter(p => p.signature).length, 1, '그 장수의 물건 소품 하나');
-assert.equal(t.v2.prop_uses.filter(u => u.prop === 'signature').length, 3, '들기 · 얼굴 옆 · 두 손');
+assert.equal(t.v2.prop_uses.filter(u => u.prop === 'signature').length, 4, '들기 · 얼굴 옆 · 두 손 · 옆에 내려 들기(뒤쪽 몸 방향용, 2026-11-13)');
 assert(C.signatureHold(null, { prop: '' }), '카드 없이 부르면 된다고 본다(검사기 견주기)');
 assert(C.signatureHold({ signature: ['x'], signature_hold: [0] }, { prop: '' }) && !C.signatureHold({ signature: [], signature_hold: [] }, { prop: '' }), '카드의 signature_hold 가 정한다');
 for (let i = 0; i < 300; i++) {

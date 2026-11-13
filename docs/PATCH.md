@@ -7,6 +7,19 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-13 · claude · 일상컷 검토 6절 1 ~ 17 — 실내 비 · 까닭 없는 까치발 · 팔이 헷갈리는 글 · 빛 · 「하는 일」 추천
+- data/casual-tree-v2.json — 일상컷 검토(원소 저장소 docs/casual-review-2026-11-13.md) 6절 1 ~ 17. 장소 특징 여덟(실내 · 창 · 하늘 · 밤 고정 · 시간이 글에 정해진 곳 · 높은 선반 · 스툴 · 계단 · 문간)을 받침 낱말에 더해 장소마다 붙였다. 시선 「창밖」 은 창, 「위」 는 하늘이 있는 곳만. 까치발은 높은 선반이 있는 곳만(추천 「까치발로 손 흔들기」 는 까치발을 뗐다 — 열쇠 tiptoe_wave 그대로). 작업대 숙이기에 짝다리 · 까치발 · 벽에 한 발 뺌. 옆으로 눕기는 왼쪽으로 눕고 깔린 왼팔은 머리 받치기만(새 손 head_rest · floor_front, 추천 lie_side_full 손 바꿈). 난간 기대 서기 글에서 「leaning lightly on it」 뺌. 앉아 앞으로 기울이기 · 헤엄은 받는 손만. 엎드리기에서 팔을 드는 한 손 동작 뺌. 벽에 기대 서기에서 벽 짚기 뺌. 우산 펴 들기는 하늘이 보이는 곳만. 새 자세 넷(한쪽 무릎 꿇기 · 옆으로 걸터앉기 · 한 발 올려 서기 · 위로 손 뻗기), 새 손 넷, 새 소품 다섯(손 공구 · 닦는 천 · 손 빗자루 · 갓 빤 천 · 수납 상자)과 동작 열, 그 물건을 옆에 내려 드는 동작(sig_low), 새 장소 여섯(수리 가게 작업대 · 정비 창고 · 수영 클럽 장비실 · 옥상 빨래 건조대 · 개관 전 전시실 체험대 · 계단참), 새 추천 여덟(GPT 자유 설계에 되풀이된 「하는 일」 — 손보기 · 한쪽 무릎 꿇고 쓰기 · 선반에 손 뻗기 · 널기 · 신발끈 매기 · 한 발 올리고 먼 곳 · 빛에 대 보기 · 벽에 기대 앉아 쓰기). 카메라용 몸짓 추천 여덟에 pose 표시. 카메라 높이 둘(낮은 눈높이 · 바로 위), 새 표 light · spot · depth · view · ambience. 새 선 자세 둘 · 새 장소 여섯엔 설 자리(upright). 기름종이 우산 펴 들기도 하늘이 보이는 곳만
+- lib/casual-tree-v2.js — 시선이 장소 특징을 본다 · 뒤쪽 몸 방향의 소품은 옆에 내려 드는 동작만(등 뒤에서 안 보이는 「가슴 높이」 가 팔을 하나 더 불렀다) · 자세가 받는 손(posture.hands) · 한쪽만 되는 손(hand.sides) · 받침의 손별 목록(hands_left) · 카메라의 자세 계열 · 뒷모습의 「화면 쪽」 말은 등이 다 돌아선 몸에만 · 옆모습의 가까운 팔(sideLook) · 덧붙는 표(aux) · 조립기 글 묶음(extras) · 계획기의 빛 고르기(ambience). 원소 공방과 같은 파일
+- tools/casual-tree-v2.py — 모듈과 같은 규칙(뒤쪽 몸의 소품 자리 · 시선의 장소 특징 · 자세가 받는 손 · 손 쪽 · 받침의 손별 목록 · 카메라 계열)과 새 표의 참조 검사
+- lib/prompt-spec.js — 상황 「젖은 옷」 에 실내 글(enIn — 비 없이 물 튐). 젖은 옷 125장 중 44장이 실내(갱도 · 제어실 · 박물관 · 찜질방)에서 「갑작스러운 소나기」 였다
+- lib/prompt-sam.js — 장면 줄에 빛의 방향(Light direction) · COMPOSITION 에 화면 안 자리 · 배경 깊이 · 전경 · 옆모습이면 몸이 보는 쪽과 손 줄의 가까운 팔 · 먼 팔. 장면 칸 목록에 light · spot · depth · view
+- lib/prompt-gpt.js — GPT 구조형이 Light direction 줄을 Setting 칸으로 옮긴다
+- tools/casual-plan.cjs — 묶음마다 시간대 · 날씨 · 머리 매무새 · 빛의 방향 · 화면 자리 · 깊이 · 전경 · 카메라 높이를 고른다(ambient, 자유 설계 칸은 빼고). 바람 상황은 실내가 아닌 곳만. 카메라용 몸짓 추천 무게 0.4
+- tests/casual-tree-v2.cjs · tests/casual-tree-v2.py — 옛 동작을 고정하던 두 줄: 시선 「위」 는 하늘이 보이는 공원에서, 그 물건 동작은 셋 → 넷
+- tests/casual-plan.cjs — 상황 줄은 실내면 enIn 글
+- IMAGE_RULES.md — 계획기가 빛 칸을 채우는 것 · 새 「하는 일」 추천을 적음
+- prompt.html · promptapi.html — casual-tree-v2.js ?v=2 · prompt-spec.js ?v=41 · prompt-sam.js ?v=36
+
 ## 2026-11-13 · claude · core v6 · 새 체형 둘을 자동 돌림에도
 - lib/prompt-spec.js · lib/look-spec.js — core:v6 블록(화풍공방 core/sync.cjs). 체형 두 열쇠가 공통 낱말이 됐다
 - tools/sam-design.py BODY_W — lean_toned · petite_voluptuous 무게 0 → 2(드문 쪽, petite_curvy · strong_curvy 1 과 나머지 3~5 사이). 사용자 「다른 공방 케릭터설계 자동배분에는 써줘 케릭터 추가될 때 분배가 되지 않아?」. 돌림은 look 이 없는 새 장수만(seed) — seed 를 돌려 설계표 값 차이 0(장수 279 · auto 0) 확인, 기존 장수 체형 그대로

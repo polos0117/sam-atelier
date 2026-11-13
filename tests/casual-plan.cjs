@@ -74,7 +74,7 @@ for (const key of pickKeys) {
       else assert(!/-denier yarn/.test(ol), key + ' 데니어 안 고른 컷엔 비침 줄 없음');
       if (!P.denierFits(C.outfitEn(c))) assert(!c.denier, key + ' 데니어는 닿는 옷에만');
       /* 상황 노출 — 고른 컷만 Outfit 줄에 「right now — 그 상황」 */
-      if (c.situ) assert(ol.includes('; right now — ' + TS.CASUAL.situations.find(x => x.key === c.situ).en), key + ' 상황 줄 — ' + ol.slice(0, 80));
+      if (c.situ) { const SI = TS.CASUAL.situations.find(x => x.key === c.situ); assert(ol.includes('; right now — ' + SI.en) || (!!SI.enIn && ol.includes('; right now — ' + SI.enIn)), key + ' 상황 줄(실내면 물 튐 글 enIn — 2026-11-13) — ' + ol.slice(0, 80)); }
       else assert(!/; right now — /.test(ol), key + ' 상황 없는 컷엔 상황 줄 없음');
     }
     n++;
