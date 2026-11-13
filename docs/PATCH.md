@@ -7,6 +7,14 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-13 · claude · 일상컷 — 안 어울리는 의상 · 자세 막기, 하는 일 갈래(이동 · 야영 · 식사 · 훈련)의 세계별 판
+- data/casual-tree-v2.json — 장소마다 종류 하나(사적 실내 · 공공 실내 · 작업 현장 · 물가 · 자연 · 거리 · 무대 · 탈것)와 누울 면(soft). 의상 조건 outfit_rules(수영복 · 란제리풍 · 목욕 차림 · 홈웨어 · 저녁 드레스 · 웨딩 …이 못 서는 종류), 눕기 · 엎드리기 · 바닥에 앉기는 누울 면이 있는 곳만. 사용자 「갱도에서 수영복을 입고 누워있는 다거나 그런거」. 새 장소 여덟(운전석 · 세차장 · 지하철 승강장 · 객차 · 포장마차 · 마구 창고(삼국시대 · 판타지) · 조종석 · 격납고(메카)), 손 넷(운전대 · 손잡이 · 핸들 · 불 쬐기) · 자세 하나(안장에 앉기) · 소품 넷(밥그릇 · 세차 스펀지 · 목검 · 안장 닦는 천), 추천 넷(운전대 잡고 앉기 · 손잡이 잡고 서기 · 안장에 앉아 먼 곳 보기 · 불가에 앉아 손 쬐기), 모든 추천에 하는 일 갈래 act · 표 acts. 목록과 막은 규칙은 원소 저장소 docs/casual-review-2026-11-13.md 10절
+- lib/casual-tree-v2.js — 의상 계열이 설 수 있는 장소 종류(why ofam) · 그 세계에만 있는 자리(worlds_only) · 그 땅의 현장(place_lands)
+- lib/prompt-sam.js — 트리에 카드의 세계를 알려 준다(casualCard)
+- tools/casual-plan.cjs — 카드의 세계로 장소를 고른다 · 하는 일 갈래는 묶음에 두 장까지
+- tests/casual-tree-v2.cjs · tests/casual-plan.cjs — 「어색한 조합은 표시만」 은 아직 막히지 않은 조합으로, 추천×장소는 그 장소에 설 수 있는 계열로, 세계끼리 같은 옷은 자유 설계 칸을 빼고
+- prompt.html · promptapi.html — casual-tree-v2.js ?v=4 · prompt-sam.js ?v=37
+
 ## 2026-11-13 · claude · 세계컷 과감 노출 글 — 무릎에서 꺾이는 다리 · 어깨 밑으로 내려간 어깨 장갑
 - lib/prompt-spec.js WORLDS — 삼국시대 · 판타지 exposureBold 의 「a high slit … showing the thigh」 를 재단만 적는 글로(「cut with a high side slit at full length — it shows the side line of one leg as she stands, no leg pushed out or knee bent for it」). 「허벅지를 보여라」 가 바닥까지 오는 실루엣 · 전신 구도와 겹쳐 한쪽 다리를 트임 밖으로 내밀며 무릎을 꺾었다. 판타지 · 메카의 「bare shoulders and (upper) arms between pauldron and bracer/gauntlet」 는 「bare upper arms below the pauldrons, which stay seated on top of her shoulders」 로 — 어깨 장갑과 손 장갑 사이의 맨 어깨를 요구해 장갑이 위팔로 내려갔다. 메카 exposureOpen 열쇠 shoulders 는 그대로(해시로 두 곳 고르기). 사용자 「다리가 자연스럽지 않고, 무릎에서 꺾이는 그림들이 많이 만들어져 … 어깨 장갑이 어깨에 안있고 어깨 바로 밑에다가」 → 「응, 고쳐줘」
 - prompt.html · promptapi.html — prompt-spec.js ?v=43

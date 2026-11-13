@@ -182,7 +182,8 @@ try {
     assert(C.check([one], card, [], [{ ...one }]).length > 0, '같은 장면을 잡는다');
     /* 같은 옷 — 장소 · 구도가 달라도 세계끼리 같은 옷이면 잡는다(2026-11-08 「응 막아줘」) */
     assert(one.item && C.check([one], card, [], [{ ofam: one.ofam, item: one.item, place: '__x', preset: '__y' }]).some(e => /입은 옷/.test(e)), '다른 세계와 같은 옷을 잡는다');
-    for (const { w, p } of fresh) { const mineItems = new Set(p.cuts.map(c => c.ofam + '/' + c.item)); fresh.filter(x => x.w !== w).forEach(x => x.p.cuts.forEach(c => assert(!c.item || !mineItems.has(c.ofam + '/' + c.item), w + ' · ' + x.w + ' 같은 옷 ' + c.item))); }
+    /* 자유 설계 칸(ofree)은 옷을 맡은 쪽이 지어 계획의 옷이 안 그려진다 — 겹침에서 뺀다(계획기 check 의 outfitKey 와 같게, 2026-11-13 표본이 바뀌며 드러남) */
+    for (const { w, p } of fresh) { const mineItems = new Set(p.cuts.filter(c => !c.ofree).map(c => c.ofam + '/' + c.item)); fresh.filter(x => x.w !== w).forEach(x => x.p.cuts.filter(c => !c.ofree).forEach(c => assert(!c.item || !mineItems.has(c.ofam + '/' + c.item), w + ' · ' + x.w + ' 같은 옷 ' + c.item))); }
   } finally { fs.rmSync(rec, { recursive: true, force: true }); fs.rmSync(out, { recursive: true, force: true }); }
 }
 /* 무기는 일상컷에서 들지 않고 장신구로(2026-11-02 사용자 「무기를 일상컷에선 들고 있는것보단 악세사리류로 대체」) —

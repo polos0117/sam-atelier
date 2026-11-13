@@ -17,7 +17,7 @@ for (const pr of t.v2.presets) {
     const era = pl.eras.includes('now') ? 'now' : pl.eras[0], e = C.era(t, era);
     /* 대표 옷은 정해 둔 갈래가 아닌 것 먼저 — 정해 둔 갈래 컷엔 얼굴 클로즈업을 안 쓴다(data/casual-tree.json frame_rules.face_close.not_required, 2026-11-02) */
     const rq = t.v1.required || {}, rw = rq.world || {}, req = o => (rq.outfits || []).includes(o.key) || (era === rw.era && (rw.places || []).includes(pl.key) && (rw.outfits || []).includes(o.key));
-    const fits = t.v1.outfits.filter(o => e.outfits.includes(o.key) && feat(pr).every(x => C.features(t, o.key, '').includes(x)));
+    const fits = t.v1.outfits.filter(o => e.outfits.includes(o.key) && feat(pr).every(x => C.features(t, o.key, '').includes(x)) && !C.why(t, { era, place: pl.key }, 'ofam', o.key));   /* 그 장소에 설 수 있는 의상 계열만(표 outfit_rules, 2026-11-13) */
     const fam = fits.find(o => !req(o)) || fits[0];
     if (!fam) continue;
     pairs++;
@@ -107,7 +107,10 @@ const fix = t.v2.prop_uses.find(u => u.gaze);
 assert.equal(C.why(t, Object.assign({}, pk, { use: fix.key }), 'gaze', fix.gaze), null);
 assert.equal(C.why(t, Object.assign({}, pk, { use: fix.key }), 'gaze', fix.gaze === 'camera' ? 'down' : 'camera').code, 'use');
 /* 어색한 조합은 거르지 않고 표시만 */
-const aw = t.v2.awkward[0], awPlace = C.expand(t, aw.places)[0];
+/* 2026-11-13 — 누가 봐도 안 맞는 조합(웨딩드레스로 목욕, 수영복으로 작업 현장 …)은 이제 표 outfit_rules 가 막는다. 그 밖의 어색한 조합은 여전히 표시만 — 막히지 않은 것 하나로 본다 */
+const awHit = t.v2.awkward.flatMap(r => C.expand(t, r.places).map(pl => ({ r, pl }))).find(x => C.place(t, x.pl) && C.place(t, x.pl).eras.includes('now') && !C.why(t, { era: 'now', place: x.pl }, 'ofam', x.r.outfits[0]));
+const aw = awHit.r, awPlace = awHit.pl;
+assert.equal((C.why(t, { era: 'now', place: 'site_mine' in t.v2.places ? 'site_mine' : 'street_office' }, 'ofam', 'swimwear') || {}).code, 'place', '수영복은 물가 · 무대만');
 assert(C.awkward(t, aw.outfits[0], awPlace).length);
 assert.equal(C.why(t, { era: 'now', place: awPlace }, 'ofam', aw.outfits[0]), null);
 /* 렌즈는 프레이밍에 따라 */
