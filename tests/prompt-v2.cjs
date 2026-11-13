@@ -103,7 +103,7 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
 /* ══ 칸 꼴 정리판(2026-11-10 사용자 「kv 꼴에 맞춰서 줄꼴 문장들 좀 옮기자」 → 「문구도 다 정리하자」 → 「응 이 틀로 진행해줘」) ══
    판 꼭대기 sections — 짧은 판이던 화풍(줄 꼴 · kv 꼴 13개)이 모두 다섯 칸(화풍 · 인물 · 의상과 장비 · 장면 · 제약). 2.5 글 판(api25 · kr_mmorpg_26)은 그대로 */
 {
-  assert(SX.sections === true && T.SECTIONS && T.SECTIONS.faceWorld === 'samguk', '칸 꼴 스위치 · 얼굴은 우선 세 세계 같게(비교 뒤 푼다 — docs/STYLE_LAB.md)');
+  assert(SX.sections === true && T.SECTIONS && !T.SECTIONS.faceWorld, '칸 꼴 스위치 · 얼굴 · 머리는 세계마다(2026-11-13 풀었다)');
   const SEC13 = ['mmorpg_cg', 'kr_mmorpg', 'kr_promo_hikey', 'kr_promo_hikey_oil', 'glossy_kr_game', 'glossy_kr_semireal', 'game_keyart', 'kv_kmmo_lock', 'kv_kmmo_23d', 'kv_jp_mobile', 'kv_jp_paint', 'kv_anime_gloss', 'kv_cgi_hikey',
     'semi_smooth', 'semi_oil_classic', 'anime_brush', 'styl3d', 'anime_matte', 'semi_impasto', 'semi_paint_jp', 'illus_23d', 'anime_gloss_jp', 'oil_hikey', 'kr_drawn_rim_dewy'];   /* + 화풍공방 확정 화풍(기본, 2026-11-11) */   /* 뒤 열은 다듬은 기준으로 새로 쓴 화풍(2026-11-10 — 열 가운데 수채 · 과슈 · 레트로 셀 · 수묵 담채는 뺐다 · 옛 화풍 넷을 새로 썼다) */
   assert.deepEqual(Object.keys(SX.styles).filter(k => P.sectionsOn(SX, k, 'world')), Object.keys(SX.styles).filter(k => SEC13.includes(k)), '칸 꼴 화풍 스물넷(짧은 판이던 열셋 + 새로 쓴 열 + 화풍공방 확정)');
@@ -121,16 +121,16 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     assert(w !== 'mecha' || /\nColours: [^\n]* Faction frame: /.test(p), key + ' 메카 세력 설계');
     assert(!/\{\w+\}|undefined|\.\.|  |never elongated|horse-like|^(?:CONCEPT|FACE —|WORLD —|OUTPUT|ANATOMY|BODY):/m.test(p) && p.split(/\s+/).length < 900, key + ' ' + w + ' ' + st + ' 빈 칸 · 옛 금지 나열 · 줄 꼴 머리말 없음');
     ns++; }
-  /* 얼굴 · 머리는 우선 세 세계 같게 */
+  /* 얼굴 · 머리는 세계마다 설계표 값(2026-11-13 「응 풀어줘」 — 그 앞엔 세 세계 같게) */
   { const f = w => P.build(D, SX, '문앙', w, { style: 'mmorpg_cg' }).split('\n').filter(l => /^(Age|Face|Body and hair):/.test(l) || l.startsWith('Face —')).join('|');
-    assert(f('samguk') === f('fantasy') && f('samguk') === f('mecha'), '문앙 — 얼굴 · 머리는 세 세계 같게(faceWorld)'); }
+    assert(f('samguk') !== f('fantasy') && f('samguk') !== f('mecha') && f('fantasy') !== f('mecha'), '문앙 — 얼굴 · 머리는 세계마다 다르다'); }
   /* 일상컷 — 지킬 것 · 바꿀 것 · 장면 · 제약 */
   { const Cp = require('../tools/casual-plan.cjs'), card = Cp.cardOf('문앙'); card.world = 'mecha'; const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8'));
     let nc = 0; for (const cut of Cp.plan(card, [1, 2, 3, 4, 5, 6], [], { seed: 11 }).cuts) for (const st of ['mmorpg_cg', 'kv_jp_paint']) { const { n, ...sc } = cut, K = T.SECTIONS.casual;
       const p = P.casualRecord(D, SX, '문앙', sc, { world: 'mecha', style: st, tree: tr, tree2: tr2 }, n).prompt, parts = p.split('\n\n');
       assert(parts.length === 5 && p.startsWith('Edit the attached image: the same woman — Wen Yang') && p.includes('1024×1536') && parts[1].startsWith(K.s1 + '\n' + K.identity) && parts[1].includes('Style: ' + P.shortStyle(SX, st)) && parts[2].startsWith(K.s2 + '\n' + K.clothes + '\n' + K.pose + '\nOutfit: ') && parts[3].startsWith(K.s3 + '\n') && /\nPOSTURE: /.test(parts[3]) && parts[4] === K.s4 + '\n' + K.end, '문앙 일상 ' + n + ' ' + st + ' 네 칸');
       assert(!/\{\w+\}|undefined|  /.test(p) && !/^(?:overall_intensity|skin_exposure):/m.test(p), '문앙 일상 ' + n + ' ' + st + ' 빈 칸 없음'); nc++; }
-    console.log('PASS 칸 꼴 정리판: 세계 그림 ' + ns + '장 · 일상컷 ' + nc + '장 — 다섯 칸 · 겹침 없음 · api25 그대로 · 얼굴 세 세계 같게'); }
+    console.log('PASS 칸 꼴 정리판: 세계 그림 ' + ns + '장 · 일상컷 ' + nc + '장 — 다섯 칸 · 겹침 없음 · api25 그대로 · 얼굴 · 머리 세계마다'); }
 }
 /* 칸 꼴 — 직접 고른 외형 · 얼굴 끈 Face 줄(2026-11-11 「응 둘 다 고쳐줘」 — 원소와 같은 구멍) */
 { for (const key of ['관우', '문앙', '조조']) for (const w of ['samguk', 'fantasy', 'mecha']) {
