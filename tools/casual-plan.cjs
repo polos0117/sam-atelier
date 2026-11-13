@@ -492,6 +492,9 @@ function ownDone(card, world, recDir) {
    --own-level 로 단계를 내려 다시 짓는다(막혔을 때 — IMAGE_RULES) */
 function ownStep(card, world, seed, opt, recDir, worlds) {
   if (ownRow(card, world) && (opt['own-level'] || !(ownDone(card, world, recDir)))) {
+    /* 같은 카드의 다른 세계와 자세 추천(= 구도)이 같으면 짓지 않는다 — 표를 고친다(2026-11-13 사용자 「세 세계가 같은 구도인 직업컷은 세계마다 다른 자세로」) */
+    const same = Object.entries((OWN.cards[card.key] || {}).worlds || {}).filter(([w, r]) => w !== world && r.preset === ownRow(card, world).preset).map(([w]) => w);
+    if (same.length) { console.log(`  ${OWN_N} ✗ 캐릭터만의 컷 — ${same.join(' · ')} 세계와 같은 구도(${ownRow(card, world).preset}) · data/casual-own.json 을 고친다 · 건너뜀`); return; }
     const oc = ownCut(card, world, opt['own-level'] || OWN_LEVELS[0], rng((seed ^ 0x51ed270b) >>> 0));
     console.log(`  ${OWN_N} ◆ 캐릭터만의 컷 — ${ownRow(card, world).job_ko} · 노출 ${oc.axes.skin_exposure} · ${oc.preset}`);
     if (opt.out) { const out = worlds.length > 1 ? path.join(opt.out, 'plan-' + world) : opt.out; fs.mkdirSync(out, { recursive: true }); const rec = record(card, world, oc);
