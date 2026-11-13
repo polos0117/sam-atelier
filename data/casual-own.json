@@ -246,13 +246,14 @@
      "job_ko": "직조공",
      "base": "nation_workshop",
      "place": "a far-future weaving workshop — a tall wooden loom strung with bright warp threads, bolts of brocade on a rack and baskets of dyed silk spools",
-     "activity": "she is a weaver standing back from the loom to look over the bright warp threads",
-     "preset": "hip_contra",
+     "activity": "she is a weaver perched on a stool, tying off a bright warp thread beside the loom",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a brocade weaver look fitted to her body — a fitted brocade bandeau top with a wide sash, a short wrapped skirt, bare shoulders and a spool pouch at the hip, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a brocade weaver look — a sleeveless brocade tunic with a wide sash, a knee-length skirt and a spool pouch at the hip, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a brocade weaver look — a long-sleeved brocade tunic closed at the collar with a wide sash, loose trousers and a spool pouch at the hip, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -278,29 +279,29 @@
     },
     "fantasy": {
      "job_ko": "활방 장인",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a high-fantasy bowyer's workshop — a bench strewn with bamboo strips and horn slivers, bows hung to dry on the wall and a pot of glue on a small stove",
-     "activity": "she is a bowmaker looking down at a bamboo strip to judge its bend",
-     "preset": "pocket_look",
+     "activity": "she is a bowmaker sitting quietly while the pot of glue warms on the small stove",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a bowyer look fitted to her body — a short sleeveless work vest tied at the waist, a short split skirt, leather wrist guards and a tool belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a bowyer look — a sleeveless work vest over a fitted top, a knee-length split skirt, leather wrist guards and a tool belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a bowyer look — a long-sleeved work vest closed to the collar, loose trousers, leather wrist guards and a tool belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     },
-     "use": "sig_hold",
-     "prop": "a bamboo strip"
+     }
     },
     "mecha": {
      "job_ko": "활방 장인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future bowyer's workshop — a bench strewn with bamboo strips and horn slivers, bows hung to dry on the wall and a pot of glue on a small stove",
-     "activity": "she is a bowmaker standing with her hands together, watching the bows dry on the wall",
-     "preset": "clasp_low",
+     "activity": "she is a bowmaker standing at the bench, bending a bamboo strip with both hands to test it",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a bowyer look fitted to her body — a short sleeveless work vest tied at the waist, a short split skirt, leather wrist guards and a tool belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a bowyer look — a sleeveless work vest over a fitted top, a knee-length split skirt, leather wrist guards and a tool belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a bowyer look — a long-sleeved work vest closed to the collar, loose trousers, leather wrist guards and a tool belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a bamboo strip"
     }
    }
   },
@@ -392,13 +393,15 @@
      "job_ko": "사슬 세공사",
      "base": "nation_workshop",
      "place": "a far-future jeweler's bench — a slanted work table with tiny pliers, spools of wire and a small lamp with a glass shade over a dish of rings",
-     "activity": "she is a goldsmith giving a satisfied thumbs up over the finished chain",
-     "preset": "thumbs_waist",
+     "activity": "she is a goldsmith kneeling on one knee, closing a chain link with tiny pliers",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a chain jeweler look fitted to her body — a cropped wrap top with a leather apron over it, a short skirt, bare shoulders and a magnifying loupe on a cord, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a chain jeweler look — a sleeveless fitted top with a leather apron, a knee-length skirt and a magnifying loupe on a cord, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a chain jeweler look — a long-sleeved fitted top with a leather apron, long trousers and a magnifying loupe on a cord, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a pair of tiny pliers"
     }
    }
   },
@@ -441,13 +444,15 @@
      "job_ko": "지도 제작자",
      "base": "nation_workshop",
      "place": "a far-future mapmaker's studio — a wide slanted table with inked contour sheets, a brass divider, a lamp and rolls of paper stacked in a rack",
-     "activity": "she is a cartographer standing with a hand on her hip, surveying the inked sheets",
-     "preset": "hip_contra",
+     "activity": "she is a cartographer crouching to measure an inked contour sheet with a brass divider",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a cartographer look fitted to her body — a short sleeveless wrap vest over a bandeau top, a short split skirt, fingerless gloves and an ink-stained sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a cartographer look — a sleeveless vest over a fitted top, a knee-length split skirt, fingerless gloves and an ink-stained sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a cartographer look — a long-sleeved vest closed at the collar, loose trousers, fingerless gloves and an ink-stained sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a brass divider"
     }
    }
   },
@@ -488,15 +493,16 @@
     },
     "mecha": {
      "job_ko": "편지 대필가",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future letter-writer's room — a small desk with brushes, an ink stone and sealing wax, a shelf of folded paper and a window with a soft light",
-     "activity": "she is a letter-writer standing with her hands folded, waiting by the window",
-     "preset": "clasp_low",
+     "activity": "she is a letter-writer perched on a stool, sealing a folded letter with wax at her small desk",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a letter writer look fitted to her body — a short sleeveless wrap robe tied with a sash, a short skirt, bare shoulders and a brush tucked in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a letter writer look — a sleeveless wrap robe tied with a sash, a knee-length skirt and a brush tucked in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a letter writer look — a long-sleeved wrap robe tied with a sash, loose trousers and a brush tucked in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -539,13 +545,15 @@
      "job_ko": "계주 주자",
      "base": "nation_square",
      "place": "a far-future running track — a packed-earth lane with white lines, a post with a ribbon at the finish and open sky over the field",
-     "activity": "she is a relay runner catching her breath beside the finish post",
-     "preset": "hip_contra",
+     "activity": "she is a relay runner gripping a baton in both hands, ready on the packed-earth lane",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a relay runner look fitted to her body — a short fitted running top with a headband, short split shorts, bare midriff and light sandals laced to the calf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a relay runner look — a sleeveless fitted running top with a headband, knee-length shorts and light sandals laced to the calf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a relay runner look — a long-sleeved fitted running top with a headband, long loose trousers and light sandals laced to the calf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a relay baton"
     }
    }
   },
@@ -584,17 +592,15 @@
     },
     "mecha": {
      "job_ko": "지압사",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a far-future healing room — a padded treatment table with a folded towel, a rack of wooden rollers and a small bowl of oil with a candle",
-     "activity": "she is a bone-setter looking down into a small bowl of oil",
-     "preset": "pocket_look",
+     "activity": "she is a bone-setter sitting quietly beside the padded treatment table, resting between treatments",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a bone-setter look fitted to her body — a short sleeveless wrap tunic tied at the side, a short skirt over tight shorts, bare shoulders and wrist wraps, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a bone-setter look — a sleeveless wrap tunic tied at the side, a knee-length skirt and wrist wraps, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a bone-setter look — a long-sleeved wrap tunic tied at the side, loose trousers and wrist wraps, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     },
-     "use": "sig_hold",
-     "prop": "a small bowl of oil"
+     }
     }
    }
   },
@@ -637,13 +643,15 @@
      "job_ko": "대장장이",
      "base": "nation_workshop",
      "place": "a far-future smithy — a glowing forge with a bellows, an anvil, tongs on the wall and a barrel of quenching water",
-     "activity": "she is a blacksmith resting with a hand on her hip beside the glowing forge",
-     "preset": "hip_contra",
+     "activity": "she is a blacksmith kneeling on one knee, turning a piece of metal in tongs by the glowing forge",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a blacksmith look fitted to her body — a short leather apron over a bandeau top, a short skirt, bare shoulders and thick forge gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a blacksmith look — a leather apron over a sleeveless top, a knee-length skirt and thick forge gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a blacksmith look — a leather apron over a long-sleeved top, long trousers and thick forge gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a pair of tongs"
     }
    }
   },
@@ -670,13 +678,15 @@
      "job_ko": "길 안내원",
      "base": "nation_square",
      "place": "a high-fantasy scenic overlook — a stone path with a wooden railing, a bench, a sign post with arrows and a valley view behind",
-     "activity": "she is a guide waving from the stone path as the valley opens behind her",
-     "preset": "wave_chest",
+     "activity": "she is a guide walking along the stone path, a walking staff held low at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a trail guide look fitted to her body — a cropped wrap vest over a bandeau top, a short split skirt, a bright sash, lace-up boots and a small pouch, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a trail guide look — a sleeveless wrap vest over a fitted top, a knee-length split skirt, a bright sash, lace-up boots and a small pouch, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a trail guide look — a long-sleeved wrap vest closed at the collar, loose trousers, a bright sash, lace-up boots and a small pouch, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a walking staff"
     },
     "mecha": {
      "job_ko": "길 안내원",
@@ -731,13 +741,15 @@
      "job_ko": "장대 곡예사",
      "base": "nation_workshop",
      "place": "a far-future acrobat's stage — a wooden platform with a painted curtain, hanging lanterns and a rope strung between two posts",
-     "activity": "she is an acrobat waving cheerfully before the act begins",
-     "preset": "wave_chest",
+     "activity": "she is an acrobat kneeling on one knee, checking a long balancing pole before the act",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a pole acrobat look fitted to her body — a fitted striped bandeau top, a short flared skirt over shorts, bare shoulders and soft slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a pole acrobat look — a fitted striped sleeveless top, knee-length flared trousers and soft slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a pole acrobat look — a fitted striped long-sleeved top, loose trousers and soft slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a long balancing pole"
     }
    }
   },
@@ -780,13 +792,15 @@
      "job_ko": "횃불 봉송 주자",
      "base": "nation_square",
      "place": "a far-future festival road — a lane lined with bunting, a stone marker at the roadside and a hill with a bonfire pit at the end",
-     "activity": "she is a torchbearer standing by the stone marker, a hand on her hip, looking toward the bonfire pit",
-     "preset": "hip_contra",
+     "activity": "she is a torchbearer crouching by the stone marker, looking over an unlit torch",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a torchbearer look fitted to her body — a short fitted white tunic with a red sash, a short split skirt, bare shoulders and light sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a torchbearer look — a sleeveless white tunic with a red sash, a knee-length split skirt and light sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a torchbearer look — a long-sleeved white tunic with a red sash, loose trousers and light sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "an unlit torch"
     }
    }
   },
@@ -876,15 +890,17 @@
     },
     "mecha": {
      "job_ko": "나팔 연주자",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future bandstand on a hill — a round wooden platform with railings, a music stand and a long slope of grass behind",
-     "activity": "she is a horn player resting with a hand on her hip between songs",
-     "preset": "hip_contra",
+     "activity": "she is a horn player kneeling on one knee, wiping the bell of a brass horn",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a horn player look fitted to her body — a short fitted band jacket with open front over a bandeau top, a short pleated skirt, bare shoulders and tall boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a horn player look — a short fitted band jacket over a sleeveless top, a knee-length pleated skirt and tall boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a horn player look — a long fitted band jacket closed to the collar, loose trousers and tall boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a brass horn"
     }
    }
   },
@@ -911,25 +927,29 @@
      "job_ko": "등대지기",
      "base": "nation_square",
      "place": "a high-fantasy lamp tower on a cliff — a spiral of stone steps, a big brass lamp above, a keeper's cottage and a gray sea below",
-     "activity": "she is a lighthouse keeper waving from the spiral steps",
-     "preset": "wave_chest",
+     "activity": "she is a lighthouse keeper standing on the spiral steps, wiping a small lamp glass with both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a lighthouse keeper look fitted to her body — a short oilcloth coat open over a bandeau top, a short skirt, tall boots and a scarf, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a lighthouse keeper look — a sleeveless oilcloth vest over a fitted top, a knee-length skirt, tall boots and a scarf, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a lighthouse keeper look — a long oilcloth coat closed to the collar, loose trousers, tall boots and a scarf, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a soft cleaning cloth"
     },
     "mecha": {
      "job_ko": "등대지기",
-     "base": "nation_temple",
+     "base": "nation_square",
      "place": "a far-future lamp tower on a cliff — a spiral of stone steps, a big brass lamp above, a keeper's cottage and a gray sea below",
-     "activity": "she is a lighthouse keeper standing with her hands together, watching the gray sea",
-     "preset": "clasp_low",
+     "activity": "she is a lighthouse keeper walking up the stone steps, a small oil can carried at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a lighthouse keeper look fitted to her body — a short oilcloth coat open over a bandeau top, a short skirt, tall boots and a scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a lighthouse keeper look — a sleeveless oilcloth vest over a fitted top, a knee-length skirt, tall boots and a scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a lighthouse keeper look — a long oilcloth coat closed to the collar, loose trousers, tall boots and a scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a small oil can"
     }
    }
   },
@@ -1003,8 +1023,8 @@
      "job_ko": "시계 가게 주인",
      "base": "nation_workshop",
      "place": "a high-fantasy clock shop — shelves of small water clocks and hourglasses, a tall carved clock against the wall and a work lamp",
-     "activity": "she is a shopkeeper looking down at the sand running in a small hourglass",
-     "preset": "pocket_look",
+     "activity": "she is a shopkeeper crouching to check the sand running in a small hourglass",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a clock shop owner look fitted to her body — a short fitted vest over a bandeau top, a short skirt, bare shoulders and a small key on a chain, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a clock shop owner look — a fitted sleeveless vest over a short-sleeved top, a knee-length skirt and a small key on a chain, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
@@ -1017,13 +1037,14 @@
      "job_ko": "시계 가게 주인",
      "base": "nation_workshop",
      "place": "a far-future clock shop — shelves of small water clocks and hourglasses, a tall carved clock against the wall and a work lamp",
-     "activity": "she is a shopkeeper standing beside the tall carved clock with a hand on her hip",
-     "preset": "hip_contra",
+     "activity": "she is a shopkeeper perched on a stool, tuning a small water clock under the work lamp",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a clock shop owner look fitted to her body — a short fitted vest over a bandeau top, a short skirt, bare shoulders and a small key on a chain, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a clock shop owner look — a fitted sleeveless vest over a short-sleeved top, a knee-length skirt and a small key on a chain, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a clock shop owner look — a long-sleeved fitted vest closed at the collar, long skirt over trousers and a small key on a chain, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -1048,29 +1069,29 @@
     },
     "fantasy": {
      "job_ko": "이발사",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a high-fantasy barber shop — a tall chair with a footrest, a mirror on the wall, shaving brushes in a cup and folded towels on a shelf",
-     "activity": "she is a barber looking down at a shaving brush before starting the day",
-     "preset": "pocket_look",
+     "activity": "she is a barber sitting quietly beside the tall chair, waiting for the day to begin",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a barber look fitted to her body — a short white work smock open at the front over a bandeau top, a short skirt, bare shoulders and a strap of razors at the hip, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a barber look — a sleeveless white work smock over a fitted top, a knee-length skirt and a strap of razors at the hip, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a barber look — a long-sleeved white work smock closed to the collar, loose trousers and a strap of razors at the hip, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     },
-     "use": "sig_hold",
-     "prop": "a shaving brush"
+     }
     },
     "mecha": {
      "job_ko": "이발사",
      "base": "nation_workshop",
      "place": "a far-future barber shop — a tall chair with a footrest, a mirror on the wall, shaving brushes in a cup and folded towels on a shelf",
-     "activity": "she is a barber waving from beside her tall chair, the shop ready for the day",
-     "preset": "wave_chest",
+     "activity": "she is a barber standing at the shelf, working lather into a shaving brush with both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a barber look fitted to her body — a short white work smock open at the front over a bandeau top, a short skirt, bare shoulders and a strap of razors at the hip, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a barber look — a sleeveless white work smock over a fitted top, a knee-length skirt and a strap of razors at the hip, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a barber look — a long-sleeved white work smock closed to the collar, loose trousers and a strap of razors at the hip, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a shaving brush"
     }
    }
   },
@@ -1160,15 +1181,17 @@
     },
     "mecha": {
      "job_ko": "서점 주인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future bookshop — tall shelves of bound volumes with plain cloth spines, a wheeled step ladder, a reading lamp and a counter with a bell",
-     "activity": "she is a shopkeeper standing behind the counter with her hands folded, waiting quietly",
-     "preset": "clasp_low",
+     "activity": "she is a shopkeeper kneeling on one knee, sliding a bound volume onto a low shelf",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a bookshop keeper look fitted to her body — a short sleeveless wrap vest over a fitted top, a short pleated skirt, bare shoulders and a ribbon in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a bookshop keeper look — a sleeveless wrap vest over a fitted top, a knee-length pleated skirt and a ribbon in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a bookshop keeper look — a long-sleeved wrap vest closed at the collar, loose trousers and a ribbon in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a bound volume"
     }
    }
   },
@@ -1293,25 +1316,28 @@
      "job_ko": "만담가",
      "base": "nation_workshop",
      "place": "a high-fantasy comedy stage — a small raised platform with a red curtain, a row of cushions for the crowd and a hanging lantern",
-     "activity": "she is a storyteller giving a thumbs up in front of the red curtain",
-     "preset": "thumbs_waist",
+     "activity": "she is a storyteller crouching at the edge of the platform, looking over a folding fan",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a storyteller look fitted to her body — a short bright jacket open over a bandeau top, a short flared skirt, bare shoulders and a wide cuff sleeve, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a storyteller look — a bright sleeveless jacket over a fitted top, a knee-length flared skirt and a wide cuff, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a storyteller look — a bright long-sleeved jacket closed at the collar, loose trousers and a wide cuff, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a folding fan"
     },
     "mecha": {
      "job_ko": "만담가",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future comedy stage — a small raised platform with a red curtain, a row of cushions for the crowd and a hanging lantern",
-     "activity": "she is a storyteller standing with her hands together, about to begin the tale",
-     "preset": "clasp_low",
+     "activity": "she is a storyteller perched on a stool, mending the tassel of a cushion by the stage",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a storyteller look fitted to her body — a short bright jacket open over a bandeau top, a short flared skirt, bare shoulders and a wide cuff sleeve, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a storyteller look — a bright sleeveless jacket over a fitted top, a knee-length flared skirt and a wide cuff, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a storyteller look — a bright long-sleeved jacket closed at the collar, loose trousers and a wide cuff, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -1338,17 +1364,15 @@
     },
     "fantasy": {
      "job_ko": "도장 조각가",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a high-fantasy seal-carver's shop — a stone bench with chisels and a little mallet, blocks of soft stone on a shelf and red paste in a dish",
-     "activity": "she is a seal-carver looking down at the seal she is carving",
-     "preset": "pocket_look",
+     "activity": "she is a seal-carver sitting with her hands in her lap, resting her eyes beside the stone bench",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a seal carver look fitted to her body — a short work apron over a fitted bandeau top, a short skirt, bare shoulders and a cloth over one forearm, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a seal carver look — a work apron over a sleeveless fitted top, a knee-length skirt and a cloth over one forearm, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a seal carver look — a work apron over a long-sleeved fitted top, loose trousers and a cloth over one forearm, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     },
-     "use": "sig_hold",
-     "prop": "a small stone seal"
+     }
     },
     "mecha": {
      "job_ko": "도장 조각가",
@@ -1454,13 +1478,15 @@
      "job_ko": "어릿광대",
      "base": "nation_square",
      "place": "a far-future street fair — a painted wagon with a drop-down stage, strings of flags, a barrel of colorful balls and a small crowd's cushions",
-     "activity": "she is a jester waving from beside the painted wagon",
-     "preset": "wave_chest",
+     "activity": "she is a jester crouching beside the painted wagon, inspecting a colorful ball",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a jester look fitted to her body — a short patchwork bodice with open shoulders, a short ruffled skirt, striped tights-style leg wraps and a floppy cap, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a jester look — a sleeveless patchwork bodice, a knee-length ruffled skirt, striped leg wraps and a floppy cap, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a jester look — a long-sleeved patchwork bodice, loose striped trousers and a floppy cap, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a colorful ball"
     }
    }
   },
@@ -1489,14 +1515,14 @@
      "job_ko": "보육 교사",
      "base": "nation_workshop",
      "place": "a high-fantasy nursery room — a row of low cradles with quilts, a rocking chair, a basket of soft toys and a window with a gentle light",
-     "activity": "she is a caregiver looking down at a folded blanket before laying it in a cradle",
-     "preset": "pocket_look",
+     "activity": "she is a caregiver standing at a low cradle, smoothing a folded blanket with both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a nursery caregiver look fitted to her body — a short wrap blouse with open shoulders, a short soft skirt and a cloth apron with a pocket, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a nursery caregiver look — a sleeveless wrap blouse, a knee-length soft skirt and a cloth apron with a pocket, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a nursery caregiver look — a long-sleeved wrap blouse closed at the neck, long skirt and a cloth apron with a pocket, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
      },
-     "use": "sig_hold",
+     "use": "sig_both",
      "prop": "a folded swaddling blanket"
     },
     "mecha": {
@@ -1550,15 +1576,17 @@
     },
     "mecha": {
      "job_ko": "분 가게 주인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future cosmetics shop — a dressing table with a round mirror, rows of small jars and pots, a bowl of petals and silk hangings",
-     "activity": "she is a cosmetics seller standing by the dressing table with her hands together",
-     "preset": "clasp_low",
+     "activity": "she is a cosmetics seller kneeling on one knee, setting a small jar back into its row",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a cosmetics seller look fitted to her body — a short silky wrap top with off-shoulder sleeves, a short split skirt and a ribbon sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a cosmetics seller look — a sleeveless silky wrap top, a knee-length split skirt and a ribbon sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a cosmetics seller look — a long-sleeved silky wrap top, loose trousers and a ribbon sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small jar of powder"
     }
    }
   },
@@ -1601,13 +1629,15 @@
      "job_ko": "급식소 주방장",
      "base": "nation_workshop",
      "place": "a far-future soup kitchen — a huge iron pot on a stove, stacked bowls, sacks of rice and long tables with benches",
-     "activity": "she is a cook giving a thumbs up after tasting the soup",
-     "preset": "thumbs_waist",
+     "activity": "she is a cook crouching by the huge iron pot, tasting the soup from a ladle",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a kitchen cook look fitted to her body — a short apron over a bandeau top, a short skirt, bare shoulders and a head scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a kitchen cook look — a long apron over a sleeveless fitted top, a knee-length skirt and a head scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a kitchen cook look — a long apron over a long-sleeved top, loose trousers and a head scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a wooden ladle"
     }
    }
   },
@@ -1634,10 +1664,10 @@
     },
     "fantasy": {
      "job_ko": "전령",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a high-fantasy messenger post — a bench under the eaves, a rack of sealed tubes and a road running off between hills",
-     "activity": "she is a courier looking down at the sealed tube in her hand",
-     "preset": "pocket_look",
+     "activity": "she is a courier kneeling on one knee, checking the seal of a message tube",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a courier look fitted to her body — a cropped wrap jacket open over a bandeau top, a short split skirt, tall boots and a satchel on a cross strap, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a courier look — a short wrap jacket over a sleeveless fitted top, a knee-length split skirt, tall boots and a satchel, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
@@ -1650,13 +1680,15 @@
      "job_ko": "전령",
      "base": "nation_square",
      "place": "a far-future messenger post — a bench under the eaves, a rack of sealed tubes and a road running off between hills",
-     "activity": "she is a courier waving as she heads off down the road",
-     "preset": "wave_chest",
+     "activity": "she is a courier standing at the rack, sliding a sealed tube into place with both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a courier look fitted to her body — a cropped wrap jacket open over a bandeau top, a short split skirt, tall boots and a satchel on a cross strap, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a courier look — a short wrap jacket over a sleeveless fitted top, a knee-length split skirt, tall boots and a satchel, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a courier look — a wrap jacket closed to the collar, loose trousers, tall boots and a satchel, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a sealed message tube"
     }
    }
   },
@@ -1699,13 +1731,14 @@
      "job_ko": "방앗간 주인",
      "base": "nation_workshop",
      "place": "a far-future grain mill — a big stone mill wheel, open sacks of rice and barley, a pair of scales and dust drifting in the light",
-     "activity": "she is a miller standing with a hand on her hip, surveying the open sacks",
-     "preset": "hip_contra",
+     "activity": "she is a miller perched on a stool, sorting a handful of barley beside the open sacks",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a miller look fitted to her body — a short dusty apron over a bandeau top, a short skirt, bare shoulders and a cloth tied over her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a miller look — a dusty apron over a sleeveless top, a knee-length skirt and a cloth tied over her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a miller look — a dusty apron over a long-sleeved top, loose trousers and a cloth tied over her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -1734,14 +1767,14 @@
      "job_ko": "눈썹 화장사",
      "base": "nation_workshop",
      "place": "a high-fantasy brow salon — a padded chair with a headrest, a rack of fine brushes, little jars of white and black powder and a lamp",
-     "activity": "she is a brow artist looking down into a small hand mirror",
-     "preset": "pocket_look",
+     "activity": "she is a brow artist standing at the rack of fine brushes, checking a small hand mirror held in both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a brow artist look fitted to her body — a short crossed bodice with open shoulders, a short skirt, a thin sash and fingerless gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a brow artist look — a sleeveless crossed bodice, a knee-length skirt, a thin sash and fingerless gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a brow artist look — a long-sleeved crossed bodice, loose trousers, a thin sash and fingerless gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
      },
-     "use": "sig_hold",
+     "use": "sig_both",
      "prop": "a small hand mirror"
     },
     "mecha": {
@@ -1795,15 +1828,17 @@
     },
     "mecha": {
      "job_ko": "분실물 보관소 직원",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future lost-and-found office — a long wooden counter, shelves of tagged umbrellas and bundles, a ledger and a bell",
-     "activity": "she is a clerk standing with her hands clasped beside the bell",
-     "preset": "clasp_low",
+     "activity": "she is a clerk standing at the long counter, leafing through a ledger with both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a lost-and-found clerk look fitted to her body — a short fitted vest over a bandeau top, a short skirt, bare shoulders and tags hanging from her belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a lost-and-found clerk look — a sleeveless fitted vest over a short-sleeved top, a knee-length skirt and tags hanging from her belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a lost-and-found clerk look — a long-sleeved fitted vest closed at the collar, loose trousers and tags hanging from her belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a ledger"
     }
    }
   },
@@ -1895,15 +1930,17 @@
     },
     "mecha": {
      "job_ko": "기숙사 사감",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future dormitory hall — a long corridor with rows of doors, a lamp at each end, a notice board and a desk with a bell",
-     "activity": "she is a warden standing with her hands together beside the notice board",
-     "preset": "clasp_low",
+     "activity": "she is a warden kneeling on one knee beside a lamp, trimming its wick",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a dormitory warden look fitted to her body — a short fitted jacket over a bandeau top, a short pleated skirt, bare shoulders and a keychain on her belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a dormitory warden look — a sleeveless fitted jacket over a short-sleeved top, a knee-length pleated skirt and a keychain on her belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a dormitory warden look — a long-sleeved fitted jacket closed to the collar, loose trousers and a keychain on her belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a pair of wick scissors"
     }
    }
   },
@@ -1980,8 +2017,8 @@
      "job_ko": "발명가",
      "base": "nation_workshop",
      "place": "a high-fantasy inventor's workshop — a cluttered bench with gears and springs, a wooden automaton on a shelf, blueprints pinned to the wall and a small lamp",
-     "activity": "she is an inventor looking down at a tiny gear in her hand",
-     "preset": "pocket_look",
+     "activity": "she is an inventor crouching over a tiny gear in her hand, testing its teeth",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "an inventor look fitted to her body — a short leather vest over a bandeau top, a short skirt, bare shoulders, goggles pushed up and a tool belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "an inventor look — a sleeveless leather vest over a fitted top, a knee-length skirt, goggles pushed up and a tool belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
@@ -1992,10 +2029,10 @@
     },
     "mecha": {
      "job_ko": "발명가",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a far-future inventor's workshop — a cluttered bench with gears and springs, a wooden automaton on a shelf, blueprints pinned to the wall and a small lamp",
-     "activity": "she is an inventor standing with a hand on her hip, eyeing the wooden automaton on the shelf",
-     "preset": "hip_contra",
+     "activity": "she is an inventor sitting with her hands in her lap, thinking over her next invention beside the cluttered bench",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "an inventor look fitted to her body — a short leather vest over a bandeau top, a short skirt, bare shoulders, goggles pushed up and a tool belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "an inventor look — a sleeveless leather vest over a fitted top, a knee-length skirt, goggles pushed up and a tool belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
@@ -2027,13 +2064,15 @@
      "job_ko": "장난감 가게 주인",
      "base": "nation_square",
      "place": "a high-fantasy toy shop — shelves of wooden toys and painted tops, a hanging mobile, a big jar of marbles and a cheerful counter",
-     "activity": "she is a shop owner waving cheerfully among the toys",
-     "preset": "wave_chest",
+     "activity": "she is a shop owner walking along the shelves, a painted top carried at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a toy shop owner look fitted to her body — a short colorful pinafore over a bandeau top, a short skirt, bare shoulders and a ribbon in her hair, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a toy shop owner look — a colorful sleeveless pinafore over a fitted top, a knee-length skirt and a ribbon in her hair, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a toy shop owner look — a colorful pinafore over a long-sleeved top, loose trousers and a ribbon in her hair, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a painted top"
     },
     "mecha": {
      "job_ko": "장난감 가게 주인",
@@ -2189,13 +2228,15 @@
      "job_ko": "육상 선수",
      "base": "nation_square",
      "place": "a far-future stadium stairs — a wide stone stairway on a hillside, a towel on the rail, a water jug and open sky above the field",
-     "activity": "she is a sprinter standing on the stairs with a hand on her hip, catching her breath",
-     "preset": "hip_contra",
+     "activity": "she is a sprinter crouching on the stairs, checking the water in a small jug",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a sprinter look fitted to her body — a short fitted running top with a headband, short split shorts, bare midriff and light lace-up sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a sprinter look — a sleeveless fitted running top with a headband, knee-length shorts and light lace-up sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a sprinter look — a long-sleeved fitted running top with a headband, long loose trousers and light lace-up sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small water jug"
     }
    }
   },
@@ -2234,15 +2275,17 @@
     },
     "mecha": {
      "job_ko": "밀 농부",
-     "base": "nation_temple",
+     "base": "nation_square",
      "place": "a far-future wheat field — golden rows of grain under a wide sky, a sickle leaned on a sheaf, a straw hat on the ground and a far line of hills",
-     "activity": "she is a farmer standing with her hands together, looking over the harvest",
-     "preset": "clasp_low",
+     "activity": "she is a farmer standing in the golden rows, gathering a sheaf with a sickle held in both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a wheat farmer look fitted to her body — a short sleeveless work top with a knotted front, a short split skirt, a straw hat and rolled gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a wheat farmer look — a sleeveless work top, a knee-length split skirt, a straw hat and gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a wheat farmer look — a long-sleeved work top, loose trousers, a straw hat and gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a sickle"
     }
    }
   },
@@ -2283,13 +2326,15 @@
      "job_ko": "뱃사공",
      "base": "nation_square",
      "place": "a far-future ferry dock — a wooden landing with a moored flat boat, a long pole leaning on a post, reeds and a slow wide river",
-     "activity": "she is a ferrywoman waving from the landing beside the moored boat",
-     "preset": "wave_chest",
+     "activity": "she is a ferrywoman walking along the landing, a long pole carried at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a ferrywoman look fitted to her body — a short sleeveless wrap top, a short split skirt, bare shoulders and a hat with a wide brim, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a ferrywoman look — a sleeveless wrap top, a knee-length split skirt and a wide-brim hat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a ferrywoman look — a long-sleeved wrap top, loose trousers and a wide-brim hat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a long wooden pole"
     }
    }
   },
@@ -2318,27 +2363,29 @@
      "job_ko": "석공",
      "base": "nation_square",
      "place": "a high-fantasy wall under construction — rows of grey stone blocks, a mortar tub, a plumb line and a pile of sand beside a half-built wall",
-     "activity": "she is a mason looking down at mortar on the trowel",
-     "preset": "pocket_look",
+     "activity": "she is a mason walking along the half-built wall, a trowel carried at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a mason look fitted to her body — a short sleeveless work top with a leather apron, a short skirt, bare shoulders and thick gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a mason look — a sleeveless work top with a leather apron, a knee-length skirt and thick gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a mason look — a long-sleeved work top with a leather apron, loose trousers and thick gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
      },
-     "use": "sig_hold",
+     "use": "sig_low",
      "prop": "a mason's trowel"
     },
     "mecha": {
      "job_ko": "석공",
      "base": "nation_square",
      "place": "a far-future wall under construction — rows of grey stone blocks, a mortar tub, a plumb line and a pile of sand beside a half-built wall",
-     "activity": "she is a mason giving a thumbs up at the straight line of the wall",
-     "preset": "thumbs_waist",
+     "activity": "she is a mason crouching by the half-built wall, checking a plumb line",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a mason look fitted to her body — a short sleeveless work top with a leather apron, a short skirt, bare shoulders and thick gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a mason look — a sleeveless work top with a leather apron, a knee-length skirt and thick gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a mason look — a long-sleeved work top with a leather apron, loose trousers and thick gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a plumb line"
     }
    }
   },
@@ -2379,15 +2426,17 @@
     },
     "mecha": {
      "job_ko": "가마꾼",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future palanquin road — a lantern-lit lane with a resting palanquin, a mile stone, wooden benches and a distant gate",
-     "activity": "she is a bearer giving a thumbs up beside the resting palanquin",
-     "preset": "thumbs_waist",
+     "activity": "she is a bearer kneeling on one knee beside the resting palanquin, checking a leather strap",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a palanquin bearer look fitted to her body — a short sleeveless wrap top, a short split skirt, bare shoulders, shoulder pads and sturdy sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a palanquin bearer look — a sleeveless wrap top, a knee-length split skirt, shoulder pads and sturdy sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a palanquin bearer look — a long-sleeved wrap top, loose trousers, shoulder pads and sturdy sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a leather strap"
     }
    }
   },
@@ -2475,10 +2524,10 @@
     },
     "mecha": {
      "job_ko": "사서",
-     "base": "nation_study",
+     "base": "nation_inn",
      "place": "a far-future library — tall shelves of bound volumes, a ladder on a rail, a long reading table with lamps and a quiet window",
-     "activity": "she is a librarian standing with her hands folded in the quiet of the shelves",
-     "preset": "clasp_low",
+     "activity": "she is a librarian sitting quietly with her hands in her lap, resting at the long reading table",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a librarian look fitted to her body — a short sleeveless wrap vest over a bandeau top, a short pleated skirt, bare shoulders and a ribbon belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a librarian look — a sleeveless wrap vest over a fitted top, a knee-length pleated skirt and a ribbon belt, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
@@ -2625,13 +2674,15 @@
      "job_ko": "수영 강사",
      "base": "nation_square",
      "place": "a far-future swimming pool — a long stone-edged pool with lane ropes, a tall chair for the coach, towels and floats on a rack",
-     "activity": "she is a swimming coach waving from beside the lane ropes",
-     "preset": "wave_chest",
+     "activity": "she is a swimming coach standing by the lane ropes, holding a float in both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a swim coach look fitted to her body — a fitted two-piece swim top and a short wrap sarong, bare midriff and a whistle on a cord, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a swim coach look — a fitted sleeveless swim top with a knee-length wrap skirt and a whistle on a cord, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a swim coach look — a long-sleeved swim top, loose swim trousers and a whistle on a cord, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a float"
     }
    }
   },
@@ -2658,13 +2709,15 @@
      "job_ko": "주점 문지기",
      "base": "nation_square",
      "place": "a high-fantasy tavern gate — a heavy wooden door with a lantern, a bench, barrels stacked at the side and a crowded street behind",
-     "activity": "she is a doorkeeper standing with a hand on her hip beside the lantern",
-     "preset": "hip_contra",
+     "activity": "she is a doorkeeper walking along the tavern gate, a small lantern held low at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a tavern doorkeeper look fitted to her body — a short fitted leather vest over a bandeau top, a short split skirt, bare shoulders, studded bracers and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a tavern doorkeeper look — a sleeveless fitted leather vest over a short-sleeved top, a knee-length split skirt, studded bracers and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a tavern doorkeeper look — a long-sleeved fitted leather vest, loose trousers, studded bracers and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a small lantern"
     },
     "mecha": {
      "job_ko": "주점 문지기",
@@ -2703,13 +2756,15 @@
      "job_ko": "씨름 선수",
      "base": "nation_square",
      "place": "a high-fantasy wrestling ring — a circle of packed sand, a rope fence, a bucket of water and a bench with towels",
-     "activity": "she is a wrestler giving a thumbs up beside the rope fence",
-     "preset": "thumbs_waist",
+     "activity": "she is a wrestler crouching beside the bench, folding a towel",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a wrestler look fitted to her body — a short fitted wrestling top with a knotted front, short fitted shorts, bare shoulders and a wide belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a wrestler look — a sleeveless fitted wrestling top, knee-length shorts and a wide belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a wrestler look — a long-sleeved fitted wrestling top, loose trousers and a wide belt, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a towel"
     },
     "mecha": {
      "job_ko": "씨름 선수",
@@ -2764,13 +2819,15 @@
      "job_ko": "목수",
      "base": "nation_workshop",
      "place": "a far-future carpenter's shop — a long workbench with curled wood shavings, planks stacked against the wall, a saw and a half-built chest",
-     "activity": "she is a carpenter giving a thumbs up beside the half-built chest",
-     "preset": "thumbs_waist",
+     "activity": "she is a carpenter standing at the long workbench, smoothing a plank with a hand plane in both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a carpenter look fitted to her body — a short work apron over a bandeau top, a short skirt, bare shoulders and leather gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a carpenter look — a work apron over a sleeveless top, a knee-length skirt and leather gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a carpenter look — a work apron over a long-sleeved top, loose trousers and leather gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a hand plane"
     }
    }
   },
@@ -2813,13 +2870,15 @@
      "job_ko": "창구 서기",
      "base": "nation_workshop",
      "place": "a far-future public office — a long wooden counter with a bell, stacks of papers tied with cord, an abacus and a row of drawers",
-     "activity": "she is a clerk standing with a hand on her hip beside the stacks of papers",
-     "preset": "hip_contra",
+     "activity": "she is a clerk kneeling on one knee, counting on an abacus",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "an office clerk look fitted to her body — a short fitted jacket over a bandeau top, a short pencil skirt, bare shoulders and a ribbon tie, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "an office clerk look — a sleeveless fitted jacket over a short-sleeved top, a knee-length pencil skirt and a ribbon tie, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "an office clerk look — a long-sleeved fitted jacket closed to the collar, loose trousers and a ribbon tie, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "an abacus"
     }
    }
   },
@@ -2895,10 +2954,10 @@
     },
     "fantasy": {
      "job_ko": "천문 관측자",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a high-fantasy observatory deck — a round open terrace with a bronze ring instrument, a chart table and a starry sky",
-     "activity": "she is a stargazer looking down at the viewing tube in her hand",
-     "preset": "pocket_look",
+     "activity": "she is a stargazer kneeling on one knee, looking through a bronze viewing tube at the starry sky",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a stargazer look fitted to her body — a short dark wrap top with open shoulders, a short skirt, long thin gloves and a sash with star patterns, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a stargazer look — a sleeveless dark wrap top, a knee-length skirt, thin gloves and a sash with star patterns, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
@@ -3109,13 +3168,15 @@
      "job_ko": "펠트 공예가",
      "base": "nation_workshop",
      "place": "a far-future felt workshop — a table of soaked wool and rolling mats, baskets of dyed fibre, drying hats on pegs and a steaming tub",
-     "activity": "she is a felt-maker standing with a hand on her hip beside the steaming tub",
-     "preset": "hip_contra",
+     "activity": "she is a felt-maker crouching by the table, unrolling a rolling mat to check the wool",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a felt maker look fitted to her body — a short felt vest over a bandeau top, a short felt skirt, bare shoulders and wrist warmers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a felt maker look — a sleeveless felt vest over a fitted top, a knee-length felt skirt and wrist warmers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a felt maker look — a long-sleeved felt vest, loose trousers and wrist warmers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a rolling mat"
     }
    }
   },
@@ -3205,13 +3266,14 @@
      "job_ko": "화가",
      "base": "nation_workshop",
      "place": "a far-future painter's gallery — a tall easel with a half-finished canvas, framed paintings on the walls, a table of paints and a skylight",
-     "activity": "she is a painter giving a thumbs up at the half-finished canvas",
-     "preset": "thumbs_waist",
+     "activity": "she is a painter perched on a stool, mixing a little paint at the table of paints",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a painter look fitted to her body — a short paint-stained smock off the shoulder over a bandeau top, a short skirt and a scarf around her neck, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a painter look — a paint-stained smock over a sleeveless top, a knee-length skirt and a scarf around her neck, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a painter look — a paint-stained long-sleeved smock, loose trousers and a scarf around her neck, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -3252,13 +3314,15 @@
      "job_ko": "골키퍼",
      "base": "nation_square",
      "place": "a far-future ball field — a goal frame with a net, white lines in the grass, a bench with towels and a ball on the ground",
-     "activity": "she is a goalkeeper waving from in front of the goal",
-     "preset": "wave_chest",
+     "activity": "she is a goalkeeper standing in front of the goal, gripping a ball in both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a goalkeeper look fitted to her body — a short fitted jersey with bare midriff, short fitted shorts, padded gloves and knee guards, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a goalkeeper look — a sleeveless fitted jersey, knee-length shorts, padded gloves and knee guards, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a goalkeeper look — a long-sleeved fitted jersey, long loose trousers, padded gloves and knee guards, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a ball"
     }
    }
   },
@@ -3295,15 +3359,17 @@
     },
     "mecha": {
      "job_ko": "거리 악사",
-     "base": "nation_temple",
+     "base": "nation_square",
      "place": "a far-future plaza corner — a woven mat with a low zither on it, a stone bench, a hanging lantern and a crowd's empty cushions",
-     "activity": "she is a street musician standing with her hands together beside the mat",
-     "preset": "clasp_low",
+     "activity": "she is a street musician walking across the plaza, a low zither carried at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a street musician look fitted to her body — a short fitted wrap top with open shoulders, a short layered skirt, thin gloves and a flower in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a street musician look — a sleeveless wrap top, a knee-length layered skirt, thin gloves and a flower in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a street musician look — a long-sleeved wrap top, a long layered skirt over trousers, thin gloves and a flower in her hair, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a low zither"
     }
    }
   },
@@ -3395,14 +3461,14 @@
      "job_ko": "하숙집 주인",
      "base": "nation_workshop",
      "place": "a far-future boarding house parlor — a low table with a tea pot, a shelf of keys on hooks, a mat floor and a sliding window",
-     "activity": "she is a landlady looking down at a brass key taken from its hook",
-     "preset": "pocket_look",
+     "activity": "she is a landlady standing at the shelf of keys, polishing a brass key with both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a boarding house keeper look fitted to her body — a short fitted wrap blouse off the shoulder, a short layered skirt and a keys sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a boarding house keeper look — a sleeveless fitted wrap blouse, a knee-length layered skirt and a keys sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a boarding house keeper look — a long-sleeved fitted wrap blouse, long layered skirt and a keys sash, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
      },
-     "use": "sig_hold",
+     "use": "sig_both",
      "prop": "a brass key"
     }
    }
@@ -3446,13 +3512,15 @@
      "job_ko": "안경사",
      "base": "nation_workshop",
      "place": "a far-future optician's shop — a glass counter with rows of lenses and frames, a small mirror, a lamp and a shelf of cases",
-     "activity": "she is an optician waving from behind the glass counter",
-     "preset": "wave_chest",
+     "activity": "she is an optician standing behind the glass counter, wiping a small lens with both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "an optician look fitted to her body — a short fitted jacket over a bandeau top, a short skirt, bare shoulders and a cord for her glasses, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "an optician look — a sleeveless fitted jacket over a short-sleeved top, a knee-length skirt and a cord for her glasses, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "an optician look — a long-sleeved fitted jacket, loose trousers and a cord for her glasses, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a small lens"
     }
    }
   },
@@ -3495,13 +3563,15 @@
      "job_ko": "나침반 가게 주인",
      "base": "nation_workshop",
      "place": "a far-future compass shop — shelves of bronze compasses, a globe, rolled charts, a brass lamp and a window with a view of the road",
-     "activity": "she is a shopkeeper standing with a hand on her hip beside the shelves of compasses",
-     "preset": "hip_contra",
+     "activity": "she is a shopkeeper kneeling on one knee, checking a bronze compass",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a compass shop owner look fitted to her body — a short wrap jacket open over a bandeau top, a short skirt, bare shoulders and a cord with a compass charm, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a compass shop owner look — a short wrap jacket over a sleeveless top, a knee-length skirt and a cord with a compass charm, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a compass shop owner look — a long wrap jacket closed at the collar, loose trousers and a cord with a compass charm, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a bronze compass"
     }
    }
   },
@@ -3579,25 +3649,29 @@
      "job_ko": "의상 모델",
      "base": "nation_square",
      "place": "a high-fantasy fashion studio — a raised platform with draped silk, a standing mirror, racks of flowing gowns and soft lights",
-     "activity": "she is a model standing with a hand on her hip in a flowing silk gown",
-     "preset": "hip_contra",
+     "activity": "she is a model crouching on the platform, adjusting a length of draped silk",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a fashion model look fitted to her body — a flowing silk gown with a deep neckline and bare shoulders, a high side slit, a thin sash and long thin gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a fashion model look — a flowing sleeveless silk gown, a knee-length hem, a thin sash and thin gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a fashion model look — a flowing long-sleeved silk gown closed at the neck, a long hem, a thin sash and thin gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a length of silk"
     },
     "mecha": {
      "job_ko": "의상 모델",
-     "base": "nation_temple",
+     "base": "nation_training",
      "place": "a far-future fashion studio — a raised platform with draped silk, a standing mirror, racks of flowing gowns and soft lights",
-     "activity": "she is a model standing with her hands folded, waiting under the soft lights",
-     "preset": "clasp_low",
+     "activity": "she is a model kneeling on one knee, folding a piece of draped silk",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a fashion model look fitted to her body — a flowing silk gown with a deep neckline and bare shoulders, a high side slit, a thin sash and long thin gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a fashion model look — a flowing sleeveless silk gown, a knee-length hem, a thin sash and thin gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a fashion model look — a flowing long-sleeved silk gown closed at the neck, a long hem, a thin sash and thin gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a piece of silk"
     }
    }
   },
@@ -3638,13 +3712,15 @@
      "job_ko": "사서",
      "base": "nation_workshop",
      "place": "a far-future library stacks — tall shelves, a rolling ladder, reading lamps and a cart of returned scrolls",
-     "activity": "she is a librarian standing with a hand on her hip, scanning the tall shelves",
-     "preset": "hip_contra",
+     "activity": "she is a librarian crouching beside the cart, checking a returned scroll",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a librarian look fitted to her body — a fitted sleeveless wrap top with a short pleated skirt, a long cardigan sash and low boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a librarian look — a sleeveless fitted blouse, a knee-length pleated skirt, a light sash and low boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a librarian look — a long-sleeved blouse buttoned high, a long skirt, a long vest and low boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a returned scroll"
     }
    }
   },
@@ -3687,13 +3763,15 @@
      "job_ko": "산악 안내인",
      "base": "nation_square",
      "place": "a far-future mountain trailhead — a stony path climbing between pines, a cairn of stacked stones and a wooden trail marker",
-     "activity": "she is a mountain guide giving a thumbs up beside the cairn",
-     "preset": "thumbs_waist",
+     "activity": "she is a mountain guide stacking a flat stone onto the cairn with both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a mountain guide look fitted to her body — a cropped hooded vest over a bandeau top, short trail shorts with a wrap sash, gloves and sturdy boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a mountain guide look — a sleeveless hooded vest, knee-length trail trousers, gloves and sturdy boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a mountain guide look — a long-sleeved hooded jacket, loose trousers, gloves and sturdy boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a flat stone"
     }
    }
   },
@@ -3722,25 +3800,29 @@
      "job_ko": "경기 심판",
      "base": "nation_square",
      "place": "a high-fantasy sports field — chalk lines on packed earth, a pair of goal posts, a bench and a bucket of marker flags",
-     "activity": "she is a referee standing with a hand on her hip, watching the play",
-     "preset": "hip_contra",
+     "activity": "she is a referee walking along the chalk lines with a marker flag held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a referee look fitted to her body — a fitted cropped tunic with a striped sash, short pleated shorts, wrist bands and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a referee look — a sleeveless striped tunic, knee-length shorts, wrist bands and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a referee look — a long-sleeved striped tunic, long trousers, wrist bands and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a marker flag"
     },
     "mecha": {
      "job_ko": "경기 심판",
      "base": "nation_square",
      "place": "a far-future sports field — chalk lines on packed earth, a pair of goal posts, a bench and a bucket of marker flags",
-     "activity": "she is a referee waving to signal a restart near the chalk lines",
-     "preset": "wave_chest",
+     "activity": "she is a referee crouching near the chalk lines, looking over a marker flag",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a referee look fitted to her body — a fitted cropped tunic with a striped sash, short pleated shorts, wrist bands and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a referee look — a sleeveless striped tunic, knee-length shorts, wrist bands and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a referee look — a long-sleeved striped tunic, long trousers, wrist bands and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a marker flag"
     }
    }
   },
@@ -3767,15 +3849,16 @@
     },
     "fantasy": {
      "job_ko": "서점 주인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a high-fantasy bookshop corner — a reading chair beside piled books, a lantern, a crowded shelf and a small tea table",
-     "activity": "she is a bookshop owner standing with folded hands, waiting for customers",
-     "preset": "clasp_low",
+     "activity": "she is a bookshop owner seated sideways on a stool, mending the spine of a small book on the tea table",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a bookshop owner look fitted to her body — a fitted sleeveless wrap blouse with a short layered skirt, a long open shawl and soft boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a bookshop owner look — a sleeveless wrap blouse, a knee-length layered skirt, a light shawl and soft boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a bookshop owner look — a long-sleeved wrap blouse, a long skirt, a long shawl and soft boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "tool_fix"
     },
     "mecha": {
      "job_ko": "서점 주인",
@@ -3881,10 +3964,10 @@
     },
     "mecha": {
      "job_ko": "메이크업 아티스트",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a far-future dressing room — a mirror ringed with lamps, a table of small pots and brushes, a folding screen and a cushioned seat",
-     "activity": "she is a makeup artist standing with a hand on her hip, waiting for her next client",
-     "preset": "hip_contra",
+     "activity": "she is a makeup artist sitting on the cushioned seat, thinking over her next look",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a makeup artist look fitted to her body — a fitted cropped smock top tied at the front, a short wrap skirt, a long apron belt and slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a makeup artist look — a sleeveless smock top, a knee-length wrap skirt, an apron belt and slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
@@ -3926,15 +4009,17 @@
     },
     "mecha": {
      "job_ko": "성문 수문장",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future city gate — a flight of stone steps up to a barred double door, a great bar of timber, a watch drum and a brazier",
-     "activity": "she is a gatekeeper standing with a hand on her hip before the barred door",
-     "preset": "hip_contra",
+     "activity": "she is a gatekeeper kneeling on one knee beside the watch drum, checking it with a wooden mallet",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a gatekeeper look fitted to her body — a cropped pea-style jacket open over a bandeau top, a short skirt, tall socks and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a gatekeeper look — a sleeveless short jacket, a knee-length skirt, tall socks and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a gatekeeper look — a long-sleeved jacket buttoned up, loose trousers and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a wooden mallet"
     }
    }
   },
@@ -3963,13 +4048,15 @@
      "job_ko": "마술사",
      "base": "nation_workshop",
      "place": "a high-fantasy small stage — heavy curtains, a round table with a cloth, a hanging lamp and a trunk with a half-open lid",
-     "activity": "she is a magician waving to the empty seats before her trick",
-     "preset": "wave_chest",
+     "activity": "she is a magician standing at the round table, preparing a trick with a small wand in both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a stage magician look fitted to her body — a fitted cropped cape-jacket over a bandeau top, a short flared skirt, long gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a stage magician look — a sleeveless short cape-vest, a knee-length flared skirt, long gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a stage magician look — a long-sleeved jacket with a cape, long trousers, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a small wand"
     },
     "mecha": {
      "job_ko": "마술사",
@@ -4024,15 +4111,17 @@
     },
     "mecha": {
      "job_ko": "도장 공방 장인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future seal workshop — a workbench with stone blocks, tiny chisels, a red ink pad and a shelf of finished seals",
-     "activity": "she is a seal carver standing with her hands together beside the workbench after the day's work",
-     "preset": "clasp_low",
+     "activity": "she is a seal carver kneeling on one knee beside the workbench, inspecting a tiny chisel",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a seal carver look fitted to her body — a fitted sleeveless wrap top with a short split skirt, a leather apron and wrist wraps, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a seal carver look — a short-sleeved wrap top, a knee-length split skirt, a leather apron and wrist wraps, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a seal carver look — a long-sleeved wrap top, loose trousers, a leather apron and wrist wraps, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a tiny chisel"
     }
    }
   },
@@ -4126,13 +4215,15 @@
      "job_ko": "목수",
      "base": "nation_square",
      "place": "a far-future building site — raw timber posts, a half-framed roof, sawhorses and curled wood shavings on the ground",
-     "activity": "she is a carpenter standing with a hand on her hip, looking over the half-framed roof",
-     "preset": "hip_contra",
+     "activity": "she is a carpenter walking past the sawhorses with a wooden mallet held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a carpenter look fitted to her body — a fitted sleeveless work top with a short wrap skirt, a tool belt, gloves and work boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a carpenter look — a sleeveless work top, knee-length work trousers, a tool belt, gloves and work boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a carpenter look — a long-sleeved work shirt, long work trousers, a tool belt, gloves and work boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a wooden mallet"
     }
    }
   },
@@ -4210,25 +4301,28 @@
      "job_ko": "만담가",
      "base": "nation_workshop",
      "place": "a high-fantasy storytelling hall — a low platform with a stool, hanging lanterns, rows of empty cushions and a small drum",
-     "activity": "she is a storyteller waving to the rows of empty cushions as she begins",
-     "preset": "wave_chest",
+     "activity": "she is a storyteller crouching beside the low platform, tuning a small drum",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a storyteller look fitted to her body — a fitted cropped robe-jacket with a wide sash, a short flared skirt, arm cuffs and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a storyteller look — a short-sleeved robe-jacket with a sash, a knee-length flared skirt and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a storyteller look — a long-sleeved robe with a sash, a long skirt and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small drum"
     },
     "mecha": {
      "job_ko": "만담가",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future storytelling hall — a low platform with a stool, hanging lanterns, rows of empty cushions and a small drum",
-     "activity": "she is a storyteller standing with her hands together before a tale",
-     "preset": "clasp_low",
+     "activity": "she is a storyteller seated sideways on a stool, adjusting the skin of the small drum on her lap",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a storyteller look fitted to her body — a fitted cropped robe-jacket with a wide sash, a short flared skirt, arm cuffs and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a storyteller look — a short-sleeved robe-jacket with a sash, a knee-length flared skirt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a storyteller look — a long-sleeved robe with a sash, a long skirt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -4271,13 +4365,15 @@
      "job_ko": "구급 대원",
      "base": "nation_square",
      "place": "a far-future roadside aid post — a canvas shelter, a satchel of supplies, a water jug and a folded stretcher",
-     "activity": "she is a medic giving a thumbs up in front of the canvas shelter",
-     "preset": "thumbs_waist",
+     "activity": "she is a medic walking past the canvas shelter with a supply satchel held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a field medic look fitted to her body — a cropped wrap vest over a bandeau top, short shorts with a sash, a satchel and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a field medic look — a sleeveless wrap vest, knee-length trousers, a satchel and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a field medic look — a long-sleeved wrap jacket, long trousers, a satchel and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a supply satchel"
     }
    }
   },
@@ -4613,10 +4709,10 @@
     },
     "mecha": {
      "job_ko": "유리 공예가",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a far-future glass studio — a glowing furnace, rows of colored bottles, a heat bench and a bucket of water",
-     "activity": "she is a glassblower standing with a hand on her hip beside the glowing furnace, resting",
-     "preset": "hip_contra",
+     "activity": "she is a glassblower sitting with her ankles crossed beside the furnace, resting before the next piece",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a glassblower look fitted to her body — a fitted sleeveless top under a short leather apron, a short skirt, long gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a glassblower look — a sleeveless top under a leather apron, a knee-length skirt, long gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
@@ -4660,13 +4756,15 @@
      "job_ko": "씨름 선수",
      "base": "nation_square",
      "place": "a far-future wrestling ring — a circle of sand, a rope boundary, a bucket of water and a bench with folded sashes",
-     "activity": "she is a wrestler giving a thumbs up beside the rope boundary",
-     "preset": "thumbs_waist",
+     "activity": "she is a wrestler crouching beside the bench, checking a folded sash",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a wrestler look fitted to her body — a fitted cropped bout top with a wide waist sash, short fitted shorts and wrist tapes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a wrestler look — a sleeveless bout top with a wide sash, knee-length shorts and wrist tapes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a wrestler look — a long-sleeved bout jacket with a wide sash, long loose trousers and wrist tapes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a folded sash"
     }
    }
   },
@@ -4746,13 +4844,15 @@
      "job_ko": "침술사",
      "base": "nation_workshop",
      "place": "a high-fantasy healing room — a padded table, jars of dried herbs, a small brazier of warm stones and a hanging cloth screen",
-     "activity": "she is an acupuncturist standing with a hand on her hip, waiting for the treatment to begin",
-     "preset": "hip_contra",
+     "activity": "she is an acupuncturist standing at the padded table, measuring dried herbs from a small jar",
+     "preset": "counter_work",
      "outfit": {
       "bold": "an acupuncturist look fitted to her body — a fitted cropped wrap tunic with a sash, a short skirt and soft slippers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "an acupuncturist look — a sleeveless wrap tunic, a knee-length skirt and soft slippers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "an acupuncturist look — a long-sleeved wrap tunic, long trousers and soft slippers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a small jar of dried herbs"
     },
     "mecha": {
      "job_ko": "침술사",
@@ -4805,15 +4905,17 @@
     },
     "mecha": {
      "job_ko": "염색 장인",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future dye yard — vats of deep red dye, long cloths hanging on poles, a wooden stirring paddle and a drying rack",
-     "activity": "she is a dyer standing with a hand on her hip among the hanging cloths",
-     "preset": "hip_contra",
+     "activity": "she is a dyer kneeling on one knee beside a vat, stirring the deep red dye with a wooden paddle",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a dyer look fitted to her body — a cropped sleeveless tunic with a red headscarf, a short wrap skirt, a long apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a dyer look — a sleeveless tunic, a red headscarf, a knee-length wrap skirt, an apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a dyer look — a long-sleeved tunic, a red headscarf, long trousers, an apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a wooden stirring paddle"
     }
    }
   },
@@ -4840,15 +4942,17 @@
     },
     "fantasy": {
      "job_ko": "삼대째 찻집 주인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a high-fantasy old tea house — a worn wooden counter, rows of tea jars, a brass kettle and low stools",
-     "activity": "she is a tea house keeper standing with her hands folded behind the worn counter",
-     "preset": "clasp_low",
+     "activity": "she is a tea house keeper kneeling on one knee by the low stools, checking the leaves in a tea jar",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a tea house keeper look fitted to her body — a fitted sleeveless wrap top with a short split skirt, a long apron sash and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a tea house keeper look — a sleeveless wrap top, a knee-length split skirt, an apron sash and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a tea house keeper look — a long-sleeved wrap top, a long skirt, an apron sash and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a tea jar"
     },
     "mecha": {
      "job_ko": "삼대째 찻집 주인",
@@ -4905,13 +5009,15 @@
      "job_ko": "궁술 사범",
      "base": "nation_square",
      "place": "a far-future archery range — a row of straw targets, a quiver stand, a long grassy lane and a rail with arm guards",
-     "activity": "she is an archery coach waving to signal that the lane is clear",
-     "preset": "wave_chest",
+     "activity": "she is an archery coach walking down the grassy lane with a quiver held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "an archery coach look fitted to her body — a fitted cropped tunic with a chest guard, a short split skirt, an arm guard and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "an archery coach look — a sleeveless tunic with a chest guard, a knee-length split skirt, an arm guard and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "an archery coach look — a long-sleeved tunic with a chest guard, loose trousers, an arm guard and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a quiver"
     }
    }
   },
@@ -4953,13 +5059,15 @@
      "job_ko": "퀼트 장인",
      "base": "nation_workshop",
      "place": "a far-future quilting room — a wide frame of patchwork, baskets of cloth scraps, a low stool and a sunlit window",
-     "activity": "she is a quilter giving a thumbs up beside her wide quilting frame",
-     "preset": "thumbs_waist",
+     "activity": "she is a quilter crouching beside the wide frame, studying a cloth scrap",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a quilter look fitted to her body — a fitted sleeveless top with a short patchwork skirt, a thimble ring and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a quilter look — a short-sleeved top, a knee-length patchwork skirt, a thimble ring and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a quilter look — a long-sleeved top, a long patchwork skirt, a thimble ring and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a cloth scrap"
     }
    }
   },
@@ -5002,13 +5110,15 @@
      "job_ko": "갈대 바구니 장인",
      "base": "nation_square",
      "place": "a far-future reed marsh bank — tall reeds swaying, finished baskets in a stack, a flat shore and a drying frame",
-     "activity": "she is a basket weaver standing with a hand on her hip beside the stack of baskets",
-     "preset": "hip_contra",
+     "activity": "she is a basket weaver walking along the flat shore with a finished basket held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a basket weaver look fitted to her body — a cropped wrap top with a sash, a short reed-woven skirt, wrist wraps and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a basket weaver look — a sleeveless wrap top, a knee-length skirt, wrist wraps and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a basket weaver look — a long-sleeved wrap top, loose trousers, wrist wraps and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a finished basket"
     }
    }
   },
@@ -5033,27 +5143,31 @@
     },
     "fantasy": {
      "job_ko": "개찰 안내원",
-     "base": "nation_temple",
+     "base": "nation_square",
      "place": "a high-fantasy event entrance — a broad arched gate, strings of lanterns, a ticket booth and a rope line",
-     "activity": "she is a gate attendant standing with her hands folded beneath the arched gate",
-     "preset": "clasp_low",
+     "activity": "she is a gate attendant crouching beneath the arched gate, looking over a small lantern",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a gate attendant look fitted to her body — a fitted cropped uniform jacket with a sash, a short pleated skirt, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a gate attendant look — a sleeveless uniform jacket, a knee-length pleated skirt, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a gate attendant look — a long-sleeved uniform jacket, a long skirt, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small lantern"
     },
     "mecha": {
      "job_ko": "개찰 안내원",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future event entrance — a broad arched gate, strings of lanterns, a ticket booth and a rope line",
-     "activity": "she is a gate attendant standing with a hand on her hip by the rope line",
-     "preset": "hip_contra",
+     "activity": "she is a gate attendant kneeling on one knee by the rope line, trimming a small lantern",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a gate attendant look fitted to her body — a fitted cropped uniform jacket with a sash, a short pleated skirt, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a gate attendant look — a sleeveless uniform jacket, a knee-length pleated skirt, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a gate attendant look — a long-sleeved uniform jacket, a long skirt, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small lantern"
     }
    }
   },
@@ -5131,25 +5245,29 @@
      "job_ko": "스케이터",
      "base": "nation_square",
      "place": "a high-fantasy frozen lake — a wide sheet of ice, a snowy bank, a low bench and a line of bare trees",
-     "activity": "she is an ice skater standing with a hand on her hip on the ice",
-     "preset": "hip_contra",
+     "activity": "she is an ice skater standing on the ice, checking the blades of a pair of skates with both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "an ice skater look fitted to her body — a fitted long-sleeve short dress with a flared hem, bladed skates, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "an ice skater look — a fitted short-sleeved short dress with a flared hem, a warm wrap and bladed skates, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "an ice skater look — a long-sleeved tunic dress to the knee, thick trousers underneath, a scarf and bladed skates, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a pair of skates"
     },
     "mecha": {
      "job_ko": "스케이터",
      "base": "nation_square",
      "place": "a far-future frozen lake — a wide sheet of ice, a snowy bank, a low bench and a line of bare trees",
-     "activity": "she is an ice skater waving from the snowy bank",
-     "preset": "wave_chest",
+     "activity": "she is an ice skater walking along the snowy bank with a pair of skates held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "an ice skater look fitted to her body — a fitted long-sleeve short dress with a flared hem, bladed skates, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "an ice skater look — a fitted short-sleeved short dress with a flared hem, a warm wrap and bladed skates, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "an ice skater look — a long-sleeved tunic dress to the knee, thick trousers underneath, a scarf and bladed skates, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a pair of skates"
     }
    }
   },
@@ -5239,13 +5357,15 @@
      "job_ko": "뱃사공",
      "base": "nation_square",
      "place": "a far-future river landing — a wooden pier, moored empty boats, coiled ropes and mist over the water",
-     "activity": "she is a boatwoman standing with a hand on her hip, watching the mist over the water",
-     "preset": "hip_contra",
+     "activity": "she is a boatwoman crouching on the wooden pier, checking a coil of rope",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a boatwoman look fitted to her body — a cropped wrap top with a sash, short trousers, a rope belt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a boatwoman look — a sleeveless wrap top, knee-length trousers, a rope belt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a boatwoman look — a long-sleeved wrap top, long trousers, a rope belt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a coil of rope"
     }
    }
   },
@@ -5288,13 +5408,14 @@
      "job_ko": "무료 급식 식당 주인",
      "base": "nation_workshop",
      "place": "a far-future soup kitchen — a big steaming pot, long tables with bowls, a stack of wooden spoons and a warm hearth",
-     "activity": "she is a kitchen owner standing with a hand on her hip near the steaming pot",
-     "preset": "hip_contra",
+     "activity": "she is a kitchen owner seated sideways at a long table, sorting a stack of wooden spoons",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a soup kitchen cook look fitted to her body — a fitted sleeveless top with a short skirt, a big apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a soup kitchen cook look — a short-sleeved top, a knee-length skirt, a big apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a soup kitchen cook look — a long-sleeved top, a long skirt, a big apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -5417,10 +5538,10 @@
     },
     "fantasy": {
      "job_ko": "마임 배우",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a high-fantasy tiny theater — a bare stage, a painted backdrop, a spotlight lantern and a few chairs in the dark",
-     "activity": "she is a mime performer standing in a playful pose with a hand on her hip",
-     "preset": "hip_contra",
+     "activity": "she is a mime performer sitting on a chair with her ankles crossed, thinking through her next act",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a mime look fitted to her body — a fitted striped sleeveless top with a short flared skirt, white gloves and ankle boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a mime look — a striped short-sleeved top, a knee-length flared skirt, white gloves and ankle boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
@@ -5431,13 +5552,15 @@
      "job_ko": "마임 배우",
      "base": "nation_workshop",
      "place": "a far-future tiny theater — a bare stage, a painted backdrop, a spotlight lantern and a few chairs in the dark",
-     "activity": "she is a mime performer waving silently toward the dark chairs",
-     "preset": "wave_chest",
+     "activity": "she is a mime performer standing at the stage edge, adjusting a spotlight lantern with both hands",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a mime look fitted to her body — a fitted striped sleeveless top with a short flared skirt, white gloves and ankle boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a mime look — a striped short-sleeved top, a knee-length flared skirt, white gloves and ankle boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a mime look — a striped long-sleeved top, a long skirt, white gloves and ankle boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a spotlight lantern"
     }
    }
   },
@@ -5525,15 +5648,17 @@
     },
     "mecha": {
      "job_ko": "풍경 스케치 화가",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future southern shore — a wide pale beach, palms bending in the wind, a far headland and a folding easel on the sand",
-     "activity": "she is a landscape painter standing with a hand on her hip, gazing at the far headland",
-     "preset": "hip_contra",
+     "activity": "she is a landscape painter kneeling on one knee on the sand beside her easel, painting with a small brush",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a landscape painter look fitted to her body — a cropped smock top tied at the front, a short wrap skirt, a wide sunhat and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a landscape painter look — a sleeveless smock, a knee-length wrap skirt, a wide sunhat and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a landscape painter look — a long-sleeved smock, a long skirt, a wide sunhat and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small brush"
     }
    }
   },
@@ -5611,13 +5736,15 @@
      "job_ko": "청과상",
      "base": "nation_square",
      "place": "a high-fantasy vegetable market — crates of greens and gourds, a hanging scale, striped awnings and a cart",
-     "activity": "she is a greengrocer standing with a hand on her hip beside the crates of greens",
-     "preset": "hip_contra",
+     "activity": "she is a greengrocer standing among the crates, weighing greens on a hanging scale with both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a greengrocer look fitted to her body — a fitted sleeveless top with a short skirt, a market apron and a head cloth, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a greengrocer look — a short-sleeved top, a knee-length skirt, a market apron and a head cloth, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a greengrocer look — a long-sleeved top, a long skirt, a market apron and a head cloth, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a hanging scale"
     },
     "mecha": {
      "job_ko": "청과상",
@@ -5758,15 +5885,17 @@
     },
     "fantasy": {
      "job_ko": "악단 지휘자",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a high-fantasy concert stage — a podium, rows of empty music stands, a big drum and a curtained back wall",
-     "activity": "she is a conductor standing at the podium with her hands folded after the final note",
-     "preset": "clasp_low",
+     "activity": "she is a conductor kneeling on one knee beside a music stand, marking a passage with her baton",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a conductor look fitted to her body — a fitted cropped tailcoat jacket over a sleeveless top, a short pleated skirt, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a conductor look — a short-sleeved tailcoat jacket, a knee-length pleated skirt, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a conductor look — a long-sleeved tailcoat jacket, a long skirt, gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a baton"
     },
     "mecha": {
      "job_ko": "악단 지휘자",
@@ -5807,25 +5936,29 @@
      "job_ko": "골키퍼",
      "base": "nation_square",
      "place": "a high-fantasy ball field — a wide goal frame with a net, a worn grass patch, a water bottle bench and a far line of flags",
-     "activity": "she is a young goalkeeper standing with a hand on her hip by the goal frame",
-     "preset": "hip_contra",
+     "activity": "she is a young goalkeeper walking toward the bench with a water bottle held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a goalkeeper look fitted to her body — a fitted cropped jersey, short shorts, big gloves, long socks and cleats, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a goalkeeper look — a short-sleeved jersey, knee-length shorts, big gloves, long socks and cleats, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a goalkeeper look — a long-sleeved jersey, long trousers, big gloves and cleats, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a water bottle"
     },
     "mecha": {
      "job_ko": "골키퍼",
      "base": "nation_square",
      "place": "a far-future ball field — a wide goal frame with a net, a worn grass patch, a water bottle bench and a far line of flags",
-     "activity": "she is a young goalkeeper waving toward the far line of flags",
-     "preset": "wave_chest",
+     "activity": "she is a young goalkeeper crouching beside the bench, looking over a water bottle",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a goalkeeper look fitted to her body — a fitted cropped jersey, short shorts, big gloves, long socks and cleats, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a goalkeeper look — a short-sleeved jersey, knee-length shorts, big gloves, long socks and cleats, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a goalkeeper look — a long-sleeved jersey, long trousers, big gloves and cleats, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a water bottle"
     }
    }
   },
@@ -5868,13 +6001,15 @@
      "job_ko": "헤어 디자이너",
      "base": "nation_workshop",
      "place": "a far-future hair salon — a tall chair, a wide mirror, combs and pins in jars and a basket of towels",
-     "activity": "she is a hair stylist standing with a hand on her hip beside the tall chair, waiting for a client",
-     "preset": "hip_contra",
+     "activity": "she is a hair stylist crouching beside the tall chair, choosing a comb from the jars",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a hair stylist look fitted to her body — a fitted sleeveless top with a short wrap skirt, a styling apron and heeled sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a hair stylist look — a short-sleeved top, a knee-length wrap skirt, a styling apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a hair stylist look — a long-sleeved top, a long skirt, a styling apron and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a comb"
     }
    }
   },
@@ -6103,13 +6238,14 @@
      "job_ko": "철물점 주인",
      "base": "nation_workshop",
      "place": "a far-future hardware shop — shelves of iron tools, hanging chains, buckets of nails and a tall step stool",
-     "activity": "she is a shopkeeper standing with a hand on her hip, waiting for customers",
-     "preset": "hip_contra",
+     "activity": "she is a shopkeeper seated sideways on a stool, sorting nails from a bucket on the step stool beside her",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "an ironmonger look fitted to her body — a fitted sleeveless work top with a short skirt, a canvas apron, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "an ironmonger look — a sleeveless work top, a knee-length skirt, a canvas apron, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "an ironmonger look — a long-sleeved work shirt, long trousers, a canvas apron, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -6134,15 +6270,17 @@
     },
     "fantasy": {
      "job_ko": "기공 강사",
-     "base": "nation_temple",
+     "base": "nation_training",
      "place": "a high-fantasy morning terrace — a flat stone deck, bamboo screens, a gong and a view of misty hills",
-     "activity": "she is a qigong instructor standing with her hands together facing the misty hills",
-     "preset": "clasp_low",
+     "activity": "she is a qigong instructor kneeling on one knee beside the gong, tapping it softly with a mallet",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a qigong instructor look fitted to her body — a fitted cropped wrap top with a sash, a short split skirt and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a qigong instructor look — a sleeveless wrap top, a knee-length split skirt and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a qigong instructor look — a long-sleeved wrap top, loose trousers and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a gong mallet"
     },
     "mecha": {
      "job_ko": "기공 강사",
@@ -6195,13 +6333,15 @@
      "job_ko": "배 장식가",
      "base": "nation_square",
      "place": "a far-future boat dock — a painted boat bow with bright patterns, pots of paint, ribbons and a wooden rail",
-     "activity": "she is a boat decorator giving a thumbs up at her painted bow",
-     "preset": "thumbs_waist",
+     "activity": "she is a boat decorator standing at the painted bow, touching up a bright pattern with a paintbrush in both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a boat decorator look fitted to her body — a fitted cropped smock top with a sash, a short skirt, a painted apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a boat decorator look — a sleeveless smock, a knee-length skirt, a painted apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a boat decorator look — a long-sleeved smock, loose trousers, a painted apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a paintbrush"
     }
    }
   },
@@ -6242,10 +6382,10 @@
     },
     "mecha": {
      "job_ko": "장독 장인",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a far-future fermenting cellar — rows of big clay jars, wooden lids, a ladle rack and a dim lantern",
-     "activity": "she is a jar keeper standing with a hand on her hip among the rows of jars",
-     "preset": "hip_contra",
+     "activity": "she is a jar keeper sitting with her ankles crossed among the rows of jars, resting",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a jar keeper look fitted to her body — a fitted sleeveless top with a short wrap skirt, a long apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a jar keeper look — a short-sleeved top, a knee-length wrap skirt, a long apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
@@ -6293,13 +6433,15 @@
      "job_ko": "주방장",
      "base": "nation_workshop",
      "place": "a far-future busy kitchen — a chopping board of vegetables, a row of hanging knives, a steaming pot and a rack of pans",
-     "activity": "she is a head chef giving a thumbs up beside the steaming pot",
-     "preset": "thumbs_waist",
+     "activity": "she is a head chef kneeling on one knee beside the steaming pot, tasting from a wooden ladle",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a chef look fitted to her body — a fitted sleeveless double-breasted jacket with a short skirt, a long apron and a tall hat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a chef look — a short-sleeved double-breasted jacket, a knee-length skirt, an apron and a tall hat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a chef look — a long-sleeved double-breasted jacket, long trousers, an apron and a tall hat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a wooden ladle"
     }
    }
   },
@@ -6342,13 +6484,15 @@
      "job_ko": "그물 수선공",
      "base": "nation_square",
      "place": "a far-future fishing harbor — drying nets on poles, stacked traps, a rope pile and a wet stone quay",
-     "activity": "she is a net mender standing with a hand on her hip by the drying nets",
-     "preset": "hip_contra",
+     "activity": "she is a net mender walking along the wet stone quay with a coil of rope held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a net mender look fitted to her body — a cropped sleeveless tunic with a rope sash, short trousers, wrist wraps and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a net mender look — a sleeveless tunic, knee-length trousers, a rope sash and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a net mender look — a long-sleeved tunic, long trousers, a rope sash and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a coil of rope"
     }
    }
   },
@@ -6436,13 +6580,15 @@
      "job_ko": "꼬치구이 노점 주인",
      "base": "nation_square",
      "place": "a far-future street grill stall — a charcoal pit, rows of skewers, a hanging lamp and low stools",
-     "activity": "she is a grill cook giving a thumbs up beside the charcoal pit",
-     "preset": "thumbs_waist",
+     "activity": "she is a grill cook crouching beside the charcoal pit, turning a skewer",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a grill cook look fitted to her body — a fitted sleeveless top with a short skirt, a smoky apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a grill cook look — a short-sleeved top, a knee-length skirt, a smoky apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a grill cook look — a long-sleeved top, a long skirt, a smoky apron and a head cloth, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a skewer"
     }
    }
   },
@@ -6467,15 +6613,17 @@
     },
     "fantasy": {
      "job_ko": "연회장 주인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a high-fantasy banquet hall — long tables with gold dishes, hanging lamps, tall flower vases and a red carpet",
-     "activity": "she is a banquet hall owner standing with her hands folded on the red carpet",
-     "preset": "clasp_low",
+     "activity": "she is a banquet hall owner kneeling on one knee on the red carpet, setting a gold dish straight",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a banquet hostess look fitted to her body — a fitted off-shoulder gown with a high slit and a long sash, wrist cuffs and heeled sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a banquet hostess look — a short-sleeved gown to the knee with a sash and heeled sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a banquet hostess look — a long-sleeved gown to the floor with a sash and slippers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a gold dish"
     },
     "mecha": {
      "job_ko": "연회장 주인",
@@ -6530,13 +6678,15 @@
      "job_ko": "금은방 주인",
      "base": "nation_workshop",
      "place": "a far-future jewelry shop — a glass counter of rings and chains, velvet trays, a small scale and a hanging mirror",
-     "activity": "she is a jeweler standing with a hand on her hip behind the glass counter",
-     "preset": "hip_contra",
+     "activity": "she is a jeweler crouching beside the glass counter, arranging a velvet tray",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a jeweler look fitted to her body — a fitted off-shoulder blouse with a short layered skirt, long necklaces and heeled boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a jeweler look — a short-sleeved blouse, a knee-length layered skirt, necklaces and heeled boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a jeweler look — a long-sleeved blouse, a long skirt, necklaces and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a velvet tray"
     }
    }
   },
@@ -6577,15 +6727,17 @@
     },
     "mecha": {
      "job_ko": "찻잎 따는 사람",
-     "base": "nation_temple",
+     "base": "nation_training",
      "place": "a far-future tea terraces — rows of green bushes, morning dew on the leaves, a path of stones and a thatched shelter",
-     "activity": "she is a tea picker standing with her hands folded under the thatched shelter, resting",
-     "preset": "clasp_low",
+     "activity": "she is a tea picker kneeling on one knee among the green bushes, picking leaves into a small basket",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a tea picker look fitted to her body — a cropped sleeveless wrap top with a head scarf, a short skirt, arm sleeves and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a tea picker look — a sleeveless wrap top, a head scarf, a knee-length skirt, arm sleeves and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a tea picker look — a long-sleeved wrap top, a head scarf, long trousers and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a small basket"
     }
    }
   },
@@ -6628,13 +6780,15 @@
      "job_ko": "소방 대원",
      "base": "nation_square",
      "place": "a far-future fire post — a row of leather buckets, a ladder, a hand pump and smoke over rooftops",
-     "activity": "she is a firefighter standing with a hand on her hip, watching smoke over the rooftops",
-     "preset": "hip_contra",
+     "activity": "she is a firefighter walking past the ladder with a leather bucket held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a firefighter look fitted to her body — a cropped protective vest over a bandeau top, short trousers with a belt, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a firefighter look — a sleeveless protective vest, knee-length trousers, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a firefighter look — a long-sleeved protective coat, long trousers, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a leather bucket"
     }
    }
   },
@@ -6661,25 +6815,29 @@
      "job_ko": "장거리 달리기 선수",
      "base": "nation_square",
      "place": "a high-fantasy stream bank — a flat rock at the water, a dusty trail, a towel on a branch and distant hills",
-     "activity": "she is a long-distance runner standing with a hand on her hip, catching her breath",
-     "preset": "hip_contra",
+     "activity": "she is a long-distance runner walking along the dusty trail with a towel held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a distance runner look fitted to her body — a fitted cropped running top, short shorts with a sash, wrist bands and light shoes by her side, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a distance runner look — a sleeveless running top, knee-length shorts and light shoes by her side, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a distance runner look — a long-sleeved running top, long loose trousers and light shoes by her side, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a towel"
     },
     "mecha": {
      "job_ko": "장거리 달리기 선수",
      "base": "nation_square",
      "place": "a far-future stream bank — a flat rock at the water, a dusty trail, a towel on a branch and distant hills",
-     "activity": "she is a long-distance runner giving a thumbs up after the long run",
-     "preset": "thumbs_waist",
+     "activity": "she is a long-distance runner crouching at the flat rock by the water, wringing out a towel",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a distance runner look fitted to her body — a fitted cropped running top, short shorts with a sash, wrist bands and light shoes by her side, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a distance runner look — a sleeveless running top, knee-length shorts and light shoes by her side, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a distance runner look — a long-sleeved running top, long loose trousers and light shoes by her side, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a towel"
     }
    }
   },
@@ -6720,15 +6878,16 @@
     },
     "mecha": {
      "job_ko": "그림자극 연희자",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future shadow theater — a lit cloth screen, a lamp behind it, painted puppets in a rack and a low bench",
-     "activity": "she is a shadow puppeteer standing with her hands together before the lit screen",
-     "preset": "clasp_low",
+     "activity": "she is a shadow puppeteer seated sideways on the low bench, adjusting a painted puppet on her lap",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a puppeteer look fitted to her body — a fitted sleeveless top with a short skirt, a dark long open vest and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a puppeteer look — a sleeveless top, a knee-length skirt, a dark vest and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a puppeteer look — a long-sleeved top, a long skirt, a dark vest and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "tool_fix"
     }
    }
   },
@@ -6767,15 +6926,17 @@
     },
     "mecha": {
      "job_ko": "세탁소 주인",
-     "base": "nation_square",
+     "base": "nation_training",
      "place": "a far-future drying yard — long white sheets on lines, wooden tubs, a washboard and a bright sky",
-     "activity": "she is a laundry owner standing with a hand on her hip between the lines of sheets",
-     "preset": "hip_contra",
+     "activity": "she is a laundry owner kneeling on one knee beside a wooden tub, scrubbing a sheet on a washboard",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a laundry keeper look fitted to her body — a fitted white sleeveless top with a short wrap skirt, a white apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a laundry keeper look — a white short-sleeved top, a knee-length wrap skirt, a white apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a laundry keeper look — a white long-sleeved top, a long skirt, a white apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a washboard"
     }
    }
   },
@@ -6849,10 +7010,10 @@
     },
     "fantasy": {
      "job_ko": "여관 주인",
-     "base": "nation_study",
+     "base": "nation_inn",
      "place": "a high-fantasy guest house lobby — a wooden counter, a wall of key hooks, a lantern and a staircase",
-     "activity": "she is a guesthouse owner standing with her hands folded behind the wooden counter",
-     "preset": "clasp_low",
+     "activity": "she is a guesthouse owner sitting with her ankles crossed near the wooden counter, thinking over the evening's rooms",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a guesthouse keeper look fitted to her body — a fitted off-shoulder blouse with a short skirt, a soft shawl and slippers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a guesthouse keeper look — a short-sleeved blouse, a knee-length skirt, a soft shawl and slippers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
@@ -6912,13 +7073,15 @@
      "job_ko": "약초 뿌리 장수",
      "base": "nation_square",
      "place": "a far-future herb market — baskets of dried roots, hanging herb bundles, a plank table and a rough awning",
-     "activity": "she is an herb seller standing with a hand on her hip beneath the rough awning",
-     "preset": "hip_contra",
+     "activity": "she is an herb seller standing at the plank table, sorting dried roots with both hands",
+     "preset": "camera_shot",
      "outfit": {
       "bold": "a herb seller look fitted to her body — a cropped sleeveless wrap top with a sash, a short skirt, an apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a herb seller look — a sleeveless wrap top, a knee-length skirt, an apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a herb seller look — a long-sleeved wrap top, long trousers, an apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a dried root"
     }
    }
   },
@@ -6961,13 +7124,15 @@
      "job_ko": "장작 패는 사람",
      "base": "nation_square",
      "place": "a far-future wood yard — a chopping block, stacked logs, split firewood in piles and a roofed shed",
-     "activity": "she is a woodcutter standing with a hand on her hip beside the stacked logs",
-     "preset": "hip_contra",
+     "activity": "she is a woodcutter walking past the stacked logs with a wood axe held at her side",
+     "preset": "stride_prop",
      "outfit": {
       "bold": "a woodcutter look fitted to her body — a cropped sleeveless work top, short work trousers with a belt, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a woodcutter look — a sleeveless work top, knee-length work trousers, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a woodcutter look — a long-sleeved work shirt, long work trousers, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_low",
+     "prop": "a wood axe"
     }
    }
   },
@@ -7057,13 +7222,15 @@
      "job_ko": "제본가",
      "base": "nation_workshop",
      "place": "a far-future bookbinding workshop — a sewing frame, stacks of paper, spools of waxed thread and a press",
-     "activity": "she is a bookbinder standing with a hand on her hip beside the press",
-     "preset": "hip_contra",
+     "activity": "she is a bookbinder kneeling on one knee beside the press, checking a spool of waxed thread",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a bookbinder look fitted to her body — a fitted sleeveless top with a short wrap skirt, a work apron and arm sleeves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a bookbinder look — a short-sleeved top, a knee-length wrap skirt, a work apron and arm sleeves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a bookbinder look — a long-sleeved top, a long skirt, a work apron and arm sleeves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a spool of waxed thread"
     }
    }
   },
@@ -7208,13 +7375,15 @@
      "job_ko": "열쇠장이",
      "base": "nation_workshop",
      "place": "a far-future locksmith workshop — a bench of brass keys, a wall board of padlocks, a small vise and a lamp",
-     "activity": "she is a locksmith giving a thumbs-up to a freshly filed key",
-     "preset": "thumbs_waist",
+     "activity": "she is a locksmith kneeling on one knee by the bench, examining a freshly filed brass key",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a locksmith look fitted to her body — a short leather apron over a bandeau top, a short wrap skirt, fingerless gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a locksmith look — a leather apron over a sleeveless fitted top, a knee-length skirt, fingerless gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a locksmith look — a leather apron over a long-sleeved tunic, loose trousers, gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a brass key"
     }
    }
   },
@@ -7255,15 +7424,17 @@
     },
     "mecha": {
      "job_ko": "과일 가게 주인",
-     "base": "nation_study",
+     "base": "nation_workshop",
      "place": "a far-future fruit stall — crates of pears and peaches, a hanging scale, woven baskets and a striped awning",
-     "activity": "she is a fruit seller waiting with her hands folded for the first sale of the day",
-     "preset": "clasp_low",
+     "activity": "she is a fruit seller crouching beside the crates, picking out a ripe pear",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a fruit seller look fitted to her body — a cropped sleeveless blouse tied at the waist, a short apron skirt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a fruit seller look — a sleeveless blouse, a knee-length apron skirt and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a fruit seller look — a long-sleeved blouse, a long apron skirt and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a pear"
     }
    }
   },
@@ -7290,13 +7461,14 @@
      "job_ko": "레슬링 선수",
      "base": "nation_workshop",
      "place": "a high-fantasy wrestling hall — a round padded mat, hanging ropes, a bench with towels and a bell on a post",
-     "activity": "she is a wrestler flashing a thumbs-up after finishing her warm-up",
-     "preset": "thumbs_waist",
+     "activity": "she is a wrestler seated sideways on the bench, folding a towel after her warm-up",
+     "preset": "bench_fix",
      "outfit": {
       "bold": "a wrestler look fitted to her body — a fitted cropped singlet top, short fitted shorts with a sash belt and low boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a wrestler look — a fitted sleeveless singlet, knee-length fitted shorts, a sash belt and low boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a wrestler look — a long-sleeved fitted shirt, long fitted trousers, a sash belt and low boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "tool_fix"
     },
     "mecha": {
      "job_ko": "레슬링 선수",
@@ -7696,10 +7868,10 @@
     },
     "mecha": {
      "job_ko": "유리 절단공",
-     "base": "nation_workshop",
+     "base": "nation_inn",
      "place": "a far-future glazier workshop — a long cutting table, panes of colored glass leaning on racks, a square ruler and shards in a bin",
-     "activity": "she is a glass cutter giving a thumbs-up at a clean cut pane",
-     "preset": "thumbs_waist",
+     "activity": "she is a glass cutter sitting with her ankles crossed beside the cutting table, planning her next pane",
+     "preset": "ankles_sit",
      "outfit": {
       "bold": "a glass cutter look fitted to her body — a short work apron over a cropped top, a short skirt, thick gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a glass cutter look — a work apron over a sleeveless top, a knee-length skirt, thick gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
@@ -7784,13 +7956,15 @@
      "job_ko": "이어달리기 선수",
      "base": "nation_square",
      "place": "a high-fantasy running track — curved lanes with white lines, a start marker, a bench with water jugs and trees beyond",
-     "activity": "she is a relay runner catching her breath with a hand on her hip",
-     "preset": "hip_contra",
+     "activity": "she is a relay runner crouching beside the bench, lifting a water jug",
+     "preset": "squat_prop",
      "outfit": {
       "bold": "a relay runner look fitted to her body — a fitted crop top with a headband, short running shorts and light shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "moderate": "a relay runner look — a fitted sleeveless top, knee-length running shorts and light shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
       "low": "a relay runner look — a long-sleeved fitted top, long running trousers and light shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a water jug"
     },
     "mecha": {
      "job_ko": "이어달리기 선수",
@@ -7943,13 +8117,15 @@
      "job_ko": "온주 바텐더",
      "base": "nation_workshop",
      "place": "a far-future wine bar — a long wooden counter, a steaming kettle, rows of round jugs and small cups on a shelf",
-     "activity": "she is a bartender giving a thumbs-up as the kettle comes to a steam",
-     "preset": "thumbs_waist",
+     "activity": "she is a bartender standing at the wooden counter, pouring a warm drink from a round jug",
+     "preset": "counter_work",
      "outfit": {
       "bold": "a wine bartender look fitted to her body — a fitted vest over a bandeau top, a short wrap skirt, a half apron and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a wine bartender look — a fitted sleeveless vest, a knee-length skirt, a half apron and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a wine bartender look — a long-sleeved shirt under a vest, long trousers, a half apron and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_both",
+     "prop": "a round jug"
     }
    }
   },
@@ -8289,13 +8465,15 @@
      "job_ko": "사교춤 파트너",
      "base": "nation_workshop",
      "place": "a far-future dance hall — a polished wood floor, a row of tall mirrors, a bench along the wall and hanging lanterns",
-     "activity": "she is a dance partner posing with a hand on her hip before the tall mirrors",
-     "preset": "hip_contra",
+     "activity": "she is a dance partner kneeling on one knee near the bench, fastening a dance shoe",
+     "preset": "half_kneel_use",
      "outfit": {
       "bold": "a dance partner look fitted to her body — a short fitted bodice with bare shoulders, a short flared skirt and dance shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a dance partner look — a sleeveless fitted bodice, a knee-length flared skirt and dance shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a dance partner look — a long-sleeved fitted bodice, a long flared skirt and dance shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
-     }
+     },
+     "use": "sig_hold",
+     "prop": "a dance shoe"
     }
    }
   },
