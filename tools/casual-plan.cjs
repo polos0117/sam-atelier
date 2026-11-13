@@ -368,6 +368,28 @@ function recentize(cuts, old = [], recent = [], world = '') {
   for (const c of cuts) if (c.ofree) c.ofreeRecent = list.join('; ');
   return cuts;
 }
+/* ══ 캐릭터만의 컷(2026-11-13) — 표 data/casual-own.json. 세계마다 한 장을 일상 묶음에 더해(번호 OWN_N — 묶음 장수 · 묶음 규칙에는 안 센다) 필수로.
+   장면 글은 하나, 의상 줄만 노출 단계(bold → moderate → low)로 바뀐다. 손 · 구도는 표의 자세 추천을 트리로 풀어 쓴다(팔 규칙 그대로). 내용이 없는 카드 · 세계는 건너뛴다 */
+const OWN = fs.existsSync(path.join(ROOT, 'data', 'casual-own.json')) ? JSON.parse(read('data/casual-own.json')) : { cards: {} };
+const OWN_N = OWN.number || 90, OWN_LEVELS = OWN.levels || ['bold', 'moderate', 'low'];
+const ownRow = (card, world) => (((OWN.cards || {})[card.key] || {}).worlds || {})[world] || null;
+function ownCut(card, world, level = OWN_LEVELS[0], rr = Math.random) {
+  const row = ownRow(card, world); if (!row) return null;
+  if (!OWN_LEVELS.includes(level)) throw new Error('노출 단계는 ' + OWN_LEVELS.join(' · ') + ' — ' + level);
+  const g = { ...card.g, world, land: '' };   /* 바탕 장소는 받침만 빌린다 — 땅은 안 본다 */
+  const era = row.era || (C2.place(T2, row.base) || { eras: [] }).eras[0];
+  /* 직업의 도구(row.prop)는 「그 물건」 소품 자리로 든다(sig_hold · sig_raise · sig_both · sig_low — 어느 장소에서나, 손 글은 트리 것) */
+  let sc = { treeV: 2, era, place: row.base, ofam: row.ofam || 'everyday', prop: row.prop ? '0' : '', ...(row.prop ? { ownProp: row.prop } : {}) };
+  if (!C2.presetOk(T2, sc, row.preset, g) && !row.use) throw new Error(`${card.key} ${world} 캐릭터만의 컷: 자세 추천 ${row.preset} 가 바탕 장소 ${row.base} 에서 안 된다 — 표의 base · preset 을 고친다`);
+  sc = C2.repair(T2, C2.applyPreset(T2, sc, row.preset), g, l => l[0]);
+  if (row.use) { const next = C2.set(T2, sc, 'use', row.use, g, l => l[0]); if (next.use !== row.use) throw new Error(`${card.key} ${world} 캐릭터만의 컷: 소품 동작 ${row.use} 가 ${row.preset} @ ${row.base} 에서 안 된다`); sc = next; }
+  if (sc.posture !== (C2.preset(T2, row.preset) || {}).posture) throw new Error(`${card.key} ${world} 캐릭터만의 컷: ${row.preset} 의 자세가 ${row.base} 에서 안 된다`);
+  Object.assign(sc, C2.ambience(T2, sc, rr, { times: (T.CASUAL.times || []).map(x => x.key), hairs: [] }));
+  for (const k of AMBIENT) if (!sc[k]) delete sc[k];
+  const body = by(tree2.body, sc.body), head = by(tree2.head, sc.head);
+  return { ...sc, n: OWN_N, own: world, ...(row.prop ? { prop: '0', ownProp: row.prop } : {}), placeText: row.place, scene: row.activity, outfit: row.outfit[level] || row.outfit[OWN_LEVELS[0]], preset: row.preset,
+    expr: body && body.face_hidden && !(head && head.look_back) ? '' : EXPRS[Math.floor(rr() * EXPRS.length)], axes: { ...FIXED_AXES, skin_exposure: level }, aspect: '2:3', unlocked: [] };
+}
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |상황 노출 컷이 없다|갈래 자유 컷이 없다)/;
 function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [], recent = [] } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
@@ -450,7 +472,7 @@ function record(card, world, cut) {
 /* 이미 있는 컷 — 그 세계의 기록(<세계>-casualN.<화풍>-ui.json). dir 은 하나 또는 여럿(그림 저장소마다 records/<장수> — 2026-11-12) */
 function oldCuts(dirs, card, world) {
   const re = new RegExp('^' + world + '-casual(\\d+)\\.' + STYLE + '-ui\\.json$');
-  return dirList(dirs).flatMap(dir => fs.readdirSync(dir).filter(f => re.test(f)).map(f => {
+  return dirList(dirs).flatMap(dir => fs.readdirSync(dir).filter(f => re.test(f) && Number(re.exec(f)[1]) !== OWN_N).map(f => {   /* 캐릭터만의 컷(OWN_N)은 묶음 밖 */
     const rec = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
     return { n: Number(re.exec(f)[1]), ...C2.repair(T2, { ...rec.scene }, card.g), old: true };
   }));
@@ -458,7 +480,24 @@ function oldCuts(dirs, card, world) {
 /* 등록된 그 세계의 일상컷 번호 */
 function registered(card, world) {
   const v = (((JSON.parse(read('data/img.json')).img || {})[card.key] || {}).byStyle || {})[STYLE] || {};
-  return (((((v.byForm || {})[world] || {}).casual || {}).f) || []).map(f => Number((/_casual(\d+)\.webp$/.exec(f) || [])[1])).filter(Boolean);
+  return (((((v.byForm || {})[world] || {}).casual || {}).f) || []).map(f => Number((/_casual(\d+)\.webp$/.exec(f) || [])[1])).filter(n => n && n !== OWN_N);
+}
+/* 그 세계의 캐릭터만의 컷이 벌써 있나 — 등록부 또는 기록 */
+function ownDone(card, world, recDir) {
+  const v = (((JSON.parse(read('data/img.json')).img || {})[card.key] || {}).byStyle || {})[STYLE] || {};
+  const reg = (((((v.byForm || {})[world] || {}).casual || {}).f) || []).some(f => new RegExp('_casual' + OWN_N + '\\.webp$').test(f));
+  return reg || [].concat(recDir || []).some(d => fs.existsSync(path.join(d, `${world}-casual${OWN_N}.${STYLE}-ui.json`)));
+}
+/* 캐릭터만의 컷 한 걸음 — 표에 내용이 있고 아직 없으면(등록 · 기록) 한 장. 일상 묶음이 다 찬 카드도 이 한 장은 짠다.
+   --own-level 로 단계를 내려 다시 짓는다(막혔을 때 — IMAGE_RULES) */
+function ownStep(card, world, seed, opt, recDir, worlds) {
+  if (ownRow(card, world) && (opt['own-level'] || !(ownDone(card, world, recDir)))) {
+    const oc = ownCut(card, world, opt['own-level'] || OWN_LEVELS[0], rng((seed ^ 0x51ed270b) >>> 0));
+    console.log(`  ${OWN_N} ◆ 캐릭터만의 컷 — ${ownRow(card, world).job_ko} · 노출 ${oc.axes.skin_exposure} · ${oc.preset}`);
+    if (opt.out) { const out = worlds.length > 1 ? path.join(opt.out, 'plan-' + world) : opt.out; fs.mkdirSync(out, { recursive: true }); const rec = record(card, world, oc);
+      rec.own = { job_ko: ownRow(card, world).job_ko, level: oc.axes.skin_exposure, example: !!((OWN.cards[card.key] || {}).example) };
+      fs.writeFileSync(path.join(out, `${world}-casual${OWN_N}.${STYLE}-ui.json`), JSON.stringify(rec, null, 1) + '\n'); fs.writeFileSync(path.join(out, `${world}-casual${OWN_N}-prompt.txt`), rec.prompt); }
+  } else if (!ownRow(card, world)) console.log(`  ${OWN_N} ◇ 캐릭터만의 컷 — 아직 없음(data/casual-own.json 에 내용이 없다) · 건너뜀`);
 }
 function freeSlots(card, world, want = CASUAL_N) {
   const taken = new Set(registered(card, world)), out = [];
@@ -523,7 +562,7 @@ function main(argv) {
     const mine = allOld(world), taken = Math.max(0, ...mine.map(c => c.n), ...registered(card, world));
     /* --fresh: 옛 묶음은 그대로 두고 그 뒤 번호로 새 여섯 장(사용자 2026-11-02 「대체하는건 아니고, 추가로」) */
     const slots = opt.slots ? opt.slots.split(',').map(Number) : fresh ? Array.from({ length: CASUAL_N }, (_, i) => taken + 1 + i) : freeSlots(card, world);
-    if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); continue; }
+    if (!slots.length) { console.log(`${key} ${world} — 일상컷이 벌써 ${CASUAL_N} 장이다`); ownStep(card, world, seed0 + worlds.indexOf(world), opt, recDir, worlds); continue; }
     /* (여섯 장을 다 그린 세계면 일곱째 — 갈래 자유 컷 — 하나만 짜인다) */
     const old = fresh ? [] : mine.filter(c => !slots.includes(c.n));
     { const lost = registered(card, world).filter(n => !mine.some(c => c.n === n)); if (lost.length && !fresh) console.log(`  ! ${world} 등록된 일상컷 ${lost.join(',')} 의 기록이 ${recDir.join(' · ') || '그림 저장소 records/' + key} 에 없다 — 그림 저장소를 pull 한 뒤 다시(기록 없이는 필수 갈래 · 자유 설계 칸을 셀 수 없다)`); }
@@ -544,8 +583,9 @@ function main(argv) {
       fs.writeFileSync(path.join(out, 'plan.json'), JSON.stringify({ card: key, world, seed, tree: 2, style: STYLE, required: res.required, slots, fresh, cuts: res.cuts }, null, 1) + '\n');
       console.log('→ ' + out);
     }
+    ownStep(card, world, seed, opt, recDir, worlds);
   }
   return 0;
 }
-module.exports = { ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));

@@ -1,0 +1,117 @@
+{
+ "version": 1,
+ "note": "「캐릭터만의 컷」(2026-11-13 사용자 「직업쪽은 항상 필수로 한장 만들어 지게」 · 「세계마다 한장으로 … 한장 씩 추가로 하고, 단계는 처음엔 높음으로」). 캐릭터마다 뿌리 연상 한 줄(root — from: 실제 쓰임 use · 이름 · 어원 말장난 name · 성질의 비유 trait · 역사 · 일화 story · 뒤집기 flip), 세계마다 그 연상에서 나온 직업(mode: per_world — 세계마다 다른 직업 · same_job — 같은 직업을 세계별로 옮김). 세계 씬: job_ko · base(받침 · 장소 종류를 빌리는 트리 장소) · place(Place 줄 글) · activity(Scene note 줄 글) · preset(자세 추천 — 손 · 구도는 트리 규칙 그대로) · prop(그 직업의 도구 글) · use(그 도구를 드는 꼴 sig_hold · sig_raise · sig_both · sig_low, 또는 트리 소품 동작 — 없어도 됨) · outfit(노출 단계별 의상 글 bold · moderate · low — 옷은 몸에 맞고 단계가 오를수록 조금 더 보인다). 실제 상표 · 작품 · 회사 이름은 쓰지 않는다(「프로게이머」 · 「스타트업 개발자」 같은 일반 말). example: true 는 틀이 도는지 보려고 채운 예시 — 내용 확정이 아니다. 비어 있는 캐릭터는 계획기가 건너뛴다. 번호는 일상컷 90번(<세계>-casual90) — 일상 묶음 장수에는 안 센다",
+ "number": 90,
+ "levels": [
+  "bold",
+  "moderate",
+  "low"
+ ],
+ "tries_per_level": 3,
+ "cards": {
+  "유비": {
+   "root": {
+    "ko": "돗자리 · 짚신을 엮어 팔던 젊은 날",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "example": true,
+   "worlds": {
+    "samguk": {
+     "job_ko": "돗자리 · 짚신 장수",
+     "base": "nation_market",
+     "place": "a straw-mat and sandal stall on a Han-era market street — rolled mats stacked beside her, straw sandals hanging on a pole",
+     "activity": "she is a mat and sandal seller arranging her wares",
+     "preset": "counter_cup",
+     "use": "sig_hold",
+     "outfit": {
+      "bold": "a market-seller look fitted to her body — a short cross-collared hemp top tied open at the waist over a chest wrap, a short wrap skirt and straw sandals",
+      "moderate": "a market-seller look — a sleeveless cross-collared hemp top, a knee-length wrap skirt and straw sandals",
+      "low": "a market-seller look — a cross-collared hemp robe with rolled sleeves and straw sandals"
+     },
+     "prop": "a pair of woven straw sandals"
+    },
+    "fantasy": {
+     "job_ko": "바구니 · 밧줄 장인",
+     "base": "nation_market",
+     "place": "a basket-weaver stall in a medieval market square — woven baskets stacked beside her, coils of rope on a peg",
+     "activity": "she is a basket weaver arranging her wares",
+     "preset": "counter_cup",
+     "use": "sig_hold",
+     "outfit": {
+      "bold": "a craftswoman look fitted to her body — a laced bodice worn off the shoulders over a short chemise, a short gathered skirt and soft boots",
+      "moderate": "a craftswoman look — a laced bodice over a short-sleeved chemise, a knee-length skirt and soft boots",
+      "low": "a craftswoman look — a laced bodice over a long-sleeved chemise, a long skirt and soft boots"
+     },
+     "prop": "a small woven basket"
+    },
+    "mecha": {
+     "job_ko": "수리 매트 · 케이블 노점상",
+     "base": "nation_market",
+     "place": "a cable and repair-mat stall in a station market arcade — rolled mats stacked beside her, coils of cable on a hook",
+     "activity": "she is a stall keeper arranging her wares",
+     "preset": "counter_cup",
+     "use": "sig_hold",
+     "outfit": {
+      "bold": "a stall-keeper look fitted to her body — a cropped utility vest over a bandeau top, short cargo shorts and work boots",
+      "moderate": "a stall-keeper look — a utility vest over a fitted tank top, cargo trousers and work boots",
+      "low": "a stall-keeper look — a zipped utility jacket, cargo trousers and work boots"
+     },
+     "prop": "a neat coil of cable"
+    }
+   }
+  },
+  "제갈량": {
+   "root": {
+    "ko": "동남풍을 빌다 — 날씨를 읽는 사람",
+    "from": "story"
+   },
+   "mode": "per_world",
+   "example": true,
+   "worlds": {
+    "samguk": {
+     "job_ko": "천문 · 기상 관측관",
+     "base": "nation_roof",
+     "place": "an observation terrace on a Han-era rooftop — a bronze wind vane, star charts weighted with stones and a railing over the river",
+     "activity": "she is a court weather-reader watching the wind turn",
+     "preset": "light_check",
+     "outfit": {
+      "bold": "a scholar look fitted to her body — a sleeveless cross-collared robe opened into a deep neckline, a high side slit and a silk sash",
+      "moderate": "a scholar look — a short-sleeved cross-collared robe with a modest side slit and a silk sash",
+      "low": "a scholar look — a full-sleeved cross-collared robe and a silk sash"
+     },
+     "use": "sig_raise",
+     "prop": "a small bronze wind vane"
+    },
+    "fantasy": {
+     "job_ko": "탑의 풍향 점술사",
+     "base": "nation_roof",
+     "place": "the top terrace of a wizard tower — a brass weather vane, an astrolabe on the parapet and clouds below",
+     "activity": "she is a wind-reader noting the weather from the parapet",
+     "preset": "light_check",
+     "outfit": {
+      "bold": "a mage-scholar look fitted to her body — an open short mantle over a strapless bodice, a slit skirt and a star-chart belt",
+      "moderate": "a mage-scholar look — a short mantle over a sleeveless bodice and a knee-length skirt with a star-chart belt",
+      "low": "a mage-scholar look — a long mantle over a high-necked bodice and a long skirt with a star-chart belt"
+     },
+     "use": "sig_raise",
+     "prop": "a brass astrolabe"
+    },
+    "mecha": {
+     "job_ko": "함교 기상 캐스터",
+     "base": "nation_roof",
+     "place": "an observation deck of an orbital station — a slim weather display pylon showing only coloured shapes, a rail and the planet below",
+     "activity": "she is the station weather forecaster on her deck",
+     "preset": "light_check",
+     "outfit": {
+      "bold": "a forecaster uniform fitted to her body — a cropped uniform jacket open over a bandeau top, a mini skirt and ankle boots",
+      "moderate": "a forecaster uniform — a fitted uniform jacket over a sleeveless top, a knee-length skirt and ankle boots",
+      "low": "a forecaster uniform — a buttoned uniform jacket, a knee-length skirt and ankle boots"
+     },
+     "use": "sig_raise",
+     "prop": "a slim handheld weather sensor"
+    }
+   }
+  }
+ }
+}
