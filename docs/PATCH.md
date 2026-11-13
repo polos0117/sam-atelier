@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-13 · claude · 세계컷 과감 노출 글 — 무릎에서 꺾이는 다리 · 어깨 밑으로 내려간 어깨 장갑
+- lib/prompt-spec.js WORLDS — 삼국시대 · 판타지 exposureBold 의 「a high slit … showing the thigh」 를 재단만 적는 글로(「cut with a high side slit at full length — it shows the side line of one leg as she stands, no leg pushed out or knee bent for it」). 「허벅지를 보여라」 가 바닥까지 오는 실루엣 · 전신 구도와 겹쳐 한쪽 다리를 트임 밖으로 내밀며 무릎을 꺾었다. 판타지 · 메카의 「bare shoulders and (upper) arms between pauldron and bracer/gauntlet」 는 「bare upper arms below the pauldrons, which stay seated on top of her shoulders」 로 — 어깨 장갑과 손 장갑 사이의 맨 어깨를 요구해 장갑이 위팔로 내려갔다. 메카 exposureOpen 열쇠 shoulders 는 그대로(해시로 두 곳 고르기). 사용자 「다리가 자연스럽지 않고, 무릎에서 꺾이는 그림들이 많이 만들어져 … 어깨 장갑이 어깨에 안있고 어깨 바로 밑에다가」 → 「응, 고쳐줘」
+- prompt.html · promptapi.html — prompt-spec.js ?v=43
+
 ## 2026-11-13 · claude · 일상컷 장소 · 의상 · 상황 노출 늘리기, 자유 설계 칸의 팔 · 굳은 장면 줄
 - data/casual-tree-v2.json — 새 장소 열여섯(지금 현실 여섯 · 역사의 자리 다섯 · 세계 안 다섯 — 세계 안은 세계마다 글). 새 소품이 나오는 곳에 더함. 어색한 조합 세 줄(휴양지 차림 · 작업복 · 새 작업 자리의 수영복 · 목욕 차림 · 란제리풍). 목록은 원소 저장소 docs/casual-review-2026-11-13.md 9절
 - data/casual-tree.json — 의상 계열 둘(휴양지 차림 · 작업복·현장 차림, 여덟 벌씩). 사용자 「구도나 저런 날씨 지시말고, 장소나 의상 추가 등을 더 해 줄수는 없어?」
