@@ -105,6 +105,8 @@ const WEIGHT_UNUSED = 12;
 /* 카메라용 몸짓 추천(쉿 · 브이 · 엄지 척 · 손 흔들기 · 카메라로 손 뻗기 … — 표의 pose)은 덜 고른다(2026-11-13 검토 — 추천 47 중 카메라 응시 28 · 눈높이 34 라
    장소가 달라도 「사진 찍히는 중」 한 장이 됐다). 없애지는 않는다 */
 const POSE_WEIGHT = 0.4;
+/* 어색한 조합(⚠ — 표 awkward: 수영복으로 작업 자리, 휴양지 차림으로 현장 …)인 의상 계열은 덜 고른다(2026-11-13 — 새 장소 · 새 계열이 새 모순이 되지 않게). 묶음마다 한 장까지는 여전히 된다 */
+const AWKWARD_WEIGHT = 0.15;
 const wOf = n => n ? 1 / Math.pow(1 + n, 3) : WEIGHT_UNUSED;
 /* 옷 계열 무게 — 목욕 차림(수건 · 페슈테말 · 찜질복 · 가운)이 계획 12.7% · 등록 10.8% 로 계열 가운데 가장 많았다(사용자 2026-11-09 「수건 감는 옷 많이 나오던데 이전부터」).
    목욕 계열 장소 · 세계 안 목욕탕이 많아 그렇다 — 고를 때 무게를 줄이고, 한 장수의 세 세계 통틀어 한 장까지(check) */
@@ -138,7 +140,7 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
   else {
     const era = wantEra || weighted(r, ERA_WEIGHT), place = lean(r, C2.choices(T2, { era }, 'place', null), U.place);
     if (!place) return null;
-    sc = { era, place, ofam: lean(r, C2.choices(T2, { era, place }, 'ofam', null), U.ofam, x => x, famW) };
+    sc = { era, place, ofam: lean(r, C2.choices(T2, { era, place }, 'ofam', null), U.ofam, x => x, f => famW(f) * (C2.awkward(T2, f, place).length ? AWKWARD_WEIGHT : 1)) };
   }
   sc.treeV = 2; sc.prop = wantSig ? '0' : '';
   const presets = presetsAt(sc, g).filter(p => (!frame || p.frame === frame) && (!wantSig || p.prop_kind));
@@ -275,7 +277,7 @@ function denierize(cuts, rd = Math.random) {
   return cuts;
 }
 /* 바람에 날림은 실내가 아닌 곳만(2026-11-13 — 장소 특징 indoor). 젖은 옷은 실내면 지시문이 비 대신 물 튐 글(enIn)을 싣는다 */
-const situAtPlace = (k, c) => k !== 'wind' || !C2.placeHas(T2, c.place).includes('indoor');
+const situAtPlace = (k, c) => C2.situOk(T2, c, by(T.CASUAL.situations, k));   /* 상황 표의 조건(장소 특징 · 묶음 · 자세 · 프레이밍 — 바람은 실내가 아닌 곳, 땀은 더운 곳, 역광 실루엣은 창 · 하늘, 트임은 걷거나 앉은 전신 컷) */
 /* 빛 · 날씨 · 머리 매무새 · 빛의 방향 · 화면 안 자리 · 배경 깊이 · 전경 · 카메라 높이(2026-11-13) — 전엔 계획기가 이 칸들을 한 번도 안 채워 묶음의 빛이 한 가지였다.
    조건은 표 ambience(시간대는 하늘 · 창이 있는 곳, 등불은 실내, 밤 고정 장소는 밤 시간대만, 날씨는 하늘 · 창이 있는 곳 …)와 모듈 C2.ambience 가 쥔다.
    묶음 안에서 덜 쓴 값부터. 장면 고르기와 따로 된 난수라 옛 씨앗의 장면(장소 · 옷 · 자세)은 그대로다 */
@@ -287,6 +289,8 @@ function ambient(cuts, old = [], ra = Math.random) {
   for (const c of cuts) {
     if (c.sfree || c.ofree) continue;   /* 자유 설계 칸은 맡은 쪽이 짓는다 */
     Object.assign(c, C2.ambience(T2, c, ra, opts));
+    /* 역광 실루엣 상황은 빛이 뒤에서 — 밤 시간대는 뗀다 */
+    if (c.situ === 'sheer_light') { c.light = 'back'; if (['night', 'neon', 'lamplight'].includes(c.time)) c.time = ''; if (c.weather === 'night_snow') c.weather = ''; }
     for (const k of AMBIENT) if (!c[k]) delete c[k];
     note(c);
   }
@@ -298,6 +302,8 @@ function situate(cuts, at, old = [], others = [], rs = Math.random) {
   cuts.forEach((c, i) => {
     if (i !== at) { delete c.situ; return; }
     const fit = P.situsFor(outfitEn(c)).filter(k => situAtPlace(k, c)); let pool = fit.filter(k => !used.has(k)); if (!pool.length) pool = fit;
+    /* 젖은 옷은 거의 모든 옷에 맞아 늘 후보에 들었다(기록에서 가장 많은 상황) — 다른 후보가 있으면 열에 넷만 남긴다(2026-11-13) */
+    if (pool.length > 1 && pool.includes('wet') && rs() >= 0.4) pool = pool.filter(k => k !== 'wet');
     if (pool.length) c.situ = pool[Math.floor(rs() * pool.length)]; else delete c.situ;
   });
   return cuts;

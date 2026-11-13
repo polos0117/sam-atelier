@@ -80,6 +80,7 @@ node tools/prompt-pack.cjs build --dir $W/pack                                  
   **일상컷에 무기가 없나(장신구 하나만) · 세계 그림의 무기 · 손에 든 물건이 한 자루로 이어졌나(꺾임 · 잘림 없음 — 몸으로 불가능한 자세도)** · 팔 · 다리 · 손의 수와 이어짐 ·
   **노출이 지정대로인가**(세계 그림은 EXPOSURE 줄, 일상컷은 skin_exposure 줄과 그림을 맞대 본다 — 기록 `qa.exposure`: `match` · `weaker` · `stronger` 와 본 것 한 줄. 사용자 2026-11-08 「gpt세션에서 … 의도적으로 줄이는거 같아」).
 - **노출은 세션이 줄이지 않는다.** 지정한 노출 줄을 빼거나 누그러뜨리거나 노출 단계를 미리 낮춰 내지 않는다 — 낮추는 것은 안전 필터가 실제로 막았을 때만, `IMAGE_RULES.md` 1절 순서대로(기록 `generation.retries` 에 막힌 응답). image_gen 에도 지시문 글 그대로(`IMAGE_RULES.md` 1절 「임의 수정 금지」).
+- 몸 이상은 `qa.anatomy` 에 따로 적는다(2026-11-13 — 「계획과 구도가 조금 다르다」 는 `passed: false` 가 많아 추가 팔 같은 진짜 사고가 그 속에 묻혔다): `ok` 또는 걸린 것의 목록 `["arm", "hand", "foot", "leg"]`(추가 · 끊긴 · 떠 있는 · 뒤바뀐 팔은 arm, 손가락 수 · 떠 있는 손은 hand, 발 · 발 윤곽은 foot, 다리는 leg) — 무엇을 봤는지는 지금처럼 `observations` 에. 이미 쓴 기록은 고치지 않는다.
 - 검수에서 걸린 것은 `passed: false` 와 함께 그대로 적고 **올린다**(0절 — 사용자가 올라간 뒤 본다). 다시 그리지 않는다.
   **다만 아래 다섯 가지는 그 자리만 같은 지시문으로 한 번 다시 그린다**(사용자 2026-11-03 — 같은 지시문도 장마다 갈렸다: 법정 일상 4장 중 1장만 볼륨이 모자랐다):
   얼굴이 길거나 턱이 무거워 보임 · 일상컷 얼굴이 첨부 그림과 다른 사람 · 몸이 체형 글보다 눈에 띄게 마름 · 노출이 지정보다 눈에 띄게 약함(`qa.exposure: weaker` — 2026-11-08) · 팔 · 다리 · 손의 수가 틀림.
@@ -115,7 +116,7 @@ node tools/image-claim.cjs done <장수> --execution $ATELIER_EXECUTION_ID
                 "size": [1024, 1536], "png_sha256": "<원본>", "webp": {"quality": 90}, "retries": [{"n": 1, "status": "<응답>", "exposure": "<노출>"}],
                 "prompt_form": "en-prompt | gpt-structured(일상컷)", "prompt_sha256": "<낸 파일의 sha256>", "redo": {"previous_sha256": "<다시 그렸으면 앞 장>", "why": "<걸린 항목>"}},
  "execution": "<실행 ID>", "imported": "<YYYY-MM-DD>",
- "qa": {"reviewer": "<세션>", "image_sha256": "<원본>", "passed": true, "exposure": "match | weaker | stronger", "observations": ["<본 것 하나씩>"], "cause": "<어긋났으면 부딪힌 줄>"},
+ "qa": {"reviewer": "<세션>", "image_sha256": "<원본>", "passed": true, "anatomy": "ok", "exposure": "match | weaker | stronger", "observations": ["<본 것 하나씩>"], "cause": "<어긋났으면 부딪힌 줄>"},
  "acceptance": "user_approval_2026-11-02 — 묻지 않고 올리고 사용자가 올라간 뒤 본다(「삼국지도 원소처럼 바로 올리게 바꿔줘」)",
  "review": {"reviewed": false, "by": "user", "result": "pending"}}
 ```

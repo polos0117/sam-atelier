@@ -23,7 +23,9 @@
     "costume",
     "halloween",
     "adventure",
-    "drape"
+    "drape",
+    "resort",
+    "workwear"
    ]
   },
   {
@@ -42,7 +44,8 @@
     "evening",
     "traditional",
     "subculture",
-    "costume"
+    "costume",
+    "workwear"
    ]
   },
   {
@@ -57,7 +60,9 @@
     "swimwear",
     "bath",
     "evening",
-    "active"
+    "active",
+    "resort",
+    "workwear"
    ]
   },
   {
@@ -78,7 +83,8 @@
     "roleplay",
     "halloween",
     "adventure",
-    "drape"
+    "drape",
+    "resort"
    ]
   }
  ],
@@ -6963,6 +6969,100 @@
      "key": "toga_mini",
      "ko": "토가 미니",
      "en": "a modern toga mini dress — one-shoulder draped jersey in a short wrap, a gold cuff on the upper arm and strappy sandals"
+    }
+   ]
+  },
+  {
+   "key": "resort",
+   "ko": "휴양지 차림",
+   "en": "a resort look — light holiday clothes for sun and sea air, worn loose over bare skin",
+   "items": [
+    {
+     "key": "kaftan_open",
+     "ko": "열어 입은 카프탄",
+     "en": "a long printed kaftan worn open over a bandeau top and tailored shorts, flat sandals"
+    },
+    {
+     "key": "sarong_set",
+     "ko": "사롱 세트",
+     "en": "a knotted sarong skirt with a matching halter crop top and a shell anklet"
+    },
+    {
+     "key": "linen_shirt_shorts",
+     "ko": "린넨 셔츠와 반바지",
+     "en": "an oversized linen shirt half-buttoned over a bralette top with linen shorts"
+    },
+    {
+     "key": "crochet_set",
+     "ko": "크로셰 투피스",
+     "en": "a fully lined crochet two-piece — a short-sleeved crochet crop top and a matching mini skirt"
+    },
+    {
+     "key": "sundress_backless",
+     "ko": "등 파인 선드레스",
+     "en": "a backless halter sundress with a short flared hem and espadrilles"
+    },
+    {
+     "key": "palazzo_bandeau",
+     "ko": "와이드 팬츠와 밴도",
+     "en": "wide-leg palazzo trousers with a bandeau top and a wide-brimmed straw hat"
+    },
+    {
+     "key": "romper_wrap",
+     "ko": "랩 점프슈트(짧은)",
+     "en": "a wrap-front holiday romper with a deep V neckline and a tie belt"
+    },
+    {
+     "key": "aloha_knot",
+     "ko": "묶어 입은 알로하 셔츠",
+     "en": "a tropical-print shirt knotted at the waist over a bikini-style top with denim cut-offs"
+    }
+   ]
+  },
+  {
+   "key": "workwear",
+   "ko": "작업복·현장 차림",
+   "en": "a workwear look — practical work clothes worn fitted and short, sleeves rolled, one layer opened or tied",
+   "items": [
+    {
+     "key": "coverall_tied",
+     "ko": "허리에 묶은 작업복",
+     "en": "a mechanic's coverall with its top half peeled down and the sleeves tied at the waist over a fitted cropped tank top, work boots"
+    },
+    {
+     "key": "dungaree_bandeau",
+     "ko": "짧은 멜빵 데님",
+     "en": "short denim dungarees over a bandeau top, one strap unhooked, canvas sneakers"
+    },
+    {
+     "key": "utility_vest_shorts",
+     "ko": "유틸리티 조끼와 카고 반바지",
+     "en": "a multi-pocket utility vest worn closed over bare shoulders with high-waisted cargo shorts and ankle boots"
+    },
+    {
+     "key": "apron_knit_dress",
+     "ko": "공방 앞치마와 니트 원피스",
+     "en": "a canvas workshop apron over a fitted ribbed mini dress, sleeves pushed up"
+    },
+    {
+     "key": "lab_coat_crop",
+     "ko": "짧은 실험 가운",
+     "en": "a short white lab coat worn open over a cropped knit top and a pencil mini skirt"
+    },
+    {
+     "key": "gardener_set",
+     "ko": "정원사 차림",
+     "en": "a gardener's look — a knotted linen shirt, high-waisted shorts, a tool belt and rubber boots"
+    },
+    {
+     "key": "leather_apron_top",
+     "ko": "가죽 앞치마",
+     "en": "a leather work apron over a sleeveless fitted top and slim work trousers, gauntlet gloves tucked in the belt"
+    },
+    {
+     "key": "painter_dungaree",
+     "ko": "페인트 묻은 멜빵바지",
+     "en": "paint-flecked white painter's dungarees with one strap down over a cropped tee"
     }
    ]
   }

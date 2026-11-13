@@ -2750,6 +2750,156 @@
    "indoor",
    "window",
    "upright"
+  ],
+  "home_closet": [
+   "stool",
+   "wall",
+   "floor",
+   "shelf_high",
+   "indoor",
+   "upright"
+  ],
+  "home_veranda": [
+   "floor",
+   "wall",
+   "stool",
+   "shelf_high",
+   "doorway",
+   "indoor",
+   "window",
+   "upright"
+  ],
+  "street_bookstall": [
+   "table",
+   "stool",
+   "edge",
+   "wall",
+   "floor",
+   "shelf_high",
+   "sky",
+   "upright"
+  ],
+  "street_bus_stop": [
+   "chair",
+   "stool",
+   "wall",
+   "floor",
+   "sky",
+   "upright"
+  ],
+  "street_bike_path": [
+   "edge",
+   "wall",
+   "floor",
+   "rail_waist",
+   "sky",
+   "upright"
+  ],
+  "water_indoor_pool": [
+   "edge",
+   "floor",
+   "wall",
+   "water",
+   "deep_water",
+   "indoor",
+   "window",
+   "upright"
+  ],
+  "nation_workshop": [
+   "worktable",
+   "table",
+   "stool",
+   "wall",
+   "floor",
+   "shelf_high",
+   "doorway",
+   "indoor",
+   "window",
+   "upright"
+  ],
+  "nation_stairs": [
+   "stairs",
+   "edge",
+   "wall",
+   "floor",
+   "rail_waist",
+   "sky",
+   "upright"
+  ],
+  "nation_laundry": [
+   "floor",
+   "edge",
+   "wall",
+   "shelf_high",
+   "shallow_water",
+   "sky",
+   "upright"
+  ],
+  "nation_balcony": [
+   "chair",
+   "table",
+   "rail_waist",
+   "wall",
+   "floor",
+   "sky",
+   "upright"
+  ],
+  "nation_platform": [
+   "chair",
+   "stool",
+   "edge",
+   "floor",
+   "wall",
+   "rail_waist",
+   "sky",
+   "upright"
+  ],
+  "heritage_inkshop": [
+   "worktable",
+   "table",
+   "stool",
+   "wall",
+   "floor",
+   "shelf_high",
+   "rail_waist",
+   "indoor",
+   "window",
+   "upright"
+  ],
+  "heritage_boat": [
+   "chair",
+   "edge",
+   "floor",
+   "rail_waist",
+   "sky",
+   "upright"
+  ],
+  "heritage_gate_stairs": [
+   "stairs",
+   "edge",
+   "wall",
+   "floor",
+   "rail_waist",
+   "doorway",
+   "sky",
+   "upright"
+  ],
+  "heritage_tea_terrace": [
+   "stairs",
+   "edge",
+   "floor",
+   "stool",
+   "sky",
+   "upright"
+  ],
+  "heritage_archery": [
+   "floor",
+   "wall",
+   "stool",
+   "chair",
+   "shelf_high",
+   "sky",
+   "upright"
   ]
  },
  "props": [
@@ -2781,7 +2931,13 @@
     "heritage_guandi",
     "nation_study",
     "nation_temple",
-    "nation_camp"
+    "nation_camp",
+    "home_veranda",
+    "nation_balcony",
+    "nation_workshop",
+    "heritage_inkshop",
+    "heritage_tea_terrace",
+    "heritage_boat"
    ]
   },
   {
@@ -2847,7 +3003,15 @@
     "nation_camp",
     "travel_ranch",
     "street_diner",
-    "street_office"
+    "street_office",
+    "street_bookstall",
+    "street_bus_stop",
+    "home_veranda",
+    "nation_balcony",
+    "nation_platform",
+    "heritage_inkshop",
+    "heritage_boat",
+    "heritage_tea_terrace"
    ]
   },
   {
@@ -2869,7 +3033,13 @@
     "greenhouse",
     "heritage_tower",
     "heritage_baidi",
-    "heritage_redcliff"
+    "heritage_redcliff",
+    "street_bike_path",
+    "nation_stairs",
+    "nation_platform",
+    "heritage_boat",
+    "heritage_gate_stairs",
+    "heritage_tea_terrace"
    ]
   },
   {
@@ -2884,7 +3054,10 @@
     "travel_coast",
     "nation_square",
     "nation_harbor",
-    "nation_market"
+    "nation_market",
+    "street_bus_stop",
+    "street_bike_path",
+    "nation_platform"
    ]
   },
   {
@@ -2930,7 +3103,10 @@
     "heritage_luofeng",
     "heritage_redcliff",
     "nation_kitchen",
-    "nation_training"
+    "nation_training",
+    "water_indoor_pool",
+    "nation_laundry",
+    "home_veranda"
    ]
   },
   {
@@ -3052,7 +3228,10 @@
     "travel_ranch",
     "fx_pirate_ship",
     "fx_jungle_ruins",
-    "fx_marble_temple"
+    "fx_marble_temple",
+    "nation_stairs",
+    "nation_workshop",
+    "heritage_gate_stairs"
    ]
   },
   {
@@ -3087,7 +3266,9 @@
     "heritage_wall",
     "heritage_moat",
     "heritage_changban",
-    "fx_oasis"
+    "fx_oasis",
+    "street_bike_path",
+    "water_indoor_pool"
    ]
   },
   {
@@ -3103,7 +3284,8 @@
    "ko": "양궁 활",
    "en": "a recurve archery bow",
    "places": [
-    "sports_range"
+    "sports_range",
+    "heritage_archery"
    ]
   },
   {
@@ -3164,7 +3346,9 @@
     "nation_study",
     "nation_temple",
     "street_diner",
-    "street_office"
+    "street_office",
+    "street_bookstall",
+    "heritage_inkshop"
    ]
   },
   {
@@ -3187,7 +3371,8 @@
     "greenhouse",
     "home_balcony",
     "street_park",
-    "street_shop"
+    "street_shop",
+    "home_veranda"
    ]
   },
   {
@@ -3300,7 +3485,8 @@
     "library_reading",
     "home_living",
     "nation_study",
-    "nation_temple"
+    "nation_temple",
+    "heritage_inkshop"
    ]
   },
   {
@@ -3331,7 +3517,8 @@
     "heritage_studio",
     "nation_study",
     "library_reading",
-    "studio_art"
+    "studio_art",
+    "heritage_inkshop"
    ]
   },
   {
@@ -3495,7 +3682,8 @@
     "nation_kitchen",
     "nation_study",
     "heritage_studio",
-    "heritage_calligraphy"
+    "heritage_calligraphy",
+    "nation_workshop"
    ]
   },
   {
@@ -3516,7 +3704,12 @@
     "pool_gear_room",
     "drying_terrace",
     "museum_workshop",
-    "stair_landing"
+    "stair_landing",
+    "nation_workshop",
+    "nation_laundry",
+    "home_veranda",
+    "home_closet",
+    "heritage_inkshop"
    ]
   },
   {
@@ -3536,7 +3729,11 @@
     "pool_gear_room",
     "drying_terrace",
     "museum_workshop",
-    "stair_landing"
+    "stair_landing",
+    "nation_workshop",
+    "nation_stairs",
+    "heritage_archery",
+    "heritage_gate_stairs"
    ]
   },
   {
@@ -3551,7 +3748,10 @@
     "nation_garden",
     "pool_gear_room",
     "spa_lounge",
-    "tailor_room"
+    "tailor_room",
+    "nation_laundry",
+    "home_veranda",
+    "home_closet"
    ]
   },
   {
@@ -3572,7 +3772,11 @@
     "pool_gear_room",
     "drying_terrace",
     "museum_workshop",
-    "stair_landing"
+    "stair_landing",
+    "home_closet",
+    "street_bookstall",
+    "nation_workshop",
+    "heritage_inkshop"
    ]
   }
  ],
@@ -6642,7 +6846,11 @@
    "adventure": [
     "pocket"
    ],
-   "drape": []
+   "drape": [],
+   "resort": [],
+   "workwear": [
+    "pocket"
+   ]
   },
   "add": {
    "overalls": [
@@ -6792,6 +7000,37 @@
     "collar"
    ],
    "fur_coat_mini": [
+    "collar"
+   ],
+   "sundress_backless": [
+    "strap"
+   ],
+   "sarong_set": [
+    "strap"
+   ],
+   "linen_shirt_shorts": [
+    "collar"
+   ],
+   "aloha_knot": [
+    "collar"
+   ],
+   "palazzo_bandeau": [
+    "pocket"
+   ],
+   "dungaree_bandeau": [
+    "pocket",
+    "strap"
+   ],
+   "painter_dungaree": [
+    "pocket",
+    "strap"
+   ],
+   "lab_coat_crop": [
+    "pocket",
+    "collar"
+   ],
+   "gardener_set": [
+    "pocket",
     "collar"
    ]
   },
@@ -7032,6 +7271,76 @@
     "stage_redcarpet"
    ],
    "ko": "모험가 차림으로 목욕 · 격식 자리"
+  },
+  {
+   "outfits": [
+    "resort"
+   ],
+   "places": [
+    "@sports",
+    "@heritage",
+    "evening_opera",
+    "evening_gala",
+    "evening_museum",
+    "street_office",
+    "library_reading",
+    "street_station",
+    "travel_airport",
+    "stage_wedding",
+    "repair_kiosk",
+    "maintenance_shed",
+    "museum_workshop",
+    "stair_landing",
+    "street_bookstall",
+    "street_bus_stop",
+    "home_closet",
+    "nation_workshop",
+    "nation_stairs",
+    "nation_platform",
+    "heritage_inkshop",
+    "heritage_gate_stairs",
+    "heritage_archery",
+    "heritage_tea_terrace"
+   ],
+   "ko": "휴양지 차림으로 현장 · 운동 · 격식 자리 · 작업 자리"
+  },
+  {
+   "outfits": [
+    "workwear"
+   ],
+   "places": [
+    "@spa",
+    "@water",
+    "@night",
+    "@evening",
+    "stage_wedding",
+    "stage_redcarpet",
+    "fx_ballroom"
+   ],
+   "ko": "작업복으로 목욕 · 물가 · 격식 자리 · 밤 문화"
+  },
+  {
+   "outfits": [
+    "swimwear",
+    "bath",
+    "lingerie"
+   ],
+   "places": [
+    "repair_kiosk",
+    "maintenance_shed",
+    "museum_workshop",
+    "stair_landing",
+    "street_bookstall",
+    "street_bus_stop",
+    "nation_workshop",
+    "nation_stairs",
+    "nation_platform",
+    "heritage_inkshop",
+    "heritage_gate_stairs",
+    "heritage_archery",
+    "heritage_tea_terrace"
+   ],
+   "ko": "새 작업 자리 · 길가에 수영복 · 목욕 차림 · 란제리풍"
   }
  ],
  "presets": [
@@ -8153,6 +8462,225 @@
    "eras": [
     "now"
    ]
+  },
+  {
+   "key": "home_closet",
+   "group": "home",
+   "ko": "드레스룸",
+   "en": "a walk-in closet with open shelves, hanging rails, a full-length mirror and a low stool",
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "key": "home_veranda",
+   "group": "home",
+   "ko": "볕 드는 베란다",
+   "en": "a sunny enclosed veranda with drying racks overhead, floor cushions and a sliding glass door",
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "key": "street_bookstall",
+   "group": "street",
+   "ko": "헌책 노점",
+   "en": "a second-hand book stall under an awning on a quiet street, crates of books on trestle tables and a folding stool",
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "key": "street_bus_stop",
+   "group": "street",
+   "ko": "버스 정류장",
+   "en": "a bus shelter on a quiet street, a narrow bench, a glass side panel and the road beyond",
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "key": "street_bike_path",
+   "group": "travel",
+   "ko": "강변 자전거 길",
+   "en": "a riverside cycle path with a parked bicycle, a low stone wall and reeds along the water",
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "key": "water_indoor_pool",
+   "group": "water",
+   "ko": "실내 수영장",
+   "en": "an indoor lap pool with lane ropes, a tiled deck, a starting block and tall windows",
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "group": "nation",
+   "eras": [
+    "nation"
+   ],
+   "key": "nation_workshop",
+   "ko": "세계의 공방",
+   "en": "a craftsman's workshop of her world, a heavy workbench, hanging tools and an open door",
+   "worlds": {
+    "samguk": {
+     "ko": "대장간 옆 공방",
+     "en": "a Han-era workshop beside a smithy — a heavy wooden bench, bronze tools on pegs and an open door onto the yard"
+    },
+    "fantasy": {
+     "ko": "길드 공방",
+     "en": "a medieval guild workshop — an oak workbench, tools hanging on the stone wall and an open arched door"
+    },
+    "mecha": {
+     "ko": "정비 격납고 작업대",
+     "en": "a hangar maintenance bay — a steel workbench, tool racks along the bulkhead and an open blast door"
+    }
+   }
+  },
+  {
+   "group": "nation",
+   "eras": [
+    "nation"
+   ],
+   "key": "nation_stairs",
+   "ko": "세계의 돌계단",
+   "en": "a long outdoor stairway climbing through a town of her world, lamps along the steps and rooftops below",
+   "worlds": {
+    "samguk": {
+     "ko": "성벽 돌계단",
+     "en": "a long stone stairway up a Han-era city wall, lanterns along the steps and tiled roofs below"
+    },
+    "fantasy": {
+     "ko": "성곽 계단",
+     "en": "a winding stone stairway up a castle rampart, iron lamps along the steps and the town below"
+    },
+    "mecha": {
+     "ko": "승강 계단",
+     "en": "an open gantry stairway up the side of a docked ship, guide lights along the steps and the hangar floor below"
+    }
+   }
+  },
+  {
+   "group": "nation",
+   "eras": [
+    "nation"
+   ],
+   "key": "nation_laundry",
+   "ko": "세계의 빨래터",
+   "en": "a washing place by a water channel of her world, stone basins, drying lines overhead and wet flagstones",
+   "worlds": {
+    "samguk": {
+     "ko": "냇가 빨래터",
+     "en": "a washing place by a stream outside a Han-era town — flat stones, wooden tubs and drying lines between bamboo poles"
+    },
+    "fantasy": {
+     "ko": "수로 빨래터",
+     "en": "a medieval wash-house by a canal — stone basins, wicker baskets and drying lines overhead"
+    },
+    "mecha": {
+     "ko": "함내 세탁실",
+     "en": "a ship laundry deck — rows of steel basins, steam vents and drying lines overhead"
+    }
+   }
+  },
+  {
+   "group": "nation",
+   "eras": [
+    "nation"
+   ],
+   "key": "nation_balcony",
+   "ko": "세계의 발코니",
+   "en": "a balcony of her own house in a town of her world, a balustrade, a small table and the street below",
+   "worlds": {
+    "samguk": {
+     "ko": "누각 난간",
+     "en": "the upper gallery of a Han-era house — a carved wooden balustrade, a low table and the street below"
+    },
+    "fantasy": {
+     "ko": "석조 발코니",
+     "en": "a stone balcony of a medieval town house — a carved balustrade, a small table and the market street below"
+    },
+    "mecha": {
+     "ko": "관측 발코니",
+     "en": "an observation balcony of a habitat block — a steel railing, a small table and the city lights below"
+    }
+   }
+  },
+  {
+   "group": "nation",
+   "eras": [
+    "nation"
+   ],
+   "key": "nation_platform",
+   "ko": "세계의 정거장",
+   "en": "a small station or dock platform of her world, benches, a signal post and a waiting carriage",
+   "worlds": {
+    "samguk": {
+     "ko": "역참 마당",
+     "en": "the yard of a Han-era relay station — a bench under the eaves, a hitching post and a waiting carriage"
+    },
+    "fantasy": {
+     "ko": "마차 정거장",
+     "en": "a medieval coach stop — a bench under a timber shelter, a signal lantern and a waiting carriage"
+    },
+    "mecha": {
+     "ko": "궤도 승강장",
+     "en": "an orbital shuttle platform — a bench, a signal pylon and a waiting shuttle"
+    }
+   }
+  },
+  {
+   "group": "heritage",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "key": "heritage_inkshop",
+   "ko": "문방사우 가게",
+   "en": "an old brush-and-ink shop in a heritage quarter, racks of hanging brushes, ink sticks and rolls of paper, a worn wooden counter"
+  },
+  {
+   "group": "heritage",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "key": "heritage_boat",
+   "ko": "장강 유람 목선",
+   "en": "the open deck of a wooden sightseeing boat on the Yangtze, a low rail, benches and cliffs sliding past"
+  },
+  {
+   "group": "heritage",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "key": "heritage_gate_stairs",
+   "ko": "옛 성문 누각 계단",
+   "en": "the stone stairway up to an old city gate tower, red lanterns under the eaves and the town roofs below"
+  },
+  {
+   "group": "heritage",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "key": "heritage_tea_terrace",
+   "ko": "촉 땅 차밭",
+   "en": "terraced tea fields on a misty Sichuan hillside, narrow stone steps and a bamboo rest hut"
+  },
+  {
+   "group": "heritage",
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "key": "heritage_archery",
+   "ko": "전통 활터",
+   "en": "a traditional archery ground beside a temple wall, straw targets, a bow rack and a shaded bench"
   }
  ],
  "weather": [
