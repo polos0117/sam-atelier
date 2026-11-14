@@ -8,6 +8,7 @@
   python3 tools/sam-design.py approve <장수>…        시안(draft)을 확정(hand)으로 — 사용자가 「좋아」 한 장수
   python3 tools/sam-design.py redo <장수> <까닭>      다시 설계 요청 — redo 칸에 까닭. 다음 설계자가 까닭을 읽고 새 시안을 쓴다
   python3 tools/sam-design.py status                 상태별 수 · 다시 설계 요청 목록
+  python3 tools/sam-design.py rehair                 머리 다시 나누기(2026-11-14) — 확정 · 기본 화풍 그림 장수는 두고 나머지 세 세계 머리를 47가지에서
 
 설계 상태(사용자 2026-11-02 「손 설계가 마음에 안 들면 다시 설계」 · 「가로 진행」 — 시안 상태로도 그린다):
   auto  — 자동 설계(seed 가 세력 팔레트 · 역할 · 열쇠로 돌렸다). 그리기 전에 시안으로 올린다
@@ -112,7 +113,11 @@ AXES = {
 }
 PER_WORLD = {
  'hair': ['long_straight', 'long_wavy', 'ponytail', 'braids', 'voluminous', 'side_swept', 'bob', 'twin_tails', 'short_crop', 'updo_bun',
-          'half_up', 'low_ponytail', 'side_ponytail', 'side_braid', 'braided_crown', 'hime_cut', 'wolf_cut', 'pixie', 'double_buns', 'chignon', 'long_layered', 'lob', 'messy_bun'],
+          'half_up', 'low_ponytail', 'side_ponytail', 'side_braid', 'braided_crown', 'hime_cut', 'wolf_cut', 'pixie', 'double_buns', 'chignon', 'long_layered', 'lob', 'messy_bun',
+          # 2026-11-14 사용자 「머리 스타일을 더 늘려서 재분배도 가능할까?」 → 「응 그렇게 진행해줘」 — 결의 머리 여섯 · 과장된 게임풍 열 · 원소공방 여덟
+          'topknot_tails', 'twin_loops', 'cloud_updo', 'tilted_bun', 'ribbon_low_tail', 'segmented_tail',
+          'drill_curls', 'giant_twin_tails', 'giant_braid', 'floor_length', 'spiky_wild', 'lion_mane', 'jellyfish_cut', 'windswept_long', 'triple_tails', 'horn_locks',
+          'undercut_sweep', 'asymmetric_bob', 'mermaid_waves', 'long_curly', 'slicked_back', 'shag_layers', 'flipped_shoulder', 'finger_waves'],
  # 길고 각진 쪽(long · square_soft · angular)은 돌림에서 뺀다 — 어휘엔 남는다(2026-11-03 「손책 … 일상컷 얼굴이 길고 각지고 못생기게」)
  'face_shape': ['oval', 'heart', 'diamond', 'round', 'v_line', 'inverted_triangle'],
  'eyes': ['almond_wide', 'narrow_upturned', 'round_large', 'droopy_soft', 'deep_set', 'monolid_long', 'phoenix', 'hooded', 'cat', 'peach_blossom'],
@@ -177,8 +182,7 @@ def auto_look(g):
             base = (hkey(k) + 31 * j) % len(lst)
             ws[a] = lst[(base + wi * (2 + j % 2)) % len(lst)]
         worlds[w] = {'silhouette': {'hair': ws['hair'], 'bangs': ws['bangs']}, 'face': {'face_shape': ws['face_shape'], 'eyes': ws['eyes']}}
-        if w == 'mecha' and ws['hair'] == 'updo_bun':
-            worlds[w]['silhouette']['hair'] = 'ponytail'
+        # 메카 올림머리를 포니테일로 바꾸던 줄은 뺐다(2026-11-14 사용자 「메카쪽에 올림머리 들어가도 돼」)
     look = {'face': face, 'silhouette': sil, 'worlds': worlds}
     fix_eye_clash(look)
     return {'face': face, 'silhouette': sil, 'worlds': look['worlds'],
@@ -383,6 +387,81 @@ def redo(name, why):
     save(d); print('다시 설계 요청', name, '—', why)
 
 
+# ── 머리 다시 나누기(2026-11-14) ─────────────────────────────────────────────────────
+# 사용자 「머리 스타일을 더 늘려서 재분배도 가능할까?」 → 「기울여 나누기는 하는데, 어디는 안들어가고 어디는 들어가고 이런것보다는 전체 스타일에서
+# 분배해줘. 메카쪽에 올림머리 들어가도 돼. 메카도 … 다른 쪽으로」 → 「응 그렇게 진행해줘」.
+# 47가지 모두가 모든 세계 · 역할의 후보다. 어울리는 머리만 가중치를 FAVOR 배로 올린다(빼는 것은 없다). 메카는 장갑과 대비되는 매끈하고
+# 길게 흐르는 선 · 기하학적 실루엣. 확정(hand) 장수와 기본 화풍 세계 그림이 있는 장수는 그대로 두고, 나머지 장수의 세 세계를 다시 고른다.
+NEW_HAIR = PER_WORLD['hair'][23:]
+FAVOR = 1.8
+HAIR_WORLD = {
+ 'samguk': ['topknot_tails', 'twin_loops', 'cloud_updo', 'tilted_bun', 'ribbon_low_tail', 'chignon', 'half_up'],
+ 'fantasy': ['braids', 'giant_braid', 'braided_crown', 'mermaid_waves', 'long_curly', 'drill_curls', 'long_wavy'],
+ 'mecha': ['long_straight', 'hime_cut', 'jellyfish_cut', 'asymmetric_bob', 'twin_tails', 'giant_twin_tails', 'triple_tails', 'segmented_tail',
+           'floor_length', 'windswept_long', 'twin_loops'],
+}
+HAIR_ROLE = {
+ 'lord': ['cloud_updo', 'floor_length', 'drill_curls'],
+ 'general': ['topknot_tails', 'segmented_tail', 'lion_mane'],
+ 'strategist': ['hime_cut', 'long_straight', 'ribbon_low_tail'],
+ 'official': ['chignon', 'updo_bun', 'tilted_bun'],
+}
+HAIR_CAP = 30          # 한 머리가 837자리에서 차지하는 수
+NEW_BONUS = 0.0        # 새 머리 몫 맞추기 — 그대로 두는 자리가 옛 머리라 고르게 나누기만으로 다시 고르는 자리의 약 60% 가 새 머리다
+HAIR_BAL, HAIR_BAL_W, HAIR_NOISE = 1.0, 0.6, 1.2   # 전체 고르게 · 세계 안에서도 고르게(한 세계에 기울인 머리만 몰리지 않게) · 흔들기
+DEFAULT_STYLE = 'kr_drawn_rim_dewy'
+
+
+def has_default_world(img, key):
+    b = ((img.get(key) or {}).get('byStyle') or {}).get(DEFAULT_STYLE) or {}
+    return any((x or {}).get('f') for x in (b.get('byForm') or {}).values())
+
+
+def rehair():
+    """기본 화풍 세계 그림이 없는 시안 · 자동 장수의 세 세계 머리를 47가지에서 다시 고른다"""
+    import math
+    d = load()
+    img = json.load(open(os.path.join(ROOT, 'data', 'img.json'))).get('img', {})
+    gs = d['generals']
+    keep = [g for g in gs if g.get('designed') == 'hand' or has_default_world(img, g['key'])]
+    keep_k = {g['key'] for g in keep}
+    cnt = {h: 0 for h in PER_WORLD['hair']}
+    cw = {w: {} for w in WORLDS}
+    for g in keep:
+        for w in WORLDS:
+            h = (((g.get('look') or {}).get('worlds') or {}).get(w) or {}).get('silhouette', {}).get('hair')
+            if h: cnt[h] = cnt.get(h, 0) + 1; cw[w][h] = cw[w].get(h, 0) + 1
+    todo = sorted([g for g in gs if g['key'] not in keep_k], key=lambda g: hkey(g['key'] + '|hair'))
+    target = (len(gs) * len(WORLDS)) / len(PER_WORLD['hair'])
+    target_w = len(gs) / len(PER_WORLD['hair'])
+    changed = 0
+    for g in todo:
+        role = g.get('role')
+        lw = g['look']['worlds']
+        used = set()
+        for wi in range(len(WORLDS)):
+            w = WORLDS[(hkey(g['key']) + wi) % len(WORLDS)]
+            best = None
+            for h in PER_WORLD['hair']:
+                if h in used or cnt.get(h, 0) >= HAIR_CAP: continue
+                wt = 1.0 * (FAVOR if h in HAIR_WORLD[w] else 1) * (FAVOR if h in HAIR_ROLE.get(role, []) else 1)
+                noise = (hkey('%s|%s|%s' % (g['key'], w, h)) % 1000) / 1000.0
+                v = math.log(wt) + (NEW_BONUS if h in NEW_HAIR else 0) + HAIR_NOISE * noise - HAIR_BAL * cnt.get(h, 0) / target - HAIR_BAL_W * cw[w].get(h, 0) / target_w
+                if best is None or v > best[0]: best = (v, h)
+            h = best[1]
+            used.add(h); cnt[h] = cnt.get(h, 0) + 1; cw[w][h] = cw[w].get(h, 0) + 1
+            sil = lw[w].setdefault('silhouette', {})
+            if sil.get('hair') != h: changed += 1
+            sil['hair'] = h
+            if h == 'slicked_back': sil['bangs'] = 'swept_back'
+    save(d)
+    redo_slots = len(todo) * len(WORLDS)
+    newn = sum(1 for g in todo for w in WORLDS if g['look']['worlds'][w]['silhouette']['hair'] in NEW_HAIR)
+    print('머리 다시 나눔 — 그대로 %d명(확정 · 기본 화풍 그림) · 다시 고른 %d명 %d자리 · 바뀐 자리 %d · 새 머리 %d(%.1f%%) · 많은 순 %s' % (
+        len(keep), len(todo), redo_slots, changed, newn, 100.0 * newn / max(1, redo_slots),
+        ' '.join('%s %d' % x for x in sorted(cnt.items(), key=lambda x: -x[1])[:6])))
+
+
 def status():
     d = load(); gs = d['generals']
     for st in STATES:
@@ -399,4 +478,4 @@ if __name__ == '__main__':
     elif cmd == 'redo':
         redo(sys.argv[2], ' '.join(sys.argv[3:]))
     else:
-        {'seed': seed, 'check': check, 'status': status}[cmd]()
+        {'seed': seed, 'check': check, 'status': status, 'rehair': rehair}[cmd]()

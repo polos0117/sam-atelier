@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-14 · claude · 머리 47가지로 늘려 다시 나누기 — 전체에서 고르게, 세계 · 역할로 기울임만
+- 사용자 「머리 스타일을 더 늘려서 재분배도 가능할까?」 → 「기울여 나누기는 하는데, 어디는 안들어가고 어디는 들어가고 이런것보다는 전체 스타일에서 분배해줘. 메카쪽에 올림머리 들어가도 돼. 메카도 … 다른 쪽으로 해줘」 → 「응 그렇게 진행해줘」
+- lib/look-spec.js VOCAB_EN.hair 23 → 47: 결의 머리 여섯(topknot_tails · twin_loops · cloud_updo · tilted_bun · ribbon_low_tail · segmented_tail), 과장된 게임풍 열(drill_curls · giant_twin_tails · giant_braid · floor_length · spiky_wild · lion_mane · jellyfish_cut · windswept_long · triple_tails · horn_locks), 원소공방 여덟(글은 core 와 같다). prompt.html · promptapi.html look-spec ?v=9
+- tools/sam-design.py — PER_WORLD.hair 47가지, 메카 올림머리 → 포니테일 줄 뺌. 새 명령 rehair: 확정(hand) 16명과 기본 화풍(kr_drawn_rim_dewy) 세계 그림이 있는 장수(모두 39명)는 그대로, 나머지 240명 720자리를 47가지 모두에서 고른다 — 세계(삼국 결의 머리 · 판타지 땋은 머리와 웨이브 · 메카는 매끈하고 길게 흐르는 선과 기하학적 실루엣) · 역할에 맞는 머리만 가중치 1.8배, 전체 · 세계 안 고르게 나누기, 한 머리 30자리 상한, 한 장수의 세 세계는 다른 머리
+- 결과: 바뀐 자리 704 · 새 머리 61.0% · 세계마다 기울인 머리 몫 삼국 30% · 판타지 27% · 메카 44%(고르게면 15 · 15 · 23%), 세계마다 45~47가지가 다 쓰인다. data/sam-design.json 다시 고름 · 방통 summary 「생머리」 → 「머리」. 검사 sam-design check · tests/look-spec.cjs · tests/prompt-v2.cjs 통과
+
 ## 2026-11-14 · claude · 칸 꼴 세계 그림 — 얼굴 · 머리 세계마다로 풀기
 - 사용자 「삼국지공방에 장수가 세계별로 헤어스타일을 똑같이 했던가? 예전에 다르게 하지 않았나?」 → 「응 풀어줘」
 - lib/prompt-spec.js SECTIONS.faceWorld 'samguk' → '' — 2026-11-10 화풍 비교용으로 세 세계 같게 묶었던 것을 풀어, 칸 꼴(기본 화풍 kr_drawn_rim_dewy 등) 세계 그림이 설계표의 세계별 헤어 · 앞머리 · 얼굴형 · 눈을 쓴다(예: 유비 삼국 긴 생머리 · 판타지 땋은 머리 · 메카 긴 웨이브). 기준 판(kv)과 api25 는 그대로. 이미 그린 그림은 그대로

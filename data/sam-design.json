@@ -1067,7 +1067,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "twin_loops",
        "bangs": "choppy"
       },
       "face": {
@@ -1077,7 +1077,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "braids",
        "bangs": "side_swept"
       },
       "face": {
@@ -1088,7 +1088,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "shag_layers",
        "bangs": "parted"
       },
       "face": {
@@ -1168,7 +1168,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "side_braid",
        "bangs": "baby"
       },
       "face": {
@@ -1178,7 +1178,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "bob",
        "bangs": "side_locks"
       },
       "face": {
@@ -1188,7 +1188,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "triple_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -1332,7 +1332,7 @@
    "design_by": "claude",
    "design_date": "2026-11-03",
    "summary": {
-    "ko": "봉추 — 봉황 깃 부채 · 로즈골드 생머리 · 치켜 올라간 봉황 눈매 · 차갑고 도도한 · 골반 굴곡형"
+    "ko": "봉추 — 봉황 깃 부채 · 로즈골드 머리 · 치켜 올라간 봉황 눈매 · 차갑고 도도한 · 골반 굴곡형"
    },
    "title": {
     "en": "the Fledgling Phoenix, the proud genius who matched the Sleeping Dragon"
@@ -1364,7 +1364,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "finger_waves",
        "bangs": "side_swept"
       },
       "face": {
@@ -1374,7 +1374,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "ribbon_low_tail",
        "bangs": "side_locks"
       },
       "face": {
@@ -1384,7 +1384,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "hime_cut",
        "bangs": "asymmetric"
       },
       "face": {
@@ -1525,7 +1525,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "horn_locks",
        "bangs": "straight"
       },
       "face": {
@@ -1535,7 +1535,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "slicked_back",
        "bangs": "swept_back"
       },
       "face": {
@@ -1545,7 +1545,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "windswept_long",
        "bangs": "wispy"
       },
       "face": {
@@ -1726,7 +1726,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "horn_locks",
        "bangs": "choppy"
       },
       "face": {
@@ -1737,7 +1737,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "spiky_wild",
        "bangs": "side_swept"
       },
       "face": {
@@ -1747,7 +1747,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "giant_twin_tails",
        "bangs": "parted"
       },
       "face": {
@@ -1828,7 +1828,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "long_curly",
        "bangs": "baby"
       },
       "face": {
@@ -1838,7 +1838,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "double_buns",
        "bangs": "asymmetric"
       },
       "face": {
@@ -1848,7 +1848,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "topknot_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -2032,7 +2032,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "long_layered",
        "bangs": "wispy"
       },
       "face": {
@@ -2042,7 +2042,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "twin_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -2052,7 +2052,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "asymmetric_bob",
        "bangs": "asymmetric"
       },
       "face": {
@@ -2126,7 +2126,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "giant_braid",
        "bangs": "side_locks"
       },
       "face": {
@@ -2137,7 +2137,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "braided_crown",
        "bangs": "baby"
       },
       "face": {
@@ -2148,7 +2148,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "messy_bun",
        "bangs": "wispy"
       },
       "face": {
@@ -2222,7 +2222,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "topknot_tails",
        "bangs": "wispy"
       },
       "face": {
@@ -2232,7 +2232,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "mermaid_waves",
        "bangs": "asymmetric"
       },
       "face": {
@@ -2243,7 +2243,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "segmented_tail",
        "bangs": "side_locks"
       },
       "face": {
@@ -2418,7 +2418,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "lion_mane",
        "bangs": "asymmetric"
       },
       "face": {
@@ -2428,7 +2428,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "topknot_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -2438,7 +2438,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "shag_layers",
        "bangs": "swept_back"
       },
       "face": {
@@ -2512,7 +2512,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "tilted_bun",
        "bangs": "baby"
       },
       "face": {
@@ -2523,7 +2523,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "long_curly",
        "bangs": "side_locks"
       },
       "face": {
@@ -2534,7 +2534,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "giant_twin_tails",
        "bangs": "asymmetric"
       },
       "face": {
@@ -2609,7 +2609,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "mermaid_waves",
        "bangs": "wispy"
       },
       "face": {
@@ -2619,7 +2619,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "long_curly",
        "bangs": "baby"
       },
       "face": {
@@ -2703,7 +2703,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "topknot_tails",
        "bangs": "baby"
       },
       "face": {
@@ -2713,7 +2713,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "lion_mane",
        "bangs": "asymmetric"
       },
       "face": {
@@ -2723,7 +2723,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "segmented_tail",
        "bangs": "wispy"
       },
       "face": {
@@ -2823,7 +2823,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "side_swept",
        "bangs": "straight"
       },
       "face": {
@@ -2904,7 +2904,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "asymmetric_bob",
        "bangs": "baby"
       },
       "face": {
@@ -2914,7 +2914,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "half_up",
        "bangs": "asymmetric"
       },
       "face": {
@@ -2924,7 +2924,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "bob",
        "bangs": "side_locks"
       },
       "face": {
@@ -2998,7 +2998,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "finger_waves",
        "bangs": "wispy"
       },
       "face": {
@@ -3008,7 +3008,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "wolf_cut",
        "bangs": "straight"
       },
       "face": {
@@ -3018,7 +3018,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "slicked_back",
        "bangs": "swept_back"
       },
       "face": {
@@ -3092,7 +3092,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "ribbon_low_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -3102,7 +3102,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "lion_mane",
        "bangs": "straight"
       },
       "face": {
@@ -3112,7 +3112,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "triple_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -3186,7 +3186,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "windswept_long",
        "bangs": "asymmetric"
       },
       "face": {
@@ -3196,7 +3196,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "undercut_sweep",
        "bangs": "wispy"
       },
       "face": {
@@ -3206,7 +3206,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "jellyfish_cut",
        "bangs": "baby"
       },
       "face": {
@@ -3280,7 +3280,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "chignon",
        "bangs": "asymmetric"
       },
       "face": {
@@ -3290,8 +3290,8 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
-       "bangs": "baby"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "v_line",
@@ -3300,7 +3300,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "updo_bun",
        "bangs": "wispy"
       },
       "face": {
@@ -3376,7 +3376,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "jellyfish_cut",
        "bangs": "straight"
       },
       "face": {
@@ -3386,7 +3386,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "braids",
        "bangs": "swept_back"
       },
       "face": {
@@ -3396,7 +3396,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "lion_mane",
        "bangs": "side_locks"
       },
       "face": {
@@ -3470,7 +3470,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "jellyfish_cut",
        "bangs": "swept_back"
       },
       "face": {
@@ -3480,7 +3480,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "lob",
        "bangs": "wispy"
       },
       "face": {
@@ -3490,7 +3490,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "horn_locks",
        "bangs": "baby"
       },
       "face": {
@@ -3570,7 +3570,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "chignon",
        "bangs": "side_locks"
       },
       "face": {
@@ -3580,7 +3580,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "spiky_wild",
        "bangs": "asymmetric"
       },
       "face": {
@@ -3590,7 +3590,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "updo_bun",
        "bangs": "wispy"
       },
       "face": {
@@ -3664,7 +3664,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "twin_loops",
        "bangs": "swept_back"
       },
       "face": {
@@ -3674,7 +3674,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "long_curly",
        "bangs": "asymmetric"
       },
       "face": {
@@ -3684,7 +3684,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "segmented_tail",
        "bangs": "side_locks"
       },
       "face": {
@@ -3758,7 +3758,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "tilted_bun",
        "bangs": "baby"
       },
       "face": {
@@ -3768,7 +3768,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "windswept_long",
        "bangs": "asymmetric"
       },
       "face": {
@@ -3778,7 +3778,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "chignon",
        "bangs": "wispy"
       },
       "face": {
@@ -3852,7 +3852,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "messy_bun",
        "bangs": "baby"
       },
       "face": {
@@ -3862,7 +3862,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "windswept_long",
        "bangs": "side_locks"
       },
       "face": {
@@ -3873,7 +3873,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "triple_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -4050,7 +4050,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "tilted_bun",
        "bangs": "straight"
       },
       "face": {
@@ -4061,7 +4061,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "giant_braid",
        "bangs": "one_eye"
       },
       "face": {
@@ -4071,7 +4071,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "giant_twin_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -4153,7 +4153,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "chignon",
        "bangs": "baby"
       },
       "face": {
@@ -4163,7 +4163,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "tilted_bun",
        "bangs": "asymmetric"
       },
       "face": {
@@ -4174,7 +4174,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "twin_loops",
        "bangs": "swept_back"
       },
       "face": {
@@ -4250,7 +4250,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "ribbon_low_tail",
        "bangs": "side_locks"
       },
       "face": {
@@ -4260,7 +4260,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "flipped_shoulder",
        "bangs": "baby"
       },
       "face": {
@@ -4270,7 +4270,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "hime_cut",
        "bangs": "asymmetric"
       },
       "face": {
@@ -4344,7 +4344,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "giant_braid",
        "bangs": "wispy"
       },
       "face": {
@@ -4354,7 +4354,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "chignon",
        "bangs": "baby"
       },
       "face": {
@@ -4364,7 +4364,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "low_ponytail",
        "bangs": "swept_back"
       },
       "face": {
@@ -4438,7 +4438,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "twin_tails",
        "bangs": "asymmetric"
       },
       "face": {
@@ -4448,7 +4448,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "double_buns",
        "bangs": "wispy"
       },
       "face": {
@@ -4458,7 +4458,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "undercut_sweep",
        "bangs": "side_locks"
       },
       "face": {
@@ -4628,7 +4628,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "triple_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -4638,7 +4638,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "finger_waves",
        "bangs": "wispy"
       },
       "face": {
@@ -4648,7 +4648,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "long_straight",
        "bangs": "side_locks"
       },
       "face": {
@@ -4721,7 +4721,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "lob",
        "bangs": "swept_back"
       },
       "face": {
@@ -4731,7 +4731,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "twin_loops",
        "bangs": "baby"
       },
       "face": {
@@ -4742,7 +4742,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "floor_length",
        "bangs": "asymmetric"
       },
       "face": {
@@ -5004,7 +5004,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "half_up",
        "bangs": "wispy"
       },
       "face": {
@@ -5014,7 +5014,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "giant_braid",
        "bangs": "straight"
       },
       "face": {
@@ -5024,7 +5024,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "jellyfish_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -5099,7 +5099,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "flipped_shoulder",
        "bangs": "side_locks"
       },
       "face": {
@@ -5109,7 +5109,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "triple_tails",
        "bangs": "baby"
       },
       "face": {
@@ -5120,7 +5120,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "segmented_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -5196,7 +5196,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "low_ponytail",
        "bangs": "asymmetric"
       },
       "face": {
@@ -5206,7 +5206,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "braided_crown",
        "bangs": "side_locks"
       },
       "face": {
@@ -5217,7 +5217,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "ponytail",
        "bangs": "wispy"
       },
       "face": {
@@ -5293,7 +5293,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "side_ponytail",
        "bangs": "asymmetric"
       },
       "face": {
@@ -5303,7 +5303,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "mermaid_waves",
        "bangs": "swept_back"
       },
       "face": {
@@ -5313,7 +5313,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "low_ponytail",
        "bangs": "wispy"
       },
       "face": {
@@ -5389,7 +5389,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "topknot_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -5399,7 +5399,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "long_curly",
        "bangs": "baby"
       },
       "face": {
@@ -5409,7 +5409,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "segmented_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -5581,7 +5581,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "side_ponytail",
        "bangs": "side_locks"
       },
       "face": {
@@ -5592,7 +5592,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "long_wavy",
        "bangs": "baby"
       },
       "face": {
@@ -5602,7 +5602,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "short_crop",
        "bangs": "wispy"
       },
       "face": {
@@ -5677,7 +5677,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "ponytail",
        "bangs": "asymmetric"
       },
       "face": {
@@ -5687,7 +5687,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "spiky_wild",
        "bangs": "swept_back"
       },
       "face": {
@@ -5697,7 +5697,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "side_ponytail",
        "bangs": "straight"
       },
       "face": {
@@ -5874,7 +5874,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "bob",
        "bangs": "straight"
       },
       "face": {
@@ -5884,7 +5884,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "wolf_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -5895,7 +5895,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "giant_braid",
        "bangs": "side_locks"
       },
       "face": {
@@ -5970,7 +5970,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "jellyfish_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -5980,7 +5980,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "braids",
        "bangs": "asymmetric"
       },
       "face": {
@@ -5990,7 +5990,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "lion_mane",
        "bangs": "swept_back"
       },
       "face": {
@@ -6064,7 +6064,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "twin_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -6075,7 +6075,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "messy_bun",
        "bangs": "baby"
       },
       "face": {
@@ -6086,7 +6086,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "spiky_wild",
        "bangs": "wispy"
       },
       "face": {
@@ -6162,7 +6162,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "lion_mane",
        "bangs": "baby"
       },
       "face": {
@@ -6172,7 +6172,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "long_curly",
        "bangs": "side_locks"
       },
       "face": {
@@ -6183,7 +6183,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "giant_twin_tails",
        "bangs": "asymmetric"
       },
       "face": {
@@ -6266,7 +6266,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "chignon",
        "bangs": "parted"
       },
       "face": {
@@ -6276,7 +6276,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "giant_twin_tails",
        "bangs": "straight"
       },
       "face": {
@@ -6358,7 +6358,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "wolf_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -6368,7 +6368,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "long_straight",
        "bangs": "wispy"
       },
       "face": {
@@ -6378,7 +6378,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "ribbon_low_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -6454,7 +6454,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "side_braid",
        "bangs": "side_swept"
       },
       "face": {
@@ -6464,7 +6464,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "long_curly",
        "bangs": "parted"
       },
       "face": {
@@ -6474,7 +6474,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "ribbon_low_tail",
        "bangs": "straight"
       },
       "face": {
@@ -6648,7 +6648,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "voluminous",
        "bangs": "baby"
       },
       "face": {
@@ -6658,7 +6658,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "side_ponytail",
        "bangs": "asymmetric"
       },
       "face": {
@@ -6668,7 +6668,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "finger_waves",
        "bangs": "swept_back"
       },
       "face": {
@@ -6841,7 +6841,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "asymmetric_bob",
        "bangs": "wispy"
       },
       "face": {
@@ -6851,7 +6851,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "side_braid",
        "bangs": "asymmetric"
       },
       "face": {
@@ -6861,7 +6861,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "shag_layers",
        "bangs": "baby"
       },
       "face": {
@@ -7040,7 +7040,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "long_wavy",
        "bangs": "swept_back"
       },
       "face": {
@@ -7051,7 +7051,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "cloud_updo",
        "bangs": "asymmetric"
       },
       "face": {
@@ -7126,7 +7126,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "cloud_updo",
        "bangs": "side_locks"
       },
       "face": {
@@ -7136,7 +7136,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "drill_curls",
        "bangs": "wispy"
       },
       "face": {
@@ -7146,7 +7146,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "floor_length",
        "bangs": "swept_back"
       },
       "face": {
@@ -7220,7 +7220,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "flipped_shoulder",
        "bangs": "baby"
       },
       "face": {
@@ -7230,7 +7230,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "updo_bun",
        "bangs": "asymmetric"
       },
       "face": {
@@ -7241,7 +7241,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "messy_bun",
        "bangs": "swept_back"
       },
       "face": {
@@ -7327,7 +7327,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "hime_cut",
        "bangs": "wispy"
       },
       "face": {
@@ -7337,7 +7337,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "giant_twin_tails",
        "bangs": "straight"
       },
       "face": {
@@ -7418,7 +7418,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "chignon",
        "bangs": "straight"
       },
       "face": {
@@ -7428,7 +7428,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "mermaid_waves",
        "bangs": "one_eye"
       },
       "face": {
@@ -7439,7 +7439,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "tilted_bun",
        "bangs": "none"
       },
       "face": {
@@ -7520,7 +7520,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "chignon",
        "bangs": "straight"
       },
       "face": {
@@ -7531,7 +7531,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "long_curly",
        "bangs": "one_eye"
       },
       "face": {
@@ -7541,7 +7541,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "braids",
        "bangs": "none"
       },
       "face": {
@@ -7623,7 +7623,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "shag_layers",
        "bangs": "baby"
       },
       "face": {
@@ -7633,7 +7633,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "tilted_bun",
        "bangs": "side_locks"
       },
       "face": {
@@ -7643,7 +7643,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "undercut_sweep",
        "bangs": "wispy"
       },
       "face": {
@@ -7723,7 +7723,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "updo_bun",
        "bangs": "side_locks"
       },
       "face": {
@@ -7734,7 +7734,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "long_wavy",
        "bangs": "baby"
       },
       "face": {
@@ -7820,7 +7820,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "giant_twin_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -7830,7 +7830,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "pixie",
        "bangs": "none"
       },
       "face": {
@@ -7840,7 +7840,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "horn_locks",
        "bangs": "curtain"
       },
       "face": {
@@ -8017,7 +8017,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "pixie",
        "bangs": "one_eye"
       },
       "face": {
@@ -8027,7 +8027,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "ponytail",
        "bangs": "none"
       },
       "face": {
@@ -8037,7 +8037,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "side_braid",
        "bangs": "curtain"
       },
       "face": {
@@ -8111,7 +8111,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "braided_crown",
        "bangs": "one_eye"
       },
       "face": {
@@ -8121,7 +8121,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "lion_mane",
        "bangs": "swept_back"
       },
       "face": {
@@ -8131,7 +8131,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "horn_locks",
        "bangs": "curtain"
       },
       "face": {
@@ -8301,7 +8301,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "short_crop",
        "bangs": "one_eye"
       },
       "face": {
@@ -8312,7 +8312,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "windswept_long",
        "bangs": "none"
       },
       "face": {
@@ -8322,7 +8322,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "twin_loops",
        "bangs": "curtain"
       },
       "face": {
@@ -8403,7 +8403,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "wolf_cut",
        "bangs": "baby"
       },
       "face": {
@@ -8413,7 +8413,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "shag_layers",
        "bangs": "straight"
       },
       "face": {
@@ -8423,7 +8423,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "chignon",
        "bangs": "one_eye"
       },
       "face": {
@@ -8499,8 +8499,8 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
-       "bangs": "side_locks"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "v_line",
@@ -8509,7 +8509,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "jellyfish_cut",
        "bangs": "wispy"
       },
       "face": {
@@ -8519,7 +8519,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "long_curly",
        "bangs": "straight"
       },
       "face": {
@@ -8593,7 +8593,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "side_swept",
        "bangs": "swept_back"
       },
       "face": {
@@ -8603,7 +8603,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "short_crop",
        "bangs": "asymmetric"
       },
       "face": {
@@ -8613,7 +8613,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "asymmetric_bob",
        "bangs": "wispy"
       },
       "face": {
@@ -8687,7 +8687,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "twin_loops",
        "bangs": "curtain"
       },
       "face": {
@@ -8697,7 +8697,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "floor_length",
        "bangs": "baby"
       },
       "face": {
@@ -8707,7 +8707,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "cloud_updo",
        "bangs": "side_locks"
       },
       "face": {
@@ -8781,7 +8781,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "topknot_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -8792,7 +8792,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "lion_mane",
        "bangs": "baby"
       },
       "face": {
@@ -8802,7 +8802,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "segmented_tail",
        "bangs": "side_locks"
       },
       "face": {
@@ -8883,7 +8883,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "horn_locks",
        "bangs": "curtain"
       },
       "face": {
@@ -8893,7 +8893,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "drill_curls",
        "bangs": "wispy"
       },
       "face": {
@@ -8903,7 +8903,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "side_ponytail",
        "bangs": "asymmetric"
       },
       "face": {
@@ -8979,7 +8979,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "ponytail",
        "bangs": "straight"
       },
       "face": {
@@ -8989,7 +8989,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "tilted_bun",
        "bangs": "one_eye"
       },
       "face": {
@@ -9000,7 +9000,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "asymmetric_bob",
        "bangs": "none"
       },
       "face": {
@@ -9082,7 +9082,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "lob",
        "bangs": "swept_back"
       },
       "face": {
@@ -9092,7 +9092,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "updo_bun",
        "bangs": "baby"
       },
       "face": {
@@ -9102,7 +9102,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "side_ponytail",
        "bangs": "asymmetric"
       },
       "face": {
@@ -9182,7 +9182,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "lion_mane",
        "bangs": "wispy"
       },
       "face": {
@@ -9192,7 +9192,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "undercut_sweep",
        "bangs": "side_locks"
       },
       "face": {
@@ -9202,7 +9202,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "mermaid_waves",
        "bangs": "baby"
       },
       "face": {
@@ -9715,7 +9715,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "finger_waves",
        "bangs": "none"
       },
       "face": {
@@ -9725,7 +9725,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "jellyfish_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -9736,7 +9736,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "double_buns",
        "bangs": "side_locks"
       },
       "face": {
@@ -9906,8 +9906,8 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
-       "bangs": "choppy"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "square_soft",
@@ -9916,7 +9916,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "braided_crown",
        "bangs": "side_swept"
       },
       "face": {
@@ -9999,7 +9999,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "twin_loops",
        "bangs": "side_swept"
       },
       "face": {
@@ -10010,7 +10010,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "pixie",
        "bangs": "parted"
       },
       "face": {
@@ -10020,8 +10020,8 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
-       "bangs": "straight"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "heart",
@@ -10199,7 +10199,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "double_buns",
        "bangs": "wispy"
       },
       "face": {
@@ -10209,7 +10209,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "twin_tails",
        "bangs": "asymmetric"
       },
       "face": {
@@ -10219,7 +10219,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "side_ponytail",
        "bangs": "baby"
       },
       "face": {
@@ -10294,7 +10294,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "floor_length",
        "bangs": "swept_back"
       },
       "face": {
@@ -10304,8 +10304,8 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
-       "bangs": "baby"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "heart",
@@ -10314,7 +10314,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "flipped_shoulder",
        "bangs": "side_locks"
       },
       "face": {
@@ -10388,7 +10388,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "mermaid_waves",
        "bangs": "wispy"
       },
       "face": {
@@ -10398,7 +10398,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "flipped_shoulder",
        "bangs": "asymmetric"
       },
       "face": {
@@ -10408,7 +10408,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "undercut_sweep",
        "bangs": "swept_back"
       },
       "face": {
@@ -10483,7 +10483,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "half_up",
        "bangs": "one_eye"
       },
       "face": {
@@ -10493,7 +10493,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "asymmetric_bob",
        "bangs": "none"
       },
       "face": {
@@ -10504,7 +10504,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "lion_mane",
        "bangs": "curtain"
       },
       "face": {
@@ -10580,7 +10580,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "double_buns",
        "bangs": "swept_back"
       },
       "face": {
@@ -10591,7 +10591,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "cloud_updo",
        "bangs": "asymmetric"
       },
       "face": {
@@ -10601,7 +10601,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "windswept_long",
        "bangs": "baby"
       },
       "face": {
@@ -10676,7 +10676,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "triple_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -10687,7 +10687,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "short_crop",
        "bangs": "wispy"
       },
       "face": {
@@ -10697,7 +10697,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "mermaid_waves",
        "bangs": "asymmetric"
       },
       "face": {
@@ -10773,7 +10773,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "shag_layers",
        "bangs": "one_eye"
       },
       "face": {
@@ -10783,7 +10783,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "low_ponytail",
        "bangs": "none"
       },
       "face": {
@@ -10794,7 +10794,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "flipped_shoulder",
        "bangs": "curtain"
       },
       "face": {
@@ -10869,7 +10869,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "segmented_tail",
        "bangs": "wispy"
       },
       "face": {
@@ -10879,7 +10879,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "long_wavy",
        "bangs": "side_locks"
       },
       "face": {
@@ -10889,7 +10889,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "voluminous",
        "bangs": "baby"
       },
       "face": {
@@ -11156,7 +11156,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "messy_bun",
        "bangs": "baby"
       },
       "face": {
@@ -11167,7 +11167,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "side_swept",
        "bangs": "asymmetric"
       },
       "face": {
@@ -11177,7 +11177,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "long_layered",
        "bangs": "wispy"
       },
       "face": {
@@ -11253,7 +11253,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "flipped_shoulder",
        "bangs": "straight"
       },
       "face": {
@@ -11263,7 +11263,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "double_buns",
        "bangs": "one_eye"
       },
       "face": {
@@ -11273,7 +11273,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "twin_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -11347,7 +11347,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "asymmetric_bob",
        "bangs": "swept_back"
       },
       "face": {
@@ -11357,7 +11357,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "cloud_updo",
        "bangs": "baby"
       },
       "face": {
@@ -11367,7 +11367,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "segmented_tail",
        "bangs": "straight"
       },
       "face": {
@@ -11441,7 +11441,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "twin_tails",
        "bangs": "wispy"
       },
       "face": {
@@ -11452,7 +11452,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "chignon",
        "bangs": "side_locks"
       },
       "face": {
@@ -11462,7 +11462,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "jellyfish_cut",
        "bangs": "swept_back"
       },
       "face": {
@@ -11634,7 +11634,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "side_braid",
        "bangs": "curtain"
       },
       "face": {
@@ -11645,7 +11645,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "horn_locks",
        "bangs": "baby"
       },
       "face": {
@@ -11731,7 +11731,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "chignon",
        "bangs": "wispy"
       },
       "face": {
@@ -11741,7 +11741,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "shag_layers",
        "bangs": "baby"
       },
       "face": {
@@ -11751,7 +11751,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "updo_bun",
        "bangs": "asymmetric"
       },
       "face": {
@@ -11825,7 +11825,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "tilted_bun",
        "bangs": "swept_back"
       },
       "face": {
@@ -11835,7 +11835,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "braided_crown",
        "bangs": "wispy"
       },
       "face": {
@@ -11845,7 +11845,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "jellyfish_cut",
        "bangs": "side_locks"
       },
       "face": {
@@ -11919,7 +11919,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "ribbon_low_tail",
        "bangs": "straight"
       },
       "face": {
@@ -11929,7 +11929,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "braids",
        "bangs": "one_eye"
       },
       "face": {
@@ -11940,7 +11940,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "giant_twin_tails",
        "bangs": "none"
       },
       "face": {
@@ -12015,7 +12015,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "shag_layers",
        "bangs": "none"
       },
       "face": {
@@ -12026,7 +12026,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "tilted_bun",
        "bangs": "curtain"
       },
       "face": {
@@ -12036,7 +12036,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "voluminous",
        "bangs": "baby"
       },
       "face": {
@@ -12111,7 +12111,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "bob",
        "bangs": "side_locks"
       },
       "face": {
@@ -12121,7 +12121,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "long_curly",
        "bangs": "asymmetric"
       },
       "face": {
@@ -12131,7 +12131,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "spiky_wild",
        "bangs": "wispy"
       },
       "face": {
@@ -12206,7 +12206,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "pixie",
        "bangs": "one_eye"
       },
       "face": {
@@ -12216,7 +12216,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "half_up",
        "bangs": "none"
       },
       "face": {
@@ -12226,7 +12226,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "side_braid",
        "bangs": "curtain"
       },
       "face": {
@@ -12300,7 +12300,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "lion_mane",
        "bangs": "straight"
       },
       "face": {
@@ -12310,7 +12310,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "mermaid_waves",
        "bangs": "one_eye"
       },
       "face": {
@@ -12320,7 +12320,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "topknot_tails",
        "bangs": "none"
       },
       "face": {
@@ -12397,7 +12397,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "tilted_bun",
        "bangs": "swept_back"
       },
       "face": {
@@ -12407,7 +12407,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "messy_bun",
        "bangs": "baby"
       },
       "face": {
@@ -12417,7 +12417,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "long_layered",
        "bangs": "side_locks"
       },
       "face": {
@@ -12645,7 +12645,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "tilted_bun",
        "bangs": "swept_back"
       },
       "face": {
@@ -12655,7 +12655,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "giant_braid",
        "bangs": "wispy"
       },
       "face": {
@@ -12665,7 +12665,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "lob",
        "bangs": "asymmetric"
       },
       "face": {
@@ -12930,7 +12930,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "braids",
        "bangs": "one_eye"
       },
       "face": {
@@ -12941,7 +12941,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "segmented_tail",
        "bangs": "none"
       },
       "face": {
@@ -12951,7 +12951,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "wolf_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -13027,7 +13027,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "side_ponytail",
        "bangs": "swept_back"
       },
       "face": {
@@ -13037,7 +13037,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "windswept_long",
        "bangs": "baby"
       },
       "face": {
@@ -13047,7 +13047,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "twin_loops",
        "bangs": "wispy"
       },
       "face": {
@@ -13123,7 +13123,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "lion_mane",
        "bangs": "asymmetric"
       },
       "face": {
@@ -13133,7 +13133,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "giant_braid",
        "bangs": "side_locks"
       },
       "face": {
@@ -13144,7 +13144,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "floor_length",
        "bangs": "swept_back"
       },
       "face": {
@@ -13220,7 +13220,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "messy_bun",
        "bangs": "asymmetric"
       },
       "face": {
@@ -13231,7 +13231,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "drill_curls",
        "bangs": "baby"
       },
       "face": {
@@ -13316,7 +13316,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "jellyfish_cut",
        "bangs": "side_locks"
       },
       "face": {
@@ -13327,7 +13327,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "voluminous",
        "bangs": "baby"
       },
       "face": {
@@ -13337,7 +13337,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "twin_tails",
        "bangs": "straight"
       },
       "face": {
@@ -13413,7 +13413,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "giant_braid",
        "bangs": "one_eye"
       },
       "face": {
@@ -13423,7 +13423,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "short_crop",
        "bangs": "none"
       },
       "face": {
@@ -13433,7 +13433,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "low_ponytail",
        "bangs": "curtain"
       },
       "face": {
@@ -13607,7 +13607,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "floor_length",
        "bangs": "none"
       },
       "face": {
@@ -13618,7 +13618,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "drill_curls",
        "bangs": "curtain"
       },
       "face": {
@@ -13628,7 +13628,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "cloud_updo",
        "bangs": "asymmetric"
       },
       "face": {
@@ -13703,7 +13703,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "cloud_updo",
        "bangs": "one_eye"
       },
       "face": {
@@ -13713,7 +13713,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "floor_length",
        "bangs": "none"
       },
       "face": {
@@ -13724,7 +13724,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "drill_curls",
        "bangs": "curtain"
       },
       "face": {
@@ -13799,7 +13799,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "shag_layers",
        "bangs": "wispy"
       },
       "face": {
@@ -13810,7 +13810,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "cloud_updo",
        "bangs": "straight"
       },
       "face": {
@@ -13820,7 +13820,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "drill_curls",
        "bangs": "one_eye"
       },
       "face": {
@@ -13896,7 +13896,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "twin_tails",
        "bangs": "swept_back"
       },
       "face": {
@@ -13907,7 +13907,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "long_layered",
        "bangs": "straight"
       },
       "face": {
@@ -13917,7 +13917,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "windswept_long",
        "bangs": "one_eye"
       },
       "face": {
@@ -13994,7 +13994,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "asymmetric_bob",
        "bangs": "one_eye"
       },
       "face": {
@@ -14005,7 +14005,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "giant_twin_tails",
        "bangs": "none"
       },
       "face": {
@@ -14015,7 +14015,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "windswept_long",
        "bangs": "curtain"
       },
       "face": {
@@ -14093,7 +14093,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "voluminous",
        "bangs": "one_eye"
       },
       "face": {
@@ -14104,7 +14104,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "asymmetric_bob",
        "bangs": "none"
       },
       "face": {
@@ -14114,7 +14114,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "mermaid_waves",
        "bangs": "curtain"
       },
       "face": {
@@ -14190,7 +14190,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "low_ponytail",
        "bangs": "swept_back"
       },
       "face": {
@@ -14201,7 +14201,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "braided_crown",
        "bangs": "wispy"
       },
       "face": {
@@ -14211,7 +14211,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "triple_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -14288,7 +14288,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "cloud_updo",
        "bangs": "straight"
       },
       "face": {
@@ -14299,7 +14299,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "drill_curls",
        "bangs": "one_eye"
       },
       "face": {
@@ -14309,7 +14309,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "asymmetric_bob",
        "bangs": "asymmetric"
       },
       "face": {
@@ -14483,7 +14483,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "half_up",
        "bangs": "swept_back"
       },
       "face": {
@@ -14494,7 +14494,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "ponytail",
        "bangs": "baby"
       },
       "face": {
@@ -14504,7 +14504,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "floor_length",
        "bangs": "side_locks"
       },
       "face": {
@@ -14581,7 +14581,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "cloud_updo",
        "bangs": "wispy"
       },
       "face": {
@@ -14591,7 +14591,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "drill_curls",
        "bangs": "swept_back"
       },
       "face": {
@@ -14601,7 +14601,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "floor_length",
        "bangs": "baby"
       },
       "face": {
@@ -14687,7 +14687,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "triple_tails",
        "bangs": "none"
       },
       "face": {
@@ -14698,7 +14698,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "jellyfish_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -14774,7 +14774,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "long_curly",
        "bangs": "none"
       },
       "face": {
@@ -14785,7 +14785,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "wolf_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -14795,7 +14795,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "finger_waves",
        "bangs": "choppy"
       },
       "face": {
@@ -14870,7 +14870,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "lob",
        "bangs": "asymmetric"
       },
       "face": {
@@ -14880,8 +14880,8 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
-       "bangs": "side_locks"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "diamond",
@@ -14890,7 +14890,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "updo_bun",
        "bangs": "baby"
       },
       "face": {
@@ -14971,7 +14971,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "tilted_bun",
        "bangs": "wispy"
       },
       "face": {
@@ -14982,7 +14982,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "flipped_shoulder",
        "bangs": "none"
       },
       "face": {
@@ -14992,7 +14992,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "updo_bun",
        "bangs": "curtain"
       },
       "face": {
@@ -15173,7 +15173,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "bob",
        "bangs": "one_eye"
       },
       "face": {
@@ -15183,7 +15183,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "ribbon_low_tail",
        "bangs": "none"
       },
       "face": {
@@ -15193,7 +15193,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "spiky_wild",
        "bangs": "curtain"
       },
       "face": {
@@ -15274,7 +15274,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "half_up",
        "bangs": "asymmetric"
       },
       "face": {
@@ -15285,7 +15285,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "long_layered",
        "bangs": "side_locks"
       },
       "face": {
@@ -15379,7 +15379,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "half_up",
        "bangs": "baby"
       },
       "face": {
@@ -15390,7 +15390,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "lion_mane",
        "bangs": "side_locks"
       },
       "face": {
@@ -15400,7 +15400,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "giant_twin_tails",
        "bangs": "parted"
       },
       "face": {
@@ -15477,7 +15477,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "topknot_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -15488,7 +15488,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "braided_crown",
        "bangs": "none"
       },
       "face": {
@@ -15498,7 +15498,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "undercut_sweep",
        "bangs": "curtain"
       },
       "face": {
@@ -15576,7 +15576,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "double_buns",
        "bangs": "one_eye"
       },
       "face": {
@@ -15586,7 +15586,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "segmented_tail",
        "bangs": "none"
       },
       "face": {
@@ -15596,7 +15596,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "undercut_sweep",
        "bangs": "curtain"
       },
       "face": {
@@ -15671,7 +15671,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "mermaid_waves",
        "bangs": "wispy"
       },
       "face": {
@@ -15681,7 +15681,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "flipped_shoulder",
        "bangs": "asymmetric"
       },
       "face": {
@@ -15691,7 +15691,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "ribbon_low_tail",
        "bangs": "parted"
       },
       "face": {
@@ -15766,7 +15766,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "long_straight",
        "bangs": "one_eye"
       },
       "face": {
@@ -15776,7 +15776,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "ribbon_low_tail",
        "bangs": "none"
       },
       "face": {
@@ -15786,7 +15786,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "hime_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -15861,7 +15861,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "ribbon_low_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -15871,7 +15871,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "braided_crown",
        "bangs": "none"
       },
       "face": {
@@ -15881,7 +15881,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "long_straight",
        "bangs": "curtain"
       },
       "face": {
@@ -15956,7 +15956,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "long_straight",
        "bangs": "baby"
       },
       "face": {
@@ -15966,7 +15966,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "ponytail",
        "bangs": "swept_back"
       },
       "face": {
@@ -15977,7 +15977,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "braids",
        "bangs": "parted"
       },
       "face": {
@@ -16053,7 +16053,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "ribbon_low_tail",
        "bangs": "parted"
       },
       "face": {
@@ -16064,7 +16064,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "giant_braid",
        "bangs": "straight"
       },
       "face": {
@@ -16074,7 +16074,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "hime_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -16151,7 +16151,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "side_swept",
        "bangs": "asymmetric"
       },
       "face": {
@@ -16161,7 +16161,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "hime_cut",
        "bangs": "parted"
       },
       "face": {
@@ -16171,7 +16171,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "long_straight",
        "bangs": "straight"
       },
       "face": {
@@ -16246,7 +16246,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "topknot_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -16256,7 +16256,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "drill_curls",
        "bangs": "none"
       },
       "face": {
@@ -16266,7 +16266,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "segmented_tail",
        "bangs": "curtain"
       },
       "face": {
@@ -16341,7 +16341,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "short_crop",
        "bangs": "one_eye"
       },
       "face": {
@@ -16352,7 +16352,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "bob",
        "bangs": "wispy"
       },
       "face": {
@@ -16362,7 +16362,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "long_layered",
        "bangs": "curtain"
       },
       "face": {
@@ -16438,7 +16438,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "half_up",
        "bangs": "straight"
       },
       "face": {
@@ -16449,7 +16449,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "mermaid_waves",
        "bangs": "side_locks"
       },
       "face": {
@@ -16459,7 +16459,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "long_straight",
        "bangs": "none"
       },
       "face": {
@@ -16536,7 +16536,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "twin_loops",
        "bangs": "curtain"
       },
       "face": {
@@ -16546,7 +16546,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "half_up",
        "bangs": "asymmetric"
       },
       "face": {
@@ -16556,7 +16556,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "asymmetric_bob",
        "bangs": "wispy"
       },
       "face": {
@@ -16637,7 +16637,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "undercut_sweep",
        "bangs": "swept_back"
       },
       "face": {
@@ -16647,7 +16647,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "bob",
        "bangs": "side_locks"
       },
       "face": {
@@ -16657,7 +16657,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "topknot_tails",
        "bangs": "parted"
       },
       "face": {
@@ -16831,7 +16831,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "low_ponytail",
        "bangs": "straight"
       },
       "face": {
@@ -16842,7 +16842,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "horn_locks",
        "bangs": "one_eye"
       },
       "face": {
@@ -16852,7 +16852,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "jellyfish_cut",
        "bangs": "none"
       },
       "face": {
@@ -16930,7 +16930,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "cloud_updo",
        "bangs": "curtain"
       },
       "face": {
@@ -16941,7 +16941,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "low_ponytail",
        "bangs": "wispy"
       },
       "face": {
@@ -16951,7 +16951,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "twin_tails",
        "bangs": "side_locks"
       },
       "face": {
@@ -17028,7 +17028,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "segmented_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -17038,7 +17038,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "topknot_tails",
        "bangs": "parted"
       },
       "face": {
@@ -17048,7 +17048,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "twin_tails",
        "bangs": "straight"
       },
       "face": {
@@ -17124,7 +17124,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "drill_curls",
        "bangs": "one_eye"
       },
       "face": {
@@ -17134,7 +17134,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "voluminous",
        "bangs": "none"
       },
       "face": {
@@ -17145,8 +17145,8 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_ponytail",
-       "bangs": "curtain"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "round",
@@ -17222,7 +17222,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "undercut_sweep",
        "bangs": "asymmetric"
       },
       "face": {
@@ -17233,7 +17233,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "horn_locks",
        "bangs": "baby"
       },
       "face": {
@@ -17243,7 +17243,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "floor_length",
        "bangs": "parted"
       },
       "face": {
@@ -17321,7 +17321,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "giant_twin_tails",
        "bangs": "parted"
       },
       "face": {
@@ -17331,7 +17331,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "wolf_cut",
        "bangs": "straight"
       },
       "face": {
@@ -17342,7 +17342,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "lob",
        "bangs": "one_eye"
       },
       "face": {
@@ -17423,7 +17423,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "twin_loops",
        "bangs": "none"
       },
       "face": {
@@ -17434,7 +17434,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "braids",
        "bangs": "curtain"
       },
       "face": {
@@ -17444,7 +17444,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "windswept_long",
        "bangs": "swept_back"
       },
       "face": {
@@ -17622,7 +17622,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "braided_crown",
        "bangs": "choppy"
       },
       "face": {
@@ -17633,7 +17633,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "undercut_sweep",
        "bangs": "wispy"
       },
       "face": {
@@ -17643,7 +17643,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "giant_braid",
        "bangs": "parted"
       },
       "face": {
@@ -17816,7 +17816,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "short_crop",
        "bangs": "one_eye"
       },
       "face": {
@@ -17826,7 +17826,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "lob",
        "bangs": "none"
       },
       "face": {
@@ -17836,7 +17836,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "long_curly",
        "bangs": "curtain"
       },
       "face": {
@@ -17911,7 +17911,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "side_ponytail",
        "bangs": "one_eye"
       },
       "face": {
@@ -17931,7 +17931,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "long_straight",
        "bangs": "curtain"
       },
       "face": {
@@ -18006,7 +18006,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "long_curly",
        "bangs": "one_eye"
       },
       "face": {
@@ -18017,7 +18017,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "undercut_sweep",
        "bangs": "none"
       },
       "face": {
@@ -18027,7 +18027,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "triple_tails",
        "bangs": "curtain"
       },
       "face": {
@@ -18110,7 +18110,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "hime_cut",
        "bangs": "choppy"
       },
       "face": {
@@ -18121,7 +18121,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "side_swept",
        "bangs": "baby"
       },
       "face": {
@@ -18131,7 +18131,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "long_straight",
        "bangs": "parted"
       },
       "face": {
@@ -18208,7 +18208,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "side_swept",
        "bangs": "none"
       },
       "face": {
@@ -18218,7 +18218,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "ribbon_low_tail",
        "bangs": "curtain"
       },
       "face": {
@@ -18228,7 +18228,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "messy_bun",
        "bangs": "choppy"
       },
       "face": {
@@ -18303,7 +18303,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "flipped_shoulder",
        "bangs": "side_locks"
       },
       "face": {
@@ -18313,7 +18313,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "jellyfish_cut",
        "bangs": "parted"
       },
       "face": {
@@ -18323,7 +18323,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "twin_loops",
        "bangs": "straight"
       },
       "face": {
@@ -18399,7 +18399,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "lion_mane",
        "bangs": "choppy"
       },
       "face": {
@@ -18409,7 +18409,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "lob",
        "bangs": "asymmetric"
       },
       "face": {
@@ -18419,7 +18419,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "long_layered",
        "bangs": "parted"
       },
       "face": {
@@ -18494,7 +18494,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "updo_bun",
        "bangs": "curtain"
       },
       "face": {
@@ -18504,7 +18504,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "twin_loops",
        "bangs": "choppy"
       },
       "face": {
@@ -18514,7 +18514,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "double_buns",
        "bangs": "wispy"
       },
       "face": {
@@ -18590,7 +18590,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "braids",
        "bangs": "choppy"
       },
       "face": {
@@ -18601,7 +18601,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "ponytail",
        "bangs": "side_swept"
       },
       "face": {
@@ -18611,7 +18611,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "finger_waves",
        "bangs": "parted"
       },
       "face": {
@@ -18688,7 +18688,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "horn_locks",
        "bangs": "choppy"
       },
       "face": {
@@ -18699,7 +18699,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "segmented_tail",
        "bangs": "side_swept"
       },
       "face": {
@@ -18709,7 +18709,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "messy_bun",
        "bangs": "parted"
       },
       "face": {
@@ -18790,7 +18790,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "flipped_shoulder",
        "bangs": "curtain"
       },
       "face": {
@@ -18801,7 +18801,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "twin_loops",
        "bangs": "choppy"
       },
       "face": {
@@ -18811,7 +18811,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "cloud_updo",
        "bangs": "side_swept"
       },
       "face": {
@@ -18888,7 +18888,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "ribbon_low_tail",
        "bangs": "choppy"
       },
       "face": {
@@ -18898,7 +18898,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "long_curly",
        "bangs": "side_swept"
       },
       "face": {
@@ -18909,7 +18909,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "hime_cut",
        "bangs": "parted"
       },
       "face": {
@@ -18986,7 +18986,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "segmented_tail",
        "bangs": "choppy"
       },
       "face": {
@@ -18996,7 +18996,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "twin_loops",
        "bangs": "side_swept"
       },
       "face": {
@@ -19007,7 +19007,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "twin_tails",
        "bangs": "parted"
       },
       "face": {
@@ -19083,7 +19083,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "tilted_bun",
        "bangs": "straight"
       },
       "face": {
@@ -19094,7 +19094,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "chignon",
        "bangs": "one_eye"
       },
       "face": {
@@ -19104,7 +19104,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "twin_tails",
        "bangs": "none"
       },
       "face": {
@@ -19181,7 +19181,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "topknot_tails",
        "bangs": "choppy"
       },
       "face": {
@@ -19192,7 +19192,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "long_wavy",
        "bangs": "side_swept"
       },
       "face": {
@@ -19279,7 +19279,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "lion_mane",
        "bangs": "straight"
       },
       "face": {
@@ -19289,7 +19289,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "segmented_tail",
        "bangs": "one_eye"
       },
       "face": {
@@ -19299,7 +19299,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "giant_braid",
        "bangs": "none"
       },
       "face": {
@@ -19374,7 +19374,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "lion_mane",
        "bangs": "straight"
       },
       "face": {
@@ -19385,7 +19385,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "braids",
        "bangs": "one_eye"
       },
       "face": {
@@ -19395,7 +19395,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "mermaid_waves",
        "bangs": "none"
       },
       "face": {
@@ -19478,7 +19478,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "hime_cut",
        "bangs": "parted"
       },
       "face": {
@@ -19489,7 +19489,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "finger_waves",
        "bangs": "straight"
       },
       "face": {
@@ -19499,7 +19499,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "long_straight",
        "bangs": "one_eye"
       },
       "face": {
@@ -19575,7 +19575,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "braided_crown",
        "bangs": "choppy"
       },
       "face": {
@@ -19586,7 +19586,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "shag_layers",
        "bangs": "side_swept"
       },
       "face": {
@@ -19596,7 +19596,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "pixie",
        "bangs": "parted"
       },
       "face": {
@@ -19673,7 +19673,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "floor_length",
        "bangs": "choppy"
       },
       "face": {
@@ -19684,7 +19684,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "spiky_wild",
        "bangs": "side_swept"
       },
       "face": {
@@ -19694,7 +19694,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "drill_curls",
        "bangs": "parted"
       },
       "face": {
@@ -19771,7 +19771,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "jellyfish_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -19782,7 +19782,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "short_crop",
        "bangs": "choppy"
       },
       "face": {
@@ -19792,7 +19792,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "wolf_cut",
        "bangs": "side_swept"
       },
       "face": {
@@ -19867,7 +19867,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "topknot_tails",
        "bangs": "side_swept"
       },
       "face": {
@@ -19877,7 +19877,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "double_buns",
+       "hair": "lion_mane",
        "bangs": "parted"
       },
       "face": {
@@ -19887,7 +19887,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "segmented_tail",
        "bangs": "straight"
       },
       "face": {
@@ -19963,7 +19963,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "chignon",
        "bangs": "one_eye"
       },
       "face": {
@@ -19973,7 +19973,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "pixie",
        "bangs": "none"
       },
       "face": {
@@ -19984,7 +19984,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "tilted_bun",
        "bangs": "curtain"
       },
       "face": {
@@ -20071,7 +20071,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "chignon",
        "bangs": "one_eye"
       },
       "face": {
@@ -20081,7 +20081,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "hime_cut",
+       "hair": "spiky_wild",
        "bangs": "none"
       },
       "face": {
@@ -20091,7 +20091,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "updo_bun",
        "bangs": "curtain"
       },
       "face": {
@@ -20177,7 +20177,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "low_ponytail",
+       "hair": "finger_waves",
        "bangs": "curtain"
       },
       "face": {
@@ -20187,7 +20187,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "half_up",
+       "hair": "side_swept",
        "bangs": "choppy"
       },
       "face": {
@@ -20198,7 +20198,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "segmented_tail",
        "bangs": "side_swept"
       },
       "face": {
@@ -20279,7 +20279,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "floor_length",
        "bangs": "straight"
       },
       "face": {
@@ -20290,7 +20290,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "drill_curls",
        "bangs": "one_eye"
       },
       "face": {
@@ -20300,7 +20300,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "double_buns",
        "bangs": "none"
       },
       "face": {
@@ -20382,7 +20382,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "drill_curls",
        "bangs": "parted"
       },
       "face": {
@@ -20392,7 +20392,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "shag_layers",
        "bangs": "straight"
       },
       "face": {
@@ -20402,7 +20402,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "triple_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -20482,7 +20482,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "giant_twin_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -20492,8 +20492,8 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
-       "bangs": "none"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "heart",
@@ -20503,7 +20503,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "side_braid",
        "bangs": "curtain"
       },
       "face": {
@@ -20579,7 +20579,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "messy_bun",
        "bangs": "choppy"
       },
       "face": {
@@ -20590,7 +20590,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "lion_mane",
        "bangs": "side_swept"
       },
       "face": {
@@ -20600,7 +20600,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "twin_loops",
        "bangs": "parted"
       },
       "face": {
@@ -20774,7 +20774,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "spiky_wild",
        "bangs": "none"
       },
       "face": {
@@ -20784,7 +20784,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "mermaid_waves",
        "bangs": "curtain"
       },
       "face": {
@@ -20795,7 +20795,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "half_up",
        "bangs": "choppy"
       },
       "face": {
@@ -20872,7 +20872,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "side_swept",
        "bangs": "curtain"
       },
       "face": {
@@ -20883,7 +20883,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "giant_braid",
        "bangs": "choppy"
       },
       "face": {
@@ -20893,7 +20893,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "chignon",
+       "hair": "twin_loops",
        "bangs": "side_swept"
       },
       "face": {
@@ -20974,7 +20974,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "topknot_tails",
        "bangs": "choppy"
       },
       "face": {
@@ -20985,7 +20985,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "giant_braid",
        "bangs": "side_swept"
       },
       "face": {
@@ -20995,7 +20995,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "asymmetric_bob",
        "bangs": "parted"
       },
       "face": {
@@ -21079,7 +21079,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "topknot_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -21090,7 +21090,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "giant_braid",
        "bangs": "none"
       },
       "face": {
@@ -21100,7 +21100,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "horn_locks",
        "bangs": "curtain"
       },
       "face": {
@@ -21177,7 +21177,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "side_braid",
        "bangs": "choppy"
       },
       "face": {
@@ -21188,7 +21188,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "giant_twin_tails",
        "bangs": "side_swept"
       },
       "face": {
@@ -21198,8 +21198,8 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
-       "bangs": "parted"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "diamond",
@@ -21280,7 +21280,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "undercut_sweep",
        "bangs": "curtain"
       },
       "face": {
@@ -21291,7 +21291,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "triple_tails",
        "bangs": "choppy"
       },
       "face": {
@@ -21301,7 +21301,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "segmented_tail",
        "bangs": "side_swept"
       },
       "face": {
@@ -21385,7 +21385,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "braids",
        "bangs": "choppy"
       },
       "face": {
@@ -21395,7 +21395,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "lion_mane",
        "bangs": "side_swept"
       },
       "face": {
@@ -21406,7 +21406,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "topknot_tails",
        "bangs": "parted"
       },
       "face": {
@@ -21482,7 +21482,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "windswept_long",
        "bangs": "parted"
       },
       "face": {
@@ -21493,7 +21493,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "low_ponytail",
        "bangs": "straight"
       },
       "face": {
@@ -21503,7 +21503,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "messy_bun",
        "bangs": "one_eye"
       },
       "face": {
@@ -21587,7 +21587,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "cloud_updo",
        "bangs": "curtain"
       },
       "face": {
@@ -21598,7 +21598,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "half_up",
        "bangs": "choppy"
       },
       "face": {
@@ -21608,7 +21608,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "lob",
+       "hair": "floor_length",
        "bangs": "side_swept"
       },
       "face": {
@@ -21684,7 +21684,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "messy_bun",
+       "hair": "tilted_bun",
        "bangs": "none"
       },
       "face": {
@@ -21705,7 +21705,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "giant_twin_tails",
        "bangs": "choppy"
       },
       "face": {
@@ -21793,7 +21793,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "mermaid_waves",
        "bangs": "choppy"
       },
       "face": {
@@ -21803,7 +21803,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "hime_cut",
        "bangs": "side_swept"
       },
       "face": {
@@ -21814,7 +21814,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "pixie",
        "bangs": "parted"
       },
       "face": {
@@ -21890,7 +21890,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "cloud_updo",
        "bangs": "choppy"
       },
       "face": {
@@ -21901,7 +21901,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "floor_length",
        "bangs": "side_swept"
       },
       "face": {
@@ -21911,7 +21911,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "drill_curls",
        "bangs": "parted"
       },
       "face": {
@@ -21992,7 +21992,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "cloud_updo",
        "bangs": "straight"
       },
       "face": {
@@ -22002,7 +22002,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "wolf_cut",
+       "hair": "drill_curls",
        "bangs": "one_eye"
       },
       "face": {
@@ -22013,7 +22013,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "floor_length",
        "bangs": "swept_back"
       },
       "face": {
@@ -22089,7 +22089,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "floor_length",
        "bangs": "choppy"
       },
       "face": {
@@ -22099,7 +22099,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "ponytail",
        "bangs": "side_swept"
       },
       "face": {
@@ -22110,7 +22110,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "bob",
        "bangs": "parted"
       },
       "face": {
@@ -22191,7 +22191,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "double_buns",
        "bangs": "straight"
       },
       "face": {
@@ -22201,7 +22201,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "lob",
        "bangs": "one_eye"
       },
       "face": {
@@ -22211,7 +22211,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "asymmetric_bob",
        "bangs": "baby"
       },
       "face": {
@@ -22285,8 +22285,8 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
-       "bangs": "curtain"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "round",
@@ -22295,7 +22295,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "braids",
        "bangs": "choppy"
       },
       "face": {
@@ -22305,7 +22305,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "twin_loops",
        "bangs": "side_swept"
       },
       "face": {
@@ -22386,7 +22386,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "short_crop",
        "bangs": "choppy"
       },
       "face": {
@@ -22397,7 +22397,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "low_ponytail",
        "bangs": "side_swept"
       },
       "face": {
@@ -22407,7 +22407,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_layered",
+       "hair": "jellyfish_cut",
        "bangs": "parted"
       },
       "face": {
@@ -22488,7 +22488,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "segmented_tail",
        "bangs": "none"
       },
       "face": {
@@ -22498,7 +22498,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "braids",
        "bangs": "curtain"
       },
       "face": {
@@ -22508,7 +22508,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "finger_waves",
        "bangs": "choppy"
       },
       "face": {
@@ -22590,7 +22590,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_braid",
+       "hair": "bob",
        "bangs": "baby"
       },
       "face": {
@@ -22600,7 +22600,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_ponytail",
+       "hair": "chignon",
        "bangs": "side_swept"
       },
       "face": {
@@ -22611,7 +22611,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "windswept_long",
        "bangs": "parted"
       },
       "face": {
@@ -22688,7 +22688,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "ribbon_low_tail",
        "bangs": "choppy"
       },
       "face": {
@@ -22699,7 +22699,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "long_straight",
        "bangs": "side_swept"
       },
       "face": {
@@ -22709,7 +22709,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "spiky_wild",
        "bangs": "parted"
       },
       "face": {
@@ -22792,7 +22792,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "spiky_wild",
        "bangs": "wispy"
       },
       "face": {
@@ -22803,8 +22803,8 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
-       "bangs": "side_swept"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "heart",
@@ -22813,7 +22813,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "asymmetric_bob",
        "bangs": "parted"
       },
       "face": {
@@ -22895,7 +22895,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "spiky_wild",
        "bangs": "choppy"
       },
       "face": {
@@ -22905,7 +22905,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "long_wavy",
        "bangs": "side_swept"
       },
       "face": {
@@ -22915,7 +22915,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "ribbon_low_tail",
        "bangs": "parted"
       },
       "face": {
@@ -22991,7 +22991,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "ribbon_low_tail",
        "bangs": "none"
       },
       "face": {
@@ -23002,7 +23002,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "hime_cut",
        "bangs": "curtain"
       },
       "face": {
@@ -23012,7 +23012,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "long_straight",
        "bangs": "choppy"
       },
       "face": {
@@ -23094,7 +23094,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "flipped_shoulder",
        "bangs": "choppy"
       },
       "face": {
@@ -23105,7 +23105,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "giant_braid",
        "bangs": "side_swept"
       },
       "face": {
@@ -23115,7 +23115,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "shag_layers",
        "bangs": "parted"
       },
       "face": {
@@ -23197,7 +23197,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "side_braid",
        "bangs": "choppy"
       },
       "face": {
@@ -23208,7 +23208,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braided_crown",
+       "hair": "triple_tails",
        "bangs": "side_swept"
       },
       "face": {
@@ -23218,7 +23218,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "updo_bun",
        "bangs": "side_locks"
       },
       "face": {
@@ -23301,7 +23301,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "wolf_cut",
        "bangs": "choppy"
       },
       "face": {
@@ -23312,7 +23312,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "braided_crown",
        "bangs": "side_swept"
       },
       "face": {
@@ -23322,7 +23322,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "pixie",
        "bangs": "parted"
       },
       "face": {
@@ -23399,7 +23399,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "messy_bun",
        "bangs": "asymmetric"
       },
       "face": {
@@ -23409,7 +23409,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "low_ponytail",
        "bangs": "swept_back"
       },
       "face": {
@@ -23419,7 +23419,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "wolf_cut",
        "bangs": "side_swept"
       },
       "face": {
@@ -23494,7 +23494,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "segmented_tail",
        "bangs": "none"
       },
       "face": {
@@ -23504,7 +23504,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "topknot_tails",
        "bangs": "curtain"
       },
       "face": {
@@ -23514,7 +23514,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "horn_locks",
        "bangs": "choppy"
       },
       "face": {
@@ -23588,7 +23588,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "long_layered",
        "bangs": "one_eye"
       },
       "face": {
@@ -23609,7 +23609,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "twin_tails",
        "bangs": "curtain"
       },
       "face": {
@@ -23691,7 +23691,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "voluminous",
        "bangs": "choppy"
       },
       "face": {
@@ -23702,7 +23702,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "topknot_tails",
        "bangs": "side_swept"
       },
       "face": {
@@ -23712,7 +23712,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "lion_mane",
        "bangs": "parted"
       },
       "face": {
@@ -23794,7 +23794,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "topknot_tails",
        "bangs": "side_swept"
       },
       "face": {
@@ -23804,7 +23804,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "segmented_tail",
        "bangs": "parted"
       },
       "face": {
@@ -23814,7 +23814,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "triple_tails",
        "bangs": "straight"
       },
       "face": {
@@ -23889,7 +23889,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "undercut_sweep",
        "bangs": "one_eye"
       },
       "face": {
@@ -23900,7 +23900,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "finger_waves",
        "bangs": "none"
       },
       "face": {
@@ -23910,7 +23910,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "lion_mane",
        "bangs": "curtain"
       },
       "face": {
@@ -23986,7 +23986,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "hime_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -23997,7 +23997,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "ribbon_low_tail",
        "bangs": "none"
       },
       "face": {
@@ -24007,7 +24007,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "long_straight",
        "bangs": "curtain"
       },
       "face": {
@@ -24089,7 +24089,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "giant_twin_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -24099,7 +24099,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "hime_cut",
        "bangs": "none"
       },
       "face": {
@@ -24109,7 +24109,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "shag_layers",
        "bangs": "curtain"
       },
       "face": {
@@ -24189,7 +24189,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "wolf_cut",
        "bangs": "side_locks"
       },
       "face": {
@@ -24199,7 +24199,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "giant_twin_tails",
        "bangs": "baby"
       },
       "face": {
@@ -24210,7 +24210,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "flipped_shoulder",
        "bangs": "parted"
       },
       "face": {
@@ -24285,7 +24285,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "finger_waves",
        "bangs": "choppy"
       },
       "face": {
@@ -24296,7 +24296,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "shag_layers",
        "bangs": "side_swept"
       },
       "face": {
@@ -24306,7 +24306,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "segmented_tail",
        "bangs": "parted"
       },
       "face": {
@@ -24382,7 +24382,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "bob",
        "bangs": "choppy"
       },
       "face": {
@@ -24392,7 +24392,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "long_layered",
        "bangs": "side_swept"
       },
       "face": {
@@ -24402,7 +24402,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "hime_cut",
        "bangs": "parted"
       },
       "face": {
@@ -24482,7 +24482,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "long_wavy",
        "bangs": "choppy"
       },
       "face": {
@@ -24492,7 +24492,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "ribbon_low_tail",
        "bangs": "side_swept"
       },
       "face": {
@@ -24503,7 +24503,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "spiky_wild",
        "bangs": "parted"
       },
       "face": {
@@ -24584,7 +24584,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "chignon",
        "bangs": "choppy"
       },
       "face": {
@@ -24594,7 +24594,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "horn_locks",
        "bangs": "side_swept"
       },
       "face": {
@@ -24604,7 +24604,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "tilted_bun",
        "bangs": "parted"
       },
       "face": {
@@ -24684,7 +24684,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "low_ponytail",
        "bangs": "choppy"
       },
       "face": {
@@ -24694,7 +24694,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "long_curly",
        "bangs": "side_swept"
       },
       "face": {
@@ -24705,7 +24705,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "jellyfish_cut",
        "bangs": "parted"
       },
       "face": {
@@ -24780,7 +24780,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "ribbon_low_tail",
        "bangs": "swept_back"
       },
       "face": {
@@ -24790,7 +24790,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "drill_curls",
        "bangs": "side_swept"
       },
       "face": {
@@ -24800,7 +24800,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "jellyfish_cut",
        "bangs": "parted"
       },
       "face": {
@@ -24879,7 +24879,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "giant_braid",
        "bangs": "straight"
       },
       "face": {
@@ -24889,7 +24889,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "spiky_wild",
        "bangs": "one_eye"
       },
       "face": {
@@ -24899,7 +24899,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "topknot_tails",
        "bangs": "none"
       },
       "face": {
@@ -24979,7 +24979,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "shag_layers",
        "bangs": "none"
       },
       "face": {
@@ -24989,7 +24989,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "twin_tails",
        "bangs": "curtain"
       },
       "face": {
@@ -25000,7 +25000,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "hime_cut",
        "bangs": "choppy"
       },
       "face": {
@@ -25076,7 +25076,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "spiky_wild",
        "bangs": "curtain"
       },
       "face": {
@@ -25086,7 +25086,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "segmented_tail",
        "bangs": "choppy"
       },
       "face": {
@@ -25097,7 +25097,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "floor_length",
        "bangs": "side_swept"
       },
       "face": {
@@ -25173,8 +25173,8 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
-       "bangs": "choppy"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "diamond",
@@ -25184,7 +25184,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "updo_bun",
        "bangs": "side_swept"
       },
       "face": {
@@ -25194,7 +25194,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "triple_tails",
        "bangs": "parted"
       },
       "face": {
@@ -25271,7 +25271,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "double_buns",
        "bangs": "choppy"
       },
       "face": {
@@ -25282,7 +25282,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "tilted_bun",
        "bangs": "side_swept"
       },
       "face": {
@@ -25292,7 +25292,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "jellyfish_cut",
        "bangs": "parted"
       },
       "face": {
@@ -25369,7 +25369,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "undercut_sweep",
        "bangs": "curtain"
       },
       "face": {
@@ -25379,7 +25379,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "long_curly",
        "bangs": "choppy"
       },
       "face": {
@@ -25390,7 +25390,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "lion_mane",
        "bangs": "straight"
       },
       "face": {
@@ -25471,7 +25471,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "voluminous",
        "bangs": "straight"
       },
       "face": {
@@ -25481,7 +25481,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "pixie",
+       "hair": "finger_waves",
        "bangs": "wispy"
       },
       "face": {
@@ -25492,7 +25492,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "twin_loops",
        "bangs": "none"
       },
       "face": {
@@ -25567,7 +25567,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "segmented_tail",
        "bangs": "straight"
       },
       "face": {
@@ -25578,7 +25578,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "topknot_tails",
        "bangs": "one_eye"
       },
       "face": {
@@ -25588,7 +25588,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "twin_tails",
        "bangs": "none"
       },
       "face": {
@@ -25663,7 +25663,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "braided_crown",
        "bangs": "choppy"
       },
       "face": {
@@ -25673,7 +25673,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "messy_bun",
        "bangs": "side_swept"
       },
       "face": {
@@ -25683,7 +25683,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "side_braid",
        "bangs": "asymmetric"
       },
       "face": {
@@ -25758,7 +25758,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "spiky_wild",
        "bangs": "none"
       },
       "face": {
@@ -25768,7 +25768,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "flipped_shoulder",
        "bangs": "curtain"
       },
       "face": {
@@ -25779,7 +25779,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "windswept_long",
        "bangs": "choppy"
       },
       "face": {
@@ -25854,7 +25854,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "side_swept",
        "bangs": "side_swept"
       },
       "face": {
@@ -25864,7 +25864,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "undercut_sweep",
        "bangs": "parted"
       },
       "face": {
@@ -25874,7 +25874,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "braids",
        "bangs": "straight"
       },
       "face": {
@@ -25948,7 +25948,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "drill_curls",
        "bangs": "one_eye"
       },
       "face": {
@@ -25958,7 +25958,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "mermaid_waves",
        "bangs": "none"
       },
       "face": {
@@ -25969,7 +25969,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "twin_tails",
        "bangs": "curtain"
       },
       "face": {
@@ -26044,7 +26044,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "cloud_updo",
        "bangs": "curtain"
       },
       "face": {
@@ -26054,7 +26054,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "horn_locks",
        "bangs": "choppy"
       },
       "face": {
@@ -26065,7 +26065,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "lion_mane",
        "bangs": "side_swept"
       },
       "face": {
@@ -26141,7 +26141,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "ribbon_low_tail",
        "bangs": "one_eye"
       },
       "face": {
@@ -26151,7 +26151,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "tilted_bun",
        "bangs": "none"
       },
       "face": {
@@ -26161,7 +26161,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "long_straight",
        "bangs": "curtain"
       },
       "face": {
@@ -26235,7 +26235,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "cloud_updo",
        "bangs": "straight"
       },
       "face": {
@@ -26245,7 +26245,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "messy_bun",
        "bangs": "one_eye"
       },
       "face": {
@@ -26256,7 +26256,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "flipped_shoulder",
        "bangs": "none"
       },
       "face": {
@@ -26331,7 +26331,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "wolf_cut",
        "bangs": "choppy"
       },
       "face": {
@@ -26342,7 +26342,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "lob",
        "bangs": "side_swept"
       },
       "face": {
@@ -26352,7 +26352,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "asymmetric_bob",
        "bangs": "parted"
       },
       "face": {
@@ -26427,7 +26427,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "tilted_bun",
        "bangs": "choppy"
       },
       "face": {
@@ -26438,7 +26438,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "side_swept",
        "bangs": "side_swept"
       },
       "face": {
@@ -26448,7 +26448,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "long_curly",
        "bangs": "parted"
       },
       "face": {
@@ -26526,7 +26526,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "topknot_tails",
        "bangs": "curtain"
       },
       "face": {
@@ -26536,7 +26536,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "finger_waves",
        "bangs": "choppy"
       },
       "face": {
@@ -26547,7 +26547,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "voluminous",
        "bangs": "side_swept"
       },
       "face": {
@@ -26622,7 +26622,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "short_crop",
        "bangs": "curtain"
       },
       "face": {
@@ -26633,7 +26633,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "topknot_tails",
        "bangs": "choppy"
       },
       "face": {
@@ -26643,7 +26643,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "windswept_long",
        "bangs": "side_swept"
       },
       "face": {
@@ -26725,7 +26725,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "twin_loops",
        "bangs": "choppy"
       },
       "face": {
@@ -26736,7 +26736,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "giant_braid",
        "bangs": "side_swept"
       },
       "face": {
@@ -26746,7 +26746,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "finger_waves",
        "bangs": "parted"
       },
       "face": {
@@ -26926,7 +26926,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "updo_bun",
+       "hair": "wolf_cut",
        "bangs": "one_eye"
       },
       "face": {
@@ -26936,7 +26936,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "floor_length",
        "bangs": "none"
       },
       "face": {
@@ -26947,7 +26947,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "giant_braid",
        "bangs": "curtain"
       },
       "face": {
@@ -27020,7 +27020,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "long_wavy",
+       "hair": "windswept_long",
        "bangs": "choppy"
       },
       "face": {
@@ -27030,7 +27030,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "asymmetric_bob",
        "bangs": "side_swept"
       },
       "face": {
@@ -27041,7 +27041,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "tilted_bun",
        "bangs": "parted"
       },
       "face": {
@@ -27121,7 +27121,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "twin_loops",
        "bangs": "choppy"
       },
       "face": {
@@ -27131,7 +27131,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "jellyfish_cut",
        "bangs": "side_swept"
       },
       "face": {
@@ -27141,7 +27141,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "asymmetric_bob",
        "bangs": "parted"
       },
       "face": {
@@ -27220,7 +27220,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "tilted_bun",
        "bangs": "choppy"
       },
       "face": {
@@ -27230,7 +27230,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "braided_crown",
        "bangs": "side_swept"
       },
       "face": {
@@ -27240,7 +27240,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "triple_tails",
        "bangs": "parted"
       },
       "face": {
@@ -27320,7 +27320,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "lob",
        "bangs": "none"
       },
       "face": {
@@ -27331,7 +27331,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "asymmetric_bob",
        "bangs": "curtain"
       },
       "face": {
@@ -27341,7 +27341,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "windswept_long",
        "bangs": "choppy"
       },
       "face": {
@@ -27416,7 +27416,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "ribbon_low_tail",
        "bangs": "one_eye"
       },
       "face": {
@@ -27426,7 +27426,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "mermaid_waves",
        "bangs": "none"
       },
       "face": {
@@ -27437,7 +27437,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "windswept_long",
        "bangs": "curtain"
       },
       "face": {
@@ -27516,7 +27516,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "triple_tails",
        "bangs": "baby"
       },
       "face": {
@@ -27527,7 +27527,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "voluminous",
        "bangs": "parted"
       },
       "face": {
@@ -27537,7 +27537,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "giant_twin_tails",
        "bangs": "straight"
       },
       "face": {
@@ -27611,7 +27611,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "long_curly",
        "bangs": "straight"
       },
       "face": {
@@ -27622,7 +27622,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "updo_bun",
        "bangs": "one_eye"
       },
       "face": {
@@ -27632,7 +27632,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "tilted_bun",
        "bangs": "none"
       },
       "face": {
@@ -27705,7 +27705,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "triple_tails",
        "bangs": "choppy"
       },
       "face": {
@@ -27716,7 +27716,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "twin_tails",
+       "hair": "finger_waves",
        "bangs": "side_swept"
       },
       "face": {
@@ -27726,7 +27726,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "pixie",
        "bangs": "parted"
       },
       "face": {
@@ -27800,7 +27800,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "drill_curls",
        "bangs": "choppy"
       },
       "face": {
@@ -27810,7 +27810,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "side_swept",
+       "hair": "cloud_updo",
        "bangs": "side_swept"
       },
       "face": {
@@ -27821,8 +27821,8 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "twin_tails",
-       "bangs": "parted"
+       "hair": "slicked_back",
+       "bangs": "swept_back"
       },
       "face": {
        "face_shape": "round",
@@ -27900,7 +27900,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "ponytail",
+       "hair": "cloud_updo",
        "bangs": "wispy"
       },
       "face": {
@@ -27910,7 +27910,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "voluminous",
+       "hair": "drill_curls",
        "bangs": "asymmetric"
       },
       "face": {
@@ -27920,7 +27920,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "braids",
+       "hair": "floor_length",
        "bangs": "straight"
       },
       "face": {
@@ -27997,7 +27997,7 @@
     "worlds": {
      "samguk": {
       "silhouette": {
-       "hair": "bob",
+       "hair": "horn_locks",
        "bangs": "curtain"
       },
       "face": {
@@ -28008,7 +28008,7 @@
      },
      "fantasy": {
       "silhouette": {
-       "hair": "short_crop",
+       "hair": "mermaid_waves",
        "bangs": "choppy"
       },
       "face": {
@@ -28018,7 +28018,7 @@
      },
      "mecha": {
       "silhouette": {
-       "hair": "long_straight",
+       "hair": "topknot_tails",
        "bangs": "side_swept"
       },
       "face": {
