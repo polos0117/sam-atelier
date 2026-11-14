@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-14 · gpt · 서황 선택 세계컷과 일상·사서 컷 27장 도감 등록
+- data/img.json — 최종 선택 2·4·2 세계컷 3장과 참조 기반 일상 21장·사서 전용 3장을 열린 그림 저장소에 연결; 기존 그림과 다른 장수 데이터 보존
+- sam-atelier-img-2 img/서황_* · records/서황/ — WebP 27장과 생성·참조·검수 기록; 차밭 인체 방향 오류는 동일 지시문으로 한 번 재생성, 완성 시트 제공
+
 ## 2026-11-14 · claude · 머리 47가지로 늘려 다시 나누기 — 전체에서 고르게, 세계 · 역할로 기울임만
 - 사용자 「머리 스타일을 더 늘려서 재분배도 가능할까?」 → 「기울여 나누기는 하는데, 어디는 안들어가고 어디는 들어가고 이런것보다는 전체 스타일에서 분배해줘. 메카쪽에 올림머리 들어가도 돼. 메카도 … 다른 쪽으로 해줘」 → 「응 그렇게 진행해줘」
 - lib/look-spec.js VOCAB_EN.hair 23 → 47: 결의 머리 여섯(topknot_tails · twin_loops · cloud_updo · tilted_bun · ribbon_low_tail · segmented_tail), 과장된 게임풍 열(drill_curls · giant_twin_tails · giant_braid · floor_length · spiky_wild · lion_mane · jellyfish_cut · windswept_long · triple_tails · horn_locks), 원소공방 여덟(글은 core 와 같다). prompt.html · promptapi.html look-spec ?v=9
