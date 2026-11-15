@@ -42,7 +42,7 @@ srv.listen(0, async () => {
       r = await run(['stage', '조조', '--img', z1, path.join(out, 'samguk-ours2.png') + '=samguk']); assert(r.status !== 0 && /덮지 않는다/.test(r.stderr) && !fs.readdirSync(path.join(z1, 'img')).length, 'stage — 옆 저장소의 같은 이름: ' + r.stderr);
       r = await run(['stage', '조조', '--img', z1, path.join(out, 'samguk-casual1.png') + '=samguk-casual1']); assert(r.status === 0 && fs.existsSync(path.join(z1, 'img', '조조_samguk_api25_f_casual1.webp')) && fs.existsSync(path.join(z1, 'records', '조조', 'samguk-casual1.api25-ui.json')), 'stage — 열린 저장소에 그림 · 기록: ' + r.stderr); }
     /* 자유 설계 컷(2026-11-11) — 일곱 장 계획의 갈래 자유 컷 하나: 채운 덩어리를 받아 빈 덩어리 자리에, 틀 줄을 바꾸거나 안 채우면 건너뛴다 */
-    const p7 = path.join(tmp, 'plan7'); cp.execFileSync(process.execPath, [path.join(R, 'tools/casual-plan.cjs'), '조조', '--world', 'fantasy', '--style', 'api25', '--slots', '1,2,3,4,5,6,7', '--records', path.join(tmp, 'norec'), '--usage', 'none', '--seed', '4', '--out', p7], { stdio: 'pipe' });
+    const p7 = path.join(tmp, 'plan7'); cp.execFileSync(process.execPath, [path.join(R, 'tools/casual-plan.cjs'), '조조', '--world', 'fantasy', '--style', 'api25', '--slots', '1,2,3,4,5,6,7', '--records', path.join(tmp, 'norec'), '--usage', 'none', '--cosplay-usage', 'none', '--seed', '4', '--out', p7], { stdio: 'pipe' });
     const pl7 = JSON.parse(fs.readFileSync(path.join(p7, 'plan.json'), 'utf8')), fam = pl7.cuts.find(c => c.ofree && c.ofreeFamily);
     assert(fam && pl7.cuts.filter(c => c.ofree).length === 2, '일곱 장 계획 — 자유 설계 두 장(옷 자유 · 갈래 자유)');
     fs.writeFileSync(path.join(p7, 'one.json'), JSON.stringify({ ...pl7, cuts: [fam] }));
@@ -56,6 +56,25 @@ srv.listen(0, async () => {
     r = await run(['casual', path.join(p7, 'one.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out, '--free', fam.n + '=' + path.join(tmp, 'free-ok.txt')]); assert.equal(r.status, 0, r.stdout + r.stderr);
     const fg = JSON.parse(fs.readFileSync(path.join(out, 'fantasy-casual' + fam.n + '_record.json'), 'utf8')).generation;
     assert(fg.design === 'ofree_family' && fg.free_design === filled && fg.free_prompt === tplP.trim().replace(tpl, filled) && !/^(Place|Outfit): …/m.test(fg.free_prompt), '자유 설계 기록 — 채운 덩어리 · 넘긴 지시문(다른 줄은 조립부 그대로)');
-    console.log('PASS 2.5 API 그리기 도구: 세계 그림 · GPT 설계 · 일상컷(편집 · 참고 그림) · 막힘 한 번 더 → 건너뜀 · 사용량 · stage(webp · 기록 · 덮지 않음) · 자유 설계 덩어리(받기 · 틀 검사 · 기록)');
+    /* 게임 코스프레 컷(2026-11-15) — 등장인물 많은 게임 1회차는 채운 Outfit 줄을 받아 「Outfit: … (…)」 자리에(게임 이름 · 재단 글 · 이미 쓴 캐릭터 대조), again 이면 계획이 정한 2회차 글, 주인공 하나 게임은 그대로 — 기록 generation.cosplay */
+    { const cc = pl7.cuts.find(c => c.cosplay); assert(cc && cc.ofam === 'game_cosplay', '일곱 장 계획 — 게임 코스프레 한 장');
+      const GCJ = JSON.parse(fs.readFileSync(path.join(R, 'data/game-cosplay.json'), 'utf8')), cutKey = cc.item.replace(/^gc_/, ''), cutEn = GCJ.cuts.find(x => x.key === cutKey).en;
+      const pick = { ...cc, cosplay: { game: 'street_fighter_2', character: '', cut: cutKey, round: 1, used: ['Ryu'], again: { character: 'Ryu', cut: cutKey } } }, fixed = { ...cc, cosplay: { game: 'tomb_raider', character: 'Lara Croft', cut: cutKey, round: 1 } };
+      fs.writeFileSync(path.join(p7, 'cos.json'), JSON.stringify({ ...pl7, cuts: [pick] })); fs.writeFileSync(path.join(p7, 'cos-fixed.json'), JSON.stringify({ ...pl7, cuts: [fixed] }));
+      const recOf = () => JSON.parse(fs.readFileSync(path.join(out, 'fantasy-casual' + cc.n + '_record.json'), 'utf8')), go = extra => run(['casual', path.join(p7, extra[0]), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out, ...extra.slice(1)]);
+      const okLine = 'Outfit: Chun-Li from Street Fighter II — a blue qipao-style top with gold trim, spiked bracelets and white boots, ' + cutEn;
+      fs.writeFileSync(path.join(tmp, 'cos-ok.txt'), 'Filled line:\n' + okLine + '\n'); fs.writeFileSync(path.join(tmp, 'cos-nogame.txt'), okLine.replace(' from Street Fighter II', ''));
+      fs.writeFileSync(path.join(tmp, 'cos-used.txt'), okLine.replace('Chun-Li', 'Ryu')); fs.writeFileSync(path.join(tmp, 'cos-empty.txt'), 'Outfit: … (' + cutEn + ' Street Fighter II)');
+      r = await go(['cos.json']); assert(r.status === 3 && /코스프레 글 없음/.test(r.stdout), '1회차 — 글이 없으면 건너뛴다');
+      r = await go(['cos.json', '--cosplay', cc.n + '=' + path.join(tmp, 'cos-nogame.txt')]); assert(r.status === 3 && /게임 이름/.test(r.stdout), '1회차 — 게임 이름이 없으면 건너뛴다');
+      r = await go(['cos.json', '--cosplay', cc.n + '=' + path.join(tmp, 'cos-used.txt')]); assert(r.status === 3 && /이미 쓴 캐릭터/.test(r.stdout), '1회차 — 이미 쓴 캐릭터면 건너뛴다');
+      r = await go(['cos.json', '--cosplay', cc.n + '=' + path.join(tmp, 'cos-empty.txt')]); assert(r.status === 3 && /안 채웠다/.test(r.stdout), '1회차 — 안 채우면 건너뛴다');
+      r = await go(['cos.json', '--cosplay', cc.n + '=' + path.join(tmp, 'cos-ok.txt')]); assert.equal(r.status, 0, r.stdout + r.stderr);
+      let g = recOf().generation; assert(g.cosplay.game === 'street_fighter_2' && g.cosplay.character === 'Chun-Li' && g.cosplay.cut === cutKey && g.cosplay_line === okLine && g.cosplay_prompt.includes('\n' + okLine) && !/Outfit: …/.test(g.cosplay_prompt), '1회차 기록 — generation.cosplay · 넘긴 줄');
+      r = await go(['cos.json', '--cosplay', cc.n + '=again']); assert.equal(r.status, 0, r.stdout + r.stderr);
+      g = recOf().generation; assert(g.cosplay.character === 'Ryu' && g.cosplay.cut === cutKey && !/Outfit: …/.test(g.cosplay_prompt) && g.cosplay_line.startsWith('Outfit: ' + GCJ.text.again.replace('{character}', 'Ryu').replace('{game}', 'Street Fighter II').replace('{cut}', cutEn)), '2회차로 넘기기(again)');
+      r = await go(['cos-fixed.json']); assert.equal(r.status, 0, r.stdout + r.stderr);
+      g = recOf().generation; assert(g.cosplay.game === 'tomb_raider' && g.cosplay.character === 'Lara Croft' && !g.cosplay_line && /Outfit: a daring adult cosplay of Lara Croft from Tomb Raider/.test(recOf().prompt), '주인공 하나 게임 — 지시문 그대로 · 기록 generation.cosplay'); }
+    console.log('PASS 2.5 API 그리기 도구: 세계 그림 · GPT 설계 · 일상컷(편집 · 참고 그림) · 막힘 한 번 더 → 건너뜀 · 사용량 · stage(webp · 기록 · 덮지 않음) · 자유 설계 덩어리(받기 · 틀 검사 · 기록) · 게임 코스프레(1회차 Outfit 줄 받기 · 게임 이름 · 재단 · 쓴 캐릭터 대조 · again · 기록 generation.cosplay)');
   } catch (e) { console.error(e); process.exitCode = 1; } finally { srv.close(); fs.rmSync(tmp, { recursive: true, force: true }); }
 });

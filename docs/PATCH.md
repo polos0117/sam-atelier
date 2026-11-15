@@ -7,6 +7,15 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · claude · 일상컷 필수 셋째를 게임 코스프레로 — 상황 노출은 필수에서만 내림
+- 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 그리는 쪽이 고르고 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉
+- data/game-cosplay.json — game-atelier 원본의 사본(고치지 않는다). data/casual-tree.json 옷 계열 game_cosplay(재단 열하나 gc_*) · 시대 지금 현실 · 무대·환상 · 장소 표 cosplay(코스프레 행사 · 거실 · 침실 · 화보 스튜디오 · 별빛 무대 · 오락실, 물가는 수영복 재단) · costume_required(얼굴 클로즈업 안 씀) · required.cosplay. data/casual-tree-v2.json 새 장소 오락실(arcade_hall) · 옷 특징 기본값. tools/casual-tree.py 가 costume_required · cosplay 장소를 본다
+- tools/casual-plan.cjs — 필수 셋째 = 게임 코스프레(wants cosplay). cosplayUsage(세 공방 그림 저장소 records 의 generation.cosplay, 없으면 scene.cosplay 의 찬 character) · pickCosplay(덜 쓴 게임 → 주인공 하나는 안 입은 재단 · 많은 게임 1회차 pick · 2회차 again · 다 찬 게임 빠짐) · cosplayAgain · withAgain(1회차의 2회차 몫, <세계>-casualN-again-prompt.txt) — 원소 53b1956 과 같은 함수 · 칸 이름. 상황 노출은 일반 컷 한 장에 반쯤(SITU_RATE 0.5). check: 코스프레 한 장 · 게임 · 재단 · 장소 · 색 · 데니어 · 상황 없음 · 얼굴 클로즈업 아님, 옛 묶음(상황 필수 시절 — 상황 컷 · 갈래 자유 상황)은 그대로 통과(그림 저장소 묶음 177 판정이 고치기 전과 같다). 코스프레 컷은 옷 겹침에서 빼고 장소는 다른 코스프레 컷과만 견준다. 시도 400 → 800
+- lib/prompt-sam.js · lib/prompt-spec.js — 코스프레 Outfit 줄(text.fixed · pick · again — 게임 · 캐릭터 이름은 이 갈래만 넣는다), CHARACTER · OUTPUT · WARDROBE 코스튬 글(짧은 꼴 · 칸 꼴은 Cosplay: 줄 · 머리 장식 줄), DESIGN · 전설 · 무기 장신구 · 세력 색 줄은 이 컷에 없음, 옷 색 · 데니어 · 상황 없음, 체형 · 식스팩 줄 그대로. cosplayOutfit · cosplayAgainScene · cosplayNeedsFill · cosplayRecord
+- tools/api-draw.cjs casual --cosplay N=<채운 Outfit 줄>|again — 게임 이름 · 재단 글 · 쓴 캐릭터 대조, 기록 generation.cosplay(코스프레 컷이면 늘) · cosplay_line · cosplay_prompt. tools/prompt-pack.cjs INDEX 코스프레 표(기록할 generation.cosplay · 2회차 몫 파일) · again-prompt. tools/casual-check.py 셋째 = 코스프레(옛 묶음은 상황)
+- lib/studio.js · lib/words.js — 생성기 「게임」 단계(코스프레 계열일 때만, 게임 열아홉 · 등장인물 많은 게임은 「…」 자리, 그때 옷 색 · 데니어 · 상황 단계 없음, 표의 장소 · 물가 수영복 재단만). html ?v= — words 22 · prompt-spec 48 · prompt-sam 41 · studio 13
+- IMAGE_RULES.md 2절 게임 코스프레(구성 · 고르는 규칙 · 기록 · 장소 · 지시문 · 이름 규칙 예외 · 옛 묶음) · AGENTS.md · docs/IMAGE_AUTOMATION.md · .claude/skills/api25. 검사 tests/casual-plan.cjs · prompt-v2.cjs · api-draw.cjs · screen.cjs 에 코스프레 단언
+
 ## 2026-11-15 · gpt · 주유 선택 세계컷과 일상·직업컷 27장 등록
 - sam-atelier-img-2 img/주유_*_kr_drawn_rim_dewy_f*.webp · records/주유/ — 선택 1·2·1 세계컷 3장과 참조 기반 일상 21장, 고금 악사·궁정 하프 연주자·지휘자 직업컷 3장. 실제 지시문·원본 및 참조 해시·검수 차이를 기록하고 생성된 원본 보존.
 - data/img.json — 공식 등록기로 27장 추가, 기존 캐릭터와 저장소 주소 보존. 계획기 검사 세계별 통과; 목검 소품·구도·의상·헤어 차이는 해당 기록에 검수 실패로 명시.

@@ -192,6 +192,23 @@ def check(doc):
     for fam, f in doc["families"].items():
         if not [o for o in f["orients"] if o not in ban.get("orients", [])]:
             errs.append("자세 계열 %s 에 안 쓰는 값을 빼면 방향이 없다" % fam)
+    # 코스튬 필수 컷(costume_required — game · pkm, 삼국지는 게임 코스프레 2026-11-15)의 옷 계열은 표에 있고, 안 쓰는 프레이밍(not_frames)은 정한 말
+    cos = doc.get("costume_required")
+    if cos:
+        if cos.get("outfit") not in {o["key"] for o in doc["outfits"]}:
+            errs.append("코스튬 필수 옷 계열 %r 가 표에 없다" % cos.get("outfit"))
+        for fr in cos.get("not_frames", []):
+            if fr not in FRAMES:
+                errs.append("코스튬 필수 컷의 안 쓰는 프레이밍 %r" % fr)
+    # 게임 코스프레 장소(cosplay — 2026-11-15) — 표(버전1 장소 · 버전2 새 장소)에 있는 장소, 그 계열을 받는 시대
+    cp = doc.get("cosplay")
+    if cp:
+        allp = {p["key"] for p in doc["places"]} | {p["key"] for p in json.load(open(os.path.join(ROOT, "data", "casual-tree-v2.json"), encoding="utf-8")).get("extra_places", [])}
+        for k in cp.get("places", []) + cp.get("swim_places", []):
+            if k not in allp:
+                errs.append("게임 코스프레 장소 %s 가 표에 없다" % k)
+        if cp.get("outfit") not in {o["key"] for o in doc["outfits"]}:
+            errs.append("게임 코스프레 옷 계열 %r 가 표에 없다" % cp.get("outfit"))
     for fr, r in doc.get("frame_rules", {}).items():
         if fr != "note" and r.get("not_required") not in (None, True):
             errs.append("프레이밍 %s 의 not_required %r" % (fr, r.get("not_required")))

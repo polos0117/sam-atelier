@@ -25,7 +25,8 @@
     "adventure",
     "drape",
     "resort",
-    "workwear"
+    "workwear",
+    "game_cosplay"
    ]
   },
   {
@@ -84,7 +85,8 @@
     "halloween",
     "adventure",
     "drape",
-    "resort"
+    "resort",
+    "game_cosplay"
    ]
   }
  ],
@@ -156,7 +158,8 @@
     "lingerie",
     "everyday",
     "dongtan",
-    "evening"
+    "evening",
+    "game_cosplay"
    ]
   },
   {
@@ -201,7 +204,8 @@
     "everyday",
     "dongtan",
     "active",
-    "halloween"
+    "halloween",
+    "game_cosplay"
    ]
   },
   {
@@ -754,7 +758,8 @@
    "outfits": [
     "swimwear",
     "active",
-    "retro"
+    "retro",
+    "game_cosplay"
    ]
   },
   {
@@ -771,7 +776,8 @@
     "everyday",
     "dongtan",
     "retro",
-    "bridal"
+    "bridal",
+    "game_cosplay"
    ]
   },
   {
@@ -1222,7 +1228,8 @@
     "roleplay",
     "subculture",
     "costume",
-    "halloween"
+    "halloween",
+    "game_cosplay"
    ]
   },
   {
@@ -1954,7 +1961,8 @@
     "evening",
     "halloween",
     "drape",
-    "adventure"
+    "adventure",
+    "game_cosplay"
    ]
   },
   {
@@ -2013,7 +2021,8 @@
    "outfits": [
     "costume",
     "editorial",
-    "halloween"
+    "halloween",
+    "game_cosplay"
    ]
   },
   {
@@ -7065,6 +7074,69 @@
      "en": "paint-flecked white painter's dungarees with one strap down over a cropped tee"
     }
    ]
+  },
+  {
+   "key": "game_cosplay",
+   "ko": "게임 코스프레",
+   "costume": true,
+   "en": "a daring adult cosplay of a video game character",
+   "items": [
+    {
+     "key": "gc_mini_dress",
+     "ko": "미니 드레스",
+     "en": "cut as a fitted strapless mini dress"
+    },
+    {
+     "key": "gc_bodysuit",
+     "ko": "바디수트",
+     "en": "cut as a high-cut bodysuit with sheer thigh-high stockings"
+    },
+    {
+     "key": "gc_crop_set",
+     "ko": "크롭 투피스",
+     "en": "cut as a cropped top and a micro skirt or hot pants that bare the midriff"
+    },
+    {
+     "key": "gc_corset",
+     "ko": "코르셋",
+     "en": "cut as a laced corset bustier with a short flared skirt"
+    },
+    {
+     "key": "gc_bikini",
+     "ko": "비키니",
+     "en": "cut as a bikini with a sheer sarong in the costume's colours"
+    },
+    {
+     "key": "gc_one_piece",
+     "ko": "원피스 수영복",
+     "en": "cut as a high-cut one-piece swimsuit"
+    },
+    {
+     "key": "gc_lingerie",
+     "ko": "란제리",
+     "en": "cut as a lace bralette and high-waisted briefs with garter straps"
+    },
+    {
+     "key": "gc_leotard",
+     "ko": "레오타드",
+     "en": "cut as a gymnastic leotard with sheer tights"
+    },
+    {
+     "key": "gc_slit_gown",
+     "ko": "트임 롱드레스",
+     "en": "cut as a floor-length gown with a thigh-high slit"
+    },
+    {
+     "key": "gc_idol",
+     "ko": "아이돌 무대",
+     "en": "cut as a stage idol outfit — a cropped jacket and a pleated mini skirt"
+    },
+    {
+     "key": "gc_knit",
+     "ko": "니트 원피스",
+     "en": "cut as a cozy off-shoulder knit mini dress"
+    }
+   ]
   }
  ],
  "required": {
@@ -7096,10 +7168,14 @@
     "swimwear"
    ]
   },
-  "note": "세계마다 일상컷 다섯 장 중 두 장은 확정(2026-11-02 — 사용자 「각각 1장해서 2장은 확정」): 노출 갈래 한 장(outfits — 란제리풍·수영복·역할극) + 세계 안 갈래 한 장(world — 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복), 서로 다른 컷. tools/casual-check.py 가 본다. 모듈은 required.world 를 읽는다(game 의 in_game 자리) · 2026-11-02 사용자 「둘 다 해줘」(장소를 넓히고 지금 현실 비중을 높이기) — 세계 안 갈래 장소에 서재 · 부엌 · 군영을 더해 일곱 곳(홈웨어가 되는 곳). 한 묶음 다섯 장의 시대는 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(tools/casual-plan.cjs ERA_QUOTA) · 같은 날 「다 넣어줘」 — 세계 안 장소 다섯(정원 · 다리 · 사당 · 숲길 · 나루)을 더하고 세계 안 갈래 장소로도 넣어 열둘(세계 안 시대는 묶음마다 이 갈래 한 장뿐이라 갈래 밖 장소는 뽑히지 않는다) · 2026-11-09 사용자 「1번 내용을 필수갈래에 넣어줘. 그러면 필수컷이 3장은 확정이고. 일상컷 생성수를 6장으로 늘려줘」 — 세계마다 여섯 장 중 세 장 확정: 노출 갈래 · 세계 안 갈래 · 상황 노출(situ — 옷 갈래가 아니라 어떤 옷에든 얹는 순간, 위 두 갈래가 아닌 컷). 시대 몫은 무대·환상이 하나 늘어 둘. 옛 다섯 장 묶음은 상황 칸 없이 그대로 맞다",
+  "note": "세계마다 일상컷 다섯 장 중 두 장은 확정(2026-11-02 — 사용자 「각각 1장해서 2장은 확정」): 노출 갈래 한 장(outfits — 란제리풍·수영복·역할극) + 세계 안 갈래 한 장(world — 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복), 서로 다른 컷. tools/casual-check.py 가 본다. 모듈은 required.world 를 읽는다(game 의 in_game 자리) · 2026-11-02 사용자 「둘 다 해줘」(장소를 넓히고 지금 현실 비중을 높이기) — 세계 안 갈래 장소에 서재 · 부엌 · 군영을 더해 일곱 곳(홈웨어가 되는 곳). 한 묶음 다섯 장의 시대는 지금 현실 둘 · 세계 안 · 역사의 자리 · 무대·환상 하나씩(tools/casual-plan.cjs ERA_QUOTA) · 같은 날 「다 넣어줘」 — 세계 안 장소 다섯(정원 · 다리 · 사당 · 숲길 · 나루)을 더하고 세계 안 갈래 장소로도 넣어 열둘(세계 안 시대는 묶음마다 이 갈래 한 장뿐이라 갈래 밖 장소는 뽑히지 않는다) · 2026-11-09 사용자 「1번 내용을 필수갈래에 넣어줘. 그러면 필수컷이 3장은 확정이고. 일상컷 생성수를 6장으로 늘려줘」 — 세계마다 여섯 장 중 세 장 확정: 노출 갈래 · 세계 안 갈래 · 상황 노출(situ — 옷 갈래가 아니라 어떤 옷에든 얹는 순간, 위 두 갈래가 아닌 컷). 시대 몫은 무대·환상이 하나 늘어 둘. 옛 다섯 장 묶음은 상황 칸 없이 그대로 맞다 · 2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 — 셋째 필수를 상황 노출에서 게임 코스프레(cosplay — game_cosplay 계열, 의상 자체가 게임 캐릭터를 드러내는 코스튬 컷)로 바꿨다. 상황 노출은 필수에서만 빠지고 일반 컷 · 갈래 자유 칸엔 그대로 나올 수 있다. 상황 필수 시절의 옛 묶음은 그대로 맞다",
   "situ": {
    "field": "situ",
    "ko": "상황 노출 — 젖은 옷 · 바람에 날림 · 반쯤 푼 차림 · 흘러내린 어깨끈(lib/prompt-spec.js CASUAL.situations)"
+  },
+  "cosplay": {
+   "outfit": "game_cosplay",
+   "ko": "게임 코스프레 — data/game-cosplay.json 의 게임 열아홉 × 재단 열하나(tools/casual-plan.cjs cosplayPick)"
   }
  },
  "presets": [
@@ -11231,5 +11307,32 @@
    "key": "wildcard",
    "ko": "와일드카드"
   }
- ]
+ ],
+ "costume_required": {
+  "outfit": "game_cosplay",
+  "not_frames": [
+   "face_close"
+  ],
+  "note": "코스튬 컷(게임 코스프레 — 필수 셋째, 2026-11-15)에 안 쓰는 프레이밍(not_frames — 얼굴 클로즈업은 코스튬이 안 보인다, 게임공방 · pkm 의 costume_required 와 같은 칸, 공용 모듈 lib/casual-tree.js costumeNo 가 거른다)"
+ },
+ "cosplay": {
+  "outfit": "game_cosplay",
+  "places": [
+   "stage_convention",
+   "home_living",
+   "home_bedroom",
+   "fx_studio",
+   "fx_starstage",
+   "arcade_hall"
+  ],
+  "swim_places": [
+   "water_pool",
+   "water_beach"
+  ],
+  "swim_cuts": [
+   "bikini",
+   "one_piece"
+  ],
+  "note": "게임 코스프레 컷의 장소(2026-11-15) — 코스프레 행사 · 거실 · 침실 · 화보 스튜디오 · 별빛 무대 · 오락실(버전2 표 extra_places 에 더함), 비키니 · 원피스 수영복 재단이면 물가(swim_places)도. 계획기(tools/casual-plan.cjs)가 이 목록 안에서만 짠다 — 다른 컷엔 이 계열을 고르지 않는다. 재단(옷)은 data/game-cosplay.json cuts 와 같은 차례(열쇠 gc_<재단>)"
+ }
 }

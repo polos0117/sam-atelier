@@ -3338,6 +3338,15 @@
    "indoor",
    "upright",
    "k_work"
+  ],
+  "arcade_hall": [
+   "chair",
+   "wall",
+   "edge",
+   "upright",
+   "indoor",
+   "night",
+   "k_public"
   ]
  },
  "props": [
@@ -7541,7 +7550,8 @@
    "resort": [],
    "workwear": [
     "pocket"
-   ]
+   ],
+   "game_cosplay": []
   },
   "add": {
    "overalls": [
@@ -9574,6 +9584,15 @@
    "worlds_only": [
     "mecha"
    ]
+  },
+  {
+   "group": "night",
+   "eras": [
+    "now"
+   ],
+   "key": "arcade_hall",
+   "ko": "오락실",
+   "en": "a neon-lit game arcade — rows of glowing cabinets, a claw machine and a dance-game stage, coloured light on the floor"
   }
  ],
  "weather": [

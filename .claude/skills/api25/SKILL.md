@@ -32,9 +32,11 @@ node tools/api-draw.cjs free  <장수> <세계> --text $W/<세계>-gpt1.txt --ta
 ## 2. 일상컷 — 세계마다 일곱 장
 
 ```bash
-node tools/casual-plan.cjs <장수> --world all --style api25 --out $W/plan      # plan-<세계>/plan.json (필수 셋 · 상황 · 색 · 데니어 · 자유 설계 둘 — 옷 자유 · 갈래 자유)
-node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 세계 그림>.png --out $W --free <N>=$W/<세계>-casual<N>-free.txt --free <M>=$W/<세계>-casual<M>-free.txt
+node tools/casual-plan.cjs <장수> --world all --style api25 --out $W/plan      # plan-<세계>/plan.json (필수 셋 — 노출 · 세계 안 · 게임 코스프레 · 색 · 데니어 · 자유 설계 둘 — 옷 자유 · 갈래 자유)
+node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 세계 그림>.png --out $W --free <N>=$W/<세계>-casual<N>-free.txt --free <M>=$W/<세계>-casual<M>-free.txt [--cosplay <K>=$W/<세계>-casual<K>-cosplay.txt]
 ```
+
+- **게임 코스프레 컷**(필수 셋째 — 2026-11-15, 계획 줄의 「코스프레」): 주인공 하나 게임 · 2회차는 그대로 그린다. 등장인물 많은 게임 **1회차**(「고르기」)는 Claude 가 그 컷 지시문의 `Outfit: … (…)` 괄호 안 글대로 그 게임의 캐릭터 하나(괄호의 「already used」 목록 밖 — 세 공방 합친 목록)를 골라 `Outfit: <캐릭터 이름> from <게임 영문 이름> — <그 의상의 알아볼 색 · 조각>, <재단 글 그대로>` 한 줄을 파일로 써 `--cosplay K=` 에 준다. 도구가 게임 이름 · 재단 글 · 쓴 캐릭터를 대조해 그 자리에 넣고 기록 `generation.cosplay` 를 남긴다(주인공 하나 · 2회차도 늘). 더 고를 캐릭터가 없으면 `--cosplay K=again`(계획이 정해 둔 2회차 캐릭터).
 
 - **자유 설계 두 장**(계획에 「옷 자유」 · 「갈래 자유」 — 사용자 2026-11-11 「장소·활동·자세·구도·의상을 자유롭게 설계해줘. 캐릭터의 특징에서 출발해, 예상하지 못했지만 그 캐릭터에게 자연스럽게 어울리는 일상의 한 순간을 보여줘. 참신함은 장식의 양보다 상황과 행동에서 만들어줘. 최근 작업과 비슷한 장면은 피하고, 얼굴·화풍·인체 규칙은 유지해줘. 필수갈래랑 상황노출 두개를 묶어서 이렇게 가자. 그리고 지금 맡겨놓은 일상컷 1장도 같이 이런식으로」)은 Claude 가 그 컷 지시문(`plan-<세계>/<세계>-casualN-prompt.txt`)의 **자유 설계 덩어리**(`FREE DESIGN:` 줄부터 `Outfit:` 줄까지)를 채운다 — 「…」 다섯 줄(Place · Activity · Pose · Framing · Outfit)만 그 장수(전설 · 성정)에서 출발한 뜻밖이지만 자연스러운 일상의 한 순간으로, 참신함은 장식이 아니라 상황 · 하는 일로. 옷은 우리 옷 목록(`data/casual-tree.json` outfits)에 없는 노출 의상. 갈래 자유 컷은 `Outfit family (required)` 의 갈래 안에서 짓고(큰 범위 — 우리 목록에서 골라도, 지어도 되나 목록에 없는 것 먼저) `Situation (required)` 의 상황 노출 순간을 직접 지어 장면에 담는다(우리 넷 — 젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈 — 이 아닌 것 먼저, 2026-11-11 「상황도 열어주자. 옷도 이제 큰범위로만 지정해줘 …」). 머리 줄 · `Recent scenes to avoid` · 필수 줄은 한 글자도 바꾸지 않는다. 채운 덩어리(지시문 전체를 줘도 된다 — 덩어리만 쓴다)를 파일로 `--free N=` 에 준다. 도구가 빈 덩어리 자리에 넣고(다른 줄은 조립부 그대로), 틀 줄이 바뀌었거나 안 채웠으면 그 칸을 건너뛴다. 기록 `generation.free_design`(채운 덩어리) · `free_prompt`(넘긴 글 전체).
 - 자유 설계 글을 쓰기 전에 두 그림 저장소의 `records/*/*-casual*.api25-ui.json` 의 `generation.free_design`(없으면 `free_prompt`)을 훑어 **앞선 자유 설계 컷과 같은 장면 · 같은 옷 · 같은 결을 다시 쓰지 않는다**(지시문의 「Recent scenes to avoid」 도 피한다). 두 장끼리도 장소 · 하는 일 · 옷이 확실히 다르게. 옷 목록(갈래)에 새 옷을 더하지 않는다 — 목록에 없는 쪽이 옷 자유 컷의 몫이다(사용자 2026-11-09 「이걸 얘기해주면 너가 쓸 자료가 더 없어지잖아」).

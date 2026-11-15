@@ -222,6 +222,27 @@ const P = ctx0.window.AtelierPrompt;
     else { assert.match(cp, /^INPUT: the attached image/); assert.match(cp, /female personification of Guan Yu/); assert.match(cp, /SCENE \(chosen\)/); }
     assert.doesNotMatch(cp, /element|chemical symbol|atomic number/i, '원소 말이 남지 않았다');
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_mecha_' + S['default'] + '_f_casual1\\.webp'));
+    /* 게임 코스프레(2026-11-15) — 코스프레 장소(거실)에서 계열을 고르면 옷 = 재단 열하나 → 게임 칸(열아홉) · 옷 색 · 데니어 · 상황 칸은 없다 · Outfit 줄에 게임 · 캐릭터, 등장인물 많은 게임은 「…」 자리 */
+    { const pg = v.page, lineOf = (txt, head) => (String(txt).split('\n').find(l => l.startsWith(head)) || '');
+      await pg.click('[data-open="era"]'); await pg.click('#panel .opt[data-pick="now"]');
+      await pg.click('[data-open="place"]');
+      if (!(await pg.locator('#panel .opt[data-pick="home_living"]').count()) && mob) await pg.click('#panel [data-gtab=""]');
+      await pg.click('#panel .opt[data-pick="home_living"]');
+      await pg.click('[data-open="ofam"]'); await pg.click('#panel .opt[data-pick="game_cosplay"]'); assert.equal(await openOf(pg), 'item', '코스프레 계열 다음 옷(재단)');
+      assert.equal(await pg.locator('#panel .opt[data-pick^="gc_"]').count(), 11, '재단 열하나');
+      await pg.click('#panel .opt[data-pick="gc_bikini"]'); assert.equal(await openOf(pg), 'cosplay', '옷 다음 게임');
+      assert.equal(await pg.locator('#panel .opt[data-pick]').count(), 20, '게임 열아홉 + 안 고름');
+      await pg.click('#panel .opt[data-pick="legend_of_zelda"]'); assert.equal(await openOf(pg), 'hair', '게임 다음은 머리 — 옷 색 · 데니어 · 상황 칸이 없다');
+      assert.equal(await pg.locator('.hchip[data-open="color"], .hchip[data-open="denier"], .hchip[data-open="situ"]').count(), 0, '코스프레엔 옷 색 · 데니어 · 상황 칩이 없다');
+      await randAll(pg, 'hair'); await toDone(pg);
+      assert.equal((await state(pg)).scene.cosplay.game, 'legend_of_zelda', '랜덤이 고른 게임을 지킨다');
+      assert((await state(pg)).scene.frame !== 'face_close', '코스프레엔 얼굴 클로즈업이 없다');
+      const tc = await promptOf(pg);
+      assert(lineOf(tc, 'Outfit: ').startsWith('Outfit: a daring adult cosplay of Link from The Legend of Zelda — ') && /^(?:OUTPUT: [^\n]*game cosplay|Cosplay: in this cut)/m.test(tc) && !/SIGNATURE ACCESSORY|faction's palette/.test(tc), '코스프레 지시문 ' + lineOf(tc, 'Outfit: ').slice(0, 100));
+      await pg.click('[data-open="cosplay"]'); await pg.click('#panel .opt[data-pick="overwatch"]'); await toDone(pg);
+      assert(lineOf(await promptOf(pg), 'Outfit: ').startsWith('Outfit: … (a daring adult cosplay of one character of your choice from Overwatch'), '등장인물 많은 게임은 「…」 자리');
+      assert.equal((await state(pg)).scene.cosplay.cut, 'bikini', '장면의 코스프레 재단 = 옷');
+      checks += 11; }
     await noOverflow(v.page, vp.width + ' 생성기 일상');
     assert.deepEqual(v.errors, [], '생성기 콘솔'); checks += 6; await v.ctx.close();
   }

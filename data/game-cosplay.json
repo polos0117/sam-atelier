@@ -1,0 +1,224 @@
+{
+ "version": 1,
+ "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로).",
+ "text": {
+  "fixed": "a daring adult cosplay of {character} from {game} — {outfit}, {cut}",
+  "pick": "… (a daring adult cosplay of one character of your choice from {game} — not any of these already used: {used}; write the character's name first, then the costume's recognisable colours and parts, {cut})",
+  "again": "a daring adult cosplay of {character} from {game} — the costume's recognisable colours and parts, {cut}",
+  "none": "none yet"
+ },
+ "cuts": [
+  {
+   "key": "mini_dress",
+   "ko": "미니 드레스",
+   "en": "cut as a fitted strapless mini dress"
+  },
+  {
+   "key": "bodysuit",
+   "ko": "바디수트",
+   "en": "cut as a high-cut bodysuit with sheer thigh-high stockings"
+  },
+  {
+   "key": "crop_set",
+   "ko": "크롭 투피스",
+   "en": "cut as a cropped top and a micro skirt or hot pants that bare the midriff"
+  },
+  {
+   "key": "corset",
+   "ko": "코르셋",
+   "en": "cut as a laced corset bustier with a short flared skirt"
+  },
+  {
+   "key": "bikini",
+   "ko": "비키니",
+   "en": "cut as a bikini with a sheer sarong in the costume's colours"
+  },
+  {
+   "key": "one_piece",
+   "ko": "원피스 수영복",
+   "en": "cut as a high-cut one-piece swimsuit"
+  },
+  {
+   "key": "lingerie",
+   "ko": "란제리",
+   "en": "cut as a lace bralette and high-waisted briefs with garter straps"
+  },
+  {
+   "key": "leotard",
+   "ko": "레오타드",
+   "en": "cut as a gymnastic leotard with sheer tights"
+  },
+  {
+   "key": "slit_gown",
+   "ko": "트임 롱드레스",
+   "en": "cut as a floor-length gown with a thigh-high slit"
+  },
+  {
+   "key": "idol",
+   "ko": "아이돌 무대",
+   "en": "cut as a stage idol outfit — a cropped jacket and a pleated mini skirt"
+  },
+  {
+   "key": "knit",
+   "ko": "니트 원피스",
+   "en": "cut as a cozy off-shoulder knit mini dress"
+  }
+ ],
+ "games": [
+  {
+   "key": "super_mario_bros",
+   "ko": "슈퍼 마리오 브라더스",
+   "en": "Super Mario Bros.",
+   "many": false,
+   "character": "Mario",
+   "character_ko": "마리오",
+   "outfit": "Mario's outfit — a red cap with a plain white circle badge, a red top, blue overalls with big yellow buttons, white gloves and brown boots"
+  },
+  {
+   "key": "legend_of_zelda",
+   "ko": "젤다의 전설",
+   "en": "The Legend of Zelda",
+   "many": false,
+   "character": "Link",
+   "character_ko": "링크",
+   "outfit": "Link's outfit — a green belted tunic, a long pointed green cap, brown leather belts and bracers, pale tights and brown boots"
+  },
+  {
+   "key": "dark_souls",
+   "ko": "다크 소울",
+   "en": "Dark Souls",
+   "many": false,
+   "character": "the Chosen Undead in Elite Knight armour",
+   "character_ko": "선택받은 불사자(상급 기사)",
+   "outfit": "the Elite Knight armour — a fitted steel breastplate, a short faded rust-red tabard, steel pauldrons, gauntlets and greaves, with a frayed cloth scarf"
+  },
+  {
+   "key": "witcher_3",
+   "ko": "위쳐 3: 와일드 헌트",
+   "en": "The Witcher 3: Wild Hunt",
+   "many": false,
+   "character": "Geralt of Rivia",
+   "character_ko": "게롤트(위처)",
+   "outfit": "the witcher's look — dark studded leather armour, crossed sword-belt straps for two swords, a silver wolf-head medallion and tall riding boots"
+  },
+  {
+   "key": "dave_the_diver",
+   "ko": "데이브 더 다이브",
+   "en": "Dave the Diver",
+   "many": false,
+   "character": "Dave",
+   "character_ko": "데이브(잠수부)",
+   "outfit": "Dave's diving look — a blue-and-yellow wetsuit, an orange air tank harness, a round dive mask pushed up on the head and short fins"
+  },
+  {
+   "key": "resident_evil_2",
+   "ko": "바이오하자드 2",
+   "en": "Resident Evil 2",
+   "many": false,
+   "character": "Claire Redfield",
+   "character_ko": "클레어 레드필드",
+   "outfit": "Claire Redfield's look — a red leather biker vest over a black top, cut-off bike shorts and fingerless gloves"
+  },
+  {
+   "key": "metal_gear_solid",
+   "ko": "메탈 기어 솔리드",
+   "en": "Metal Gear Solid",
+   "many": false,
+   "character": "Solid Snake",
+   "character_ko": "솔리드 스네이크",
+   "outfit": "Solid Snake's sneaking-suit look — a fitted dark blue-grey tactical bodysuit, a load-bearing harness and a long black bandana tied at the forehead"
+  },
+  {
+   "key": "castlevania_sotn",
+   "ko": "악마성 드라큘라 X 월하의 야상곡",
+   "en": "Castlevania: Symphony of the Night",
+   "many": false,
+   "character": "Alucard",
+   "character_ko": "알루카드",
+   "outfit": "Alucard's look — a long black cape lined in deep crimson with a high stand-up collar, a dark tailored coat with silver filigree and a white cravat"
+  },
+  {
+   "key": "tomb_raider",
+   "ko": "툼 레이더",
+   "en": "Tomb Raider",
+   "many": false,
+   "character": "Lara Croft",
+   "character_ko": "라라 크로프트",
+   "outfit": "Lara Croft's classic look — a teal tank top, brown cargo shorts, fingerless gloves, a small brown leather backpack and twin empty thigh holsters"
+  },
+  {
+   "key": "nier_automata",
+   "ko": "니어 오토마타",
+   "en": "Nier: Automata",
+   "many": false,
+   "character": "2B",
+   "character_ko": "2B",
+   "outfit": "2B's look — a black gothic combat dress with feather-trimmed puffed sleeves and a split skirt, black thigh-high boots, white gloves and a black blindfold pushed up onto the forehead"
+  },
+  {
+   "key": "dragon_quest",
+   "ko": "드래곤 퀘스트",
+   "en": "Dragon Quest",
+   "many": false,
+   "character": "the Slime",
+   "character_ko": "슬라임(마스코트)",
+   "outfit": "the blue Slime mascot's look — glossy translucent sky-blue in a rounded teardrop shape with a little curled tip as a headpiece, without its face"
+  },
+  {
+   "key": "league_of_legends",
+   "ko": "리그 오브 레전드",
+   "en": "League of Legends",
+   "many": true,
+   "roster": 170
+  },
+  {
+   "key": "overwatch",
+   "ko": "오버워치",
+   "en": "Overwatch",
+   "many": true,
+   "roster": 43
+  },
+  {
+   "key": "street_fighter_2",
+   "ko": "스트리트 파이터 II",
+   "en": "Street Fighter II",
+   "many": true,
+   "roster": 16
+  },
+  {
+   "key": "world_of_warcraft",
+   "ko": "월드 오브 워크래프트",
+   "en": "World of Warcraft",
+   "many": true,
+   "roster": 150
+  },
+  {
+   "key": "starcraft",
+   "ko": "스타크래프트",
+   "en": "StarCraft",
+   "many": true,
+   "roster": 30
+  },
+  {
+   "key": "final_fantasy_7",
+   "ko": "파이널 판타지 VII",
+   "en": "Final Fantasy VII",
+   "many": true,
+   "roster": 25
+  },
+  {
+   "key": "langrisser_2",
+   "ko": "랑그릿사 II",
+   "en": "Langrisser II",
+   "many": true,
+   "roster": 20
+  },
+  {
+   "key": "war_of_genesis_3",
+   "ko": "창세기전 3 · 파트 2",
+   "en": "The War of Genesis III and The War of Genesis III: Part 2",
+   "many": true,
+   "roster": 40
+  }
+ ]
+}

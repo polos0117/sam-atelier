@@ -2,7 +2,8 @@
 
   노출 갈래 한 장  — 의상 계열이 란제리풍 · 수영복 · 역할극 (casual-tree.json required.outfits)
   세계 안 갈래 한 장 — 시대 「세계 안」 의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복 (required.world)
-  상황 노출 한 장   — 젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈(scene.situ, 2026-11-09 「1번 내용을 필수갈래에」), 위 두 갈래가 아닌 컷
+  게임 코스프레 한 장 — 의상 계열 game_cosplay(scene.cosplay — 게임 · 캐릭터 · 재단, 2026-11-15 사용자 「…게임공방에 있는 게임 코스프레 의상은 어떨까?」), 위 두 갈래가 아닌 컷.
+                     그 앞(2026-11-09 ~ 11-15) 셋째는 상황 노출 한 장(scene.situ — 젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈) — 그 시절 묶음은 상황 컷(또는 갈래 자유 컷의 상황)으로 그대로 맞다
   세 장은 서로 다른 컷이어야 한다(한 장이 둘 다 맞아도 한 갈래만 채운다). 나머지 세 장은 자유. 옛 묶음(상황 갈래 전 — 기록 scene 에 situ 칸이 아예 없다)은 상황 칸이 없어도 된다.
 
 그림 저장소(sam-atelier-img · sam-atelier-img-2 — 2026-11-12 부터 둘, 받아 둔 것 모두)의 기록 records/<장수>/<세계>-casualN.<화풍>-ui.json 의 scene 을 읽는다.
@@ -33,11 +34,13 @@ PER_WORLD = 7   # 사용자 2026-11-11 「한 장 더 생성하게 해서 필수
 
 
 def kind(scene):
-    """한 컷이 맞는 갈래 — {'expose', 'inworld'} 의 부분집합"""
+    """한 컷이 맞는 갈래 — {'expose', 'inworld', 'cosplay', 'situ', 'family'} 의 부분집합"""
     s = scene or {}
     out = set()
     if s.get('ofree') and 'ofreeRecent' in s:   # 자유 설계 컷(2026-11-11 꼴) — 장면 값은 그림자라 갈래로 안 센다
         return {'family'} if s.get('ofreeFamily') else set()
+    if s.get('ofam') == REQ.get('cosplay', {}).get('outfit', 'game_cosplay'):
+        return {'cosplay'}   # 셋째 필수(2026-11-15) — 게임 코스프레
     if s.get('ofam') in REQ['outfits']:
         out.add('expose')
     w = REQ['world']
@@ -131,18 +134,18 @@ def main(argv):
             if not ks:
                 continue
             a, b = fill(ks)
-            c = next((n for n, k in ks.items() if 'situ' in k), None)
+            c = next((n for n, k in ks.items() if 'cosplay' in k), None) or next((n for n, k in ks.items() if 'situ' in k), None)   # 셋째 — 게임 코스프레, 옛 묶음은 상황 노출
             left = PER_WORLD - len(ks)
             need = [x for x, ok in (('노출 갈래(란제리풍·수영복·역할극)', a), ('세계 안 갈래(방·목욕·지붕·여관·서재·부엌·군영·정원·다리·사당·숲길·나루)', b)) if not ok]
             fam = next((n for n, k in ks.items() if 'family' in k), None)
-            if not c and not fam and any('situ' in k for k in ks.values()) is False and new.get((card, w)):   # 갈래 자유 컷의 상황도 그 몫(옛 여섯 장 위 일곱째, 2026-11-11)
-                need.append('상황 노출(젖은 옷 · 바람 · 반쯤 푼 차림 · 흘러내린 어깨끈)')
+            if not c and not fam and (new.get((card, w)) or new7.get((card, w)) or plan):   # 갈래 자유 컷의 상황도 그 몫(옛 여섯 장 위 일곱째, 2026-11-11 — 옛 묶음)
+                need.append('게임 코스프레(data/game-cosplay.json — 2026-11-15 상황 노출 자리)')
             if not fam and (new7.get((card, w)) or (plan and len(ks) < PER_WORLD)):
                 need.append('갈래 자유(필수 노출 갈래 + 상황 — 자유 설계)')
             state = '맞음' if not need else ('남은 %d칸에 %s' % (left, ' · '.join(need)) if len(need) <= left else '모자람 — ' + ' · '.join(need))
             if need and len(need) > left:
                 bad += 1
-            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · 상황 %s · 갈래 자유 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', 'casual%d' % c if c else '없음', 'casual%d' % fam if fam else '없음', state)
+            line = '%s %s — %d장 · 노출 %s · 세계 안 %s · 셋째(코스프레 · 옛 상황) %s · 갈래 자유 %s · %s' % (card, w, len(ks), 'casual%d' % a if a else '없음', 'casual%d' % b if b else '없음', 'casual%d' % c if c else '없음', 'casual%d' % fam if fam else '없음', state)
             if plan or need or len(argv) > 0:
                 print(line)
         hits = cross(card)

@@ -192,3 +192,29 @@ console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
   }
   console.log('PASS 일상컷 체형 줄: 우리 설계 = 체형 글 · GPT 설계 = 그림의 몸만(줄 꼴 · 칸 꼴 · 2.5 API)');
 }
+/* 게임 코스프레 컷(2026-11-15 — 일상컷 필수 셋째) — 줄 꼴 · 칸 꼴 · 짧은 꼴 · 2.5 API 판 모두: 코스튬 줄이 들어가고, 「전설은 장신구로만 · 옷에 세력 색 금지 · 무기 장신구」 줄은 빠지고,
+   옷 색 · 데니어 · 상황은 얹지 않는다. 체형 · 식스팩 줄은 그대로(축융 — 슬림 근육형) */
+{ const C = require('../tools/casual-plan.cjs'), tree = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree.json'), 'utf8')), tree2 = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree-v2.json'), 'utf8'));
+  const GC = JSON.parse(fs.readFileSync(path.join(R, 'data/game-cosplay.json'), 'utf8'));
+  const card = C.cardOf('축융'); card.world = 'samguk'; const base = C.plan(card, [1, 2, 3, 4, 5, 6, 7], [], { seed: 5, cosplayUsed: [] }).cuts.find(c => c.cosplay); const { n, ...sc0 } = base;
+  const fixed = { ...sc0, color: 'vivid', denier: 'd40', situ: 'strap', cosplay: { game: 'nier_automata', character: '2B', cut: sc0.item.slice(3), round: 1 } };
+  const cutEn = GC.cuts.find(x => x.key === sc0.item.slice(3)).en, want = GC.text.fixed.replace('{character}', '2B').replace('{game}', 'Nier: Automata').replace('{outfit}', GC.games.find(g => g.key === 'nier_automata').outfit).replace('{cut}', cutEn);
+  let nc = 0;
+  for (const [st, SJ] of [['kr_drawn_rim_dewy', SX], ['api25', SX], ['mmorpg_cg', SX], ['mmorpg_cg', S], ['kv_kmmo_23d', SX]]) {
+    const p = P.casualRecord(D, SJ, '축융', fixed, { world: 'samguk', style: st, tree, tree2, cosplay: GC }, 3).prompt, ol = (p.match(/^Outfit: .*$/m) || [''])[0];
+    assert(ol.startsWith('Outfit: ' + want) && !/ — in |-denier yarn|; right now — /.test(ol), st + ' 코스프레 Outfit 줄 — 색 · 데니어 · 상황 없이: ' + ol.slice(0, 160));
+    assert(p.includes(T.CASUAL.outputCosplay) || p.includes(T.CASUAL.short.cosplay), st + ' 코스튬 줄');
+    assert(!/^(?:DESIGN \(accessory hints only\)|SIGNATURE ACCESSORY|Accessory: off duty|Her legend|Legend, carried)|never in the outfit's colours|faction's palette|identity belongs in accessories/m.test(p), st + ' 전설 · 세력 색 · 무기 장신구 줄 없이');
+    assert(/^(?:FIGURE|Figure): /m.test(p) && /^(?:MIDRIFF|Midriff): /m.test(p), st + ' 체형 · 식스팩 줄 그대로');
+    assert(!/\{\w+\}|undefined/.test(p), st + ' 빈 칸'); nc++;
+  }
+  /* 등장인물 많은 게임 1회차 — 맨 앞 「…」 자리, 쓴 캐릭터 목록 */
+  const pick = { ...sc0, cosplay: { game: 'overwatch', character: '', cut: sc0.item.slice(3), round: 1, used: ['Tracer', 'Mercy'] } };
+  const pp = P.casualRecord(D, SX, '축융', pick, { world: 'samguk', style: 'kr_drawn_rim_dewy', tree, tree2, cosplay: GC }, 3).prompt;
+  assert(pp.includes('\nOutfit: ' + GC.text.pick.replace('{game}', 'Overwatch').replace('{used}', 'Tracer, Mercy').replace('{cut}', cutEn)), '1회차 pick 자리');
+  /* 다른 컷은 그대로 — 일상 줄(전설은 장신구로만 · 무기 장신구) */
+  const other = C.plan(card, [1, 2, 3, 4, 5, 6, 7], [], { seed: 5 }).cuts.find(c => !c.cosplay && !c.ofree), { n: n2, ...so } = other;
+  const po = P.casualRecord(D, SX, '축융', so, { world: 'samguk', style: 'kr_drawn_rim_dewy', tree, tree2, cosplay: GC }, 1).prompt;
+  assert(po.includes(T.CASUAL.output) && !po.includes(T.CASUAL.outputCosplay) && /never restyle the chosen outfit into her faction's palette/.test(po), '다른 컷은 일상 OUTPUT · WARDROBE 그대로');
+  console.log('PASS 게임 코스프레 컷: ' + nc + ' 꼴 — 코스튬 줄 · 전설 · 세력 색 · 무기 장신구 줄 없이 · 색 · 데니어 · 상황 없이 · 체형 · 식스팩 그대로 · 1회차 자리');
+}

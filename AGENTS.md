@@ -80,7 +80,7 @@
 새 장수를 설계표에 더하거나 다시 설계하면 **그 자리에서** 캐릭터만의 컷(일상컷 90번)의 직업도 같이 설계해 `data/casual-own.json` 에 적는다(사용자 2026-11-13 「삼국지도 인물 더 추가하라면 할 수 있어서 삼국지도 넣고」). 표에 줄이 없는 장수는 계획기가 이 컷을 건너뛰어 그 장수만 한 장이 빈다.
 - 손으로 설계하는 장수(`designed: hand`)는 일화 하나에서 세계마다 **다른 직업**(`mode: per_world` — 관우 미염공 → 빗 가게 주인 · 궁정 머리 손질사 · 헤어 살롱 디자이너).
 - 나머지는 설계표의 한 줄 일화(`lore`)에서 **직업 하나**를 세 세계에 같이(`mode: same_job` — 장소 앞에 「a Han-era / a high-fantasy / a far-future」, 의상 뒤에 세계 옷 말투). 일화가 약하면 역할(무장 · 책사 · 문관 · 군주)의 기본 방향에서, 이미 있는 직업과 겹치지 않게 `docs/casual-own-list.md` 를 훑어본 뒤 정한다.
-- 줄마다 장소 글 · 하는 일 · 자세 추천 · 도구 · 노출 단계별 의상 글 셋을 다 쓰고 `node tools/casual-plan.cjs <장수> --world all` 로 90번이 짜지는지 본다. 동물 · 둘째 인물 · 실제 상표 · 작품 이름은 지시문에 쓰지 않는다. 목록 파일(`docs/casual-own-list.md`)에도 한 줄 더한다.
+- 줄마다 장소 글 · 하는 일 · 자세 추천 · 도구 · 노출 단계별 의상 글 셋을 다 쓰고 `node tools/casual-plan.cjs <장수> --world all` 로 90번이 짜지는지 본다. 동물 · 둘째 인물 · 실제 상표 · 작품 이름은 지시문에 쓰지 않는다(예외는 일상컷 게임 코스프레 갈래뿐 — 게임 · 캐릭터 이름을 넣는다, IMAGE_RULES 2절). 목록 파일(`docs/casual-own-list.md`)에도 한 줄 더한다.
 - 직업은 설계하는 쪽이 하나로 정해 적고 사용자는 목록을 훑어 마음에 안 드는 줄만 짚는다. 사용자와 얘기하다 나온 연상이 있으면 그것을 먼저 쓴다.
 
 ### 4. 화면에 말을 적지 않는다
@@ -98,11 +98,11 @@
 ## 검사
 
 ```sh
-node tools/casual-plan.cjs <장수> --world <세계>|all [--fresh] [--out 폴더]   # 일상컷 묶음 계획 — 세계 셋끼리 같은 장면 없이, 비어 있는 번호에(--fresh 면 옛 묶음 뒤 번호로 새 일곱 장 — 2026-11-11) 겹치지 않는 장면(정해 둔 세 갈래 — 노출 · 세계 안 · 상황 노출 + 자유 설계 둘 — 옷 자유 · 갈래 자유 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
+node tools/casual-plan.cjs <장수> --world <세계>|all [--fresh] [--out 폴더]   # 일상컷 묶음 계획 — 세계 셋끼리 같은 장면 없이, 비어 있는 번호에(--fresh 면 옛 묶음 뒤 번호로 새 일곱 장 — 2026-11-11) 겹치지 않는 장면(정해 둔 세 갈래 — 노출 · 세계 안 · 게임 코스프레(2026-11-15, 상황 노출 자리 — 세 공방 기록 합쳐 덜 쓴 게임 · 재단) + 자유 설계 둘 — 옷 자유 · 갈래 자유 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
 node tests/casual-plan.cjs              # 계획기 — 장수 × 세계 × 씨앗이 규칙을 지키나
 node tests/image-claim.cjs             # 잠금 도구 — 잡기 · 막기 · 풀기 · 끝(시험 저장소에서)
 node tests/prompt-gpt.cjs              # 구조형(lib/prompt-gpt.js) — GPT 세션 일상컷 지시문, 생성기 지시문의 줄이 다 칸으로 옮겨지나 — 생성기 지시문의 줄이 다 칸으로 옮겨지나, 고정 화풍 · 첨부 그림 · 체형 볼륨
-python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 일곱 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장 · 상황 노출 한 장 · 갈래 자유 한 장(서로 다른 컷, 옛 묶음은 상황 · 갈래 자유 없이), --plan 장수 로 남은 칸 · 세계 사이 같은 장면 알림
+python3 tools/casual-check.py          # 일상컷 묶음 — 세계마다 일곱 장 중 노출 갈래 한 장 · 세계 안 갈래 한 장 · 게임 코스프레 한 장(옛 묶음은 상황 노출) · 갈래 자유 한 장(서로 다른 컷, 옛 묶음은 상황 · 갈래 자유 없이), --plan 장수 로 남은 칸 · 세계 사이 같은 장면 알림
 python3 tools/sam-design.py check
 python3 tools/casual-tree.py check && python3 tools/casual-tree-v2.py check
 node tests/words.cjs && node tests/look-spec.cjs && node tests/patch.cjs && node tests/img-shards.cjs

@@ -6,10 +6,14 @@
    node tools/api-draw.cjs brief  <장수> <세계> [--style api25]                       GPT 자유 설계 주문을 찍는다(Claude 가 읽고 지시문을 쓴다)
    node tools/api-draw.cjs world  <장수> <세계> --out <폴더> [--n 2] [--exposure moderate|low]   우리 설계 n 장 → <세계>-ours1.png …
    node tools/api-draw.cjs free   <장수> <세계> --text <글 파일> --tag gpt1 --out <폴더>        GPT 설계 글로 한 장 → <세계>-gpt1.png
-   node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--exposure N=moderate|low] [--ref-size 768|0] [--ref-free yes|no]
+   node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--cosplay N=<글 파일>|again] [--exposure N=moderate|low] [--ref-size 768|0] [--ref-free yes|no]
                                                                                      일상컷(편집 API) → <세계>-casualN.png. 자유 설계 컷(옷 자유 · 갈래 자유 — 계획의 ofree)은
                                                                                      --free 로 받은 채운 자유 설계 덩어리(FREE DESIGN … Outfit 줄 — 지시문 전체를 줘도 그 덩어리만 쓴다)를
                                                                                      지시문의 빈 덩어리 자리에 넣는다(2026-11-11 — 다른 줄은 늘 조립부 그대로). 기록 free_design · free_prompt
+                                                                                     게임 코스프레 컷(2026-11-15)의 등장인물 많은 게임 1회차(계획 cosplay.character 빈 칸)는 --cosplay 로 받은
+                                                                                     채운 Outfit 줄(「Outfit: <캐릭터 이름> from <게임> — <알아볼 색 · 조각>, <재단 글>」 — 파일의 첫 Outfit: 줄)을
+                                                                                     「Outfit: … (…)」 자리에 넣는다(게임 이름 · 재단 글 · 이미 쓴 캐릭터가 아닌지 대조). again 이면 계획이 정해 둔
+                                                                                     2회차 몫(cosplay.again — 캐릭터 · 재단)으로 다시 지은 지시문. 기록 generation.cosplay = { game, character, cut } — 코스프레 컷은 늘
    node tools/api-draw.cjs usage  <폴더>                                              그 폴더의 호출 · 토큰 합계(usage.jsonl)
    node tools/api-draw.cjs sheet  <out.jpg> <그림>… [--labels a,b,…]                   붙여 보기(사용자에게 보여 줄 때)
    node tools/api-draw.cjs stage  <장수> --img <그림 저장소> <png>=<자리>…                 webp(품질 90) + 기록을 그림 저장소에 둔다(commit 은 하지 않는다)
@@ -26,16 +30,17 @@ for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js',
 const P = ctx.window.AtelierPrompt, T = ctx.window.AtelierSpec;
 const D = JSON.parse(read('data/sam-design.json')), S = JSON.parse(read('data/style.json'));
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json'));
+const GC = JSON.parse(read('data/game-cosplay.json')); ctx.window.AtelierGameCosplay = GC;   /* 게임 코스프레 목록(2026-11-15) */
 const BASE = process.env.API_DRAW_BASE || 'https://api.openai.com/v1';   /* 검사(tests/api-draw.cjs)는 가짜 서버로 */
 const SIZE = '1024x1536', FIXED = { overall_intensity: 'strong', skin_exposure: 'bold' };
 
 function parse(argv) {
-  const o = { _: [], style: 'api25', quality: 'medium', n: 2, free: {}, exposure: {}, slots: null };
+  const o = { _: [], style: 'api25', quality: 'medium', n: 2, free: {}, cosplay: {}, exposure: {}, slots: null };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith('--')) { o._.push(a); continue; }
     const k = a.slice(2), v = argv[i + 1];
-    if (k === 'free' || (k === 'exposure' && /=/.test(v || ''))) { const [n, x] = v.split('='); o[k][n] = x; i++; continue; }
+    if (k === 'free' || k === 'cosplay' || (k === 'exposure' && /=/.test(v || ''))) { const [n, x] = v.split('='); o[k][n] = x; i++; continue; }
     if (k === 'force') { o.force = true; continue; }   /* 내린 화풍도 그린다 */
     if (k === 'slots') { o.slots = v.split(',').map(Number); i++; continue; }
     o[k] = v; i++;
@@ -100,6 +105,21 @@ function freeBlockErrors(filled, tpl) {
   });
   return errs;
 }
+/* 게임 코스프레 1회차 — 채운 Outfit 줄이 틀을 지켰나(2026-11-15). 돌려주는 것 { errs, name }: 게임 이름 · 재단 글이 그대로 있고, 「…」 이 없고, 캐릭터 이름이 맨 앞에 있고 이미 쓴 캐릭터가 아니다 */
+const normName = s => String(s || '').trim().toLowerCase().replace(/\s+/g, ' ');
+function cosplayLineCheck(line, cut) {
+  const cs = cut.cosplay || {}, gm = GC.games.find(g => g.key === cs.game) || {}, cu = GC.cuts.find(c => c.key === P.cosplayCut(cut)) || {}, errs = [];
+  const l = String(line || '').trim(), low = l.toLowerCase();
+  if (!/^Outfit: /.test(l)) errs.push('Outfit: 로 시작하는 줄이 없다');
+  if (/…/.test(l)) errs.push('「…」 을 안 채웠다');
+  if (gm.en && low.indexOf(gm.en.toLowerCase()) < 0) errs.push('게임 이름(' + gm.en + ')이 없다');
+  if (cu.en && low.indexOf(cu.en.toLowerCase()) < 0) errs.push('재단 글(' + cu.en + ')이 없다');
+  const body = l.replace(/^Outfit:\s*/, '').replace(/^a daring adult cosplay of\s+/i, '');
+  const name = (body.split(/\s+from\s+|\s+—\s+|,/)[0] || '').trim();
+  if (!name || name.length > 60) errs.push('맨 앞에 캐릭터 이름이 없다');
+  if (name && (cs.used || []).some(u => normName(u) === normName(name))) errs.push(name + ' 는 이미 쓴 캐릭터다(세 공방 합쳐) — 다른 캐릭터를 고르거나 --cosplay ' + (cut.n || 'N') + '=again');
+  return { errs, name };
+}
 function writeRec(out, name, rec) { fs.writeFileSync(path.join(out, name + '_record.json'), JSON.stringify(rec, null, 1) + '\n'); }
 
 async function cmdWorld(o) {
@@ -144,7 +164,7 @@ async function cmdCasual(o) {
   for (const cut of plan.cuts.filter(c => !o.slots || o.slots.includes(c.n))) {
     const { n, ...sc } = cut, exp = o.exposure[n] || 'bold', name = plan.world + '-casual' + n;
     const scene = { ...sc, axes: { ...FIXED, ...(sc.axes || {}), skin_exposure: exp }, aspect: '2:3', unlocked: sc.unlocked || [] };
-    const rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
+    let rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
     let prompt = rec.prompt;
     /* 자유 설계 컷(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 …」) — 채운 덩어리를 받아 빈 덩어리 자리에. 틀(머리 · 최근 장면 · 필수 갈래 · 상황 줄)은 낱말 그대로여야 한다 */
     let block = '';
@@ -155,9 +175,32 @@ async function cmdCasual(o) {
       if (errs.length) { console.log(name + ' — 자유 설계 덩어리가 틀을 안 지켰다: ' + errs.join(' · ')); blocked.push(name + '(덩어리 틀림)'); continue; }
       prompt = prompt.replace(tpl, () => block);
     }
+    /* 게임 코스프레 컷(2026-11-15) — 등장인물 많은 게임 1회차는 채운 Outfit 줄을 「Outfit: … (…)」 자리에. 기록 generation.cosplay 는 코스프레 컷이면 늘 */
+    let cos = null, cosLine = '';
+    if (P.isCosplay(cut)) {
+      if (P.cosplayNeedsFill(cut, GC)) {
+        const tpl = 'Outfit: ' + P.cosplayOutfit(cut, GC), v = o.cosplay[n];
+        if (!v) { console.log(name + ' — 게임 코스프레 1회차: --cosplay ' + n + '=<채운 Outfit 줄 파일>(또는 again) 이 없어 건너뛴다'); blocked.push(name + '(코스프레 글 없음)'); continue; }
+        if (prompt.indexOf(tpl) < 0) { console.log(name + ' — 지시문에 코스프레 자리(Outfit: … (…))가 없다'); blocked.push(name + '(코스프레 자리 없음)'); continue; }
+        let who = '';
+        if (v === 'again') {   /* 2회차 몫 — 계획이 정해 둔 again(캐릭터 · 재단)으로 장면을 바꿔 지시문을 다시 짓는다(<세계>-casualN-again-prompt.txt 와 같다) */
+          const ag = P.cosplayAgainScene(cut); if (!ag) { console.log(name + ' — 계획에 넘길 2회차 몫(cosplay.again)이 없다'); blocked.push(name + '(2회차 없음)'); continue; }
+          const { n: _n, ...as } = ag; rec = P.casualRecord(D, S, plan.card, { ...as, axes: scene.axes, aspect: '2:3', unlocked: as.unlocked || [] }, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
+          prompt = rec.prompt; cosLine = (prompt.match(/^Outfit: .*$/m) || [''])[0]; cos = P.cosplayRecord(ag, GC);
+        } else {
+          cosLine = (fs.readFileSync(v, 'utf8').split('\n').find(l => /^Outfit: /.test(l.trim())) || '').trim().replace(/\.\s*$/, '');
+          const chk = cosplayLineCheck(cosLine, cut);
+          if (chk.errs.length) { console.log(name + ' — 코스프레 Outfit 줄이 틀을 안 지켰다: ' + chk.errs.join(' · ')); blocked.push(name + '(코스프레 줄 틀림)'); continue; }
+          who = chk.name;
+          prompt = prompt.replace(tpl, () => cosLine);
+          cos = P.cosplayRecord(cut, GC, who);
+        }
+      } else cos = P.cosplayRecord(cut, GC);
+    }
     const gen = await draw({ model, quality: o.quality, prompt, ref: o.ref, out, name, exposure: exp, refSize: o['ref-size'] == null ? 768 : Number(o['ref-size']) });
     if (gen.blocked) { blocked.push(name); continue; }
     if (cut.ofree) { gen.design = cut.ofreeFamily ? 'ofree_family' : 'ofree'; gen.free_design = block; gen.free_prompt = prompt; gen.free_by = o.by || 'claude'; }
+    if (cos) { gen.cosplay = JSON.parse(JSON.stringify(cos)); if (cosLine) { gen.cosplay_line = cosLine; gen.cosplay_prompt = prompt; gen.cosplay_by = o.by || 'claude'; } }
     writeRec(out, name, { ...rec, generation: gen });
   }
   return blocked;
