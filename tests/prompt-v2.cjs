@@ -180,3 +180,15 @@ console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
   console.log('PASS 2.5 API 판(api25): 옛 나이 · 얼굴 머리말 · 눈꼬리 + 실루엣 · 무기 · 노출 · 표정, 일상컷 11-02 꼴');
 }
 
+/* 일상컷 체형 줄(2026-11-15) — 우리 설계 그림이면 설계표 체형 글, GPT 임의 설계 그림(refFree)이면 체형 글 없이 그림의 몸만. 줄 꼴 · 칸 꼴 · 2.5 API 판 */
+{ const C = require('../tools/casual-plan.cjs'), tree = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree.json'), 'utf8')), tree2 = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree-v2.json'), 'utf8'));
+  const card = C.cardOf('동탁'); card.world = 'samguk'; const { n, ...sc } = C.plan(card, [1], [], { seed: 5 }).cuts[0];
+  const body = T.VOCAB_EN.body[D.generals.find(g => g.key === '동탁').look.silhouette.body];
+  for (const st of ['kr_drawn_rim_dewy', 'mmorpg_cg', 'api25']) {
+    const fig = rf => { const r = P.casualRecord(D, SX, '동탁', sc, { world: 'samguk', style: st, tree, tree2, refFree: rf }, 1); return [(r.prompt.match(/^(?:FIGURE|Figure): .*$/m) || [''])[0], r.refDesign]; };
+    const [ours, d0] = fig(false), [free, d1] = fig(true);
+    assert(ours.includes(body) && /neither slimmer nor fuller/.test(ours) && !d0, st + ' 우리 설계 — 체형 글');
+    assert(!free.includes(body) && /^(?:FIGURE|Figure): keep her exact build from the attached image/.test(free) && d1 === 'gpt_free', st + ' GPT 설계 — 그림의 몸만');
+  }
+  console.log('PASS 일상컷 체형 줄: 우리 설계 = 체형 글 · GPT 설계 = 그림의 몸만(줄 꼴 · 칸 꼴 · 2.5 API)');
+}

@@ -6,7 +6,7 @@
    node tools/api-draw.cjs brief  <장수> <세계> [--style api25]                       GPT 자유 설계 주문을 찍는다(Claude 가 읽고 지시문을 쓴다)
    node tools/api-draw.cjs world  <장수> <세계> --out <폴더> [--n 2] [--exposure moderate|low]   우리 설계 n 장 → <세계>-ours1.png …
    node tools/api-draw.cjs free   <장수> <세계> --text <글 파일> --tag gpt1 --out <폴더>        GPT 설계 글로 한 장 → <세계>-gpt1.png
-   node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--exposure N=moderate|low] [--ref-size 768|0]
+   node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--exposure N=moderate|low] [--ref-size 768|0] [--ref-free yes|no]
                                                                                      일상컷(편집 API) → <세계>-casualN.png. 자유 설계 컷(옷 자유 · 갈래 자유 — 계획의 ofree)은
                                                                                      --free 로 받은 채운 자유 설계 덩어리(FREE DESIGN … Outfit 줄 — 지시문 전체를 줘도 그 덩어리만 쓴다)를
                                                                                      지시문의 빈 덩어리 자리에 넣는다(2026-11-11 — 다른 줄은 늘 조립부 그대로). 기록 free_design · free_prompt
@@ -123,13 +123,28 @@ async function cmdFree(o) {
   writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', free_prompt: text, free_by: o.by || 'claude' } });
   return [];
 }
+/* 참고 그림이 GPT 임의 설계인가(2026-11-15 — 일상컷 체형 줄을 그림의 몸만으로). --ref-free 가 있으면 그것, 없으면 참고 png 옆 _record.json 의 generation.design,
+   이름이 <세계>-gpt1 · gpt2 꼴이면 GPT 설계, 등록된 webp 면 그림 저장소 기록(records/<장수>/<세계>.<화풍>-ui.json) */
+function refIsFree(ref, flag) {
+  if (flag != null) return flag === true || flag === 'yes' || flag === '1';
+  if (!ref) return false;
+  const side = ref.replace(/\.(png|webp|jpe?g)$/i, '') + '_record.json';
+  if (fs.existsSync(side)) { try { return ((JSON.parse(fs.readFileSync(side, 'utf8')).generation || {}).design) === 'gpt_free'; } catch (e) { return false; } }
+  if (/-gpt\d+\.(png|webp)$/i.test(ref)) return true;
+  const m = /^(.+?)_([a-z]+)_(.+)_f\.webp$/.exec(path.basename(ref));
+  if (m) for (const d of require('./img-repos.cjs').recordDirs(m[1])) {
+    const f = path.join(d, `${m[2]}.${m[3]}-ui.json`);
+    if (fs.existsSync(f)) { try { const r = JSON.parse(fs.readFileSync(f, 'utf8')); return ((r.generation || {}).design || r.design) === 'gpt_free'; } catch (e) { return false; } }
+  }
+  return false;
+}
 async function cmdCasual(o) {
   const plan = JSON.parse(fs.readFileSync(o._[0], 'utf8')), out = o.out; fs.mkdirSync(out, { recursive: true });
   const model = o.model || styleModel(o.style), blocked = [];
   for (const cut of plan.cuts.filter(c => !o.slots || o.slots.includes(c.n))) {
     const { n, ...sc } = cut, exp = o.exposure[n] || 'bold', name = plan.world + '-casual' + n;
     const scene = { ...sc, axes: { ...FIXED, ...(sc.axes || {}), skin_exposure: exp }, aspect: '2:3', unlocked: sc.unlocked || [] };
-    const rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2 }, n);
+    const rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
     let prompt = rec.prompt;
     /* 자유 설계 컷(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 …」) — 채운 덩어리를 받아 빈 덩어리 자리에. 틀(머리 · 최근 장면 · 필수 갈래 · 상황 줄)은 낱말 그대로여야 한다 */
     let block = '';

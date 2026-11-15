@@ -7,6 +7,12 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · claude · 일상컷 체형 줄 — GPT 설계 세계 그림이면 그림의 몸만
+- 사용자 「세계컷중에 gpt 설계 맡기는 것도, gpt가 본인거 선택받으면 일상컷때 옮길 수 있는지도 확인해줘」 → GPT 설계 주문엔 체형 칸이 없어 몸은 GPT 가 정한다(삼국 89장 · 원소 72장이 GPT 설계로 골랐다) → 주문에 체형 고정은 「1번은 안돼. 다양성이 떨어져서」 → 「응 그렇게 진행해줘」
+- lib/prompt-spec.js CASUAL.bodyKeepFree 「{head}: keep her exact build from the attached image, neither slimmer nor fuller.」 · lib/prompt-sam.js figureLine(…, refFree) — opts.refFree 면 체형 글 없는 줄, 기록에 refDesign: gpt_free. 줄 꼴 · 칸 꼴 · 2.5 API 판 모두
+- tools/casual-plan.cjs refFree — 그림 저장소의 그 세계 기록(<세계>.<화풍>-ui.json) generation.design 이 gpt_free 면. tools/api-draw.cjs casual — --ref-free yes|no, 없으면 참고 png 옆 _record.json · -gptN 이름 · 등록 webp 의 기록에서. tools/prompt-pack.cjs 안내 — GPT 설계 장을 고른 세계는 일상컷 FIGURE 줄 하나만 바꿔 넘긴다(정해 둔 수정 사유에 더함)
+- IMAGE_RULES.md 체형 문단에 GPT 설계 예외. tests/prompt-v2.cjs 일상컷 체형 줄(우리 설계 · GPT 설계, 세 꼴). prompt.html · promptapi.html prompt-spec ?v=47 · prompt-sam ?v=40. 검사 prompt-v2 · prompt-gpt · api-draw 통과
+
 ## 2026-11-15 · claude · 동탁 삼국 일상컷 1 교체 — 체형 줄 그림
 - 사용자 「아까 동탁 체형 문구 넣은 일상컷 하나만 지금 공방꺼랑 교체해줘」 — sam-atelier-img-2 의 동탁_samguk_kr_drawn_rim_dewy_f_casual1.webp 를 2.6 API 로 그린 체형 줄(FIGURE) 그림으로 덮어쓰고 옛 썸네일을 지웠다(썸네일 · 등록은 워크플로). 기록 generation 을 새 그림으로(앞 generation 은 redo.previous_generation), 교체 장부 sam-atelier-img records/replacement.json 에 옛 · 새 sha256
 

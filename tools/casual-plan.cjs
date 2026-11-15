@@ -465,9 +465,17 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
 
 /* 기록 — 생성기 「기록 내보내기」 와 같은 꼴(P.casualRecord) + 그 기록이 놓일 자리 */
 const recordRel = (key, world, n, style = STYLE) => `records/${key}/${world}-casual${n}.${style}-ui.json`;
+/* 고른 세계 그림이 GPT 임의 설계인가 — 그 세계 기록(<세계>.<화풍>-ui.json)의 generation.design(2026-11-15). 그러면 일상컷 체형 줄은 설계표 체형 글 없이 그림의 몸만 */
+function refFree(key, world, style = STYLE) {
+  for (const d of REPOS.recordDirs(key)) {
+    const f = path.join(d, `${world}.${style}-ui.json`);
+    if (fs.existsSync(f)) { try { const r = JSON.parse(fs.readFileSync(f, 'utf8')); return ((r.generation || {}).design || r.design) === 'gpt_free'; } catch (e) { return false; } }
+  }
+  return false;
+}
 function record(card, world, cut) {
   const { n, ...scene } = cut;
-  return { ...P.casualRecord(D, S, card.key, scene, { world, style: STYLE, tree, tree2 }, n), record: recordRel(card.key, world, n) };
+  return { ...P.casualRecord(D, S, card.key, scene, { world, style: STYLE, tree, tree2, refFree: refFree(card.key, world) }, n), record: recordRel(card.key, world, n) };
 }
 /* 이미 있는 컷 — 그 세계의 기록(<세계>-casualN.<화풍>-ui.json). dir 은 하나 또는 여럿(그림 저장소마다 records/<장수> — 2026-11-12) */
 function oldCuts(dirs, card, world) {
@@ -590,5 +598,5 @@ function main(argv) {
   }
   return 0;
 }
-module.exports = { ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { refFree, ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));
