@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-16 · claude · 게임 코스프레 — 캐릭터를 계획기가 정하고, 예약도 「쓴 것」 으로 센다
+- 사용자 「삼국지 공방에서만 벌써 오버워치 메르시가 4케릭터안에서 2번이나 나왔어」 → 「응 그래」 — 등장인물 많은 게임 1회차를 그리는 쪽이 골라 계획엔 이름이 비었고, 미리 짠 계획끼리 서로 못 봐 「already used: none yet」 으로 유명한 캐릭터가 되풀이됐다
+- tools/casual-plan.cjs — pickCosplay: 등장인물 많은 게임도 data/game-cosplay.json 의 characters 에서 아직 안 쓰고 예약도 안 된 캐릭터를 무작위(여자 2 · 남자 1)로 정한다(text.assigned), 목록을 다 쓰면 2회차(text.again). cosplayUsage: 그린 기록 + 아직 안 그린 계획의 예약(삼국 · 원소 계획 파일, pkm 예약 · 장부 reserved — 나이와 상관없이, 같은 컷은 카드 · 세계 · 화풍 · 번호로 한 번). 주인공 하나 게임은 기록 이름이 달라도(Geralt · Geralt of Rivia) 그 주인공으로 센다. --recosplay <계획 파일>(안 그린 코스프레 칸만 다시 짜기) · --recosplay-list
+- lib/prompt-sam.js — 캐릭터가 찬 1회차는 text.assigned. 옛 pick 칸 지시문 · tools/prompt-pack.cjs 안내(「옛 계획에만 — 1회차 채우기」) · tools/api-draw.cjs --cosplay 처리는 그대로 둔다. prompt.html · promptapi.html ?v=42
+- data/game-cosplay.json — game-atelier 원본의 새 사본(characters · text.assigned). 검사 tests/casual-plan.cjs · prompt-v2.cjs 단언을 새 규칙으로, 문서 IMAGE_RULES · IMAGE_AUTOMATION · AGENTS
+
 ## 2026-11-16 · claude · 게임 코스프레 — 인원 많은 게임일수록 자주(남은 인원의 제곱근 무게)
 - 사용자 「케릭터 수 많은 게임일수록 더 많이 선택되게 해줘」 → 표 셋(인원 그대로 · 제곱근 · 많음 3배) 중 「B로해줘」
 - 게임 고르기를 「덜 쓴 게임 먼저」 에서 남은 인원의 제곱근 무게 무작위로 — 주인공 하나 게임 √(남은 재단/11), 등장인물 많은 게임 1회차 √(roster − 쓴 캐릭터), 2회차 √(남은 캐릭터 × 재단 / 11). 빈 기록에서 2만 번: LoL 약 19% · WoW 18% · 오버워치 10% · 창세기전 9% · 스타 8% · FF7 7% · 랑그릿사 7% · 스파2 6% · 주인공 하나 각 약 1.5%(세 공방 같다). 다 찬 게임은 그대로 빠진다

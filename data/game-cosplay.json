@@ -1,11 +1,12 @@
 {
  "version": 1,
- "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로).",
+ "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번).",
  "text": {
   "fixed": "a daring adult cosplay of {character} from {game} — {outfit}, {cut}",
   "pick": "… (a daring adult cosplay of one character of your choice from {game} — not any of these already used: {used}; write the character's name first, then the costume's recognisable colours and parts, {cut})",
   "again": "a daring adult cosplay of {character} from {game} — the costume's recognisable colours and parts, {cut}",
-  "none": "none yet"
+  "none": "none yet",
+  "assigned": "a daring adult cosplay of {character} from {game} — the costume's recognisable colours and parts, {cut}"
  },
  "cuts": [
   {
@@ -169,56 +170,1006 @@
    "ko": "리그 오브 레전드",
    "en": "League of Legends",
    "many": true,
-   "roster": 170
+   "roster": 60,
+   "characters": [
+    {
+     "name": "Ahri",
+     "female": true
+    },
+    {
+     "name": "Jinx",
+     "female": true
+    },
+    {
+     "name": "Lux",
+     "female": true
+    },
+    {
+     "name": "Miss Fortune",
+     "female": true
+    },
+    {
+     "name": "Kai'Sa",
+     "female": true
+    },
+    {
+     "name": "Akali",
+     "female": true
+    },
+    {
+     "name": "Ashe",
+     "female": true
+    },
+    {
+     "name": "Caitlyn",
+     "female": true
+    },
+    {
+     "name": "Vi",
+     "female": true
+    },
+    {
+     "name": "Katarina",
+     "female": true
+    },
+    {
+     "name": "Sona",
+     "female": true
+    },
+    {
+     "name": "Janna",
+     "female": true
+    },
+    {
+     "name": "Leona",
+     "female": true
+    },
+    {
+     "name": "Diana",
+     "female": true
+    },
+    {
+     "name": "Irelia",
+     "female": true
+    },
+    {
+     "name": "Evelynn",
+     "female": true
+    },
+    {
+     "name": "Seraphine",
+     "female": true
+    },
+    {
+     "name": "Senna",
+     "female": true
+    },
+    {
+     "name": "Qiyana",
+     "female": true
+    },
+    {
+     "name": "Zoe",
+     "female": true
+    },
+    {
+     "name": "Neeko",
+     "female": true
+    },
+    {
+     "name": "Lillia",
+     "female": true
+    },
+    {
+     "name": "Gwen",
+     "female": true
+    },
+    {
+     "name": "Nidalee",
+     "female": true
+    },
+    {
+     "name": "Sivir",
+     "female": true
+    },
+    {
+     "name": "Sejuani",
+     "female": true
+    },
+    {
+     "name": "Lissandra",
+     "female": true
+    },
+    {
+     "name": "Syndra",
+     "female": true
+    },
+    {
+     "name": "LeBlanc",
+     "female": true
+    },
+    {
+     "name": "Morgana",
+     "female": true
+    },
+    {
+     "name": "Kayle",
+     "female": true
+    },
+    {
+     "name": "Elise",
+     "female": true
+    },
+    {
+     "name": "Fiora",
+     "female": true
+    },
+    {
+     "name": "Riven",
+     "female": true
+    },
+    {
+     "name": "Xayah",
+     "female": true
+    },
+    {
+     "name": "Soraka",
+     "female": true
+    },
+    {
+     "name": "Nami",
+     "female": true
+    },
+    {
+     "name": "Vayne",
+     "female": true
+    },
+    {
+     "name": "Annie",
+     "female": true
+    },
+    {
+     "name": "Orianna",
+     "female": true
+    },
+    {
+     "name": "Camille",
+     "female": true
+    },
+    {
+     "name": "Zyra",
+     "female": true
+    },
+    {
+     "name": "Samira",
+     "female": true
+    },
+    {
+     "name": "Karma",
+     "female": true
+    },
+    {
+     "name": "Taliyah",
+     "female": true
+    },
+    {
+     "name": "Cassiopeia",
+     "female": true
+    },
+    {
+     "name": "Shyvana",
+     "female": true
+    },
+    {
+     "name": "Quinn",
+     "female": true
+    },
+    {
+     "name": "Rell",
+     "female": true
+    },
+    {
+     "name": "Renata Glasc",
+     "female": true
+    },
+    {
+     "name": "Zeri",
+     "female": true
+    },
+    {
+     "name": "Nilah",
+     "female": true
+    },
+    {
+     "name": "Briar",
+     "female": true
+    },
+    {
+     "name": "Aurora",
+     "female": true
+    },
+    {
+     "name": "Ezreal",
+     "female": false
+    },
+    {
+     "name": "Yasuo",
+     "female": false
+    },
+    {
+     "name": "Garen",
+     "female": false
+    },
+    {
+     "name": "Jhin",
+     "female": false
+    },
+    {
+     "name": "Ekko",
+     "female": false
+    },
+    {
+     "name": "Teemo",
+     "female": false
+    }
+   ]
   },
   {
    "key": "overwatch",
    "ko": "오버워치",
    "en": "Overwatch",
    "many": true,
-   "roster": 43
+   "roster": 38,
+   "characters": [
+    {
+     "name": "Tracer",
+     "female": true
+    },
+    {
+     "name": "Mercy",
+     "female": true
+    },
+    {
+     "name": "D.Va",
+     "female": true
+    },
+    {
+     "name": "Widowmaker",
+     "female": true
+    },
+    {
+     "name": "Ana",
+     "female": true
+    },
+    {
+     "name": "Ashe",
+     "female": true
+    },
+    {
+     "name": "Brigitte",
+     "female": true
+    },
+    {
+     "name": "Echo",
+     "female": true
+    },
+    {
+     "name": "Illari",
+     "female": true
+    },
+    {
+     "name": "Juno",
+     "female": true
+    },
+    {
+     "name": "Kiriko",
+     "female": true
+    },
+    {
+     "name": "Mei",
+     "female": true
+    },
+    {
+     "name": "Moira",
+     "female": true
+    },
+    {
+     "name": "Orisa",
+     "female": true
+    },
+    {
+     "name": "Pharah",
+     "female": true
+    },
+    {
+     "name": "Sojourn",
+     "female": true
+    },
+    {
+     "name": "Sombra",
+     "female": true
+    },
+    {
+     "name": "Symmetra",
+     "female": true
+    },
+    {
+     "name": "Zarya",
+     "female": true
+    },
+    {
+     "name": "Venture",
+     "female": true
+    },
+    {
+     "name": "Junker Queen",
+     "female": true
+    },
+    {
+     "name": "Genji",
+     "female": false
+    },
+    {
+     "name": "Hanzo",
+     "female": false
+    },
+    {
+     "name": "Reinhardt",
+     "female": false
+    },
+    {
+     "name": "Soldier: 76",
+     "female": false
+    },
+    {
+     "name": "Reaper",
+     "female": false
+    },
+    {
+     "name": "Cassidy",
+     "female": false
+    },
+    {
+     "name": "Lúcio",
+     "female": false
+    },
+    {
+     "name": "Zenyatta",
+     "female": false
+    },
+    {
+     "name": "Ramattra",
+     "female": false
+    },
+    {
+     "name": "Winston",
+     "female": false
+    },
+    {
+     "name": "Torbjörn",
+     "female": false
+    },
+    {
+     "name": "Baptiste",
+     "female": false
+    },
+    {
+     "name": "Doomfist",
+     "female": false
+    },
+    {
+     "name": "Sigma",
+     "female": false
+    },
+    {
+     "name": "Lifeweaver",
+     "female": false
+    },
+    {
+     "name": "Mauga",
+     "female": false
+    },
+    {
+     "name": "Hazard",
+     "female": false
+    }
+   ]
   },
   {
    "key": "street_fighter_2",
    "ko": "스트리트 파이터 II",
    "en": "Street Fighter II",
    "many": true,
-   "roster": 16
+   "roster": 16,
+   "characters": [
+    {
+     "name": "Chun-Li",
+     "female": true
+    },
+    {
+     "name": "Cammy",
+     "female": true
+    },
+    {
+     "name": "Ryu",
+     "female": false
+    },
+    {
+     "name": "Ken",
+     "female": false
+    },
+    {
+     "name": "Guile",
+     "female": false
+    },
+    {
+     "name": "Blanka",
+     "female": false
+    },
+    {
+     "name": "Zangief",
+     "female": false
+    },
+    {
+     "name": "Dhalsim",
+     "female": false
+    },
+    {
+     "name": "E. Honda",
+     "female": false
+    },
+    {
+     "name": "M. Bison",
+     "female": false
+    },
+    {
+     "name": "Vega",
+     "female": false
+    },
+    {
+     "name": "Sagat",
+     "female": false
+    },
+    {
+     "name": "Balrog",
+     "female": false
+    },
+    {
+     "name": "T. Hawk",
+     "female": false
+    },
+    {
+     "name": "Dee Jay",
+     "female": false
+    },
+    {
+     "name": "Fei Long",
+     "female": false
+    }
+   ]
   },
   {
    "key": "world_of_warcraft",
    "ko": "월드 오브 워크래프트",
    "en": "World of Warcraft",
    "many": true,
-   "roster": 150
+   "roster": 38,
+   "characters": [
+    {
+     "name": "Sylvanas Windrunner",
+     "female": true
+    },
+    {
+     "name": "Jaina Proudmoore",
+     "female": true
+    },
+    {
+     "name": "Tyrande Whisperwind",
+     "female": true
+    },
+    {
+     "name": "Alexstrasza",
+     "female": true
+    },
+    {
+     "name": "Ysera",
+     "female": true
+    },
+    {
+     "name": "Lady Katrana Prestor",
+     "female": true
+    },
+    {
+     "name": "Vereesa Windrunner",
+     "female": true
+    },
+    {
+     "name": "Alleria Windrunner",
+     "female": true
+    },
+    {
+     "name": "Lady Liadrin",
+     "female": true
+    },
+    {
+     "name": "Valeera Sanguinar",
+     "female": true
+    },
+    {
+     "name": "Maiev Shadowsong",
+     "female": true
+    },
+    {
+     "name": "Aggra",
+     "female": true
+    },
+    {
+     "name": "Garona Halforcen",
+     "female": true
+    },
+    {
+     "name": "Moira Thaurissan",
+     "female": true
+    },
+    {
+     "name": "Calia Menethil",
+     "female": true
+    },
+    {
+     "name": "Lady Vashj",
+     "female": true
+    },
+    {
+     "name": "Queen Azshara",
+     "female": true
+    },
+    {
+     "name": "High Inquisitor Whitemane",
+     "female": true
+    },
+    {
+     "name": "Queen Talanji",
+     "female": true
+    },
+    {
+     "name": "First Arcanist Thalyssra",
+     "female": true
+    },
+    {
+     "name": "Vanessa VanCleef",
+     "female": true
+    },
+    {
+     "name": "Tess Greymane",
+     "female": true
+    },
+    {
+     "name": "Mia Greymane",
+     "female": true
+    },
+    {
+     "name": "Xe'ra",
+     "female": true
+    },
+    {
+     "name": "a night elf priestess",
+     "female": true
+    },
+    {
+     "name": "a blood elf paladin",
+     "female": true
+    },
+    {
+     "name": "a draenei shaman",
+     "female": true
+    },
+    {
+     "name": "a pandaren monk",
+     "female": true
+    },
+    {
+     "name": "Arthas Menethil as the Lich King",
+     "female": false
+    },
+    {
+     "name": "Illidan Stormrage",
+     "female": false
+    },
+    {
+     "name": "Thrall",
+     "female": false
+    },
+    {
+     "name": "Anduin Wrynn",
+     "female": false
+    },
+    {
+     "name": "Varian Wrynn",
+     "female": false
+    },
+    {
+     "name": "Uther the Lightbringer",
+     "female": false
+    },
+    {
+     "name": "Kael'thas Sunstrider",
+     "female": false
+    },
+    {
+     "name": "Malfurion Stormrage",
+     "female": false
+    },
+    {
+     "name": "Gul'dan",
+     "female": false
+    },
+    {
+     "name": "Vol'jin",
+     "female": false
+    }
+   ]
   },
   {
    "key": "starcraft",
    "ko": "스타크래프트",
    "en": "StarCraft",
    "many": true,
-   "roster": 30
+   "roster": 25,
+   "characters": [
+    {
+     "name": "Sarah Kerrigan as a Ghost agent",
+     "female": true
+    },
+    {
+     "name": "Kerrigan, Queen of Blades",
+     "female": true
+    },
+    {
+     "name": "Nova",
+     "female": true
+    },
+    {
+     "name": "Mira Han",
+     "female": true
+    },
+    {
+     "name": "Ariel Hanson",
+     "female": true
+    },
+    {
+     "name": "Selendis",
+     "female": true
+    },
+    {
+     "name": "Vorazun",
+     "female": true
+    },
+    {
+     "name": "Zagara",
+     "female": true
+    },
+    {
+     "name": "Jim Raynor",
+     "female": false
+    },
+    {
+     "name": "Arcturus Mengsk",
+     "female": false
+    },
+    {
+     "name": "Tychus Findlay",
+     "female": false
+    },
+    {
+     "name": "Matt Horner",
+     "female": false
+    },
+    {
+     "name": "Valerian Mengsk",
+     "female": false
+    },
+    {
+     "name": "Artanis",
+     "female": false
+    },
+    {
+     "name": "Zeratul",
+     "female": false
+    },
+    {
+     "name": "Tassadar",
+     "female": false
+    },
+    {
+     "name": "Fenix",
+     "female": false
+    },
+    {
+     "name": "Karax",
+     "female": false
+    },
+    {
+     "name": "Alarak",
+     "female": false
+    },
+    {
+     "name": "Dehaka",
+     "female": false
+    },
+    {
+     "name": "Abathur",
+     "female": false
+    },
+    {
+     "name": "Alexei Stukov",
+     "female": false
+    },
+    {
+     "name": "Gabriel Tosh",
+     "female": false
+    },
+    {
+     "name": "Egon Stetmann",
+     "female": false
+    },
+    {
+     "name": "Rory Swann",
+     "female": false
+    }
+   ]
   },
   {
    "key": "final_fantasy_7",
    "ko": "파이널 판타지 VII",
    "en": "Final Fantasy VII",
    "many": true,
-   "roster": 25
+   "roster": 19,
+   "characters": [
+    {
+     "name": "Tifa Lockhart",
+     "female": true
+    },
+    {
+     "name": "Aerith Gainsborough",
+     "female": true
+    },
+    {
+     "name": "Yuffie Kisaragi",
+     "female": true
+    },
+    {
+     "name": "Jessie Rasberry",
+     "female": true
+    },
+    {
+     "name": "Elena",
+     "female": true
+    },
+    {
+     "name": "Scarlet",
+     "female": true
+    },
+    {
+     "name": "Lucrecia Crescent",
+     "female": true
+    },
+    {
+     "name": "Cloud Strife",
+     "female": false
+    },
+    {
+     "name": "Barret Wallace",
+     "female": false
+    },
+    {
+     "name": "Red XIII",
+     "female": false
+    },
+    {
+     "name": "Cait Sith",
+     "female": false
+    },
+    {
+     "name": "Vincent Valentine",
+     "female": false
+    },
+    {
+     "name": "Cid Highwind",
+     "female": false
+    },
+    {
+     "name": "Sephiroth",
+     "female": false
+    },
+    {
+     "name": "Zack Fair",
+     "female": false
+    },
+    {
+     "name": "Rufus Shinra",
+     "female": false
+    },
+    {
+     "name": "Reno",
+     "female": false
+    },
+    {
+     "name": "Rude",
+     "female": false
+    },
+    {
+     "name": "Tseng",
+     "female": false
+    }
+   ]
   },
   {
    "key": "langrisser_2",
    "ko": "랑그릿사 II",
    "en": "Langrisser II",
    "many": true,
-   "roster": 20
+   "roster": 15,
+   "characters": [
+    {
+     "name": "Liana",
+     "female": true
+    },
+    {
+     "name": "Sherry",
+     "female": true
+    },
+    {
+     "name": "Jessica",
+     "female": true
+    },
+    {
+     "name": "Imelda",
+     "female": true
+    },
+    {
+     "name": "Elwin",
+     "female": false
+    },
+    {
+     "name": "Hein",
+     "female": false
+    },
+    {
+     "name": "Scott",
+     "female": false
+    },
+    {
+     "name": "Keith",
+     "female": false
+    },
+    {
+     "name": "Aaron",
+     "female": false
+    },
+    {
+     "name": "Lester",
+     "female": false
+    },
+    {
+     "name": "Bernhardt",
+     "female": false
+    },
+    {
+     "name": "Leon",
+     "female": false
+    },
+    {
+     "name": "Egbert",
+     "female": false
+    },
+    {
+     "name": "Laird",
+     "female": false
+    },
+    {
+     "name": "Bozel",
+     "female": false
+    }
+   ]
   },
   {
    "key": "war_of_genesis_3",
    "ko": "창세기전 3 · 파트 2",
    "en": "The War of Genesis III and The War of Genesis III: Part 2",
    "many": true,
-   "roster": 40
+   "roster": 18,
+   "characters": [
+    {
+     "name": "Scheherazade",
+     "ko": "셰라자드",
+     "female": true
+    },
+    {
+     "name": "Joan",
+     "ko": "죠안",
+     "female": true
+    },
+    {
+     "name": "Embla",
+     "ko": "엠블라",
+     "female": true
+    },
+    {
+     "name": "Maria",
+     "ko": "마리아",
+     "female": true
+    },
+    {
+     "name": "Rien",
+     "ko": "리엔",
+     "female": true
+    },
+    {
+     "name": "Ran",
+     "ko": "란",
+     "female": false
+    },
+    {
+     "name": "Lucien",
+     "ko": "루시엔",
+     "female": false
+    },
+    {
+     "name": "Salladin",
+     "ko": "살라딘",
+     "female": false
+    },
+    {
+     "name": "Jan Žižka",
+     "ko": "얀 지슈카",
+     "female": false
+    },
+    {
+     "name": "Christian",
+     "ko": "크리스티앙",
+     "female": false
+    },
+    {
+     "name": "Vermont",
+     "ko": "버몬트",
+     "female": false
+    },
+    {
+     "name": "the Iron Mask",
+     "ko": "철가면",
+     "female": false
+    },
+    {
+     "name": "Albatini",
+     "ko": "알바티니",
+     "female": false
+    },
+    {
+     "name": "Beramode",
+     "ko": "베라모드",
+     "female": false
+    },
+    {
+     "name": "Ashley",
+     "ko": "아슈레이",
+     "female": false
+    },
+    {
+     "name": "Heidelune",
+     "ko": "하이델룬",
+     "female": false
+    },
+    {
+     "name": "Demian",
+     "ko": "데미안",
+     "female": false
+    },
+    {
+     "name": "Shakvari",
+     "ko": "샤크바리",
+     "female": false
+    }
+   ]
   }
  ]
 }

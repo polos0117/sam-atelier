@@ -10,7 +10,7 @@
                                                                                      일상컷(편집 API) → <세계>-casualN.png. 자유 설계 컷(옷 자유 · 갈래 자유 — 계획의 ofree)은
                                                                                      --free 로 받은 채운 자유 설계 덩어리(FREE DESIGN … Outfit 줄 — 지시문 전체를 줘도 그 덩어리만 쓴다)를
                                                                                      지시문의 빈 덩어리 자리에 넣는다(2026-11-11 — 다른 줄은 늘 조립부 그대로). 기록 free_design · free_prompt
-                                                                                     게임 코스프레 컷(2026-11-15)의 등장인물 많은 게임 1회차(계획 cosplay.character 빈 칸)는 --cosplay 로 받은
+                                                                                     게임 코스프레 컷(2026-11-15)의 옛 계획 1회차 pick(cosplay.character 빈 칸 — 2026-11-16 부터 새 계획은 계획기가 캐릭터를 정해 이 칸이 없다)은 --cosplay 로 받은
                                                                                      채운 Outfit 줄(「Outfit: <캐릭터 이름> from <게임> — <알아볼 색 · 조각>, <재단 글>」 — 파일의 첫 Outfit: 줄)을
                                                                                      「Outfit: … (…)」 자리에 넣는다(게임 이름 · 재단 글 · 이미 쓴 캐릭터가 아닌지 대조). again 이면 계획이 정해 둔
                                                                                      2회차 몫(cosplay.again — 캐릭터 · 재단)으로 다시 지은 지시문. 기록 generation.cosplay = { game, character, cut } — 코스프레 컷은 늘

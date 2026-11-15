@@ -211,10 +211,15 @@ console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
   /* 등장인물 많은 게임 1회차 — 맨 앞 「…」 자리, 쓴 캐릭터 목록 */
   const pick = { ...sc0, cosplay: { game: 'overwatch', character: '', cut: sc0.item.slice(3), round: 1, used: ['Tracer', 'Mercy'] } };
   const pp = P.casualRecord(D, SX, '축융', pick, { world: 'samguk', style: 'kr_drawn_rim_dewy', tree, tree2, cosplay: GC }, 3).prompt;
-  assert(pp.includes('\nOutfit: ' + GC.text.pick.replace('{game}', 'Overwatch').replace('{used}', 'Tracer, Mercy').replace('{cut}', cutEn)), '1회차 pick 자리');
+  assert(pp.includes('\nOutfit: ' + GC.text.pick.replace('{game}', 'Overwatch').replace('{used}', 'Tracer, Mercy').replace('{cut}', cutEn)), '옛 1회차 pick 자리 그대로');
+  /* 2026-11-16 — 새 1회차는 계획기가 정한 캐릭터(text.assigned), 2회차는 text.again. 모든 꼴에 이름 · 게임이 들어가고 「…」 자리는 없다 */
+  for (const [st, SJ] of [['kr_drawn_rim_dewy', SX], ['api25', SX], ['mmorpg_cg', S], ['kv_kmmo_23d', SX]]) for (const [round, tx] of [[1, GC.text.assigned], [2, GC.text.again]]) {
+    const as = { ...sc0, cosplay: { game: 'overwatch', character: 'Kiriko', cut: sc0.item.slice(3), round } }, pa = P.casualRecord(D, SJ, '축융', as, { world: 'samguk', style: st, tree, tree2, cosplay: GC }, 3).prompt;
+    assert(pa.includes('Outfit: ' + tx.replace('{character}', 'Kiriko').replace('{game}', 'Overwatch').replace('{cut}', cutEn)) && !/Outfit: …/.test(pa), st + ' ' + round + '회차 정해 둔 캐릭터 글'); }
+  { const pl = C.plan(card, [1, 2, 3, 4, 5, 6, 7], [], { seed: 8, cosplayUsed: [] }).cuts.find(c => c.cosplay); assert(pl.cosplay.character && !pl.cosplay.used, '새 계획엔 pick 빈 칸이 없다 ' + JSON.stringify(pl.cosplay)); }
   /* 다른 컷은 그대로 — 일상 줄(전설은 장신구로만 · 무기 장신구) */
   const other = C.plan(card, [1, 2, 3, 4, 5, 6, 7], [], { seed: 5 }).cuts.find(c => !c.cosplay && !c.ofree), { n: n2, ...so } = other;
   const po = P.casualRecord(D, SX, '축융', so, { world: 'samguk', style: 'kr_drawn_rim_dewy', tree, tree2, cosplay: GC }, 1).prompt;
   assert(po.includes(T.CASUAL.output) && !po.includes(T.CASUAL.outputCosplay) && /never restyle the chosen outfit into her faction's palette/.test(po), '다른 컷은 일상 OUTPUT · WARDROBE 그대로');
-  console.log('PASS 게임 코스프레 컷: ' + nc + ' 꼴 — 코스튬 줄 · 전설 · 세력 색 · 무기 장신구 줄 없이 · 색 · 데니어 · 상황 없이 · 체형 · 식스팩 그대로 · 1회차 자리');
+  console.log('PASS 게임 코스프레 컷: ' + nc + ' 꼴 — 코스튬 줄 · 전설 · 세력 색 · 무기 장신구 줄 없이 · 색 · 데니어 · 상황 없이 · 체형 · 식스팩 그대로 · 옛 1회차 pick 자리 · 정해 둔 캐릭터(assigned · again)');
 }
