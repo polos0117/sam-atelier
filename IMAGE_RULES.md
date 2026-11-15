@@ -34,6 +34,7 @@
 
 - **일상컷 지시문은 얼굴 · 화풍을 첨부 그림에 맡긴다(2026-11-03).** 공방 화풍 문장 대신 「STYLE: keep the attached image's rendering exactly …」, 나이 줄 대신(없으면 CHARACTER 줄 바로 밑에) 「FACE: exactly the face of the attached image …」, 표정 줄 끝에 「눈썹 · 눈꺼풀 · 입꼬리로만, 얼굴은 첨부 그림 그대로」. 화풍 점검(FINAL CHECK) 줄도 일상컷엔 없다.
   화풍 · 얼굴 문장을 새로 주면 GPT 세션이 첨부 그림의 얼굴을 그 말대로 다시 그렸다(헬륨 메카 일상 — 사용자 「일상컷 저거 너무 이상해」 → 이 세 줄로 「이제 좀 낫네」). 세계 그림 · 폼 · 개방은 그대로 화풍 문장을 싣는다.
+  **체형은 글로 넘긴다(2026-11-15)** — 얼굴과 달리 체형은 첨부 그림만으로는 일상복에서 마른 몸으로 돌아갔다(동탁 풍만형 일상컷 — 사용자 「일상컷때는 너무 슬림해져서」 → 체형 줄 시험 한 장 → 「이런거보면 체형정보는 넘겨야겠네」 · 「다른체형도」). 모든 체형에 설계표 체형 글을 「FIGURE: {체형 글} — keep this exact build from the attached image, neither slimmer nor fuller.」 로 싣는다(`T.CASUAL.bodyKeep` — 줄 꼴은 ANATOMY 다음, 칸 꼴은 KEEP 칸 identity 다음). 슬림 근육형 식스팩 줄(MIDRIFF)은 그대로 따로.
 
 ```
 세계 그림 셋(삼국시대 · 중세 판타지 · 메카) → 일상컷 세계마다 일곱 장(그 세계 그림을 참고 그림으로 — 트리 버전2, casual1 ~ casual7)

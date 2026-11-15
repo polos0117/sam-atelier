@@ -7,6 +7,11 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · claude · 일상컷 체형 줄 — 모든 체형에 설계표 체형 글
+- 사용자 「지금 동탁으로 세계컷 만든거 있는데 일상컷때는 너무 슬림해져서, 체형정보 넣은 일상컷 하나만 만들어줘」 → 2.6 API 로 삼국 일상컷 1번 지시문 + FIGURE 줄 한 장(허리 · 팔 · 골반 · 허벅지가 풍만형으로) → 「이런거보면 체형정보는 넘겨야겠네」 · 「다른체형도」 → 「이대로해줘」
+- lib/prompt-spec.js CASUAL.bodyKeep 「{head}: {body} — keep this exact build from the attached image, neither slimmer nor fuller.」 · lib/prompt-sam.js figureLine — 긴 꼴(줄 꼴 · 2.5 API 판)은 ANATOMY 다음 FIGURE:, 짧은 꼴은 Figure:, 칸 꼴은 KEEP 칸 identity 다음. 체형 글은 VOCAB_EN.body(설계표 look.silhouette.body). MIDRIFF 줄은 그대로
+- IMAGE_RULES.md 일상컷 첨부 그림 규칙에 체형 예외 한 문단. prompt.html · promptapi.html prompt-spec ?v=46 · prompt-sam ?v=39. 검사 tests/prompt-v2.cjs · prompt-gpt.cjs 통과, 원술(풍만형)로 줄 꼴 · 2.5 API · 칸 꼴 세 꼴 지시문에 줄이 실리는 것 확인. 이미 그린 일상컷은 그대로
+
 ## 2026-11-14 · gpt · 곽회 선택 세계컷과 일상·재단사 27장 도감 등록
 - data/img.json — 선택 4·1·1 세계컷 3장과 참조 기반 일상 21장·재단사 전용 3장을 열린 그림 저장소에 연결; 기존 그림·등록일·다른 장수 데이터 보존
 - sam-atelier-img-2 img/곽회_* · records/곽회/ — WebP 27장과 실제 프롬프트·참조 해시·계획·검수 기록; 판타지 일상1은 최초 두 번 출력 차단 후 moderate로 생성, 이미 반환된 결과는 보존; 헤어·구도·의상 편차와 양궁 소품 문장 충돌은 기록
