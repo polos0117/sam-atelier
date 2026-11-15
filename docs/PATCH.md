@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · claude · 동탁 삼국 일상컷 1 교체 — 체형 줄 그림
+- 사용자 「아까 동탁 체형 문구 넣은 일상컷 하나만 지금 공방꺼랑 교체해줘」 — sam-atelier-img-2 의 동탁_samguk_kr_drawn_rim_dewy_f_casual1.webp 를 2.6 API 로 그린 체형 줄(FIGURE) 그림으로 덮어쓰고 옛 썸네일을 지웠다(썸네일 · 등록은 워크플로). 기록 generation 을 새 그림으로(앞 generation 은 redo.previous_generation), 교체 장부 sam-atelier-img records/replacement.json 에 옛 · 새 sha256
+
 ## 2026-11-15 · claude · 일상컷 체형 줄 — 모든 체형에 설계표 체형 글
 - 사용자 「지금 동탁으로 세계컷 만든거 있는데 일상컷때는 너무 슬림해져서, 체형정보 넣은 일상컷 하나만 만들어줘」 → 2.6 API 로 삼국 일상컷 1번 지시문 + FIGURE 줄 한 장(허리 · 팔 · 골반 · 허벅지가 풍만형으로) → 「이런거보면 체형정보는 넘겨야겠네」 · 「다른체형도」 → 「이대로해줘」
 - lib/prompt-spec.js CASUAL.bodyKeep 「{head}: {body} — keep this exact build from the attached image, neither slimmer nor fuller.」 · lib/prompt-sam.js figureLine — 긴 꼴(줄 꼴 · 2.5 API 판)은 ANATOMY 다음 FIGURE:, 짧은 꼴은 Figure:, 칸 꼴은 KEEP 칸 identity 다음. 체형 글은 VOCAB_EN.body(설계표 look.silhouette.body). MIDRIFF 줄은 그대로
