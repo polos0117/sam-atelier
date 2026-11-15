@@ -108,7 +108,9 @@ if (SHORT) { const card = C.cardOf('조조'), forms = new Set(); let legend = 0;
 /* 상황은 일반 컷에 가끔(열에 셋) · 새 계열 모험가 · 신화 드레이프도 뽑힌다(2026-11-09) · 게임 코스프레는 여러 게임에 고루(2026-11-15) */
 assert(situN >= 1 && situN < n, '상황 노출 — 일반 컷에 가끔 ' + situN + '/' + n + ' · ' + [...situSeen].join(' · '));
 assert(famSeen.has('adventure') && famSeen.has('drape'), '새 계열 — ' + [...famSeen].join(' · '));
-assert(cosSeen.size >= 8, '코스프레 게임이 고루 — ' + [...cosSeen].join(' · '));
+assert(cosSeen.size >= 4, '코스프레 게임이 여럿 — ' + [...cosSeen].join(' · '));   /* 2026-11-15 무게 고르기(인원 많은 게임이 자주) — 예전엔 고루 여덟 이상 */
+{ let x = 123; const rnd = () => (x = (x * 9301 + 49297) % 233280) / 233280, cnt = {}; for (let i = 0; i < 4000; i++) { const k = C.pickCosplay([], rnd).game; cnt[k] = (cnt[k] || 0) + 1; }
+  assert((cnt.league_of_legends || 0) > 5 * (cnt.legend_of_zelda || 0) && (cnt.legend_of_zelda || 0) > 0 && (cnt.league_of_legends || 0) > (cnt.street_fighter_2 || 0), '무게 고르기(남은 인원의 제곱근) ' + JSON.stringify(cnt)); }
 { const cd = C.cardOf('조조'); cd.world = 'samguk'; const cuts = C.plan(cd, SIX, [], { seed: 4 }).cuts.map(c => { const x = { ...c }; delete x.situ; return x; });
   const cc = cuts.find(c => C.requiredType(c) === 'cosplay'), plain = TREE1.outfits.find(o => o.key === 'everyday').items.find(i => !i.low && P.situsFor(i.en).includes('strap'));
   assert(C.check(cuts.filter(c => c !== cc), cd, []).length >= 0 && C.check(cuts.map(c => c === cc ? { ...c, ofam: 'everyday', item: plain.key, cosplay: undefined } : c), cd, []).some(e => /게임 코스프레 컷이 없다/.test(e)), '게임 코스프레 컷이 없으면 잡는다');
@@ -246,19 +248,20 @@ try {
   const tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree-v2.json'), 'utf8'));
   for (const [k, v] of Object.entries(tr2.expressions)) assert(v.split(',').length <= 3 && !/jaw|clench|unsmiling|squeez|slack/.test(v), '표정 문구 ' + k + ': ' + v);
 }
-/* 게임 코스프레 고르기(2026-11-15) — 쓴 기록은 세 공방 합쳐, 덜 쓴 게임 먼저, 주인공 하나 게임은 안 입은 재단, 다 찬 게임은 빠진다, 등장인물 많은 게임은 1회차(pick) → 2회차(again).
+/* 게임 코스프레 고르기(2026-11-15) — 쓴 기록은 세 공방 합쳐, 게임은 남은 인원의 제곱근 무게로, 주인공 하나 게임은 안 입은 재단, 다 찬 게임은 빠진다, 등장인물 많은 게임은 1회차(pick) → 2회차(again).
    함수 · 칸 이름은 원소 · pkm 과 같다 — cosplayUsage(쓴 줄 목록) · pickCosplay · cosplayAgain, scene.cosplay · generation.cosplay */
 {
-  const cuts = GCJ.cuts.map(c => c.key), busy = except => { const U = []; for (const g of GCJ.games) if (!except.includes(g.key)) for (let i = 0; i < 500; i++) U.push({ game: g.key, character: '', cut: '' }); return U; };
+  const cuts = GCJ.cuts.map(c => c.key), busy = except => { const U = []; for (const g of GCJ.games) if (!except.includes(g.key)) { if (g.many) for (let i = 0; i < g.roster; i++) for (const cut of cuts) U.push({ game: g.key, character: g.key + ' ' + i, cut }); else for (const cut of cuts) U.push({ game: g.key, character: g.character, cut }); } return U; };   /* 다른 게임을 다 채운다(2026-11-15 무게 고르기 — 예전엔 쓴 수만 늘려 덜 쓴 게임 먼저로 몰았다) */
   const r0 = (() => { let x = 0; return () => { x = (x + 0.37) % 1; return x; }; })();
   /* 주인공 하나 — 마리오가 열 벌 입었으면 남은 한 벌, 열하나 다 입으면 마리오는 빠진다 */
   { const U = busy(['super_mario_bros']); for (const k of cuts.slice(0, 10)) U.push({ game: 'super_mario_bros', character: 'Mario', cut: k });
     const p1 = C.pickCosplay(U, r0); assert.deepEqual([p1.game, p1.character, p1.cut, p1.round], ['super_mario_bros', 'Mario', cuts[10], 1], '주인공 하나 — 안 입은 재단 ' + JSON.stringify(p1));
     U.push({ game: 'super_mario_bros', character: ' mario', cut: cuts[10] });   /* 이름은 큰 · 작은 글자 · 빈칸을 가리지 않는다 */
-    for (let i = 0; i < 30; i++) assert.notEqual(C.pickCosplay(U, Math.random).game, 'super_mario_bros', '다 찬 게임은 빠진다'); }
-  /* 덜 쓴 게임 먼저 */
+    assert.equal(C.pickCosplay(U, Math.random), null, '다 찬 게임은 빠진다(다른 게임도 다 차 있어 고를 게 없다)'); }
+  /* 무게 고르기(2026-11-15 「케릭터 수 많은 게임일수록 더 많이」 → B) — 남은 인원의 제곱근: 오버워치(남은 42 → √42 ≈ 6.5)가 툼레이더(1)보다 훨씬 자주, 툼레이더도 나온다 */
   { const U = busy(['tomb_raider', 'overwatch']); U.push({ game: 'overwatch', character: 'Tracer', cut: 'bikini' });
-    for (let i = 0; i < 20; i++) assert.equal(C.pickCosplay(U, Math.random).game, 'tomb_raider', '덜 쓴 게임 먼저'); }
+    let ow = 0, tr = 0; for (let i = 0; i < 600; i++) { const g = C.pickCosplay(U, Math.random).game; if (g === 'overwatch') ow++; else if (g === 'tomb_raider') tr++; }
+    assert(ow > 3 * tr && tr > 0 && ow + tr === 600, '무게 고르기 오버워치 ' + ow + ' · 툼레이더 ' + tr); }
   /* 등장인물 많은 게임 1회차 — 캐릭터 빈 칸 · 쓴 캐릭터 목록 · 그 게임에서 덜 쓴 재단. 장소가 정해지면 넘길 2회차 몫(again — 덜 입은 캐릭터 + 안 입은 재단) */
   { const U = busy(['street_fighter_2']); U.push({ game: 'street_fighter_2', character: 'Chun-Li', cut: 'bikini' }, { game: 'street_fighter_2', character: 'Cammy', cut: 'leotard' }, { game: 'street_fighter_2', character: 'Chun-Li', cut: 'idol' });
     const p1 = C.pickCosplay(U, r0);
@@ -278,7 +281,7 @@ try {
     assert(p2.game === 'street_fighter_2' && p2.round === 2 && ['Cammy', 'Chun-Li'].includes(p2.character) && !(p2.character === 'Cammy' ? ['leotard'] : ['bikini', 'idol']).includes(p2.cut), '2회차 again ' + JSON.stringify(p2));
     assert.equal(P.cosplayOutfit({ ofam: 'game_cosplay', item: 'gc_' + p2.cut, cosplay: p2 }, GCJ), GCJ.text.again.replace('{character}', p2.character).replace('{game}', 'Street Fighter II').replace('{cut}', GCJ.cuts.find(x => x.key === p2.cut).en), '2회차 글');
     for (const nm of ['Cammy', 'Chun-Li']) for (const k of cuts) U.push({ game: 'street_fighter_2', character: nm, cut: k });
-    for (let i = 0; i < 30; i++) assert.notEqual(C.pickCosplay(U, Math.random).game, 'street_fighter_2', '모든 캐릭터 × 재단이 차면 그 게임도 빠진다');
+    assert.equal(C.pickCosplay(U, Math.random), null, '모든 캐릭터 × 재단이 차면 그 게임도 빠진다(다른 게임도 다 차 있다)');
     for (const g of GCJ.games) { if (g.many) { for (let i = 0; i < g.roster; i++) for (const k of cuts) U.push({ game: g.key, character: g.key + i, cut: k }); } else for (const k of cuts) U.push({ game: g.key, character: g.character, cut: k }); }
     assert.equal(C.pickCosplay(U, r0), null, '목록이 다 차면 null'); }
   /* 쓴 기록 읽기 — 그림 저장소 records 아래 어디든: generation.cosplay, 없으면 scene.cosplay 의 character 가 찬 것(1회차 빈 칸은 안 센다) */
