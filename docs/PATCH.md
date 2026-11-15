@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · gpt · 원소 선택 세계컷과 일상·연회장 주인 27장 등록
+- sam-atelier-img-2 img/원소_*_kr_drawn_rim_dewy_f*.webp · records/원소/ — 선택 1·2·2 세계컷 3장과 참조 기반 일상 21장·연회장 주인 직업컷 3장; 실제 지시문·참조 해시·생성 재시도·검수 결과를 함께 기록. 기존 이미지와 다른 장수 변경 보존
+
 ## 2026-11-15 · claude · 일상컷 체형 줄 — GPT 설계 세계 그림이면 그림의 몸만
 - 사용자 「세계컷중에 gpt 설계 맡기는 것도, gpt가 본인거 선택받으면 일상컷때 옮길 수 있는지도 확인해줘」 → GPT 설계 주문엔 체형 칸이 없어 몸은 GPT 가 정한다(삼국 89장 · 원소 72장이 GPT 설계로 골랐다) → 주문에 체형 고정은 「1번은 안돼. 다양성이 떨어져서」 → 「응 그렇게 진행해줘」
 - lib/prompt-spec.js CASUAL.bodyKeepFree 「{head}: keep her exact build from the attached image, neither slimmer nor fuller.」 · lib/prompt-sam.js figureLine(…, refFree) — opts.refFree 면 체형 글 없는 줄, 기록에 refDesign: gpt_free. 줄 꼴 · 칸 꼴 · 2.5 API 판 모두
