@@ -7,6 +7,10 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · gpt · 장각 선택 세계컷과 일상·점술가 27장 등록
+- sam-atelier-img-2 img/장각_*_kr_drawn_rim_dewy_f*.webp · records/장각/ — 선택 1·2·2 세계컷 3장과 참조 기반 일상 21장·점술가 전용컷 3장. 반환된 원본은 재생성 없이 보존. 삼국시대 일상1은 차단 후 노출 단계 조정과 계획기 1회 장면 교체, 메카 일상3은 차단 후 보통 단계로 생성하고 이력을 기록.
+- data/img.json — 공식 등록기로 27장만 추가, 기존 장수·화풍·주소·날짜 보존. 세 세계 일상 묶음 검사와 새 기록만 대상으로 한 교차 검사 통과; 의상·헤어·배경·소품 차이는 QA에 기록.
+
 ## 2026-11-15 · claude · 게임 코스프레 쓴 기록 — pkm 다섯째 그림 저장소도 읽기
 - tools/casual-plan.cjs COSPLAY_REPOS 에 pkm-atelier-img-5 (pkm 302be16 과 같게, 없으면 건너뜀). IMAGE_RULES.md 2절 목록 · tests/casual-plan.cjs 단언
 
