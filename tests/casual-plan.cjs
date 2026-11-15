@@ -290,7 +290,7 @@ try {
       put('x/pkm-casual5.json', { card: 'x', slot: 'casual5', scene: { cosplay: { game: 'overwatch', character: '', cut: 'idol', round: 1 } } });
       const rows = C.cosplayUsage([d]), U = C.cosplayTally(rows);
       assert(rows.length === 2 && U.games.overwatch.n === 1 && U.games.overwatch.chars['d.va'].cuts.bikini === 1 && U.games.tomb_raider.n === 1 && U.cuts.corset === 1 && !U.cuts.idol, '쓴 기록 읽기 ' + JSON.stringify(rows));
-      assert(C.COSPLAY_REPOS.includes('element-atelier-img') && C.COSPLAY_REPOS.includes('pkm-atelier-img') && C.COSPLAY_REPOS.includes('sam-atelier-img-2'), '세 공방 그림 저장소');
+      assert(C.COSPLAY_REPOS.includes('element-atelier-img') && C.COSPLAY_REPOS.includes('pkm-atelier-img') && C.COSPLAY_REPOS.includes('sam-atelier-img-2') && C.COSPLAY_REPOS.includes('pkm-atelier-img-5'), '세 공방 그림 저장소');
     } finally { fs.rmSync(d, { recursive: true, force: true }); } }
   /* 세계 셋을 한 번에 — 한 번에 짠 세 장은 같은 게임을 쓰지 않는다(이번에 짠 것도 쓴 것으로 센다) */
   { const card = C.cardOf('여포'), U = [], got = [];

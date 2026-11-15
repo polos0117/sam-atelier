@@ -7,6 +7,9 @@
 날짜는 `2026-11-02` 꼴, 누가는 `claude` 또는 `gpt`, 새 칸이 위로 간다.
 이 안내글은 첫 `##` 앞이라 읽히지 않는다. `node tests/patch.cjs` 가 모양을 본다.
 
+## 2026-11-15 · claude · 게임 코스프레 쓴 기록 — pkm 다섯째 그림 저장소도 읽기
+- tools/casual-plan.cjs COSPLAY_REPOS 에 pkm-atelier-img-5 (pkm 302be16 과 같게, 없으면 건너뜀). IMAGE_RULES.md 2절 목록 · tests/casual-plan.cjs 단언
+
 ## 2026-11-15 · claude · 일상컷 필수 셋째를 게임 코스프레로 — 상황 노출은 필수에서만 내림
 - 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 그리는 쪽이 고르고 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉
 - data/game-cosplay.json — game-atelier 원본의 사본(고치지 않는다). data/casual-tree.json 옷 계열 game_cosplay(재단 열하나 gc_*) · 시대 지금 현실 · 무대·환상 · 장소 표 cosplay(코스프레 행사 · 거실 · 침실 · 화보 스튜디오 · 별빛 무대 · 오락실, 물가는 수영복 재단) · costume_required(얼굴 클로즈업 안 씀) · required.cosplay. data/casual-tree-v2.json 새 장소 오락실(arcade_hall) · 옷 특징 기본값. tools/casual-tree.py 가 costume_required · cosplay 장소를 본다

@@ -77,7 +77,7 @@ const SITU_RATE = 0.5;
    쓴 기록 읽기(cosplayUsage) — 옆 그림 저장소 모두의 records 에서 generation.cosplay(없으면 scene.cosplay 의 character 가 찬 것).
    세 공방이 같은 꼴 — 함수 이름 cosplayUsage · pickCosplay · cosplayAgain, 칸 이름 scene.cosplay · generation.cosplay(원소 53b1956 과 맞췄다) */
 const COSPLAY = tree.cosplay || {}, COS_FAM = COSPLAY.outfit || 'game_cosplay', COS_NO_FRAMES = (tree.costume_required || {}).not_frames || ['face_close'];
-const COSPLAY_REPOS = ['sam-atelier-img', 'sam-atelier-img-2', 'element-atelier-img', 'pkm-atelier-img', 'pkm-atelier-img-2', 'pkm-atelier-img-3', 'pkm-atelier-img-4'];
+const COSPLAY_REPOS = ['sam-atelier-img', 'sam-atelier-img-2', 'element-atelier-img', 'pkm-atelier-img', 'pkm-atelier-img-2', 'pkm-atelier-img-3', 'pkm-atelier-img-4', 'pkm-atelier-img-5'];   /* -5 — pkm 이 연 저장소(2026-11-15 pkm 302be16 과 같게), 없는 것은 건너뛴다 */
 const cosplayDirs = () => COSPLAY_REPOS.map(r => path.join(ROOT, '..', r, 'records')).filter(d => fs.existsSync(d));
 const normName = s => String(s || '').trim().toLowerCase().replace(/\s+/g, ' ');
 const emptyCosplay = () => ({ games: {}, cuts: {} });
