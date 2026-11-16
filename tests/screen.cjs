@@ -242,7 +242,19 @@ const P = ctx0.window.AtelierPrompt;
       await pg.click('[data-open="cosplay"]'); await pg.click('#panel .opt[data-pick="overwatch"]'); await toDone(pg);
       assert(lineOf(await promptOf(pg), 'Outfit: ').startsWith('Outfit: … (a daring adult cosplay of one character of your choice from Overwatch'), '등장인물 많은 게임은 「…」 자리');
       assert.equal((await state(pg)).scene.cosplay.cut, 'bikini', '장면의 코스프레 재단 = 옷');
-      checks += 11; }
+      checks += 11;
+      /* 옷 색 구체 색(2026-11-16) — 옷 색 묶음을 고르면 그 아래 「색」 칸(자동 + 묶음 shade), 자동은 조립부 결정 규칙 · 고르면 그 shade 글, 다른 묶음으로 바꾸면 shade 를 뗀다 */
+      await pg.click('[data-open="ofam"]'); await pg.click('#panel .opt[data-pick="homewear"]'); await toDone(pg);
+      assert.equal(await pg.locator('.hchip[data-open="shade"]').count(), 0, '옷 색 묶음 전엔 색 칸이 없다');
+      await pg.click('[data-open="color"]'); await pg.click('#panel .opt[data-pick="pastel"]'); assert.equal(await openOf(pg), 'shade', '옷 색 다음 색');
+      assert.equal(await pg.locator('#panel .opt[data-pick]').count(), 7, '자동 + 파스텔 shade 여섯');
+      const sa = P.shadeAuto('pastel', P.shadeSeed('관우', 'mecha', (await state(pg)).casualN || 1), P.hairHue(D, '관우', 'mecha'));
+      assert(lineOf(await promptOf(pg), 'Outfit: ').includes(' — in ' + sa.en + '; the outfit colour reads clearly'), '자동 — 결정 규칙 shade ' + sa.key);
+      await pg.click('#panel .opt[data-pick="baby_blue"]'); await toDone(pg);
+      assert(lineOf(await promptOf(pg), 'Outfit: ').includes(' — in soft pastel baby blue; ') && !/such as/.test(lineOf(await promptOf(pg), 'Outfit: ')), '고른 shade 글');
+      await pg.click('[data-open="color"]'); await pg.click('#panel .opt[data-pick="vivid"]');
+      assert(!(await state(pg)).scene.shade, '다른 묶음이면 shade 를 뗀다');
+      checks += 6; }
     await noOverflow(v.page, vp.width + ' 생성기 일상');
     assert.deepEqual(v.errors, [], '생성기 콘솔'); checks += 6; await v.ctx.close();
   }

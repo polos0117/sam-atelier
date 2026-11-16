@@ -1,5 +1,13 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-16 · claude · 일상컷 옷 색 — 색 묶음 대신 구체 색(shade) 하나
+- 사용자 「수영복 중에 색이 분홍색으로 지정되어 있는게 있어?」 → 「응 너무 많아」 → 분홍 빼기는 거절 → 「응 그렇게 진행해줘」 — 묶음 글의 「such as A, B, C」 를 GPT 가 맨 앞 예시로 골라(파스텔 → 분홍 · 비비드 → 체리 레드 · 어스톤 → 카멜) 모든 옷이 쏠렸다
+- lib/prompt-spec.js — CASUAL.colors 여덟 묶음마다 shades(key · ko · en · hue, 46) · 색상 갈래 hues · 머리색 읽기 hueRx
+- lib/prompt-sam.js — 옷 줄 {color} 자리에 shade en 하나(글 틀 그대로). shade 없는 장면은 hash(카드|세계|번호)로 그 묶음 shade, 머리색 hue 피함(shadeOf · shadeAuto · hairHue · hueOf). 기록 장면에 정한 shade 를 적는다(casualRecord, SCENE_V2 에 shade)
+- tools/casual-plan.cjs — shadeize: 묶음 안 같은 shade 금지 · 머리색 hue 피함 · 같은 hue 되도록 피함 · 덜 쓴 것 먼저(shadeUsage — 코스프레와 같은 곳의 그린 기록 scene.shade + 계획 예약 + 이번 배치). 색 고정 옷 · 코스프레 · 자유 설계엔 없음, check 가 묶음 밖 · 겹침을 잡는다
+- lib/studio.js · lib/words.js — 생성기 「옷 색」 아래 「색」 단계(자동 = 결정 규칙 · 또는 shade 직접, 묶음을 바꾸면 뗀다). prompt.html · promptapi.html 외 ?v= 올림
+- tests/casual-plan.cjs · prompt-v2.cjs · screen.cjs · api-draw.cjs — shade 단언(분포 · 덜 쓴 것 먼저 · 분홍 머리 · 옛 장면 결정적 · stage 기록에 shade), IMAGE_RULES 옷 색 절
+
 ## 2026-11-16 · gpt · 장소 세계 선택 4·2·2, 일상·요리 평론가 27장 등록
 - data/img.json — 공식 등록기로 선택 세계 3장 · 일상 21장 · 요리 평론가 고유컷 3장 추가. 기존 장수·화풍·등록일·저장소 주소 보존.
 - sam-atelier-img-2 records/장소 — 실제 지시문·선택 번호·참조 PNG 해시·계획·개별 QA. 중세 판타지 일상 1·5번의 추가 손·팔 연결 오류는 동일 지시문으로 각각 한 번 다시 생성하고 앞 원본 해시와 검수를 보존. 일부 의상·헤어·구도·좌우 손 지정 차이는 QA에 기록. 노출 검열 사유 재생성 없음.

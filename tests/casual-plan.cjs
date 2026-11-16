@@ -33,7 +33,7 @@ for (const key of pickKeys) {
       assert(gm && cs.cut === cut && GCJ.cuts.some(x => x.key === cut) && !c.ofree, key + ' ' + w + ' 게임 · 재단 — ' + JSON.stringify(cs));
       /* 2026-11-16 — 등장인물 많은 게임 1회차도 계획기가 목록의 캐릭터를 정한다(assigned — pick 빈 칸은 새 계획에 없다) */
       assert(gm.many ? cs.round === 1 && gm.characters.some(ch => ch.name === cs.character) && !cs.used && !cs.again : cs.character === gm.character, key + ' 주인공 하나 게임은 정한 캐릭터, 많은 게임 1회차는 목록의 캐릭터 ' + JSON.stringify(cs));
-      assert(!c.color && !c.denier && !c.situ && c.frame !== 'face_close', key + ' 코스프레 컷엔 색 · 데니어 · 상황 없음 · 얼굴 클로즈업 아님');
+      assert(!c.color && !c.shade && !c.denier && !c.situ && c.frame !== 'face_close', key + ' 코스프레 컷엔 색(shade 도) · 데니어 · 상황 없음 · 얼굴 클로즈업 아님');
       assert([...COSP.places, ...(COSP.swim_cuts.includes(cut) ? COSP.swim_places : [])].includes(c.place), key + ' 코스프레 장소 ' + c.place);
       cosSeen.add(cs.game);
       const p = C.record(card, w, c).prompt, ol = (p.match(/^Outfit: .*$/m) || [''])[0];
@@ -66,6 +66,10 @@ for (const key of pickKeys) {
     assert(inw.every(c => c.era === 'nation'), '세계 안 갈래는 세계 안 시대');
     assert.equal(new Set(res.cuts.map(c => c.era)).size, 4, key + ' ' + w + ' 네 시대 다');
     { const cs = res.cuts.map(c => c.color).filter(Boolean); assert.equal(new Set(cs).size, cs.length, key + ' ' + w + ' 옷 색 갈래가 묶음 안에서 겹치지 않는다'); }
+    { const sh = res.cuts.map(c => c.shade).filter(Boolean), hh = P.hairHue(D, key, w), all = TS.CASUAL.colors.flatMap(g => g.shades);   /* 구체 색(2026-11-16) — 묶음 안 겹침 없음 · 머리색 갈래 피함 */
+      assert.equal(new Set(sh).size, sh.length, key + ' ' + w + ' shade 가 묶음 안에서 겹치지 않는다');
+      assert.equal(sh.length, res.cuts.filter(c => c.color).length, key + ' ' + w + ' 색 묶음이 있는 컷마다 shade');
+      for (const c of res.cuts.filter(c => c.shade)) { const sg = TS.CASUAL.colors.find(g => g.key === c.color); assert(sg.shades.some(x => x.key === c.shade), key + ' shade 는 그 묶음 안 열쇠'); if (hh && sg.shades.some(x => x.hue !== hh)) assert(all.find(x => x.key === c.shade).hue !== hh, key + ' ' + w + ' 머리색 갈래(' + hh + ') 피함 — ' + c.shade); } }
     dn.fit += res.cuts.filter(c => !c.ofree && C.requiredType(c) !== 'cosplay' && P.denierFits(C.outfitEn(c))).length;   /* 자유 설계 · 코스프레 컷엔 데니어를 안 얹는다 — 분모에서 뺀다(2026-11-16 — 계획기가 캐릭터를 정하며 재단이 바뀌어 스타킹 재단이 분모만 늘렸다) */ dn.set += res.cuts.filter(c => c.denier).length;
     for (const c of res.cuts) {
       const rec = C.record(card, w, c);
@@ -84,8 +88,12 @@ for (const key of pickKeys) {
       /* 옷 색 갈래(2026-11-08) — 색이 박히지 않은 옷엔 갈래 한 줄, 박힌 옷엔 없음 */
       const CL = TS.CASUAL.colors.find(x => x.key === c.color), ol = (rec.prompt.match(/^Outfit: .*$/m) || [''])[0];
       if (c.ofree || C.requiredType(c) === 'cosplay') continue;   /* 자유 설계 컷 · 코스프레 컷 — 위에서 */
-      if (P.colorFixed(C.outfitEn(c))) assert(!c.color && !/the outfit colour reads clearly/.test(ol), key + ' 색이 박힌 옷엔 색 줄 없음');
-      else assert(CL && ol.includes(CL.en), key + ' ' + w + ' 옷 색 줄 — ' + ol.slice(0, 80));
+      if (P.colorFixed(C.outfitEn(c))) assert(!c.color && !c.shade && !/the outfit colour reads clearly/.test(ol), key + ' 색이 박힌 옷엔 색 줄 · shade 없음');
+      else {   /* 구체 색(2026-11-16) — 계획에 그 묶음 안 shade, 지시문엔 그 shade 글 하나(「such as」 예시 나열 없이) */
+        const SH = CL && (CL.shades || []).find(x => x.key === c.shade);
+        assert(SH && ol.includes(' — in ' + SH.en + '; the outfit colour reads clearly') && !/such as/.test(ol) && !ol.includes(CL.en), key + ' ' + w + ' 옷 색 줄 — shade ' + c.shade + ' — ' + ol.slice(0, 100));
+        assert.equal(rec.scene.shade, c.shade, key + ' 기록 장면에 shade');
+      }
       /* 데니어(2026-11-08) — 닿는 옷에만, 고르면 Outfit 줄에 그 데니어, 노출 축은 그대로 */
       if (c.denier) { const DN = TS.CASUAL.deniers.find(x => x.key === c.denier); assert(DN && P.denierFits(C.outfitEn(c)) && ol.includes(DN.top + '-denier yarn') && ol.includes('fully opaque lining over the bust and the hips'), key + ' 데니어 줄 — ' + ol.slice(0, 80)); }
       else assert(!/-denier yarn/.test(ol), key + ' 데니어 안 고른 컷엔 비침 줄 없음');
@@ -376,4 +384,65 @@ try {
       for (const s2 of [1, 2, 3, 4, 5]) { const w = C.recosplay(card, wf, { used: [], seed: s2, recDir: [recs], write: false }); assert(['bikini', 'one_piece'].includes(w.changed[0].to.cut), '물가면 수영복 재단 ' + w.changed[0].to.cut); }
     } finally { fs.rmSync(d, { recursive: true, force: true }); } }
 }
+/* 구체 색(shade — 2026-11-16 사용자 「응 그렇게 진행해줘」) — 묶음 안 shade 하나: 덜 쓴 것 먼저(쓴 수 = 그린 기록 + 예약), 머리색 갈래 피함, 한 묶음 안 겹침 없음.
+   지시문엔 그 shade 글 하나. shade 없는 옛 장면은 조립부가 hash(카드|세계|번호)로 정한다(같은 입력 같은 색). 색 고정 옷 · 코스프레엔 없음. 옛 계획 · 기록 통과 */
+{
+  const G = TS.CASUAL.colors, all = G.flatMap(g => g.shades), hueOf = k => all.find(x => x.key === k).hue;
+  /* 표 — 묶음 여덟 · 열쇠 겹침 없음 · hue 는 정한 갈래 · 글엔 「such as」 없음 */
+  assert.equal(G.length, 8); assert.equal(new Set(all.map(x => x.key)).size, all.length, 'shade 열쇠 겹침 없음');
+  for (const x of all) assert(TS.CASUAL.hues.includes(x.hue) && x.en && x.ko && !/such as|\bor\b/.test(x.en), 'shade ' + x.key);
+  /* 머리색 → hue(정규식, 위에서부터) */
+  assert.equal(P.hueOf('cherry-blossom pink hair'), 'pink'); assert.equal(P.hueOf('black hair fading to crimson at the tips'), 'red'); assert.equal(P.hueOf('silver-white hair'), 'white'); assert.equal(P.hueOf('ink-black hair with a deep green sheen'), 'green'); assert.equal(P.hueOf('mystery hair'), '');
+  /* 분포 — 빈 기록에서 1000번: 묶음 여섯 shade 가 고르게(각 1/6 ± 0.06) */
+  const mk = () => [{ n: 1, color: 'pastel' }];
+  { let x = 7; const rnd = () => (x = (x * 9301 + 49297) % 233280) / 233280, cnt = {};
+    for (let i = 0; i < 1000; i++) { const [c] = C.shadeize(mk(), [], '', {}, rnd); cnt[c.shade] = (cnt[c.shade] || 0) + 1; }
+    for (const sx of G.find(g => g.key === 'pastel').shades) assert(Math.abs((cnt[sx.key] || 0) / 1000 - 1 / 6) < 0.06, '고르게 ' + sx.key + ' ' + cnt[sx.key]);
+    /* 앞서 많이 쓴 shade 는 덜 — 파우더 핑크를 3 번 쓴 기록이면 다른 다섯이 먼저(1000번 중 0) */
+    const c2 = {}; for (let i = 0; i < 1000; i++) { const [c] = C.shadeize(mk(), [], '', { powder_pink: 3, baby_blue: 1 }, rnd); c2[c.shade] = (c2[c.shade] || 0) + 1; }
+    assert(!c2.powder_pink && !c2.baby_blue && Object.keys(c2).length === 4, '덜 쓴 shade 먼저 ' + JSON.stringify(c2));
+    /* 머리색 갈래 피함 — 분홍 머리면 분홍(파우더 핑크)이 안 나온다, 다 피하면(데님은 모두 blue) 피하지 않는다 */
+    const c3 = {}; for (let i = 0; i < 1000; i++) { const [c] = C.shadeize(mk(), [], 'pink', {}, rnd); c3[c.shade] = (c3[c.shade] || 0) + 1; }
+    assert(!c3.powder_pink && Object.keys(c3).length === 5, '분홍 머리에 분홍 옷 없음 ' + JSON.stringify(c3));
+    const [dn0] = C.shadeize([{ n: 1, color: 'denim' }], [], 'blue', {}, rnd); assert(dn0.shade, '다 피하면 피하지 않는다');
+    /* 한 묶음 안 같은 shade 두 번 금지 · 같은 hue 되도록 피함 — 옛 컷(old)의 shade 도 */
+    const many = C.shadeize([{ n: 2, color: 'earth' }, { n: 3, color: 'earth' }, { n: 4, color: 'earth' }], [{ n: 1, color: 'neutral', shade: 'oatmeal' }], '', {}, rnd);
+    assert.equal(new Set(many.map(c => c.shade)).size, 3); assert(new Set(many.map(c => hueOf(c.shade))).size === 3 && !many.some(c => hueOf(c.shade) === 'brown'), '같은 hue 되도록 피함(옛 컷 오트밀 brown 까지) ' + many.map(c => c.shade));
+    assert(C.check([{ n: 1, color: 'pastel', shade: 'cherry' }], C.cardOf('조조'), []).some(e => /색 묶음 pastel 안 것이 아니다/.test(e)), '묶음 밖 shade 를 잡는다');
+  }
+  /* 분홍 머리 장수(엄안 — cherry_pink) 계획 — 세계 셋 × 씨앗 넷에서 분홍 shade 가 안 나온다 */
+  { const cd = C.cardOf('엄안'), seen = new Set(); assert.equal(P.hairHue(D, '엄안', 'samguk'), 'pink');
+    for (const w of cd.worlds) for (const seed of [1, 2, 3, 4]) { cd.world = w; for (const c of C.plan(cd, SEVEN, [], { seed }).cuts) if (c.shade) { seen.add(c.shade); assert.notEqual(hueOf(c.shade), 'pink', '엄안 ' + w + ' ' + c.shade); } }
+    assert(seen.size >= 8, '엄안 shade 여러 가지 ' + [...seen]); }
+  /* 빈 기록에서 장수 스물넷의 묶음을 이어 짜면(쓴 수를 이어 센다) 덜 쓴 것 먼저라 묶음 안 shade 가 고르게 — 머리색 · 묶음 안 hue 피하기로 조금 벌어진다 */
+  { const used = {}, out = []; let k = 0;
+    for (const key of keys.slice(0, 24)) { const cd = C.cardOf(key); cd.world = cd.worlds[k++ % cd.worlds.length];
+      const r = C.plan(cd, SEVEN, [], { seed: 11, shadeUsed: used });
+      for (const c of r.cuts) { if (c.shade) used[c.shade] = (used[c.shade] || 0) + 1; if (c.shade && /swim|bikini/.test(c.ofam + ' ' + c.item) && out.length < 30) out.push(c.shade); } }
+    for (const g of G) { const v = g.shades.map(x => used[x.key] || 0); assert(Math.max(...v) - Math.min(...v) <= 3, '쓴 수가 묶음 안에서 고르게(덜 쓴 것 먼저) ' + g.key + ' ' + JSON.stringify(v)); }
+    globalThis.__swim = out; }
+  /* 옛 장면(색 묶음만, shade 없음) — 조립부가 결정적으로: 같은 입력 같은 색, 머리색 갈래 피함, 기록 장면에 적힌다. 색 묶음도 없으면 그대로(색 줄 없음) */
+  { const cd = C.cardOf('엄안'); cd.world = 'samguk'; const base = C.plan(cd, SEVEN, [], { seed: 3 }).cuts.find(c => c.color && !c.ofree);
+    const { shade: _s, ...oldSc } = base, r1 = C.record(cd, 'samguk', oldSc), r2 = C.record(cd, 'samguk', oldSc), ol = r1.prompt.match(/^Outfit: .*$/m)[0];
+    assert.equal(r1.prompt, r2.prompt, '옛 장면 — 같은 입력 같은 지시문'); const sh = P.shadesOf(base.color).find(x => x.key === r1.scene.shade);
+    assert(sh && ol.includes(' — in ' + sh.en + ';') && !/such as/.test(ol) && sh.hue !== 'pink', '옛 장면 — 결정 shade ' + r1.scene.shade + ' · ' + ol.slice(0, 120));
+    assert.equal(P.shadeAuto(base.color, P.shadeSeed('엄안', 'samguk', base.n), 'pink').key, r1.scene.shade, 'hash(카드|세계|번호)');
+    const ns = new Set([1, 2, 3, 4, 5, 6, 7, 8].map(n => C.record(cd, 'samguk', { ...oldSc, n }).scene.shade)); assert(ns.size >= 2, '번호마다 갈린다');
+    const { color: _c, ...noColor } = oldSc, r3 = C.record(cd, 'samguk', noColor); assert(!r3.scene.shade && !/the outfit colour reads clearly/.test(r3.prompt), '색 묶음도 없으면 색 줄 없음');
+    /* 다른 묶음의 shade(생성기에서 묶음을 바꾼 장면)는 무시하고 결정 규칙 */
+    const r4 = C.record(cd, 'samguk', { ...oldSc, shade: 'cherry' }); assert(base.color === 'vivid' || r4.scene.shade !== 'cherry', '묶음 밖 shade 무시');
+    /* 색 고정 옷 · 코스프레엔 shade 없음 */
+    const cos = C.plan(cd, SEVEN, [], { seed: 3 }).cuts.find(c => C.requiredType(c) === 'cosplay'), rc = C.record(cd, 'samguk', { ...cos, color: 'pastel', shade: 'mint' });
+    assert(!rc.scene.shade && !/soft pastel mint/.test(rc.prompt), '코스프레 컷엔 shade 없음'); }
+  /* 쓴 수 읽기(shadeUsage) — 그린 기록의 scene.shade + 아직 안 그린 계획(같은 컷에 기록이 있으면 계획은 안 센다) */
+  { const d = fs.mkdtempSync(path.join(os.tmpdir(), 'shade-'));
+    try {
+      fs.mkdirSync(path.join(d, '조조'));
+      fs.writeFileSync(path.join(d, '조조', 'samguk-casual1.' + C.STYLE + '-ui.json'), JSON.stringify({ card: '조조', world: 'samguk', scene: { color: 'pastel', shade: 'mint' } }));
+      fs.writeFileSync(path.join(d, '조조', 'samguk-casual2.' + C.STYLE + '-ui.json'), JSON.stringify({ card: '조조', world: 'samguk', scene: { color: 'pastel' } }));   /* 옛 기록(shade 없음) — 안 센다 */
+      fs.writeFileSync(path.join(d, '조조', 'samguk-casual-plan.json'), JSON.stringify({ card: '조조', world: 'samguk', style: C.STYLE, cuts: [{ n: 1, color: 'vivid', shade: 'cherry' }, { n: 3, color: 'earth', shade: 'mint' }, { n: 4, color: 'jewel', shade: 'teal' }] }));
+      assert.deepEqual(C.shadeUsage([d]), { mint: 2, teal: 1 }, '그린 기록 + 예약(그린 컷 1 의 계획은 안 센다) ' + JSON.stringify(C.shadeUsage([d])));
+    } finally { fs.rmSync(d, { recursive: true, force: true }); } }
+}
+console.log(`PASS 구체 색(shade): 표 · 머리색 갈래 읽기 · 고르게(1000번) · 덜 쓴 것 먼저 · 분홍 머리에 분홍 없음 · 묶음 안 겹침 없음 · 이어 짠 묶음 고르게 · 옛 장면 결정적 · 색 고정 · 코스프레 없음 · 쓴 수 읽기 — 수영복 표본 ${(globalThis.__swim || []).join(' ')}`);
 console.log(`PASS 일상컷 묶음 계획기: ${n} 묶음(장수 ${pickKeys.length} × 세계 셋 × 씨앗 하나)이 일곱 장 · 묶음 규칙 · 정해 둔 세 갈래 + 자유 설계 둘(옷 자유 · 갈래 자유 — 덩어리 · 최근 장면 · 갈래 겹침 없이 · 상황 열기, 옛 여섯 장 그대로 · 일곱째 하나만)(노출 · 세계 안 · 게임 코스프레 — 게임 · 재단 · 장소 · 코스튬 줄, 상황은 일반 컷에 가끔, 새 계열 모험가 · 신화 드레이프) · 게임 코스프레 고르기(덜 쓴 게임 · 안 입은 재단 · 다 찬 게임 빠짐 · 1회차 assigned(여자 무게 2) · 2회차 again · 옛 pick 칸 그대로 · 세 공방 기록 + 예약 읽기 · --recosplay) · 옛 묶음(상황 필수 시절) 그대로 · 네 시대 · 기록 꼴, 있는 두 장 위에 세 장 · 카드 사이 안 쓴 장소 · 자세 추천 · 표정 먼저 · 세계 셋 한 번에 새 묶음(세계 · 옛 묶음 사이 같은 장면 없음) · 무기는 장신구로(부채 · 두루마리는 손에) · 시대 몫(지금 현실 둘) · 세계 안 갈래 장소 일곱 · 표정 후보(어색한 것 빼고 고르게, 문구 단서 두셋)`);

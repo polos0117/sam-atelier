@@ -223,3 +223,18 @@ console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
   assert(po.includes(T.CASUAL.output) && !po.includes(T.CASUAL.outputCosplay) && /never restyle the chosen outfit into her faction's palette/.test(po), '다른 컷은 일상 OUTPUT · WARDROBE 그대로');
   console.log('PASS 게임 코스프레 컷: ' + nc + ' 꼴 — 코스튬 줄 · 전설 · 세력 색 · 무기 장신구 줄 없이 · 색 · 데니어 · 상황 없이 · 체형 · 식스팩 그대로 · 옛 1회차 pick 자리 · 정해 둔 캐릭터(assigned · again)');
 }
+/* 옷 색 구체 색(shade — 2026-11-16) — 모든 꼴(칸 꼴 · 2.5 API · 짧은 꼴 · 줄 꼴)의 Outfit 줄에 shade 글 하나(묶음 글의 「such as」 예시 나열 없이), 글 틀(colorLine)은 그대로.
+   shade 없는 옛 장면은 hash(카드|세계|번호)로 결정적, 색 고정 옷엔 색 줄 없음 */
+{ const C = require('../tools/casual-plan.cjs'), tree = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree.json'), 'utf8')), tree2 = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree-v2.json'), 'utf8'));
+  const card = C.cardOf('조조'); card.world = 'samguk'; const base = C.plan(card, [1, 2, 3, 4, 5, 6, 7], [], { seed: 5, cosplayUsed: [] }).cuts.find(c => c.color && !c.ofree); const { n, ...sc0 } = base;
+  let nc = 0;
+  for (const [st, SJ] of [['kr_drawn_rim_dewy', SX], ['api25', SX], ['mmorpg_cg', SX], ['mmorpg_cg', S], ['kv_kmmo_23d', SX]]) {
+    const p = P.casualRecord(D, SJ, '조조', { ...sc0, color: 'pastel', shade: 'baby_blue' }, { world: 'samguk', style: st, tree, tree2 }, 3).prompt, ol = (p.match(/^Outfit: .*$/m) || [''])[0];
+    assert(ol.includes(' — in soft pastel baby blue; the outfit colour reads clearly at first glance') && !/such as/.test(ol), st + ' shade 글 — ' + ol.slice(0, 160));
+    const o1 = P.casualRecord(D, SJ, '조조', { ...sc0, color: 'pastel' }, { world: 'samguk', style: st, tree, tree2 }, 3), o2 = P.casualRecord(D, SJ, '조조', { ...sc0, color: 'pastel' }, { world: 'samguk', style: st, tree, tree2 }, 3);
+    const sh = T.CASUAL.colors[0].shades.find(x => x.key === o1.scene.shade);
+    assert(sh && o1.prompt === o2.prompt && o1.prompt.includes(' — in ' + sh.en + '; the outfit colour reads clearly') && !/such as/.test(o1.prompt.match(/^Outfit: .*$/m)[0]), st + ' 옛 장면 — 결정적 shade');
+    nc++;
+  }
+  console.log('PASS 옷 색 shade: ' + nc + ' 꼴 — Outfit 줄에 shade 글 하나 · 옛 장면은 결정적');
+}

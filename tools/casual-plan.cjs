@@ -409,7 +409,7 @@ function check(cuts, card, base = [], others = []) {
     if (!gm) errs.push(`칸 ${c.n || '?'}: 게임 코스프레 컷에 목록의 게임이 없다(${cs.game || '없음'})`);
     else if (!gm.many && normName(cs.character) !== normName(gm.character)) errs.push(`칸 ${c.n || '?'}: ${gm.key} 의 캐릭터는 ${gm.character}`);
     if (!GC.cuts.some(x => x.key === cut) || (cs.cut && cs.cut !== cut)) errs.push(`칸 ${c.n || '?'}: 게임 코스프레 재단 ${cs.cut || '없음'} 이 옷 ${c.item} 과 다르다`);
-    if (c.color || c.denier || c.situ) errs.push(`칸 ${c.n || '?'}: 게임 코스프레 컷엔 옷 색 · 데니어 · 상황을 얹지 않는다`);
+    if (c.color || c.shade || c.denier || c.situ) errs.push(`칸 ${c.n || '?'}: 게임 코스프레 컷엔 옷 색 · 데니어 · 상황을 얹지 않는다`);
     if (COS_NO_FRAMES.includes(c.frame)) errs.push(`칸 ${c.n || '?'}: 게임 코스프레 컷은 얼굴 클로즈업에 두지 않는다(코스튬이 안 보인다)`);
     if (!cosplayPaths(cut).some(x => x.place === c.place && x.era === c.era)) errs.push(`칸 ${c.n || '?'}: 게임 코스프레 장소 ${c.place} 는 정해 둔 곳이 아니다(${cut} 재단)`);
   }
@@ -429,6 +429,10 @@ function check(cuts, card, base = [], others = []) {
   }
   if (ALL.length >= CASUAL_N && !ALL.some(c => c.ofree && c.ofreeFamily)) errs.push('갈래 자유 컷이 없다 — 일곱 장 묶음엔 필수 갈래 + 상황을 묶은 자유 설계 한 장');   /* 옛 여섯 장 묶음은 이 칸 전이라 그대로 맞다 */
   for (const c of cuts) if (c.situ && !P.situFits(c.situ, outfitEn(c))) errs.push(`칸 ${c.n || '?'}: 상황 ${c.situ} 는 이 옷에 안 맞는다`);
+  /* 구체 색(2026-11-16) — 그 묶음 안 열쇠, 묶음 없는 컷 · 색 고정 옷엔 없음, 한 묶음 안 같은 shade 두 번 금지 */
+  for (const c of cuts) if (c.shade && (!c.color || !P.shadesOf(c.color).some(x => x.key === c.shade))) errs.push(`칸 ${c.n || '?'}: 옷 색 ${c.shade} 는 색 묶음 ${c.color || '(없음)'} 안 것이 아니다`);
+  for (const c of cuts) if (c.shade && !c.ofree && P.colorFixed(outfitEn(c))) errs.push(`칸 ${c.n || '?'}: 색이 박힌 옷엔 옷 색(shade)을 얹지 않는다`);
+  over('옷 색(shade)', c => c.shade, 1, ALL, base);
   for (const c of cuts) if (c.situ && requiredType(c)) errs.push(`칸 ${c.n || '?'}: 상황 노출은 노출 · 세계 안 · 게임 코스프레 갈래 컷과 다른 컷에`);
   for (const c of cuts) if (c.situ && SITU_NO_FRAME.includes(c.frame)) errs.push(`칸 ${c.n || '?'}: 상황 노출은 얼굴 클로즈업에 두지 않는다`);
   /* 셋째 필수 — 게임 코스프레 한 장(2026-11-15, 여섯 장 이상 묶음). 옛 묶음(상황 필수 시절)은 그 앞 셋째로 그대로 맞다 — 상황 노출 컷(노출 · 세계 안 갈래가 아닌 컷)이나,
@@ -468,13 +472,68 @@ function outfitEn(c) { const it = C2.item(T2, c.ofam, c.item), fm = C2.family(T2
 function colorize(cuts, old = [], others = [], rc = Math.random) {
   const used = new Set([...old, ...others].map(c => c.color).filter(Boolean)), mine = new Set();
   for (const c of cuts) {
-    if (P.colorFixed(outfitEn(c)) || requiredType(c) === 'cosplay') { delete c.color; continue; }   /* 게임 코스프레 컷은 코스튬 제 색(2026-11-15) */
+    if (P.colorFixed(outfitEn(c)) || requiredType(c) === 'cosplay') { delete c.color; delete c.shade; continue; }   /* 게임 코스프레 컷은 코스튬 제 색(2026-11-15) */
     let pool = COLORS.filter(k => !used.has(k) && !mine.has(k));
     if (!pool.length) pool = COLORS.filter(k => !mine.has(k));
     if (!pool.length) pool = COLORS.slice();
     c.color = pool[Math.floor(rc() * pool.length)]; mine.add(c.color);
   }
   return cuts;
+}
+/* ══ 구체 색(shade — 2026-11-16 사용자 「수영복 중에 색이 분홍색으로 지정되어 있는게 있어?」 → 「응 너무 많아」 → 「응 그렇게 진행해줘」) ══
+   묶음(color)을 고른 뒤 그 묶음 안 shade 하나(T.CASUAL.colors[].shades — 지시문엔 그 색 하나의 글). 묶음 글의 「such as」 예시를 GPT 가 맨 앞 것만 골라 분홍 · 체리 레드 · 카멜로 쏠렸다.
+   고르는 차례: ① 한 묶음(그 세계의 이미 있는 컷 + 이번 칸) 안에서 같은 shade 두 번 금지 ② 그 장수 그 세계의 머리색 갈래(hue)는 피한다(P.hairHue — 못 읽으면 안 피함) ③ 묶음 안 같은 hue 는 되도록 피한다
+   (각 단계에서 남는 게 없으면 그 단계는 건너뛴다) ④ 이 공방에서 쓴 수(shadeUsage — 그린 기록 + 예약 + 이번 배치)가 가장 적은 것, 같으면 무작위. 장면 · 색 묶음과 따로 된 난수 */
+const SHADE_KEYS = (T.CASUAL.colors || []).flatMap(g => (g.shades || []).map(x => x.key));
+function shadeize(cuts, old = [], hue = '', used = {}, rs = Math.random) {
+  const mine = new Set(old.map(c => c.shade).filter(Boolean)), hues = new Set();
+  const hueOf = k => { for (const g of T.CASUAL.colors || []) { const x = (g.shades || []).find(y => y.key === k); if (x) return x.hue; } return ''; };
+  mine.forEach(k => hues.add(hueOf(k)));
+  const narrow = (list, f) => { const l = list.filter(f); return l.length ? l : list; };
+  for (const c of cuts) {
+    const all = P.shadesOf(c.color);
+    if (!c.color || !all.length) { delete c.shade; continue; }
+    let pool = narrow(all, x => !mine.has(x.key));
+    pool = narrow(pool, x => !hue || x.hue !== hue);
+    pool = narrow(pool, x => !hues.has(x.hue));
+    const n = x => used[x.key] || 0, lo = Math.min(...pool.map(n)), best = pool.filter(x => n(x) === lo);
+    const got = best[Math.floor(rs() * best.length)];
+    c.shade = got.key; mine.add(got.key); hues.add(got.hue);
+  }
+  return cuts;
+}
+/* 쓴 shade 수 — cosplayUsage 와 같은 곳(이 공방 그림 저장소 records): 그린 기록의 scene.shade + 아직 안 그린 계획 파일(card · world · style · cuts[].n)의 cuts[].shade.
+   같은 컷에 그린 기록이 있으면 계획은 안 센다, 같은 컷의 계획 파일이 여럿이면 가장 늦게 고친 것 하나. dirs 는 records 폴더 하나 또는 여럿(기본 cosplayDirs). 돌려주는 것 { shade: 수 } */
+function shadeUsage(dirs) {
+  const out = {}, seen = new Set(), drawn = new Set(), drawnAny = new Set(), plans = new Map(), add = k => { if (k) out[k] = (out[k] || 0) + 1; };
+  const walk = (d, depth) => {
+    let names; try { names = fs.readdirSync(d, { withFileTypes: true }); } catch (e) { return; }
+    for (const e of names) {
+      const f = path.join(d, e.name);
+      if (e.isDirectory()) { if (depth < 4) walk(f, depth + 1); continue; }
+      if (!/\.json$/.test(e.name)) continue;
+      const rk = recordKeyOf(f); if (rk) { drawn.add(rk); drawnAny.add(anyStyle(rk)); }
+      let t; try { t = fs.readFileSync(f, 'utf8'); } catch (er) { continue; }
+      if (t.indexOf('"shade"') < 0) continue;   /* 먼저 글로 거른다 */
+      let r; try { r = JSON.parse(t); } catch (er) { continue; }
+      if (rk || r.scene || r.generation) {   /* 그린 기록 */
+        const k = rk || [r.card || '', r.world || '', r.slot || r.file || f].join('|');
+        if (seen.has(k)) continue; seen.add(k);
+        add((r.scene || {}).shade);
+        continue;
+      }
+      if (!r.card || !Array.isArray(r.cuts)) continue;
+      let mt = 0; try { mt = fs.statSync(f).mtimeMs; } catch (er) { /* 없음 */ }
+      for (const c of r.cuts) {
+        if (!c || !c.shade) continue;
+        const k = cutKey(r.card, r.world, r.style, c.n), prev = plans.get(k);
+        if (!prev || mt >= prev.mt) plans.set(k, { shade: c.shade, style: r.style || '', mt });
+      }
+    }
+  };
+  for (const d of [].concat(dirs == null ? cosplayDirs() : dirs).filter(x => x && fs.existsSync(x))) walk(d, 0);
+  for (const [k, p] of plans) { if (drawn.has(k) || (!p.style && drawnAny.has(anyStyle(k)))) continue; add(p.shade); }
+  return out;
 }
 /* 데니어(2026-11-08 「데니어 설정값 넣어서 랜덤하게 설정될 수 있게 해줘. 기존 노출설정값 과는 별개로」) — 데니어가 닿는 옷(P.denierFits)마다
    열에 여섯은 갈래 하나(40 · 60 · 80), 묶음 안에선 갈래를 돌려 가며. 노출 단계(skin_exposure)는 건드리지 않는다. 장면 · 색과 따로 된 난수 */
@@ -533,7 +592,7 @@ function situate(cuts, at, old = [], others = [], rs = Math.random) {
    옷 색 · 데니어 · 상황(situ)은 없다. 갈래를 고를 수 없으면(묶음의 다른 컷이 노출 갈래 셋을 다 썼다) false */
 function freeOutfit(cuts, old = [], rf = Math.random, others = []) {
   const real = [...old, ...cuts].filter(c => !c.ofree);
-  for (const c of cuts) if (c.ofree) { delete c.color; delete c.denier; delete c.situ; delete c.ofreeFamily; delete c.ofreeSitu; }
+  for (const c of cuts) if (c.ofree) { delete c.color; delete c.shade; delete c.denier; delete c.situ; delete c.ofreeFamily; delete c.ofreeSitu; }
   const fc = cuts.find(c => c._fam); if (!fc) return true;
   delete fc._fam;
   const later = (keys, used) => { const fresh = keys.filter(k => !used.has(k)); return fresh.length ? fresh : keys; };
@@ -606,7 +665,7 @@ function ownCut(card, world, level = OWN_LEVELS[0], rr = Math.random) {
     expr: body && body.face_hidden && !(head && head.look_back) ? '' : EXPRS[Math.floor(rr() * EXPRS.length)], axes: { ...FIXED_AXES, skin_exposure: level }, aspect: '2:3', unlocked: [] };
 }
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |게임 코스프레 컷이 없다|갈래 자유 컷이 없다)/;
-function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [], recent = [], cosplayUsed = null } = {}) {
+function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [], recent = [], cosplayUsed = null, shadeUsed = null } = {}) {
   /* 씨앗에 카드 · 세계를 섞는다 — 같은 씨앗이면 카드마다 같은 묶음이 나왔다 */
   card.g.world = card.world || '';   /* 그 세계에만 있는 자리(worlds_only) */
   const mix = [...(card.key + '|' + (card.world || ''))].reduce((h, ch) => Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0, 2166136261);
@@ -677,7 +736,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     /* 묶음 규칙(자유 설계 칸 전) → 색 · 데니어 · 상황 · 갈래 자유를 나눈 뒤 다시 한 번 */
     if (cuts.length === slots.length && !check(cuts, card, old, others).filter(e => !/^갈래 자유 컷이 없다|^게임 코스프레 컷이 없다/.test(e)).length) {
       const real = cuts.filter(c => !c.ofree);
-      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0));
+      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); shadeize(real, old, P.hairHue(D, card.key, card.world || ''), shadeUsed || {}, rng((seed ^ mix ^ 0x4cf5ad43) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0));
       if (!freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0), others) || check(cuts, card, old, others).length) { cuts.forEach(c => { delete c._fam; }); continue; }
       /* 상황 노출 늘 한 장(2026-11-16 「늘 1장은 나오게」) — 일반 컷이 있는데 맞는 옷이 없어 못 얹었으면 다른 묶음으로(그 세계에 이미 상황 컷이 있으면 그대로) */
       if (SITU_RATE >= 1 && cuts.some(c => !c.ofree && !requiredType(c) && !sigProp(c)) && !old.some(c => c.situ && !c.ofree) && !cuts.some(c => c.situ && !c.ofree)) { cuts.forEach(c => { delete c._fam; }); continue; }
@@ -763,7 +822,7 @@ function line(c) {
   const p = C2.place(T2, c.place) || {}, f = CT.family(tree, c.ofam) || {}, it = CT.item(tree, c.ofam, c.item), u = C2.use(T2, c.use), pr = by(tree2.presets, c.preset);
   const ko = (list, k) => (by(list, k) || {}).ko || k || '—', hand = k => k === 'prop' ? '소품' : ko(tree2.hands, k);
   return `${c.old ? '  (있음)' : '  '} ${c.n} ${requiredType(c) ? '★' : ' '}${C2.awkward(T2, c.ofam, c.place).length ? '⚠' : ' '} ${(CT.era(tree, c.era) || {}).ko} · ${p.ko} · ${f.ko}${it ? '(' + it.ko + ')' : ''} │ ${pr ? pr.ko : '—'} │ ` +
-    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}${requiredType(c) === 'cosplay' ? ' · 코스프레 ' + cosplayKo(c) : ''}${c.ofree ? (c.ofreeFamily ? ` · 갈래 자유(장면 자유 설계 — ${c.ofreeFamily} + ${c.ofreeSitu === 'free' ? '상황 자유' : '상황 ' + ko(T.CASUAL.situations, c.ofreeSitu)})` : ' · 옷 자유(장면 자유 설계)') : ''}`;
+    `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}${c.color ? ' · 옷 색 ' + ko(T.CASUAL.colors, c.color) + (c.shade ? '(' + ko(P.shadesOf(c.color), c.shade) + ')' : '') : ''}${c.situ ? ' · 상황 ' + ko(T.CASUAL.situations, c.situ) : ''}${requiredType(c) === 'cosplay' ? ' · 코스프레 ' + cosplayKo(c) : ''}${c.ofree ? (c.ofreeFamily ? ` · 갈래 자유(장면 자유 설계 — ${c.ofreeFamily} + ${c.ofreeSitu === 'free' ? '상황 자유' : '상황 ' + ko(T.CASUAL.situations, c.ofreeSitu)})` : ' · 옷 자유(장면 자유 설계)') : ''}`;
 }
 
 /* 게임 코스프레 한 줄(한국어) — 게임 · 캐릭터(1회차는 「고르기」) · 재단 · 회차 */
@@ -886,6 +945,10 @@ function main(argv) {
   /* 게임 코스프레 쓴 기록 — 세 공방 그림 저장소(2026-11-15). 이번에 짠 세계 · --others 계획의 것도 더한다(같은 게임 · 재단이 한 번에 겹치지 않게) */
   cosplayReposOk(opt); const cosUsed = cosplayUsage(opt['cosplay-usage'] === 'none' ? [] : opt['cosplay-usage'] ? opt['cosplay-usage'].split(',') : null);
   extra.filter(c => c.cosplay).forEach(c => cosUsed.push({ ...c.cosplay, cut: String(c.item || '').replace(/^gc_/, '') || c.cosplay.cut }));
+  /* 옷 색 shade 쓴 수(2026-11-16) — 코스프레와 같은 곳(그린 기록 + 예약) + --others 계획 + 이번 배치의 앞 세계 */
+  const shadeUsed = shadeUsage(opt['cosplay-usage'] === 'none' ? [] : opt['cosplay-usage'] ? opt['cosplay-usage'].split(',') : null);
+  const useShade = c => { if (c.shade) shadeUsed[c.shade] = (shadeUsed[c.shade] || 0) + 1; };
+  extra.forEach(useShade);
   for (const world of worlds) {
     card.world = world;
     const mine = allOld(world), taken = Math.max(0, ...mine.map(c => c.n), ...registered(card, world));
@@ -897,9 +960,10 @@ function main(argv) {
     { const lost = registered(card, world).filter(n => !mine.some(c => c.n === n)); if (lost.length && !fresh) console.log(`  ! ${world} 등록된 일상컷 ${lost.join(',')} 의 기록이 ${recDir.join(' · ') || '그림 저장소 records/' + key} 에 없다 — 그림 저장소를 pull 한 뒤 다시(기록 없이는 필수 갈래 · 자유 설계 칸을 셀 수 없다)`); }
     const others = [...card.worlds.filter(w => w !== world).flatMap(allOld), ...(fresh ? mine : []), ...extra, ...planned];
     const seed = seed0 + worlds.indexOf(world);
-    const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key), others, recent: recentScenes(usageDir), cosplayUsed: ownReserved(cosUsed, key, world, slots) });   /* 다시 짜는 칸의 옛 예약은 빼고 */
+    const res = plan(card, slots, old, { seed, required: opt.required || '', usage: sceneUsage(usageDir, key), others, recent: recentScenes(usageDir), cosplayUsed: ownReserved(cosUsed, key, world, slots), shadeUsed });   /* 다시 짜는 칸의 옛 예약은 빼고 */
     planned.push(...res.cuts);
     res.cuts.filter(c => c.cosplay).forEach(c => cosUsed.push({ game: c.cosplay.game, character: c.cosplay.character, cut: String(c.item).replace(/^gc_/, '') }));
+    res.cuts.forEach(useShade);
     console.log(`${key} ${world} 일상컷 묶음 — 칸 ${slots.join(',')} · 정해 둔 갈래 ${res.required} · 시도 ${res.attempt} · seed ${seed}${fresh ? ' · 새 묶음(옛 묶음과 겹치지 않게)' : ''}`);
     for (const c of [...old, ...res.cuts].sort((a, b) => a.n - b.n)) console.log(line(c));
     if (opt.out) {
@@ -918,5 +982,5 @@ function main(argv) {
   }
   return 0;
 }
-module.exports = { cosplayReposOk, recosplay, recosplayList, planCosplay, recordKeyOf, CHAR_WEIGHT, cosplayUsage, cosplayRow, cosplayTally, pickCosplay, cosplayAgain, withAgain, againScene, cosCutOk, SITU_RATE, cosplayPaths, cosplayDirs, COSPLAY_REPOS, GC, COS_FAM, refFree, ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { cosplayReposOk, recosplay, recosplayList, planCosplay, recordKeyOf, CHAR_WEIGHT, cosplayUsage, cosplayRow, cosplayTally, pickCosplay, cosplayAgain, withAgain, againScene, cosCutOk, SITU_RATE, cosplayPaths, cosplayDirs, COSPLAY_REPOS, GC, COS_FAM, refFree, ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, shadeize, shadeUsage, SHADE_KEYS, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));
