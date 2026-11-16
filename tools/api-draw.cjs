@@ -117,7 +117,7 @@ function cosplayLineCheck(line, cut) {
   const body = l.replace(/^Outfit:\s*/, '').replace(/^a daring adult cosplay of\s+/i, '');
   const name = (body.split(/\s+from\s+|\s+—\s+|,/)[0] || '').trim();
   if (!name || name.length > 60) errs.push('맨 앞에 캐릭터 이름이 없다');
-  if (name && (cs.used || []).some(u => normName(u) === normName(name))) errs.push(name + ' 는 이미 쓴 캐릭터다(세 공방 합쳐) — 다른 캐릭터를 고르거나 --cosplay ' + (cut.n || 'N') + '=again');
+  if (name && (cs.used || []).some(u => normName(u) === normName(name))) errs.push(name + ' 는 이미 쓴 캐릭터다(이 공방에서) — 다른 캐릭터를 고르거나 --cosplay ' + (cut.n || 'N') + '=again');
   return { errs, name };
 }
 function writeRec(out, name, rec) { fs.writeFileSync(path.join(out, name + '_record.json'), JSON.stringify(rec, null, 1) + '\n'); }

@@ -249,7 +249,7 @@ try {
   const tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree-v2.json'), 'utf8'));
   for (const [k, v] of Object.entries(tr2.expressions)) assert(v.split(',').length <= 3 && !/jaw|clench|unsmiling|squeez|slack/.test(v), '표정 문구 ' + k + ': ' + v);
 }
-/* 게임 코스프레 고르기(2026-11-15 · 2026-11-16) — 쓴 것은 세 공방 합쳐(그린 기록 + 계획의 예약), 게임은 남은 인원의 제곱근 무게로, 주인공 하나 게임은 안 입은 재단, 다 찬 게임은 빠진다,
+/* 게임 코스프레 고르기(2026-11-15 · 2026-11-16) — 쓴 것은 이 공방 그림 저장소에서(그린 기록 + 계획의 예약 — 2026-11-16 「공방별로 따로」, 전엔 세 공방 합쳐), 게임은 남은 인원의 제곱근 무게로, 주인공 하나 게임은 안 입은 재단, 다 찬 게임은 빠진다,
    등장인물 많은 게임은 1회차(계획기가 목록의 캐릭터를 정한다 — assigned, 여자 무게 2) → 2회차(again). 옛 pick 칸 지시문은 그대로.
    함수 · 칸 이름은 원소 · pkm 과 같다 — cosplayUsage(쓴 줄 목록) · pickCosplay · cosplayAgain, scene.cosplay · generation.cosplay */
 {
@@ -334,7 +334,8 @@ try {
       { const ow = GCJ.games.find(g => g.key === 'overwatch'), keep = ['Sombra', 'Widowmaker', 'Pharah', 'D.Va', 'Ana'], U = [...busy(['overwatch']), ...rows, ...ow.characters.filter(ch => !keep.includes(ch.name)).map(ch => ({ game: 'overwatch', character: ch.name, cut: 'knit' }))], rnd = lcg(3), got = new Set();
         for (let i = 0; i < 200; i++) { const p = C.pickCosplay(U, rnd); assert(p.round === 1, '남은 캐릭터가 있으면 1회차'); got.add(p.character); }
         assert.deepEqual([...got], ['Ana'], '쓴 · 예약 캐릭터는 빠진다 — 남은 건 Ana 하나 ' + [...got].join(', ')); }
-      assert(C.COSPLAY_REPOS.includes('element-atelier-img') && C.COSPLAY_REPOS.includes('pkm-atelier-img') && C.COSPLAY_REPOS.includes('sam-atelier-img-2') && C.COSPLAY_REPOS.includes('pkm-atelier-img-5'), '세 공방 그림 저장소');
+      assert.deepEqual(C.COSPLAY_REPOS, ['sam-atelier-img', 'sam-atelier-img-2'], '이 공방 그림 저장소만(2026-11-16 「공방별로 따로」)');
+      assert(C.cosplayReposOk({}) && C.cosplayReposOk({ 'cosplay-usage': 'none' }), '저장소가 있으면 통과');
     } finally { fs.rmSync(d, { recursive: true, force: true }); } }
   /* 세계 셋을 한 번에 — 한 번에 짠 세 장은 같은 게임 · 캐릭터를 쓰지 않는다(이번에 짠 것도 쓴 것으로 센다) */
   { const card = C.cardOf('여포'), U = [], got = [];

@@ -84,8 +84,17 @@ const SITU_RATE = 0.5;
    --recosplay-list — 그림 저장소에서 계획은 있는데 아직 안 그린 pick 칸(캐릭터 빈 칸)이 있는 카드 · 세계 · 번호를 찍는다(다시 짜기는 사용자가 정한다).
    세 공방이 같은 꼴 — 함수 이름 cosplayUsage · pickCosplay · cosplayAgain, 칸 이름 scene.cosplay · generation.cosplay(원소 53b1956 과 맞췄다) */
 const COSPLAY = tree.cosplay || {}, COS_FAM = COSPLAY.outfit || 'game_cosplay', COS_NO_FRAMES = (tree.costume_required || {}).not_frames || ['face_close'];
-const COSPLAY_REPOS = ['sam-atelier-img', 'sam-atelier-img-2', 'element-atelier-img', 'pkm-atelier-img', 'pkm-atelier-img-2', 'pkm-atelier-img-3', 'pkm-atelier-img-4', 'pkm-atelier-img-5'];   /* -5 — pkm 이 연 저장소(2026-11-15 pkm 302be16 과 같게), 없는 것은 건너뛴다 */
+/* 쓴 것은 이 공방 그림 저장소만 읽는다(2026-11-16 사용자 「공방별로 따로 두는건?」 → 「응 그렇게 진행해줘」 — 일상컷을 그리는 세션은 자기 그림 저장소를 늘 받아 둔다.
+   다른 공방과는 같은 캐릭터가 나올 수 있다 · 전엔 세 공방 합쳐 읽었는데 없는 저장소를 조용히 건너뛰어 다른 세션에선 못 막았다). 저장소가 없으면 멈춘다 — cosplayReposOk */
+const COSPLAY_REPOS = ['sam-atelier-img', 'sam-atelier-img-2'];
 const cosplayDirs = () => COSPLAY_REPOS.map(r => path.join(ROOT, '..', r, 'records')).filter(d => fs.existsSync(d));
+/* 이 공방 그림 저장소가 다 있나 — 없으면 쓴 것을 몰라 같은 캐릭터가 겹친다. 계획을 짜기 전에 부른다(--cosplay-usage 를 주면 그 폴더를 믿는다) */
+function cosplayReposOk(opt = {}) {
+  if (opt['cosplay-usage']) return true;
+  const miss = COSPLAY_REPOS.filter(r => !fs.existsSync(path.join(ROOT, '..', r, 'records')));
+  if (miss.length) throw new Error('게임 코스프레 — 이 공방 그림 저장소가 없다: ' + miss.join(' · ') + ' — 옆 폴더에 받은 뒤 다시(쓴 캐릭터를 몰라 겹친다). 일부러 비우려면 --cosplay-usage none');
+  return true;
+}
 const normName = s => String(s || '').trim().toLowerCase().replace(/\s+/g, ' ');
 const emptyCosplay = () => ({ games: {}, cuts: {} });
 /* 쓴 기록 줄 하나 — generation.cosplay, 없으면 scene.cosplay 의 character 가 찬 것. 재단은 옷(gc_<재단>)이 이긴다 */
@@ -847,7 +856,7 @@ function main(argv) {
   /* 다른 세계의 컷(그리고 --fresh 면 같은 세계의 옛 묶음까지) — 장면을 돌려쓰지 않게 겹침만 본다 */
   const allOld = w => oldCuts(recDir, { ...card, world: w }, w);
   if (opt.recosplay) {   /* 옛 계획 다시 짜기(2026-11-16) */
-    const used = cosplayUsage(opt['cosplay-usage'] === 'none' ? [] : opt['cosplay-usage'] ? opt['cosplay-usage'].split(',') : null);
+    cosplayReposOk(opt); const used = cosplayUsage(opt['cosplay-usage'] === 'none' ? [] : opt['cosplay-usage'] ? opt['cosplay-usage'].split(',') : null);
     const seed = Number(opt.seed || Date.now() % 1e9), res = recosplay(card, opt.recosplay, { used, seed, recDir, out: opt.out || '' });
     if (!res.changed.length) { console.log(`${key} ${res.doc.world} — ${opt.recosplay} 에 아직 안 그린 게임 코스프레 칸이 없다 · 그대로`); return 0; }
     for (const ch of res.changed) console.log(`  ${ch.n} ${cosplayKo({ item: ch.from.item, cosplay: ch.from })} → ${cosplayKo({ item: 'gc_' + ch.to.cut, cosplay: ch.to })}`);
@@ -873,7 +882,7 @@ function main(argv) {
   const extra = (opt.others || '').split(',').filter(Boolean).flatMap(f => JSON.parse(fs.readFileSync(f, 'utf8')).cuts || []);
   const planned = [];
   /* 게임 코스프레 쓴 기록 — 세 공방 그림 저장소(2026-11-15). 이번에 짠 세계 · --others 계획의 것도 더한다(같은 게임 · 재단이 한 번에 겹치지 않게) */
-  const cosUsed = cosplayUsage(opt['cosplay-usage'] === 'none' ? [] : opt['cosplay-usage'] ? opt['cosplay-usage'].split(',') : null);
+  cosplayReposOk(opt); const cosUsed = cosplayUsage(opt['cosplay-usage'] === 'none' ? [] : opt['cosplay-usage'] ? opt['cosplay-usage'].split(',') : null);
   extra.filter(c => c.cosplay).forEach(c => cosUsed.push({ ...c.cosplay, cut: String(c.item || '').replace(/^gc_/, '') || c.cosplay.cut }));
   for (const world of worlds) {
     card.world = world;
@@ -900,12 +909,12 @@ function main(argv) {
         fs.writeFileSync(path.join(out, `${world}-casual${c.n}-prompt.txt`), rec.prompt);
         const ag = againScene(c); if (ag) fs.writeFileSync(path.join(out, `${world}-casual${c.n}-again-prompt.txt`), record(card, world, ag).prompt);   /* 코스프레 1회차의 2회차 몫 */
       }
-      fs.writeFileSync(path.join(out, 'plan.json'), JSON.stringify({ card: key, world, seed, tree: 2, style: STYLE, required: res.required, slots, fresh, cuts: res.cuts }, null, 1) + '\n');
+      fs.writeFileSync(path.join(out, 'plan.json'), JSON.stringify({ card: key, world, seed, tree: 2, style: STYLE, required: res.required, slots, fresh, cosplayRead: opt['cosplay-usage'] || COSPLAY_REPOS.join(','), cuts: res.cuts }, null, 1) + '\n');
       console.log('→ ' + out);
     }
     ownStep(card, world, seed, opt, recDir, worlds);
   }
   return 0;
 }
-module.exports = { recosplay, recosplayList, planCosplay, recordKeyOf, CHAR_WEIGHT, cosplayUsage, cosplayRow, cosplayTally, pickCosplay, cosplayAgain, withAgain, againScene, cosCutOk, SITU_RATE, cosplayPaths, cosplayDirs, COSPLAY_REPOS, GC, COS_FAM, refFree, ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
+module.exports = { cosplayReposOk, recosplay, recosplayList, planCosplay, recordKeyOf, CHAR_WEIGHT, cosplayUsage, cosplayRow, cosplayTally, pickCosplay, cosplayAgain, withAgain, againScene, cosCutOk, SITU_RATE, cosplayPaths, cosplayDirs, COSPLAY_REPOS, GC, COS_FAM, refFree, ownCut, ownRow, OWN_N, OWN_LEVELS, ambient, POSE_WEIGHT, cardOf, plan, colorize, denierize, situate, freeOutfit, recentize, recentScenes, sceneEn, blockScene, SITUS, DENIERS, outfitEn, COLORS, check, record, recordRel, oldCuts, freeSlots, registered, requiredType, propUsage, sceneUsage, CASUAL_N, STYLE, WEIGHT_UNUSED, EXPOSE_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));
