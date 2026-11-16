@@ -1667,3 +1667,5 @@
 - tests/screen.cjs · tests/words.cjs · tests/look-spec.cjs · tests/register-images.py — 도감 · 생성기 화면(폰 · PC), 게임 파일은 낱말 검사 밖.
 - AGENTS.md · CLAUDE.md · IMAGE_RULES.md · README.md — 자리와 규칙.
 
+
+- 2026-11-16 관평: 세계컷 선택 2·2·2 확정, 세계컷 3장 + 일상컷 24장(세계별 기본 7장·전용 90번 1장) 등록. 원본 보존, 장면·인체 검수 기록 및 판타지 일상 7번의 미생성 차단·moderate 완료 기록 포함.
