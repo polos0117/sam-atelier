@@ -107,7 +107,7 @@ if (SHORT) { const card = C.cardOf('조조'), forms = new Set(); let legend = 0;
   const cd = C.cardOf('조조'); cd.world = 'fantasy'; const one = C.plan(cd, SIX, [], { seed: 3 }).cuts[0];
   assert(C.check([{ ...one, ofam: 'bath', item: 'towel_wrap' }], cd, [], [{ ofam: 'bath', item: 'spa_robe', place: '__x' }]).some(e => /목욕 차림/.test(e)), '세계 셋 통틀어 목욕 차림 한 장'); }
 /* 상황은 일반 컷에 가끔(열에 셋) · 새 계열 모험가 · 신화 드레이프도 뽑힌다(2026-11-09) · 게임 코스프레는 여러 게임에 고루(2026-11-15) */
-assert(situN >= 1 && situN < n, '상황 노출 — 일반 컷에 가끔 ' + situN + '/' + n + ' · ' + [...situSeen].join(' · '));
+assert(situN >= n * 0.8 && situN <= n, '상황 노출 — 일반 컷에 늘 한 장(맞는 옷이 없으면 빠짐, 2026-11-16) ' + situN + '/' + n + ' · ' + [...situSeen].join(' · '));
 assert(famSeen.has('adventure') && famSeen.has('drape'), '새 계열 — ' + [...famSeen].join(' · '));
 assert(cosSeen.size >= 4, '코스프레 게임이 여럿 — ' + [...cosSeen].join(' · '));   /* 2026-11-15 무게 고르기(인원 많은 게임이 자주) — 예전엔 고루 여덟 이상 */
 { let x = 123; const rnd = () => (x = (x * 9301 + 49297) % 233280) / 233280, cnt = {}; for (let i = 0; i < 4000; i++) { const k = C.pickCosplay([], rnd).game; cnt[k] = (cnt[k] || 0) + 1; }

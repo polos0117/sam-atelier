@@ -7,7 +7,7 @@
      - 세 장은 정해 둔 갈래(사용자 2026-11-02 「각각 1장해서 2장은 확정」 · 2026-11-09 「1번 내용을 필수갈래에 … 필수컷이 3장은 확정」) — 노출 갈래 한 장(란제리풍 · 수영복 · 역할극 의상) +
        세계 안 갈래 한 장(세계 안의 방 · 목욕탕 · 지붕 · 여관 · 서재 · 부엌 · 군영 · 정원 · 다리 · 사당 · 숲길 · 나루에서 홈웨어 · 란제리 · 목욕 차림 · 수영복) +
        게임 코스프레 한 장(2026-11-15 — 상황 노출 자리, pickCosplay: data/game-cosplay.json 의 게임 · 재단을 세 공방(삼국 · 원소 · pkm) 쓴 기록을 합쳐 덜 쓴 것부터), 서로 다른 컷. tools/casual-check.py 와 같은 판정.
-       상황 노출은 필수에서만 빠졌다 — 일반 컷 하나에 반쯤(SITU_RATE, situate — 원소와 같게), 갈래 자유 칸엔 그대로. 상황 필수 시절의 옛 묶음(상황 컷이 셋째)은 그대로 맞다
+       상황 노출은 필수에서만 빠졌다 — 일반 컷 하나에 늘(SITU_RATE — 2026-11-16, 전엔 반쯤, situate — 원소와 같게), 갈래 자유 칸엔 그대로. 상황 필수 시절의 옛 묶음(상황 컷이 셋째)은 그대로 맞다
      - 자유 설계 두 장(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 … 필수갈래랑 상황노출 두개를 묶어서 이렇게 가자. 그리고 지금 맡겨놓은 일상컷 1장도 같이 이런식으로」) —
        옷 자유 컷(ofree) 하나 + 갈래 자유 컷(ofree + ofreeFamily — 필수 노출 갈래 큰 범위 + ofreeSitu 'free' — 상황은 맡은 쪽이 짓는다, 같은 날 「상황도 열어주자. 옷도 이제 큰범위로만 지정해줘」) 하나, 필수 셋과 다른 컷. 지시문은 장면 줄 대신 자유 설계 덩어리(lib/prompt-spec.js FREE_DESIGN),
        최근 장면(ofreeRecent — 그림 저장소 기록의 최근 여덟 + 같은 묶음의 다른 컷)을 피하라고 적는다. 칸의 장면 값은 트리에 맞는 그림자 — 그리지 않고 묶음 규칙 · 겹침 · 쓴 횟수 셈에서도 뺀다
@@ -66,7 +66,7 @@ const DRINKS = ['cup', 'drink_glass', 'water_bottle', 'teapot'];
 const SITUS = (T.CASUAL.situations || []).map(x => x.key);
 const SITU_NO_FRAME = ['face_close'];   /* 얼굴 클로즈업엔 옷이 안 보여 상황이 안 산다(손상향 시험 계획 — 젖은 옷이 클로즈업에) */
 /* 상황 노출은 필수에서 빠졌다(2026-11-15) — 일반 컷(필수 · 자유 설계 · 그 장수의 물건 칸이 아닌 컷) 하나에 반쯤(원소 공방과 같은 값) */
-const SITU_RATE = 0.5;
+const SITU_RATE = 1;   /* 2026-11-16 사용자 「늘 1장은 나오게 맞춰줘」 — 반쯤(0.5)에서 늘. 맞는 옷의 일반 컷이 없으면 건너뛴다 */
 
 /* ══ 게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 — 필수 셋째, 상황 노출 자리) ══
    목록 data/game-cosplay.json(원본 game-atelier). 「캐릭터 + 재단」 묶음이 한 단위, 쓴 기록은 세 공방(삼국 · 원소 · pkm)을 합쳐 센다:
@@ -679,6 +679,8 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
       const real = cuts.filter(c => !c.ofree);
       colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0));
       if (!freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0), others) || check(cuts, card, old, others).length) { cuts.forEach(c => { delete c._fam; }); continue; }
+      /* 상황 노출 늘 한 장(2026-11-16 「늘 1장은 나오게」) — 일반 컷이 있는데 맞는 옷이 없어 못 얹었으면 다른 묶음으로(그 세계에 이미 상황 컷이 있으면 그대로) */
+      if (SITU_RATE >= 1 && cuts.some(c => !c.ofree && !requiredType(c) && !sigProp(c)) && !old.some(c => c.situ && !c.ofree) && !cuts.some(c => c.situ && !c.ofree)) { cuts.forEach(c => { delete c._fam; }); continue; }
       recentize(cuts, old, recent, card.world || '');
       cuts.forEach(c => { if (c.cosplay) c.cosplay = withAgain(c.cosplay, cosplayUsed || [], c.place, rng((seed ^ mix ^ 0x68e31da4) >>> 0)); });   /* 1회차의 2회차 몫 */
       return { cuts, attempt, required: [...[...old, ...cuts].filter(c => !c.ofree).map(c => requiredType(c) === 'cosplay' ? 'cosplay:' + (c.cosplay || {}).game + '/' + String(c.item).replace(/^gc_/, '') : requiredType(c)).filter(Boolean), ...[...old, ...cuts].filter(c => c.situ).map(c => 'situ:' + c.situ), ...[...old, ...cuts].filter(c => c.ofreeFamily).map(c => 'free:' + c.ofreeFamily + '+' + c.ofreeSitu)].join(' · ') };
