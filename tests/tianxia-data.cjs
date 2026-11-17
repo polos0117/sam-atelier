@@ -1,10 +1,11 @@
 // 천하 지도 자료 검사 — data/tianxia.json
 // 판도 다섯(팩 열쇠 그대로) · 성 서른 안팎 · 성마다 주인 줄(세력 열쇠나 null) · 근거와 출처.
-// 연도 판도는 그해 세력 표(packs.<팩>.facMap 의 세력 → alias)에 있는 세력에게만 성을 준다.
+// 연도 판도는 그해 세력 표(packs.<팩>.facMap 의 세력 → alias, 거기에 추가 명단 data/draft2-roster.json 의 세력)에 있는 세력에게만 성을 준다.
 const fs = require('fs'), path = require('path'), assert = require('assert');
 const root = path.join(__dirname, '..');
 const J = f => JSON.parse(fs.readFileSync(path.join(root, f), 'utf8'));
-const T = J('data/tianxia.json'), F = J('data/draft2-factions.json'), P = J('data/draft2-packs.json').packs;
+const T = J('data/tianxia.json'), F = J('data/draft2-factions.json'), P = J('data/draft2-packs.json').packs, RO = J('data/draft2-roster.json').packs;
+const added = k => (RO[k] || {}).add || [];
 
 assert.deepEqual(Object.keys(T.eras), ['mx', 'w194', 'gd200', 'jb208', 'end263']);
 for (const k of Object.keys(T.eras)) assert(P[k], '판도 열쇠 ' + k + ' 가 팩 열쇠가 아니다');
@@ -22,7 +23,7 @@ for (const [k, e] of Object.entries(T.eras)) {
   assert(e.ko && e.line, k);
   for (const c of Object.keys(e.owners)) assert(keys.has(c), k + ' 없는 성 ' + c);
   // 그해 세력 표 — 연도 팩은 facMap 의 세력(alias 로 세력 열쇠), 군웅록은 이력에 나오는 세력
-  const table = new Set(P[k].facMap ? Object.values(P[k].facMap).map(f => F.alias[f] || f) : Object.values(P[k].career).flat());
+  const table = new Set(P[k].facMap ? Object.values(P[k].facMap).map(f => F.alias[f] || f).concat(added(k).map(a => a.f)) : Object.values(P[k].career).flat());
   for (const c of T.cities) { const o = e.owners[c.key]; assert(o, k + ' ' + c.key + ' 줄이 없다');
     assert(o.f === null || F.factions[o.f], k + ' ' + c.key + ' 세력 ' + o.f);
     assert(o.f === null || table.has(o.f), k + ' ' + c.key + ' — ' + o.f + ' 는 그해 세력 표에 없다');
@@ -48,7 +49,15 @@ for (const [k, e] of Object.entries(T.eras)) {
     '| 성 | 주인 | 근거 | 출처 |', '|---|---|---|---|', ...own.map(c => row(c, e.owners[c.key], true)), '');
   if (none.length) doc.push('주인 없음 · 다툼', '', '| 성 | 사정 | 출처 |', '|---|---|---|', ...none.map(c => row(c, e.owners[c.key], false)), '');
   doc.push('세력의 한 줄', '', ...Object.entries(e.notes).map(([f, t]) => '- **' + f + '** — ' + t), '');
+  // 추가 명단 — 옛 게임 명단 위에 얹은 장수(data/draft2-roster.json). 세력은 처음 나온 차례로 묶는다
+  const add = added(k), order = [...new Set(add.map(a => a.f))];
+  if (add.length) doc.push('추가 명단 ' + add.length + '명 — 옛 게임 명단(`data/draft2-packs.json`) 위에 얹은 장수(`data/draft2-roster.json`)', '',
+    '| 세력 | 장수 | 근거 | 출처 |', '|---|---|---|---|',
+    ...order.flatMap(f => add.filter(a => a.f === f).map(a => '| ' + f + ' | ' + a.name + ((RO[k].roles || {})[a.name] ? '(' + RO[k].roles[a.name] + ')' : '') + ' | ' + a.why + ' | <' + a.src + '> |')), '');
 }
+// 지킬 약속 — 여남(195)은 비워 둔다 · 208 장사는 조위(한현)
+assert.equal(T.eras.w194.owners.runan.f, null, '195 여남은 비워 둔다(사용자 2026-11-17)');
+assert.equal(T.eras.jb208.owners.changsha.f, '조위'); assert.equal(T.eras.w194.owners.kuaiji.f, '왕랑'); assert.equal(T.eras.w194.owners.chaisang.f, '유요');
 const docPath = path.join(root, 'docs/TIANXIA_SOURCES.md'), docText = doc.join('\n');
 if (process.argv.includes('--write')) fs.writeFileSync(docPath, docText);
 assert.equal(fs.readFileSync(docPath, 'utf8').replace(/\r\n/g, '\n'), docText, 'docs/TIANXIA_SOURCES.md 가 자료와 다르다 — node tests/tianxia-data.cjs --write');

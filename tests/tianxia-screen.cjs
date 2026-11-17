@@ -13,7 +13,7 @@ const server = http.createServer((q, s) => {
 const ESM = { 'https://esm.sh/preact@10.24.3': 'preact/dist/preact.mjs', 'https://esm.sh/preact@10.24.3/hooks': 'preact/hooks/dist/hooks.mjs' };
 const J = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const T = J('data/tianxia.json'), design = J('data/sam-design.json'), IMGDOC = J('data/img.json');
-const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs: J('data/draft2-packs.json'), factions: J('data/draft2-factions.json'), combos: J('data/draft2-combos.json'), tianxia: T });
+const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs: J('data/draft2-packs.json'), factions: J('data/draft2-factions.json'), combos: J('data/draft2-combos.json'), tianxia: T, roster: J('data/draft2-roster.json') });
 const TODAY = '2026-11-17';
 /* 그 판도 그 세력에 새 그림(오늘 · 어제 등록)이 있나 — 화면의 범례 점과 맞춰 본다(확인 기록이 빈 브라우저) */
 const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(IMGDOC.img[m.name], IMGDOC.added), TODAY, ''));
@@ -190,6 +190,19 @@ const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(
   const camp = async (era, f) => { await p.goto(BASE + '/index.html?era=' + era + '&f=' + enc(f) + '&today=' + TODAY); await p.waitForSelector('.tx-camp'); await p.waitForFunction(() => document.querySelector('.tx-camp').getAnimations().length === 0); };
   /* 가운데 = 그 세력의 우두머리 — 200 원소군은 원소(유비가 아니다) · 263 진은 사마소 · 군웅록 동오는 손권. 사람 이름 그대로인 세력은 「○○군」 */
   for (const [era, f, who] of [['gd200', '원소', '원소'], ['end263', '진', '사마소'], ['mx', '동오', '손권'], ['w194', '도겸', '유비']]) { await camp(era, f); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), who, era + ' ' + f + ' 가운데'); }
+  /* 연도 판 추가 명단(data/draft2-roster.json) — 195 범례에 새 세력 유요 劉 · 왕랑 王, 막사에 추가된 장수, 208 조조군에 한현 */
+  { const names = () => p.locator('.tx-face[data-name], .tx-lord[data-name]').evaluateAll(es => [...new Set(es.map(e => e.dataset.name))]);
+    await p.goto(BASE + '/index.html?era=w194&today=' + TODAY); await p.waitForSelector('.tx-city');
+    assert.equal(await legend(), wantLegend('w194'), '195 범례');
+    for (const [f, hj] of [['유요', '劉'], ['왕랑', '王']]) assert((await p.locator('.tx-legend [data-f="' + f + '"]').textContent()).includes(hj), '195 범례 — ' + f + ' ' + hj);
+    assert.equal(await p.locator('.tx-city[data-city="kuaiji"]').getAttribute('data-f'), '왕랑'); assert.equal(await p.locator('.tx-city[data-city="chaisang"]').getAttribute('data-f'), '유요');
+    assert.equal(await p.locator('.tx-city[data-city="runan"]').getAttribute('data-f'), '', '195 여남은 비워 둔다');
+    await camp('w194', '유장'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '유장'); assert.deepEqual((await names()).sort(), ['유장', '오의', '장임', '엄안', '황권', '장송'].sort(), '195 유장군 막사 6명');
+    assert.match(await p.locator('.tx-camp-head h1').textContent(), /^유장군 · /); assert(await fits(p));
+    await camp('w194', '왕랑'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '왕랑'); assert.deepEqual((await names()).sort(), ['왕랑', '우번']);
+    assert.match(await p.locator('.tx-camp-head h1').textContent(), /^왕랑군 · /); assert((await p.locator('.tx-camp-head').textContent()).includes('王'), '왕랑 막사 머리의 도장');
+    await camp('jb208', '조위'); const ns = await names(); assert(ns.includes('한현') && !ns.includes('황충'), '208 조조군 막사 — 한현은 있고 황충은 없다');
+    assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '조조'); checks += 14; }
   await camp('mx', '장수'); assert.match(await p.locator('.tx-camp-head h1').textContent(), /^장수군 · /, '사람 이름인 세력은 ○○군');
   /* 군주 없는 무리 — 역할을 걸러도 가운데가 그대로, 0명인 역할 단추는 못 누른다. 「목록으로 보기」 는 가장 많이 든 목록 세력으로 */
   { await camp('mx', lordless); const c0 = await p.locator('.tx-lord').getAttribute('data-name'), ms0 = C.members(doc, 'mx', lordless);

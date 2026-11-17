@@ -4,8 +4,8 @@
    Run: node tests/tianxia-core.cjs */
 const fs = require('fs'), path = require('path'), assert = require('assert');
 const ROOT = path.join(__dirname, '..'), J = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
-const design = J('data/sam-design.json'), packs = J('data/draft2-packs.json'), factions = J('data/draft2-factions.json'), combos = J('data/draft2-combos.json'), tianxia = J('data/tianxia.json');
-const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs, factions, combos, tianxia });
+const design = J('data/sam-design.json'), packs = J('data/draft2-packs.json'), factions = J('data/draft2-factions.json'), combos = J('data/draft2-combos.json'), tianxia = J('data/tianxia.json'), roster = J('data/draft2-roster.json');
+const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs, factions, combos, tianxia, roster });
 
 assert.deepEqual(C.ERAS, ['mx', 'w194', 'gd200', 'jb208', 'end263']);
 // 군웅록 — 279명 모두 어느 세력이든
@@ -18,7 +18,7 @@ assert.equal(C.factionOf(doc, 'jb208', '조조'), '조위'); assert.equal(C.fact
 assert.equal(C.factionOf(doc, 'mx', '없는장수'), null);
 // 판도마다 — 세력은 모두 세력 표의 열쇠, 장수 수 = 그해 자료, 막사를 다 모으면 그해 장수 전부(겹침 없이)
 for (const era of C.ERAS) {
-  const fs_ = C.factionsOf(doc, era), p = packs.packs[era], all = p.facMap ? Object.keys(p.facMap).length : design.generals.length;
+  const fs_ = C.factionsOf(doc, era), p = packs.packs[era], all = p.facMap ? Object.keys(p.facMap).length + ((roster.packs[era] || {}).add || []).length : design.generals.length;
   assert(fs_.length && fs_.every(f => f.count > 0 && factions.factions[f.key] && f.glyph && /^#/.test(f.color)), era + ' 세력 줄');
   assert.equal(fs_.reduce((s, f) => s + f.count, 0), all, era + ' 장수 수');
   const names = fs_.flatMap(f => C.members(doc, era, f.key).map(m => m.name));
@@ -58,6 +58,25 @@ assert(fs208.findIndex(f => f.landless) === -1 || fs208.slice(fs208.findIndex(f 
 { const hn = C.factionsOf(doc, 'end263').find(f => f.key === '회남'); assert(hn && hn.landless && hn.count === C.members(doc, 'end263', '회남').length, '263 회남 — 떠도는 세력'); }
 assert(C.factionsOf(doc, 'mx').some(f => f.landless), '군웅록 — 땅 없는 무리(한조정 · 재야)도 막사가 있다');
 assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(doc, 'mx', '없는성'), null);
+// 연도 판의 추가 명단(data/draft2-roster.json) — 옛 게임 명단 위에 얹는다(합치는 곳은 lib/draft2/rules.js 의 view)
+{ const names = (e, f) => C.members(doc, e, f).map(m => m.name).sort().join(), fl = e => C.factionsOf(doc, e);
+  assert.equal(names('w194', '유장'), ['유장', '오의', '장임', '엄안', '황권', '장송'].sort().join(), '195 유장 세력 6명');
+  assert.equal(names('w194', '왕랑'), '왕랑,우번', '195 왕랑 2명'); assert.equal(names('w194', '유요'), '유요', '195 유요 1명');
+  assert.equal(C.members(doc, 'w194', '왕랑')[0].role, 'lord', '195 왕랑은 군주(roles)'); assert.equal(C.chiefOf(doc, 'w194', '왕랑'), '왕랑');
+  assert.equal(C.chiefOf(doc, 'w194', '동탁'), '이각'); assert.equal(C.chiefOf(doc, 'w194', '황건'), '장연'); assert.equal(C.chiefOf(doc, 'gd200', '황건'), '장연');
+  assert.equal(C.factionOf(doc, 'w194', '감부인'), '도겸', '세력 열쇠 → 그해 이름(서주군) → 다시 열쇠');
+  for (const [c, f] of Object.entries({ henei: '장양', hanzhong: '장로', chengdu: '유장', jiangzhou: '유장', yongan: '유장', jiaozhi: '교주', kuaiji: '왕랑', chaisang: '유요', runan: null }))
+    assert.equal(C.ownerOf(doc, 'w194', c), f, '195 ' + c);
+  for (const f of ['유요', '왕랑']) { const x = fl('w194').find(y => y.key === f); assert(x && !x.landless && x.glyph === factions.factions[f].h && x.color === factions.factions[f].c, '195 ' + f + ' — 범례 줄'); }
+  assert.equal(fl('w194').find(y => y.key === '유요').glyph, '劉'); assert.equal(fl('w194').find(y => y.key === '왕랑').glyph, '王');
+  for (const f of ['동탁', '한조정', '황건', '재야']) assert(fl('w194').find(y => y.key === f).landless, '195 ' + f + ' 는 성 없는 세력');
+  assert.equal(C.factionOf(doc, 'jb208', '한현'), '조위'); assert.notEqual(C.factionOf(doc, 'jb208', '황충'), '조위', '208 황충은 조위가 아니다(사용자 「황충은 빼고」)');
+  assert.equal(C.ownerOf(doc, 'jb208', 'changsha'), '조위'); assert.equal(C.chiefOf(doc, 'jb208', '조위'), '조조', '208 조위 — 조비 · 한현이 들어와도 가운데는 조조');
+  assert.equal(C.ownerOf(doc, 'gd200', 'jiaozhi'), '교주'); assert.equal(C.factionOf(doc, 'end263', '종예'), '촉한');
+  // 추가 명단을 못 받았을 때 — 옛 명단만으로 지금처럼 돈다
+  const old = C.make({ design, packs, factions, combos, tianxia });
+  assert.equal(C.factionOf(old, 'w194', '유장'), null); assert.equal(C.factionsOf(old, 'w194').reduce((s, f) => s + f.count, 0), Object.keys(packs.packs.w194.facMap).length);
+  assert.equal(C.factionsOf(old, 'mx').length, C.factionsOf(doc, 'mx').length, '군웅록은 추가 명단과 무관'); }
 // 결의
 const b = C.bondsOf(doc, ['유비', '관우', '장비', '조운']); assert(b.some(x => x.n === '도원결의' && x.m.length === 3 && x.kind === 'bond'));
 assert.equal(C.bondsOf(doc, ['유비']).length, 0);
