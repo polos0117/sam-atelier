@@ -125,9 +125,12 @@ const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf
     await sheet(); await v.page.selectOption('#dex-state', 'hand'); await rows(D.generals.filter(g => g.faction === 'shu' && g.designed === 'hand').length);
     assert.match(v.page.url(), /st=hand/);
     await v.page.selectOption('#dex-state', ''); await rows(count('shu'));
-    await v.page.fill('#dex-find', 'zhuge'); await rows(D.generals.filter(g => g.faction === 'shu' && /zhuge/i.test(g.en)).length);
-    assert.match(v.page.url(), /q=zhuge/);
-    await v.page.fill('#dex-find', ''); await rows(count('shu'));
+    /* 찾기 — 찾는 말이 있으면 모든 세력에서(머리의 수도 찾은 수 · 세력 줄엔 「찾는 중」), 지우면 원래 세력으로 */
+    { const hit = D.generals.filter(g => /zhuge/i.test(g.en)); assert(hit.some(g => g.faction !== 'shu'), '다른 세력에도 제갈씨가 있다');
+      await v.page.fill('#dex-find', 'zhuge'); await rows(hit.length); assert.match(v.page.url(), /q=zhuge/);
+      assert.match(await v.page.locator('.dx-bar').textContent(), new RegExp('찾는 중.*' + hit.length + '명')); assert.equal(await v.page.locator('.dx-facs [aria-current="page"]').count(), 0); assert.equal(await v.page.locator('.dx-facs .dx-finding').count(), 1, '세력 줄의 「찾는 중」');
+      await v.page.fill('#dex-find', ''); await rows(count('shu')); assert.equal(await v.page.locator('.dx-facs [aria-current="page"]').getAttribute('data-f'), 'shu'); assert.equal(await v.page.locator('.dx-facs .dx-finding').count(), 0);
+      await v.page.fill('#dex-find', 'zhuge'); await rows(hit.length); await shut(); await v.page.click('.dx-facs .dx-finding'); await rows(count('shu')); assert.doesNotMatch(v.page.url(), /q=/); await sheet(); checks += 6; }
     await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'true', '그림 있는 것만 — 누른 단추'); assert.match(v.page.url(), /only=1/);
     await v.page.waitForFunction(() => !document.querySelector('.dx-row[data-art="0"]'));
     const withArt = await v.page.locator('.dx-row').count();
@@ -292,8 +295,24 @@ const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf
       /* 막사에서 온 길 — ?card= 만 오면 그 장수의 그림이 열리고 확인으로 친다. 뒤로 가기는 팝업만 */
       await p.goto(BASE + '/dex.html?faction=' + facOfNew + '&card=' + encodeURIComponent(newName) + '&today=' + newest); await p.waitForSelector('.lightbox');
       await p.goBack(); await p.waitForFunction(() => !document.querySelector('.lightbox')); await p.waitForSelector(row + '[data-new="0"]'); assert.match(p.url(), /dex\.html/);
-      /* 옛 즐겨찾기 주소 */
-      await p.goto(BASE + '/dex.html?card=' + encodeURIComponent(newName) + '&pic=0'); await p.waitForSelector('.dx-row[data-name="' + newName + '"]');
+      assert.doesNotMatch(p.url(), /card=|pic=/, '크게 보기를 닫으면 주소에서 card · pic 을 지운다'); await p.reload(); await p.waitForSelector(row); await p.waitForTimeout(300); assert.equal(await p.locator('.lightbox').count(), 0, '새로 고쳐도 다시 열리지 않는다');
+      /* 크게 보기 — 아래 단추 셋이 44px, 떠 있는 동안 뒤 목록이 밀리지 않는다 */
+      await p.click(row + ' img >> nth=0'); await p.waitForSelector('.lightbox');
+      for (const hgt of await p.locator('.lightbox .bar button, .lightbox .bar a').evaluateAll(es => es.map(e => e.getBoundingClientRect().height))) assert(hgt >= 44, '크게 보기 단추 ' + hgt);
+      { const y0 = await p.evaluate(() => scrollY); await p.mouse.wheel(0, 500); await p.waitForTimeout(150); assert.equal(await p.evaluate(() => scrollY), y0, '크게 보기 뒤 목록이 밀린다'); }
+      await p.keyboard.press('Escape'); await p.waitForFunction(() => !document.querySelector('.lightbox'));
+      /* 도구 판을 연 채 뒤로 가기 — 판만 닫힌다 */
+      await p.click('.dx-tools'); await p.waitForSelector('.dx-sheet'); await p.goBack(); await p.waitForFunction(() => !document.querySelector('.dx-sheet')); assert.match(p.url(), /dex\.html/); assert(await p.locator('.dx-row').count() > 0);
+      /* faction 과 card 가 안 맞는 주소 — 그 장수가 든 세력 줄을 연다(닫은 뒤에도 그 줄) */
+      { const other = ['wei', 'shu', 'wu'].find(k => k !== facOfNew), grpKey = cand.faction === 'qun' && cand.camp ? cand.camp : cand.faction;
+        await p.goto(BASE + '/dex.html?faction=' + other + '&card=' + encodeURIComponent(newName)); await p.waitForSelector('.lightbox'); assert.equal(await p.locator(row).count(), 1);
+        await p.keyboard.press('Escape'); await p.waitForFunction(() => !document.querySelector('.lightbox')); assert.equal(await p.locator('.dx-facs [aria-current="page"]').getAttribute('data-f'), grpKey);
+        assert.match(p.url(), new RegExp('faction=' + grpKey)); assert.equal(await p.locator(row).count(), 1); }
+      /* 주소로 바로 연 도감의 「‹ 지도」 는 지도로(넘어온 막사가 없다) — 막사에서 넘어온 길은 tests/tianxia-screen.cjs */
+      await p.click('.dx-back'); await p.waitForURL(/index\.html$/); await p.goBack(); await p.waitForSelector('.dx-row');
+      /* 옛 즐겨찾기 주소 — pic 이 파일 이름이 아니면 첫 그림을 연다 */
+      await p.goto(BASE + '/dex.html?card=' + encodeURIComponent(newName) + '&pic=0'); await p.waitForSelector('.dx-row[data-name="' + newName + '"]'); await p.waitForSelector('.lightbox[role="dialog"]');
+      await p.keyboard.press('Escape'); await p.waitForFunction(() => !document.querySelector('.lightbox')); checks += 9;
       const pic = D.vocab.worlds.map(w => (((IMGDOC.img[newName].byStyle[S['default']] || {}).byForm || {})[w] || {}).f).find(Boolean);
       await p.goto(BASE + '/dex.html?faction=' + facOfNew + '&card=' + encodeURIComponent(newName) + '&pic=' + encodeURIComponent(pic)); await p.waitForSelector('.lightbox[role="dialog"]');
       assert.match(await p.locator('.lightbox img').getAttribute('src'), new RegExp(encodeURIComponent(pic).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), '즐겨찾기의 그 그림');

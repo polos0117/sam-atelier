@@ -37,6 +37,21 @@ assert.equal(C.members(doc, 'mx', '여포')[0].name, '여포');   // 군웅록�
 { const order = ['lord', 'general', 'strategist', 'official'], ms = C.members(doc, 'mx', '조위').map(m => order.indexOf(m.role));
   assert(ms.every((r, i) => r >= 0 && (!i || ms[i - 1] <= r)), '역할 차례'); }
 assert.deepEqual(C.members(doc, 'mx', '없는세력'), []);
+// 가운데 = 그 세력의 우두머리 — 자료의 lords → 세력 이름에 든 군주 → roleMap 군주 → 첫 군주 → 군주 없는 무리는 첫 장수
+assert.equal(C.chiefOf(doc, 'gd200', '원소'), '원소');   // 200 원소군 — 군주가 유비 · 원소 둘, 이름으로 가린다
+assert.equal(C.chiefOf(doc, 'mx', '동오'), '손권');      // 군웅록 동오 — 손견이 아니라 손권(lords)
+assert.equal(C.chiefOf(doc, 'end263', '진'), '사마소'); assert.equal(C.chiefOf(doc, 'end263', '동오'), '손호'); assert.equal(C.chiefOf(doc, 'end263', '촉한'), '유선');
+assert.equal(C.chiefOf(doc, 'w194', '도겸'), '유비');    // 195 서주 — 도겸이 죽고 유비가 물려받았다(이름보다 lords 가 먼저)
+assert.equal(C.chiefOf(doc, 'w194', '동오'), '손책'); assert.equal(C.chiefOf(doc, 'gd200', '동오'), '손책'); assert.equal(C.chiefOf(doc, 'jb208', '동오'), '손권');
+assert.equal(C.chiefOf(doc, 'jb208', '서량'), '마초');   // roleMap 군주
+assert.equal(C.chiefOf(doc, 'mx', '조위'), '조조'); assert.equal(C.chiefOf(doc, 'mx', '촉한'), '유비'); assert.equal(C.chiefOf(doc, 'mx', '없는세력'), null);
+{ const ms = C.members(doc, 'mx', '재야'); assert(ms.every(m => m.role !== 'lord')); assert.equal(C.chiefOf(doc, 'mx', '재야'), ms[0].name, '군주 없는 무리 — 첫 장수'); }
+for (const era of C.ERAS) {   // 모든 막사에 가운데가 있고 그 막사 사람이다 · 자료의 lords 는 그 판도 그 세력의 장수
+  for (const f of C.factionsOf(doc, era)) assert(C.members(doc, era, f.key).some(m => m.name === C.chiefOf(doc, era, f.key)), era + ' ' + f.key + ' 가운데');
+  for (const [f, n] of Object.entries(tianxia.eras[era].lords || {})) { assert.equal(C.factionOf(doc, era, n), f, era + ' lords ' + f + ' — ' + n + ' 는 그 세력 장수가 아니다'); assert.equal(C.chiefOf(doc, era, f), n); }
+}
+// 주소에서 온 열쇠 — constructor · __proto__ 같은 말은 없는 세력 · 없는 성
+for (const k of ['constructor', '__proto__', 'toString', 'hasOwnProperty']) { assert.deepEqual(C.members(doc, 'mx', k), []); assert.equal(C.factionOf(doc, 'mx', k), null); assert.equal(C.ownerOf(doc, 'mx', k), null); assert.equal(C.chiefOf(doc, 'mx', k), null); }
 // 땅 없는 세력(떠도는 세력) — 263 의 회남은 장수는 있고 성이 없다
 const fs208 = C.factionsOf(doc, 'jb208'); assert(fs208.every(f => f.count > 0));
 assert(fs208.findIndex(f => f.landless) === -1 || fs208.slice(fs208.findIndex(f => f.landless)).every(f => f.landless));
@@ -57,6 +72,8 @@ assert.equal(C.isNew('2026-11-01', '2026-11-01', ''), true); assert.equal(C.isNe
 assert.equal(C.isNew('2026-12-31', '2027-01-01', undefined), true);   // 해가 넘어가도
 assert.equal(C.isNew('2026-11-18', '2026-11-17', ''), false);   // 기기 날짜보다 앞선 등록(시계가 틀린 기기)은 켜지 않는다
 assert.equal(C.today('?today=2026-11-02'), '2026-11-02'); assert.match(C.today(''), /^\d{4}-\d{2}-\d{2}$/); assert.match(C.today('?today=x'), /^\d{4}-\d{2}-\d{2}$/);
+{ const now = C.today(''); for (const bad of ['2026-13-45', '2026-99-99', '2026-02-30']) assert.equal(C.today('?today=' + bad), now, '틀린 날짜는 기기 날짜로 ' + bad);   // 없는 날짜에 화면이 죽지 않는다
+  assert.equal(C.isNew('2026-11-10', '2026-13-45', ''), false); }
 C.seen.mark('유비', '2026-11-17'); assert.equal(C.seen.get('유비'), '2026-11-17');   // node — 메모리로
 assert.equal(C.seen.get('관우'), ''); C.seen.markAll({ 관우: '2026-11-16', 장비: '' }); assert.deepEqual(C.seen.all(), { 유비: '2026-11-17', 관우: '2026-11-16' });
 assert.equal(C.lastAdded({ byStyle: { s: { byForm: { samguk: { f: 'a.webp', casual: { f: ['b.webp'] } } } } } }, { 'a.webp': '2026-11-10', 'b.webp': '2026-11-16' }), '2026-11-16');

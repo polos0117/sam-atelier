@@ -37,22 +37,27 @@ html[data-layer="map"] body.tx-page {overflow:hidden}
 .tx-terrain {position:absolute;inset:0;width:100%;height:100%}
 .tx-terrain .sea {fill:var(--tx-sea);opacity:.85}
 .tx-terrain .river {fill:none;stroke:var(--tx-river);stroke-width:2.5;stroke-linecap:round;opacity:.8}
+.tx-lands {position:absolute;inset:0;overflow:hidden;pointer-events:none}   /* 세력색이 지도 그림 밖(위아래 띠)으로 번지지 않게 */
 .tx-land {position:absolute;width:30%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;opacity:.55;pointer-events:none;transition:background-color .6s;
-  -webkit-mask-image:radial-gradient(closest-side,#000 22%,#0000);mask-image:radial-gradient(closest-side,#000 22%,#0000)}
+  -webkit-mask-image:radial-gradient(closest-side,#000 22%,#0000 84%);mask-image:radial-gradient(closest-side,#000 22%,#0000 84%)}   /* 번짐의 끝 = 성에서 지도 폭의 12.6% — lib/tianxia.js 의 땅 누르기 범위와 같다 */
 html[data-tone="dark"] .tx-land {opacity:.7}
 .tx-city {position:absolute;width:17px;height:17px;margin:-8.5px;padding:0;border:0;background:none;color:var(--tx-label)}
 .tx-city u {position:absolute;left:2px;top:2px;width:13px;height:13px;transform:rotate(45deg);background:var(--c);border:2px solid var(--tx-halo);box-shadow:0 1px 3px #0008;transition:background-color .6s}
 /* 성 이름 — 표지의 아래 · 오른쪽 · 왼쪽 · 위 가운데 다른 성과 덜 겹치는 쪽(lib/tianxia.js labelSides 가 고른다) */
-.tx-city s {position:absolute;z-index:1;left:50%;top:100%;transform:translate(-50%,1px);text-decoration:none;font-size:10px;line-height:1.1;white-space:nowrap;text-shadow:0 0 3px var(--tx-halo),0 0 3px var(--tx-halo),0 0 2px var(--tx-halo)}
+.tx-city s {position:absolute;z-index:1;left:50%;top:100%;transform:translate(-50%,1px);padding:1px 3px;border-radius:4px;background:color-mix(in srgb,var(--tx-halo) 68%,#0000);text-decoration:none;font-size:10px;font-weight:700;line-height:1.1;white-space:nowrap;text-shadow:0 0 2px var(--tx-halo),0 0 2px var(--tx-halo)}   /* 옅은 판 + 글자 그림자 — 바탕 그림 여섯 장 어디서나 읽히게 */
 .tx-city[data-l="t"] s {top:auto;bottom:100%;transform:translate(-50%,-1px)}
 .tx-city[data-l="r"] s {left:100%;top:50%;transform:translate(1px,-50%)}
 .tx-city[data-l="l"] s {left:auto;right:100%;top:50%;transform:translate(-1px,-50%)}
 /* 주인 없는 성 — 흐린 빈 표지(194 는 주인 있는 성이 열셋뿐이다) */
 .tx-city[data-f=""] {cursor:default}
-.tx-city[data-f=""] u {left:4px;top:4px;width:9px;height:9px;border:1.5px solid var(--tx-label);box-shadow:none;opacity:.5}
-.tx-city[data-f=""] s {opacity:.6}
-.tx-when {position:absolute;left:12px;right:12px;top:6px;margin:0;font-size:10.5px;line-height:1.35;color:var(--tx-ink);opacity:.75;pointer-events:none}
-.tx-stage[data-zoom="1"] .tx-when {display:none}
+.tx-city[data-f=""] u {left:4px;top:4px;width:9px;height:9px;border:1.5px solid var(--tx-label);box-shadow:0 0 0 1px var(--tx-halo);opacity:.6}
+.tx-city[data-f=""] s {font-weight:400;background:color-mix(in srgb,var(--tx-halo) 52%,#0000);color:color-mix(in srgb,var(--tx-label) 86%,var(--tx-halo))}   /* 주인 있는 성보다 약하게 — 그래도 읽힌다 */
+.tx-when {grid-column:1/-1;margin:2px 0 0;font-size:10.5px;line-height:1.35;opacity:.68}
+/* 지도 밖 한 줄 — 도움말 + 확대 단추 셋(지도를 가리지 않는다) */
+.tx-under {flex:none;display:flex;align-items:center;gap:8px;padding:5px 12px}
+.tx-hint {flex:1;min-width:0;margin:0;font-size:10.5px;line-height:1.3;opacity:.7}
+.tx-zoom {flex:none;display:flex;gap:6px}
+.tx-zoom button {display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--tx-line);border-radius:10px;background:none;font-size:20px;line-height:1}
 
 .tx-legend {flex:none;display:flex;align-items:center;gap:6px;padding:6px 12px;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--tx-line)}
 .tx-legend::-webkit-scrollbar {display:none}
@@ -72,7 +77,6 @@ html[data-tone="dark"] .tx-land {opacity:.7}
 .tx-eras [aria-pressed="true"] {background:var(--tx-gold);border-color:var(--tx-gold);color:var(--tx-on-gold);font-weight:700}
 .tx-worlds button {border:1px solid transparent;background:#ffffff14}
 .tx-worlds [aria-pressed="true"] {border-color:var(--tx-gold);box-shadow:inset 0 0 0 1px var(--tx-gold);font-weight:700}
-.tx-hint {margin:6px 0 0;font-size:10.5px;line-height:1.3;opacity:.7}
 
 /* ── 도구 상자 — 아래에서 올라오는 판 ── */
 .tx-shade {position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center;background:#000a}
@@ -149,6 +153,7 @@ html[data-tone="dark"] .tx-land {opacity:.7}
 .tx-roles {display:flex;gap:6px;margin-top:10px}
 .tx-roles button {flex:1 1 0;min-width:0;height:44px;padding:0 2px;border:0;border-radius:22px;background:#ffffff1a;font-size:12px;white-space:nowrap}
 .tx-roles [aria-pressed="true"] {background:#c9a24a;color:#2b2218;font-weight:700}
+.tx-roles button:disabled {opacity:.4;cursor:default}
 .tx-rest {--fs:50px;display:grid;grid-auto-flow:column;grid-template-rows:repeat(var(--rows,1),auto);grid-auto-columns:56px;justify-items:center;gap:10px 6px;margin:12px -12px 0;padding:2px 12px 4px;overflow-x:auto;scrollbar-width:none}
 .tx-tolist {display:grid;place-items:center;height:48px;margin-top:14px;border:1px solid #e8d7a688;border-radius:10px;color:inherit;text-decoration:none;font-size:13px}
 

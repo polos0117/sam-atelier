@@ -57,6 +57,8 @@
 .lightbox {position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;background:#000c}
 .lightbox img {max-width:100%;max-height:82vh;border-radius:8px;box-shadow:0 20px 60px #0008}
 .lightbox .bar {display:flex;gap:8px;align-items:center;color:#fff;font-size:13px}
+.lightbox .bar :is(button,a) {display:inline-flex;align-items:center;min-height:44px}   /* 아래 단추 셋 — 누르는 자리 44px(a 는 줄 안 글자라 높이가 안 먹었다) */
+html[data-lb="1"] {overflow:hidden}   /* 크게 보기가 떠 있는 동안 뒤 목록이 밀리지 않게 */
 .lightbox button,.lightbox a {min-height:40px;padding:6px 12px;border:1px solid #fff6;border-radius:8px;background:#0008;color:#fff;font:inherit;font-size:13px;text-decoration:none}
 
 /* 생성기 */
@@ -147,6 +149,8 @@ body.dx-page {margin:0;background:var(--bg);color:var(--text);-webkit-text-size-
 .dx-facs {display:flex;gap:6px;padding:6px 12px;overflow-x:auto;scrollbar-width:none}
 .dx-facs::-webkit-scrollbar {display:none}
 .dx-facs a {position:relative;flex:none;height:44px;display:inline-flex;align-items:center;gap:5px;padding:0 13px;border:1px solid var(--line);border-radius:22px;background:var(--card);color:var(--text);text-decoration:none;font-size:13px;white-space:nowrap}
+.dx-facs .dx-finding {flex:none;height:44px;padding:0 13px;border:1px solid #c9a24a;border-radius:22px;background:#2f2a22;color:#f3e7c9;font-size:13px;font-weight:700;white-space:nowrap;max-width:60vw;overflow:hidden;text-overflow:ellipsis}   /* 찾는 중 — 모든 세력에서 찾는다. 누르면 찾는 말을 지운다 */
+.dx-facs[data-finding="1"] a {opacity:.55}
 .dx-facs .sym {font:900 14px/1 var(--han-font)}
 .dx-facs i {font-style:normal;font-size:11px;opacity:.65}
 .dx-facs a[aria-current="page"] {border-color:var(--cat,var(--accent));background:var(--cat,var(--accent));color:#fff;font-weight:700}
@@ -205,6 +209,6 @@ body.dx-page {margin:0;background:var(--bg);color:var(--text);-webkit-text-size-
 .dx-seenall:disabled {opacity:.5;cursor:default}
 .dx-sheet .seg {display:flex}
 .dx-sheet .seg button {flex:1 1 0;min-width:0;min-height:44px;padding:0 4px}
-.dx-sheet .pick {display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:var(--muted)}
-.dx-sheet .pick select {flex:1;min-width:0;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font:inherit;font-size:13px}
+.dx-sheet .pick {display:flex;flex-direction:column;gap:4px;margin-top:10px;font-size:12px;color:var(--muted)}   /* 이름표를 위에 — 고르개가 판의 폭을 다 쓴다 */
+.dx-sheet .pick select {width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font:inherit;font-size:13px}
 .dx-fav {display:inline-flex;align-items:center;margin-top:12px;color:var(--text);text-decoration:none}

@@ -22,13 +22,13 @@
      머리 항해(lib/workspace-ui.js) · 꽃 장식 틀(lib/material.css) · 공간 배경(lib/room.css)은 싣지 않는다 — 다른 화면은 「‹ 지도」 의 도구 상자에서. 색은 고른 공간의 것(lib/workspace.css). -->
 <link rel="stylesheet" href="lib/workspace.css?v=5">
 <script src="lib/workspace-theme.js?v=4"></script>
-<script src="lib/words.js?v=26"></script>
+<script src="lib/words.js?v=27"></script>
 <script src="lib/img.js?v=2"></script>
 <script src="lib/fresh.js?v=1"></script>
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다. 삼국지는 a: samguk) -->
 <script src="lib/favorites.js?v=1"></script>
-<script src="lib/tianxia-core.js?v=2"></script>   <!-- 그림 없음 · 새 그림 판정과 확인 기록(hasArt · lastAdded · isNew · today · seen) — 지도 · 막사와 같은 셈 -->
-<link rel="stylesheet" href="lib/sam.css?v=8">
+<script src="lib/tianxia-core.js?v=3"></script>   <!-- 그림 없음 · 새 그림 판정과 확인 기록(hasArt · lastAdded · isNew · today · seen) — 지도 · 막사와 같은 셈 -->
+<link rel="stylesheet" href="lib/sam.css?v=9">
 </head>
 <body class="dx-page">
 <div id="app"></div>
@@ -66,6 +66,10 @@ function groupsOf(d){
     .concat((qun.camps||[]).map(c=>({key:c.key,ko:c.ko,fac:'qun',about:c,gs:d.generals.filter(g=>g.camp===c.key)})))
     .concat(qun.key?[{key:'qun',ko:W('dx.qun.all'),sym:qun.hanja,fac:'qun',about:qun,gs:d.generals.filter(g=>g.faction==='qun')}]:[]);
 }
+/* 열 세력 줄 — 주소의 faction, 그 줄에 ?card= 의 장수가 없으면(안 맞는 주소 · faction 이 없는 주소) 그 장수가 든 줄(군웅은 무리) */
+const groupFor=(groups,fac,g)=>{const cur=groups.find(x=>x.key===fac);return g&&!(cur&&cur.gs.includes(g))?groups.find(x=>x.gs.includes(g))||cur||groups[0]:cur||groups[0];};
+/* 「‹ 지도」 — 이 공방의 지도 · 막사에서 넘어온 것이면 뒤로 가기(막사로 돌아간다), 아니면 지도로 */
+const fromMap=()=>{try{const r=new URL(document.referrer);return history.length>1&&r.origin===location.origin&&[new URL('index.html',location.href).pathname,new URL('./',location.href).pathname].includes(r.pathname);}catch{return false;}};
 /* 고른 화풍(2026-11-05 사용자 「도감에 옛날 버전은 따로보게 셀렉트박스로 화풍 선택」) — 기본 화풍이 처음, 앞 화풍(kr_mmorpg …)은 고르개로. 고른 화풍의 그림만 보인다 */
 let STY='';
 const curStyle=doc=>STY||doc.s.default;
@@ -126,6 +130,8 @@ function Row({doc,g,view,wf,open,setOpen,onOpen,favs}){
 function Lightbox({doc,box,setBox,close,favs}){
   const [msg,say]=useNote(),touch=useRef(null);
   useEffect(()=>{if(!box)return;const k=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1);};addEventListener('keydown',k);return()=>removeEventListener('keydown',k);});
+  /* 떠 있는 동안 뒤 목록이 밀리지 않게 — 쪽의 스크롤을 잠근다(lib/sam.css html[data-lb]) */
+  useEffect(()=>{if(!box)return;const el=document.documentElement;el.dataset.lb='1';return()=>{delete el.dataset.lb;};},[!!box]);
   if(!box)return null;
   const pics=picsOf(doc,box.g),i=Math.max(0,pics.findIndex(p=>p.file===box.file)),p=pics[i];
   if(!p)return null;
@@ -188,7 +194,8 @@ function Dex(){
   const [sf,setSfS]=useState(()=>STATE_F.includes(param('st'))?param('st'):'');
   const [q,setQS]=useState(()=>param('q')||'');
   const [only,setOnlyS]=useState(()=>{const o=param('only')??pref.only??'';return o==='1'||o===true?'art':ONLY.includes(o)?o:'';});
-  const [open,setOpen]=useState({}),[box,setBox]=useState(null),[sheet,setSheet]=useState(false),[,tick]=useState(0),deep=useRef(false);
+  const isLb=()=>!!(history.state&&history.state.samgukLb),isSh=()=>!!(history.state&&history.state.samgukSheet);
+  const [open,setOpen]=useState({}),[box,setBox]=useState(null),[sheet,setSheet]=useState(isSh),[,tick]=useState(0),deep=useRef(false);
   const [sty0,setStyS]=useState(()=>param('style')||pref.style||'');
   const url=fn=>{try{const u=new URL(location.href);fn(u.searchParams);history.replaceState(history.state,'',u);}catch{}};
   const put=(p,k,v)=>{if(v)p.set(k,v);else p.delete(k);};
@@ -197,41 +204,52 @@ function Dex(){
   /* 크게 보기와 뒤로 가기 — 열 때 기록에 한 칸(samgukLb)을 더해 두면 뒤로 가기가 그 칸을 지우며 팝업만 닫는다(원소 공방 사용자 2026-10-31 「뒤로 가기 누르면 이전 화면으로 넘어가네」).
      닫기 · Esc · 바깥으로 닫으면 그 칸을 우리가 지운다 — 다음 뒤로 가기는 그대로 이전 화면.
      그 장수의 그림을 크게 열면 확인한 것이다 — 「새 그림」 표지가 꺼지고 이 브라우저에 그때의 가장 늦은 등록 날짜를 적는다(더 늦은 등록이 생기면 다시 켜진다) */
-  const isLb=()=>!!(history.state&&history.state.samgukLb);
+  /* 크게 보기를 닫으면 주소에서 card · pic 을 지운다 — 막사에서 ?card= 로 들어와 닫은 뒤 새로 고치거나 다른 화면에 갔다 돌아와도 다시 열리지 않는다 */
+  const dropCard=()=>url(p=>{p.delete('card');p.delete('pic');});
   const openBox=b=>{if(!isLb()){try{history.pushState({samgukLb:1},'',location.href);}catch{}}if(doc.last[b.g.key])T.seen.mark(b.g.key,doc.last[b.g.key]);setBox(b);};
-  const closeBox=()=>{if(isLb()){try{history.back();return;}catch{}}setBox(null);};
-  useEffect(()=>{const pop=()=>{if(!isLb())setBox(null);};addEventListener('popstate',pop);return()=>removeEventListener('popstate',pop);},[]);
+  const closeBox=()=>{if(isLb()){try{history.back();return;}catch{}}setBox(null);dropCard();};
+  /* 도구 판도 같은 방식(samgukSheet) — 판을 연 채 뒤로 가기를 누르면 판만 닫힌다 */
+  const openSheet=()=>{if(!isSh()){try{history.pushState({samgukSheet:1},'',location.href);}catch{}}setSheet(true);};
+  const closeSheet=()=>{if(isSh()){try{history.back();return;}catch{}}setSheet(false);};
+  useEffect(()=>{const pop=()=>{if(!isLb()){setBox(null);dropCard();}setSheet(isSh());};addEventListener('popstate',pop);return()=>removeEventListener('popstate',pop);},[]);
   const setView=v=>{setViewS(v);remember(v,wf,q,only);},setWf=w=>{setWfS(w);remember(view,w,q,only);},setQ=x=>{setQS(x);remember(view,wf,x,only);},setOnly=o=>{setOnlyS(o);remember(view,wf,q,o);};
   const setSf=x=>{setSfS(x);url(p=>put(p,'st',x));};
-  const setFac=k=>{setFacS(k);setOpen({});url(p=>{p.set('faction',k);p.delete('card');p.delete('pic');});scrollTo(0,0);};
-  /* ?card= 로 오면 그 장수로 내려가 그림을 연다 — pic 이 있으면 그 그림(다른 화풍이면 그 화풍으로), 없으면 첫 그림. 그림이 없는 장수는 줄을 펼쳐 둔다 */
+  /* 세력을 고르면 찾는 말은 지운다(찾는 동안은 모든 세력에서 찾으므로 세력 줄이 뜻이 없다) */
+  const setFac=k=>{setFacS(k);setQS('');setOpen({});url(p=>{p.set('faction',k);p.delete('q');p.delete('card');p.delete('pic');});scrollTo(0,0);};
+  /* ?card= 로 오면 그 장수가 든 세력 줄을 열고 그 장수로 내려가 그림을 연다 — pic 이 그 장수의 그림이면 그 그림(다른 화풍이면 그 화풍으로), 없거나 파일 이름이 아니면(옛 즐겨찾기 pic=0) 첫 그림. 그림이 없는 장수는 줄을 펼쳐 둔다 */
   useEffect(()=>{if(!doc||doc.failed||deep.current)return;deep.current=true;const ck=param('card'),pic=param('pic');if(!ck)return;
     const g=doc.d.generals.find(x=>x.key===ck);if(!g)return;
+    const gk=groupFor(groupsOf(doc.d),fac,g).key;if(gk!==fac){setFacS(gk);url(p=>p.set('faction',gk));}
     setTimeout(()=>{const el=document.getElementById('c-'+ck);if(el)el.scrollIntoView({block:'center'});},50);
-    if(!pic){const first=picsOf(doc,g,artStyles(doc).some(x=>x.key===sty0)?sty0:doc.s.default)[0];if(first)openBox({g,file:first.file});else setOpen({[ck]:true});return;}
-    const st=artStyles(doc).map(x=>x.key).find(k=>picsOf(doc,g,k).some(p=>p.file===pic));   /* 즐겨찾기 그림이 다른 화풍이면 그 화풍으로 */
-    if(st){if(st!==curStyle(doc))setSty(st);openBox({g,file:pic});}},[doc]);
+    const stys=artStyles(doc).map(x=>x.key),st=pic&&stys.find(k=>picsOf(doc,g,k).some(p=>p.file===pic));   /* 즐겨찾기 그림이 다른 화풍이면 그 화풍으로 */
+    if(st){if(st!==curStyle(doc))setSty(st);openBox({g,file:pic});return;}
+    const first=picsOf(doc,g,stys.includes(sty0)?sty0:doc.s.default)[0];if(first)openBox({g,file:first.file});else setOpen({[ck]:true});},[doc]);
+  /* 세력 줄에서 고른 세력이 화면 안으로 따라온다 */
+  useEffect(()=>{const n=document.querySelector('.dx-facs'),a=n&&n.querySelector('[aria-current="page"]');if(n)n.scrollLeft=a?a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2:0;},[doc,fac,!q.trim()]);   /* 찾는 중이면 맨 앞(「찾는 중」 단추)으로 */
   if(!doc)return h('p',{class:'dx-wait'},W('dex.loading'));
   if(doc.failed)return h('p',{class:'dx-wait'},W('dex.fail'));
   const sty=artStyles(doc).some(x=>x.key===sty0)?sty0:doc.s.default;STY=sty;
-  const d=doc.d,groups=groupsOf(d),ck=param('card'),cg=ck&&d.generals.find(x=>x.key===ck),grp=groups.find(x=>x.key===(fac||(cg&&cg.faction)))||groups[0];
-  const all=grp.gs,pr=progress(doc,all),shown=all.filter(g=>matches(g,q)&&stateOk(g,sf)&&onlyOk(doc,g,only));
+  const d=doc.d,groups=groupsOf(d),ck=param('card'),cg=ck&&d.generals.find(x=>x.key===ck),grp=groupFor(groups,fac,cg);
+  /* 찾는 말이 있으면 모든 세력에서 찾는다 — 머리의 수도 찾은 수, 세력 줄엔 「찾는 중」. 지우면 원래 세력으로 */
+  const finding=!!q.trim(),all=finding?d.generals:grp.gs,pr=progress(doc,grp.gs),shown=all.filter(g=>matches(g,q)&&stateOk(g,sf)&&onlyOk(doc,g,only));
   const roles=ROLES.map(r=>({key:r,ko:d.roles[r].ko,gs:shown.filter(g=>g.role===r)})).filter(r=>r.gs.length).map(r=>Object.assign(r,{n:r.gs.length}));
   const fresh=d.generals.filter(g=>isNew(doc,g.key)),seenAll=()=>{const m={};for(const g of fresh)m[g.key]=doc.last[g.key];T.seen.markAll(m);tick(n=>n+1);};
   const filtered=!!(q||only||sf||wf||sty!==doc.s.default||view!=='world'),props={doc,view,wf,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})};
   return h('div',{class:'dx-app','data-fac':grp.fac},
     h('header',{class:'dx-top'},
-      h('div',{class:'dx-bar'},h('b',null,W('dx.head',{f:grp.ko})),h('span',null,W('dx.head.n',{n:all.length,done:pr.done}))),
-      h('nav',{class:'dx-facs','aria-label':W('dex.pick')},groups.map(x=>h('a',{key:x.key,href:'dex.html?faction='+x.key,'data-f':x.key,'data-fac':x.fac,'data-new':x.gs.some(g=>isNew(doc,g.key))?'1':'0','aria-current':x.key===grp.key?'page':undefined,
+      h('div',{class:'dx-bar'},h('b',null,W('dx.head',{f:finding?W('dx.finding'):grp.ko})),h('span',null,finding?W('dx.head.found',{n:shown.length}):W('dx.head.n',{n:all.length,done:pr.done}))),
+      h('nav',{class:'dx-facs','aria-label':W('dex.pick'),'data-finding':finding?'1':'0'},
+        finding&&h('button',{type:'button',class:'dx-finding',title:W('dx.find.clear.title'),'aria-label':W('dx.find.clear.title'),onClick:()=>setQ('')},W('dx.find.clear',{q:q.trim()})),
+        groups.map(x=>h('a',{key:x.key,href:'dex.html?faction='+x.key,'data-f':x.key,'data-fac':x.fac,'data-new':x.gs.some(g=>isNew(doc,g.key))?'1':'0','aria-current':!finding&&x.key===grp.key?'page':undefined,
         onClick:e=>{if(e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();setFac(x.key);}},x.sym&&h('span',{class:'sym'},x.sym),x.ko,h('i',null,x.gs.length))))),
     h('main',{class:'dx-list'},
       !roles.length&&h('p',{class:'none-row',id:'dex-none'},W('dex.empty')),
       roles.map(r=>h('section',{key:r.key,class:'dx-role'},
         h('h3',{id:'r-'+r.key},r.ko,' ',h('span',null,W('dex.count',{n:r.n}))),
         h('div',{class:'dx-rows'},r.gs.map(g=>h(Row,Object.assign({key:g.key,g},props))))))),
-    h('a',{class:'dx-back',href:'index.html'},W('dx.back')),
-    h('button',{type:'button',class:'dx-tools','data-on':filtered?'1':'0','aria-haspopup':'dialog',onClick:()=>setSheet(true)},W('dx.tools')),
-    sheet&&h(Sheet,{doc,grp,roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,sty,setSty,favN:favs.filter(x=>x.a===A).length,fresh:fresh.length,seenAll,onClose:()=>setSheet(false)}),
+    h('a',{class:'dx-back',href:'index.html',onClick:e=>{if(fromMap()){e.preventDefault();history.back();}}},W('dx.back')),
+    h('button',{type:'button',class:'dx-tools','data-on':filtered?'1':'0','aria-haspopup':'dialog',onClick:openSheet},W('dx.tools')),
+    sheet&&h(Sheet,{doc,grp,roles,view,setView,wf,setWf,q,setQ,only,setOnly,sf,setSf,sty,setSty,favN:favs.filter(x=>x.a===A).length,fresh:fresh.length,seenAll,onClose:closeSheet}),
     h(Lightbox,{doc,box,setBox,close:closeBox,favs}));
 }
 render(h(Dex),document.getElementById('app'));
