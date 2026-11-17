@@ -100,6 +100,7 @@
 ```sh
 node tools/casual-plan.cjs <장수> --world <세계>|all [--fresh] [--out 폴더]   # 일상컷 묶음 계획 — 세계 셋끼리 같은 장면 없이, 비어 있는 번호에(--fresh 면 옛 묶음 뒤 번호로 새 일곱 장 — 2026-11-11) 겹치지 않는 장면(정해 둔 세 갈래 — 노출 · 세계 안 · 게임 코스프레(2026-11-15, 상황 노출 자리 — 세 공방 기록 + 계획의 예약 합쳐 남은 인원 무게의 게임 · 덜 쓴 재단, 등장인물 많은 게임도 캐릭터를 계획기가 정한다 — 2026-11-16, 여자 무게 2) + 자유 설계 둘 — 옷 자유 · 갈래 자유 · 네 시대 · 장소 · 의상 · 자세 · 소품), 기록 · 지시문을 생성기 꼴로. --check 기록폴더 로 올리기 전 검사
 node tools/casual-plan.cjs <장수> --recosplay <계획 파일> [--out 폴더]   # 옛 계획의 아직 안 그린 게임 코스프레 칸만 새 규칙으로(2026-11-16) · --recosplay-list 로 「계획은 있는데 안 그린 pick 칸」 보기
+node tools/casual-index.cjs [--repos 그림저장소,…] [--check] && node tests/casual-index.cjs   # 일상컷 색인 data/casual-index.json(2026-11-17 — 허브 「일상컷 목록」: 컷마다 필수 갈래 · 옷 계열 · 옷 · shade · 게임 코스프레 · 자유 설계 Outfit 줄, 우리 값은 한글). 그림 등록 워크플로가 같은 자리에서 다시 쓰고 같이 커밋한다
 node tests/casual-plan.cjs              # 계획기 — 장수 × 세계 × 씨앗이 규칙을 지키나
 node tests/image-claim.cjs             # 잠금 도구 — 잡기 · 막기 · 풀기 · 끝(시험 저장소에서)
 node tests/prompt-gpt.cjs              # 구조형(lib/prompt-gpt.js) — GPT 세션 일상컷 지시문, 생성기 지시문의 줄이 다 칸으로 옮겨지나 — 생성기 지시문의 줄이 다 칸으로 옮겨지나, 고정 화풍 · 첨부 그림 · 체형 볼륨
