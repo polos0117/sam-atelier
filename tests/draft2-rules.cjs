@@ -33,8 +33,8 @@ const doTao = CB.combos.find(c => c.n === '도원결의');
 ok(doTao && doTao.t[3] === 90 && doTao.m.join() === '유비,관우,장비', '도원결의 3인 90');
 
 /* ── 자료 → 카드 ── */
-const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn, BF = J('data/draft2-battlefields.json');
-const db = R.buildDB(GN, S, CB, PK, FC, BD, BF), mx = R.view(db, 'mx');
+const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn, BF = J('data/draft2-battlefields.json'), RO = J('data/draft2-roster.json');
+const db = R.buildDB(GN, S, CB, PK, FC, BD, BF, RO), mx = R.view(db, 'mx');
 ok(db.mode === 'base' && mx.mode === 'mx' && R.view(mx, 'base') === db && R.view(db, 'mx') === mx, '진영 셈 view');
 ok(db.list.length === 279, '장수 279');
 const by = db.by;
@@ -205,7 +205,27 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
   ok(!R.inScope(y194, '강유') && R.inScope(y194, '조조'), '194 — 강유는 아직 없다');
   const st = R.newGame(db, { keys: db.list.map(c => c.key), seed: 3, players: 3, fmode: 'w194' });
   const all = st.pool.concat(st.pack.map(e => e.k));
-  ok(all.length === Object.keys(PK.packs.w194.facMap).length && all.every(k => PK.packs.w194.facMap[k]), '194 — 장수 범위는 그해 사람 ' + all.length);
+  const add194 = RO.packs.w194.add.map(a => a.name);
+  ok(all.length === Object.keys(PK.packs.w194.facMap).length + add194.length && all.every(k => PK.packs.w194.facMap[k] || add194.includes(k)), '194 — 장수 범위는 그해 사람(옛 명단 + 추가 명단) ' + all.length);
+  /* 연도 판 추가 명단(data/draft2-roster.json, 사용자 2026-11-17) — 범위 · 세력 · 군주, 새 세력 유요 · 왕랑 */
+  const y200 = R.view(db, 'gd200'), y208 = R.view(db, 'jb208');
+  ok(Object.entries(RO.packs).every(([m, p]) => p.add.every(a => R.inScope(R.view(db, m), a.name))), '추가 명단 — 모두 그해 장수 범위에');
+  ok(Object.entries(RO.packs).every(([m, p]) => p.add.every(a => { const f = R.facOf(R.view(db, m), a.name); return (FC.factions[f] ? f : FC.alias[f]) === a.f; })), '추가 명단 — 적힌 세력에 든다(그해 이름이 있으면 그 이름)');
+  ok(R.facOf(y194, '유장') === '유장군' && R.facOf(y194, '염포') === '장로군' && R.facColor(y194, '유장군') === FC.factions['유장'].c && R.facOf(y194, '서황') === '한조정' && R.facOf(y194, '감부인') === '서주군' && R.facOf(y194, '여범') === '손책군' && R.facOf(y208, '한현') === '조조군' && R.facOf(y200, '황충') === '유표군', '추가 명단 — 세력 열쇠 → 그해 이름');
+  ok(R.facOf(y194, '유요') === '유요' && R.facOf(y194, '왕랑') === '왕랑' && R.facOf(y194, '우번') === '왕랑' && R.facColor(y194, '유요') === FC.factions['유요'].c && R.facColor(y194, '왕랑') === FC.factions['왕랑'].c
+    && y194.facInfo['유요'].h === '劉' && y194.facInfo['왕랑'].h === '王' && !R.isMajor(y194, '유요') && !R.isMajor(y194, '왕랑'), '195 — 새 세력 유요 劉 · 왕랑 王(색 · 도장 · 군웅)');
+  ok(['이각', '장연', '왕랑'].every(k => y194.by[k].cat === 'lord' && y194.by[k].asLord && y194.by[k].trait === GN.generals.find(g => g.key === k).lordAs.trait) && y200.by['장연'].cat === 'lord'
+    && y208.by['장연'].cat === 'general' && db.by['왕랑'].role === 'official' && mx.by['이각'].cat === 'general', '추가 명단 roles — 195 이각 · 장연 · 왕랑, 200 장연이 그해에만 군주(lordAs)');
+  ok(y194.by['여포'].cat === 'lord' && y208.by['마초'].cat === 'lord', '옛 roleMap 군주는 그대로');
+  ok(!R.inScope(y208, '황충') && R.inScope(y208, '한현') && R.evaluate(y194, ['유장', '오의', '장임', '엄안']).rows.some(r => r.kind === 'syn' && r.fac === '유장군' && /4인/.test(r.label)), '208 황충은 없다 · 195 유장 결속');
+  /* 추가 명단을 못 받았을 때(파일 없음) — 옛 명단만으로 돈다. 군웅록 · 위촉오+군웅은 추가 명단과 무관(같은 씨앗이면 같은 판) */
+  const db0 = R.buildDB(GN, S, CB, PK, FC, BD, BF);
+  const run = (d, fmode, seed) => { const s2 = R.newGame(d, { keys: d.list.map(c => c.key), seed, lv: 2, players: 3, fmode }), vv = R.view(d, fmode); let g = 0;
+    while (s2.phase === 'draft' && g++ < 400) { const seat = R.turn(s2); if (!seat) { R.endRound(vv, s2); continue; } R.ensureChoices(vv, s2, seat); R.aiAct(vv, s2, seat); }
+    return JSON.stringify([s2.mine, s2.foe, s2.foe2, s2.aiFac, s2.field, s2.phase]); };
+  ok(!R.inScope(R.view(db0, 'w194'), '유장') && R.view(db0, 'w194').by['왕랑'].cat === 'staff' && Object.keys(R.view(db0, 'w194').members).length === Object.keys(PK.packs.w194.facMap).length, '추가 명단 없이 — 옛 명단 그대로');
+  ok([11, 12, 13].every(sd => run(db, 'mx', sd) === run(db0, 'mx', sd) && run(db, 'base', sd) === run(db0, 'base', sd)), '군웅록 · 위촉오+군웅 — 추가 명단이 있어도 같은 씨앗이면 같은 판');
+  ok(JSON.parse(run(db0, 'w194', 11))[5] !== 'draft' && run(db, 'w194', 11) !== run(db0, 'w194', 11), '연도 판 — 추가 명단 없이도 끝까지 돌고, 있으면 판이 달라진다');
   ok(y263.by['사마소'].cat === 'lord' && y263.by['사마소'].trait === 'hegemon' && y263.by['제갈탄'].trait === 'defender', '263 — 사마소 · 제갈탄 군주(lordAs)');
   ok(R.view(db, 'jb208').by['마초'].trait === 'valor', '208 — 마초 군주');
   for (const m of ['w194', 'gd200', 'jb208']) { play(70 + m.length, db.list.map(c => c.key), 1, 2, { players: 3, fmode: m }); checks++; }

@@ -1,0 +1,96 @@
+{
+ "version": 1,
+ "note": "연도 판(195 군웅할거 w194 · 200 관도 gd200 · 208 적벽 jb208 · 263 종결 end263)의 추가 명단 — 새 판(draft2)과 천하 지도가 같이 읽는다. 옛 게임 명단(data/draft2-packs.json 의 facMap — draft.html 에서 뽑은 것)은 그대로 두고 그 위에 얹는다(lib/draft2/rules.js 의 view 한 곳에서 합친다). 옛 명단만으로는 그해 실제로 땅을 쥔 세력(유장 · 장로 · 사섭 …)이 지도에서 비었다. 사용자 2026-11-17 「추가 명단 넣어서 채워주고, 추가 명단 기준으로 게임도 맞춰줘」 → 「새 판만 맞춰줘」(옛 게임 draft.html 은 그대로) · 「1. 한현(208 — 황충은 빼고), 2. 주창 넣어주고, 3. 유요, 왕랑은 세력을 따로 빼줘, 4. 여남은 비워두자. 못채우는곳에는 유장, 장로 쪽 장수들 넣어줘」 · 「세력이름은 유요랑 왕랑의 성씨로 해줘」(도장 글자 — 유요 劉 · 왕랑 王). packs.<팩>.add 는 장수(name) · 세력 열쇠(f — data/draft2-factions.json 의 factions) · 근거(why) · 출처(src), roles 는 그해 군주로 세울 장수(팩의 roleMap 과 같은 길 — 기질은 data/draft2-generals.json 의 lordAs). 그 팩 facMap 에 이미 있는 장수는 넣지 않는다. 성의 주인은 data/tianxia.json, 표는 docs/TIANXIA_SOURCES.md. 검사 node tests/draft2-data.cjs",
+ "packs": {
+  "w194": {
+   "roles": {"이각":"군주","장연":"군주","왕랑":"군주"},
+   "add": [
+    {"name":"유장","f":"유장","why":"흥평 원년(194) 아버지 유언이 등창으로 죽고 익주를 이었다 — 214년까지 익주의 주인","src":"https://zh.wikisource.org/wiki/三國志/卷31"},
+    {"name":"오의","f":"유장","why":"아버지가 유언과 옛 벗이라 온 집안이 유언을 따라 촉에 들어갔고, 유장 때 중랑장이었다(오일 = 오의)","src":"https://zh.wikisource.org/wiki/三國志/卷34"},
+    {"name":"장로","f":"장로","why":"유언 때 한중을 차지해 「사군」 이라 일컬으며 215년까지 다스렸다(차지한 해는 본전에 없다 — 190년대 초)","src":"https://zh.wikisource.org/wiki/三國志/卷08"},
+    {"name":"이각","f":"동탁","why":"동탁의 옛 장수 — 195년 3월 번조를 죽이고, 겨울에 곽사와 함께 동쪽으로 가는 어가를 쫓았다. 198년에 죽는다","src":"https://en.wikipedia.org/wiki/Li_Jue_(Han_dynasty)"},
+    {"name":"곽사","f":"동탁","why":"동탁의 옛 장수 — 195년 겨울 이각과 함께 어가를 쫓았고 뒤에 미(郿)에서 부하 오습에게 죽는다","src":"https://zh.wikisource.org/wiki/三國志/卷06"},
+    {"name":"장양","f":"장양","why":"동탁이 건의장군 · 하내태수로 삼은 뒤 줄곧 하내에 있었다 — 건안 3~4년 부하 양추에게 죽는다","src":"https://zh.wikisource.org/wiki/三國志/卷08"},
+    {"name":"동소","f":"장양","why":"원소를 떠나 헌제에게 가다가 하내에서 장양에게 붙들려 머물렀고, 천자가 안읍에 있을 때 하내에서 가서 의랑이 되었다(196) — 195년 말에는 장양 곁","src":"https://zh.wikisource.org/wiki/三國志/卷14"},
+    {"name":"사섭","f":"교주","why":"교지태수 — 형제가 여러 군을 맡아 한 주를 쥐었다(210년 손권의 보즐을 받아들일 때까지 홀로 섰다)","src":"https://zh.wikisource.org/wiki/三國志/卷49"},
+    {"name":"유요","f":"유요","why":"조서로 양주자사가 되어 곡아에 있다가 195년 손책에게 밀려 예장(팽택)으로 옮겼다 — 198년 무렵 42세로 죽는다","src":"https://zh.wikisource.org/wiki/三國志/卷49"},
+    {"name":"왕랑","f":"왕랑","why":"조정이 임명한 회계태수 — 손책에게 져서 동야로 달아나는 것은 196년","src":"https://zh.wikisource.org/wiki/三國志/卷13"},
+    {"name":"우번","f":"왕랑","why":"회계태수 왕랑의 공조 — 손책이 회계를 칠 때(196) 부친상 중에도 왕랑에게 피하라고 권했다","src":"https://zh.wikisource.org/wiki/三國志/卷57"},
+    {"name":"동승","f":"한조정","why":"195년 이각 · 곽사에게서 벗어나 동쪽으로 가는 헌제를 호위한 장수(200년 2월에 처형된다)","src":"https://en.wikipedia.org/wiki/Dong_Cheng_(Han_dynasty)"},
+    {"name":"서황","f":"한조정","why":"양봉 밑의 기도위로 천자를 낙양으로 모시자고 권했고, 천자가 황하를 건너 안읍에 닿자(195년 12월) 도정후에 봉해졌다 — 조조에게 가는 것은 196년","src":"https://zh.wikisource.org/wiki/三國志/卷17"},
+    {"name":"공융","f":"한조정","why":"북해상(190~196) — 196년 원담에게 져서 허로 달아날 때까지 북해를 지켰다","src":"https://en.wikipedia.org/wiki/Kong_Rong"},
+    {"name":"장연","f":"황건","why":"흑산의 우두머리 — 무리가 백만이라 일컬었고 205년에야 조조에게 항복한다(흑산적을 세력 열쇠 「황건」 으로 적었다)","src":"https://zh.wikisource.org/wiki/三國志/卷08"},
+    {"name":"주창","f":"황건","why":"연의의 인물 — 장보 밑의 황건이었다가 와우산의 도적이 되어, 관우를 만나기(200년) 전까지 그대로다. 정사에는 없다","src":"https://en.wikipedia.org/wiki/Zhou_Cang"},
+    {"name":"엄백호","f":"재야","why":"오 사람 엄백호 무리가 저마다 만여 명으로 곳곳에 진을 치고 있었다 — 손책이 회계를 얻은 뒤(196)에야 깨뜨렸다","src":"https://zh.wikisource.org/wiki/三國志/卷46"},
+    {"name":"엄여","f":"재야","why":"엄백호의 아우 — 손책이 회계를 얻은 뒤 형의 화친 사자로 갔다가 손책의 수극에 죽는다(196년 뒤)","src":"https://zh.wikisource.org/wiki/三國志/卷46"},
+    {"name":"원담","f":"원소","why":"193년 원소가 맏아들 원담을 청주로 내보내 전해와 맞서게 했고 196년 공융의 북해를 빼앗는다","src":"https://en.wikipedia.org/wiki/Yuan_Tan"},
+    {"name":"신비","f":"원소","why":"형 신평을 따라 원소를 섬겼다 — 조조가 사공이 되어(196) 불렀으나 가지 못했다","src":"https://zh.wikisource.org/wiki/三國志/卷25"},
+    {"name":"여범","f":"동오","why":"수춘에서 식객 백 명을 데리고 손책에게 몸을 맡겼고, 여강을 친 뒤 함께 강을 건너 횡강 · 당리에 이르렀다(195)","src":"https://zh.wikisource.org/wiki/三國志/卷56"},
+    {"name":"주치","f":"동오","why":"손견 때부터의 장수 — 손책을 도와 오군태수 허공을 유권에서 깨뜨리고 오군에 들어가 태수 일을 맡았다","src":"https://zh.wikisource.org/wiki/三國志/卷56"},
+    {"name":"능조","f":"동오","why":"손책이 처음 일어났을 때부터 싸움마다 따라 늘 앞장섰다(능통전 첫머리)","src":"https://zh.wikisource.org/wiki/三國志/卷55"},
+    {"name":"진무","f":"동오","why":"손책이 수춘에 있을 때 열여덟 살로 찾아가 뵙고 따라서 강을 건넜다","src":"https://zh.wikisource.org/wiki/三國志/卷55"},
+    {"name":"감부인","f":"도겸","why":"유비가 예주자사로 소패에 머물 때(194~) 첩으로 들였다 — 그해 유비는 서주군","src":"https://zh.wikisource.org/wiki/三國志/卷34"},
+    {"name":"장임","f":"유장","why":"섬기기 시작한 해는 기록에 없다 — 유장의 장수로 넣는다(사용자 2026-11-17 「유장, 장로 쪽 장수들 넣어줘」)","src":"https://en.wikipedia.org/wiki/Zhang_Ren"},
+    {"name":"엄안","f":"유장","why":"섬기기 시작한 해는 기록에 없다 — 유장의 장수로 넣는다(사용자 2026-11-17 「유장, 장로 쪽 장수들 넣어줘」)","src":"https://en.wikipedia.org/wiki/Yan_Yan"},
+    {"name":"황권","f":"유장","why":"섬기기 시작한 해는 기록에 없다 — 유장의 장수로 넣는다(사용자 2026-11-17 「유장, 장로 쪽 장수들 넣어줘」)","src":"https://en.wikipedia.org/wiki/Huang_Quan_(general)"},
+    {"name":"장송","f":"유장","why":"섬기기 시작한 해는 기록에 없다 — 유장의 장수로 넣는다(사용자 2026-11-17 「유장, 장로 쪽 장수들 넣어줘」)","src":"https://en.wikipedia.org/wiki/Zhang_Song"},
+    {"name":"염포","f":"장로","why":"섬기기 시작한 해는 기록에 없다 — 장로의 장수로 넣는다(사용자 2026-11-17 「유장, 장로 쪽 장수들 넣어줘」)","src":"https://en.wikipedia.org/wiki/Yan_Pu"},
+    {"name":"양송","f":"장로","why":"섬기기 시작한 해는 기록에 없다 — 장로의 장수로 넣는다(사용자 2026-11-17 「유장, 장로 쪽 장수들 넣어줘」) · 양송은 연의의 인물","src":"https://en.wikipedia.org/wiki/Yang_Song"}
+   ]
+  },
+  "gd200": {
+   "roles": {"장연":"군주"},
+   "add": [
+    {"name":"사섭","f":"교주","why":"교지태수 — 형제가 여러 군을 맡아 한 주를 쥐었다(210년 손권의 보즐을 받아들일 때까지 홀로 섰다)","src":"https://zh.wikisource.org/wiki/三國志/卷49"},
+    {"name":"장연","f":"황건","why":"흑산의 우두머리 — 건안 10년(205)에야 무리 십여 만을 이끌고 조조에게 항복한다(흑산적을 세력 열쇠 「황건」 으로 적었다)","src":"https://zh.wikisource.org/wiki/三國志/卷01"},
+    {"name":"주창","f":"황건","why":"연의의 인물 — 황건 잔당으로 와우산의 도적이다가 관우의 천리행 때 따른다(그해 관우는 아직 조조군). 정사에는 없다","src":"https://en.wikipedia.org/wiki/Zhou_Cang"},
+    {"name":"가후","f":"조위","why":"관도에서 원소와 맞설 때 장수를 설득해 조조에게 항복시켰고(건안 4년 11월) 집금오 · 도정후, 참사공군사가 되었다","src":"https://zh.wikisource.org/wiki/三國志/卷10"},
+    {"name":"장수","f":"조위","why":"건안 4년 겨울 11월 무리를 이끌고 조조에게 항복했고 관도 싸움에서 힘껏 싸워 파강장군이 되었다","src":"https://zh.wikisource.org/wiki/三國志/卷08"},
+    {"name":"진군","f":"조위","why":"여포가 깨진 뒤(199년 초) 조조가 사공서조연속으로 불러 썼다","src":"https://zh.wikisource.org/wiki/三國志/卷22"},
+    {"name":"진등","f":"조위","why":"197년부터 조조가 세운 광릉태수 — 199~200년 광기에서 손책군을 물리쳤고 200년 여름 사양에 있었다","src":"https://en.wikipedia.org/wiki/Chen_Deng"},
+    {"name":"공융","f":"조위","why":"196년 북해를 잃고 허로 와 조정의 장작대장 · 소부를 지냈다(208년 8월 처형) — 조조가 낀 허도 조정의 신하라 조위로 적었다","src":"https://en.wikipedia.org/wiki/Kong_Rong"},
+    {"name":"미축","f":"원소","why":"벼슬을 버리고 유비를 따라다녔다 — 유비가 형주로 가려 할 때 먼저 유표에게 보내졌다. 그해 유비가 원소군이라 함께 적는다","src":"https://zh.wikisource.org/wiki/三國志/卷38"},
+    {"name":"미방","f":"원소","why":"팽성상 벼슬을 버리고 형 미축과 함께 유비를 따라다녔다 — 그해 유비가 원소군이라 함께 적는다","src":"https://zh.wikisource.org/wiki/三國志/卷38"},
+    {"name":"손건","f":"원소","why":"유비가 조조를 등졌을 때 원소와 손잡으러 보낸 사자 — 그해 유비가 원소군이라 함께 적는다","src":"https://zh.wikisource.org/wiki/三國志/卷38"},
+    {"name":"간옹","f":"원소","why":"젊어서부터 유비를 따라다녔고 형주에 이르러 미축 · 손건과 함께 종사중랑이 되었다 — 그해 유비가 원소군이라 함께 적는다","src":"https://zh.wikisource.org/wiki/三國志/卷38"},
+    {"name":"황충","f":"유표","why":"유표가 중랑장으로 삼아 조카 유반과 함께 장사 유현을 지키게 했다","src":"https://zh.wikisource.org/wiki/三國志/卷36"},
+    {"name":"이적","f":"유표","why":"젊어서부터 같은 고을 사람인 진남장군 유표에게 의지했다","src":"https://zh.wikisource.org/wiki/三國志/卷38"},
+    {"name":"염행","f":"서량","why":"한수의 장수 — 건안 초 마등과 싸울 때 마초를 찔러 죽일 뻔했고 209년 한수의 사자로 조조에게 간다","src":"https://en.wikipedia.org/wiki/Yan_Xing_(Han_dynasty)"},
+    {"name":"화흠","f":"동오","why":"예장태수로 있다가 손책을 맞아들여 그 밑에 머물렀다 — 조조가 관도에 있을 때 천자에게 표를 올려 불렀고 손권은 보내지 않으려 했다","src":"https://zh.wikisource.org/wiki/三國志/卷13"},
+    {"name":"여몽","f":"동오","why":"열대여섯에 매형 등당을 따라 싸웠고 손책이 곁에 두었다 — 등당이 죽자 별부사마로 그 군사를 이었다","src":"https://zh.wikisource.org/wiki/三國志/卷54"},
+    {"name":"동습","f":"동오","why":"손책이 회계군에 들어올 때(196) 고천정에서 맞이해 따랐다","src":"https://zh.wikisource.org/wiki/三國志/卷55"},
+    {"name":"진무","f":"동오","why":"손책이 수춘에 있을 때 열여덟 살로 찾아가 따랐고 강을 건너 별부사마가 되었다","src":"https://zh.wikisource.org/wiki/三國志/卷55"},
+    {"name":"하제","f":"동오","why":"건안 원년(196) 손책이 회계군에 와서 효렴으로 천거했다","src":"https://zh.wikisource.org/wiki/三國志/卷60"},
+    {"name":"우번","f":"동오","why":"왕랑이 진 뒤 돌아오자 손책이 다시 공조로 삼고 벗의 예로 대했다","src":"https://zh.wikisource.org/wiki/三國志/卷57"},
+    {"name":"반장","f":"동오","why":"손권이 양선현장일 때(196년 무렵) 처음 찾아가 따랐다","src":"https://zh.wikisource.org/wiki/三國志/卷55"}
+   ]
+  },
+  "jb208": {
+   "roles": {},
+   "add": [
+    {"name":"사섭","f":"교주","why":"교지태수 — 건안 15년(210) 손권이 보즐을 교주자사로 보낼 때까지 홀로 섰다","src":"https://zh.wikisource.org/wiki/三國志/卷49"},
+    {"name":"한현","f":"조위","why":"장사태수 — 조조가 형주를 얻자 황충이 옛 자리 그대로 한현 밑에 놓였다(황충전). 209년 유비에게 항복한다","src":"https://zh.wikisource.org/wiki/三國志/卷36"},
+    {"name":"유파","f":"조위","why":"유표가 죽고 조조가 형주를 치자 북쪽으로 조조에게 갔고, 조조가 연(掾)으로 삼아 장사 · 영릉 · 계양을 달래러 보냈다","src":"https://zh.wikisource.org/wiki/三國志/卷39"},
+    {"name":"사마의","f":"조위","why":"208년 승상이 된 조조 밑에서 문학연으로 벼슬을 시작했다(조조의 승상 취임은 그해 6월)","src":"https://en.wikipedia.org/wiki/Sima_Yi"},
+    {"name":"진군","f":"조위","why":"여포가 깨진 뒤 조조의 사공서조연속이 되어 현령들을 거쳐 치서시어사, 참승상군사로 옮겼다","src":"https://zh.wikisource.org/wiki/三國志/卷22"},
+    {"name":"장패","f":"조위","why":"여포가 진 뒤 조조에게 항복해 청주 · 서주를 맡았고, 적벽 뒤 회수를 건너 손권을 치는 데 따라 거소를 떨어뜨렸다","src":"https://en.wikipedia.org/wiki/Zang_Ba"},
+    {"name":"여건","f":"조위","why":"조조가 태산태수로 삼아 십여 년을 다스렸고 문제가 왕위에 오르자(220) 서주자사로 옮겼다","src":"https://zh.wikisource.org/wiki/三國志/卷18"},
+    {"name":"전예","f":"조위","why":"공손찬이 진 뒤 선우보의 장사로 조씨에게 귀순하라 권했고, 조조가 불러 승상군모연으로 삼았다","src":"https://zh.wikisource.org/wiki/三國志/卷26"},
+    {"name":"조비","f":"조위","why":"조조의 아들(187년생) — 204년 업 함락 때 견씨를 아내로 맞았다. 벼슬(오관중랑장)은 211년부터","src":"https://en.wikipedia.org/wiki/Cao_Pi"},
+    {"name":"견씨","f":"조위","why":"204년 업이 떨어진 뒤 조비의 아내가 되었다(221년에 죽는다)","src":"https://en.wikipedia.org/wiki/Lady_Zhen"},
+    {"name":"이적","f":"촉한","why":"유표가 죽자 유비를 따라 남쪽으로 강을 건넜다","src":"https://zh.wikisource.org/wiki/三國志/卷38"},
+    {"name":"유봉","f":"촉한","why":"유비가 형주에 와서 뒤이을 아들이 없어 양자로 삼았다 — 유비가 촉에 들어가 유장을 칠 때 스물 남짓","src":"https://zh.wikisource.org/wiki/三國志/卷40"},
+    {"name":"감부인","f":"촉한","why":"그해 당양 장판에서 조운의 보호로 화를 면했다 — 뒤에 죽어 남군에 묻혔다","src":"https://zh.wikisource.org/wiki/三國志/卷34"},
+    {"name":"진도","f":"촉한","why":"예주 때부터 유비를 따랐고 이름과 지위가 늘 조운 다음이었다(계한보신찬 주)","src":"https://zh.wikisource.org/wiki/三國志/卷45"},
+    {"name":"주환","f":"동오","why":"손권이 장군이 되자(200~) 막부에서 일하다 여요현장이 되었다(238년 62세로 죽는다)","src":"https://zh.wikisource.org/wiki/三國志/卷56"},
+    {"name":"여대","f":"동오","why":"손권이 일을 맡자(200~) 막부에 나아가 오현의 승이 되었다(256년 96세로 죽는다)","src":"https://zh.wikisource.org/wiki/三國志/卷60"}
+   ]
+  },
+  "end263": {
+   "roles": {},
+   "add": [
+    {"name":"종예","f":"촉한","why":"경요 원년(258) 병으로 성도에 불려 와 있었고, 함희 원년(264) 봄 요화와 함께 낙양으로 옮겨지다 길에서 병으로 죽었다","src":"https://zh.wikisource.org/wiki/三國志/卷45"}
+   ]
+  }
+ }
+}

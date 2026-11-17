@@ -74,4 +74,26 @@ for (const f of BF.fields) {
   for (const sl of f.slots) assert(BF.types[sl.type], `${f.key} ${sl.key}: 꼴 ${sl.type}`);
   assert(f.slots.some(sl => sl.type === 'hq'), `${f.key}: 본진이 없다`);
 }
-console.log('draft2-data ok —', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length, '· 전장', BF.fields.length);
+/* 연도 판 추가 명단 — data/draft2-roster.json: 연도 팩 넷에만, 이름은 설계표에 있고 그 팩 facMap 엔 없고(겹치지 않게), 세력은 세력 표의 열쇠, 근거 · 출처, roles 는 그 팩 추가 명단의 장수 · lordAs */
+const RO = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-roster.json'), 'utf8'));
+assert(/그대로 두고 그 위에 얹는다/.test(RO.note) && /추가 명단 기준으로 게임도 맞춰줘/.test(RO.note), '추가 명단 머리 — 무엇인지 · 사용자의 말');
+assert.deepStrictEqual(Object.keys(RO.packs), ['w194', 'gd200', 'jb208', 'end263'], '추가 명단은 연도 팩 넷');
+let roN = 0;
+for (const [pk, r] of Object.entries(RO.packs)) {
+  const seen = new Set();
+  for (const a of r.add) {
+    assert(role[a.name], `${pk} ${a.name}: 설계표에 없는 장수`); assert(!P.packs[pk].facMap[a.name], `${pk} ${a.name}: 옛 명단(facMap)에 이미 있다`);
+    assert(!seen.has(a.name), `${pk} ${a.name}: 두 번 적혔다`); seen.add(a.name); roN++;
+    assert(F.factions[a.f], `${pk} ${a.name}: 세력 ${a.f} 가 세력 표의 열쇠가 아니다`);
+    assert(a.why && /^https?:\/\//.test(a.src), `${pk} ${a.name}: 근거 · 출처`);
+  }
+  for (const [k, v] of Object.entries(r.roles)) {
+    assert(v === '군주' && seen.has(k), `${pk} roles ${k}: 그 팩 추가 명단의 장수를 군주로`);
+    assert(role[k] === 'lord' || (byKey[k] && byKey[k].lordAs), `${pk} roles ${k}: 군주인데 lordAs 가 없다`);
+  }
+}
+for (const f of ['유요', '왕랑']) assert(F.factions[f] && !F.factions[f].major, `새 세력 ${f}`);
+assert(F.factions['유요'].h === '劉' && F.factions['왕랑'].h === '王', '유요 劉 · 왕랑 王(사용자 「성씨로 해줘」)');
+assert(RO.packs.jb208.add.some(a => a.name === '한현' && a.f === '조위') && !RO.packs.jb208.add.some(a => a.name === '황충'), '208 — 한현은 넣고 황충은 뺀다');
+assert(['w194', 'gd200'].every(pk => RO.packs[pk].add.some(a => a.name === '주창')), '주창');
+console.log('draft2-data ok — 추가 명단', roN, '명 ·', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length, '· 전장', BF.fields.length);
