@@ -1,11 +1,6 @@
 {
  "version": 1,
- "young_cuts": [
-  "knit",
-  "idol",
-  "mini_dress"
- ],
- "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번). 2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → excluded({게임 열쇠: 까닭}) — 설계표(game-design.json)의 게임은 games 나 excluded 둘 중 하나에 있어야 한다(tools/game-cosplay.cjs check 가 막는다). 새 게임을 설계표에 넣으면 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync 로 세 공방에 쓴다. 2026-11-17 사용자 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」 → 다섯 더해 게임 스물넷: 베요네타(주인공 하나), 테일즈위버 · 데드 오어 얼라이브 5 · 더 킹 오브 파이터즈 2002 · 원신(등장인물 많음 — 공식 플레이 캐릭터만, 위키백과로 확인. DOA5 · KOF 2002 는 원판만, 원신은 지금 플레이 가능한 전부. 어린아이로 그려진 캐릭터 — 테일즈위버 15·16세 셋, 원신 어린이 체형 아홉 — 는 성인 코스프레 재단에 싣지 않아 뺐다). 2026-11-17 사용자 「코스튬의상이라 나이는 상관없는데」 → 어린 캐릭터(테일즈위버 셋 · 원신 아홉)를 다시 넣고 그 열둘과 유피 키사라기에 young: true — young 캐릭터는 young_cuts(니트 원피스 · 아이돌 무대 · 미니 드레스)만 입고 노출 재단(란제리 · 비키니 · 바디수트 등)은 쓰지 않는다. 같은 날 사용자 「캐릭터 한글 이름도 채워줘」 → 등장인물 많은 게임은 모든 캐릭터에 ko(그 게임 한국어판 표기 — 한국 서버 · 나무위키 표제).",
+ "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번). 2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → excluded({게임 열쇠: 까닭}) — 설계표(game-design.json)의 게임은 games 나 excluded 둘 중 하나에 있어야 한다(tools/game-cosplay.cjs check 가 막는다). 새 게임을 설계표에 넣으면 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync 로 세 공방에 쓴다. 2026-11-17 사용자 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」 → 다섯 더해 게임 스물넷: 베요네타(주인공 하나), 테일즈위버 · 데드 오어 얼라이브 5 · 더 킹 오브 파이터즈 2002 · 원신(등장인물 많음 — 공식 플레이 캐릭터만, 위키백과로 확인. DOA5 · KOF 2002 는 원판만, 원신은 지금 플레이 가능한 전부. 어린아이로 그려진 캐릭터 — 테일즈위버 15·16세 셋, 원신 어린이 체형 아홉 — 는 성인 코스프레 재단에 싣지 않아 뺐다). 2026-11-17 사용자 「코스튬의상이라 나이는 상관없는데」 → 어린 캐릭터(테일즈위버 셋 · 원신 아홉)를 다시 넣고 그 열둘과 유피 키사라기에 young: true — young 캐릭터는 young_cuts(니트 원피스 · 아이돌 무대 · 미니 드레스)만 입고 노출 재단(란제리 · 비키니 · 바디수트 등)은 쓰지 않는다. 같은 날 사용자 「캐릭터 한글 이름도 채워줘」 → 등장인물 많은 게임은 모든 캐릭터에 ko(그 게임 한국어판 표기 — 한국 서버 · 나무위키 표제). 2026-11-17 어린 캐릭터(young)는 앞글을 text.young(「daring adult」 없이 · 다 가린다), 재단 글을 young_cut_en(긴소매 · 무릎 길이)으로 바꿔 쓴다 — 사용자 「노출 없는 것만」 과 맞춘다. 2026-11-17 사용자 「그러면 어린케릭터는 빼자. 어차피 원신쪽은 잘 알지도 못하는 케릭터들인데」 → 어린 캐릭터(테일즈위버 셋 · 원신 아홉 · FF7 유피)를 명단에서 빼고 young 칸들을 없앴다. 이미 그린 유피 한 장(삼국지 맹획)은 그대로.",
  "text": {
   "fixed": "a daring adult cosplay of {character} from {game} — {outfit}, {cut}",
   "pick": "… (a daring adult cosplay of one character of your choice from {game} — not any of these already used: {used}; write the character's name first, then the costume's recognisable colours and parts, {cut})",
@@ -1114,7 +1109,7 @@
    "ko": "파이널 판타지 VII",
    "en": "Final Fantasy VII",
    "many": true,
-   "roster": 19,
+   "roster": 18,
    "characters": [
     {
      "name": "Tifa Lockhart",
@@ -1125,12 +1120,6 @@
      "name": "Aerith Gainsborough",
      "ko": "에어리스 게인즈버러",
      "female": true
-    },
-    {
-     "name": "Yuffie Kisaragi",
-     "ko": "유피 키사라기",
-     "female": true,
-     "young": true
     },
     {
      "name": "Jessie Rasberry",
@@ -1402,7 +1391,7 @@
    "ko": "테일즈위버",
    "en": "TalesWeaver",
    "many": true,
-   "roster": 14,
+   "roster": 11,
    "characters": [
     {
      "name": "Ispin Charles",
@@ -1423,24 +1412,6 @@
      "name": "Cloe da Pontina",
      "ko": "클로에 다 폰티나",
      "female": true
-    },
-    {
-     "name": "Nayatrei",
-     "ko": "나야트레이",
-     "female": true,
-     "young": true
-    },
-    {
-     "name": "Anais del Caril",
-     "ko": "아나이스 델 카릴",
-     "female": true,
-     "young": true
-    },
-    {
-     "name": "Benya",
-     "ko": "벤야",
-     "female": true,
-     "young": true
     },
     {
      "name": "Lucian Kaltz",
@@ -1822,7 +1793,7 @@
    "ko": "원신",
    "en": "Genshin Impact",
    "many": true,
-   "roster": 124,
+   "roster": 115,
    "characters": [
     {
      "name": "Lumine",
@@ -1855,12 +1826,6 @@
      "female": true
     },
     {
-     "name": "Diona",
-     "ko": "디오나",
-     "female": true,
-     "young": true
-    },
-    {
      "name": "Eula",
      "ko": "유라",
      "female": true
@@ -1874,12 +1839,6 @@
      "name": "Jean",
      "ko": "진",
      "female": true
-    },
-    {
-     "name": "Klee",
-     "ko": "클레",
-     "female": true,
-     "young": true
     },
     {
      "name": "Lisa",
@@ -1942,12 +1901,6 @@
      "female": true
     },
     {
-     "name": "Qiqi",
-     "ko": "치치",
-     "female": true,
-     "young": true
-    },
-    {
      "name": "Shenhe",
      "ko": "신학",
      "female": true
@@ -1971,12 +1924,6 @@
      "name": "Yanfei",
      "ko": "연비",
      "female": true
-    },
-    {
-     "name": "Yaoyao",
-     "ko": "요요",
-     "female": true,
-     "young": true
     },
     {
      "name": "Yelan",
@@ -2029,12 +1976,6 @@
      "female": true
     },
     {
-     "name": "Sayu",
-     "ko": "사유",
-     "female": true,
-     "young": true
-    },
-    {
      "name": "Yae Miko",
      "ko": "야에 미코",
      "female": true
@@ -2065,12 +2006,6 @@
      "female": true
     },
     {
-     "name": "Dori",
-     "ko": "도리",
-     "female": true,
-     "young": true
-    },
-    {
      "name": "Faruzan",
      "ko": "파루잔",
      "female": true
@@ -2079,12 +2014,6 @@
      "name": "Layla",
      "ko": "레일라",
      "female": true
-    },
-    {
-     "name": "Nahida",
-     "ko": "나히다",
-     "female": true,
-     "young": true
     },
     {
      "name": "Nilou",
@@ -2132,12 +2061,6 @@
      "female": true
     },
     {
-     "name": "Sigewinne",
-     "ko": "시그윈",
-     "female": true,
-     "young": true
-    },
-    {
      "name": "Chasca",
      "ko": "차스카",
      "female": true
@@ -2151,12 +2074,6 @@
      "name": "Iansan",
      "ko": "이안산",
      "female": true
-    },
-    {
-     "name": "Kachina",
-     "ko": "카치나",
-     "female": true,
-     "young": true
     },
     {
      "name": "Mavuika",
