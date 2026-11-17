@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-17 · claude · 코스프레 캐릭터 다른 표기(aka)로 세고 한글 붙이기
+- 사용자 「응 둘 다 고쳐줘」(코스프레 캐릭터 이름이 명단과 달라 한글이 안 붙던 넷 · 원소 PATCH 차례)
+- 계획기(쓴 것 세기)와 tools/casual-index.cjs 가 characters[].aka 를 그 캐릭터로 본다 — 기록의 Saladin · Cherie 가 Salladin · Sherry 로 세어진다. 색인은 명단에서 뺀 캐릭터 한글(retired_ko)도 읽는다
+- data/game-cosplay.json(원본 sync — aka · 라나 · retired_ko) · data/casual-index.json 다시 씀: 코스프레 캐릭터 한글 전부. 검사: casual-index 통과, 계획기 세기 확인
+
 ## 2026-11-17 · claude · 게임 코스프레 사본 — 어린 캐릭터 뺌
 - 사용자 「그러면 어린케릭터는 빼자. 어차피 원신쪽은 잘 알지도 못하는 케릭터들인데」
 - data/game-cosplay.json — 게임공방 원본 sync: 어린 캐릭터 열셋(유피 포함)과 young 칸들이 빠짐. 이미 그린 그림은 그대로

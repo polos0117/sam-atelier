@@ -176,8 +176,9 @@ function cosplayTally(used) {
     g.n++; if (x.cut) { g.cuts[x.cut] = (g.cuts[x.cut] || 0) + 1; U.cuts[x.cut] = (U.cuts[x.cut] || 0) + 1; }
     /* 주인공 하나 게임은 기록 이름이 달라도(「Geralt」 · 「Geralt of Rivia」) 그 주인공으로 센다 — 같은 재단 되풀이 막기(2026-11-16, pkm · 원소와 같게) */
     const gm = GC.games.find(gg => gg.key === x.game), fix = gm && !gm.many && String(x.character || '').trim();
-    const nk = fix ? normName(gm.character) : normName(x.character);
-    if (nk) { const ch = g.chars[nk] || (g.chars[nk] = { name: fix ? gm.character : String(x.character).trim(), cuts: {} }); if (x.cut) ch.cuts[x.cut] = (ch.cuts[x.cut] || 0) + 1; }
+    const ak = gm && gm.many ? (gm.characters || []).find(c => (c.aka || []).some(a => normName(a) === normName(x.character))) : null;   /* 다른 표기(aka — 2026-11-17)는 그 캐릭터 이름으로 */
+    const nk = fix ? normName(gm.character) : normName(ak ? ak.name : x.character);
+    if (nk) { const ch = g.chars[nk] || (g.chars[nk] = { name: fix ? gm.character : ak ? ak.name : String(x.character).trim(), cuts: {} }); if (x.cut) ch.cuts[x.cut] = (ch.cuts[x.cut] || 0) + 1; }
   }
   return U;
 }

@@ -50,10 +50,11 @@ const situKo = k => (by(T.CASUAL.situations, k) || {}).ko || k;
    주인공 하나 게임은 기록 이름이 달라도(「Geralt」 · 「Geralt of Rivia」) 그 주인공(계획기 cosplayTally 와 같게) */
 function characterKo(gc, game, name) {
   const gm = ((gc || {}).games || []).find(g => g.key === game); if (!gm) return null;
-  const ch = (gm.characters || []).find(c => normName(c.name) === normName(name));
+  const ch = (gm.characters || []).find(c => [c.name].concat(c.aka || []).some(n => normName(n) === normName(name)));   /* 다른 표기(aka — 2026-11-17)는 그 캐릭터 이름으로 */
   if (ch && ch.ko) return ch.ko;
   if (!gm.many && gm.character_ko) return gm.character_ko;
-  return null;
+  const rk = (((gc || {}).retired_ko || {})[game] || {}), rn = Object.keys(rk).find(n => normName(n) === normName(name));   /* 명단에서 뺀 캐릭터(2026-11-17) */
+  return rn ? rk[rn] : null;
 }
 const REQ_KO = { nation: () => (CT.era(tree, 'nation') || {}).ko || '세계 안', cosplay: () => '게임 코스프레', own: () => '캐릭터만의 컷' };
 function requiredKo(req, scene) {
