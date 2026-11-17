@@ -35,6 +35,7 @@
 <script type="module">
 import {h,render} from 'https://esm.sh/preact@10.24.3';
 import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
+import {CasualNote} from './lib/casual-note.js?v=1';   /* 일상컷 한 줄 — 크게 보기에서만(목록 칸엔 없다, 2026-11-17) */
 /* · 위: 머리(도감 · 세력 · 장수 수 · 그린 칸)와 세력 줄(위 · 촉 · 오 · 군웅의 무리 열넷 · 군웅 전체 — 그 줄에 새 그림이 있으면 점)
    · 장수 줄: 세계 셋의 작은 그림(없는 세계는 빈 칸 — 누르면 그 세계의 생성기) + 이름 · 역할 · 캐릭터만의 컷 직업 · 설계 상태 · 능력치 한 줄. 이름 칸을 누르면 일상컷 · 설계 요약이 펼쳐진다
    · 그림 없는 장수는 빈 칸에 성씨 도장 글자가 흐리게(data-art="0"), 새 그림(가장 늦은 등록이 오늘 · 어제이고 아직 확인 안 함)은 「새 그림」 표지(data-new="1") — 그 장수의 그림을 크게 열면 꺼진다(이 브라우저에 samguk_seen_v1)
@@ -143,7 +144,7 @@ function Lightbox({doc,box,setBox,close,favs}){
     say(W(on?'dex.fav.added':faved?'dex.fav.removed':'dex.fav.blocked'));};
   return h('div',{class:'lightbox',role:'dialog','aria-modal':'true','aria-label':box.g.key,onClick:e=>{if(e.target===e.currentTarget)close();},
       onTouchStart:e=>{touch.current=e.touches[0].clientX;},onTouchEnd:e=>{const x=touch.current;touch.current=null;if(x==null)return;const dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>50)step(dx<0?1:-1);}},
-    h('div',{class:'lb-top'},h('b',null,box.g.key),h('span',null,p.long||p.label),h('span',{class:'lb-n'},W('dex.counter',{i:i+1,n:pics.length}))),
+    h('div',{class:'lb-top'},h('b',null,box.g.key),h('span',null,p.long||p.label),h('span',{class:'lb-n'},W('dex.counter',{i:i+1,n:pics.length})),p.kind==='casual'&&h(CasualNote,{file:p.file,cls:'lb-cnote'})),
     h('div',{class:'lb-stage'},
       pics.length>1&&h('button',{type:'button',class:'lb-nav prev','aria-label':W('dex.prev'),onClick:()=>step(-1)},'‹'),
       h('img',{key:p.file,src:IMG.imgURL(p.file),alt:box.g.key+' · '+(p.long||p.label)}),

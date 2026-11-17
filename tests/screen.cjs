@@ -22,6 +22,24 @@ const P = ctx0.window.AtelierPrompt;
 /* ONLY=dex(또는 battle · styles · prompt, 쉼표로 여럿) — 바꾼 화면 몫만 돌린다. 없으면 전부 */
 const part = k => !process.env.ONLY || process.env.ONLY.split(',').includes(k);
 const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf8')), C = require('../lib/tianxia-core.js');
+/* 일상컷 한 줄 fixture — 기본 화풍에 한 세계 일상컷이 넷 넘는 장수, 앞 셋만 색인에(필수 · 코스프레 GPT · 옷 자유), 넷째는 없음 */
+const CN = (() => {
+  const IJ = IMGDOC.img;
+  for (const g of D.generals) { const b = ((IJ[g.key] || {}).byStyle || {})[S['default']]; if (!b) continue;
+    for (const w of D.vocab.worlds) { const fl = (((b.byForm || {})[w] || {}).casual || {}).f || []; if (fl.length < 4 || !(b.byForm[w] || {}).f) continue;
+      const files = fl.slice(0, 4), n = f => +f.match(/_casual(\d+)\.webp$/)[1], base = f => ({ card: g.key, name: g.key, world: w, worldKo: '', n: n(f), date: '2026-11-17', style: S['default'], path: '', required: null, requiredKo: null, family: null, familyKo: null, item: null, itemKo: null, shade: null, shadeKo: null, cosplay: null, free: null });
+      const outfit = 'a plum-coloured opaque linen butterfly-tuck bandeau with a deep folded centre neckline and separate short puffed shoulder bands, paired with a copper-brown skort';
+      const rows = [Object.assign(base(files[0]), { required: 'swimwear', requiredKo: '노출 갈래(수영복)', family: 'swimwear', familyKo: '수영복', item: 'bikini', itemKo: '비키니', shade: 'orange', shadeKo: '코랄 · 오렌지' }),
+        Object.assign(base(files[1]), { required: 'cosplay', requiredKo: '게임 코스프레', family: 'game_cosplay', familyKo: '게임 코스프레', item: 'gc_mini_dress', itemKo: '미니 드레스', cosplay: { game: 'dragon_quest', gameKo: '드래곤 퀘스트', character: 'Jessica Albert', characterKo: null, cut: 'mini_dress', cutKo: '미니 드레스', by: 'gpt', round: 1 } }),
+        Object.assign(base(files[2]), { free: { kind: 'ofree', kindKo: '옷 자유', outfit } })];
+      let k = 0;   /* 칸 이름(세계 · 번호)은 도감이 세계 안 차례로 붙인다 */
+      const labels = fl.map(() => W0('world.' + w) + ' ' + (++k));
+      return { g, w, files, outfit, label: i => labels[i], doc: { version: 1, atelier: 'sam', built: '', source: [], rows } };
+    } }
+  return null;
+})();
+function W0(k) { return ctx0.window.W(k); }
+
 
 (async () => {
   await new Promise(r => server.listen(PORT, r));
@@ -160,6 +178,30 @@ const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf
     assert.equal(await v.page.locator('.dx-back').getAttribute('href'), 'index.html', '‹ 지도');
     await noOverflow(v.page, vp.width + ' 도감');
     assert.deepEqual(v.errors, [], '도감 콘솔'); checks += 22; await v.ctx.close();
+    /* 일상컷 한 줄(2026-11-17 「상세보기나 크게보기 일 때만 보이도록」) — fixture 색인: 크게 보기에서만 한 줄 · 목록엔 없음(색인도 안 받는다) · 필수 · 코스프레(GPT 고름) · 자유 설계(영어 Outfit, 길면 줄였다 펼침) · 색인에 없는 컷은 없음 · 색인은 한 번만 */
+    if (CN) {
+      let fetched = 0;
+      v = await open('/dex.html?faction=' + CN.g.faction + '&view=world&q=' + encodeURIComponent(CN.g.key), vp);
+      await v.ctx.route(/\/data\/casual-index\.json/, r => { fetched++; return r.fulfill({ contentType: 'application/json', body: JSON.stringify(CN.doc) }); });
+      await v.page.reload(); const row = '.dx-row[data-name="' + CN.g.key + '"]'; await v.page.waitForSelector(row);
+      await v.page.click(row + ' .dx-who'); await v.page.waitForSelector(row + '[data-open="1"] .dx-casuals button.dx-slot');   /* 줄을 펼쳐야 일상컷 칸이 나온다 */
+      assert.equal(await v.page.locator('.cnote').count(), 0, '목록 칸엔 한 줄이 없다'); assert.equal(fetched, 0, '목록을 그릴 때 색인을 안 받는다');
+      await v.page.locator(row + ' .dx-casuals button.dx-slot[title$="' + CN.label(0) + '"]').click();
+      const note = v.page.locator('.lightbox .lb-cnote');
+      await note.waitFor(); assert.equal(fetched, 1, '처음 열 때 색인 한 번');
+      assert.equal((await note.textContent()).trim(), '필수 · 노출 갈래(수영복) — 비키니 · 코랄 · 오렌지', '필수 한 줄');
+      await v.page.keyboard.press('ArrowRight'); await v.page.waitForFunction(() => /코스프레/.test((document.querySelector('.lb-cnote') || {}).textContent || ''));
+      assert.equal(await note.locator('b').textContent(), '필수 · 게임 코스프레'); assert.match(await note.textContent(), /— 드래곤 퀘스트 · Jessica Albert · 미니 드레스GPT 고름$/, '코스프레 — 캐릭터는 영어 그대로 · GPT 고름');
+      assert.equal(await note.locator('.cnote-gpt').count(), 1);
+      await v.page.keyboard.press('ArrowRight'); await v.page.waitForSelector('.lb-cnote .cnote-more');
+      const more = note.locator('.cnote-more'); assert.equal(await note.locator('b').textContent(), '옷 자유');
+      assert.equal(await more.getAttribute('aria-expanded'), 'false'); assert((await more.textContent()).endsWith('…'), '긴 Outfit 은 줄여 보인다');
+      await more.click(); assert.equal(await more.getAttribute('aria-expanded'), 'true'); assert.equal(await more.textContent(), CN.outfit, '누르면 펼침(영어 그대로)');
+      assert(await v.page.locator('.lightbox').isVisible(), '펼쳐도 크게 보기는 그대로');
+      await v.page.keyboard.press('ArrowRight'); await v.page.waitForFunction(f => (document.querySelector('.lightbox .lb-stage img') || {}).getAttribute('src').endsWith(encodeURIComponent(f)), CN.files[3]);
+      assert.equal(await v.page.locator('.lb-cnote').count(), 0, '색인에 없는 컷은 아무것도 안 보인다'); assert.equal(fetched, 1, '색인은 한 번만');
+      await noOverflow(v.page, vp.width + ' 일상컷 한 줄'); assert.deepEqual(v.errors, [], '일상컷 한 줄 콘솔'); checks += 9; await v.ctx.close();
+    }
     }
 
     /* ── 화풍 비교(2026-11-07 「네비게이션바에 화풍탭을 추가해서 비교하기 쉽게」) — 항해에 화풍 탭, 화풍별 · 세계별 보기, 크게 보기 ── */
@@ -221,7 +263,7 @@ const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf
     else { assert.match(cp, /^INPUT: the attached image/); assert.match(cp, /female personification of Guan Yu/); assert.match(cp, /SCENE \(chosen\)/); }
     assert.doesNotMatch(cp, /element|chemical symbol|atomic number/i, '원소 말이 남지 않았다');
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_mecha_' + S['default'] + '_f_casual1\\.webp'));
-    /* 게임 코스프레(2026-11-15) — 코스프레 장소(거실)에서 계열을 고르면 옷 = 재단 열하나 → 게임 칸(열아홉) · 옷 색 · 데니어 · 상황 칸은 없다 · Outfit 줄에 게임 · 캐릭터, 등장인물 많은 게임은 「…」 자리 */
+    /* 게임 코스프레(2026-11-15) — 코스프레 장소(거실)에서 계열을 고르면 옷 = 재단 열하나 → 게임 칸(목록의 게임 수) · 옷 색 · 데니어 · 상황 칸은 없다 · Outfit 줄에 게임 · 캐릭터, 등장인물 많은 게임은 「…」 자리 */
     { const pg = v.page, lineOf = (txt, head) => (String(txt).split('\n').find(l => l.startsWith(head)) || '');
       await pg.click('[data-open="era"]'); await pg.click('#panel .opt[data-pick="now"]');
       await pg.click('[data-open="place"]');
@@ -230,7 +272,7 @@ const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf
       await pg.click('[data-open="ofam"]'); await pg.click('#panel .opt[data-pick="game_cosplay"]'); assert.equal(await openOf(pg), 'item', '코스프레 계열 다음 옷(재단)');
       assert.equal(await pg.locator('#panel .opt[data-pick^="gc_"]').count(), 11, '재단 열하나');
       await pg.click('#panel .opt[data-pick="gc_bikini"]'); assert.equal(await openOf(pg), 'cosplay', '옷 다음 게임');
-      assert.equal(await pg.locator('#panel .opt[data-pick]').count(), 20, '게임 열아홉 + 안 고름');
+      assert.equal(await pg.locator('#panel .opt[data-pick]').count(), JSON.parse(fs.readFileSync(path.join(ROOT, 'data/game-cosplay.json'), 'utf8')).games.length + 1, '목록의 게임 + 안 고름');   /* 게임 수는 목록에서(2026-11-17 — 열아홉 → 스물넷, 박아 둔 20 이 깨졌다) */
       await pg.click('#panel .opt[data-pick="legend_of_zelda"]'); assert.equal(await openOf(pg), 'hair', '게임 다음은 머리 — 옷 색 · 데니어 · 상황 칸이 없다');
       assert.equal(await pg.locator('.hchip[data-open="color"], .hchip[data-open="denier"], .hchip[data-open="situ"]').count(), 0, '코스프레엔 옷 색 · 데니어 · 상황 칩이 없다');
       await randAll(pg, 'hair'); await toDone(pg);

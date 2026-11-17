@@ -55,10 +55,13 @@ async function open(br, viewport, withArt) {
   page.on('console', m => { if (m.type() === 'error' && !/ERR_FAILED|net::|Failed to load resource/.test(m.text())) errors.push(m.text()); });
   return { ctx, page, errors, served: () => served };
 }
+/* 다시 그린 바로 그 틀에 누르면 새 단추 · 카드가 아직 Phaser 입력 목록에 없어 누름이 사라진다(사람은 못 누르는 한 틀 — 검사만 그렇게 빨리 누른다) — 두 틀 기다렸다 누른다(2026-11-17) */
+const settle = page => page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
 const sceneIs = (page, k, t) => page.waitForFunction(k => window.D2 && window.D2.scene() === k, k, { timeout: t || 15000 });
 async function tap(page, id) {
   const h = await page.waitForFunction(id => { const x = window.D2 && window.D2.hits().find(h => h.id === id && !h.disabled); return x || null; }, id, { timeout: 10000 });
   const r = await h.jsonValue();
+  await settle(page);
   await page.mouse.click(r.x + r.w / 2, r.y + r.h / 2);
 }
 /* 아군 차례면 고를 수 있는 카드 하나 → 「지명」. 편성이 오면 멈춘다 */
@@ -73,6 +76,7 @@ async function playDraft(page, limit) {
     if (s !== 'me') return { picks, scene: s };
     const cards = await page.evaluate(() => window.D2.hits().filter(h => h.id.startsWith('card:') && h.legal));
     const c = cards[picks % cards.length];
+    await settle(page);
     await page.mouse.click(c.x + c.w / 2, c.y + c.h / 2);
     await page.waitForFunction(id => { const p = window.D2.hits().find(h => h.id === 'pick'); return p && !p.disabled; }, c.id, { timeout: 5000 });
     const before = await page.evaluate(() => window.D2.state().mine.length);
@@ -167,7 +171,10 @@ async function finish(page, shot, reloadAtDeploy) {
       const st0 = await page.evaluate(() => window.D2.state());
       assert.equal(st0.world, 'samguk'); assert.equal(st0.lv, 0); assert.equal(st0.pack.length, 6);
       assert.equal(st0.players, 3); assert.equal(st0.fmode, 'mx'); assert.deepEqual(st0.seats, ['me', 'foe', 'foe2']);
-      assert(st0.pool.length + 6 <= 60, '그림 있는 장수만 — ' + (st0.pool.length + 6));
+      /* 그림 있는 장수만 — 수를 박아 두지 않고(≤ 60 이 그림이 늘며 깨졌다, 2026-11-17) 나온 장수마다 그 세계 그림이 등록돼 있는지를 img.json 에서 본다 */
+      { const IJ = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf8')).img, has = k => Object.values((IJ[k] || {}).byStyle || {}).some(b => ((b.byForm || {})[st0.world] || {}).f);
+        const keys = st0.pool.concat(st0.pack.map(e => e.k)), bare = keys.filter(k => !has(k));
+        assert(keys.length > 6, '후보가 남아 있다'); assert.deepEqual(bare, [], '그림 있는 장수만 — 그림 없는 장수 ' + bare.join(', ')); }
       const first = await playDraft(page, 2);
       assert.equal(first.picks, 2);
       if (art) await page.waitForFunction(() => window.D2.art().ok >= 12, null, { timeout: 15000 });
