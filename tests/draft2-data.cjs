@@ -1,5 +1,5 @@
 // 새 판(draft2) 장수 자료 검사 — data/draft2-generals.json
-// 그림 설계표의 장수와 같은 279명인지, 갈래 · 기질이 큰 역할과 맞는지, 능력치 범위.
+// 그림 설계표의 장수와 같은 사람 · 같은 차례인지(수는 설계표에서 — 2026-11-17 손휴로 280), 갈래 · 기질이 큰 역할과 맞는지, 능력치 범위.
 const fs = require('fs'), path = require('path'), assert = require('assert');
 const root = path.join(__dirname, '..');
 const D = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-generals.json'), 'utf8'));

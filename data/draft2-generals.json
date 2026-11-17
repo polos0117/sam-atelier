@@ -340,6 +340,7 @@
   {"key": "장억", "stats": {"lead": 78, "war": 76, "int": 70, "pol": 62}, "class": "vanguard", "sub": null, "trait": null, "why": "남중 평정 · 북벌 선봉. 그대로"},
   {"key": "육개", "stats": {"lead": 60, "war": 30, "int": 84, "pol": 86}, "class": "steward", "sub": "envoy", "trait": null, "why": "승상으로 손호에게 간함. 정사: 장군으로 담이 토벌 → 통솔 +10"},
   {"key": "손호", "stats": {"lead": 52, "war": 45, "int": 60, "pol": 30}, "class": null, "sub": null, "trait": "hegemon", "why": "잔학한 폭군, 어느 기질도 아니라 가장 가까운 패도로"},
+  {"key": "손휴", "stats": {"lead": 50, "war": 32, "int": 72, "pol": 62}, "class": null, "sub": null, "trait": "defender", "why": "2026-11-17 더한 장수(게임 표에 없다) — 손침을 꾀로 없애 황권을 되찾고 학관 · 오경박사를 둔 임금, 군사 · 정사는 장포 · 복양흥에게 맡겼다. 물려받은 나라를 지킨 수성. 능력치는 설계표 그대로(손호와 조환 사이 — 지력 · 정치는 손호보다 높게, 무력은 낮게)"},
   {"key": "주연", "stats": {"lead": 82, "war": 74, "int": 70, "pol": 62}, "class": "guard", "sub": "cavalry", "trait": null, "why": "강릉을 반년 지킴, 맥성 퇴로 차단"},
   {"key": "손등", "stats": {"lead": 60, "war": 40, "int": 78, "pol": 82}, "class": "steward", "sub": "envoy", "trait": null, "why": "무창에서 나라 살림을 맡은 어진 태자"},
   {"key": "손준", "stats": {"lead": 68, "war": 72, "int": 54, "pol": 38}, "class": "guard", "sub": "schemer", "trait": null, "why": "숙위를 쥐고 제갈각을 암살. 지력 -4 · 정치 -4"},

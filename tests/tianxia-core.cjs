@@ -1,5 +1,5 @@
 /* 천하 지도 셈 모듈 검사 — lib/tianxia-core.js (화면 없이 node 로)
-   군웅록에서 279명이 모두 어느 세력에든 든다 · 연도 판도는 그해 장수만 · 별칭(조조군)이 세력 열쇠(조위)로 ·
+   군웅록에서 설계표의 장수가 모두 어느 세력에든 든다(이력 없는 공방 장수 손휴는 설계표 세력 동오로) · 연도 판도는 그해 장수만 · 별칭(조조군)이 세력 열쇠(조위)로 ·
    막사는 군주가 맨 앞 · 땅 없는 세력은 끝(떠도는 세력) · 결의는 둘 이상 든 것만 · 새 그림은 오늘 · 어제 등록이고 확인한 날짜보다 늦을 때.
    Run: node tests/tianxia-core.cjs */
 const fs = require('fs'), path = require('path'), assert = require('assert');
@@ -8,10 +8,10 @@ const design = J('data/sam-design.json'), packs = J('data/draft2-packs.json'), f
 const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs, factions, combos, tianxia, roster });
 
 assert.deepEqual(C.ERAS, ['mx', 'w194', 'gd200', 'jb208', 'end263']);
-// 군웅록 — 279명 모두 어느 세력이든
+// 군웅록 — 설계표의 장수 모두 어느 세력이든(수는 설계표에서 센다 — 장수가 또 늘어난다)
+assert.equal(C.factionOf(doc, 'mx', '손휴'), '동오'); assert.equal(C.factionOf(doc, 'end263', '손휴'), '동오'); assert.equal(C.factionOf(doc, 'jb208', '손휴'), null);
 for (const g of design.generals) assert(C.factionOf(doc, 'mx', g.key), g.key + ' 가 군웅록에서 세력이 없다');
-assert.equal(design.generals.length, 279);
-assert.equal(C.factionsOf(doc, 'mx').reduce((s, f) => s + f.count, 0), 279);
+assert.equal(C.factionsOf(doc, 'mx').reduce((s, f) => s + f.count, 0), design.generals.length);
 assert.equal(C.factionOf(doc, 'mx', '유비'), '촉한'); assert.equal(C.factionOf(doc, 'mx', '여포'), '여포');
 // 연도 — 그해 자료에 든 장수만, 별칭이 세력 열쇠로
 assert.equal(C.factionOf(doc, 'jb208', '조조'), '조위'); assert.equal(C.factionOf(doc, 'end263', '여포'), null);
@@ -40,7 +40,7 @@ assert.deepEqual(C.members(doc, 'mx', '없는세력'), []);
 // 가운데 = 그 세력의 우두머리 — 자료의 lords → 세력 이름에 든 군주 → roleMap 군주 → 첫 군주 → 군주 없는 무리는 첫 장수
 assert.equal(C.chiefOf(doc, 'gd200', '원소'), '원소');   // 200 원소군 — 군주가 유비 · 원소 둘, 이름으로 가린다
 assert.equal(C.chiefOf(doc, 'mx', '동오'), '손권');      // 군웅록 동오 — 손견이 아니라 손권(lords)
-assert.equal(C.chiefOf(doc, 'end263', '진'), '사마소'); assert.equal(C.chiefOf(doc, 'end263', '동오'), '손호'); assert.equal(C.chiefOf(doc, 'end263', '촉한'), '유선');
+assert.equal(C.chiefOf(doc, 'end263', '진'), '사마소'); assert.equal(C.chiefOf(doc, 'end263', '동오'), '손휴'); assert(C.members(doc, 'end263', '동오').some(m => m.name === '손호'), '263 동오 — 손호는 그 막사의 장수로 남는다'); assert.equal(C.chiefOf(doc, 'end263', '촉한'), '유선');
 assert.equal(C.chiefOf(doc, 'w194', '도겸'), '유비');    // 195 서주 — 도겸이 죽고 유비가 물려받았다(이름보다 lords 가 먼저)
 assert.equal(C.chiefOf(doc, 'w194', '동오'), '손책'); assert.equal(C.chiefOf(doc, 'gd200', '동오'), '손책'); assert.equal(C.chiefOf(doc, 'jb208', '동오'), '손권');
 assert.equal(C.chiefOf(doc, 'jb208', '서량'), '마초');   // roleMap 군주

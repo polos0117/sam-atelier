@@ -26,7 +26,7 @@ ok(CB.syn[2] === 22 && CB.syn[11] === 505 && CB.etcBase === 0.4, '결속 표 · 
 const PK = J('data/draft2-packs.json');
 ok(X.renderPacks(X.extractPacks()) === fs.readFileSync(path.join(ROOT, 'data/draft2-packs.json'), 'utf8'), 'data/draft2-packs.json 이 draft.html 과 같다');
 ok(PK.default === 'mx' && PK.packs.mx.n === '군웅록' && PK.packs.mx.synMul === 0.8 && PK.packs.mx.bias === 25, '군웅록이 기본 팩 — 결속 0.8배 · 기치 25');
-ok(S.generals.every(g => Array.isArray(PK.packs.mx.career[g.key]) && PK.packs.mx.career[g.key].every(f => PK.packs.mx.factions[f])), '군웅록 — 279명 모두 이력, 세력은 다 표에');
+ok(S.generals.every(g => g.extra ? !PK.packs.mx.career[g.key] : Array.isArray(PK.packs.mx.career[g.key]) && PK.packs.mx.career[g.key].every(f => PK.packs.mx.factions[f])), '군웅록 — 게임 표의 장수 모두 이력, 세력은 다 표에(공방 장수 extra 는 이력 없이)');
 ok(PK.packs.mx.career['여포'].join() === '동탁,여포' && PK.packs.mx.career['진도'].join() === '촉한', '덧붙인 Object.assign 까지(진도)');
 ok(['w194', 'gd200', 'jb208', 'end263'].every(k => PK.packs[k].facMap && Object.keys(PK.packs[k].facMap).every(n => names.has(n))), '다른 팩 넷 — 자료만');
 const doTao = CB.combos.find(c => c.n === '도원결의');
@@ -36,7 +36,8 @@ ok(doTao && doTao.t[3] === 90 && doTao.m.join() === '유비,관우,장비', '도
 const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn, BF = J('data/draft2-battlefields.json'), RO = J('data/draft2-roster.json');
 const db = R.buildDB(GN, S, CB, PK, FC, BD, BF, RO), mx = R.view(db, 'mx');
 ok(db.mode === 'base' && mx.mode === 'mx' && R.view(mx, 'base') === db && R.view(db, 'mx') === mx, '진영 셈 view');
-ok(db.list.length === 279, '장수 279');
+ok(db.list.length === S.generals.length && db.list.length >= 280, '장수 수는 설계표와 같다 — ' + db.list.length);
+ok(R.facOf(mx, '손휴') === '동오' && R.inScope(mx, '손휴') && R.inScope(db, '손휴') && R.facOf(db, '손휴') === '동오' && R.inScope(R.view(db, 'end263'), '손휴') && !R.inScope(R.view(db, 'jb208'), '손휴'), '손휴(이력 없는 공방 장수) — 군웅록 · 본편은 동오, 연도는 263 에만');
 const by = db.by;
 ok(by['관우'].s.war === GN.generals.find(g => g.key === '관우').stats.war, '능력치는 draft2-generals.json');
 ok(by['관우'].fac === 'shu' && by['관우'].role === 'general' && by['관우'].cat === 'general', '진영 · 역할은 설계표');

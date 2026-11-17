@@ -12725,6 +12725,57 @@
     }
    }
   },
+  "손휴": {
+   "root": {
+    "ko": "학관을 세우고 오경박사를 두었다 — 학교를 여는 학당 교장",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "학당 교장",
+     "base": "nation_square",
+     "place": "a Han-era academy — a gate with a hanging name board, a lecture hall with rows of low desks, shelves of classics and a bell on a stand",
+     "activity": "she is an academy headmistress raising a small hand bell beside her shoulder to call the morning lesson",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a small brass hand bell",
+     "outfit": {
+      "bold": "an academy headmistress look fitted to her body — a fitted sleeveless high-collared blouse under a short open academic robe, a short pleated skirt, a tasseled sash and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "an academy headmistress look — a short-sleeved high-collared blouse, an open academic robe, a knee-length pleated skirt, a tasseled sash and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "an academy headmistress look — a long-sleeved high-collared blouse, a long academic robe, a long skirt, a tasseled sash and flat shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "학당 교장",
+     "base": "nation_study",
+     "place": "a high-fantasy academy — a gate with a hanging name board, a lecture hall with rows of low desks, shelves of classics and a bell on a stand",
+     "activity": "she is an academy headmistress leaning over her desk, going through the class roll book with both hands",
+     "preset": "table_lean_use",
+     "use": "sig_both",
+     "prop": "a class roll book",
+     "outfit": {
+      "bold": "an academy headmistress look fitted to her body — a fitted sleeveless high-collared blouse under a short open academic robe, a short pleated skirt, a tasseled sash and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "an academy headmistress look — a short-sleeved high-collared blouse, an open academic robe, a knee-length pleated skirt, a tasseled sash and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "an academy headmistress look — a long-sleeved high-collared blouse, a long academic robe, a long skirt, a tasseled sash and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "학당 교장",
+     "base": "nation_square",
+     "place": "a far-future academy — a gate with a hanging name board, a lecture hall with rows of low desks, shelves of classics and a bell on a stand",
+     "activity": "she is an academy headmistress walking past the lecture hall on her morning round with the class roll book at her side",
+     "preset": "stride_prop",
+     "use": "sig_low",
+     "prop": "a class roll book",
+     "outfit": {
+      "bold": "an academy headmistress look fitted to her body — a fitted sleeveless high-collared blouse under a short open academic robe, a short pleated skirt, a tasseled sash and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "an academy headmistress look — a short-sleeved high-collared blouse, an open academic robe, a knee-length pleated skirt, a tasseled sash and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "an academy headmistress look — a long-sleeved high-collared blouse, a long academic robe, a long skirt, a tasseled sash and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "주연": {
    "root": {
     "ko": "강릉을 반년이나 홀로 지켰다 — 외딴 산장지기",

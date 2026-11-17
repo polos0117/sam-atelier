@@ -11,7 +11,7 @@
 |---|---|
 | 이 문서 | 규칙과 자리 |
 | `DESIGN.md` | 이 공방의 길(천하 지도 → 진영 막사 → 장수)과 화면을 만들 때 지킬 것 — 새 화면 · 화면 고치기 전에 |
-| `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(279 — 게임 표 그대로) |
+| `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(280 — 게임 표 279 + 게임 표에 없는 공방 장수 손휴, `extra` 칸) |
 | `docs/DRAFT2_PLAN.md` · `data/draft2-generals.json` | 새 판 「삼국지 쟁탈전 · 전장」(Phaser, 만드는 중) 설계 · 전용 장수 자료(다듬은 능력치 · 갈래 · 군주 기질 — 옛 게임 · 그림 설계표와 따로). 연도 판의 **추가 명단**은 `data/draft2-roster.json`(2026-11-17 — 옛 게임 명단 `draft2-packs.json` 은 그대로 두고 그 위에 얹는다, 새 판과 천하 지도가 같이 읽는다 · 설계 1-4). 검사 `node tests/draft2-data.cjs` |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
 | `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길(AI 검수 뒤 묻지 않고 올린다) — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
@@ -51,6 +51,7 @@
 
 장수 목록 · 세력 · 역할 · 능력치(통솔 · 무력 · 지력 · 정치) · 일화(`LORE`) · 낙관(`SEAL`)은 `draft.html` 의 표에서 `python3 tools/sam-design.py seed` 가 받는다. 게임 파일을 고치지 않는다.
 영문 이름(`en`)은 한어 병음 — `tools/sam-design.py` 의 `ROMAN`. 게임 표가 바뀌면 `seed` 를 다시 돌린다(손으로 적은 칸은 지킨다).
+**게임 표에 없는 공방 장수**(2026-11-17 손휴 — 사용자 「손휴는 추가해줘」, 263년 판도의 실제 오나라 군주): 설계표의 그 장수에 `extra: {why, src}` 를 적는다 — `seed` 가 지우지 않고 `check` 가 게임 표와 견줄 때 뺀다. 사실(능력치 · 일화)은 확인한 출처에서만 적고, 같이 고칠 곳은 `data/draft2-generals.json`(같은 차례) · `data/draft2-roster.json`(나오는 해) · `data/casual-own.json` · `docs/casual-own-list.md`. 옛 게임에는 안 나오고, 군웅록 이력이 없어 새 판 · 지도에서는 설계표 세력(위 · 촉 · 오 → 조위 · 촉한 · 동오)으로 든다(`lib/draft2/rules.js` 의 `careerOf`). 검사의 장수 수는 박아 두지 않고 설계표에서 센다.
 
 ### 2. 세계 셋, 세계마다 다른 사람
 

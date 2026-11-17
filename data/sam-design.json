@@ -25996,6 +25996,102 @@
    }
   },
   {
+   "key": "손휴",
+   "en": "Sun Xiu",
+   "faction": "wu",
+   "role": "lord",
+   "stats": {
+    "lead": 50,
+    "war": 32,
+    "int": 72,
+    "pol": 62
+   },
+   "seal": "孫",
+   "lore": "학관을 세워 오경박사를 두고 온갖 책을 읽으려 했다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-17",
+   "summary": {
+    "ko": "책 읽는 셋째 황제 — 죽간 두루마리 · 학관을 세운 황제 · 청록 머리 · 산호빛 눈 · 우아한 · 호기심 어린 · 골반 굴곡형"
+   },
+   "title": {
+    "en": "the bookish third emperor of Wu who founded an academy with erudites of the Five Classics"
+   },
+   "traits": {
+    "en": "studious curiosity, quiet resolve behind a gentle manner, scholar-emperor robes with ink-stained cuffs"
+   },
+   "hold": {
+    "en": "a rolled bamboo-slip book"
+   },
+   "look": {
+    "face": {
+     "eye_color": "coral",
+     "impression": "elegant",
+     "expr": "curious",
+     "skin_tone": "fair",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "gloss",
+     "brows": "soft_round",
+     "nose": "petite_straight",
+     "lips": "thin_long"
+    },
+    "silhouette": {
+     "body": "pear_curvy",
+     "hair_color": "teal"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "jellyfish_cut",
+       "bangs": "choppy"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "droopy_soft"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "triple_tails",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "monolid_long"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "undercut_sweep",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "hooded"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-17) — 삼국지 오서 삼사주전의 손휴(학관 · 오경박사를 두라는 조서, 「銳意於典籍，欲畢覽百家之言」)에서 이름 설명 · 물건(죽간 책) · 인상(우아한) · 표정(호기심)을 잡았다. 꿩 사냥은 짐승이라 넣지 않았다. 머리 색은 설계표에서 가장 덜 쓴 청록(teal — 둘뿐), 눈은 덜 쓴 산호빛(자동 돌림 값 그대로). 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 「천하 지도」 263년 판도의 실제 오나라 군주. 사용자 2026-11-17 「손휴는 추가해줘」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷48"
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "phoenix_crown"
+    },
+    "fantasy": {
+     "sil": "dark_spiked"
+    },
+    "mecha": {
+     "sil": "full_armor"
+    }
+   }
+  },
+  {
    "key": "주연",
    "en": "Zhu Ran",
    "faction": "wu",

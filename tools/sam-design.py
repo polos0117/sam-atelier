@@ -17,7 +17,7 @@
   redo  — {why, date} 가 있으면 다시 설계 요청. 새 시안을 쓸 때 앞 설계를 history 에 넣고 redo 를 지운다
 
 게임 파일은 읽기만 한다 — 게임은 그대로 둔다(사용자 2026-11-02 「기존 게임은 그대로 두고」).
-사실(이름·세력·역할·능력치·일화·낙관)은 게임 표에서만 온다. 영문 이름(en)은 한어 병음 표기, 이 파일의 ROMAN 에 있다.
+사실(이름·세력·역할·능력치·일화·낙관)은 게임 표에서만 온다 — 게임 표에 없는 공방 장수는 extra 칸(까닭 · 출처)을 적은 장수뿐이다(2026-11-17 손휴). 영문 이름(en)은 한어 병음 표기, 이 파일의 ROMAN 에 있다.
 """
 import datetime, json, os, re, subprocess, sys
 
@@ -63,7 +63,7 @@ ROMAN = {
  '가규': 'Jia Kui', '사마염': 'Sima Yan', '하후패': 'Xiahou Ba', '제갈각': 'Zhuge Ke', '주환': 'Zhu Huan', '등지': 'Deng Zhi', '이회': 'Li Hui', '나헌': 'Luo Xian', '유심': 'Liu Chen',
  '부첨': 'Fu Qian', '마충': 'Ma Zhong', '장억': 'Zhang Ni', '육개': 'Lu Kai', '손호': 'Sun Hao', '주연': 'Zhu Ran', '손등': 'Sun Deng', '손준': 'Sun Jun', '손침': 'Sun Chen',
  '종요': 'Zhong Yao', '여건': 'Lü Qian', '제갈탄': 'Zhuge Dan', '미방': 'Mi Fang', '여령기': 'Lü Lingqi', '진도': 'Chen Dao', '유파': 'Liu Ba', '양의': 'Yang Yi', '동소': 'Dong Zhao',
- '유복': 'Liu Fu', '신비': 'Xin Pi', '낙통': 'Luo Tong', '고담': 'Gu Tan', '장승': 'Zhang Cheng', '장양': 'Zhang Yang', '사섭': 'Shi Xie', '왕준': 'Wang Jun',
+ '유복': 'Liu Fu', '신비': 'Xin Pi', '낙통': 'Luo Tong', '고담': 'Gu Tan', '장승': 'Zhang Cheng', '장양': 'Zhang Yang', '사섭': 'Shi Xie', '왕준': 'Wang Jun', '손휴': 'Sun Xiu',
 }
 # 남만 — 피부 톤을 남방으로 기운다(외형 자동 돌림만)
 SOUTH = {'올돌골', '타사대왕', '맹우', '맹획', '축융'}
@@ -87,7 +87,7 @@ BODY = ['hourglass', 'voluptuous', 'curvy_athletic', 'busty_slender', 'curvy', '
 # lean_toned(슬림 근육형 — 은은한 11자 복근) 은 2026-11-12 사용자 「여성의 11자 복근이나, 날씬한 근육이 있는 체형」,
 # petite_voluptuous(아담한 풍만형) 은 같은 날 「키는 좀 작게하고 볼륨감은 키워줘」 → 「새 체형으로 넣어서 왕원희에게 주고」 — 처음엔 손으로만(무게 0).
 # 같은 날 「다른 공방 케릭터설계 자동배분에는 써줘 케릭터 추가될 때 분배가 되지 않아?」 — 드문 쪽 무게 2 로 자동 돌림에도 넣었다.
-# 돌림은 look 이 없는 새 장수만(seed) — 이미 적힌 장수 279명의 체형은 그대로다
+# 돌림은 look 이 없는 새 장수만(seed) — 이미 적힌 장수의 체형은 그대로다
 BODY_W = [5, 5, 4, 3, 3, 3, 1, 1, 3, 3, 2, 2]
 IMPRESSION = {
  'lord': ['regal', 'glamorous', 'elegant', 'mature', 'cool', 'fierce'],
@@ -235,6 +235,13 @@ def seed():
         g.setdefault('designed', 'auto')
         out.append(g)
     order = ['key', 'en', 'faction', 'role', 'camp', 'stats', 'seal', 'lore', 'designed', 'design_by', 'design_date', 'redo', 'summary', 'title', 'traits', 'hold', 'look', 'worlds', 'history']
+    # extra 가 적힌 장수(게임 표에 없는 공방 장수 — 손휴)는 지킨다: 옛 차례에서 바로 앞에 있던 장수 뒤에 다시 끼운다
+    prev = None
+    for g in d.get('generals', []):
+        if g.get('extra'):
+            at = next((i for i, x in enumerate(out) if x['key'] == prev), len(out) - 1)
+            out.insert(at + 1, g)
+        prev = g['key']
     d['generals'] = [{k: g[k] for k in order if k in g} | {k: v for k, v in g.items() if k not in order} for g in out]
     save(d)
     print('장수 %d — %s' % (len(out), ' · '.join('%s %d' % (st, sum(1 for g in out if g['designed'] == st)) for st in STATES)))
@@ -279,7 +286,8 @@ def check():
             errs.append('역할 %s hold' % r)
     rows, _, _ = read_game()
     keys = [g['key'] for g in d.get('generals', [])]
-    if keys != [r[0] for r in rows]:
+    # extra — 게임 표에 없는 공방 장수(2026-11-17 손휴, 사용자 「손휴는 추가해줘」). 사실은 확인한 출처에서 적고 extra 칸에 까닭 · 출처를 남긴다
+    if [g['key'] for g in d.get('generals', []) if not g.get('extra')] != [r[0] for r in rows]:
         errs.append('장수 목록이 게임 표(C)와 다르다 — seed 를 돌린다')
     if len(set(keys)) != len(keys):
         errs.append('장수 열쇠가 겹친다')
