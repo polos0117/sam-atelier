@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-17 · claude · 게임 코스프레 목록 사본 — 캐릭터 한글 이름 · 어린 캐릭터 young
+- 사용자 2026-11-17 「응 캐릭터 한글 이름도 채워줘」 · 「코스튬의상이라 나이는 상관없는데」 → 「응 그렇게 해줘」
+- data/game-cosplay.json — 원본(game-atelier tools/game-cosplay.cjs sync) 사본: 등장인물 많은 게임 열 곳의 characters 마다 ko, 어린 캐릭터 열둘 다시 넣음(테일즈위버 14 · 원신 124) · young: true(유피 포함 열셋) · young_cuts [knit, idol, mini_dress]. young 재단 고르기는 계획기 작업이 따로 한다
+- data/casual-index.json — node tools/casual-index.cjs 로 다시 씀 — 바뀐 것은 cosplay.characterKo 뿐(+ built)
+
 ## 2026-11-17 · claude · 게임 코스프레 목록 — 다섯 게임 더해 스물넷
 - 사용자 2026-11-17 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」 — 게임공방에 다섯 편을 넣고 코스프레 목록에도
 - data/game-cosplay.json — 원본(game-atelier tools/game-cosplay.cjs sync) 사본: 게임 열아홉 → 스물넷. 베요네타(주인공 하나), 테일즈위버 11 · 데드 오어 얼라이브 5 · 24 · 더 킹 오브 파이터즈 2002 · 40 · 원신 115(등장인물 많음 — 공식 플레이 캐릭터, 위키백과로 확인. 어린아이로 그려진 캐릭터는 뺐다)

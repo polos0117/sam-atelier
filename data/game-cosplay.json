@@ -1,6 +1,11 @@
 {
  "version": 1,
- "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번). 2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → excluded({게임 열쇠: 까닭}) — 설계표(game-design.json)의 게임은 games 나 excluded 둘 중 하나에 있어야 한다(tools/game-cosplay.cjs check 가 막는다). 새 게임을 설계표에 넣으면 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync 로 세 공방에 쓴다. 2026-11-17 사용자 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」 → 다섯 더해 게임 스물넷: 베요네타(주인공 하나), 테일즈위버 · 데드 오어 얼라이브 5 · 더 킹 오브 파이터즈 2002 · 원신(등장인물 많음 — 공식 플레이 캐릭터만, 위키백과로 확인. DOA5 · KOF 2002 는 원판만, 원신은 지금 플레이 가능한 전부. 어린아이로 그려진 캐릭터 — 테일즈위버 15·16세 셋, 원신 어린이 체형 아홉 — 는 성인 코스프레 재단에 싣지 않아 뺐다).",
+ "young_cuts": [
+  "knit",
+  "idol",
+  "mini_dress"
+ ],
+ "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번). 2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → excluded({게임 열쇠: 까닭}) — 설계표(game-design.json)의 게임은 games 나 excluded 둘 중 하나에 있어야 한다(tools/game-cosplay.cjs check 가 막는다). 새 게임을 설계표에 넣으면 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync 로 세 공방에 쓴다. 2026-11-17 사용자 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」 → 다섯 더해 게임 스물넷: 베요네타(주인공 하나), 테일즈위버 · 데드 오어 얼라이브 5 · 더 킹 오브 파이터즈 2002 · 원신(등장인물 많음 — 공식 플레이 캐릭터만, 위키백과로 확인. DOA5 · KOF 2002 는 원판만, 원신은 지금 플레이 가능한 전부. 어린아이로 그려진 캐릭터 — 테일즈위버 15·16세 셋, 원신 어린이 체형 아홉 — 는 성인 코스프레 재단에 싣지 않아 뺐다). 2026-11-17 사용자 「코스튬의상이라 나이는 상관없는데」 → 어린 캐릭터(테일즈위버 셋 · 원신 아홉)를 다시 넣고 그 열둘과 유피 키사라기에 young: true — young 캐릭터는 young_cuts(니트 원피스 · 아이돌 무대 · 미니 드레스)만 입고 노출 재단(란제리 · 비키니 · 바디수트 등)은 쓰지 않는다. 같은 날 사용자 「캐릭터 한글 이름도 채워줘」 → 등장인물 많은 게임은 모든 캐릭터에 ko(그 게임 한국어판 표기 — 한국 서버 · 나무위키 표제).",
  "text": {
   "fixed": "a daring adult cosplay of {character} from {game} — {outfit}, {cut}",
   "pick": "… (a daring adult cosplay of one character of your choice from {game} — not any of these already used: {used}; write the character's name first, then the costume's recognisable colours and parts, {cut})",
@@ -183,242 +188,302 @@
    "characters": [
     {
      "name": "Ahri",
+     "ko": "아리",
      "female": true
     },
     {
      "name": "Jinx",
+     "ko": "징크스",
      "female": true
     },
     {
      "name": "Lux",
+     "ko": "럭스",
      "female": true
     },
     {
      "name": "Miss Fortune",
+     "ko": "미스 포츈",
      "female": true
     },
     {
      "name": "Kai'Sa",
+     "ko": "카이사",
      "female": true
     },
     {
      "name": "Akali",
+     "ko": "아칼리",
      "female": true
     },
     {
      "name": "Ashe",
+     "ko": "애쉬",
      "female": true
     },
     {
      "name": "Caitlyn",
+     "ko": "케이틀린",
      "female": true
     },
     {
      "name": "Vi",
+     "ko": "바이",
      "female": true
     },
     {
      "name": "Katarina",
+     "ko": "카타리나",
      "female": true
     },
     {
      "name": "Sona",
+     "ko": "소나",
      "female": true
     },
     {
      "name": "Janna",
+     "ko": "잔나",
      "female": true
     },
     {
      "name": "Leona",
+     "ko": "레오나",
      "female": true
     },
     {
      "name": "Diana",
+     "ko": "다이애나",
      "female": true
     },
     {
      "name": "Irelia",
+     "ko": "이렐리아",
      "female": true
     },
     {
      "name": "Evelynn",
+     "ko": "이블린",
      "female": true
     },
     {
      "name": "Seraphine",
+     "ko": "세라핀",
      "female": true
     },
     {
      "name": "Senna",
+     "ko": "세나",
      "female": true
     },
     {
      "name": "Qiyana",
+     "ko": "키아나",
      "female": true
     },
     {
      "name": "Zoe",
+     "ko": "조이",
      "female": true
     },
     {
      "name": "Neeko",
+     "ko": "니코",
      "female": true
     },
     {
      "name": "Lillia",
+     "ko": "릴리아",
      "female": true
     },
     {
      "name": "Gwen",
+     "ko": "그웬",
      "female": true
     },
     {
      "name": "Nidalee",
+     "ko": "니달리",
      "female": true
     },
     {
      "name": "Sivir",
+     "ko": "시비르",
      "female": true
     },
     {
      "name": "Sejuani",
+     "ko": "세주아니",
      "female": true
     },
     {
      "name": "Lissandra",
+     "ko": "리산드라",
      "female": true
     },
     {
      "name": "Syndra",
+     "ko": "신드라",
      "female": true
     },
     {
      "name": "LeBlanc",
+     "ko": "르블랑",
      "female": true
     },
     {
      "name": "Morgana",
+     "ko": "모르가나",
      "female": true
     },
     {
      "name": "Kayle",
+     "ko": "케일",
      "female": true
     },
     {
      "name": "Elise",
+     "ko": "엘리스",
      "female": true
     },
     {
      "name": "Fiora",
+     "ko": "피오라",
      "female": true
     },
     {
      "name": "Riven",
+     "ko": "리븐",
      "female": true
     },
     {
      "name": "Xayah",
+     "ko": "자야",
      "female": true
     },
     {
      "name": "Soraka",
+     "ko": "소라카",
      "female": true
     },
     {
      "name": "Nami",
+     "ko": "나미",
      "female": true
     },
     {
      "name": "Vayne",
+     "ko": "베인",
      "female": true
     },
     {
      "name": "Annie",
+     "ko": "애니",
      "female": true
     },
     {
      "name": "Orianna",
+     "ko": "오리아나",
      "female": true
     },
     {
      "name": "Camille",
+     "ko": "카밀",
      "female": true
     },
     {
      "name": "Zyra",
+     "ko": "자이라",
      "female": true
     },
     {
      "name": "Samira",
+     "ko": "사미라",
      "female": true
     },
     {
      "name": "Karma",
+     "ko": "카르마",
      "female": true
     },
     {
      "name": "Taliyah",
+     "ko": "탈리야",
      "female": true
     },
     {
      "name": "Cassiopeia",
+     "ko": "카시오페아",
      "female": true
     },
     {
      "name": "Shyvana",
+     "ko": "쉬바나",
      "female": true
     },
     {
      "name": "Quinn",
+     "ko": "퀸",
      "female": true
     },
     {
      "name": "Rell",
+     "ko": "렐",
      "female": true
     },
     {
      "name": "Renata Glasc",
+     "ko": "레나타 글라스크",
      "female": true
     },
     {
      "name": "Zeri",
+     "ko": "제리",
      "female": true
     },
     {
      "name": "Nilah",
+     "ko": "닐라",
      "female": true
     },
     {
      "name": "Briar",
+     "ko": "브라이어",
      "female": true
     },
     {
      "name": "Aurora",
+     "ko": "오로라",
      "female": true
     },
     {
      "name": "Ezreal",
+     "ko": "이즈리얼",
      "female": false
     },
     {
      "name": "Yasuo",
+     "ko": "야스오",
      "female": false
     },
     {
      "name": "Garen",
+     "ko": "가렌",
      "female": false
     },
     {
      "name": "Jhin",
+     "ko": "진",
      "female": false
     },
     {
      "name": "Ekko",
+     "ko": "에코",
      "female": false
     },
     {
      "name": "Teemo",
+     "ko": "티모",
      "female": false
     }
    ]
@@ -432,154 +497,192 @@
    "characters": [
     {
      "name": "Tracer",
+     "ko": "트레이서",
      "female": true
     },
     {
      "name": "Mercy",
+     "ko": "메르시",
      "female": true
     },
     {
      "name": "D.Va",
+     "ko": "D.Va",
      "female": true
     },
     {
      "name": "Widowmaker",
+     "ko": "위도우메이커",
      "female": true
     },
     {
      "name": "Ana",
+     "ko": "아나",
      "female": true
     },
     {
      "name": "Ashe",
+     "ko": "애쉬",
      "female": true
     },
     {
      "name": "Brigitte",
+     "ko": "브리기테",
      "female": true
     },
     {
      "name": "Echo",
+     "ko": "에코",
      "female": true
     },
     {
      "name": "Illari",
+     "ko": "일리아리",
      "female": true
     },
     {
      "name": "Juno",
+     "ko": "주노",
      "female": true
     },
     {
      "name": "Kiriko",
+     "ko": "키리코",
      "female": true
     },
     {
      "name": "Mei",
+     "ko": "메이",
      "female": true
     },
     {
      "name": "Moira",
+     "ko": "모이라",
      "female": true
     },
     {
      "name": "Orisa",
+     "ko": "오리사",
      "female": true
     },
     {
      "name": "Pharah",
+     "ko": "파라",
      "female": true
     },
     {
      "name": "Sojourn",
+     "ko": "소전",
      "female": true
     },
     {
      "name": "Sombra",
+     "ko": "솜브라",
      "female": true
     },
     {
      "name": "Symmetra",
+     "ko": "시메트라",
      "female": true
     },
     {
      "name": "Zarya",
+     "ko": "자리야",
      "female": true
     },
     {
      "name": "Venture",
+     "ko": "벤처",
      "female": true
     },
     {
      "name": "Junker Queen",
+     "ko": "정커퀸",
      "female": true
     },
     {
      "name": "Genji",
+     "ko": "겐지",
      "female": false
     },
     {
      "name": "Hanzo",
+     "ko": "한조",
      "female": false
     },
     {
      "name": "Reinhardt",
+     "ko": "라인하르트",
      "female": false
     },
     {
      "name": "Soldier: 76",
+     "ko": "솔저: 76",
      "female": false
     },
     {
      "name": "Reaper",
+     "ko": "리퍼",
      "female": false
     },
     {
      "name": "Cassidy",
+     "ko": "캐서디",
      "female": false
     },
     {
      "name": "Lúcio",
+     "ko": "루시우",
      "female": false
     },
     {
      "name": "Zenyatta",
+     "ko": "젠야타",
      "female": false
     },
     {
      "name": "Ramattra",
+     "ko": "라마트라",
      "female": false
     },
     {
      "name": "Winston",
+     "ko": "윈스턴",
      "female": false
     },
     {
      "name": "Torbjörn",
+     "ko": "토르비욘",
      "female": false
     },
     {
      "name": "Baptiste",
+     "ko": "바티스트",
      "female": false
     },
     {
      "name": "Doomfist",
+     "ko": "둠피스트",
      "female": false
     },
     {
      "name": "Sigma",
+     "ko": "시그마",
      "female": false
     },
     {
      "name": "Lifeweaver",
+     "ko": "라이프위버",
      "female": false
     },
     {
      "name": "Mauga",
+     "ko": "마우가",
      "female": false
     },
     {
      "name": "Hazard",
+     "ko": "해저드",
      "female": false
     }
    ]
@@ -593,66 +696,82 @@
    "characters": [
     {
      "name": "Chun-Li",
+     "ko": "춘리",
      "female": true
     },
     {
      "name": "Cammy",
+     "ko": "캐미",
      "female": true
     },
     {
      "name": "Ryu",
+     "ko": "류",
      "female": false
     },
     {
      "name": "Ken",
+     "ko": "켄",
      "female": false
     },
     {
      "name": "Guile",
+     "ko": "가일",
      "female": false
     },
     {
      "name": "Blanka",
+     "ko": "블랑카",
      "female": false
     },
     {
      "name": "Zangief",
+     "ko": "장기에프",
      "female": false
     },
     {
      "name": "Dhalsim",
+     "ko": "달심",
      "female": false
     },
     {
      "name": "E. Honda",
+     "ko": "E. 혼다",
      "female": false
     },
     {
      "name": "M. Bison",
+     "ko": "베가",
      "female": false
     },
     {
      "name": "Vega",
+     "ko": "발로그",
      "female": false
     },
     {
      "name": "Sagat",
+     "ko": "사가트",
      "female": false
     },
     {
      "name": "Balrog",
+     "ko": "마이크 바이슨",
      "female": false
     },
     {
      "name": "T. Hawk",
+     "ko": "T. 호크",
      "female": false
     },
     {
      "name": "Dee Jay",
+     "ko": "디제이",
      "female": false
     },
     {
      "name": "Fei Long",
+     "ko": "페이롱",
      "female": false
     }
    ]
@@ -666,154 +785,192 @@
    "characters": [
     {
      "name": "Sylvanas Windrunner",
+     "ko": "실바나스 윈드러너",
      "female": true
     },
     {
      "name": "Jaina Proudmoore",
+     "ko": "제이나 프라우드무어",
      "female": true
     },
     {
      "name": "Tyrande Whisperwind",
+     "ko": "티란데 위스퍼윈드",
      "female": true
     },
     {
      "name": "Alexstrasza",
+     "ko": "알렉스트라자",
      "female": true
     },
     {
      "name": "Ysera",
+     "ko": "이세라",
      "female": true
     },
     {
      "name": "Lady Katrana Prestor",
+     "ko": "여군주 카트라나 프레스톨",
      "female": true
     },
     {
      "name": "Vereesa Windrunner",
+     "ko": "베레사 윈드러너",
      "female": true
     },
     {
      "name": "Alleria Windrunner",
+     "ko": "알레리아 윈드러너",
      "female": true
     },
     {
      "name": "Lady Liadrin",
+     "ko": "여군주 리아드린",
      "female": true
     },
     {
      "name": "Valeera Sanguinar",
+     "ko": "발리라 생귀나르",
      "female": true
     },
     {
      "name": "Maiev Shadowsong",
+     "ko": "마이에브 섀도송",
      "female": true
     },
     {
      "name": "Aggra",
+     "ko": "아그라",
      "female": true
     },
     {
      "name": "Garona Halforcen",
+     "ko": "가로나",
      "female": true
     },
     {
      "name": "Moira Thaurissan",
+     "ko": "모이라 타우릿산",
      "female": true
     },
     {
      "name": "Calia Menethil",
+     "ko": "칼리아 메네실",
      "female": true
     },
     {
      "name": "Lady Vashj",
+     "ko": "여군주 바쉬",
      "female": true
     },
     {
      "name": "Queen Azshara",
+     "ko": "여왕 아즈샤라",
      "female": true
     },
     {
      "name": "High Inquisitor Whitemane",
+     "ko": "종교재판관 화이트메인",
      "female": true
     },
     {
      "name": "Queen Talanji",
+     "ko": "여왕 탈란지",
      "female": true
     },
     {
      "name": "First Arcanist Thalyssra",
+     "ko": "첫 번째 비전술사 탈리스라",
      "female": true
     },
     {
      "name": "Vanessa VanCleef",
+     "ko": "바네사 밴클리프",
      "female": true
     },
     {
      "name": "Tess Greymane",
+     "ko": "테스 그레이메인",
      "female": true
     },
     {
      "name": "Mia Greymane",
+     "ko": "미아 그레이메인",
      "female": true
     },
     {
      "name": "Xe'ra",
+     "ko": "제라",
      "female": true
     },
     {
      "name": "a night elf priestess",
+     "ko": "나이트 엘프 사제",
      "female": true
     },
     {
      "name": "a blood elf paladin",
+     "ko": "블러드 엘프 성기사",
      "female": true
     },
     {
      "name": "a draenei shaman",
+     "ko": "드레나이 주술사",
      "female": true
     },
     {
      "name": "a pandaren monk",
+     "ko": "판다렌 수도사",
      "female": true
     },
     {
      "name": "Arthas Menethil as the Lich King",
+     "ko": "리치 왕 아서스",
      "female": false
     },
     {
      "name": "Illidan Stormrage",
+     "ko": "일리단 스톰레이지",
      "female": false
     },
     {
      "name": "Thrall",
+     "ko": "스랄",
      "female": false
     },
     {
      "name": "Anduin Wrynn",
+     "ko": "안두인 린",
      "female": false
     },
     {
      "name": "Varian Wrynn",
+     "ko": "바리안 린",
      "female": false
     },
     {
      "name": "Uther the Lightbringer",
+     "ko": "빛의 인도자 우서",
      "female": false
     },
     {
      "name": "Kael'thas Sunstrider",
+     "ko": "캘타스 선스트라이더",
      "female": false
     },
     {
      "name": "Malfurion Stormrage",
+     "ko": "말퓨리온 스톰레이지",
      "female": false
     },
     {
      "name": "Gul'dan",
+     "ko": "굴단",
      "female": false
     },
     {
      "name": "Vol'jin",
+     "ko": "볼진",
      "female": false
     }
    ]
@@ -827,102 +984,127 @@
    "characters": [
     {
      "name": "Sarah Kerrigan as a Ghost agent",
+     "ko": "유령 요원 사라 케리건",
      "female": true
     },
     {
      "name": "Kerrigan, Queen of Blades",
+     "ko": "칼날 여왕 케리건",
      "female": true
     },
     {
      "name": "Nova",
+     "ko": "노바",
      "female": true
     },
     {
      "name": "Mira Han",
+     "ko": "미라 한",
      "female": true
     },
     {
      "name": "Ariel Hanson",
+     "ko": "아리엘 핸슨",
      "female": true
     },
     {
      "name": "Selendis",
+     "ko": "셀렌디스",
      "female": true
     },
     {
      "name": "Vorazun",
+     "ko": "보라준",
      "female": true
     },
     {
      "name": "Zagara",
+     "ko": "자가라",
      "female": true
     },
     {
      "name": "Jim Raynor",
+     "ko": "짐 레이너",
      "female": false
     },
     {
      "name": "Arcturus Mengsk",
+     "ko": "아크튜러스 멩스크",
      "female": false
     },
     {
      "name": "Tychus Findlay",
+     "ko": "타이커스 핀들레이",
      "female": false
     },
     {
      "name": "Matt Horner",
+     "ko": "매트 호너",
      "female": false
     },
     {
      "name": "Valerian Mengsk",
+     "ko": "발레리안 멩스크",
      "female": false
     },
     {
      "name": "Artanis",
+     "ko": "아르타니스",
      "female": false
     },
     {
      "name": "Zeratul",
+     "ko": "제라툴",
      "female": false
     },
     {
      "name": "Tassadar",
+     "ko": "태사다르",
      "female": false
     },
     {
      "name": "Fenix",
+     "ko": "피닉스",
      "female": false
     },
     {
      "name": "Karax",
+     "ko": "카락스",
      "female": false
     },
     {
      "name": "Alarak",
+     "ko": "알라라크",
      "female": false
     },
     {
      "name": "Dehaka",
+     "ko": "데하카",
      "female": false
     },
     {
      "name": "Abathur",
+     "ko": "아바투르",
      "female": false
     },
     {
      "name": "Alexei Stukov",
+     "ko": "알렉세이 스투코프",
      "female": false
     },
     {
      "name": "Gabriel Tosh",
+     "ko": "가브리엘 토시",
      "female": false
     },
     {
      "name": "Egon Stetmann",
+     "ko": "에곤 스텟먼",
      "female": false
     },
     {
      "name": "Rory Swann",
+     "ko": "로리 스완",
      "female": false
     }
    ]
@@ -936,78 +1118,98 @@
    "characters": [
     {
      "name": "Tifa Lockhart",
+     "ko": "티파 록하트",
      "female": true
     },
     {
      "name": "Aerith Gainsborough",
+     "ko": "에어리스 게인즈버러",
      "female": true
     },
     {
      "name": "Yuffie Kisaragi",
-     "female": true
+     "ko": "유피 키사라기",
+     "female": true,
+     "young": true
     },
     {
      "name": "Jessie Rasberry",
+     "ko": "제시 라즈베리",
      "female": true
     },
     {
      "name": "Elena",
+     "ko": "이리나",
      "female": true
     },
     {
      "name": "Scarlet",
+     "ko": "스칼렛",
      "female": true
     },
     {
      "name": "Lucrecia Crescent",
+     "ko": "루크레치아 크레센트",
      "female": true
     },
     {
      "name": "Cloud Strife",
+     "ko": "클라우드 스트라이프",
      "female": false
     },
     {
      "name": "Barret Wallace",
+     "ko": "바레트 월레스",
      "female": false
     },
     {
      "name": "Red XIII",
+     "ko": "레드 XIII",
      "female": false
     },
     {
      "name": "Cait Sith",
+     "ko": "캐트시",
      "female": false
     },
     {
      "name": "Vincent Valentine",
+     "ko": "빈센트 발렌타인",
      "female": false
     },
     {
      "name": "Cid Highwind",
+     "ko": "시드 하이윈드",
      "female": false
     },
     {
      "name": "Sephiroth",
+     "ko": "세피로스",
      "female": false
     },
     {
      "name": "Zack Fair",
+     "ko": "잭스 페어",
      "female": false
     },
     {
      "name": "Rufus Shinra",
+     "ko": "루퍼스 신라",
      "female": false
     },
     {
      "name": "Reno",
+     "ko": "레노",
      "female": false
     },
     {
      "name": "Rude",
+     "ko": "루드",
      "female": false
     },
     {
      "name": "Tseng",
+     "ko": "청",
      "female": false
     }
    ]
@@ -1021,62 +1223,77 @@
    "characters": [
     {
      "name": "Liana",
+     "ko": "리아나",
      "female": true
     },
     {
      "name": "Sherry",
+     "ko": "쉐리",
      "female": true
     },
     {
      "name": "Jessica",
+     "ko": "제시카",
      "female": true
     },
     {
      "name": "Imelda",
+     "ko": "이멜다",
      "female": true
     },
     {
      "name": "Elwin",
+     "ko": "엘윈",
      "female": false
     },
     {
      "name": "Hein",
+     "ko": "헤인",
      "female": false
     },
     {
      "name": "Scott",
+     "ko": "스코트",
      "female": false
     },
     {
      "name": "Keith",
+     "ko": "키스",
      "female": false
     },
     {
      "name": "Aaron",
+     "ko": "아론",
      "female": false
     },
     {
      "name": "Lester",
+     "ko": "레스터",
      "female": false
     },
     {
      "name": "Bernhardt",
+     "ko": "베른하르트",
      "female": false
     },
     {
      "name": "Leon",
+     "ko": "레온",
      "female": false
     },
     {
      "name": "Egbert",
+     "ko": "에그베르트",
      "female": false
     },
     {
      "name": "Laird",
+     "ko": "레아드",
      "female": false
     },
     {
      "name": "Bozel",
+     "ko": "보젤",
      "female": false
     }
    ]
@@ -1185,7 +1402,7 @@
    "ko": "테일즈위버",
    "en": "TalesWeaver",
    "many": true,
-   "roster": 11,
+   "roster": 14,
    "characters": [
     {
      "name": "Ispin Charles",
@@ -1206,6 +1423,24 @@
      "name": "Cloe da Pontina",
      "ko": "클로에 다 폰티나",
      "female": true
+    },
+    {
+     "name": "Nayatrei",
+     "ko": "나야트레이",
+     "female": true,
+     "young": true
+    },
+    {
+     "name": "Anais del Caril",
+     "ko": "아나이스 델 카릴",
+     "female": true,
+     "young": true
+    },
+    {
+     "name": "Benya",
+     "ko": "벤야",
+     "female": true,
+     "young": true
     },
     {
      "name": "Lucian Kaltz",
@@ -1253,98 +1488,122 @@
    "characters": [
     {
      "name": "Kasumi",
+     "ko": "카스미",
      "female": true
     },
     {
      "name": "Ayane",
+     "ko": "아야네",
      "female": true
     },
     {
      "name": "Hitomi",
+     "ko": "히토미",
      "female": true
     },
     {
      "name": "Helena Douglas",
+     "ko": "엘레나 더글라스",
      "female": true
     },
     {
      "name": "Christie",
+     "ko": "크리스티",
      "female": true
     },
     {
      "name": "Tina Armstrong",
+     "ko": "티나 암스트롱",
      "female": true
     },
     {
      "name": "Leifang",
+     "ko": "레이팡",
      "female": true
     },
     {
      "name": "Kokoro",
+     "ko": "코코로",
      "female": true
     },
     {
      "name": "La Mariposa",
+     "ko": "라 마리포사",
      "female": true
     },
     {
      "name": "Mila",
+     "ko": "밀라",
      "female": true
     },
     {
      "name": "Alpha-152",
+     "ko": "알파-152",
      "female": true
     },
     {
      "name": "Sarah Bryant",
+     "ko": "사라 브라이언트",
      "female": true
     },
     {
      "name": "Pai Chan",
+     "ko": "파이 첸",
      "female": true
     },
     {
      "name": "Ryu Hayabusa",
+     "ko": "류 하야부사",
      "female": false
     },
     {
      "name": "Hayate",
+     "ko": "하야테",
      "female": false
     },
     {
      "name": "Jann Lee",
+     "ko": "잔리",
      "female": false
     },
     {
      "name": "Zack",
+     "ko": "잭",
      "female": false
     },
     {
      "name": "Bass Armstrong",
+     "ko": "배스 암스트롱",
      "female": false
     },
     {
      "name": "Bayman",
+     "ko": "베이먼",
      "female": false
     },
     {
      "name": "Brad Wong",
+     "ko": "브래드 웡",
      "female": false
     },
     {
      "name": "Eliot",
+     "ko": "엘리엇",
      "female": false
     },
     {
      "name": "Gen Fu",
+     "ko": "겐후",
      "female": false
     },
     {
      "name": "Rig",
+     "ko": "릭",
      "female": false
     },
     {
      "name": "Akira Yuki",
+     "ko": "유키 아키라",
      "female": false
     }
    ]
@@ -1358,162 +1617,202 @@
    "characters": [
     {
      "name": "Mai Shiranui",
+     "ko": "시라누이 마이",
      "female": true
     },
     {
      "name": "Yuri Sakazaki",
+     "ko": "사카자키 유리",
      "female": true
     },
     {
      "name": "May Lee",
+     "ko": "이진주",
      "female": true
     },
     {
      "name": "Leona Heidern",
+     "ko": "레오나 하이데른",
      "female": true
     },
     {
      "name": "Athena Asamiya",
+     "ko": "아사미야 아테나",
      "female": true
     },
     {
      "name": "Mature",
+     "ko": "매츄어",
      "female": true
     },
     {
      "name": "Vice",
+     "ko": "바이스",
      "female": true
     },
     {
      "name": "Blue Mary",
+     "ko": "블루 마리",
      "female": true
     },
     {
      "name": "Shermie",
+     "ko": "셸미",
      "female": true
     },
     {
      "name": "Whip",
+     "ko": "윕",
      "female": true
     },
     {
      "name": "Vanessa",
+     "ko": "바네사",
      "female": true
     },
     {
      "name": "Kula Diamond",
+     "ko": "쿨라 다이아몬드",
      "female": true
     },
     {
      "name": "Ángel",
+     "ko": "엔젤",
      "female": true
     },
     {
      "name": "Kyo Kusanagi",
+     "ko": "쿠사나기 쿄",
      "female": false
     },
     {
      "name": "Benimaru Nikaido",
+     "ko": "니카이도 베니마루",
      "female": false
     },
     {
      "name": "Goro Daimon",
+     "ko": "다이몬 고로",
      "female": false
     },
     {
      "name": "Terry Bogard",
+     "ko": "테리 보가드",
      "female": false
     },
     {
      "name": "Andy Bogard",
+     "ko": "앤디 보가드",
      "female": false
     },
     {
      "name": "Joe Higashi",
+     "ko": "죠 히가시",
      "female": false
     },
     {
      "name": "Ryo Sakazaki",
+     "ko": "사카자키 료",
      "female": false
     },
     {
      "name": "Robert Garcia",
+     "ko": "로버트 가르시아",
      "female": false
     },
     {
      "name": "Takuma Sakazaki",
+     "ko": "사카자키 타쿠마",
      "female": false
     },
     {
      "name": "Ralf Jones",
+     "ko": "랄프 존스",
      "female": false
     },
     {
      "name": "Clark Still",
+     "ko": "클라크 스틸",
      "female": false
     },
     {
      "name": "Sie Kensou",
+     "ko": "시이 켄수",
      "female": false
     },
     {
      "name": "Chin Gentsai",
+     "ko": "친 겐사이",
      "female": false
     },
     {
      "name": "Kim Kaphwan",
+     "ko": "김갑환",
      "female": false
     },
     {
      "name": "Chang Koehan",
+     "ko": "장거한",
      "female": false
     },
     {
      "name": "Choi Bounge",
+     "ko": "최번개",
      "female": false
     },
     {
      "name": "Iori Yagami",
+     "ko": "야가미 이오리",
      "female": false
     },
     {
      "name": "Ryuji Yamazaki",
+     "ko": "야마자키 류지",
      "female": false
     },
     {
      "name": "Billy Kane",
+     "ko": "빌리 칸",
      "female": false
     },
     {
      "name": "Yashiro Nanakase",
+     "ko": "나나카세 야시로",
      "female": false
     },
     {
      "name": "Chris",
+     "ko": "크리스",
      "female": false
     },
     {
      "name": "K'",
+     "ko": "K'",
      "female": false
     },
     {
      "name": "Maxima",
+     "ko": "맥시마",
      "female": false
     },
     {
      "name": "Seth",
+     "ko": "세스",
      "female": false
     },
     {
      "name": "Ramón",
+     "ko": "라몬",
      "female": false
     },
     {
      "name": "K9999",
+     "ko": "K9999",
      "female": false
     },
     {
      "name": "Kusanagi",
+     "ko": "쿠사나기",
      "female": false
     }
    ]
@@ -1523,466 +1822,635 @@
    "ko": "원신",
    "en": "Genshin Impact",
    "many": true,
-   "roster": 115,
+   "roster": 124,
    "characters": [
     {
      "name": "Lumine",
+     "ko": "루미네",
      "female": true
     },
     {
      "name": "Aloy",
+     "ko": "에일로이",
      "female": true
     },
     {
      "name": "Skirk",
+     "ko": "스커크",
      "female": true
     },
     {
      "name": "Nicole",
+     "ko": "니콜",
      "female": true
     },
     {
      "name": "Amber",
+     "ko": "엠버",
      "female": true
     },
     {
      "name": "Barbara",
+     "ko": "바바라",
      "female": true
     },
     {
+     "name": "Diona",
+     "ko": "디오나",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Eula",
+     "ko": "유라",
      "female": true
     },
     {
      "name": "Fischl",
+     "ko": "피슬",
      "female": true
     },
     {
      "name": "Jean",
+     "ko": "진",
      "female": true
     },
     {
+     "name": "Klee",
+     "ko": "클레",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Lisa",
+     "ko": "리사",
      "female": true
     },
     {
      "name": "Mona",
+     "ko": "모나",
      "female": true
     },
     {
      "name": "Noelle",
+     "ko": "노엘",
      "female": true
     },
     {
      "name": "Prune",
+     "ko": "프루네",
      "female": true
     },
     {
      "name": "Rosaria",
+     "ko": "로자리아",
      "female": true
     },
     {
      "name": "Sucrose",
+     "ko": "설탕",
      "female": true
     },
     {
      "name": "Beidou",
+     "ko": "북두",
      "female": true
     },
     {
      "name": "Ganyu",
+     "ko": "감우",
      "female": true
     },
     {
      "name": "Hu Tao",
+     "ko": "호두",
      "female": true
     },
     {
      "name": "Keqing",
+     "ko": "각청",
      "female": true
     },
     {
      "name": "Lan Yan",
+     "ko": "남연",
      "female": true
     },
     {
      "name": "Ningguang",
+     "ko": "응광",
      "female": true
     },
     {
+     "name": "Qiqi",
+     "ko": "치치",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Shenhe",
+     "ko": "신학",
      "female": true
     },
     {
      "name": "Xiangling",
+     "ko": "향릉",
      "female": true
     },
     {
      "name": "Xianyun",
+     "ko": "한운",
      "female": true
     },
     {
      "name": "Xinyan",
+     "ko": "신염",
      "female": true
     },
     {
      "name": "Yanfei",
+     "ko": "연비",
      "female": true
     },
     {
+     "name": "Yaoyao",
+     "ko": "요요",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Yelan",
+     "ko": "야란",
      "female": true
     },
     {
      "name": "Yun Jin",
+     "ko": "운근",
      "female": true
     },
     {
      "name": "Zibai",
+     "ko": "자백",
      "female": true
     },
     {
      "name": "Chiori",
+     "ko": "치오리",
      "female": true
     },
     {
      "name": "Kamisato Ayaka",
+     "ko": "카미사토 아야카",
      "female": true
     },
     {
      "name": "Kirara",
+     "ko": "키라라",
      "female": true
     },
     {
      "name": "Kujou Sara",
+     "ko": "쿠죠 사라",
      "female": true
     },
     {
      "name": "Kuki Shinobu",
+     "ko": "쿠키 시노부",
      "female": true
     },
     {
      "name": "Raiden Shogun",
+     "ko": "라이덴 쇼군",
      "female": true
     },
     {
      "name": "Sangonomiya Kokomi",
+     "ko": "산고노미야 코코미",
      "female": true
     },
     {
+     "name": "Sayu",
+     "ko": "사유",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Yae Miko",
+     "ko": "야에 미코",
      "female": true
     },
     {
      "name": "Yoimiya",
+     "ko": "요이미야",
      "female": true
     },
     {
      "name": "Yumemizuki Mizuki",
+     "ko": "유메미즈키 미즈키",
      "female": true
     },
     {
      "name": "Candace",
+     "ko": "캔디스",
      "female": true
     },
     {
      "name": "Collei",
+     "ko": "콜레이",
      "female": true
     },
     {
      "name": "Dehya",
+     "ko": "데히야",
      "female": true
     },
     {
+     "name": "Dori",
+     "ko": "도리",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Faruzan",
+     "ko": "파루잔",
      "female": true
     },
     {
      "name": "Layla",
+     "ko": "레일라",
      "female": true
     },
     {
+     "name": "Nahida",
+     "ko": "나히다",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Nilou",
+     "ko": "닐루",
      "female": true
     },
     {
      "name": "Charlotte",
+     "ko": "샤를로트",
      "female": true
     },
     {
      "name": "Chevreuse",
+     "ko": "슈브르즈",
      "female": true
     },
     {
      "name": "Clorinde",
+     "ko": "클로린드",
      "female": true
     },
     {
      "name": "Emilie",
+     "ko": "에밀리",
      "female": true
     },
     {
      "name": "Escoffier",
+     "ko": "에스코피에",
      "female": true
     },
     {
      "name": "Furina",
+     "ko": "푸리나",
      "female": true
     },
     {
      "name": "Lynette",
+     "ko": "리넷",
      "female": true
     },
     {
      "name": "Navia",
+     "ko": "나비아",
      "female": true
     },
     {
+     "name": "Sigewinne",
+     "ko": "시그윈",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Chasca",
+     "ko": "차스카",
      "female": true
     },
     {
      "name": "Citlali",
+     "ko": "시틀라리",
      "female": true
     },
     {
      "name": "Iansan",
+     "ko": "이안산",
      "female": true
     },
     {
+     "name": "Kachina",
+     "ko": "카치나",
+     "female": true,
+     "young": true
+    },
+    {
      "name": "Mavuika",
+     "ko": "마비카",
      "female": true
     },
     {
      "name": "Mualani",
+     "ko": "말라니",
      "female": true
     },
     {
      "name": "Varesa",
+     "ko": "바레사",
      "female": true
     },
     {
      "name": "Xilonen",
+     "ko": "실로닌",
      "female": true
     },
     {
      "name": "Aino",
+     "ko": "아이노",
      "female": true
     },
     {
      "name": "Columbina",
+     "ko": "콜롬비나",
      "female": true
     },
     {
      "name": "Ineffa",
+     "ko": "이네파",
      "female": true
     },
     {
      "name": "Jahoda",
+     "ko": "야호다",
      "female": true
     },
     {
      "name": "Lauma",
+     "ko": "라우마",
      "female": true
     },
     {
      "name": "Linnea",
+     "ko": "린네아",
      "female": true
     },
     {
      "name": "Nefer",
+     "ko": "네페르",
      "female": true
     },
     {
      "name": "Arlecchino",
+     "ko": "아를레키노",
      "female": true
     },
     {
      "name": "Odette",
+     "ko": "오데트",
      "female": true
     },
     {
      "name": "Sandrone",
+     "ko": "산드로네",
      "female": true
     },
     {
      "name": "Vesna",
+     "ko": "베스나",
      "female": true
     },
     {
      "name": "Vodyanitsa",
+     "ko": "보댜니차",
      "female": true
     },
     {
      "name": "Aether",
+     "ko": "아이테르",
      "female": false
     },
     {
      "name": "Albedo",
+     "ko": "알베도",
      "female": false
     },
     {
      "name": "Bennett",
+     "ko": "베넷",
      "female": false
     },
     {
      "name": "Dahlia",
+     "ko": "달리아",
      "female": false
     },
     {
      "name": "Diluc",
+     "ko": "다이루크",
      "female": false
     },
     {
      "name": "Durin",
+     "ko": "두린",
      "female": false
     },
     {
      "name": "Kaeya",
+     "ko": "케이아",
      "female": false
     },
     {
      "name": "Lohen",
+     "ko": "로엔",
      "female": false
     },
     {
      "name": "Mika",
+     "ko": "미카",
      "female": false
     },
     {
      "name": "Razor",
+     "ko": "레이저",
      "female": false
     },
     {
      "name": "Varka",
+     "ko": "바르카",
      "female": false
     },
     {
      "name": "Venti",
+     "ko": "벤티",
      "female": false
     },
     {
      "name": "Baizhu",
+     "ko": "백출",
      "female": false
     },
     {
      "name": "Chongyun",
+     "ko": "중운",
      "female": false
     },
     {
      "name": "Gaming",
+     "ko": "가명",
      "female": false
     },
     {
      "name": "Xiao",
+     "ko": "소",
      "female": false
     },
     {
      "name": "Xingqiu",
+     "ko": "행추",
      "female": false
     },
     {
      "name": "Zhongli",
+     "ko": "종려",
      "female": false
     },
     {
      "name": "Arataki Itto",
+     "ko": "아라타키 이토",
      "female": false
     },
     {
      "name": "Gorou",
+     "ko": "고로",
      "female": false
     },
     {
      "name": "Kaedehara Kazuha",
+     "ko": "카에데하라 카즈하",
      "female": false
     },
     {
      "name": "Kamisato Ayato",
+     "ko": "카미사토 아야토",
      "female": false
     },
     {
      "name": "Shikanoin Heizou",
+     "ko": "시카노인 헤이조",
      "female": false
     },
     {
      "name": "Thoma",
+     "ko": "토마",
      "female": false
     },
     {
      "name": "Alhaitham",
+     "ko": "알하이탐",
      "female": false
     },
     {
      "name": "Cyno",
+     "ko": "사이노",
      "female": false
     },
     {
      "name": "Kaveh",
+     "ko": "카베",
      "female": false
     },
     {
      "name": "Sethos",
+     "ko": "세토스",
      "female": false
     },
     {
      "name": "Tighnari",
+     "ko": "타이나리",
      "female": false
     },
     {
      "name": "Wanderer",
+     "ko": "방랑자",
      "female": false
     },
     {
      "name": "Freminet",
+     "ko": "프레미네",
      "female": false
     },
     {
      "name": "Lyney",
+     "ko": "리니",
      "female": false
     },
     {
      "name": "Neuvillette",
+     "ko": "느비예트",
      "female": false
     },
     {
      "name": "Wriothesley",
+     "ko": "라이오슬리",
      "female": false
     },
     {
      "name": "Ifa",
+     "ko": "이파",
      "female": false
     },
     {
      "name": "Kinich",
+     "ko": "키니치",
      "female": false
     },
     {
      "name": "Ororon",
+     "ko": "오로룬",
      "female": false
     },
     {
      "name": "Flins",
+     "ko": "플린스",
      "female": false
     },
     {
      "name": "Illuga",
+     "ko": "일루가",
      "female": false
     },
     {
      "name": "Alyosha",
+     "ko": "알료샤",
      "female": false
     },
     {
      "name": "Mitya",
+     "ko": "미탸",
      "female": false
     },
     {
      "name": "Tartaglia",
+     "ko": "타르탈리아",
      "female": false
     },
     {
      "name": "Valeriy",
+     "ko": "발레리",
      "female": false
     }
    ]
