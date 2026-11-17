@@ -116,6 +116,71 @@ const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(
     await p.goto(BASE + '/index.html?era=mx&today=2099-01-01'); await p.waitForSelector('.tx-city'); assert.equal(await p.locator('.tx-legend [data-new="1"]').count(), 0); checks += 2;
   } else { await p.keyboard.press('Escape'); }
   assert(await fits(p)); assert.deepEqual(errors, []); checks += 12;
+
+  /* ── ② 진영 막사 ── 범례 · 성 · 땅을 누르면 그 세력의 막사, 뒤로 가면 지도 */
+  const SHU = '촉한', enc = encodeURIComponent, art = n => C.hasArt(IMGDOC.img[n]);
+  await p.evaluate(() => { try { localStorage.removeItem('samguk_seen_v1'); } catch (e) {} });
+  await p.goto(BASE + '/index.html?era=mx&today=' + TODAY); await p.waitForSelector('.tx-city');
+  await p.click('.tx-legend [data-f="' + SHU + '"]'); await p.waitForSelector('.tx-camp');
+  await p.waitForFunction(() => document.querySelector('.tx-camp').getAnimations().length === 0);   /* 들어오는 움직임이 끝난 뒤에 잰다 */
+  assert.equal(await p.evaluate(() => document.documentElement.dataset.layer), 'camp');
+  assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('f')), SHU);
+  assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '유비');
+  const ms = C.members(doc, 'mx', SHU), n = ms.length;
+  assert.equal(await p.locator('.tx-face[data-name]').count(), n, '막사의 장수 수');          // 가운데 + 둘레 + 아래 줄 = 모두
+  assert.deepEqual((await p.locator('.tx-face[data-name]').evaluateAll(es => es.map(e => e.dataset.name))).sort(), ms.map(m => m.name).sort());
+  const ring = await p.locator('.tx-ring .tx-face:not(.tx-lord)').count(), rest = await p.locator('.tx-rest .tx-face').count();
+  assert(ring >= 6 && ring <= 12 && 1 + ring + rest === n, '둘레 ' + ring + ' · 아래 줄 ' + rest);
+  assert(await p.locator('.tx-bond[data-kind="bond"]').count() > 0, '결의 선');
+  assert((await p.locator('.tx-ring .tx-face').evaluateAll(es => es.map(e => e.dataset.name))).includes('관우'), '군주와 결의로 묶인 장수가 둘레에');
+  for (const h of await p.locator('.tx-roles [data-role], .tx-tolist, .tx-back, .tx-bonds button').evaluateAll(es => es.map(e => e.getBoundingClientRect().height))) assert(h >= 44, '막사 누르는 자리 ' + h);
+  /* 둘레의 얼굴끼리 · 가운데와 겹치지 않는다 */
+  { const bs = await p.locator('.tx-ring .tx-face i, .tx-lord i').evaluateAll(es => es.map(e => { const r = e.getBoundingClientRect(); return [r.x + r.width / 2, r.y + r.height / 2, r.width / 2]; }));
+    for (let i = 0; i < bs.length; i++) for (let j = i + 1; j < bs.length; j++) assert(Math.hypot(bs[i][0] - bs[j][0], bs[i][1] - bs[j][1]) >= bs[i][2] + bs[j][2] - 0.5, '얼굴이 겹친다 ' + i + ' · ' + j);
+    for (const b of bs) assert(b[0] - b[2] >= 0 && b[0] + b[2] <= 344, '얼굴이 화면 밖'); }
+  /* 머리 — 세력 · 판도 · 그 세력의 한 줄 · 가진 성 */
+  { const head = await p.locator('.tx-camp-head').textContent(); assert(head.includes(SHU) && head.includes(T.eras.mx.notes[SHU]), '막사 머리');
+    for (const c of C.factionsOf(doc, 'mx').find(f => f.key === SHU).cities) assert(head.includes(T.cities.find(x => x.key === c).ko), '가진 성 ' + c); }
+  /* 결의 — 글 칸에 이름과 사람, 누르면 그 결의 */
+  assert(await p.locator('.tx-bonds button').count() > 0); await p.click('.tx-bonds button >> nth=0');
+  assert.equal(await p.locator('.tx-bonds [aria-pressed="true"]').count(), 1); assert((await p.locator('.tx-bond-note').textContent()).length > 4);
+  /* 그림 없는 장수 · 새 그림 */
+  assert.equal(await p.locator('.tx-face[data-art="0"]').count(), ms.filter(m => !art(m.name)).length); assert(await p.locator('.tx-face[data-art="0"]').count() > 0);
+  assert.equal(await p.locator('.tx-face[data-art="0"] img').count(), 0); assert.equal(await p.locator('.tx-face[data-art="1"] img').count(), ms.filter(m => art(m.name)).length);
+  assert.equal(await p.locator('.tx-face[data-new="1"]').count(), ms.filter(m => C.isNew(C.lastAdded(IMGDOC.img[m.name], IMGDOC.added), TODAY, '')).length, '새 그림 표지');
+  /* 장수를 누르면 목록 도감의 그 장수로 · 목록으로 보기 */
+  assert.equal(await p.locator('.tx-lord').getAttribute('href'), 'dex.html?faction=shu&card=' + enc('유비'));
+  assert.equal(await p.locator('.tx-tolist').getAttribute('href'), 'dex.html?faction=shu');
+  /* 역할 걸러 보기 — 군주는 남는다 */
+  await p.click('.tx-roles [data-role="strategist"]');
+  assert.equal(await p.locator('.tx-face[data-name]:visible').count(), ms.filter(m => m.role === 'strategist' || m.role === 'lord').length);
+  await p.click('.tx-roles [data-role="all"]'); assert.equal(await p.locator('.tx-face[data-name]').count(), n);
+  assert(await fits(p)); checks += 22;
+  /* 뒤로 — 지도로(판도는 그대로). 「‹ 천하 지도」 도 같은 길 */
+  await p.goBack(); await p.waitForSelector('.tx-city'); assert.equal(await p.evaluate(() => document.documentElement.dataset.layer), 'map');
+  assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('f')), null);
+  await p.click('.tx-city[data-city="chengdu"]'); await p.waitForSelector('.tx-camp'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '유비', '성을 누르면 주인 세력의 막사');
+  await p.click('.tx-back'); await p.waitForSelector('.tx-city'); assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('f')), null);
+  await p.goForward(); await p.waitForSelector('.tx-camp'); await p.goBack(); await p.waitForSelector('.tx-city');
+  /* 세력의 땅(성 표지 옆)을 눌러도 */
+  { const b = await p.locator('.tx-city[data-city="yunnan"]').boundingBox(); await p.mouse.click(b.x + b.width / 2 + 16, b.y + b.height / 2 - 14); await p.waitForSelector('.tx-camp');
+    assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('f')), C.ownerOf(doc, 'mx', 'yunnan')); await p.goBack(); await p.waitForSelector('.tx-city'); }
+  /* 주소로 바로 — 가장 큰 막사 · 그림이 하나도 없는 막사 · 군주가 없는 무리도 넘치지 않고 모두 나온다 */
+  const fsMx = C.factionsOf(doc, 'mx'), largest = fsMx.slice().sort((x, y) => y.count - x.count)[0].key;
+  const artless = fsMx.filter(f => C.members(doc, 'mx', f.key).every(m => !art(m.name))).sort((x, y) => y.count - x.count)[0].key;
+  const lordless = fsMx.find(f => C.members(doc, 'mx', f.key)[0].role !== 'lord').key;
+  for (const f of [largest, artless, lordless]) { await p.goto(BASE + '/index.html?era=mx&f=' + enc(f)); await p.waitForSelector('.tx-camp'); assert(await fits(p), f + ' 넘침');
+    assert.equal(await p.locator('.tx-face[data-name]').count(), C.members(doc, 'mx', f).length, f + ' 장수 수'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), C.members(doc, 'mx', f)[0].name); }
+  assert.equal(await p.locator('.tx-face img').count() >= 0, true);
+  await p.goto(BASE + '/index.html?era=mx&f=' + enc(artless)); await p.waitForSelector('.tx-camp'); assert.equal(await p.locator('.tx-face img').count(), 0, '그림 없는 막사 — 도장 얼굴만');
+  /* 주소로 바로 연 막사의 「‹ 천하 지도」 — 지도로(공방 밖으로 나가지 않는다) */
+  await p.click('.tx-back'); await p.waitForSelector('.tx-city'); assert.match(p.url(), /index\.html\?era=mx/);
+  /* 연도 판도의 떠도는 세력에도 들어간다 · 그해에 없는 세력의 주소는 지도로 */
+  const drift = C.factionsOf(doc, 'end263').find(f => f.landless).key;
+  await p.click('.tx-eras [data-era="end263"]'); await p.click('.tx-legend [data-f="' + drift + '"]'); await p.waitForSelector('.tx-camp');
+  assert.equal(await p.locator('.tx-face[data-name]').count(), C.members(doc, 'end263', drift).length, '떠도는 세력의 막사'); assert(await fits(p));
+  await p.goto(BASE + '/index.html?era=end263&f=' + enc('여포')); await p.waitForSelector('.tx-city'); assert.equal(await p.evaluate(() => document.documentElement.dataset.layer), 'map');
+  assert.deepEqual(errors, []); checks += 16;
   await ctx.close();
 
   /* ── 저장이 막힌 브라우저에서도 뜬다 · PC 에서 넘치지 않는다 ── */
