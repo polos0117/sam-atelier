@@ -160,6 +160,12 @@
 .lb-nav {position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:1px solid #fff4;border-radius:10px;background:#0007;color:#fff;font-size:30px;line-height:1;cursor:pointer}
 .lb-nav.prev {left:6px} .lb-nav.next {right:6px}
 .lightbox .fav-heart[aria-pressed="true"] {border-color:#ff8fb1;color:#ffb3c8}
+/* 일상컷 한 줄(lib/casual-note.js, 2026-11-17) — 크게 보기 위 줄 아래에 작게. 우리 값은 한글, GPT 글(Outfit)은 영어 그대로 · 길면 줄였다가 누르면 펼침 */
+.lightbox .lb-cnote {flex-basis:100%;margin:0;max-width:min(100%,72ch);margin-inline:auto;font-size:12px;line-height:1.5;opacity:.85;text-align:center;word-break:keep-all;overflow-wrap:anywhere}
+.lightbox .lb-cnote b {font-size:12px;font-weight:700}
+.lightbox .lb-cnote .cnote-gpt {margin-left:6px;font-size:11px;opacity:.75}
+.lightbox .lb-cnote .cnote-more {display:inline;white-space:normal;min-height:0;padding:0;border:0;border-radius:0;background:none;color:inherit;font:inherit;font-size:12px;text-align:inherit;cursor:pointer;text-decoration:underline dotted #fff8;text-underline-offset:3px}
+.lightbox .lb-cnote .cnote-more:focus-visible {outline:2px solid #fff;outline-offset:2px}
 .fav-toast {position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:90;max-width:calc(100vw - 32px);padding:9px 16px;border-radius:999px;background:#fff;color:#111;font-size:13px;font-weight:700;text-align:center;pointer-events:none}
 .fav-toast:empty {display:none}
 
