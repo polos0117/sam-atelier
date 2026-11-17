@@ -24,7 +24,7 @@
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다. 삼국지는 a: samguk) -->
 <script src="lib/favorites.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=1">
-<link rel="stylesheet" href="lib/sam.css?v=8">
+<link rel="stylesheet" href="lib/sam.css?v=7">
 <link rel="stylesheet" href="lib/material.css?v=6">
 </head>
 <body class="prompt-page lab-page">
@@ -32,8 +32,7 @@
 <script type="module">
 import {h,render} from 'https://esm.sh/preact@10.24.3';
 import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
-import {WorkspaceHeader} from './lib/workspace-ui.js?v=7';
-import {CasualNote} from './lib/casual-note.js?v=1';   /* 일상컷 한 줄 — 크게 보기에서만(목록 칸엔 없다, 2026-11-17) */
+import {WorkspaceHeader} from './lib/workspace-ui.js?v=8';
 /* · 위: 세력 고르기(위 · 촉 · 오 · 군웅 — 장수 수 · 그린 칸)
    · 위에 붙는 판: 보기(세계 그림 · 일상컷 · 전부) · 세계(모두 · 삼국시대 · 중세 판타지 · 메카) · 이름 찾기 · 그림 있는 것만 · 역할로 바로 가기 · 즐겨찾기 수
    · 장수마다 세계 그림 셋. 그림이 하나도 없는 장수는 낮은 빈 칸(누르면 그 세계의 생성기)
@@ -152,7 +151,7 @@ function Lightbox({doc,box,setBox,close,favs}){
     say(W(on?'dex.fav.added':faved?'dex.fav.removed':'dex.fav.blocked'));};
   return h('div',{class:'lightbox',role:'dialog','aria-modal':'true','aria-label':box.g.key,onClick:e=>{if(e.target===e.currentTarget)close();},
       onTouchStart:e=>{touch.current=e.touches[0].clientX;},onTouchEnd:e=>{const x=touch.current;touch.current=null;if(x==null)return;const dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>50)step(dx<0?1:-1);}},
-    h('div',{class:'lb-top'},h('b',null,box.g.key),h('span',null,p.long||p.label),h('span',{class:'lb-n'},W('dex.counter',{i:i+1,n:pics.length})),p.kind==='casual'&&h(CasualNote,{file:p.file,cls:'lb-cnote'})),
+    h('div',{class:'lb-top'},h('b',null,box.g.key),h('span',null,p.long||p.label),h('span',{class:'lb-n'},W('dex.counter',{i:i+1,n:pics.length}))),
     h('div',{class:'lb-stage'},
       pics.length>1&&h('button',{type:'button',class:'lb-nav prev','aria-label':W('dex.prev'),onClick:()=>step(-1)},'‹'),
       h('img',{key:p.file,src:IMG.imgURL(p.file),alt:box.g.key+' · '+(p.long||p.label)}),

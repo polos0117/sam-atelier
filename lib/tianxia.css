@@ -1,0 +1,104 @@
+/* 천하 지도 · 진영 막사(index.html · lib/tianxia.js, 2026-11-17). 이 화면만의 색 — 공방의 공간(lib/workspace.css) 뼈대 · 꽃 장식 틀(lib/material.css)을 쓰지 않는다.
+   세계 셋(html[data-world]) × 밝은 판 · 어두운 판(html[data-tone] — 고른 공간의 밝기)마다 임시 바탕의 종이 · 바다 · 강 · 글씨색이 다르다. 바탕 그림을 받으면 그림이 그 위를 덮는다.
+   세력 도장 한 글자와 가는 테두리만. 폴드 커버 344×882 가 기준 — 양옆 12px, 누르는 자리 44px. */
+html {--tx-bar:#2f2a22;--tx-ink:#f3e7c9;--tx-gold:#c9a24a;--tx-on-gold:#2b2218;--tx-line:#f3e7c940;--tx-new:#ff5a4d;
+  --tx-paper:#e9dcbb;--tx-paper2:#cfbb8a;--tx-label:#2b2218;--tx-halo:#fff8e6;--tx-sea:#9db7b5;--tx-river:#6f9aa3;
+  --tx-grain:repeating-linear-gradient(115deg,#0000 0 22px,#7a5f2c14 22px 23px);--tx-serif:'Song Myung','Noto Serif KR',serif;--tx-han:'Noto Serif KR',serif}
+html[data-theme="grimoire"],html[data-theme="feywood"],html[data-theme="dragonforge"] {--tx-serif:'Hahmlet','Noto Serif KR',serif}
+html[data-theme="neonrain"],html[data-theme="hangar"],html[data-theme="orbit"] {--tx-serif:'Orbit','IBM Plex Sans KR',sans-serif}
+/* 무협 — 비단에 먹 */
+html[data-world="samguk"][data-tone="dark"] {--tx-bar:#191613;--tx-paper:#3a332a;--tx-paper2:#221e19;--tx-label:#f0e4c4;--tx-halo:#14110d;--tx-sea:#1f3a40;--tx-river:#4a7c88;--tx-grain:repeating-linear-gradient(115deg,#0000 0 22px,#f3e7c90a 22px 23px)}
+/* 판타지 — 양피지 */
+html[data-world="fantasy"] {--tx-bar:#33251b;--tx-gold:#d6a24c;--tx-paper:#efdcae;--tx-paper2:#c8a467;--tx-label:#3a2414;--tx-halo:#fff3d6;--tx-sea:#8fb0bf;--tx-river:#5f8fa8;--tx-grain:radial-gradient(60% 40% at 30% 30%,#8a5a2014,#0000 70%),radial-gradient(50% 40% at 75% 70%,#8a5a2018,#0000 70%)}
+html[data-world="fantasy"][data-tone="dark"] {--tx-bar:#1b130d;--tx-paper:#3d2c1c;--tx-paper2:#20160e;--tx-label:#f1dfb6;--tx-halo:#150e08;--tx-sea:#1b2f3d;--tx-river:#4b7890;--tx-grain:radial-gradient(60% 40% at 30% 30%,#e0b06012,#0000 70%)}
+/* 메카 — 전술 지도 */
+html[data-world="mecha"] {--tx-bar:#1b2530;--tx-ink:#e4eef4;--tx-gold:#58c7dd;--tx-on-gold:#08222a;--tx-line:#e4eef440;--tx-paper:#e3eaee;--tx-paper2:#b7c5cf;--tx-label:#12202b;--tx-halo:#f4f9fb;--tx-sea:#9cc4d8;--tx-river:#3b9bc0;
+  --tx-grain:repeating-linear-gradient(0deg,#1b253018 0 1px,#0000 1px 6.25%),repeating-linear-gradient(90deg,#1b253018 0 1px,#0000 1px 9.375%)}
+html[data-world="mecha"][data-tone="dark"] {--tx-bar:#0a1118;--tx-paper:#13222e;--tx-paper2:#0a141c;--tx-label:#d8f2f8;--tx-halo:#061016;--tx-sea:#0c2c3c;--tx-river:#2aa5c8;
+  --tx-grain:repeating-linear-gradient(0deg,#58c7dd1c 0 1px,#0000 1px 6.25%),repeating-linear-gradient(90deg,#58c7dd1c 0 1px,#0000 1px 9.375%)}
+
+*,*::before,*::after {box-sizing:border-box}
+body.tx-page {margin:0;background:#12100d;color:var(--tx-ink);font:14px/1.45 'IBM Plex Sans KR','Apple SD Gothic Neo','Noto Sans KR',system-ui,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior:none}
+html[data-layer="map"] body.tx-page {overflow:hidden}
+:where(.tx-page) :is(button,a) {-webkit-tap-highlight-color:transparent}
+:where(.tx-page) button {font:inherit;color:inherit;cursor:pointer}
+.tx-page :focus-visible {outline:2px solid var(--tx-gold);outline-offset:2px}
+.tx-wait {margin:0;padding:40vh 12px 0;text-align:center;opacity:.8}
+
+/* ── ① 지도 ── */
+.tx-app {height:100vh;height:var(--atelier-vh,100dvh);max-width:720px;margin:0 auto;display:flex;flex-direction:column;background:var(--tx-bar)}
+.tx-top {flex:none;display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 8px;padding:max(4px,env(safe-area-inset-top)) 12px 6px}
+.tx-name {font:700 18px/1 var(--tx-serif);letter-spacing:.08em}
+.tx-tools {width:44px;height:44px;padding:0;border:1px solid var(--tx-line);border-radius:10px;background:none;font-size:19px;line-height:1}
+.tx-line {grid-column:1/-1;margin:0;font-size:12px;line-height:1.35;opacity:.85}
+.tx-stage {flex:1;min-height:0;position:relative;overflow:hidden;background:color-mix(in srgb,var(--tx-bar) 72%,#000);touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.tx-map {position:absolute;left:0;top:0;transform-origin:0 0;background:var(--tx-grain),radial-gradient(120% 90% at 55% 50%,var(--tx-paper),var(--tx-paper2));background-size:100% 100%;box-shadow:0 0 22px #000a;will-change:transform}
+.tx-map[data-art="1"] {background-size:100% 100%;background-repeat:no-repeat}
+.tx-terrain {position:absolute;inset:0;width:100%;height:100%}
+.tx-terrain .sea {fill:var(--tx-sea);opacity:.85}
+.tx-terrain .river {fill:none;stroke:var(--tx-river);stroke-width:2.5;stroke-linecap:round;opacity:.8}
+.tx-land {position:absolute;width:30%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;opacity:.55;pointer-events:none;transition:background-color .6s;
+  -webkit-mask-image:radial-gradient(closest-side,#000 22%,#0000);mask-image:radial-gradient(closest-side,#000 22%,#0000)}
+html[data-tone="dark"] .tx-land {opacity:.7}
+.tx-city {position:absolute;width:17px;height:17px;margin:-8.5px;padding:0;border:0;background:none;color:var(--tx-label)}
+.tx-city u {position:absolute;left:2px;top:2px;width:13px;height:13px;transform:rotate(45deg);background:var(--c);border:2px solid var(--tx-halo);box-shadow:0 1px 3px #0008;transition:background-color .6s}
+/* 성 이름 — 표지의 아래 · 오른쪽 · 왼쪽 · 위 가운데 다른 성과 덜 겹치는 쪽(lib/tianxia.js labelSides 가 고른다) */
+.tx-city s {position:absolute;z-index:1;left:50%;top:100%;transform:translate(-50%,1px);text-decoration:none;font-size:10px;line-height:1.1;white-space:nowrap;text-shadow:0 0 3px var(--tx-halo),0 0 3px var(--tx-halo),0 0 2px var(--tx-halo)}
+.tx-city[data-l="t"] s {top:auto;bottom:100%;transform:translate(-50%,-1px)}
+.tx-city[data-l="r"] s {left:100%;top:50%;transform:translate(1px,-50%)}
+.tx-city[data-l="l"] s {left:auto;right:100%;top:50%;transform:translate(-1px,-50%)}
+/* 주인 없는 성 — 흐린 빈 표지(194 는 주인 있는 성이 열셋뿐이다) */
+.tx-city[data-f=""] {cursor:default}
+.tx-city[data-f=""] u {left:4px;top:4px;width:9px;height:9px;border:1.5px solid var(--tx-label);box-shadow:none;opacity:.5}
+.tx-city[data-f=""] s {opacity:.6}
+.tx-when {position:absolute;left:12px;right:12px;top:6px;margin:0;font-size:10.5px;line-height:1.35;color:var(--tx-ink);opacity:.75;pointer-events:none}
+.tx-stage[data-zoom="1"] .tx-when {display:none}
+
+.tx-legend {flex:none;display:flex;align-items:center;gap:6px;padding:6px 12px;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--tx-line)}
+.tx-legend::-webkit-scrollbar {display:none}
+.tx-legend button {position:relative;flex:none;height:44px;display:inline-flex;align-items:center;gap:6px;padding:0 10px 0 8px;border:1px solid var(--tx-line);border-radius:10px;background:#ffffff0d;font-size:12.5px;white-space:nowrap}
+.tx-legend em {display:grid;place-items:center;width:26px;height:26px;border-radius:5px;background:var(--c);color:#fff;font:900 15px/1 var(--tx-han);font-style:normal}
+.tx-legend small {font-size:11px;opacity:.65}
+.tx-legend [data-landless="1"] {border-style:dashed}
+.tx-legend [data-new="1"]::after {content:'';position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:50%;background:var(--tx-new);box-shadow:0 0 0 2px var(--tx-bar)}
+.tx-ll {flex:none;padding:0 2px 0 8px;font-size:10.5px;opacity:.7;white-space:nowrap}
+
+.tx-bot {flex:none;padding:2px 12px max(10px,env(safe-area-inset-bottom))}
+.tx-eras,.tx-worlds {display:flex;gap:6px}
+.tx-worlds {margin-top:6px}
+.tx-bot button {flex:1 1 0;min-width:0;height:46px;padding:0 2px;border-radius:9px;font-size:13px;line-height:1.15;white-space:nowrap}
+.tx-eras button {border:1px solid var(--tx-line);background:none}
+.tx-eras small {display:block;font-size:9.5px;opacity:.8;letter-spacing:-.02em}
+.tx-eras [aria-pressed="true"] {background:var(--tx-gold);border-color:var(--tx-gold);color:var(--tx-on-gold);font-weight:700}
+.tx-worlds button {border:1px solid transparent;background:#ffffff14}
+.tx-worlds [aria-pressed="true"] {border-color:var(--tx-gold);box-shadow:inset 0 0 0 1px var(--tx-gold);font-weight:700}
+.tx-hint {margin:6px 0 0;font-size:10.5px;line-height:1.3;opacity:.7}
+
+/* ── 도구 상자 — 아래에서 올라오는 판 ── */
+.tx-shade {position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center;background:#000a}
+.tx-sheet {width:100%;max-width:720px;max-height:86vh;max-height:86dvh;overflow:auto;padding:8px 12px max(16px,env(safe-area-inset-bottom));border-top:1px solid var(--tx-line);border-radius:16px 16px 0 0;background:var(--tx-bar);color:var(--tx-ink);outline:0}
+.tx-sheet-head {display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.tx-sheet h2 {margin:0;font:700 17px/1 var(--tx-serif);letter-spacing:.06em}
+.tx-sheet h3 {margin:16px 0 6px;font-size:12px;font-weight:400;letter-spacing:.08em;opacity:.7}
+.tx-sheet button,.tx-go a {min-height:44px;padding:0 12px;border:1px solid var(--tx-line);border-radius:9px;background:none;font-size:13px}
+.tx-go {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.tx-go a {display:grid;place-items:center;color:inherit;text-decoration:none;text-align:center}
+.tx-seenall,.tx-patch-open {width:100%}
+.tx-seenall {margin-top:8px;border-color:var(--tx-gold) !important;color:var(--tx-gold)}
+.tx-seenall:disabled {opacity:.5;cursor:default}
+.tx-recent {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.tx-recent a {position:relative;display:block;aspect-ratio:2/3;border-radius:8px;overflow:hidden;background:#0005}
+.tx-recent img {display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.tx-recent span {position:absolute;left:0;right:0;bottom:0;padding:12px 2px 3px;font-size:10.5px;color:#fff;text-align:center;background:linear-gradient(#0000,#000c)}
+.tx-themes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.tx-themes button {padding:0 4px;font-size:12px}
+.tx-themes [aria-pressed="true"] {border-color:var(--tx-gold);color:var(--tx-gold);font-weight:700}
+.tx-note {margin:6px 0;font-size:12px;opacity:.7}
+.tx-patch {list-style:none;margin:8px 0 0;padding:0;font-size:12px}
+.tx-patch li {padding:8px 0;border-top:1px solid var(--tx-line)}
+.tx-patch small {display:block;opacity:.6}
+.tx-patch b {display:block;margin:2px 0}
+.tx-patch p {margin:2px 0;font-size:11.5px;opacity:.75;overflow-wrap:anywhere}
+.tx-patch a {color:var(--tx-gold)}
+
+@media (prefers-reduced-motion:reduce) {.tx-land,.tx-city u {transition:none}}

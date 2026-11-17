@@ -4,15 +4,18 @@
 const fs = require('fs'), path = require('path'), assert = require('assert');
 const ROOT = path.join(__dirname, '..');
 const D = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sam-design.json'), 'utf8'));
-const want = new Set([...D.factions.map(f => f.hanja || ''), ...(D.generals || []).map(g => g.seal || '')].join('').replace(/\s/g, ''));
-for (const pg of ['hall.html', 'dex.html']) {
+const F = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/draft2-factions.json'), 'utf8'));
+const base = [...D.factions.map(f => f.hanja || ''), ...(D.generals || []).map(g => g.seal || '')];
+const wants = { 'dex.html': base, 'index.html': [...base, ...Object.values(F.factions).map(f => f.h || '')] };
+for (const pg of ['index.html', 'dex.html']) {
+  const want = new Set(wants[pg].join('').replace(/\s/g, ''));
   const h = fs.readFileSync(path.join(ROOT, pg), 'utf8'), m = h.match(/family=Noto\+Serif\+KR:wght@900&text=([^&"]+)/);
   assert(m, pg + ' — 한자 글꼴 줄이 없다');
   const have = new Set(decodeURIComponent(m[1])), miss = [...want].filter(c => !have.has(c));
   assert.deepEqual(miss, [], pg + ' — text 에 빠진 한자: ' + miss.join(''));
 }
-for (const pg of ['index.html', 'hall.html', 'dex.html', 'prompt.html']) {
+for (const pg of ['index.html', 'dex.html', 'prompt.html']) {
   const h = fs.readFileSync(path.join(ROOT, pg), 'utf8').replace(/<noscript>[\s\S]*?<\/noscript>/g, '');   // 스크립트가 꺼진 기기 몫은 막아도 된다
   for (const l of h.match(/<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com[^>]*>/g) || []) assert(/media="print" onload=/.test(l), pg + ' — 글꼴 줄이 화면 그리기를 막는다: ' + l.slice(0, 90));
 }
-console.log('PASS 글꼴: 한자 ' + want.size + '자가 text 에 다 있음 · 글꼴 줄은 그리기를 막지 않음');
+console.log('PASS 글꼴: 한자 ' + new Set(wants['index.html'].join('')).size + '자가 text 에 다 있음 · 글꼴 줄은 그리기를 막지 않음');

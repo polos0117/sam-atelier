@@ -1,4 +1,4 @@
-/* 화면 검사 — 도감 · 생성기를 브라우저로 연다. 폰(390)과 PC(1280). 게임(draft.html)은 손대지 않아 검사하지 않는다(회귀 검사는 2026-11-12 지웠다) — 여기선 안 연다.
+/* 화면 검사 — 도감 · 생성기를 브라우저로 연다(첫 화면 천하 지도 · 진영 막사 · 옛 주소는 tests/tianxia-screen.cjs — 2026-11-17 옛 타이틀 · 군막 몫을 뺐다). 폰(390)과 PC(1280). 게임(draft.html)은 손대지 않아 검사하지 않는다(회귀 검사는 2026-11-12 지웠다) — 여기선 안 연다.
    도감: 세력 넷 · 고른 세력의 장수 수 = 설계표 · 장수마다 세계 셋(빈 칸은 생성기로) · 역할로 바로 가기 · 이름 찾기 · 그림 있는 것만 · 주소 ?faction=&q= · 설계 상태(확정 · 시안 · 다시 설계) · 설계 요약 · 상태 거르기(?st=).
    생성기: 세력 › 장수 › 갈래 › 단계. 세계 그림은 세계 → … → 다 골랐다 — 지시문이 조립기(lib/prompt-sam.js)와 같고 파일 이름이 <장수>_<세계>_<화풍>_f.webp.
    일상컷은 트리 버전2 — 처음부터 랜덤으로 다 골랐다까지, 시대 넷 · 역사의 자리 장소. 주소 ?card=&o=&world=. 콘솔 오류 없음 · 옆으로 넘치지 않음.
@@ -45,7 +45,7 @@ function W0(k) { return ctx0.window.W(k); }
     const ctx = await br.newContext({ viewport });
     await ctx.route(/^https?:\/\/(?!127\.0\.0\.1)/, r => {
       const file = process.env.ESM_DIR && ESM[r.request().url().split('?')[0]];
-      if (!file || !fs.existsSync(path.join(process.env.ESM_DIR, file))) return r.abort();
+      if (!file || !fs.existsSync(path.join(process.env.ESM_DIR, file))) return /^https:\/\/esm\.sh\//.test(r.request().url()) ? r.continue() : r.abort();   /* ESM_DIR 에 preact 가 없으면 esm.sh 에서 그대로 받는다 */
       return r.fulfill({ status: 200, contentType: 'text/javascript', body: fs.readFileSync(path.join(process.env.ESM_DIR, file), 'utf8').replace(/from"preact"/g, 'from"https://esm.sh/preact@10.24.3"') });
     });
     const page = await ctx.newPage(), errors = [];
@@ -74,24 +74,6 @@ function W0(k) { return ctx0.window.W(k); }
 
   for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 900 }]) {
     const mob = vp.width <= 768;
-    /* ── 타이틀(2026-11-02) — 메뉴 여섯 · 공간 ◀ ▶ · 배경 장면이 화면에 ── */
-    let tv = await open('/index.html', vp);
-    await tv.page.waitForSelector('#m-draft span');
-    assert.deepEqual(await tv.page.locator('.menu-btn').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['hall.html', 'draft.html', 'draft2.html', 'battle.html', 'dex.html', 'prompt.html'], '메뉴 여섯(draft2 2026-11-12) — 머리 메뉴와 같은 차례');
-    const t0 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
-    await tv.page.click('#next'); const t1 = await tv.page.evaluate(() => document.documentElement.dataset.theme);
-    assert.notEqual(t0, t1, '◀ ▶ 로 공간이 바뀐다'); assert.match(await tv.page.locator('#s-name').textContent(), /공간 · /);
-    await tv.page.keyboard.press('ArrowLeft'); assert.equal(await tv.page.evaluate(() => document.documentElement.dataset.theme), t0, '← 로 돌아온다');
-    assert.match(await tv.page.evaluate(() => getComputedStyle(document.querySelector('.title-bg')).backgroundImage), /room-/, '배경 장면');
-    assert.match(await tv.page.evaluate(() => [getComputedStyle(document.querySelector('.title-plaque')).backgroundImage, getComputedStyle(document.querySelector('.menu-btn.main')).backgroundImage, getComputedStyle(document.querySelector('.menu-btn:not(.main)')).backgroundImage, getComputedStyle(document.querySelector('#next')).backgroundImage].join(' ')), /ui-\w+-title.*ui-\w+-main.*ui-\w+-btn.*ui-\w+-round/, '현판 · 단추 그림');
-    { const w = vp.width, empty = { x: w - 20, y: 20 };   /* 빈 곳 한 번 → 배경만, 한 번 더 → 메뉴 */
-      await tv.page.mouse.click(empty.x, empty.y); await tv.page.waitForTimeout(450);
-      assert.ok(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), '빈 곳 → 배경만'); assert.equal(await tv.page.locator('#menu').isVisible(), false, '메뉴 숨김');
-      await tv.page.mouse.click(empty.x, empty.y); await tv.page.waitForTimeout(450);
-      assert.equal(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), false, '다시 → 메뉴'); assert.ok(await tv.page.locator('#menu').isVisible());
-      await tv.page.locator('#s-name').click(); assert.equal(await tv.page.evaluate(() => document.body.classList.contains('bg-only')), false, '메뉴 안은 그대로'); }
-    await noOverflow(tv.page, vp.width + ' 타이틀');
-    assert.deepEqual(tv.errors, [], '타이틀 콘솔'); await tv.ctx.close(); checks += 6;
     /* ── 전장(2026-11-02) — 일곱 전장 · 세계마다 지도와 자리 · 진영(군웅은 무리) · 역할별 이름표 → 미리 보기 → 배치하기 → 자리 · 크게 보기 ── */
     {
       const BT = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/battles.json'), 'utf8'));
@@ -124,22 +106,6 @@ function W0(k) { return ctx0.window.W(k); }
       await bp.click('.b-act[data-act="remove"]'); assert.doesNotMatch(await bp.locator('.b-slot[data-slot="bridge"]').textContent(), /조운/, '자리에서 빼기');
       await noOverflow(bp, vp.width); assert.deepEqual(bv.errors, [], '전장 콘솔'); checks += 10; await bv.ctx.close();
     }
-    /* ── 군막(처음엔 첫 화면) — 문 셋 · 세력 넷 · 패치 기록 · 공간 아홉, 예전 게임 주소는 draft.html 로 ── */
-    let hv = await open('/hall.html', vp);
-    await hv.page.waitForSelector('.factions .nation-card');
-    assert.deepEqual(await hv.page.locator('.home-doors a').evaluateAll(es => es.map(e => e.getAttribute('href'))), ['draft.html', 'dex.html', 'prompt.html'], '문 셋');
-    assert.equal(await hv.page.locator('.factions .nation-card').count(), D.factions.length, '세력 넷');
-    assert.match(await hv.page.locator('.factions .nation-card[data-fac="shu"]').textContent(), new RegExp('장수 ' + count('shu')));
-    assert.equal(await hv.page.locator('.room-choice').count(), 9, '공간 아홉');
-    await hv.page.click('.room-choice:has-text("네온 우중")');
-    assert.equal(await hv.page.evaluate(() => document.documentElement.dataset.theme), 'neonrain');
-    await hv.page.click('.patch-open'); await hv.page.waitForSelector('.patch-entry');
-    await noOverflow(hv.page, vp.width + ' 첫 화면');
-    assert.deepEqual(hv.errors, [], '첫 화면 콘솔'); await hv.ctx.close();
-    for (const old of ['/?daily', '/index.html?local=1#sam-transfer=%7B%7D']) {
-      hv = await open(old, vp); await hv.page.waitForURL(/draft\.html/); assert.match(hv.page.url(), /\/draft\.html/, old + ' → 게임'); await hv.ctx.close();
-    }
-    checks += 9;
     /* ── 도감 ── */
     let v = await open('/dex.html', vp);
     await v.page.waitForSelector('.sam-card');
@@ -303,5 +269,5 @@ function W0(k) { return ctx0.window.W(k); }
   assert.deepEqual(tree.eras.map(e => e.key), ['now', 'heritage', 'nation', 'fantasy']);
   assert.equal(tree.places.filter(p => p.key.startsWith('heritage_')).length, 19); checks += 2;   // 2026-11-03 「다 넣어줘」 — 관제묘 · 백제성 · 오장원 … 열을 더했다
   await br.close(); server.close();
-  console.log('PASS 화면: 타이틀(메뉴 여섯 · 공간 넘기기 · 배경 장면 · 현판 · 단추 그림 · 빈 곳 누르면 배경만) · 전장(일곱 전장 · 세계마다 지도 · 진영 · 군웅 무리 · 이름표 → 미리 보기 → 배치 · 크게 보기 · 확대 축소 · 빼기) · 군막(문 셋 · 세력 넷 · 공간 아홉 · 패치 기록 · 옛 게임 주소 → draft.html) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
+  console.log('PASS 화면: 전장(일곱 전장 · 세계마다 지도 · 진영 · 군웅 무리 · 이름표 → 미리 보기 → 배치 · 크게 보기 · 확대 축소 · 빼기) · 도감(세력 넷 · 장수 수 · 세계 셋 · 빈 칸 → 생성기 · 설계 상태 · 요약 · 상태 거르기 · 찾기 · 그림 있는 것만 · 주소) · 생성기(세력 › 장수 › 세계 그림 = 조립기 · 파일 이름 · 일상컷 랜덤 → 다 골랐다) · 폰 · PC — ' + checks + '가지');
 })().catch(e => { console.error(e); server.close(); process.exit(1); });

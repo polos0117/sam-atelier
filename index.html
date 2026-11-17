@@ -7,134 +7,37 @@
 <meta name="theme-color" content="#fcf5f3">
 <title>삼국지 공방</title>
 <style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style><script>addEventListener('pageswap', e => { const t = e.viewTransition; if (t) { t.skipTransition(); t.ready.catch(() => {}); } }); addEventListener('pagereveal', e => { const t = e.viewTransition; if (t) t.ready.catch(() => {}); });</script>   <!-- 공방 지도(polos0117.github.io)의 문에서 넘어올 때 페이드로 들어온다(2026-11-12 — 그쪽 README 「방에 들어가는 연출」). 여기서 나갈 때는 전환을 걸지 않아 공방 안에서 쪽을 옮길 때는 전과 같다. 모르는 브라우저는 그냥 넘어온다 -->
-<!-- 타이틀 화면(2026-11-02, 사용자 「배경이 너무 안 보인다 — 첨부한 UI 처럼 메인화면을 게임 첫 진입화면처럼, 지금 메인은 거기서 버튼 눌러서 들어가는 식으로」).
-     공간의 배경 장면(lib/room.css --room-src)을 화면 가득, 장식 틀(lib/material.css --frame) 안에 공방 현판과 큰 메뉴 단추 넷 — 머리 메뉴와 같은 차례로 군막(공방 안내판 hall.html) · 드래프트(게임 · 오늘의 대국은 게임 안 새 대국 설정에서) · 도감 · 프롬프트.
-     ◀ ▶(← →)로 공간 아홉을 바로 넘긴다 — 고른 공간은 다른 화면에도 그대로(lib/workspace-theme.js).
+<!-- 천하 지도(2026-11-17, 사용자 「약간 코에이 삼국지의 지도 같은 느낌이 나겠네」 — 설계 docs/superpowers/specs/2026-11-17-tianxia-map-design.md).
+     공방의 첫 화면: 바탕 지도 위에 성 표지와 세력의 땅, 아래에 판도 다섯(군웅록 · 194 · 200 · 208 · 263)과 세계 셋(무협 · 판타지 · 메카). 세력을 누르면 그 진영 막사로 들어간다(같은 화면의 둘째 층, 주소 &f=).
+     옛 타이틀의 큰 메뉴와 군막(hall.html)의 최근 그림 · 패치 기록 · 공간 고르기는 ⚙ 도구 상자로 옮겼다. 화면은 lib/tianxia.js, 셈은 lib/tianxia-core.js, 자료는 data/tianxia.json.
+     이 공방의 길은 「천하 지도 → 진영 막사 → 장수」 다 — 다른 공방의 뼈대(머리 + 탭 줄 + 목록)를 복사해 오지 않는다. 꽃 장식 틀(lib/material.css)도 여기엔 싣지 않는다.
      예전 게임 주소의 몫(?daily · ?local · #sam-transfer)은 여기서 draft.html 로 그대로 넘긴다 — 공방 지도 · 옛 북마크 · 옛 /atelier/sam.html 길이 안 끊긴다. -->
 <script>
 (function () {
   try {
     var q = new URLSearchParams(location.search), h = location.hash || '';
     if (q.has('daily') || q.has('local') || /sam-transfer=/.test(h)) location.replace('draft.html' + location.search + h);
-  } catch (e) { /* 아주 옛 브라우저 — 타이틀 그대로 */ }
+  } catch (e) { /* 아주 옛 브라우저 — 지도 그대로 */ }
 })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">   <!-- 본문 글꼴 — 화면 그리기를 막지 않게(오면 바뀐다). 제목 글꼴은 lib/workspace-theme.js 가 공간 것 하나만 -->
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@900&text=%E4%B8%81%E4%B8%98%E4%BA%8E%E4%BA%A4%E4%BB%B2%E4%BC%8A%E4%BD%95%E4%BE%AF%E5%82%85%E5%85%80%E5%85%A8%E5%85%AC%E5%85%B8%E5%87%8C%E5%8A%89%E5%8F%B2%E5%8F%B8%E5%90%B3%E5%91%82%E5%91%A8%E5%94%90%E5%96%AC%E5%9A%B4%E5%A4%8F%E5%A4%AA%E5%A7%9C%E5%AD%94%E5%AD%9F%E5%AD%AB%E5%AE%8B%E5%AE%97%E5%AE%9B%E5%AF%A9%E5%B7%A6%E5%BB%96%E5%BC%B5%E5%BE%90%E6%96%87%E6%99%89%E6%9B%B9%E6%9C%B1%E6%9C%B6%E6%9D%8E%E6%9D%9C%E6%A5%8A%E6%A8%82%E6%A8%8A%E6%A9%8B%E6%AD%A5%E6%AF%8C%E6%B2%AE%E6%B3%95%E6%B6%BC%E6%B7%AE%E6%B7%B3%E6%BB%BF%E6%BC%A2%E6%BD%98%E7%8E%8B%E7%94%84%E7%94%98%E7%94%AB%E7%94%B0%E7%9A%87%E7%9B%8A%E7%9B%A7%E7%A5%96%E7%A5%9D%E7%A8%8B%E7%AE%A1%E7%B0%A1%E7%B1%B3%E7%B3%9C%E7%B4%80%E7%BE%85%E7%BE%8A%E8%83%A1%E8%87%A7%E8%8D%80%E8%8D%8A%E8%8F%AF%E8%91%9B%E8%91%A3%E8%92%AF%E8%94%A1%E8%94%A3%E8%99%9E%E8%9C%80%E8%A0%BB%E8%A2%81%E8%A8%B1%E8%AB%B8%E8%B2%82%E8%B2%BB%E8%B3%80%E8%B3%88%E8%B6%99%E8%BE%9B%E9%80%A2%E9%83%9D%E9%83%AD%E9%84%92%E9%84%A7%E9%87%8E%E9%8D%BE%E9%96%BB%E9%97%9C%E9%97%9E%E9%99%B3%E9%99%B6%E9%99%B8%E9%9B%84%E9%9F%93%E9%A1%8F%E9%A1%A7%E9%A6%AC%E9%AB%98%E9%AD%8F%E9%AD%AF%E9%AE%91%E9%BA%8B%E9%BA%B4%E9%BB%83%E9%BE%90&display=swap" media="print" onload="this.media='all'">   <!-- 한자 도장 · 세력 기호 — 쓰는 글자만(text=, data/sam-design.json 의 세력 hanja · 장수 seal + data/draft2-factions.json 의 세력 한 글자에서 뽑았다 — 새 성씨 · 세력이 생기면 이 줄의 text 를 다시 뽑는다, node tests/fonts.cjs 가 빠진 글자를 알린다) -->
 <link rel="manifest" href="sam.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-sam-180.png">
-<link rel="stylesheet" href="lib/workspace.css?v=5">
 <script src="lib/workspace-theme.js?v=4"></script>
-<script src="lib/words.js?v=23"></script>
+<script src="lib/words.js?v=24"></script>
+<script src="lib/patch.js?v=1"></script>
 <script src="lib/fresh.js?v=1"></script>
-<link rel="stylesheet" href="lib/room.css?v=3">
-<link rel="stylesheet" href="lib/sam.css?v=7">
-<link rel="stylesheet" href="lib/material.css?v=6">
-<style>
-/* 타이틀 — 배경 장면이 주인공. 막은 메뉴 쪽만 옅게 */
-body.title-page {margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);overflow-x:hidden}
-.title-bg {position:fixed;inset:0;background-color:var(--bg);background-image:var(--room-src),var(--tex);background-size:cover,384px;background-position:center;background-repeat:no-repeat,repeat}
-.title-bg::after {content:'';position:absolute;inset:0;background:   /* 밝은 공간도 메뉴 쪽은 어둡게 — 금빛 글씨 · 그림 단추가 서도록 */
-  linear-gradient(90deg,#000a 0,#0006 30%,#0000 55%),
-  linear-gradient(0deg,#0008 0,#0000 30%)}
-.title-wrap {position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(320px,460px) 1fr;align-items:center;padding:clamp(16px,4vw,56px)}
-/* 현판 · 단추 · 둥근 단추는 공간마다 생성한 그림(그림 저장소 backgrounds/ui/ui-<공간>-<title|main|btn|round>.webp, 투명, 변수 --ui-* 는 lib/material.css) — 글씨만 낱말 표에서 얹는다.
-   그림 한 장 시트를 넷으로 잘랐으니 같은 재질 · 같은 빛 — 사용자 「버튼이나 타이틀이 너무 따로 논다 — 이미지로」(2026-11-02) */
-.title-menu {display:flex;flex-direction:column;align-items:stretch;gap:6px}
-.title-kicker {margin:0;color:var(--ui-ink);font-size:12px;letter-spacing:.16em;text-align:center;text-shadow:0 1px 3px #000c}
-.title-plaque {display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:3.4;margin:0 -4% 4px;padding:0 18%;text-align:center;background:var(--ui-title) center/contain no-repeat;filter:drop-shadow(0 10px 18px #0009)}
-.title-plaque h1 {margin:0;font:700 clamp(26px,3.4vw,34px)/1.1 var(--gallery-serif,serif);letter-spacing:.08em;color:var(--ui-ink);text-shadow:0 2px 0 #0008,0 0 18px var(--ui-glow)}
-.title-plaque p {margin:6px 0 0;font-size:12.5px;color:#fff;opacity:.88;text-shadow:0 1px 2px #000}
-.menu-btn {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;aspect-ratio:5.7;padding:0 20%;background:var(--ui-btn) center/contain no-repeat;color:#fff8ec;text-decoration:none;text-shadow:0 1px 2px #000,0 0 8px #000a;
-  font:700 18px/1.15 var(--gallery-serif,serif);letter-spacing:.06em;transition:transform .15s,filter .15s;filter:drop-shadow(0 6px 10px #0008)}
-.menu-btn small {font:500 11px/1.2 'IBM Plex Sans KR',system-ui,sans-serif;letter-spacing:0;opacity:.85}
-.menu-btn.main {background-image:var(--ui-main);color:var(--ui-main-ink);text-shadow:0 1px 0 var(--ui-main-shadow)}
-.menu-btn.main small {opacity:1;font-weight:600}
-.menu-btn:hover {transform:translateY(-2px);filter:drop-shadow(0 6px 10px #0008) drop-shadow(0 0 10px var(--ui-glow)) brightness(1.08)}
-.menu-btn:focus-visible {outline:2px solid var(--ui-glow);outline-offset:-6px;border-radius:12px}
-.title-space {display:flex;align-items:center;gap:8px;margin-top:8px}
-.title-space .arrow {flex:none;width:52px;height:52px;padding:0;border:0;background:var(--ui-round) center/contain no-repeat;color:var(--ui-ink);font-size:16px;cursor:pointer;text-shadow:0 0 6px var(--ui-glow),0 1px 2px #000;filter:drop-shadow(0 4px 8px #0008);transition:transform .15s}
-.title-space .arrow:hover {transform:scale(1.08)}
-.title-space .arrow:focus-visible {outline:2px solid var(--ui-glow);outline-offset:2px;border-radius:50%}
-.title-space .name {flex:1;text-align:center;text-shadow:0 1px 3px #000,0 0 10px #000a}
-.title-space .name b {display:block;font:700 15px/1.3 var(--gallery-serif,serif);color:var(--ui-ink)}
-.title-space .name small {display:block;color:#fff;opacity:.85;font-size:12px;line-height:1.4}
-.title-note {grid-column:2;align-self:end;justify-self:end;max-width:420px;margin:0;padding:10px 14px;color:#fff;font-size:12.5px;line-height:1.6;text-shadow:0 1px 3px #000;background:linear-gradient(90deg,#0000,#0008 18%);border-right:2px solid var(--ui-glow)}
-@media (max-width:760px) {
-  .title-wrap {grid-template-columns:1fr;align-items:end;padding:16px 16px max(16px,env(safe-area-inset-bottom))}
-  .title-bg::after {background:linear-gradient(0deg,#000c 0,#0007 55%,#0000 85%)}
-  .title-menu {gap:4px}
-  .title-plaque h1 {font-size:clamp(19px,6vw,24px);letter-spacing:.06em}
-  .title-plaque p {margin-top:3px;font-size:12px}
-  .menu-btn {font-size:16px}
-  .menu-btn small {display:none}
-  .title-note {display:none}
-}
-/* 배경만 보기 — 빈 곳을 한 번 누르면 메뉴 · 소개가 사라지고 장면만, 다시 누르면 돌아온다(사용자 2026-11-02). 숨긴 동안에도 ← → 로 공간을 넘겨 장면을 구경한다 */
-.title-bg::after {transition:opacity .35s}
-.title-menu,.title-note {transition:opacity .35s,visibility .35s}
-.title-page.bg-only .title-menu,.title-page.bg-only .title-note {opacity:0;visibility:hidden}
-.title-page.bg-only .title-bg::after {opacity:0}
-.title-peek {position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:2;margin:0;padding:6px 14px;border-radius:999px;background:#0008;color:#fff;font-size:12px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .35s}
-.title-page.bg-only .title-peek {opacity:.85}
-.title-wrap {cursor:pointer}
-.title-menu,.title-note {cursor:auto}
-html[data-background="off"] .title-bg {background-image:none}
-</style>
+<script src="lib/img.js?v=2"></script>
+<script src="lib/draft2/rules.js?v=1"></script>   <!-- 세력 나눔(view · facOf)을 읽기만 한다 — lib/tianxia-core.js 가 쓴다 -->
+<script src="lib/tianxia-core.js?v=1"></script>
+<link rel="stylesheet" href="lib/tianxia.css?v=1">
 </head>
-<body class="title-page">
-<div class="title-bg" aria-hidden="true"></div>
-<main class="title-wrap">
-  <nav class="title-menu" id="menu">
-    <p class="title-kicker" id="kicker"></p>
-    <div class="title-plaque"><h1 id="t-name"></h1><p id="t-sub"></p></div>
-    <a class="menu-btn" href="hall.html" id="m-hall"></a>
-    <a class="menu-btn main" href="draft.html" id="m-draft"></a>
-    <a class="menu-btn" href="draft2.html" id="m-draft2"></a>
-    <a class="menu-btn" href="battle.html" id="m-battle"></a>
-    <a class="menu-btn" href="dex.html" id="m-dex"></a>
-    <a class="menu-btn" href="prompt.html" id="m-prompt"></a>
-    <div class="title-space" role="group" id="space">
-      <button type="button" class="arrow" id="prev">◀</button>
-      <div class="name" aria-live="polite"><b id="s-name"></b><small id="s-hint"></small></div>
-      <button type="button" class="arrow" id="next">▶</button>
-    </div>
-  </nav>
-  <p class="title-note" id="note"></p>
-</main>
-<p class="title-peek" id="peek" aria-live="polite"></p>
-<script>
-/* 말은 낱말 표에서. 공간은 workspace-theme.js 가 쥐고, 여기선 앞 · 뒤로 넘기기만 */
-(function () {
-  var W = window.W, A = window.AtelierAppearance, $ = function (id) { return document.getElementById(id); };
-  $('kicker').textContent = W('title.kicker'); $('t-name').textContent = W('app.title'); $('t-sub').textContent = W('title.sub');
-  $('menu').setAttribute('aria-label', W('title.menu')); $('space').setAttribute('aria-label', W('title.space'));
-  ['hall', 'draft', 'draft2', 'battle', 'dex', 'prompt'].forEach(function (k) {
-    var a = $('m-' + k), b = document.createElement('span'), s = document.createElement('small');
-    b.textContent = W('title.' + k); s.textContent = W('title.' + k + '.sub'); a.appendChild(b); a.appendChild(s);
-  });
-  $('prev').setAttribute('aria-label', W('title.prev')); $('next').setAttribute('aria-label', W('title.next'));
-  $('s-hint').textContent = W('title.hint');
-  function show() { var t = A.get().theme; $('s-name').textContent = W('title.space') + ' · ' + W('theme.' + t); $('note').textContent = W('theme.note.' + t); }
-  function step(d) { var ks = A.themes, i = ks.indexOf(A.get().theme); A.set('theme', ks[(i + d + ks.length) % ks.length]); show(); }
-  $('prev').addEventListener('click', function () { step(-1); }); $('next').addEventListener('click', function () { step(1); });
-  document.addEventListener('keydown', function (e) { if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return; if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1); });
-  /* 빈 곳을 누르면 배경만 — 메뉴 · 소개 안을 누르면 그대로. 숨긴 동안엔 어디를 눌러도, Esc 로도 돌아온다 */
-  var body = document.body;
-  function peek(on) { body.classList.toggle('bg-only', on); $('peek').textContent = on ? W('title.peek') : ''; }
-  $('peek').textContent = '';
-  document.querySelector('.title-wrap').addEventListener('click', function (e) {
-    if (body.classList.contains('bg-only')) return peek(false);
-    if (e.target.closest('.title-menu,.title-note')) return;
-    peek(true);
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && body.classList.contains('bg-only')) peek(false); });
-  window.addEventListener('atelier-appearance', show);
-  show();
-  window.AtelierFresh.watch();
-})();
-</script>
+<body class="tx-page">
+<div id="app"></div>
+<script type="module" src="lib/tianxia.js?v=1"></script>
 </body>
 </html>
