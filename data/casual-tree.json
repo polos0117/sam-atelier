@@ -7175,7 +7175,7 @@
   },
   "cosplay": {
    "outfit": "game_cosplay",
-   "ko": "게임 코스프레 — data/game-cosplay.json 의 게임 열아홉 × 재단 열하나(tools/casual-plan.cjs cosplayPick)"
+   "ko": "게임 코스프레 — data/game-cosplay.json 의 게임(스물넷) × 재단 열하나(tools/casual-plan.cjs cosplayPick)"
   }
  },
  "presets": [

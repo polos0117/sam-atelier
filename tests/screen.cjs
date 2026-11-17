@@ -222,7 +222,7 @@ const P = ctx0.window.AtelierPrompt;
     else { assert.match(cp, /^INPUT: the attached image/); assert.match(cp, /female personification of Guan Yu/); assert.match(cp, /SCENE \(chosen\)/); }
     assert.doesNotMatch(cp, /element|chemical symbol|atomic number/i, '원소 말이 남지 않았다');
     assert.match(await v.page.locator(mob ? '.hres .file' : '#file-name').textContent(), new RegExp('관우_mecha_' + S['default'] + '_f_casual1\\.webp'));
-    /* 게임 코스프레(2026-11-15) — 코스프레 장소(거실)에서 계열을 고르면 옷 = 재단 열하나 → 게임 칸(열아홉) · 옷 색 · 데니어 · 상황 칸은 없다 · Outfit 줄에 게임 · 캐릭터, 등장인물 많은 게임은 「…」 자리 */
+    /* 게임 코스프레(2026-11-15) — 코스프레 장소(거실)에서 계열을 고르면 옷 = 재단 열하나 → 게임 칸(목록의 게임 수) · 옷 색 · 데니어 · 상황 칸은 없다 · Outfit 줄에 게임 · 캐릭터, 등장인물 많은 게임은 「…」 자리 */
     { const pg = v.page, lineOf = (txt, head) => (String(txt).split('\n').find(l => l.startsWith(head)) || '');
       await pg.click('[data-open="era"]'); await pg.click('#panel .opt[data-pick="now"]');
       await pg.click('[data-open="place"]');
@@ -231,7 +231,7 @@ const P = ctx0.window.AtelierPrompt;
       await pg.click('[data-open="ofam"]'); await pg.click('#panel .opt[data-pick="game_cosplay"]'); assert.equal(await openOf(pg), 'item', '코스프레 계열 다음 옷(재단)');
       assert.equal(await pg.locator('#panel .opt[data-pick^="gc_"]').count(), 11, '재단 열하나');
       await pg.click('#panel .opt[data-pick="gc_bikini"]'); assert.equal(await openOf(pg), 'cosplay', '옷 다음 게임');
-      assert.equal(await pg.locator('#panel .opt[data-pick]').count(), 20, '게임 열아홉 + 안 고름');
+      assert.equal(await pg.locator('#panel .opt[data-pick]').count(), JSON.parse(fs.readFileSync(path.join(ROOT, 'data/game-cosplay.json'), 'utf8')).games.length + 1, '목록의 게임 + 안 고름');   /* 게임 수는 목록에서(2026-11-17 — 열아홉 → 스물넷, 박아 둔 20 이 깨졌다) */
       await pg.click('#panel .opt[data-pick="legend_of_zelda"]'); assert.equal(await openOf(pg), 'hair', '게임 다음은 머리 — 옷 색 · 데니어 · 상황 칸이 없다');
       assert.equal(await pg.locator('.hchip[data-open="color"], .hchip[data-open="denier"], .hchip[data-open="situ"]').count(), 0, '코스프레엔 옷 색 · 데니어 · 상황 칩이 없다');
       await randAll(pg, 'hair'); await toDone(pg);

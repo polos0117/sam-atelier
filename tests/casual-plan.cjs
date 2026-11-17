@@ -216,7 +216,9 @@ try {
     /* 같은 옷 — 장소 · 구도가 달라도 세계끼리 같은 옷이면 잡는다(2026-11-08 「응 막아줘」) */
     assert(one.item && C.check([one], card, [], [{ ofam: one.ofam, item: one.item, place: '__x', preset: '__y' }]).some(e => /입은 옷/.test(e)), '다른 세계와 같은 옷을 잡는다');
     /* 자유 설계 칸(ofree)은 옷을 맡은 쪽이 지어 계획의 옷이 안 그려진다 — 겹침에서 뺀다(계획기 check 의 outfitKey 와 같게, 2026-11-13 표본이 바뀌며 드러남) */
-    for (const { w, p } of fresh) { const mineItems = new Set(p.cuts.filter(c => !c.ofree).map(c => c.ofam + '/' + c.item)); fresh.filter(x => x.w !== w).forEach(x => x.p.cuts.filter(c => !c.ofree).forEach(c => assert(!c.item || !mineItems.has(c.ofam + '/' + c.item), w + ' · ' + x.w + ' 같은 옷 ' + c.item))); }
+    /* 게임 코스프레 칸도 뺀다 — 옷은 「캐릭터 + 재단」 이라 재단(gc_<재단>)만 같아도 다른 옷이다(계획기 check 의 outfitKey 가 코스프레 계열을 빼는 것과 같게).
+       2026-11-17 코스프레 목록이 게임 스물넷 · 캐릭터 이백쯤으로 늘며 표본이 바뀌어 두 세계가 다른 캐릭터의 코르셋 재단을 골랐다 */
+    for (const { w, p } of fresh) { const keep = c => !c.ofree && c.ofam !== 'game_cosplay', mineItems = new Set(p.cuts.filter(keep).map(c => c.ofam + '/' + c.item)); fresh.filter(x => x.w !== w).forEach(x => x.p.cuts.filter(keep).forEach(c => assert(!c.item || !mineItems.has(c.ofam + '/' + c.item), w + ' · ' + x.w + ' 같은 옷 ' + c.item))); }
   } finally { fs.rmSync(rec, { recursive: true, force: true }); fs.rmSync(out, { recursive: true, force: true }); }
 }
 /* 무기는 일상컷에서 들지 않고 장신구로(2026-11-02 사용자 「무기를 일상컷에선 들고 있는것보단 악세사리류로 대체」) —

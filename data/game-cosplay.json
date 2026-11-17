@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번). 2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → excluded({게임 열쇠: 까닭}) — 설계표(game-design.json)의 게임은 games 나 excluded 둘 중 하나에 있어야 한다(tools/game-cosplay.cjs check 가 막는다). 새 게임을 설계표에 넣으면 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync 로 세 공방에 쓴다.",
+ "note": "게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 뺀다(세 공방 합쳐) · 재단 열하나 · 필수에서 상황 노출 대신 · 게임 열아홉). 원본은 game-atelier data/game-cosplay.json — 세 공방의 data/game-cosplay.json 은 같은 사본(tools/game-cosplay.cjs sync). many: false 면 character · outfit 이 정해져 있고, true 면 캐릭터를 GPT(API 길은 Claude)가 고른다. roster 는 대략의 등장인물 수 — 이미 쓴 캐릭터가 여기 닿으면 2회차(쓴 캐릭터를 안 입은 재단으로). 2026-11-16 사용자 「오버워치 메르시가 4케릭터안에서 2번이나」 → 등장인물 많은 게임도 캐릭터를 계획기가 정한다: characters(이름 · female — 여자 캐릭터를 두 배 무게로, 남자 캐릭터는 크로스플레이), roster = characters 수. 쓴 것은 그린 기록 + 계획 파일의 예약까지 센다. 창세기전은 사용자가 준 파트 1 · 2 이름(겹치는 셋은 한 번). 2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → excluded({게임 열쇠: 까닭}) — 설계표(game-design.json)의 게임은 games 나 excluded 둘 중 하나에 있어야 한다(tools/game-cosplay.cjs check 가 막는다). 새 게임을 설계표에 넣으면 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync 로 세 공방에 쓴다. 2026-11-17 사용자 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」 → 다섯 더해 게임 스물넷: 베요네타(주인공 하나), 테일즈위버 · 데드 오어 얼라이브 5 · 더 킹 오브 파이터즈 2002 · 원신(등장인물 많음 — 공식 플레이 캐릭터만, 위키백과로 확인. DOA5 · KOF 2002 는 원판만, 원신은 지금 플레이 가능한 전부. 어린아이로 그려진 캐릭터 — 테일즈위버 15·16세 셋, 원신 어린이 체형 아홉 — 는 성인 코스프레 재단에 싣지 않아 뺐다).",
  "text": {
   "fixed": "a daring adult cosplay of {character} from {game} — {outfit}, {cut}",
   "pick": "… (a daring adult cosplay of one character of your choice from {game} — not any of these already used: {used}; write the character's name first, then the costume's recognisable colours and parts, {cut})",
@@ -164,6 +164,15 @@
    "character": "the Slime",
    "character_ko": "슬라임(마스코트)",
    "outfit": "the blue Slime mascot's look — glossy translucent sky-blue in a rounded teardrop shape with a little curled tip as a headpiece, without its face"
+  },
+  {
+   "key": "bayonetta",
+   "ko": "베요네타",
+   "en": "Bayonetta",
+   "many": false,
+   "character": "Bayonetta",
+   "character_ko": "베요네타",
+   "outfit": "Bayonetta's look — a skin-tight black catsuit with gold chain and brooch accents, long white gloves, red ribbons at the arms and hair, slim glasses and high heels with small pistols set into the heels"
   },
   {
    "key": "league_of_legends",
@@ -1167,6 +1176,813 @@
     {
      "name": "Shakvari",
      "ko": "샤크바리",
+     "female": false
+    }
+   ]
+  },
+  {
+   "key": "tales_weaver",
+   "ko": "테일즈위버",
+   "en": "TalesWeaver",
+   "many": true,
+   "roster": 11,
+   "characters": [
+    {
+     "name": "Ispin Charles",
+     "ko": "이스핀 샤를",
+     "female": true
+    },
+    {
+     "name": "Mila Nebraska",
+     "ko": "밀라 네브라스카",
+     "female": true
+    },
+    {
+     "name": "Tichiel Juspian",
+     "ko": "티치엘 쥬스피앙",
+     "female": true
+    },
+    {
+     "name": "Cloe da Pontina",
+     "ko": "클로에 다 폰티나",
+     "female": true
+    },
+    {
+     "name": "Lucian Kaltz",
+     "ko": "루시안 칼츠",
+     "female": false
+    },
+    {
+     "name": "Boris Jinneman",
+     "ko": "보리스 진네만",
+     "female": false
+    },
+    {
+     "name": "Maximin Liebkne",
+     "ko": "막시민 리프크네",
+     "female": false
+    },
+    {
+     "name": "Sivelin Uoo",
+     "ko": "시벨린 우",
+     "female": false
+    },
+    {
+     "name": "Josua von Arnim",
+     "ko": "조슈아 폰 아르님",
+     "female": false
+    },
+    {
+     "name": "Lanziee Rosen Kranz",
+     "ko": "란지에 로젠크란츠",
+     "female": false
+    },
+    {
+     "name": "Isaac Ducastel",
+     "ko": "이자크 듀카스텔",
+     "female": false
+    }
+   ]
+  },
+  {
+   "key": "dead_or_alive_5",
+   "ko": "데드 오어 얼라이브 5",
+   "en": "Dead or Alive 5",
+   "many": true,
+   "roster": 24,
+   "characters": [
+    {
+     "name": "Kasumi",
+     "female": true
+    },
+    {
+     "name": "Ayane",
+     "female": true
+    },
+    {
+     "name": "Hitomi",
+     "female": true
+    },
+    {
+     "name": "Helena Douglas",
+     "female": true
+    },
+    {
+     "name": "Christie",
+     "female": true
+    },
+    {
+     "name": "Tina Armstrong",
+     "female": true
+    },
+    {
+     "name": "Leifang",
+     "female": true
+    },
+    {
+     "name": "Kokoro",
+     "female": true
+    },
+    {
+     "name": "La Mariposa",
+     "female": true
+    },
+    {
+     "name": "Mila",
+     "female": true
+    },
+    {
+     "name": "Alpha-152",
+     "female": true
+    },
+    {
+     "name": "Sarah Bryant",
+     "female": true
+    },
+    {
+     "name": "Pai Chan",
+     "female": true
+    },
+    {
+     "name": "Ryu Hayabusa",
+     "female": false
+    },
+    {
+     "name": "Hayate",
+     "female": false
+    },
+    {
+     "name": "Jann Lee",
+     "female": false
+    },
+    {
+     "name": "Zack",
+     "female": false
+    },
+    {
+     "name": "Bass Armstrong",
+     "female": false
+    },
+    {
+     "name": "Bayman",
+     "female": false
+    },
+    {
+     "name": "Brad Wong",
+     "female": false
+    },
+    {
+     "name": "Eliot",
+     "female": false
+    },
+    {
+     "name": "Gen Fu",
+     "female": false
+    },
+    {
+     "name": "Rig",
+     "female": false
+    },
+    {
+     "name": "Akira Yuki",
+     "female": false
+    }
+   ]
+  },
+  {
+   "key": "the_king_of_fighters_2002",
+   "ko": "더 킹 오브 파이터즈 2002",
+   "en": "The King of Fighters 2002",
+   "many": true,
+   "roster": 40,
+   "characters": [
+    {
+     "name": "Mai Shiranui",
+     "female": true
+    },
+    {
+     "name": "Yuri Sakazaki",
+     "female": true
+    },
+    {
+     "name": "May Lee",
+     "female": true
+    },
+    {
+     "name": "Leona Heidern",
+     "female": true
+    },
+    {
+     "name": "Athena Asamiya",
+     "female": true
+    },
+    {
+     "name": "Mature",
+     "female": true
+    },
+    {
+     "name": "Vice",
+     "female": true
+    },
+    {
+     "name": "Blue Mary",
+     "female": true
+    },
+    {
+     "name": "Shermie",
+     "female": true
+    },
+    {
+     "name": "Whip",
+     "female": true
+    },
+    {
+     "name": "Vanessa",
+     "female": true
+    },
+    {
+     "name": "Kula Diamond",
+     "female": true
+    },
+    {
+     "name": "Ángel",
+     "female": true
+    },
+    {
+     "name": "Kyo Kusanagi",
+     "female": false
+    },
+    {
+     "name": "Benimaru Nikaido",
+     "female": false
+    },
+    {
+     "name": "Goro Daimon",
+     "female": false
+    },
+    {
+     "name": "Terry Bogard",
+     "female": false
+    },
+    {
+     "name": "Andy Bogard",
+     "female": false
+    },
+    {
+     "name": "Joe Higashi",
+     "female": false
+    },
+    {
+     "name": "Ryo Sakazaki",
+     "female": false
+    },
+    {
+     "name": "Robert Garcia",
+     "female": false
+    },
+    {
+     "name": "Takuma Sakazaki",
+     "female": false
+    },
+    {
+     "name": "Ralf Jones",
+     "female": false
+    },
+    {
+     "name": "Clark Still",
+     "female": false
+    },
+    {
+     "name": "Sie Kensou",
+     "female": false
+    },
+    {
+     "name": "Chin Gentsai",
+     "female": false
+    },
+    {
+     "name": "Kim Kaphwan",
+     "female": false
+    },
+    {
+     "name": "Chang Koehan",
+     "female": false
+    },
+    {
+     "name": "Choi Bounge",
+     "female": false
+    },
+    {
+     "name": "Iori Yagami",
+     "female": false
+    },
+    {
+     "name": "Ryuji Yamazaki",
+     "female": false
+    },
+    {
+     "name": "Billy Kane",
+     "female": false
+    },
+    {
+     "name": "Yashiro Nanakase",
+     "female": false
+    },
+    {
+     "name": "Chris",
+     "female": false
+    },
+    {
+     "name": "K'",
+     "female": false
+    },
+    {
+     "name": "Maxima",
+     "female": false
+    },
+    {
+     "name": "Seth",
+     "female": false
+    },
+    {
+     "name": "Ramón",
+     "female": false
+    },
+    {
+     "name": "K9999",
+     "female": false
+    },
+    {
+     "name": "Kusanagi",
+     "female": false
+    }
+   ]
+  },
+  {
+   "key": "genshin_impact",
+   "ko": "원신",
+   "en": "Genshin Impact",
+   "many": true,
+   "roster": 115,
+   "characters": [
+    {
+     "name": "Lumine",
+     "female": true
+    },
+    {
+     "name": "Aloy",
+     "female": true
+    },
+    {
+     "name": "Skirk",
+     "female": true
+    },
+    {
+     "name": "Nicole",
+     "female": true
+    },
+    {
+     "name": "Amber",
+     "female": true
+    },
+    {
+     "name": "Barbara",
+     "female": true
+    },
+    {
+     "name": "Eula",
+     "female": true
+    },
+    {
+     "name": "Fischl",
+     "female": true
+    },
+    {
+     "name": "Jean",
+     "female": true
+    },
+    {
+     "name": "Lisa",
+     "female": true
+    },
+    {
+     "name": "Mona",
+     "female": true
+    },
+    {
+     "name": "Noelle",
+     "female": true
+    },
+    {
+     "name": "Prune",
+     "female": true
+    },
+    {
+     "name": "Rosaria",
+     "female": true
+    },
+    {
+     "name": "Sucrose",
+     "female": true
+    },
+    {
+     "name": "Beidou",
+     "female": true
+    },
+    {
+     "name": "Ganyu",
+     "female": true
+    },
+    {
+     "name": "Hu Tao",
+     "female": true
+    },
+    {
+     "name": "Keqing",
+     "female": true
+    },
+    {
+     "name": "Lan Yan",
+     "female": true
+    },
+    {
+     "name": "Ningguang",
+     "female": true
+    },
+    {
+     "name": "Shenhe",
+     "female": true
+    },
+    {
+     "name": "Xiangling",
+     "female": true
+    },
+    {
+     "name": "Xianyun",
+     "female": true
+    },
+    {
+     "name": "Xinyan",
+     "female": true
+    },
+    {
+     "name": "Yanfei",
+     "female": true
+    },
+    {
+     "name": "Yelan",
+     "female": true
+    },
+    {
+     "name": "Yun Jin",
+     "female": true
+    },
+    {
+     "name": "Zibai",
+     "female": true
+    },
+    {
+     "name": "Chiori",
+     "female": true
+    },
+    {
+     "name": "Kamisato Ayaka",
+     "female": true
+    },
+    {
+     "name": "Kirara",
+     "female": true
+    },
+    {
+     "name": "Kujou Sara",
+     "female": true
+    },
+    {
+     "name": "Kuki Shinobu",
+     "female": true
+    },
+    {
+     "name": "Raiden Shogun",
+     "female": true
+    },
+    {
+     "name": "Sangonomiya Kokomi",
+     "female": true
+    },
+    {
+     "name": "Yae Miko",
+     "female": true
+    },
+    {
+     "name": "Yoimiya",
+     "female": true
+    },
+    {
+     "name": "Yumemizuki Mizuki",
+     "female": true
+    },
+    {
+     "name": "Candace",
+     "female": true
+    },
+    {
+     "name": "Collei",
+     "female": true
+    },
+    {
+     "name": "Dehya",
+     "female": true
+    },
+    {
+     "name": "Faruzan",
+     "female": true
+    },
+    {
+     "name": "Layla",
+     "female": true
+    },
+    {
+     "name": "Nilou",
+     "female": true
+    },
+    {
+     "name": "Charlotte",
+     "female": true
+    },
+    {
+     "name": "Chevreuse",
+     "female": true
+    },
+    {
+     "name": "Clorinde",
+     "female": true
+    },
+    {
+     "name": "Emilie",
+     "female": true
+    },
+    {
+     "name": "Escoffier",
+     "female": true
+    },
+    {
+     "name": "Furina",
+     "female": true
+    },
+    {
+     "name": "Lynette",
+     "female": true
+    },
+    {
+     "name": "Navia",
+     "female": true
+    },
+    {
+     "name": "Chasca",
+     "female": true
+    },
+    {
+     "name": "Citlali",
+     "female": true
+    },
+    {
+     "name": "Iansan",
+     "female": true
+    },
+    {
+     "name": "Mavuika",
+     "female": true
+    },
+    {
+     "name": "Mualani",
+     "female": true
+    },
+    {
+     "name": "Varesa",
+     "female": true
+    },
+    {
+     "name": "Xilonen",
+     "female": true
+    },
+    {
+     "name": "Aino",
+     "female": true
+    },
+    {
+     "name": "Columbina",
+     "female": true
+    },
+    {
+     "name": "Ineffa",
+     "female": true
+    },
+    {
+     "name": "Jahoda",
+     "female": true
+    },
+    {
+     "name": "Lauma",
+     "female": true
+    },
+    {
+     "name": "Linnea",
+     "female": true
+    },
+    {
+     "name": "Nefer",
+     "female": true
+    },
+    {
+     "name": "Arlecchino",
+     "female": true
+    },
+    {
+     "name": "Odette",
+     "female": true
+    },
+    {
+     "name": "Sandrone",
+     "female": true
+    },
+    {
+     "name": "Vesna",
+     "female": true
+    },
+    {
+     "name": "Vodyanitsa",
+     "female": true
+    },
+    {
+     "name": "Aether",
+     "female": false
+    },
+    {
+     "name": "Albedo",
+     "female": false
+    },
+    {
+     "name": "Bennett",
+     "female": false
+    },
+    {
+     "name": "Dahlia",
+     "female": false
+    },
+    {
+     "name": "Diluc",
+     "female": false
+    },
+    {
+     "name": "Durin",
+     "female": false
+    },
+    {
+     "name": "Kaeya",
+     "female": false
+    },
+    {
+     "name": "Lohen",
+     "female": false
+    },
+    {
+     "name": "Mika",
+     "female": false
+    },
+    {
+     "name": "Razor",
+     "female": false
+    },
+    {
+     "name": "Varka",
+     "female": false
+    },
+    {
+     "name": "Venti",
+     "female": false
+    },
+    {
+     "name": "Baizhu",
+     "female": false
+    },
+    {
+     "name": "Chongyun",
+     "female": false
+    },
+    {
+     "name": "Gaming",
+     "female": false
+    },
+    {
+     "name": "Xiao",
+     "female": false
+    },
+    {
+     "name": "Xingqiu",
+     "female": false
+    },
+    {
+     "name": "Zhongli",
+     "female": false
+    },
+    {
+     "name": "Arataki Itto",
+     "female": false
+    },
+    {
+     "name": "Gorou",
+     "female": false
+    },
+    {
+     "name": "Kaedehara Kazuha",
+     "female": false
+    },
+    {
+     "name": "Kamisato Ayato",
+     "female": false
+    },
+    {
+     "name": "Shikanoin Heizou",
+     "female": false
+    },
+    {
+     "name": "Thoma",
+     "female": false
+    },
+    {
+     "name": "Alhaitham",
+     "female": false
+    },
+    {
+     "name": "Cyno",
+     "female": false
+    },
+    {
+     "name": "Kaveh",
+     "female": false
+    },
+    {
+     "name": "Sethos",
+     "female": false
+    },
+    {
+     "name": "Tighnari",
+     "female": false
+    },
+    {
+     "name": "Wanderer",
+     "female": false
+    },
+    {
+     "name": "Freminet",
+     "female": false
+    },
+    {
+     "name": "Lyney",
+     "female": false
+    },
+    {
+     "name": "Neuvillette",
+     "female": false
+    },
+    {
+     "name": "Wriothesley",
+     "female": false
+    },
+    {
+     "name": "Ifa",
+     "female": false
+    },
+    {
+     "name": "Kinich",
+     "female": false
+    },
+    {
+     "name": "Ororon",
+     "female": false
+    },
+    {
+     "name": "Flins",
+     "female": false
+    },
+    {
+     "name": "Illuga",
+     "female": false
+    },
+    {
+     "name": "Alyosha",
+     "female": false
+    },
+    {
+     "name": "Mitya",
+     "female": false
+    },
+    {
+     "name": "Tartaglia",
+     "female": false
+    },
+    {
+     "name": "Valeriy",
      "female": false
     }
    ]
