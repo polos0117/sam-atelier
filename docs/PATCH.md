@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-18 · claude · 일상컷 소품 · 장신구를 시대 · 세계에 맞게 — 중국 골동품 막기
+- 사용자 2026-11-18 「삼국지 같은 경우 중세의 현재인데 중국식 술잔이나 물건들이 나오던데」 → 「추천소품도 시대 장소에 맞게 바꿔줘」. 원인: CHARACTER · WARDROBE 의 「Her Three Kingdoms identity shows ONLY as a small accessory …」 · DESIGN 의 고사와 진영 색(white jade …) · PROP 의 고사 물건이 세계 · 시대와 상관없이 중국 물건을 불렀다(판타지 「지금 현실」 540 컷 중 177 컷의 DESIGN 줄에 jade).
+- lib/prompt-sam.js buildCasual(모든 판 — 줄 꼴 · 칸 꼴 · 짧은 판 · 자연판) 끝에 eraObjects — 판타지 · 메카 세계는 「Three Kingdoms identity」 → 「medieval-fantasy · mecha-world identity」, 지금 현실(어느 세계든) · 판타지 세계 안 · 메카 세계 안 컷엔 DESIGN 다음에 OBJECTS 줄(장신구 · PROP 물건은 그 시대 · 그 세계의 꼴, 옥 조각 · 자기 술잔 · 청동기 · 종이 등 같은 중국 골동품 없음)과 DESIGN 의 재질 낱말(white jade · jade green)을 색 이름으로. 삼국지 세계 안 · 역사의 자리 · 게임 코스프레 컷은 그대로.
+- 단계 동작 영어 문장의 관사 겹침 고침 — 「the open {prop}」 꼴이 소품 이름의 a · an 과 겹쳐 「rests the open a red oil-paper umbrella」 가 됐다(잔 · 우산 · 부채 · 매니큐어 · 기름종이 우산).
+
 ## 2026-11-18 · claude · 일상컷 새 소품(E) — 시대 · 장소 · 단계 동작
 - 새 소품(E) — 비눗방울 막대 · 고무 오리 · 솜사탕 · 즉석 사진 · 아이스바 · 시트 마스크 · 매니큐어 · 드라이기 · 샤워볼 · 물총 · 팝콘 통 · 수박 한 조각 · 우쿨렐레 · 털실 뭉치 · 연(이미 있으면 그대로). 소품마다 시대(현대 물건은 지금 · 현재 쪽 시대만 — 세계 안 · 무대 · 환상에선 안 나온다)와 장소, 단계 동작 둘씩(예: 즉석 사진 — 빛에 비춰 보기 / 앨범에 끼우기).
 - tests/casual-plan.cjs — 데니어 비율 표본 하한 「10 초과」 → 「10 이상」(주석의 하한 10, 무작위 차례가 바뀌어 딱 10 이 나왔다).

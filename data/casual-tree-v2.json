@@ -7793,7 +7793,7 @@
    "hands": "one",
    "zone": "chest",
    "ko": "빈 잔 바닥을 들여다본다",
-   "en": "tilts the empty {prop} toward her, peering into the bottom",
+   "en": "tilts {prop}, now empty, toward her, peering into the bottom",
    "frames": [
     "face_close",
     "detail",
@@ -8291,7 +8291,7 @@
    "hands": "one",
    "zone": "overhead",
    "ko": "우산을 어깨에 기대 쓴다",
-   "en": "rests the open {prop} back on her shoulder, the canopy framing her head",
+   "en": "rests {prop} open on her shoulder, the canopy framing her head",
    "frames": [
     "face_close",
     "detail",
@@ -8330,7 +8330,7 @@
    "hands": "one",
    "zone": "hips",
    "ko": "접은 우산의 물기를 턴다",
-   "en": "gives the closed {prop} a shake at her side to throw off the raindrops",
+   "en": "gives {prop}, folded shut, a shake at her side to throw off the raindrops",
    "frames": [
     "face_close",
     "detail",
@@ -8537,7 +8537,7 @@
    "hands": "one",
    "zone": "face",
    "ko": "접은 부채로 턱을 톡 친다",
-   "en": "taps her chin with the closed {prop}, thinking",
+   "en": "taps her chin with {prop}, folded shut, thinking",
    "frames": [
     "face_close",
     "detail",
@@ -10308,7 +10308,7 @@
    "hands": "one",
    "zone": "overhead",
    "ko": "기름종이 우산을 어깨에 기대 쓴다",
-   "en": "rests the open {prop} back on her shoulder, the canopy framing her head",
+   "en": "rests {prop} open on her shoulder, the canopy framing her head",
    "frames": [
     "face_close",
     "detail",
@@ -10886,7 +10886,7 @@
    "hands": "one",
    "zone": "chest",
    "ko": "갓 바른 손톱을 펴서 말린다",
-   "en": "holds the capped {prop} while her freshly painted nails dry",
+   "en": "holds {prop}, capped, while her freshly painted nails dry",
    "frames": [
     "face_close",
     "detail",
