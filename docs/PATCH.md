@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-18 · claude · 세계컷 GPT 설계 1단계 — A안 문구 · 우리 설계와 얼굴 · 외곽 대조
+- 사용자 2026-11-18 「응 허용하고 이순서대로 진행해줘」 — 세계컷 GPT 설계안(A: 지정 실루엣에서 소재 · 상징을 의상 구조로, B: 역할 · 기능에서 출발해 목록 밖 외곽도) 1단계.
+- lib/prompt-spec.js WORLD_FREE.costume — 「Design A, your first design」: 고사 · 상징의 시각 특징 하나를 겹침 · 단면 · 절개 · 여밈 · 장갑판 배열에(무늬 · 떨어진 장신구 말고), 전신에서 먼저 읽히는 윤곽을 지시문에 적는다.
+- WORLD_FREE.ours · check — 우리 설계 두 장의 얼굴형 · 눈 · 눈썹 · 머리 · 앞머리(lib/prompt-sam.js oursLook, 설계표 외형)를 적고 GPT 설계는 그와도 서로도 다른 얼굴 인상 · 머리 외곽을(턱 · 광대 윤곽 · 눈매 · 눈썹 · 기본 표정 · 머리 외곽부터, 점 · 장신구는 보조). 마지막 줄 — 색 · 배경을 가려도 구분되게 대조하고 겹치면 다시 고른다.
+
 ## 2026-11-18 · claude · 일상컷 소품 · 장신구를 시대 · 세계에 맞게 — 중국 골동품 막기
 - 사용자 2026-11-18 「삼국지 같은 경우 중세의 현재인데 중국식 술잔이나 물건들이 나오던데」 → 「추천소품도 시대 장소에 맞게 바꿔줘」. 원인: CHARACTER · WARDROBE 의 「Her Three Kingdoms identity shows ONLY as a small accessory …」 · DESIGN 의 고사와 진영 색(white jade …) · PROP 의 고사 물건이 세계 · 시대와 상관없이 중국 물건을 불렀다(판타지 「지금 현실」 540 컷 중 177 컷의 DESIGN 줄에 jade).
 - lib/prompt-sam.js buildCasual(모든 판 — 줄 꼴 · 칸 꼴 · 짧은 판 · 자연판) 끝에 eraObjects — 판타지 · 메카 세계는 「Three Kingdoms identity」 → 「medieval-fantasy · mecha-world identity」, 지금 현실(어느 세계든) · 판타지 세계 안 · 메카 세계 안 컷엔 DESIGN 다음에 OBJECTS 줄(장신구 · PROP 물건은 그 시대 · 그 세계의 꼴, 옥 조각 · 자기 술잔 · 청동기 · 종이 등 같은 중국 골동품 없음)과 DESIGN 의 재질 낱말(white jade · jade green)을 색 이름으로. 삼국지 세계 안 · 역사의 자리 · 게임 코스프레 컷은 그대로.
