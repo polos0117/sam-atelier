@@ -140,7 +140,7 @@ async function cmdFree(o) {
   const gen = await draw({ model, quality: o.quality, prompt: text, out, name });
   if (gen.blocked) return [name];
   const rec = { ...P.record(D, S, card, world, { style: o.style }), prompt: P.buildWorldFree(D, S, card, world, { style: o.style }) };
-  writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', free_prompt: text, free_by: o.by || 'claude' } });
+  writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', plan: /gpt2$/.test(name) ? 'B' : 'A', free_prompt: text, free_by: o.by || 'claude' } });   /* plan — 세계컷 GPT 설계안 A(목록 실루엣) · B(역할 출발, 목록 밖도 — 2026-11-18) */
   return [];
 }
 /* 참고 그림이 GPT 임의 설계인가(2026-11-15 — 일상컷 체형 줄을 그림의 몸만으로). --ref-free 가 있으면 그것, 없으면 참고 png 옆 _record.json 의 generation.design,
