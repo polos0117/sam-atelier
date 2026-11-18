@@ -27,7 +27,7 @@
 <script src="lib/fresh.js?v=1"></script>
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다. 삼국지는 a: samguk) -->
 <script src="lib/favorites.js?v=1"></script>
-<script src="lib/tianxia-core.js?v=6"></script>   <!-- 그림 없음 · 새 그림 판정과 확인 기록(hasArt · lastAdded · isNew · today · seen) — 지도 · 막사와 같은 셈 -->
+<script src="lib/tianxia-core.js?v=7"></script>   <!-- 그림 없음 · 새 그림 판정과 확인 기록(hasArt · lastAdded · isNew · today · seen) — 지도 · 막사와 같은 셈 -->
 <link rel="stylesheet" href="lib/sam.css?v=10">
 </head>
 <body class="dx-page">
@@ -46,7 +46,7 @@ const W=window.W,IMG=window.AtelierImg,FAV=window.AtelierFavorites,T=window.Tian
 const VIEWS=['world','casual','all'],ROLES=['lord','general','strategist','official'],STATS=['lead','war','int','pol'],ONLY=['art','new','none'],MAIN=['wei','shu','wu'];
 /* 세력색 — 지도와 같은 색. data/draft2-factions.json 의 dex(목록의 세력 줄 열쇠 → 지도 세력 열쇠)로 찾고, 없는 줄(그 밖의 제후 · 군웅 전체)은 지도의 기본색 */
 const facColor=(doc,k)=>{const x=doc.fx||{};return((x.factions||{})[(x.dex||{})[k]]||{}).c||'#7A6A55';};
-const rowFac=g=>g.faction==='qun'&&g.camp?g.camp:g.faction;
+
 const param=k=>{try{return new URLSearchParams(location.search).get(k)}catch{return null}};
 const pref=(()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')||{}}catch{return {}}})();
 const savePref=v=>{try{localStorage.setItem(STORE,JSON.stringify(Object.assign({},pref,v)))}catch{}};
@@ -54,9 +54,9 @@ const json=u=>fetch(u,{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(n
 function useDocs(){
   const [doc,setDoc]=useState(null);
   useEffect(()=>{
-    Promise.all([json('data/sam-design.json'),json('data/style.json'),json(IMG.DATA).catch(()=>({img:{}})),json('data/casual-own.json').catch(()=>({cards:{}})),json('data/draft2-factions.json').catch(()=>({factions:{}}))])
-      .then(([d,s,i,own,fx])=>{IMG.setShards(i);IMG.setAdded(i);const img=i.img||{},last={};for(const g of d.generals)last[g.key]=T.lastAdded(img[g.key],IMG.added());
-        setDoc({d,s,img,own:own.cards||{},fx,last,today:T.today(location.search)});}).catch(()=>setDoc({failed:true}));
+    Promise.all([json('data/sam-design.json'),json('data/style.json'),json(IMG.DATA).catch(()=>({img:{}})),json('data/casual-own.json').catch(()=>({cards:{}})),json('data/draft2-factions.json').catch(()=>({factions:{}})),json('data/draft2-packs.json').catch(()=>({packs:{}})),json('data/draft2-career-fix.json').catch(()=>({fix:{}}))])
+      .then(([d,s,i,own,fx,pk,cf])=>{IMG.setShards(i);IMG.setAdded(i);const img=i.img||{},last={};for(const g of d.generals)last[g.key]=T.lastAdded(img[g.key],IMG.added());
+        setDoc({d,s,img,own:own.cards||{},fx,src:{dex:fx.dex,fix:cf.fix,career:((pk.packs||{}).mx||{}).career},last,today:T.today(location.search)});}).catch(()=>setDoc({failed:true}));
   },[]);
   return doc;
 }
@@ -64,10 +64,13 @@ function useFavorites(){const [l,set]=useState(()=>FAV?FAV.list():[]);useEffect(
 function useNote(){const [m,set]=useState(''),t=useRef(0);useEffect(()=>()=>clearTimeout(t.current),[]);return [m,s=>{set(s);clearTimeout(t.current);t.current=setTimeout(()=>set(''),2000);}];}
 const isNew=(doc,name)=>T.isNew(doc.last[name],doc.today,T.seen.get(name));
 /* 세력 줄 — 위 · 촉 · 오, 군웅의 무리(설계표 camps 차례), 끝에 군웅 전체. 주소의 faction 값이 이 열쇠다 */
-function groupsOf(d){
-  const qun=d.factions.find(f=>f.key==='qun')||{camps:[]},of=k=>d.factions.find(f=>f.key===k);
-  return MAIN.filter(of).map(k=>({key:k,ko:of(k).ko,sym:of(k).hanja,fac:k,about:of(k),gs:d.generals.filter(g=>g.faction===k)}))
-    .concat((qun.camps||[]).map(c=>({key:c.key,ko:c.ko,fac:'qun',about:c,gs:d.generals.filter(g=>g.camp===c.key)})))
+function groupsOf(doc){
+  const d=doc.d,K=g=>T.dexKey(doc.src,g),qun=d.factions.find(f=>f.key==='qun')||{camps:[]},of=k=>d.factions.find(f=>f.key===k);
+  /* 진 — 군웅록 이력의 마지막 세력이 진인 장수(2026-11-18 사용자 「군웅록 기준이면 진 탭을 따로」). 설계표 세력은 위 그대로 — 위 줄에서는 빠진다 */
+  const fx=doc.fx||{},jk=(fx.dex||{}).jin,jf=(fx.factions||{})[jk]||{},jin=d.generals.filter(g=>K(g)==='jin');
+  return MAIN.filter(of).map(k=>({key:k,ko:of(k).ko,sym:of(k).hanja,fac:k,about:of(k),gs:d.generals.filter(g=>K(g)===k)}))
+    .concat(jk&&jin.length?[{key:'jin',ko:jk,sym:jf.h,fac:'wei',gs:jin}]:[])
+    .concat((qun.camps||[]).map(c=>({key:c.key,ko:c.ko,fac:'qun',about:c,gs:d.generals.filter(g=>K(g)===c.key)})))
     .concat(qun.key?[{key:'qun',ko:W('dx.qun.all'),sym:qun.hanja,fac:'qun',about:qun,gs:d.generals.filter(g=>g.faction==='qun')}]:[]);
 }
 /* 열 세력 줄 — 주소의 faction, 그 줄에 ?card= 의 장수가 없으면(안 맞는 주소 · faction 이 없는 주소) 그 장수가 든 줄(군웅은 무리) */
@@ -112,7 +115,7 @@ function Row({doc,g,view,wf,open,setOpen,onOpen,favs}){
   const o=view!=='world'||!!open[g.key],art=T.hasArt(doc.img[g.key]),nw=isNew(doc,g.key),st=g.stats||{};
   const own=(doc.own[g.key]||{}).worlds||{},job=(own[wf||d.vocab.worlds[0]]||own[d.vocab.worlds.find(w=>own[w])]||{}).job_ko;
   const fav=pics.filter(p=>favs.some(x=>x.a===A&&x.file===p.file)).length;
-  return h('article',{class:'dx-row',id:'c-'+g.key,'data-name':g.key,'data-fac':g.faction,style:{'--cat':facColor(doc,rowFac(g))},'data-art':art?'1':'0','data-new':nw?'1':'0','data-open':o?'1':'0'},
+  return h('article',{class:'dx-row',id:'c-'+g.key,'data-name':g.key,'data-fac':g.faction,style:{'--cat':facColor(doc,T.dexKey(doc.src,g))},'data-art':art?'1':'0','data-new':nw?'1':'0','data-open':o?'1':'0'},
     h('div',{class:'dx-main'},
       h('div',{class:'dx-slots'},worlds.map(w=>h(Slot,{key:w,g,world:w,pic:pics.find(p=>p.kind==='world'&&p.world===w),onOpen}))),
       h('button',{type:'button',class:'dx-who','aria-expanded':o,disabled:view!=='world',onClick:()=>setOpen(Object.assign({},open,{[g.key]:!open[g.key]}))},
@@ -223,7 +226,7 @@ function Dex(){
   /* ?card= 로 오면 그 장수가 든 세력 줄을 열고 그 장수로 내려가 그림을 연다 — pic 이 그 장수의 그림이면 그 그림(다른 화풍이면 그 화풍으로), 없거나 파일 이름이 아니면(옛 즐겨찾기 pic=0) 첫 그림. 그림이 없는 장수는 줄을 펼쳐 둔다 */
   useEffect(()=>{if(!doc||doc.failed||deep.current)return;deep.current=true;const ck=param('card'),pic=param('pic');if(!ck)return;
     const g=doc.d.generals.find(x=>x.key===ck);if(!g)return;
-    const gk=groupFor(groupsOf(doc.d),fac,g).key;if(gk!==fac){setFacS(gk);url(p=>p.set('faction',gk));}
+    const gk=groupFor(groupsOf(doc),fac,g).key;if(gk!==fac){setFacS(gk);url(p=>p.set('faction',gk));}
     setTimeout(()=>{const el=document.getElementById('c-'+ck);if(el)el.scrollIntoView({block:'center'});},50);
     const stys=artStyles(doc).map(x=>x.key),st=pic&&stys.find(k=>picsOf(doc,g,k).some(p=>p.file===pic));   /* 즐겨찾기 그림이 다른 화풍이면 그 화풍으로 */
     if(st){if(st!==curStyle(doc))setSty(st);openBox({g,file:pic});return;}
@@ -233,7 +236,7 @@ function Dex(){
   if(!doc)return h('p',{class:'dx-wait'},W('dex.loading'));
   if(doc.failed)return h('p',{class:'dx-wait'},W('dex.fail'));
   const sty=artStyles(doc).some(x=>x.key===sty0)?sty0:doc.s.default;STY=sty;
-  const d=doc.d,groups=groupsOf(d),ck=param('card'),cg=ck&&d.generals.find(x=>x.key===ck),grp=groupFor(groups,fac,cg);
+  const d=doc.d,groups=groupsOf(doc),ck=param('card'),cg=ck&&d.generals.find(x=>x.key===ck),grp=groupFor(groups,fac,cg);
   /* 찾는 말이 있으면 모든 세력에서 찾는다 — 머리의 수도 찾은 수, 세력 줄엔 「찾는 중」. 지우면 원래 세력으로 */
   const finding=!!q.trim(),all=finding?d.generals:grp.gs,pr=progress(doc,grp.gs),shown=all.filter(g=>matches(g,q)&&stateOk(g,sf)&&onlyOk(doc,g,only));
   const roles=ROLES.map(r=>({key:r,ko:d.roles[r].ko,gs:shown.filter(g=>g.role===r)})).filter(r=>r.gs.length).map(r=>Object.assign(r,{n:r.gs.length}));

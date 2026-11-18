@@ -142,4 +142,11 @@ assert.equal(C.hasArt({ byStyle: { s: { casual: ['c.webp'] } } }), true);
 // 등록부 그대로 — 그림이 등록된 장수는 모두 그림 있음
 { const I = J('data/img.json'); for (const k of Object.keys(I.img)) if (JSON.stringify(I.img[k]).includes('.webp')) assert(C.hasArt(I.img[k]), k); }
 
+// 진 — 군웅록 진 막사의 가운데는 사마의, 목록 도감의 줄 열쇠(dexKey)는 군웅록 이력의 마지막이 진이면 jin(위관 · 사마망은 extra.career 로)
+assert.equal(C.chiefOf(doc, 'mx', '진'), '사마의');
+{ const src = { dex: factions.dex, fix: J('data/draft2-career-fix.json').fix, career: packs.packs.mx.career }, by = k => design.generals.find(g => g.key === k);
+  for (const k of ['사마의', '사마염', '두예', '위관', '사마망']) assert.equal(C.dexKey(src, by(k)), 'jin', k);
+  assert.equal(C.dexKey(src, by('조조')), 'wei'); assert.equal(C.dexKey(src, by('등애')), 'wei'); assert.equal(C.dexKey(src, by('여포')), by('여포').camp);
+  for (const g of design.generals) assert.equal(C.dexKey(src, g) === 'jin', C.factionOf(doc, 'mx', g.key) === '진', g.key + ' 진 탭과 군웅록 진 막사가 같다'); }
+
 console.log('PASS 천하 지도 셈: ' + C.ERAS.map(e => e + ' 세력 ' + C.factionsOf(doc, e).length + '(떠도는 ' + C.factionsOf(doc, e).filter(f => f.landless).length + ')').join(' · ') + ' · 결의 · 새 그림 판정 · 확인 기록');

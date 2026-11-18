@@ -22,6 +22,8 @@ const P = ctx0.window.AtelierPrompt;
 /* ONLY=dex(또는 battle · styles · prompt, 쉼표로 여럿) — 바꾼 화면 몫만 돌린다. 없으면 전부 */
 const part = k => !process.env.ONLY || process.env.ONLY.split(',').includes(k);
 const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf8')), C = require('../lib/tianxia-core.js');
+const countDex = f => D.generals.filter(g => C.dexKey(DEXSRC, g) === f).length;   /* 목록 도감의 줄 인원 — 진 탭으로 간 장수(사마의 · 나헌 …)는 빠진다 */
+const DEXSRC = (J2 => ({ dex: J2('data/draft2-factions.json').dex, fix: J2('data/draft2-career-fix.json').fix, career: J2('data/draft2-packs.json').packs.mx.career }))(f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')));   /* 목록 도감의 세력 줄 열쇠(진 탭) */
 /* 일상컷 한 줄 fixture — 기본 화풍에 한 세계 일상컷이 넷 넘는 장수, 앞 셋만 색인에(필수 · 코스프레 GPT · 옷 자유), 넷째는 없음 */
 const CN = (() => {
   const IJ = IMGDOC.img;
@@ -121,8 +123,8 @@ function W0(k) { return ctx0.window.W(k); }
     /* 그림이 있는 장수(조조) — 칸은 크게 보기 단추 */
     if (await v.page.locator('.dx-row[data-name="조조"] .dx-slots button.dx-slot').count()) assert.equal(await v.page.locator('.dx-row[data-name="조조"] .dx-slots button.dx-slot').count(), 3, '조조 세계 셋 그림');
     const camps = D.factions.find(f => f.key === 'qun').camps;
-    assert.deepEqual(await v.page.locator('.dx-facs [data-f]').evaluateAll(es => es.map(e => e.dataset.f)), ['wei', 'shu', 'wu', ...camps.map(c => c.key), 'qun'], '세력 줄 — 위 · 촉 · 오 · 군웅의 무리 · 군웅 전체');
-    assert.equal(await v.page.locator('.dx-row').count(), count(D.factions[0].key), '첫 세력의 장수 수');
+    assert.deepEqual(await v.page.locator('.dx-facs [data-f]').evaluateAll(es => es.map(e => e.dataset.f)), ['wei', 'shu', 'wu', 'jin', ...camps.map(c => c.key), 'qun'], '세력 줄 — 위 · 촉 · 오 · 진(군웅록 기준) · 군웅의 무리 · 군웅 전체');
+    assert.equal(await v.page.locator('.dx-row').count(), D.generals.filter(g => C.dexKey(DEXSRC, g) === D.factions[0].key).length, '첫 세력의 장수 수 — 군웅록에서 진인 장수는 진 줄로');
     assert.equal(await v.page.locator('.workspace-nav, .ek-section').count(), 0, '옛 뼈대(머리 항해 · 장식 틀 섹션)가 없다');
     const one = v.page.locator('.dx-row').first(), bare = v.page.locator('.dx-row[data-art="0"]').first();   /* 그림이 없는 장수 — 빈 칸이 생성기로 */
     assert.equal(await one.locator('.dx-slots .dx-slot').count(), 3, '세계 셋');
@@ -132,7 +134,7 @@ function W0(k) { return ctx0.window.W(k); }
     for (const hgt of await v.page.locator('.dx-facs [data-f], .dx-tools, .dx-back, .dx-sheet button, .dx-sheet select, .dx-sheet input, .dx-sheet .dx-fav').evaluateAll(es => es.map(e => e.getBoundingClientRect().height))) assert(hgt >= 44, '누르는 자리 ' + hgt);
     await shut(); checks += 8;
     /* 촉 — 관우는 확정(★) · 설계 요약(펼치면), 상태 거르기 · 찾기 · 주소 */
-    await v.page.click('.dx-facs [data-f="shu"]'); await rows(count('shu'));
+    await v.page.click('.dx-facs [data-f="shu"]'); await rows(countDex('shu'));
     assert.match(v.page.url(), /faction=shu/); assert.equal(await v.page.locator('.dx-facs [aria-current="page"]').getAttribute('data-f'), 'shu');
     assert.match(await v.page.locator('.dx-row[data-name="관우"]').textContent(), /확정/);
     assert.match(await v.page.locator('.dx-row[data-name="관우"] .stats').textContent(), /무97/);
@@ -140,26 +142,26 @@ function W0(k) { return ctx0.window.W(k); }
     assert.match(await v.page.locator('.dx-row[data-name="관우"] .summary').textContent(), /청룡언월도/, '설계 요약');
     { const cas = await v.page.locator('.dx-row[data-name="관우"] .dx-casuals .dx-slot').count(), more = await v.page.locator('.dx-row[data-name="유비"] .dx-who .more').textContent();   /* 일상컷 접기 — 펼치면 그 장수의 일상컷 */
       if (cas) { assert.match(more, /일상컷 \d+/); await v.page.click('.dx-row[data-name="관우"] .dx-who'); assert.equal(await v.page.locator('.dx-row[data-name="관우"] .dx-casuals').count(), 0, '다시 누르면 접힌다'); } }
-    await sheet(); await v.page.selectOption('#dex-state', 'hand'); await rows(D.generals.filter(g => g.faction === 'shu' && g.designed === 'hand').length);
+    await sheet(); await v.page.selectOption('#dex-state', 'hand'); await rows(D.generals.filter(g => C.dexKey(DEXSRC, g) === 'shu' && g.designed === 'hand').length);
     assert.match(v.page.url(), /st=hand/);
-    await v.page.selectOption('#dex-state', ''); await rows(count('shu'));
+    await v.page.selectOption('#dex-state', ''); await rows(countDex('shu'));
     /* 찾기 — 찾는 말이 있으면 모든 세력에서(머리의 수도 찾은 수 · 세력 줄엔 「찾는 중」), 지우면 원래 세력으로 */
     { const hit = D.generals.filter(g => /zhuge/i.test(g.en)); assert(hit.some(g => g.faction !== 'shu'), '다른 세력에도 제갈씨가 있다');
       await v.page.fill('#dex-find', 'zhuge'); await rows(hit.length); assert.match(v.page.url(), /q=zhuge/);
       assert.match(await v.page.locator('.dx-bar').textContent(), new RegExp('찾는 중.*' + hit.length + '명')); assert.equal(await v.page.locator('.dx-facs [aria-current="page"]').count(), 0); assert.equal(await v.page.locator('.dx-facs .dx-finding').count(), 1, '세력 줄의 「찾는 중」');
-      await v.page.fill('#dex-find', ''); await rows(count('shu')); assert.equal(await v.page.locator('.dx-facs [aria-current="page"]').getAttribute('data-f'), 'shu'); assert.equal(await v.page.locator('.dx-facs .dx-finding').count(), 0);
-      await v.page.fill('#dex-find', 'zhuge'); await rows(hit.length); await shut(); await v.page.click('.dx-facs .dx-finding'); await rows(count('shu')); assert.doesNotMatch(v.page.url(), /q=/); await sheet(); checks += 6; }
+      await v.page.fill('#dex-find', ''); await rows(countDex('shu')); assert.equal(await v.page.locator('.dx-facs [aria-current="page"]').getAttribute('data-f'), 'shu'); assert.equal(await v.page.locator('.dx-facs .dx-finding').count(), 0);
+      await v.page.fill('#dex-find', 'zhuge'); await rows(hit.length); await shut(); await v.page.click('.dx-facs .dx-finding'); await rows(countDex('shu')); assert.doesNotMatch(v.page.url(), /q=/); await sheet(); checks += 6; }
     await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'true', '그림 있는 것만 — 누른 단추'); assert.match(v.page.url(), /only=1/);
     await v.page.waitForFunction(() => !document.querySelector('.dx-row[data-art="0"]'));
     const withArt = await v.page.locator('.dx-row').count();
     assert(withArt <= count('shu'), '그림 있는 것만');
     if (!withArt) assert(await v.page.locator('#dex-none').count(), '없으면 알림');
     assert.equal(await v.page.locator('.dx-tools').getAttribute('data-on'), '1', '걸러 보는 중 표시');
-    await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'false'); await rows(count('shu'));
+    await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'false'); await rows(countDex('shu'));
     /* 그림 없는 것만 */
     await v.page.click('.dx-sheet [data-only="none"]'); await v.page.waitForFunction(() => !document.querySelector('.dx-row[data-art="1"]'));
-    assert.equal(await v.page.locator('.dx-row').count(), D.generals.filter(g => g.faction === 'shu' && !C.hasArt(IMGDOC.img[g.key])).length, '그림 없는 것만'); assert.match(v.page.url(), /only=none/);
-    await v.page.click('.dx-sheet [data-only="none"]'); await rows(count('shu'));
+    assert.equal(await v.page.locator('.dx-row').count(), D.generals.filter(g => C.dexKey(DEXSRC, g) === 'shu' && !C.hasArt(IMGDOC.img[g.key])).length, '그림 없는 것만'); assert.match(v.page.url(), /only=none/);
+    await v.page.click('.dx-sheet [data-only="none"]'); await rows(countDex('shu'));
     /* 보기 갈래 · 세계 — 일상컷 보기는 줄마다 펼쳐 두고, 세계를 고르면 그 세계 칸만 */
     await v.page.click('.dx-sheet [data-view="all"]'); await v.page.waitForFunction(() => document.querySelectorAll('.dx-row[data-open="1"]').length === document.querySelectorAll('.dx-row').length); assert.match(v.page.url(), /view=all/);
     await v.page.click('.dx-sheet [data-view="world"]'); await v.page.click('.dx-sheet [data-wf="mecha"]'); await v.page.waitForFunction(() => document.querySelector('.dx-row').querySelectorAll('.dx-slots .dx-slot').length === 1); assert.match(v.page.url(), /w=mecha/);
