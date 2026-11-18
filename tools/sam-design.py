@@ -17,7 +17,7 @@
   redo  — {why, date} 가 있으면 다시 설계 요청. 새 시안을 쓸 때 앞 설계를 history 에 넣고 redo 를 지운다
 
 게임 파일은 읽기만 한다 — 게임은 그대로 둔다(사용자 2026-11-02 「기존 게임은 그대로 두고」).
-사실(이름·세력·역할·능력치·일화·낙관)은 게임 표에서만 온다 — 게임 표에 없는 공방 장수는 extra 칸(까닭 · 출처)을 적은 장수뿐이다(2026-11-17 손휴). 영문 이름(en)은 한어 병음 표기, 이 파일의 ROMAN 에 있다.
+사실(이름·세력·역할·능력치·일화·낙관)은 게임 표에서만 온다 — 게임 표에 없는 공방 장수는 extra 칸(까닭 · 출처)을 적은 장수뿐이다(2026-11-17 손휴 · 2026-11-18 새 장수 1묶음 14명). 영문 이름(en)은 한어 병음 표기, 이 파일의 ROMAN 에 있다.
 """
 import datetime, json, os, re, subprocess, sys
 
@@ -64,6 +64,9 @@ ROMAN = {
  '부첨': 'Fu Qian', '마충': 'Ma Zhong', '장억': 'Zhang Ni', '육개': 'Lu Kai', '손호': 'Sun Hao', '주연': 'Zhu Ran', '손등': 'Sun Deng', '손준': 'Sun Jun', '손침': 'Sun Chen',
  '종요': 'Zhong Yao', '여건': 'Lü Qian', '제갈탄': 'Zhuge Dan', '미방': 'Mi Fang', '여령기': 'Lü Lingqi', '진도': 'Chen Dao', '유파': 'Liu Ba', '양의': 'Yang Yi', '동소': 'Dong Zhao',
  '유복': 'Liu Fu', '신비': 'Xin Pi', '낙통': 'Luo Tong', '고담': 'Gu Tan', '장승': 'Zhang Cheng', '장양': 'Zhang Yang', '사섭': 'Shi Xie', '왕준': 'Wang Jun', '손휴': 'Sun Xiu',
+ # 새 장수 1묶음(2026-11-18 — 게임 표에 없는 공방 장수, extra 칸)
+ '공손도': 'Gongsun Du', '공손강': 'Gongsun Kang', '공손연': 'Gongsun Yuan', '유벽': 'Liu Pi', '공도': 'Gong Du', '번능': 'Fan Neng', '우미': 'Yu Mi', '장영': 'Zhang Ying',
+ '주흔': 'Zhou Xin', '사휘': 'Shi Hui', '사일': 'Shi Yi', '장위': 'Zhang Wei', '양임': 'Yang Ren', '양앙': 'Yang Ang',
 }
 # 남만 — 피부 톤을 남방으로 기운다(외형 자동 돌림만)
 SOUTH = {'올돌골', '타사대왕', '맹우', '맹획', '축융'}

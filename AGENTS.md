@@ -11,7 +11,7 @@
 |---|---|
 | 이 문서 | 규칙과 자리 |
 | `DESIGN.md` | 이 공방의 길(천하 지도 → 진영 막사 → 장수)과 화면을 만들 때 지킬 것 — 새 화면 · 화면 고치기 전에 |
-| `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(280 — 게임 표 279 + 게임 표에 없는 공방 장수 손휴, `extra` 칸) |
+| `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(294 — 게임 표 279 + 게임 표에 없는 공방 장수 15: 손휴, 2026-11-18 새 장수 1묶음 14명 · `extra` 칸) |
 | `docs/DRAFT2_PLAN.md` · `data/draft2-generals.json` | 새 판 「삼국지 쟁탈전 · 전장」(Phaser, 만드는 중) 설계 · 전용 장수 자료(다듬은 능력치 · 갈래 · 군주 기질 — 옛 게임 · 그림 설계표와 따로). 연도 판의 **추가 명단**은 `data/draft2-roster.json`(2026-11-17 — 옛 게임 명단 `draft2-packs.json` 은 그대로 두고 그 위에 얹는다, 새 판과 천하 지도가 같이 읽는다 · 설계 1-4). 검사 `node tests/draft2-data.cjs` |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
 | `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길(AI 검수 뒤 묻지 않고 올린다) — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
@@ -52,6 +52,14 @@
 장수 목록 · 세력 · 역할 · 능력치(통솔 · 무력 · 지력 · 정치) · 일화(`LORE`) · 낙관(`SEAL`)은 `draft.html` 의 표에서 `python3 tools/sam-design.py seed` 가 받는다. 게임 파일을 고치지 않는다.
 영문 이름(`en`)은 한어 병음 — `tools/sam-design.py` 의 `ROMAN`. 게임 표가 바뀌면 `seed` 를 다시 돌린다(손으로 적은 칸은 지킨다).
 **게임 표에 없는 공방 장수**(2026-11-17 손휴 — 사용자 「손휴는 추가해줘」, 263년 판도의 실제 오나라 군주): 설계표의 그 장수에 `extra: {why, src}` 를 적는다 — `seed` 가 지우지 않고 `check` 가 게임 표와 견줄 때 뺀다. 사실(능력치 · 일화)은 확인한 출처에서만 적고, 같이 고칠 곳은 `data/draft2-generals.json`(같은 차례) · `data/draft2-roster.json`(나오는 해) · `data/casual-own.json` · `docs/casual-own-list.md`. 옛 게임에는 안 나오고, 군웅록 이력이 없어 새 판 · 지도에서는 설계표 세력(위 · 촉 · 오 → 조위 · 촉한 · 동오)으로 든다(`lib/draft2/rules.js` 의 `careerOf`). 검사의 장수 수는 박아 두지 않고 설계표에서 센다.
+**새 장수 묶음을 더하는 차례**(2026-11-18 1묶음 14명 — 사용자 「3묶음까지」: 천하 지도의 얇은 세력 · 빈 땅을 채운다. 본보기는 그 커밋과 `tools/batches/2026-11-18-add1.py`):
+1. **확인** — 한 명씩 위키문헌 삼국지 원문(`https://zh.wikisource.org/wiki/三國志/卷NN` — 받을 때는 `api.php?action=query&prop=revisions` 가 막히지 않는다)과 위키백과 한 · 영 · 중. 이미 다른 이름으로 표에 있으면 넣지 않고, 연의에만 있는 일은 「연의」 라고 밝히거나 뺀다. 나오는 해(195 겨울 · 200 봄~여름 · 208 겨울 · 263 여름)에 살아 있고 그 밑에 있었는지 본다 — 안 맞으면 군웅록에만.
+2. **묶음 파일** `tools/batches/<날짜>-<이름>.py` 를 쓴다(장수마다 끼울 자리 `after` · 역할 · 무리 `camp` · 도장 · 능력치 · 일화 · 영문 이름 설명 · 물건 · 머리 눈 색 · 인상 · 표정 · 확인한 사실과 출처 · 새 판 갈래 · 기질 · 직업 한 줄과 세 세계의 장면). 능력치는 같은 처지의 기존 장수와 견주고, 직업은 `docs/casual-own-list.md` 를 훑어 겹치지 않게(3-1절), 세 세계의 자세 추천은 서로 다르게.
+3. `python -I tools/add-generals.py tools/batches/<묶음>.py` — 설계표(시안 · `extra{why, src, career}`) · `data/draft2-generals.json` · `data/casual-own.json` · `docs/casual-own-list.md` 에 끼운다(이미 든 장수는 건너뛴다 — 고쳐서 다시 끼우려면 그 네 파일을 `git checkout --` 한 뒤). 그 뒤 `python -I -X utf8 tools/sil-spread.py`(실루엣을 묶음 파일에 안 적었을 때) · `tools/sam-design.py` 의 `ROMAN` 에 병음. 같은 묶음 · 같은 무리와 머리 색 · 세계별 헤어 · 실루엣 · 체형이 겹치면 묶음 파일의 `BODY` · `WORLD_FIX` · `SIL` 로 바꾼다.
+4. **군웅록에서 드는 세력** — 군웅(`qun`) 장수는 `extra.career`(묶음 파일의 `CAREER`, 세력 열쇠는 `data/draft2-factions.json`)를 적는다. 없으면 군웅록에서 「군웅」 이라는 딴 세력으로 떨어진다. 추가 명단 파일에 두지 않는다(그 파일이 없어도 군웅록은 같은 판이어야 한다 — 검사). 위 · 촉 · 오 장수는 안 적어도 조위 · 촉한 · 동오로 든다.
+5. **손으로** — 나오는 해는 `data/draft2-roster.json`(그 팩 `add` 끝에 한 줄씩 · why · src, 군주로 세울 장수는 `roles` 와 `lordAs`), 새 세력은 `data/draft2-factions.json`(열쇠는 첫 주인의 이름 · 도장은 성 글자, 겹치면 땅 이름 — 공손도 遼 · 색은 기존 색과 RGB 거리 70 이상), 성의 주인 · 우두머리 · 한 줄은 `data/tianxia.json`(확인 안 되는 해는 그대로 둔다) 뒤 `node tests/tianxia-data.cjs --write`. 새 도장 · 세력 글자는 `index.html` · `dex.html` 의 한자 글꼴 줄에(`node tests/fonts.cjs` 가 빠진 글자를 말해 준다). `rules.js` 를 고쳤으면 `draft2.html` · `index.html` 의 `?v=`.
+6. **검사** — `python -I -X utf8 tools/sam-design.py check` · `tools/sil-spread.py --check` · `tests/draft2-data` · `draft2-rules` · `tianxia-data` · `tianxia-core` · `fonts` · `look-spec` · `words` · `patch`, 화면은 `tianxia-screen` · `screen` · `draft2-screen`, 직업은 `node tools/casual-plan.cjs <이름> --world all --usage none --cosplay-usage none`(한 명에 20초쯤 — 세 세계 다 「90 ◆」). 검사가 장수 수 · 막사 인원을 박아 둔 줄(`tests/tianxia-core.cjs` 의 「195 유요 4명」 따위)은 그 묶음이 바꾼 만큼 고친다. 윈도우에서는 파이썬 출력이 cp949 라 `-X utf8` 을 붙이고, `draft2-rules` 는 `data/draft2-combos.json` · `data/draft2-packs.json` 의 작업 사본을 LF 로 바꿔 돌린 뒤 `git checkout --` 으로 되돌린다.
+7. `docs/PATCH.md` 맨 위에 한 칸(누구를 왜 · 능력치와 직업의 까닭 · 출처 · 뺀 사람) — 장수 수가 적힌 곳은 이 문서 첫 표와 `docs/DRAFT2_PLAN.md`.
 
 ### 2. 세계 셋, 세계마다 다른 사람
 

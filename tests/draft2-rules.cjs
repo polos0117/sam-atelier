@@ -215,6 +215,12 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
   ok(R.facOf(y194, '유장') === '유장군' && R.facOf(y194, '염포') === '장로군' && R.facColor(y194, '유장군') === FC.factions['유장'].c && R.facOf(y194, '서황') === '한조정' && R.facOf(y194, '감부인') === '서주군' && R.facOf(y194, '여범') === '손책군' && R.facOf(y208, '한현') === '조조군' && R.facOf(y200, '황충') === '유표군', '추가 명단 — 세력 열쇠 → 그해 이름');
   ok(R.facOf(y194, '유요') === '유요' && R.facOf(y194, '왕랑') === '왕랑' && R.facOf(y194, '우번') === '왕랑' && R.facColor(y194, '유요') === FC.factions['유요'].c && R.facColor(y194, '왕랑') === FC.factions['왕랑'].c
     && y194.facInfo['유요'].h === '劉' && y194.facInfo['왕랑'].h === '王' && !R.isMajor(y194, '유요') && !R.isMajor(y194, '왕랑'), '195 — 새 세력 유요 劉 · 왕랑 王(색 · 도장 · 군웅)');
+  /* 새 장수 1묶음(2026-11-18) — 옛 이력이 없는 군웅 장수는 설계표 extra.career 의 세력으로(군웅록 · 위촉오+군웅), 연도 판은 추가 명단의 해에만 */
+  ok(S.generals.filter(g => g.extra && g.faction === 'qun').every(g => Array.isArray(g.extra.career) && g.extra.career.every(f => FC.factions[f]) && R.facOf(mx, g.key) === g.extra.career[g.extra.career.length - 1]), '공방 군웅 장수 — extra.career 의 세력이 세력 표에 있고 군웅록에서 그 세력에 든다');
+  ok(R.facOf(mx, '공손도') === '공손도' && R.facOf(mx, '공손연') === '공손도' && R.facOf(db, '공손강') === '공손도' && mx.facInfo['공손도'].h === '遼' && R.facColor(mx, '공손도') === FC.factions['공손도'].c && !R.isMajor(mx, '공손도')
+    && R.facOf(mx, '유벽') === '황건' && R.facOf(mx, '장위') === '장로' && R.facOf(mx, '번능') === '한조정' && R.facOf(mx, '사휘') === '교주', '군웅록 — 새 세력 공손도 遼, 새 장수는 제 무리에');
+  ok(R.facOf(y194, '공손도') === '공손도' && R.facOf(y194, '번능') === '유요' && R.facOf(y194, '주흔') === '왕랑' && R.facOf(y194, '유벽') === '황건' && R.facOf(y200, '공도') === '황건' && R.facOf(y208, '공손강') === '공손도' && R.facOf(y208, '장위') === '장로군'
+    && !R.inScope(y208, '공손도') && !R.inScope(y194, '공도') && ['w194', 'gd200', 'jb208', 'end263'].every(m => !R.inScope(R.view(db, m), '공손연') && !R.inScope(R.view(db, m), '사휘')), '연도 판 — 공손도는 195 · 200, 공손강은 208 까지, 공손연 · 사휘는 군웅록에만');
   ok(['이각', '장연', '왕랑'].every(k => y194.by[k].cat === 'lord' && y194.by[k].asLord && y194.by[k].trait === GN.generals.find(g => g.key === k).lordAs.trait) && y200.by['장연'].cat === 'lord'
     && y208.by['장연'].cat === 'general' && db.by['왕랑'].role === 'official' && mx.by['이각'].cat === 'general', '추가 명단 roles — 195 이각 · 장연 · 왕랑, 200 장연이 그해에만 군주(lordAs)');
   ok(y194.by['여포'].cat === 'lord' && y208.by['마초'].cat === 'lord', '옛 roleMap 군주는 그대로');
@@ -249,15 +255,15 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
   ok(!R.evaluateRaw(mx, ['공손찬', '조운']).rows.some(r => r.kind === 'bond'), '공손찬 · 조운은 결의 「백마의종」 이 이미 묶는다 — 재회로 안 센다');
   ok(!R.evaluateRaw(mx, ['유비', '조운']).rows.some(r => r.kind === 'bond'), '마지막 세력이 주공 세력이면 재회가 아니다');
   /* 결의가 이미 묶은 두 사람은 세지 않는다 */
-  const lords = mx.list.filter(c => c.role === 'lord');
+  const lords = mx.list.filter(c => c.role === 'lord' && PK.packs.mx.career[c.key]);   /* 옛 이력이 있는 군주만 — 공방 장수(extra)는 이력이 없다 */
   let blocked = null;
   for (const L of lords) { const lc = PK.packs.mx.career[L.key], lf = lc[lc.length - 1];
-    for (const c of mx.list) { const ca = PK.packs.mx.career[c.key]; if (c.key !== L.key && ca.includes(lf) && ca[ca.length - 1] !== lf && CB.combos.some(x => x.m.includes(L.key) && x.m.includes(c.key))) { blocked = [L.key, c.key]; break; } } if (blocked) break; }
+    for (const c of mx.list) { const ca = PK.packs.mx.career[c.key] || []; if (c.key !== L.key && ca.includes(lf) && ca[ca.length - 1] !== lf && CB.combos.some(x => x.m.includes(L.key) && x.m.includes(c.key))) { blocked = [L.key, c.key]; break; } } if (blocked) break; }
   ok(blocked && !R.evaluateRaw(mx, blocked).rows.some(r => r.kind === 'bond'), '결의와 겹치면 세지 않는다 — ' + blocked);
   /* 상한 */
   let big = null;
   for (const L of lords) { const lc = PK.packs.mx.career[L.key], lf = lc[lc.length - 1];
-    const re = mx.list.filter(c => { const ca = PK.packs.mx.career[c.key]; return c.key !== L.key && c.role !== 'lord' && ca.includes(lf) && ca[ca.length - 1] !== lf && !CB.combos.some(x => x.m.includes(L.key) && x.m.includes(c.key)); }).map(c => c.key);
+    const re = mx.list.filter(c => { const ca = PK.packs.mx.career[c.key] || [];   /* 공방 장수(extra)는 옛 이력이 없다 */ return c.key !== L.key && c.role !== 'lord' && ca.includes(lf) && ca[ca.length - 1] !== lf && !CB.combos.some(x => x.m.includes(L.key) && x.m.includes(c.key)); }).map(c => c.key);
     if (re.length * BD.oldLord.v > BD.oldLord.cap) { big = [L.key].concat(re.slice(0, 10)); break; } }
   ok(big && R.evaluateRaw(mx, big).rows.find(r => r.kind === 'bond').v === BD.oldLord.cap, '한 편 상한 ' + BD.oldLord.cap);
   const bt = R.evaluateRaw(db, ['진궁', '조조']).rows.find(r => r.kind === 'betray');

@@ -5,6 +5,8 @@ const fs = require('fs'), path = require('path'), assert = require('assert');
 const root = path.join(__dirname, '..');
 const J = f => JSON.parse(fs.readFileSync(path.join(root, f), 'utf8'));
 const T = J('data/tianxia.json'), F = J('data/draft2-factions.json'), P = J('data/draft2-packs.json').packs, RO = J('data/draft2-roster.json').packs;
+// 옛 게임 표에 없는 공방 군웅 장수의 군웅록 세력(설계표 extra.career — 2026-11-18 공손도 …)
+const XC = J('data/sam-design.json').generals.flatMap(g => (g.extra && g.extra.career) || []);
 const added = k => (RO[k] || {}).add || [];
 
 assert.deepEqual(Object.keys(T.eras), ['mx', 'w194', 'gd200', 'jb208', 'end263']);
@@ -22,8 +24,8 @@ const keys = new Set(T.cities.map(c => c.key));
 for (const [k, e] of Object.entries(T.eras)) {
   assert(e.ko && e.line, k);
   for (const c of Object.keys(e.owners)) assert(keys.has(c), k + ' 없는 성 ' + c);
-  // 그해 세력 표 — 연도 팩은 facMap 의 세력(alias 로 세력 열쇠), 군웅록은 이력에 나오는 세력
-  const table = new Set(P[k].facMap ? Object.values(P[k].facMap).map(f => F.alias[f] || f).concat(added(k).map(a => a.f)) : Object.values(P[k].career).flat());
+  // 그해 세력 표 — 연도 팩은 facMap 의 세력(alias 로 세력 열쇠), 군웅록은 이력에 나오는 세력(+ 공방 장수의 extra.career)
+  const table = new Set(P[k].facMap ? Object.values(P[k].facMap).map(f => F.alias[f] || f).concat(added(k).map(a => a.f)) : Object.values(P[k].career).flat().concat(XC));
   for (const c of T.cities) { const o = e.owners[c.key]; assert(o, k + ' ' + c.key + ' 줄이 없다');
     assert(o.f === null || F.factions[o.f], k + ' ' + c.key + ' 세력 ' + o.f);
     assert(o.f === null || table.has(o.f), k + ' ' + c.key + ' — ' + o.f + ' 는 그해 세력 표에 없다');
@@ -55,8 +57,11 @@ for (const [k, e] of Object.entries(T.eras)) {
     '| 세력 | 장수 | 근거 | 출처 |', '|---|---|---|---|',
     ...order.flatMap(f => add.filter(a => a.f === f).map(a => '| ' + f + ' | ' + a.name + ((RO[k].roles || {})[a.name] ? '(' + RO[k].roles[a.name] + ')' : '') + ' | ' + a.why + ' | <' + a.src + '> |')), '');
 }
-// 지킬 약속 — 여남(195)은 비워 둔다 · 208 장사는 조위(한현)
-assert.equal(T.eras.w194.owners.runan.f, null, '195 여남은 비워 둔다(사용자 2026-11-17)');
+// 지킬 약속 — 208 장사는 조위(한현). 여남(195)은 맞는 장수가 없어 비워 두었다가(사용자 2026-11-17 「여남은 비워두자」) 2026-11-18 유벽을 더하며 황건에게 · 200 은 다투는 중 그대로
+assert.equal(T.eras.w194.owners.runan.f, '황건', '195 여남은 황건(유벽)'); assert.equal(T.eras.gd200.owners.runan.f, null, '200 여남은 다투는 중');
+// 양평(요동) — 공손도 세력(195 · 200 공손도, 208 공손강), 263 은 진
+for (const k of ['mx', 'w194', 'gd200', 'jb208']) assert.equal(T.eras[k].owners.xiangping.f, '공손도', k + ' 양평은 공손도');
+assert.equal(T.eras.jb208.lords['공손도'], '공손강', '208 요동의 우두머리는 공손강(공손도는 204년에 죽었다)');
 assert.equal(T.eras.jb208.owners.changsha.f, '조위'); assert.equal(T.eras.w194.owners.kuaiji.f, '왕랑'); assert.equal(T.eras.w194.owners.chaisang.f, '유요');
 const docPath = path.join(root, 'docs/TIANXIA_SOURCES.md'), docText = doc.join('\n');
 if (process.argv.includes('--write')) fs.writeFileSync(docPath, docText);

@@ -196,10 +196,11 @@ const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(
     assert.equal(await legend(), wantLegend('w194'), '195 범례');
     for (const [f, hj] of [['유요', '劉'], ['왕랑', '王']]) assert((await p.locator('.tx-legend [data-f="' + f + '"]').textContent()).includes(hj), '195 범례 — ' + f + ' ' + hj);
     assert.equal(await p.locator('.tx-city[data-city="kuaiji"]').getAttribute('data-f'), '왕랑'); assert.equal(await p.locator('.tx-city[data-city="chaisang"]').getAttribute('data-f'), '유요');
-    assert.equal(await p.locator('.tx-city[data-city="runan"]').getAttribute('data-f'), '', '195 여남은 비워 둔다');
+    assert.equal(await p.locator('.tx-city[data-city="runan"]').getAttribute('data-f'), '황건', '195 여남은 황건(2026-11-18 유벽)'); assert.equal(await p.locator('.tx-city[data-city="xiangping"]').getAttribute('data-f'), '공손도', '195 양평은 공손도');
+    assert((await p.locator('.tx-legend [data-f="공손도"]').textContent()).includes('遼'), '195 범례 — 공손도 遼');
     await camp('w194', '유장'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '유장'); assert.deepEqual((await names()).sort(), ['유장', '오의', '장임', '엄안', '황권', '장송'].sort(), '195 유장군 막사 6명');
     assert.match(await p.locator('.tx-camp-head h1').textContent(), /^유장군 · /); assert(await fits(p));
-    await camp('w194', '왕랑'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '왕랑'); assert.deepEqual((await names()).sort(), ['왕랑', '우번']);
+    await camp('w194', '왕랑'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '왕랑'); assert.deepEqual((await names()).sort(), ['왕랑', '우번', '주흔'].sort());   /* 2026-11-18 주흔 */
     assert.match(await p.locator('.tx-camp-head h1').textContent(), /^왕랑군 · /); assert((await p.locator('.tx-camp-head').textContent()).includes('王'), '왕랑 막사 머리의 도장');
     await camp('jb208', '조위'); const ns = await names(); assert(ns.includes('한현') && !ns.includes('황충'), '208 조조군 막사 — 한현은 있고 황충은 없다');
     assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), '조조'); checks += 14; }
