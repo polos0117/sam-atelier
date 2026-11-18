@@ -47,8 +47,9 @@ IMG_DIR = "img"
 # 닫힌 저장소에는 이미 있는 이름의 교체만 받는다 — 새 이름이 오면 등록 전체를 멈춘다.
 #   0 sam-atelier-img    닫힘(2026-11-12, GitHub 크기 약 1.0 GB) — 교체만. 자동화 상태(잠금 · free 주문)는 그대로 여기
 #   1 sam-atelier-img-2  열림(2026-11-12 부터, 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」) — 새 그림 전부
-SHARDS = ["sam-atelier-img", "sam-atelier-img-2"]
-EXTRA_DIRS = ["img-2"]
+#   2 sam-atelier-img-3  열림(2026-11-18 부터 — 1 번이 약 1.08 GB 로 찼다, 사용자 「원소랑 삼국지 이미지 저장소 3번 다 만들어놨으니 연결도 시켜줘」). 1 번은 닫힘(교체만)
+SHARDS = ["sam-atelier-img", "sam-atelier-img-2", "sam-atelier-img-3"]
+EXTRA_DIRS = ["img-2", "img-3"]
 
 # 연출컷(action)은 받지 않는다 — 이름에 끼면 "이름 꼴이 안 맞는다" 로 선다
 PAT = re.compile(r"^(.+?)_(m|f|casual(\d+)|extra(\d+))\.webp$", re.I)

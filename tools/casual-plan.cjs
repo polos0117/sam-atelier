@@ -89,7 +89,7 @@ const SITU_RATE = 1;   /* 2026-11-16 사용자 「늘 1장은 나오게 맞춰�
 const COSPLAY = tree.cosplay || {}, COS_FAM = COSPLAY.outfit || 'game_cosplay', COS_NO_FRAMES = (tree.costume_required || {}).not_frames || ['face_close'];
 /* 쓴 것은 이 공방 그림 저장소만 읽는다(2026-11-16 사용자 「공방별로 따로 두는건?」 → 「응 그렇게 진행해줘」 — 일상컷을 그리는 세션은 자기 그림 저장소를 늘 받아 둔다.
    다른 공방과는 같은 캐릭터가 나올 수 있다 · 전엔 세 공방 합쳐 읽었는데 없는 저장소를 조용히 건너뛰어 다른 세션에선 못 막았다). 저장소가 없으면 멈춘다 — cosplayReposOk */
-const COSPLAY_REPOS = ['sam-atelier-img', 'sam-atelier-img-2'];
+const COSPLAY_REPOS = ['sam-atelier-img', 'sam-atelier-img-2', 'sam-atelier-img-3'];
 const cosplayDirs = () => COSPLAY_REPOS.map(r => path.join(ROOT, '..', r, 'records')).filter(d => fs.existsSync(d));
 /* 이 공방 그림 저장소가 다 있나 — 없으면 쓴 것을 몰라 같은 캐릭터가 겹친다. 계획을 짜기 전에 부른다(--cosplay-usage 를 주면 그 폴더를 믿는다) */
 function cosplayReposOk(opt = {}) {

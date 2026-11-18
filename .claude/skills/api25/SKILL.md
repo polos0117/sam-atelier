@@ -11,7 +11,7 @@ description: 삼국지 장수 그림을 OpenAI 그림 API(gpt-image-2.5-sunburst
 ## 0. 시작 전
 
 - 키는 환경 변수 `OPENAI_API_KEY` 로만 쓴다 — 값을 찍거나 파일 · 커밋에 적지 않는다. Node 는 `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt NODE_NO_WARNINGS=1` 을 붙인다(클라우드 세션).
-- 세 저장소를 받는다: `sam-atelier`(코드) · 옆 `sam-atelier-img`(첫 그림 저장소 — 닫힘: 교체 · 잠금 · `free/` 주문) · 옆 `sam-atelier-img-2`(열린 그림 저장소 — **새 그림 · 새 기록은 여기**, 2026-11-12 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」, `IMAGE_RULES.md` 3절 「그림 저장소는 여럿이다」). 저장소마다 `git pull --rebase origin main`.
+- 네 저장소를 받는다: `sam-atelier`(코드) · 옆 `sam-atelier-img`(첫 그림 저장소 — 닫힘: 교체 · 잠금 · `free/` 주문) · 옆 `sam-atelier-img-2`(둘째 — 닫힘: 교체만, 2026-11-18) · 옆 `sam-atelier-img-3`(열린 그림 저장소 — **새 그림 · 새 기록은 여기**, 2026-11-12 사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」, `IMAGE_RULES.md` 3절 「그림 저장소는 여럿이다」). 저장소마다 `git pull --rebase origin main`.
 - `node tools/image-claim.cjs status` 로 그 장수가 다른 세션에서 `working` 인지 본다 — 그렇다면 멈추고 묻는다.
 - **장수 하나당 33장**(세계 그림 4 × 3 + 일상컷 7 × 3 — 2026-11-11 사용자 「그럼 일상컷은 총 7장 되는거야」, 전엔 30장)과 예상 토큰(그림 한 장 출력 약 343)을 먼저 말하고 시작한다. 이미 등록된 `api25` 그림이 있으면 그 자리는 빼고 센다.
 - 작업 폴더는 스크래치패드 `api25/<장수>/` (`W`). 원본 PNG 는 여기 두고 그림 저장소엔 올리지 않는다.
@@ -55,12 +55,12 @@ node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 
 사용자에게 시트로 보이고 「올릴까?」 — 좋다면:
 
 ```bash
-node tools/api-draw.cjs stage <장수> --img ../sam-atelier-img-2 $W/<세계>-<고른 것>.png=<세계> $W/<세계>-casual1.png=<세계>-casual1 …
+node tools/api-draw.cjs stage <장수> --img ../sam-atelier-img-3 $W/<세계>-<고른 것>.png=<세계> $W/<세계>-casual1.png=<세계>-casual1 …
 ```
 
 - webp(품질 90, 1024×1536) + 기록(`records/<장수>/<세계>.api25-ui.json` · `<세계>-casualN.api25-ui.json`, `generation` 에 모델 · 엔드포인트 · 사용량 · png_sha256 · retries · GPT 설계 글)을 열린 저장소 `sam-atelier-img-2` 에 둔다(`--img` 를 안 주면 그것, 닫힌 `sam-atelier-img` 는 도구가 막는다). 같은 이름이 두 그림 저장소 어디에든 있으면 멈춘다 — 덮지 않는다.
 - 일상 계획도 `records/<장수>/<세계>-casual-plan.api25.json` 으로 둔다.
-- `sam-atelier-img-2` 에 **장수 하나 한 커밋**, `pull --rebase` 뒤 일반 push. 썸네일 · `data/img.json` 은 워크플로가 한다. 코드 저장소 `docs/PATCH.md` 에 한 줄(patch-add).
+- `sam-atelier-img-3` 에 **장수 하나 한 커밋**, `pull --rebase` 뒤 일반 push. 썸네일 · `data/img.json` 은 워크플로가 한다. 코드 저장소 `docs/PATCH.md` 에 한 줄(patch-add).
 
 ## 5. 끝에 알린다
 

@@ -99,7 +99,7 @@
 
 ## 3. 파일 이름과 자리
 
-새 그림은 **열린 그림 저장소** `sam-atelier-img-2` 의 `img/` 에 올린다(2026-11-12 부터 — 아래 「그림 저장소는 여럿이다」).
+새 그림은 **열린 그림 저장소** `sam-atelier-img-3` 의 `img/` 에 올린다(2026-11-18 부터 — 아래 「그림 저장소는 여럿이다」. 2026-11-12 ~ 11-18 은 `sam-atelier-img-2`).
 
 ```
 <장수>_<세계>_<화풍>_f.webp           세계 그림 — 세계는 samguk · fantasy · mecha
@@ -117,7 +117,8 @@ GitHub Pages 사이트 하나는 1 GB 까지라 첫 저장소가 차서(GitHub �
 | 번호 | 저장소 | 상태 | 받는 것 |
 |---|---|---|---|
 | 0 | `sam-atelier-img` | 닫힘(2026-11-12, 약 1.0 GB) | 이미 있는 이름의 **교체**만 · 자동화 상태(잠금 `records/automation/claims/` · GPT 세션 설계 주문 `free/<장수>/` · `records/replacement.json`) · 배경(`backgrounds/`)은 그대로 여기 |
-| 1 | `sam-atelier-img-2` | 열림 | **새 그림 전부** · 새 그림의 기록(`records/<장수>/`) |
+| 1 | `sam-atelier-img-2` | 닫힘(2026-11-18, 약 1.08 GB) | 이미 있는 이름의 **교체**만 · 2026-11-12 ~ 11-18 기록은 그대로 여기 |
+| 2 | `sam-atelier-img-3` | 열림(2026-11-18 사용자 「원소랑 삼국지 이미지 저장소 3번 다 만들어놨으니 연결도 시켜줘」 — 둘째가 약 1.08 GB 로 찼다) | **새 그림 전부** · 새 그림의 기록(`records/<장수>/`) |
 
 - 새 그림은 **열린 저장소**(번호가 가장 큰 것)의 `img/` 에만, 그 기록도 같은 저장소의 `records/<장수>/` 에 올린다. 닫힌 저장소에 새 이름이
   올라오면 등록이 전부 멈춘다(「닫힌 그림 저장소 … 에 새 그림」). `tools/api-draw.cjs stage` 는 `--img` 를 안 주면 열린 저장소에 두고, 닫힌 저장소엔 두지 않는다.
@@ -134,11 +135,11 @@ GitHub Pages 사이트 하나는 1 GB 까지라 첫 저장소가 차서(GitHub �
 ## 4. 등록 — 올리면 자동이다
 
 1. 결과를 사람에게 보여 주고 「올릴까?」 를 묻는다(GPT 세션은 `docs/IMAGE_AUTOMATION.md` 0절 — 검수를 적고 바로 올린다).
-2. webp 를 열린 그림 저장소(`sam-atelier-img-2`)의 `img/` 에, 기록은 그 저장소의 `records/` 에 일반 push(교체는 그 파일이 있는 저장소에 — 3절). 썸네일은 만들지 않는다.
+2. webp 를 열린 그림 저장소(`sam-atelier-img-3`)의 `img/` 에, 기록은 그 저장소의 `records/` 에 일반 push(교체는 그 파일이 있는 저장소에 — 3절). 썸네일은 만들지 않는다.
 3. 그림 저장소의 `썸네일` 워크플로가 `img/thumb/` 를 만들고 코드 저장소의 `그림 등록` 을 깨운다(그림 저장소마다 비밀 `CODE_REPO_TOKEN` 이 있을 때 — 없으면 코드 저장소가 매시 29분에 스스로).
 4. `그림 등록` 이 두 그림 저장소를 받아 `tools/register-images.py` 로 `data/img.json` 에 적는다(둘째 저장소 그림은 `where` 에 1). 이름이 틀린 파일이 하나라도 있으면 아무것도 쓰지 않고 실패한다.
 
-자리에서 직접: 그림 저장소 둘을 옆에 받고 `ln -s ../sam-atelier-img/img img` · `ln -s ../sam-atelier-img-2/img img-2` 뒤 `python3 tools/register-images.py --check` · `python3 tools/register-images.py`.
+자리에서 직접: 그림 저장소 셋을 옆에 받고 `ln -s ../sam-atelier-img/img img` · `ln -s ../sam-atelier-img-2/img img-2` · `ln -s ../sam-atelier-img-3/img img-3` 뒤 `python3 tools/register-images.py --check` · `python3 tools/register-images.py`.
 
 ## 5. 중단과 재개
 

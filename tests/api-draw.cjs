@@ -43,7 +43,7 @@ srv.listen(0, async () => {
     { const pc1 = JSON.parse(fs.readFileSync(path.join(planDir, 'plan.json'), 'utf8')).cuts.find(c => c.n === 1); assert.equal(sr.scene.shade, pc1.shade, 'stage — 기록 장면에 계획의 옷 색 shade 가 그대로(2026-11-16 — 다음 계획이 센다)'); }
     r = await run(['stage', '조조', '--img', img, path.join(out, 'samguk-ours2.png') + '=samguk']); assert(r.status !== 0 && /덮지 않는다/.test(r.stderr), 'stage — 있으면 멈춘다');
     /* 그림 저장소 둘(2026-11-12) — 닫힌 저장소(sam-atelier-img)엔 새 그림을 두지 않는다 · 열린 저장소에 둘 때 옆 저장소에 같은 이름이 있으면 멈춘다 */
-    { const two = path.join(tmp, 'two'), z0 = path.join(two, 'sam-atelier-img'), z1 = path.join(two, 'sam-atelier-img-2');
+    { const two = path.join(tmp, 'two'), z0 = path.join(two, 'sam-atelier-img'), z1 = path.join(two, 'sam-atelier-img-3');   /* 2026-11-18 부터 열린 저장소는 셋째 */
       for (const z of [z0, z1]) fs.mkdirSync(path.join(z, 'img'), { recursive: true });
       r = await run(['stage', '조조', '--img', z0, path.join(out, 'samguk-ours2.png') + '=samguk']); assert(r.status !== 0 && /닫힌 그림 저장소/.test(r.stderr) && !fs.readdirSync(path.join(z0, 'img')).length, 'stage — 닫힌 저장소엔 새 그림 없음: ' + r.stderr);
       fs.writeFileSync(path.join(z0, 'img', '조조_samguk_api25_f.webp'), '');

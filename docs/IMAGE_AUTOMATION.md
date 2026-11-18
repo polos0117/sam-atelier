@@ -22,9 +22,9 @@ GPT 세션이 장수 그림을 채우는 길이다. 사람이 지켜보는 세�
 
 ## 1. 준비
 
-- `AGENTS.md` · `IMAGE_RULES.md` 를 먼저 읽는다. 코드(`sam-atelier`)와 그림 저장소 둘(`sam-atelier-img` · `sam-atelier-img-2`)을 **나란히** 받아 최신 `main` 으로 둔다.
+- `AGENTS.md` · `IMAGE_RULES.md` 를 먼저 읽는다. 코드(`sam-atelier`)와 그림 저장소 셋(`sam-atelier-img` · `sam-atelier-img-2` · `sam-atelier-img-3`)을 **나란히** 받아 최신 `main` 으로 둔다.
   그림 저장소는 2026-11-12 부터 둘이다(사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」 — 첫 저장소가 약 1.0 GB 로 찼다, `IMAGE_RULES.md` 3절 「그림 저장소는 여럿이다」):
-  **새 그림 · 새 기록은 `sam-atelier-img-2`**, 잠금(`records/automation/claims/`) · 설계 주문(`free/`)은 **`sam-atelier-img` 그대로**. 교체는 그 파일이 있는 저장소(`data/img.json` 의 `where`).
+  **새 그림 · 새 기록은 `sam-atelier-img-3`**(2026-11-18 부터 — `sam-atelier-img-2` 는 닫힘, 교체만), 잠금(`records/automation/claims/`) · 설계 주문(`free/`)은 **`sam-atelier-img` 그대로**. 교체는 그 파일이 있는 저장소(`data/img.json` 의 `where`).
   다른 세션도 같은 저장소에 민다 — push 전에 늘 `git pull --rebase origin main`. 남의 로컬 변경을 reset 하지 않는다.
 - Node 와 Python 3 + Pillow 가 있으면 된다. **브라우저는 쓰지 않는다** — 생성기 화면 대신 지시문 묶음(`tools/prompt-pack.cjs`)이 같은 글을 파일로 준다(생성기와 같은 조립부 `lib/prompt-sam.js`).
 - 실행 ID 를 **한 번** 정하고 이 실행의 모든 명령에 그대로 쓴다.
@@ -101,7 +101,7 @@ node tools/image-claim.cjs block <장수> --execution $ATELIER_EXECUTION_ID --re
 ## 6. 올리기와 끝
 
 1. 자리마다 원본을 WebP(품질 90, method 6, 1024×1536)로 바꾼다. 이름은 `INDEX.md` 의 「올릴 파일」(= `IMAGE_RULES.md` 3절). 같은 이름이 그림 저장소(둘 중 어디든)에 이미 있으면 멈춘다 — 덮지 않는다.
-2. 열린 그림 저장소(`sam-atelier-img-2`)에 **한 장수 한 커밋**으로 일반 push: `img/<파일>.webp` 들과 `records/<장수>/` 의 기록 — 세계 그림 `<세계>.<화풍>-ui.json`, 일상컷 `<세계>-casualN.<화풍>-ui.json`, 일상 계획 `<세계>-casual-plan.json`.
+2. 열린 그림 저장소(`sam-atelier-img-3`)에 **한 장수 한 커밋**으로 일반 push: `img/<파일>.webp` 들과 `records/<장수>/` 의 기록 — 세계 그림 `<세계>.<화풍>-ui.json`, 일상컷 `<세계>-casualN.<화풍>-ui.json`, 일상 계획 `<세계>-casual-plan.json`.
    기록에 7절 칸을 더한다. **원본 PNG 는 올리지 않는다** — sha256 만. 썸네일 · `data/img.json` 은 손으로 만들지 않는다(워크플로가 한다).
 3. push 가 밀리면 `pull --rebase` 한 번. 그 사이 같은 파일 이름이 들어왔으면 멈추고 보고한다.
 4. `썸네일` · `그림 등록` 이 돈 뒤 코드 저장소를 pull 하고 `python3 tools/casual-check.py <장수>` 로 본다. 그리고:

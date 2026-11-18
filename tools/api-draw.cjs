@@ -18,7 +18,7 @@
    node tools/api-draw.cjs sheet  <out.jpg> <그림>… [--labels a,b,…]                   붙여 보기(사용자에게 보여 줄 때)
    node tools/api-draw.cjs stage  <장수> --img <그림 저장소> <png>=<자리>…                 webp(품질 90) + 기록을 그림 저장소에 둔다(commit 은 하지 않는다)
                                                                                      자리 = <세계> | <세계>-casualN — 그 png 옆의 _record.json 을 기록으로. 같은 이름이 있으면 멈춘다
-                                                                                     --img 는 열린 그림 저장소(2026-11-12 부터 ../sam-atelier-img-2, 안 주면 그것 — tools/img-repos.cjs).
+                                                                                     --img 는 열린 그림 저장소(2026-11-18 부터 ../sam-atelier-img-3, 안 주면 그것 — tools/img-repos.cjs).
                                                                                      닫힌 저장소(sam-atelier-img)엔 새 그림을 두지 않는다 · 같은 이름은 옆의 그림 저장소 모두에서 본다
    공통: [--style api25] [--model <그림 모델 — 기본 판의 model>] [--quality medium]
    필터: 안전 거절이면 같은 지시문으로 한 번 더, 또 막히면 그 자리를 건너뛰고 끝에 알린다(종료 코드 3). 노출 낮추기는 --exposure 로 다시 부른다(IMAGE_RULES 1절). */

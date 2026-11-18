@@ -95,7 +95,7 @@ with tempfile.TemporaryDirectory() as d:
 # 그림 저장소 둘(2026-11-12 — 0 번 sam-atelier-img 닫힘 · 1 번 sam-atelier-img-2 열림): 새 그림은 열린 저장소에서만 받고 where 에 1,
 # 닫힌 저장소엔 이미 적힌 이름(교체)만, 한 장수의 그림이 두 저장소에 나뉘어도 된다, 같은 이름을 둘에 두면 멈춘다
 with tempfile.TemporaryDirectory() as d0, tempfile.TemporaryDirectory() as d1:
-    assert reg.SHARDS == ['sam-atelier-img', 'sam-atelier-img-2'] and reg.EXTRA_DIRS == ['img-2'], reg.SHARDS
+    assert reg.SHARDS == ['sam-atelier-img', 'sam-atelier-img-2', 'sam-atelier-img-3'] and reg.EXTRA_DIRS == ['img-2', 'img-3'], reg.SHARDS
     o = f'관우_samguk_{S}_f.webp'
     n1, n2 = f'관우_fantasy_{S}_f.webp', f'관우_samguk_{S}_f_casual1.webp'
     (Path(d0) / o).touch()

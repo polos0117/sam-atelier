@@ -19,7 +19,7 @@ import glob, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 그림 저장소 차례 — lib/img.js BASES · tools/register-images.py SHARDS · tools/img-repos.cjs 와 같다(tests/img-shards.cjs 가 맞춰 본다).
 # 2026-11-12 둘째를 열었다(사용자 「원소쪽은 다른 작업중이라 삼국지 먼저 열자.」) — 한 장수의 기록이 두 저장소에 나뉠 수 있어 둘 다 읽는다
-REPOS = ["sam-atelier-img", "sam-atelier-img-2"]
+REPOS = ["sam-atelier-img", "sam-atelier-img-2", "sam-atelier-img-3"]
 IMGRS = [d for d in os.environ['SAM_IMG'].split(os.pathsep) if d] if os.environ.get('SAM_IMG') else \
     [d for d in (os.path.join(os.path.dirname(ROOT), r) for r in REPOS) if os.path.isdir(d)]
 

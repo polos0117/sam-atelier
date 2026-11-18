@@ -344,7 +344,7 @@ try {
       { const ow = GCJ.games.find(g => g.key === 'overwatch'), keep = ['Sombra', 'Widowmaker', 'Pharah', 'D.Va', 'Ana'], U = [...busy(['overwatch']), ...rows, ...ow.characters.filter(ch => !keep.includes(ch.name)).map(ch => ({ game: 'overwatch', character: ch.name, cut: 'knit' }))], rnd = lcg(3), got = new Set();
         for (let i = 0; i < 200; i++) { const p = C.pickCosplay(U, rnd); assert(p.round === 1, '남은 캐릭터가 있으면 1회차'); got.add(p.character); }
         assert.deepEqual([...got], ['Ana'], '쓴 · 예약 캐릭터는 빠진다 — 남은 건 Ana 하나 ' + [...got].join(', ')); }
-      assert.deepEqual(C.COSPLAY_REPOS, ['sam-atelier-img', 'sam-atelier-img-2'], '이 공방 그림 저장소만(2026-11-16 「공방별로 따로」)');
+      assert.deepEqual(C.COSPLAY_REPOS, ['sam-atelier-img', 'sam-atelier-img-2', 'sam-atelier-img-3'], '이 공방 그림 저장소만(2026-11-16 「공방별로 따로」)');
       assert(C.cosplayReposOk({}) && C.cosplayReposOk({ 'cosplay-usage': 'none' }), '저장소가 있으면 통과');
     } finally { fs.rmSync(d, { recursive: true, force: true }); } }
   /* 세계 셋을 한 번에 — 한 번에 짠 세 장은 같은 게임 · 캐릭터를 쓰지 않는다(이번에 짠 것도 쓴 것으로 센다) */

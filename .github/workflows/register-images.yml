@@ -2,6 +2,7 @@ name: 그림 등록
 
 # 그림 저장소(sam-atelier-img · sam-atelier-img-2)의 img/ 를 읽어 data/img.json 에 적고(records 로 일상컷 색인 data/casual-index.json 도) 되커밋한다.
 # 2026-11-12 부터 둘 — 0 번 sam-atelier-img 닫힘(교체만), 1 번 sam-atelier-img-2 열림(새 그림). 어느 저장소인지는 img.json 의 where.
+# 2026-11-18 부터 셋 — 1 번도 닫힘(교체만), 2 번 sam-atelier-img-3 열림(새 그림).
 # 깨우는 길은 셋이다.
 #   repository_dispatch — 그림 저장소의 썸네일 워크플로가 끝나면서 보낸다(토큰이 있을 때).
 #   schedule            — 뒤받침. GitHub 시간표는 자주 밀리고 빠진다(8시간에 1번 돈 적이 있다).
@@ -48,11 +49,19 @@ jobs:
           repository: polos0117/sam-atelier-img-2
           path: img-repo-2
 
+      # 셋째 저장소(2026-11-18 부터 열림 — 둘째가 약 1.08 GB 로 찼다). 못 받아도 등록은 돈다
+      - uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: polos0117/sam-atelier-img-3
+          path: img-repo-3
+
       # 그림이 아직 없으면 폴더도 없다 — 빈 폴더를 만들어 두고 잇는다
       - name: 그림 자리 잇기
         run: |
           mkdir -p img-repo/img && ln -s img-repo/img img && ls img | head -20
           if [ -d img-repo-2/.git ]; then mkdir -p img-repo-2/img && ln -s img-repo-2/img img-2 && ls img-2 | head -5; else echo "sam-atelier-img-2 없음 — 새 그림은 첫 저장소로"; fi
+          if [ -d img-repo-3/.git ]; then mkdir -p img-repo-3/img && ln -s img-repo-3/img img-3 && ls img-3 | head -5; else echo "sam-atelier-img-3 없음 — 새 그림은 앞 저장소로"; fi
 
       - uses: actions/setup-python@v5
         with:
