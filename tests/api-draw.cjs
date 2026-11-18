@@ -1,5 +1,5 @@
 /* tools/api-draw.cjs — 가짜 그림 서버로 세계 그림 · GPT 설계 · 일상컷 · 막힘(한 번 더 → 건너뜀) · 사용량 · stage(webp · 기록 · 덮지 않음 · 닫힌 저장소 · 옆 저장소 같은 이름). node tests/api-draw.cjs */
-const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), os = require('node:os'), http = require('node:http'), cp = require('node:child_process');
+const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), os = require('node:os'), http = require('node:http'), cp = require('node:child_process'), vm = require('node:vm');
 const R = path.join(__dirname, '..'), TOOL = path.join(R, 'tools/api-draw.cjs'), tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'api-draw-'));
 const png = cp.execFileSync('python3', ['-c', "import io,base64,sys\nfrom PIL import Image\nb=io.BytesIO();Image.new('RGB',(1024,1536),(200,80,80)).save(b,'PNG');sys.stdout.write(base64.b64encode(b.getvalue()).decode())"]).toString();
 let calls = [], block = new Set();
@@ -16,10 +16,17 @@ srv.listen(0, async () => {
     let r = await run(['world', '조조', 'samguk', '--out', out, '--n', '2']); assert.equal(r.status, 0, r.stderr + r.stdout);
     const rec = JSON.parse(fs.readFileSync(path.join(out, 'samguk-ours1_record.json'), 'utf8'));
     assert(rec.style === 'api25' && rec.generation.model === 'gpt-image-2.5-sunburst' && rec.generation.endpoint === 'images/generations' && /tilting sharply upward/.test(rec.prompt) && rec.generation.png_sha256.length === 64, '세계 그림 기록');
-    fs.writeFileSync(path.join(tmp, 'g1.txt'), 'A GPT FREE DESIGN PROMPT');
-    r = await run(['free', '조조', 'samguk', '--text', path.join(tmp, 'g1.txt'), '--tag', 'gpt1', '--out', out]); assert.equal(r.status, 0, r.stderr);
-    const fr = JSON.parse(fs.readFileSync(path.join(out, 'samguk-gpt1_record.json'), 'utf8'));
-    assert(fr.generation.design === 'gpt_free' && fr.generation.free_prompt === 'A GPT FREE DESIGN PROMPT' && fr.prompt.startsWith('Design brief'), 'GPT 설계 기록 — 주문 · 쓴 글');
+    /* GPT 설계 — 칸 채우기(2026-11-18): 틀을 지킨 글만 그린다 */
+    { const ctx = { window: {}, console }; vm.createContext(ctx); for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-sam.js']) vm.runInContext(fs.readFileSync(path.join(R, f), 'utf8'), ctx);
+      const PP = ctx.window.AtelierPrompt, DD = JSON.parse(fs.readFileSync(path.join(R, 'data/sam-design.json'), 'utf8')), SS = JSON.parse(fs.readFileSync(path.join(R, 'data/style.json'), 'utf8'));
+      const tpl = PP.worldFillTemplate(DD, SS, '조조', 'samguk', { style: 'api25' }), list = PP.buildWorldFree(DD, SS, '조조', 'samguk', { style: 'api25' }).match(/word for word \(ours is not on this list\): 1\) ([^;]+?)(?:; 2\)|\.\n)/)[1];
+      const good = 'SUMMARY: a high ponytail; ' + list + '\n' + tpl.replace('[HAIRSTYLE: …]', 'a high ponytail with long side bangs').replace('[COSTUME SILHOUETTE: …]', list).replace('Design idea: …', 'Design idea: plates layered like feathers').replace('Stance and hands: …\n', '').replace('Setting detail: …\n', '');
+      fs.writeFileSync(path.join(tmp, 'g1.txt'), good); fs.writeFileSync(path.join(tmp, 'g1-bad.txt'), good.replace(/^(STYLE: )/m, '$1Changed. '));
+      assert.equal(JSON.stringify(PP.worldFillErrors(DD, SS, '조조', 'samguk', good, { style: 'api25' })), '[]', '채운 글 통과');
+      r = await run(['free', '조조', 'samguk', '--text', path.join(tmp, 'g1-bad.txt'), '--tag', 'gpt1', '--out', out]); assert(r.status !== 0 && /틀을 안 지켰다/.test(r.stderr), '칸 밖이 바뀐 글은 안 그린다 ' + r.stderr);
+      r = await run(['free', '조조', 'samguk', '--text', path.join(tmp, 'g1.txt'), '--tag', 'gpt1', '--out', out]); assert.equal(r.status, 0, r.stderr);
+      const fr = JSON.parse(fs.readFileSync(path.join(out, 'samguk-gpt1_record.json'), 'utf8'));
+      assert(fr.generation.design === 'gpt_free' && fr.generation.free_prompt === good.trim() && /^a high ponytail/.test(fr.generation.summary) && fr.prompt.startsWith('Design brief'), 'GPT 설계 기록 — 주문 · 쓴 글 · 요약'); }
     /* 일상컷 — 계획(api25) 두 컷, 하나는 막힘 → 한 번 더 → 건너뜀(종료 3) */
     const planDir = path.join(tmp, 'plan'); cp.execFileSync(process.execPath, [path.join(R, 'tools/casual-plan.cjs'), '조조', '--world', 'samguk', '--style', 'api25', '--slots', '1,2', '--records', path.join(tmp, 'norec'), '--usage', 'none', '--out', planDir], { stdio: 'pipe' });
     const plan = JSON.parse(fs.readFileSync(path.join(planDir, 'plan.json'), 'utf8')); assert.equal(plan.style, 'api25', '계획기 --style');

@@ -3,7 +3,7 @@
    그림은 API 생성 탭(api.html)이 그 글로 그린다(사용자 2026-11-09 「gpt 세션에서도 내 git 읽을 수 있으니까 git에 올려놓고 추론 해달라고 부탁해도 되겠네. 이미지 생성은 api 로 하고」 → 「응 만들어줘」).
 
    node tools/free-brief.cjs <장수> [--style api25] [--plan <계획 plan.json> …] [--img ../sam-atelier-img] [--force]
-     세계 그림 — 사는 세계마다 <세계>.<화풍>-brief.txt(GPT 자유 설계 주문, lib/prompt-sam.js buildWorldFree). GPT 가 두 장(-gpt1 A안 · -gpt2 B안) — <세계>.<화풍>-gpt1.txt · -gpt2.txt
+     세계 그림 — 사는 세계마다 <세계>.<화풍>-brief.txt(GPT 자유 설계 주문, lib/prompt-sam.js buildWorldFree). GPT 가 두 장 — 우리 설계 지시문의 표시한 칸만 채운다(칸 채우기, 2026-11-18 — tools/world-fill-check.cjs 가 본다) — <세계>.<화풍>-gpt1.txt · -gpt2.txt
      일상컷 자유 설계 — --plan 의 옷 자유 · 갈래 자유 컷(ofree)마다 <세계>-casualN.<화풍>-brief.txt(그 컷 지시문 + 「FREE DESIGN 덩어리만 채워라」 — lib/prompt-spec.js FREE_DESIGN.ask,
        2026-11-11 장소 · 활동 · 자세 · 구도 · 의상 자유). GPT 가 한 장 — <세계>-casualN.<화풍>-gpt1.txt(채운 지시문 전체)
      free/outfit-catalog.md — 우리 옷 목록(옷 자유가 「없는 옷」 을 짓게, tools/prompt-pack.cjs 와 같은 꼴)
@@ -20,7 +20,7 @@ const P = ctx.window.AtelierPrompt, T = ctx.window.AtelierSpec;
 const D = JSON.parse(read('data/sam-design.json')), S = JSON.parse(read('data/style.json'));
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json'));
 const CASUAL_ASK = T.FREE_DESIGN.ask + ' Our outfit catalog is free/outfit-catalog.md.';   /* 2026-11-11 — 자유 설계 덩어리만 채운다(전엔 Outfit 줄만) */
-const WORLD_ASK = "Do not draw. Reply with only the final image prompt you would send to the image model, in English, nothing else.";
+const WORLD_ASK = "Do not draw. Reply with only the filled prompts (the SUMMARY line, then our prompt with only the marked parts filled), in English, nothing else.";   /* 칸 채우기(2026-11-18) */
 
 function args(a) {
   const o = { plans: [], style: 'api25', img: require('./img-repos.cjs').statePath(), force: false };
@@ -58,7 +58,7 @@ function main(a) {
   fs.writeFileSync(path.join(o.img, 'free', 'outfit-catalog.md'), catalog(tree));
   fs.writeFileSync(path.join(dir, 'REQUEST.md'), '# ' + o.card + ' — GPT 설계 지시문 부탁(그림은 그리지 않는다)\n\n' +
     'polos0117/sam-atelier-img 저장소의 `free/' + o.card + '/` 폴더에 있는 설계 주문(`*-brief.txt`)을 하나씩 읽고, 주문 끝의 지시대로 **그림 지시문 글만** 써서 같은 폴더에 아래 이름으로 올려줘(main 에 일반 push). 그림은 그리지 마 — 그림은 내가 API 로 그린다.\n\n' +
-    asks.join('\n') + '\n\n규칙\n- 주문에 「fixed」 라고 적힌 것(무기 · 색 · 노출 · 얼굴 비율 · 구도)은 그대로 지킨다. 자유인 것만 새로 짓는다. -gpt1 은 Design A(우리 실루엣 목록에서 하나), -gpt2 는 Design B(지위 · 역할에서 출발 — 목록 밖 외곽도 된다).\n- 일상컷 자유 설계는 장소 · 하는 일 · 자세 · 구도 · 옷을 그 장수에게서 출발해 새로(최근 장면 줄과 겹치지 않게), 옷은 `free/outfit-catalog.md` 에 없는 것으로. FREE DESIGN 덩어리의 「…」 다섯 줄 말고는 한 글자도 바꾸지 않는다.\n- 파일에는 지시문 글만(설명 · 머리말 없이, 영어).\n- 이미 있는 `-gpt*.txt` 는 덮지 않는다.\n');
+    asks.join('\n') + '\n\n규칙\n- 주문에 「fixed」 라고 적힌 것(무기 · 색 · 노출 · 얼굴 비율 · 구도)은 그대로 지킨다. 자유인 것만 새로 짓는다. 세계 그림은 칸 채우기 — 주문 아래 우리 설계 지시문을 복사해 [HAIRSTYLE: …](우리와 다르게) · [COSTUME SILHOUETTE: …](목록 글 그대로, 우리 것 말고) · Design idea 만 채우고, 얼굴 · 표정 줄은 고쳐도 되고, Stance and hands · Setting detail 줄은 채우거나 지운다. 나머지 줄은 글자 그대로. 첫 줄은 SUMMARY:. 두 장은 헤어스타일 · 실루엣이 서로 다르게.\n- 일상컷 자유 설계는 장소 · 하는 일 · 자세 · 구도 · 옷을 그 장수에게서 출발해 새로(최근 장면 줄과 겹치지 않게), 옷은 `free/outfit-catalog.md` 에 없는 것으로. FREE DESIGN 덩어리의 「…」 다섯 줄 말고는 한 글자도 바꾸지 않는다.\n- 파일에는 지시문 글만(설명 · 머리말 없이, 영어).\n- 이미 있는 `-gpt*.txt` 는 덮지 않는다.\n');
   console.log('free/' + o.card + ' — 쓴 것 ' + wrote.length + (kept.length ? ' · 그대로 둔 것 ' + kept.length + '(--force 면 덮는다)' : '') + ' · REQUEST.md · free/outfit-catalog.md');
   for (const x of wrote) console.log('  + ' + x);
   return 0;

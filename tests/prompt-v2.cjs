@@ -159,10 +159,17 @@ console.log('PASS 프롬프트 v2: 실루엣 표 · 무리 색 · 기본 화풍 
 {
   const SF = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/style.json'), 'utf8'));
   for (const key of ['조조', '제갈량', '손상향']) for (const w of P.worldsOf(D, key)) {
-    const t = P.buildWorldFree(D, SF, key, w, { style: SF.default }), our = P.build(D, SS, key, w, { style: 'mmorpg_cg' });   /* 우리 설계의 「Her:」 줄은 짧은 판에서 꺼낸다(기본이 긴 2.5 글 판이 된 2026-11-10 부터) */
-    assert(t.startsWith('Design brief') && t.includes('1024×1536') && t.includes(T.WORLD_FREE.free) && t.includes('Costume — Design B, your second design: first settle her rank — ') && (w !== 'mecha' || t.includes(T.WORLD_FREE.secondMecha)) && t.includes('Costume — Design A, your first design (choose one of ours, then add your own idea): ') && t.includes('one visual feature of her legend or symbol') && t.includes('Our two designs of her (do not copy): face — ') && t.includes(T.WORLD_FREE.check) && T.SILHOUETTES[w].every(x => t.includes(x.en.split(' — ')[0].replace(/\.$/, '')) === T.SIL_POOLS[P.card(D, key).general.role][w].includes(x.key)) && /\n\nWeapon \(fixed — ours\): /.test(t) && (w !== 'fantasy' || /\n\nWeapon \(fixed — ours\): [^\n]*engraved runes[^\n]*magical glow/.test(t)) && (w !== 'mecha' || /\n\nWeapon \(fixed — ours\): [^\n]*energy edge/.test(t)) && t.includes(T.WORLD_FREE.rank[P.card(D, key).general.role]) && (w === 'mecha') === t.includes(T.WORLD_FREE.mecha) && /\n\nHair colour \(fixed — ours\): [a-z]/.test(t) && t.includes('\n\nSkin tone (fixed — ours): ' + T.FACE_DESIGN.skin_tone[(P.card(D, key).general.look.face || {}).skin_tone] + '. Keep exactly this skin tone.') && !/hair colour, hairstyle/.test(t) && t.includes('Style (fixed): ' + P.shortStyle(SF, SF.default)) && t.includes(T.WORLD_SHORT.composition) && t.includes('Exposure (fixed): bold'), key + ' ' + w + ' 설계 주문');
-    const her = (our.match(/^Her: (.*)$/m) || [])[1] || '';
-    assert(her && !t.includes(her.slice(0, 40)) && !/^Outfit: /m.test(t), key + ' ' + w + ' 설계표 얼굴 · 옷은 싣지 않는다');
+    /* 2026-11-18 칸 채우기 — 주문 머리말(헤어스타일 · 실루엣 목록 · 디자인 아이디어 · 자유 칸 · SUMMARY) + 우리 설계 지시문의 칸만 비운 틀. 채운 글은 칸 말고 바뀐 줄이 없어야 통과 */
+    const t = P.buildWorldFree(D, SF, key, w, { style: SF.default }), tpl = P.worldFillTemplate(D, SF, key, w, { style: SF.default });
+    const c = P.card(D, key), own = c.general.worlds[w].sil, pool = T.SIL_POOLS[c.general.role][w], listPara = (t.match(/^Must differ — costume silhouette:.*$/m) || [''])[0];
+    assert(t.startsWith('Design brief — fill-in design for ') && t.endsWith(tpl) && /^Must differ — hairstyle: /m.test(t) && /^Required — design idea: /m.test(t) && /^For each design write, first, one line — SUMMARY:/m.test(t), key + ' ' + w + ' 칸 채우기 주문 꼴');
+    assert(T.SILHOUETTES[w].every(x => listPara.includes(x.en.replace(/[.;:]+$/, '').trim()) === (pool.includes(x.key) && x.key !== own)), key + ' ' + w + ' 실루엣 목록 = 역할 묶음에서 우리 것 빼고');
+    assert(tpl.includes('[HAIRSTYLE: …]') && tpl.includes('[COSTUME SILHOUETTE: …]') && /^Design idea: …$/m.test(tpl) && !/^(Hairstyle|Costume silhouette): \[/m.test(tpl), key + ' ' + w + ' 칸이 제자리에');
+    const pick = listPara.match(/1\) ([^;]+?)(?:; 2\)|\.$)/)[1];
+    const good = 'SUMMARY: x\n' + tpl.replace('[HAIRSTYLE: …]', 'a sleek low chignon').replace('[COSTUME SILHOUETTE: …]', pick).replace('Design idea: …', 'Design idea: plates layered like feathers').replace('Stance and hands: …\n', '').replace('Setting detail: …', 'Setting detail: a banner hall behind her.');
+    assert.equal(JSON.stringify(P.worldFillErrors(D, SF, key, w, good, { style: SF.default })), '[]', key + ' ' + w + ' 채운 글 통과');
+    const bad = good.replace(/^(Light: )/m, '$1bright daylight; ');
+    assert(P.worldFillErrors(D, SF, key, w, bad, { style: SF.default }).some(e => /줄이 바뀌었다/.test(e)), key + ' ' + w + ' 칸 밖이 바뀌면 걸린다');
   }
 }
 console.log('PASS 짧은 세계 그림: ' + nw + '장'); }

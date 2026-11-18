@@ -139,7 +139,10 @@ async function cmdWorld(o) {
 async function cmdFree(o) {
   const [card, world] = o._; const out = o.out; fs.mkdirSync(out, { recursive: true });
   const text = fs.readFileSync(o.text, 'utf8').trim(), name = world + '-' + (o.tag || 'gpt1'), model = o.model || styleModel(o.style);
-  const gen = await draw({ model, quality: o.quality, prompt: text, out, name });
+  /* 칸 채우기 검사(2026-11-18) — 표시한 칸 말고 바뀐 줄 · 우리와 같은 헤어스타일 · 목록 밖 실루엣이면 그리지 않는다. --other 면 다른 GPT 설계와도 견준다 */
+  const errs = P.worldFillErrors(D, S, card, world, text, { style: o.style }, o.other ? fs.readFileSync(o.other, 'utf8') : null);
+  if (errs.length) throw new Error('GPT 설계 글이 틀을 안 지켰다 — 그리지 않는다:\n  ' + errs.join('\n  '));
+  const gen = await draw({ model, quality: o.quality, prompt: text.replace(/^SUMMARY:.*\n+/, ''), out, name });
   if (gen.blocked) return [name];
   const rec = { ...P.record(D, S, card, world, { style: o.style }), prompt: P.buildWorldFree(D, S, card, world, { style: o.style, near: NEAR(card, world) }) };
   writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', plan: /gpt2$/.test(name) ? 'B' : 'A', summary: ((/^SUMMARY:\s*(.+)$/m.exec(text) || [])[1] || '').trim() || undefined, free_prompt: text, free_by: o.by || 'claude' } });   /* plan — 세계컷 GPT 설계안 A(목록 실루엣) · B(역할 출발, 목록 밖도 — 2026-11-18) */

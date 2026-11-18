@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-18 · claude · 세계컷 GPT 설계 — 칸 채우기(우리 설계 지시문 + 헤어스타일 · 실루엣 칸)
+- 사용자 2026-11-18 「세계컷은 gpt한테 너무 위임하면 안되겠다」 → 「크게는 우리거를 따르는데, 헤어스타일, 의상은 무조건 다르게. 나머지는 같아도되고, 달라도되고 … 의상만 우리 실루엣 안에서만 고르게하고」 → 「응 이대로 진행해줘」. 전엔 GPT 가 주문을 읽고 지시문을 새로 써서 고정 칸이 빠지거나(화풍 덧줄) 안 적은 칸(빛 · 자세)을 제 마음대로 채웠다.
+- lib/prompt-sam.js buildWorldFree — 머리말(WORLD_FREE.fill) + 우리 설계 지시문(build, 그 화풍 판의 꼴 그대로)에서 우리 헤어스타일 글 → [HAIRSTYLE: …], 우리 실루엣 글 → [COSTUME SILHOUETTE: …](역할 목록에서 우리 것 뺀 글 그대로), 실루엣 뒤 Design idea: …, 자세 줄 뒤 Stance and hands · Setting detail(넣거나 지운다). 얼굴 · 표정 줄은 고쳐도 되고 나머지 줄은 글자 그대로. 장수 222 × 세계 3 × 판 둘(칸 꼴 · 줄 꼴) 2,220 틀 모두 칸이 제자리.
+- worldFillErrors · worldFillPicks — 칸 밖 줄 바뀜 · 줄 빠짐 · 줄 더함 · 우리와 같은 헤어스타일 · 목록 밖 실루엣 · SUMMARY 없음 · (다른 장과) 같은 헤어스타일 · 실루엣. tools/world-fill-check.cjs(세션이 돌린다), tools/api-draw.cjs free 는 틀을 안 지킨 글을 그리지 않고 SUMMARY 줄은 떼고 그린다(--other 로 다른 장과도). 같은 날 앞서 넣은 A안 · B안(목록 밖 외곽) · 「얼굴은 우리와 다르게」 · 주문의 고정 칸 나열은 이것으로 바뀌었다(buildWorldFreeOld 로 남김).
+- free-brief 부탁 글 · 묶음 안내 · api25 스킬 · IMAGE_RULES 1절 · tests/prompt-v2.cjs · tests/api-draw.cjs 를 칸 채우기로.
+
 ## 2026-11-18 · claude · 세계컷 GPT 주문 — 몸 방향 고정(3/4)
 - 사용자 2026-11-18 관은병 메카 「자세도 정면을 보는 자세로만 나오던데 … 우리는 약간 옆으로 튼 자세잖아」 → 「추천대로해줘」. 주문엔 자세가 자유였고 몸 방향 말이 없었으며, B안의 「steady pose」 가 정면으로 밀었다(4번 「Stable frontal stance」).
 - WORLD_FREE.pose — 「Pose (body direction fixed — ours)」: 우리 설계와 같은 몸 방향(살짝 틀어 약 3/4, 얼굴은 보는 쪽, 정면으로 딱 서지 않게)만 고정, 다리 · 손 · 몸짓은 맡은 쪽. B안 문구는 「역할이 드러나는 자세, 몸 방향은 Pose 줄대로」.
