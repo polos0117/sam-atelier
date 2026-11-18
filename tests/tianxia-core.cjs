@@ -104,8 +104,20 @@ assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(do
   const old = C.make({ design, packs, factions, combos, tianxia, careerFix });   // 고침 표는 늘 얹힌다 — 추가 명단만 뺀다
   assert.equal(C.factionOf(old, 'w194', '유장'), null); assert.equal(C.factionsOf(old, 'w194').reduce((s, f) => s + f.count, 0), Object.keys(packs.packs.w194.facMap).length);
   assert.equal(C.factionsOf(old, 'mx').length, C.factionsOf(doc, 'mx').length, '군웅록은 추가 명단과 무관'); }
+// 거쳐 간 장수(2026-11-18 「거쳐 간 장수 줄 더해줘」) — 군웅록만, 이력에 있지만 마지막이 아닌 세력. 본 자리 인원은 그대로
+{ const pb = (f, e = 'mx') => C.passedBy(doc, e, f).map(m => m.name);
+  assert(pb('공손찬').includes('조운'), '공손찬 막사 — 조운'); assert.equal(C.passedBy(doc, 'mx', '공손찬').find(m => m.name === '조운').now, '촉한');
+  for (const n of ['장료', '후성']) assert(pb('여포').includes(n), '여포 막사 — ' + n);
+  for (const n of ['감녕', '황충']) assert(pb('유표').includes(n), '유표 막사 — ' + n);
+  assert(pb('조위').includes('관우') && !pb('촉한').includes('관우'), '관우 [촉한, 조위, 촉한] — 조위에서만 거쳐 간 장수');
+  for (const e of C.ERAS.slice(1)) for (const f of C.factionsOf(doc, e)) assert.deepEqual(C.passedBy(doc, e, f.key), [], e + ' ' + f.key + ' — 연도 판은 빈 배열');
+  assert.deepEqual(C.passedBy(doc, 'mx', '없는세력'), []); assert.deepEqual(C.passedBy(doc, 'mx', 'constructor'), []);
+  for (const f of C.factionsOf(doc, 'mx')) { const ps = C.passedBy(doc, 'mx', f.key), order = C.ROLES;
+    assert(ps.every(m => C.factionOf(doc, 'mx', m.name) === m.now && m.now !== f.key), f.key + ' — 거쳐 간 장수는 다른 막사의 본 자리');
+    assert.equal(new Set(ps.map(m => m.name)).size, ps.length, f.key + ' 겹침'); const ri = ps.map(m => order.indexOf(m.role)); assert(ri.every((r, i) => !i || ri[i - 1] <= r), f.key + ' 역할 차례'); }
+  assert.equal(C.factionsOf(doc, 'mx').reduce((s, f) => s + C.members(doc, 'mx', f.key).length, 0), design.generals.length, '본 자리 인원 합은 설계표 길이'); }
 // 결의
-const b = C.bondsOf(doc, ['유비', '관우', '장비', '조운']); assert(b.some(x => x.n === '도원결의' && x.m.length === 3 && x.kind === 'bond'));
+const b =C.bondsOf(doc, ['유비', '관우', '장비', '조운']); assert(b.some(x => x.n === '도원결의' && x.m.length === 3 && x.kind === 'bond'));
 assert.equal(C.bondsOf(doc, ['유비']).length, 0);
 assert(C.bondsOf(doc, ['마초', '한수']).some(x => x.kind === 'feud'), '불화');
 assert(C.bondsOf(doc, design.generals.map(g => g.key)).some(x => x.kind === 'blood'), '혈연');

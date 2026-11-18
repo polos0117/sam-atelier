@@ -148,9 +148,9 @@ const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(
   assert(await p.locator('.tx-bonds button').count() > 0); await p.click('.tx-bonds button >> nth=0');
   assert.equal(await p.locator('.tx-bonds [aria-pressed="true"]').count(), 1); assert((await p.locator('.tx-bond-note').textContent()).length > 4);
   /* 그림 없는 장수 · 새 그림 */
-  assert.equal(await p.locator('.tx-face[data-art="0"]').count(), ms.filter(m => !art(m.name)).length); assert(await p.locator('.tx-face[data-art="0"]').count() > 0);
-  assert.equal(await p.locator('.tx-face[data-art="0"] img').count(), 0); assert.equal(await p.locator('.tx-face[data-art="1"] img').count(), ms.filter(m => art(m.name)).length);
-  assert.equal(await p.locator('.tx-face[data-new="1"]').count(), ms.filter(m => C.isNew(C.lastAdded(IMGDOC.img[m.name], IMGDOC.added), TODAY, '')).length, '새 그림 표지');
+  assert.equal(await p.locator('.tx-face[data-name][data-art="0"]').count(), ms.filter(m => !art(m.name)).length); assert(await p.locator('.tx-face[data-name][data-art="0"]').count() > 0);
+  assert.equal(await p.locator('.tx-face[data-name][data-art="0"] img').count(), 0); assert.equal(await p.locator('.tx-face[data-name][data-art="1"] img').count(), ms.filter(m => art(m.name)).length);
+  assert.equal(await p.locator('.tx-face[data-name][data-new="1"]').count(), ms.filter(m => C.isNew(C.lastAdded(IMGDOC.img[m.name], IMGDOC.added), TODAY, '')).length, '새 그림 표지');
   /* 장수를 누르면 목록 도감의 그 장수로 · 목록으로 보기 */
   assert.equal(await p.locator('.tx-lord').getAttribute('href'), 'dex.html?faction=shu&card=' + enc('유비'));
   assert.equal(await p.locator('.tx-tolist').getAttribute('href'), 'dex.html?faction=shu');
@@ -174,8 +174,8 @@ const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(
   const lordless = fsMx.find(f => C.members(doc, 'mx', f.key)[0].role !== 'lord').key;
   for (const f of [largest, artless, lordless]) { await p.goto(BASE + '/index.html?era=mx&f=' + enc(f)); await p.waitForSelector('.tx-camp'); assert(await fits(p), f + ' 넘침');
     assert.equal(await p.locator('.tx-face[data-name]').count(), C.members(doc, 'mx', f).length, f + ' 장수 수'); assert.equal(await p.locator('.tx-lord').getAttribute('data-name'), C.chiefOf(doc, 'mx', f));
-    assert.equal(await p.locator('.tx-face img').count(), C.members(doc, 'mx', f).filter(m => art(m.name)).length, f + ' 그림 있는 얼굴 수'); }
-  await p.goto(BASE + '/index.html?era=mx&f=' + enc(artless)); await p.waitForSelector('.tx-camp'); assert.equal(await p.locator('.tx-face img').count(), 0, '그림 없는 막사 — 도장 얼굴만');
+    assert.equal(await p.locator('.tx-face[data-name] img').count(), C.members(doc, 'mx', f).filter(m => art(m.name)).length, f + ' 그림 있는 얼굴 수'); }
+  await p.goto(BASE + '/index.html?era=mx&f=' + enc(artless)); await p.waitForSelector('.tx-camp'); assert.equal(await p.locator('.tx-face[data-name] img').count(), 0, '그림 없는 막사 — 도장 얼굴만');
   /* 주소로 바로 연 막사의 「‹ 천하 지도」 — 지도로(공방 밖으로 나가지 않는다) */
   await p.click('.tx-back'); await p.waitForSelector('.tx-city'); assert.match(p.url(), /index\.html\?era=mx/);
   /* 연도 판도의 떠도는 세력에도 들어간다 · 그해에 없는 세력의 주소는 지도로 */
@@ -217,6 +217,24 @@ const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(
   /* 주소의 이상한 값 — 없는 세력은 지도로, 틀린 날짜는 기기 날짜로(흰 화면이 아니다) */
   for (const bad of ['f=constructor', 'f=__proto__', 'f=toString', 'today=2026-13-45', 'f=' + enc(SHU) + '&today=2026-99-99']) { await p.goto(BASE + '/index.html?era=mx&' + bad); await p.waitForSelector(/today=2026-99/.test(bad) ? '.tx-camp' : '.tx-city'); }
   assert.deepEqual(errors, []); checks += 12;
+  /* 거쳐 간 장수(2026-11-18) — 군웅록 막사 아래 따로 한 줄, 연도 판엔 없다. 누르면 그 장수 화면, 많으면 접는다 */
+  { const passedNames = () => p.locator('.tx-passed [data-passed]').evaluateAll(es => es.map(e => e.dataset.passed));
+    await camp('mx', '공손찬'); assert.equal(await p.locator('.tx-passed').count(), 1); assert((await passedNames()).includes('조운'), '공손찬 막사 — 조운');
+    assert.deepEqual(await passedNames(), C.passedBy(doc, 'mx', '공손찬').map(m => m.name)); assert.equal(await p.locator('.tx-face[data-name="조운"]').count(), 0, '조운은 본 자리가 아니다');
+    assert((await p.locator('.tx-passed [data-passed="조운"]').textContent()).includes('촉한'), '지금 있는 세력');
+    assert.match(await p.locator('.tx-roles [data-role="all"]').textContent(), new RegExp(' ' + C.members(doc, 'mx', '공손찬').length + '$'), '역할 칸은 본 자리 수');
+    { const pr = await p.locator('.tx-passed').boundingBox(), tl = await p.locator('.tx-tolist').boundingBox(), ro = await p.locator('.tx-roles').boundingBox(); assert(pr.y > ro.y && pr.y < tl.y, '역할 칸 아래 · 목록으로 보기 위'); }
+    const g = design.generals.find(x => x.key === '조운');
+    assert.equal(await p.locator('.tx-passed [data-passed="조운"]').getAttribute('href'), 'dex.html?faction=' + g.faction + '&card=' + enc('조운'));
+    await p.click('.tx-passed [data-passed="조운"]'); await p.waitForURL(/dex\.html\?.*card=/); assert.equal(await qs('card'), '조운', '거쳐 간 얼굴 → 그 장수'); await p.goBack(); await p.waitForSelector('.tx-camp');
+    await camp('w194', '조위'); assert.equal(await p.locator('.tx-passed').count(), 0, '195 판 — 거쳐 간 줄 없음');
+    await camp('mx', '촉한'); assert(!(await passedNames()).includes('관우'), '촉한 — 관우는 본 자리로만'); await camp('mx', '조위');
+    const all = C.passedBy(doc, 'mx', '조위'); assert(all.length > 10, '조위는 접을 만큼 많다');
+    assert.equal(await p.locator('.tx-passed [data-passed]').count(), 10, '접힘 — 처음 열 명'); assert((await p.locator('.tx-passed-more').boundingBox()).height >= 44);
+    await p.click('.tx-passed-more'); assert.equal(await p.locator('.tx-passed [data-passed]').count(), all.length, '모두 보기'); assert((await passedNames()).includes('관우'), '조위 — 관우');
+    assert.equal(await p.locator('.tx-passed-more').getAttribute('aria-expanded'), 'true'); assert(await fits(p));
+    const noPass = C.factionsOf(doc, 'mx').find(f => !C.passedBy(doc, 'mx', f.key).length).key; await camp('mx', noPass); assert.equal(await p.locator('.tx-passed').count(), 0, noPass + ' — 거쳐 간 사람이 없으면 줄이 없다');
+    assert.deepEqual(errors, []); checks += 16; }
   /* 범례 — 군웅록에서 사람 이름 그대로인 세력은 「○○군」 */
   await p.evaluate(() => { try { sessionStorage.clear(); localStorage.removeItem('samguk_seen_v1'); } catch (e) {} });
   await p.goto(BASE + '/index.html?era=mx&today=' + TODAY); await p.waitForSelector('.tx-city');
