@@ -60,7 +60,7 @@ assert(C.factionsOf(doc, 'mx').some(f => f.landless), '군웅록 — 땅 없는 
 assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(doc, 'mx', '없는성'), null);
 // 연도 판의 추가 명단(data/draft2-roster.json) — 옛 게임 명단 위에 얹는다(합치는 곳은 lib/draft2/rules.js 의 view)
 { const names = (e, f) => C.members(doc, e, f).map(m => m.name).sort().join(), fl = e => C.factionsOf(doc, e);
-  assert.equal(names('w194', '유장'), ['유장', '오의', '장임', '엄안', '황권', '장송'].sort().join(), '195 유장 세력 6명');
+  assert.equal(names('w194', '유장'), ['유장', '오의', '장임', '엄안', '황권', '장송', '방희'].sort().join(), '195 유장 세력 7명(2026-11-18 방희)');
   assert.equal(names('w194', '왕랑'), '왕랑,우번,주흔', '195 왕랑 3명(2026-11-18 주흔)'); assert.equal(names('w194', '유요'), ['유요', '번능', '우미', '장영'].sort().join(), '195 유요 4명(2026-11-18 번능 · 우미 · 장영)');
   assert.equal(C.members(doc, 'w194', '왕랑')[0].role, 'lord', '195 왕랑은 군주(roles)'); assert.equal(C.chiefOf(doc, 'w194', '왕랑'), '왕랑');
   assert.equal(C.chiefOf(doc, 'w194', '동탁'), '이각'); assert.equal(C.chiefOf(doc, 'w194', '황건'), '장연'); assert.equal(C.chiefOf(doc, 'gd200', '황건'), '장연');
@@ -78,6 +78,13 @@ assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(do
   for (const e of ['w194', 'gd200', 'jb208', 'end263']) { assert.equal(C.factionOf(doc, e, '공손연'), null, e + ' 공손연은 군웅록에만'); assert.equal(C.factionOf(doc, e, '사휘'), null, e + ' 사휘는 군웅록에만'); }
   assert(!fl('w194').find(y => y.key === '황건').landless && C.factionOf(doc, 'w194', '유벽') === '황건' && C.factionOf(doc, 'w194', '공도') === null && C.factionOf(doc, 'gd200', '공도') === '황건', '195 여남은 황건(유벽), 공도는 200 부터');
   assert.equal(C.factionOf(doc, 'mx', '번능'), '한조정'); assert.equal(C.factionOf(doc, 'mx', '사휘'), '교주'); assert.equal(C.factionOf(doc, 'mx', '양임'), '장로'); assert.equal(C.factionOf(doc, 'jb208', '양앙'), '장로'); assert.equal(C.factionOf(doc, 'w194', '사일'), '교주');
+  /* 새 장수 2묶음(2026-11-18) — 원술 · 서량 · 유장 · 유표 · 여포 · 도겸 쪽과 263년 촉한 · 동오 · 진 */
+  assert.equal(names('w194', '원술'), ['원술', '기령', '장훈', '교유', '양강', '한윤', '뇌박', '진란', '염상', '유훈'].sort().join(), '195 원술 10명');
+  assert.equal(names('w194', '서량'), ['마등', '마초', '마대', '한수', '방덕', '염행', '성공영', '마휴', '마철'].sort().join(), '195 서량 9명');
+  assert.equal(C.factionOf(doc, 'gd200', '유훈'), '조위', '200 유훈은 조조에게 귀순'); assert.equal(C.factionOf(doc, 'jb208', '유종'), '조위'); assert.equal(C.chiefOf(doc, 'jb208', '조위'), '조조', '208 조위 — 유종 · 왕찬 · 한숭이 들어와도 가운데는 조조');
+  for (const e of ['w194', 'gd200', 'jb208', 'end263']) assert.equal(C.factionOf(doc, e, '유언'), null, e + ' 유언(194년 죽음)은 군웅록에만');
+  assert.equal(C.factionOf(doc, 'mx', '유언'), '유장'); assert.equal(C.factionOf(doc, 'mx', '왕찬'), '조위'); assert.equal(C.factionOf(doc, 'mx', '학맹'), '여포'); assert.equal(C.factionOf(doc, 'mx', '조표'), '도겸');
+  assert.equal(C.factionOf(doc, 'end263', '황호'), '촉한'); assert.equal(C.factionOf(doc, 'end263', '시적'), '동오'); assert.equal(C.factionOf(doc, 'end263', '위관'), '진'); assert.equal(C.chiefOf(doc, 'end263', '촉한'), '유선');
   assert.equal(C.factionOf(doc, 'jb208', '한현'), '조위'); assert.notEqual(C.factionOf(doc, 'jb208', '황충'), '조위', '208 황충은 조위가 아니다(사용자 「황충은 빼고」)');
   assert.equal(C.ownerOf(doc, 'jb208', 'changsha'), '조위'); assert.equal(C.chiefOf(doc, 'jb208', '조위'), '조조', '208 조위 — 조비 · 한현이 들어와도 가운데는 조조');
   assert.equal(C.ownerOf(doc, 'gd200', 'jiaozhi'), '교주'); assert.equal(C.factionOf(doc, 'end263', '종예'), '촉한');

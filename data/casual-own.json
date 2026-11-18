@@ -1390,6 +1390,155 @@
     }
    }
   },
+  "제갈상": {
+   "root": {
+    "ko": "망설임 없이 적진으로 내달렸다 — 얼음길을 내리꽂는 봅슬레이 선수",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "봅슬레이 선수",
+     "base": "nation_training",
+     "place": "a Han-era bobsled start house — an icy track dropping away, a sled on the start blocks, a timing board and flags",
+     "activity": "she is a bobsled racer crouching beside the sled, gripping the push bar",
+     "preset": "squat_prop",
+     "use": "sig_hold",
+     "prop": "a bobsled push bar",
+     "outfit": {
+      "bold": "a bobsled racer look fitted to her body — a fitted sleeveless racing suit top, short racing shorts and spiked shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a bobsled racer look — a short-sleeved racing suit, knee-length racing leggings and spiked shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a bobsled racer look — a long-sleeved racing suit, long racing leggings and spiked shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "봅슬레이 선수",
+     "base": "nation_training",
+     "place": "a high-fantasy bobsled start house — an icy track dropping away, a sled on the start blocks, a timing board and flags",
+     "activity": "she is a bobsled racer raising her helmet beside her shoulder before the run",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a racing helmet",
+     "outfit": {
+      "bold": "a bobsled racer look fitted to her body — a fitted sleeveless racing suit top, short racing shorts and spiked shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a bobsled racer look — a short-sleeved racing suit, knee-length racing leggings and spiked shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a bobsled racer look — a long-sleeved racing suit, long racing leggings and spiked shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "봅슬레이 선수",
+     "base": "nation_square",
+     "place": "a far-future bobsled start house — an icy track dropping away, a sled on the start blocks, a timing board and flags",
+     "activity": "she is a bobsled racer giving a thumbs-up at the start line",
+     "preset": "thumbs_waist",
+     "outfit": {
+      "bold": "a bobsled racer look fitted to her body — a fitted sleeveless racing suit top, short racing shorts and spiked shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a bobsled racer look — a short-sleeved racing suit, knee-length racing leggings and spiked shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a bobsled racer look — a long-sleeved racing suit, long racing leggings and spiked shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "황호": {
+   "root": {
+    "ko": "황제 곁에서 무엇이든 들어주고 속삭였다 — 손님의 부탁을 다 들어주는 호텔 콘시어지",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "콘시어지",
+     "base": "nation_inn",
+     "place": "a Han-era grand hotel lobby — a polished concierge desk with a small bell, key cubbies, flower arrangements and a velvet rope",
+     "activity": "she is a hotel concierge leaning on the desk, holding out a sealed envelope",
+     "preset": "counter_cup",
+     "use": "sig_hold",
+     "prop": "a sealed envelope",
+     "outfit": {
+      "bold": "a hotel concierge look fitted to her body — a fitted sleeveless concierge vest, a short pencil skirt, white gloves and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a hotel concierge look — a short-sleeved concierge jacket, a knee-length skirt, white gloves and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a hotel concierge look — a long-sleeved concierge jacket, long trousers, white gloves and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "콘시어지",
+     "base": "nation_study",
+     "place": "a high-fantasy grand hotel lobby — a polished concierge desk with a small bell, key cubbies, flower arrangements and a velvet rope",
+     "activity": "she is a hotel concierge standing with her hands folded, smiling sweetly at a guest",
+     "preset": "clasp_low",
+     "outfit": {
+      "bold": "a hotel concierge look fitted to her body — a fitted sleeveless concierge vest, a short pencil skirt, white gloves and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a hotel concierge look — a short-sleeved concierge jacket, a knee-length skirt, white gloves and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a hotel concierge look — a long-sleeved concierge jacket, long trousers, white gloves and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "콘시어지",
+     "base": "nation_inn",
+     "place": "a far-future grand hotel lobby — a polished concierge desk with a small bell, key cubbies, flower arrangements and a velvet rope",
+     "activity": "she is a hotel concierge holding a small gift box to her chest",
+     "preset": "wrap_close",
+     "use": "sig_both",
+     "prop": "a small gift box",
+     "outfit": {
+      "bold": "a hotel concierge look fitted to her body — a fitted sleeveless concierge vest, a short pencil skirt, white gloves and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a hotel concierge look — a short-sleeved concierge jacket, a knee-length skirt, white gloves and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a hotel concierge look — a long-sleeved concierge jacket, long trousers, white gloves and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "초주": {
+   "root": {
+    "ko": "옛 역사를 고증했다 — 낡은 죽간을 되살리는 고문서 복원가",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "고문서 복원가",
+     "base": "nation_study",
+     "place": "a Han-era archive restoration room — a lit worktable, old scrolls under glass weights, paste pots, fine brushes and a magnifier",
+     "activity": "she is an archive restorer leaning over the worktable, mending an old scroll with both hands",
+     "preset": "table_lean_use",
+     "use": "sig_both",
+     "prop": "an old scroll and a fine brush",
+     "outfit": {
+      "bold": "an archive restorer look fitted to her body — a fitted sleeveless wrap top, a short skirt, cotton gloves and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "an archive restorer look — a short-sleeved wrap top, a knee-length skirt, cotton gloves and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "an archive restorer look — a long-sleeved wrap top, a long skirt, cotton gloves and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "고문서 복원가",
+     "base": "nation_inn",
+     "place": "a high-fantasy archive restoration room — a lit worktable, old scrolls under glass weights, paste pots, fine brushes and a magnifier",
+     "activity": "she is an archive restorer sitting with her legs crossed, studying a mended scroll",
+     "preset": "chair_cross_prop",
+     "use": "sig_hold",
+     "prop": "a mended old scroll",
+     "outfit": {
+      "bold": "an archive restorer look fitted to her body — a fitted sleeveless wrap top, a short skirt, cotton gloves and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "an archive restorer look — a short-sleeved wrap top, a knee-length skirt, cotton gloves and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "an archive restorer look — a long-sleeved wrap top, a long skirt, cotton gloves and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "고문서 복원가",
+     "base": "nation_study",
+     "place": "a far-future archive restoration room — a lit worktable, old scrolls under glass weights, paste pots, fine brushes and a magnifier",
+     "activity": "she is an archive restorer crouching to pull an old box of documents from a low shelf",
+     "preset": "squat_prop",
+     "use": "sig_hold",
+     "prop": "an old document box",
+     "outfit": {
+      "bold": "an archive restorer look fitted to her body — a fitted sleeveless wrap top, a short skirt, cotton gloves and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "an archive restorer look — a short-sleeved wrap top, a knee-length skirt, cotton gloves and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "an archive restorer look — a long-sleeved wrap top, a long skirt, cotton gloves and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "주창": {
    "root": {
     "ko": "그림자처럼 짐을 지고 따랐다 — 짐꾼",
@@ -9407,6 +9556,202 @@
     }
    }
   },
+  "뇌박": {
+   "root": {
+    "ko": "이름의 뇌(雷)는 천둥 — 천둥소리를 만들어 내는 폴리 아티스트",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "폴리 아티스트",
+     "base": "nation_workshop",
+     "place": "a Han-era sound-effects studio — a hanging thin metal thunder sheet, drums and rattles on a rack, a wooden floor patch and a listening horn",
+     "activity": "she is a foley artist raising a rattle beside her shoulder, listening to the sound it makes",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a wooden thunder rattle",
+     "outfit": {
+      "bold": "a foley artist look fitted to her body — a fitted sleeveless top, short shorts, soft-soled shoes and a neckerchief, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a foley artist look — a short-sleeved top, knee-length trousers, soft-soled shoes and a neckerchief, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a foley artist look — a long-sleeved top, long trousers, soft-soled shoes and a neckerchief, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "폴리 아티스트",
+     "base": "nation_workshop",
+     "place": "a high-fantasy sound-effects studio — a hanging thin metal thunder sheet, drums and rattles on a rack, a wooden floor patch and a listening horn",
+     "activity": "she is a foley artist shaking a long thin metal thunder sheet with both hands at the bench",
+     "preset": "counter_work",
+     "use": "sig_both",
+     "prop": "a thin metal thunder sheet",
+     "outfit": {
+      "bold": "a foley artist look fitted to her body — a fitted sleeveless top, short shorts, soft-soled shoes and a neckerchief, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a foley artist look — a short-sleeved top, knee-length trousers, soft-soled shoes and a neckerchief, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a foley artist look — a long-sleeved top, long trousers, soft-soled shoes and a neckerchief, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "폴리 아티스트",
+     "base": "nation_study",
+     "place": "a far-future sound-effects studio — a hanging thin metal thunder sheet, drums and rattles on a rack, a wooden floor patch and a listening horn",
+     "activity": "she is a foley artist standing with a hand on her hip, waiting for her cue",
+     "preset": "hip_contra",
+     "outfit": {
+      "bold": "a foley artist look fitted to her body — a fitted sleeveless top, short shorts, soft-soled shoes and a neckerchief, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a foley artist look — a short-sleeved top, knee-length trousers, soft-soled shoes and a neckerchief, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a foley artist look — a long-sleeved top, long trousers, soft-soled shoes and a neckerchief, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "진란": {
+   "root": {
+    "ko": "이름의 란(蘭)은 난초 — 난초를 키우는 온실 재배사",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "난초 온실 재배사",
+     "base": "nation_garden",
+     "place": "a Han-era orchid greenhouse — rows of potted orchids on stepped shelves, misting jars, bamboo stakes and a shaded glass roof",
+     "activity": "she is an orchid grower crouching to check a potted orchid on the lowest shelf",
+     "preset": "squat_prop",
+     "use": "sig_hold",
+     "prop": "a potted orchid",
+     "outfit": {
+      "bold": "an orchid grower look fitted to her body — a fitted sleeveless wrap top, a short skirt, a gardening apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "an orchid grower look — a short-sleeved top, a knee-length skirt, a gardening apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "an orchid grower look — a long-sleeved top, long trousers, a gardening apron and soft boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "난초 온실 재배사",
+     "base": "nation_garden",
+     "place": "a high-fantasy orchid greenhouse — rows of potted orchids on stepped shelves, misting jars, bamboo stakes and a shaded glass roof",
+     "activity": "she is an orchid grower cradling a blooming orchid pot against her chest",
+     "preset": "wrap_close",
+     "use": "sig_both",
+     "prop": "a blooming orchid in a pot",
+     "outfit": {
+      "bold": "an orchid grower look fitted to her body — a fitted sleeveless wrap top, a short skirt, a gardening apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "an orchid grower look — a short-sleeved top, a knee-length skirt, a gardening apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "an orchid grower look — a long-sleeved top, long trousers, a gardening apron and soft boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "난초 온실 재배사",
+     "base": "nation_study",
+     "place": "a far-future orchid greenhouse — rows of potted orchids on stepped shelves, misting jars, bamboo stakes and a shaded glass roof",
+     "activity": "she is an orchid grower on tiptoe reaching for a hanging orchid basket on the top shelf",
+     "preset": "reach_shelf",
+     "outfit": {
+      "bold": "an orchid grower look fitted to her body — a fitted sleeveless wrap top, a short skirt, a gardening apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "an orchid grower look — a short-sleeved top, a knee-length skirt, a gardening apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "an orchid grower look — a long-sleeved top, long trousers, a gardening apron and soft boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "염상": {
+   "root": {
+    "ko": "주부로 군주의 그릇된 말을 바로잡았다 — 글을 바로잡는 교정 편집자",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "교정 편집자",
+     "base": "nation_study",
+     "place": "a Han-era editing room — stacks of manuscript pages, a red-ink pot, a tall bookcase and a lamp on a wide desk",
+     "activity": "she is a proofreader leaning over the desk, marking corrections on a manuscript with both hands",
+     "preset": "table_lean_use",
+     "use": "sig_both",
+     "prop": "a manuscript and a red correction brush",
+     "outfit": {
+      "bold": "a proofreader look fitted to her body — a fitted sleeveless blouse, a short pencil skirt, sleeve guards and flat shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a proofreader look — a short-sleeved blouse, a knee-length skirt, sleeve guards and flat shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a proofreader look — a long-sleeved blouse, long trousers, sleeve guards and flat shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "교정 편집자",
+     "base": "nation_study",
+     "place": "a high-fantasy editing room — stacks of manuscript pages, a red-ink pot, a tall bookcase and a lamp on a wide desk",
+     "activity": "she is a proofreader frowning at a page of manuscript in her hand",
+     "preset": "pocket_look",
+     "use": "sig_hold",
+     "prop": "a page of manuscript",
+     "outfit": {
+      "bold": "a proofreader look fitted to her body — a fitted sleeveless blouse, a short pencil skirt, sleeve guards and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a proofreader look — a short-sleeved blouse, a knee-length skirt, sleeve guards and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a proofreader look — a long-sleeved blouse, long trousers, sleeve guards and flat shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "교정 편집자",
+     "base": "nation_study",
+     "place": "a far-future editing room — stacks of manuscript pages, a red-ink pot, a tall bookcase and a lamp on a wide desk",
+     "activity": "she is a proofreader standing with her hands folded, waiting to give her verdict on the draft",
+     "preset": "clasp_low",
+     "outfit": {
+      "bold": "a proofreader look fitted to her body — a fitted sleeveless blouse, a short pencil skirt, sleeve guards and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a proofreader look — a short-sleeved blouse, a knee-length skirt, sleeve guards and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a proofreader look — a long-sleeved blouse, long trousers, sleeve guards and flat shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "유훈": {
+   "root": {
+    "ko": "양식이 모자라 곡식을 사러 사람을 보냈다 — 곡식을 사고파는 곡물 중개상",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "곡물 중개상",
+     "base": "nation_market",
+     "place": "a Han-era grain exchange — open sacks of rice and millet, a big balance scale, tally boards and a counter with sample bowls",
+     "activity": "she is a grain broker holding up a sample bowl of rice toward the viewer with both hands",
+     "preset": "camera_shot",
+     "use": "sig_both",
+     "prop": "a sample bowl of rice",
+     "outfit": {
+      "bold": "a grain broker look fitted to her body — a fitted sleeveless vest over a cropped top, short shorts, a coin pouch and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a grain broker look — a short-sleeved vest top, knee-length trousers, a coin pouch and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a grain broker look — a long-sleeved jacket, long trousers, a coin pouch and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "곡물 중개상",
+     "base": "nation_market",
+     "place": "a high-fantasy grain exchange — open sacks of rice and millet, a big balance scale, tally boards and a counter with sample bowls",
+     "activity": "she is a grain broker walking past the sacks with a tally board at her side",
+     "preset": "stride_prop",
+     "use": "sig_low",
+     "prop": "a tally board",
+     "outfit": {
+      "bold": "a grain broker look fitted to her body — a fitted sleeveless vest over a cropped top, short shorts, a coin pouch and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a grain broker look — a short-sleeved vest top, knee-length trousers, a coin pouch and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a grain broker look — a long-sleeved jacket, long trousers, a coin pouch and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "곡물 중개상",
+     "base": "nation_market",
+     "place": "a far-future grain exchange — open sacks of rice and millet, a big balance scale, tally boards and a counter with sample bowls",
+     "activity": "she is a grain broker giving a thumbs-up over a closed deal by the scale",
+     "preset": "thumbs_waist",
+     "outfit": {
+      "bold": "a grain broker look fitted to her body — a fitted sleeveless vest over a cropped top, short shorts, a coin pouch and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a grain broker look — a short-sleeved vest top, knee-length trousers, a coin pouch and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a grain broker look — a long-sleeved jacket, long trousers, a coin pouch and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "순우경": {
    "root": {
     "ko": "군량과 함께 불탔다 — 불에 굽는 군밤 장수",
@@ -10087,6 +10432,55 @@
       "bold": "a bedding shopkeeper look fitted to her body — a short soft wrap robe with bare shoulders, a sash and slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a bedding shopkeeper look — a sleeveless soft wrap robe to the knee, a sash and slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a bedding shopkeeper look — a long-sleeved soft wrap robe to the ankle, a sash and slippers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "조표": {
+   "root": {
+    "ko": "장비와 맞서 다투었다 — 말로 맞서는 토론 대회 선수",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "토론 대회 선수",
+     "base": "nation_square",
+     "place": "a Han-era debate hall — two facing podiums, a timer bell, a judges' table and a banner overhead",
+     "activity": "she is a debate competitor standing at the podium with a hand on her hip, waiting for her turn",
+     "preset": "hip_contra",
+     "outfit": {
+      "bold": "a debate competitor look fitted to her body — a fitted sleeveless blazer top, a short pleated skirt, a ribbon tie and loafers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a debate competitor look — a short-sleeved blazer, a knee-length pleated skirt, a ribbon tie and loafers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a debate competitor look — a long-sleeved blazer, long trousers, a ribbon tie and loafers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "토론 대회 선수",
+     "base": "nation_study",
+     "place": "a high-fantasy debate hall — two facing podiums, a timer bell, a judges' table and a banner overhead",
+     "activity": "she is a debate competitor holding her note cards out toward the viewer with both hands",
+     "preset": "camera_shot",
+     "use": "sig_both",
+     "prop": "a stack of note cards",
+     "outfit": {
+      "bold": "a debate competitor look fitted to her body — a fitted sleeveless blazer top, a short pleated skirt, a ribbon tie and loafers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a debate competitor look — a short-sleeved blazer, a knee-length pleated skirt, a ribbon tie and loafers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a debate competitor look — a long-sleeved blazer, long trousers, a ribbon tie and loafers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "토론 대회 선수",
+     "base": "nation_inn",
+     "place": "a far-future debate hall — two facing podiums, a timer bell, a judges' table and a banner overhead",
+     "activity": "she is a debate competitor leaning on the podium, looking over a note card in her hand",
+     "preset": "counter_cup",
+     "use": "sig_hold",
+     "prop": "a note card",
+     "outfit": {
+      "bold": "a debate competitor look fitted to her body — a fitted sleeveless blazer top, a short pleated skirt, a ribbon tie and loafers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a debate competitor look — a short-sleeved blazer, a knee-length pleated skirt, a ribbon tie and loafers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a debate competitor look — a long-sleeved blazer, long trousers, a ribbon tie and loafers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
      }
     }
    }
@@ -10775,6 +11169,253 @@
     }
    }
   },
+  "성공영": {
+   "root": {
+    "ko": "모두 흩어져도 홀로 남았다 — 마지막 손님까지 불을 켜 두는 심야 식당 주인",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "심야 식당 주인",
+     "base": "nation_kitchen",
+     "place": "a Han-era late-night diner — a long counter with stools, a steaming pot, a paper lantern and an empty street outside the door",
+     "activity": "she is a late-night diner owner ladling soup into a bowl at the counter with both hands",
+     "preset": "counter_work",
+     "use": "sig_both",
+     "prop": "a soup ladle and a bowl",
+     "outfit": {
+      "bold": "a late-night diner owner look fitted to her body — a fitted sleeveless top, a short skirt, a dark half-apron and a head scarf, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a late-night diner owner look — a short-sleeved top, a knee-length skirt, a dark apron and a head scarf, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a late-night diner owner look — a long-sleeved top, long trousers, a dark apron and a head scarf, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "심야 식당 주인",
+     "base": "nation_inn",
+     "place": "a high-fantasy late-night diner — a long counter with stools, a steaming pot, a paper lantern and an empty street outside the door",
+     "activity": "she is a late-night diner owner sitting on a stool with her ankles crossed after closing",
+     "preset": "ankles_sit",
+     "outfit": {
+      "bold": "a late-night diner owner look fitted to her body — a fitted sleeveless top, a short skirt, a dark half-apron and a head scarf, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a late-night diner owner look — a short-sleeved top, a knee-length skirt, a dark apron and a head scarf, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a late-night diner owner look — a long-sleeved top, long trousers, a dark apron and a head scarf, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "심야 식당 주인",
+     "base": "nation_inn",
+     "place": "a far-future late-night diner — a long counter with stools, a steaming pot, a paper lantern and an empty street outside the door",
+     "activity": "she is a late-night diner owner cradling a warm bowl of noodles for the last customer",
+     "preset": "wrap_close",
+     "use": "sig_both",
+     "prop": "a warm bowl of noodles",
+     "outfit": {
+      "bold": "a late-night diner owner look fitted to her body — a fitted sleeveless top, a short skirt, a dark half-apron and a head scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a late-night diner owner look — a short-sleeved top, a knee-length skirt, a dark apron and a head scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a late-night diner owner look — a long-sleeved top, long trousers, a dark apron and a head scarf, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "마휴": {
+   "root": {
+    "ko": "이름의 휴(休)는 쉬다 — 길손이 쉬어 가는 휴게소 매점 주인",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "휴게소 매점 주인",
+     "base": "nation_square",
+     "place": "a Han-era roadside rest stop — a small kiosk with snacks and drinks, a shade awning, benches and a signpost to the next town",
+     "activity": "she is a rest-stop kiosk keeper waving travelers over to the shade",
+     "preset": "wave_chest",
+     "outfit": {
+      "bold": "a rest-stop kiosk keeper look fitted to her body — a fitted sleeveless top, short shorts, a cap and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a rest-stop kiosk keeper look — a short-sleeved top, knee-length shorts, a cap and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a rest-stop kiosk keeper look — a long-sleeved top, long trousers, a cap and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "휴게소 매점 주인",
+     "base": "nation_market",
+     "place": "a high-fantasy roadside rest stop — a small kiosk with snacks and drinks, a shade awning, benches and a signpost to the next town",
+     "activity": "she is a rest-stop kiosk keeper raising a cold drink beside her shoulder to offer it",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a cold drink bottle",
+     "outfit": {
+      "bold": "a rest-stop kiosk keeper look fitted to her body — a fitted sleeveless top, short shorts, a cap and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a rest-stop kiosk keeper look — a short-sleeved top, knee-length shorts, a cap and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a rest-stop kiosk keeper look — a long-sleeved top, long trousers, a cap and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "휴게소 매점 주인",
+     "base": "nation_inn",
+     "place": "a far-future roadside rest stop — a small kiosk with snacks and drinks, a shade awning, benches and a signpost to the next town",
+     "activity": "she is a rest-stop kiosk keeper sitting on the bench with her ankles crossed, taking a break",
+     "preset": "ankles_sit",
+     "outfit": {
+      "bold": "a rest-stop kiosk keeper look fitted to her body — a fitted sleeveless top, short shorts, a cap and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a rest-stop kiosk keeper look — a short-sleeved top, knee-length shorts, a cap and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a rest-stop kiosk keeper look — a long-sleeved top, long trousers, a cap and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "마철": {
+   "root": {
+    "ko": "이름의 철(鐵)은 쇠 — 쇳물을 붓는 주물공",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "주물공",
+     "base": "nation_workshop",
+     "place": "a Han-era small foundry — a glowing furnace, sand molds on the floor, long-handled crucibles, tongs and a water trough",
+     "activity": "she is a foundry caster kneeling on one knee to open a sand mold with tongs",
+     "preset": "half_kneel_use",
+     "use": "sig_hold",
+     "prop": "long tongs",
+     "outfit": {
+      "bold": "a foundry caster look fitted to her body — a fitted sleeveless heat-proof top, short shorts, a leather apron, heavy gloves and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a foundry caster look — a short-sleeved heat-proof shirt, knee-length shorts, a leather apron, heavy gloves and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a foundry caster look — a long-sleeved heat-proof jacket, long trousers, a leather apron, heavy gloves and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "주물공",
+     "base": "nation_workshop",
+     "place": "a high-fantasy small foundry — a glowing furnace, sand molds on the floor, long-handled crucibles, tongs and a water trough",
+     "activity": "she is a foundry caster walking across the floor with a cooled iron casting at her side",
+     "preset": "stride_prop",
+     "use": "sig_low",
+     "prop": "a cooled iron casting",
+     "outfit": {
+      "bold": "a foundry caster look fitted to her body — a fitted sleeveless heat-proof top, short shorts, a leather apron, heavy gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a foundry caster look — a short-sleeved heat-proof shirt, knee-length shorts, a leather apron, heavy gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a foundry caster look — a long-sleeved heat-proof jacket, long trousers, a leather apron, heavy gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "주물공",
+     "base": "nation_workshop",
+     "place": "a far-future small foundry — a glowing furnace, sand molds on the floor, long-handled crucibles, tongs and a water trough",
+     "activity": "she is a foundry caster giving a thumbs-up beside a freshly cast piece",
+     "preset": "thumbs_waist",
+     "outfit": {
+      "bold": "a foundry caster look fitted to her body — a fitted sleeveless heat-proof top, short shorts, a leather apron, heavy gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a foundry caster look — a short-sleeved heat-proof shirt, knee-length shorts, a leather apron, heavy gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a foundry caster look — a long-sleeved heat-proof jacket, long trousers, a leather apron, heavy gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "양추": {
+   "root": {
+    "ko": "이름의 추(秋)는 가을 — 가을볕에 감을 말리는 곶감 장인",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "곶감 장인",
+     "base": "nation_field",
+     "place": "a Han-era persimmon drying yard — strings of peeled persimmons hanging under the eaves, baskets of fruit, a peeling bench and autumn leaves",
+     "activity": "she is a dried-persimmon maker crouching to pick a ripe persimmon from the basket",
+     "preset": "squat_prop",
+     "use": "sig_hold",
+     "prop": "a ripe persimmon",
+     "outfit": {
+      "bold": "a dried-persimmon maker look fitted to her body — a fitted sleeveless wrap top, a short skirt, a cloth apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a dried-persimmon maker look — a short-sleeved top, a knee-length skirt, a cloth apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a dried-persimmon maker look — a long-sleeved top, long trousers, a cloth apron and soft boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "곶감 장인",
+     "base": "nation_field",
+     "place": "a high-fantasy persimmon drying yard — strings of peeled persimmons hanging under the eaves, baskets of fruit, a peeling bench and autumn leaves",
+     "activity": "she is a dried-persimmon maker raising a string of dried persimmons beside her shoulder",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a string of dried persimmons",
+     "outfit": {
+      "bold": "a dried-persimmon maker look fitted to her body — a fitted sleeveless wrap top, a short skirt, a cloth apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a dried-persimmon maker look — a short-sleeved top, a knee-length skirt, a cloth apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a dried-persimmon maker look — a long-sleeved top, long trousers, a cloth apron and soft boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "곶감 장인",
+     "base": "nation_field",
+     "place": "a far-future persimmon drying yard — strings of peeled persimmons hanging under the eaves, baskets of fruit, a peeling bench and autumn leaves",
+     "activity": "she is a dried-persimmon maker sitting sideways on the bench, peeling a persimmon with both hands",
+     "preset": "bench_fix",
+     "use": "sig_both",
+     "prop": "a persimmon and a small peeling knife",
+     "outfit": {
+      "bold": "a dried-persimmon maker look fitted to her body — a fitted sleeveless wrap top, a short skirt, a cloth apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a dried-persimmon maker look — a short-sleeved top, a knee-length skirt, a cloth apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a dried-persimmon maker look — a long-sleeved top, long trousers, a cloth apron and soft boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "성의": {
+   "root": {
+    "ko": "이름의 의(宜)는 어울림 — 어울리는 옷을 골라 주는 퍼스널 쇼퍼",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "퍼스널 쇼퍼",
+     "base": "nation_market",
+     "place": "a Han-era boutique fitting floor — racks of clothes, a full-length mirror, a velvet bench and shopping bags",
+     "activity": "she is a personal shopper holding a picked-out outfit on a hanger toward the viewer with both hands",
+     "preset": "camera_shot",
+     "use": "sig_both",
+     "prop": "an outfit on a hanger",
+     "outfit": {
+      "bold": "a personal shopper look fitted to her body — a fitted sleeveless blouse, a short skirt, a slim belt and heeled sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a personal shopper look — a short-sleeved blouse, a knee-length skirt, a slim belt and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a personal shopper look — a long-sleeved blouse, long tailored trousers, a slim belt and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "퍼스널 쇼퍼",
+     "base": "nation_market",
+     "place": "a high-fantasy boutique fitting floor — racks of clothes, a full-length mirror, a velvet bench and shopping bags",
+     "activity": "she is a personal shopper looking back over her shoulder, raising a scarf to match it",
+     "preset": "lookback_raise",
+     "use": "sig_raise",
+     "prop": "a silk scarf",
+     "outfit": {
+      "bold": "a personal shopper look fitted to her body — a fitted sleeveless blouse, a short skirt, a slim belt and heeled sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a personal shopper look — a short-sleeved blouse, a knee-length skirt, a slim belt and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a personal shopper look — a long-sleeved blouse, long tailored trousers, a slim belt and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "퍼스널 쇼퍼",
+     "base": "nation_market",
+     "place": "a far-future boutique fitting floor — racks of clothes, a full-length mirror, a velvet bench and shopping bags",
+     "activity": "she is a personal shopper checking a shopping list in her hand",
+     "preset": "pocket_look",
+     "use": "sig_hold",
+     "prop": "a shopping list card",
+     "outfit": {
+      "bold": "a personal shopper look fitted to her body — a fitted sleeveless blouse, a short skirt, a slim belt and heeled sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a personal shopper look — a short-sleeved blouse, a knee-length skirt, a slim belt and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a personal shopper look — a long-sleeved blouse, long tailored trousers, a slim belt and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "하진": {
    "root": {
     "ko": "환관을 치려다 먼저 목이 떨어졌다 — 칼을 쥔 푸줏간 주인",
@@ -11422,6 +12063,53 @@
     }
    }
   },
+  "오반": {
+   "root": {
+    "ko": "호협(豪俠)으로 이름났다 — 몸을 던지는 스턴트 배우",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "스턴트 배우",
+     "base": "nation_stairs",
+     "place": "a Han-era stunt rehearsal set — crash mats, a rope rig from a wooden tower, padded props and a director's chair",
+     "activity": "she is a stunt performer with one foot up on a crash mat, looking up at the rig before her jump",
+     "preset": "step_pause",
+     "outfit": {
+      "bold": "a stunt performer look fitted to her body — a fitted sleeveless stunt suit top, short padded shorts, knee guards and gloves, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a stunt performer look — a short-sleeved stunt suit, knee-length padded shorts, knee guards and gloves, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a stunt performer look — a long-sleeved stunt suit, long padded trousers, knee guards and gloves, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "스턴트 배우",
+     "base": "nation_training",
+     "place": "a high-fantasy stunt rehearsal set — crash mats, a rope rig from a wooden tower, padded props and a director's chair",
+     "activity": "she is a stunt performer kneeling on one knee to check the clip on a safety rope",
+     "preset": "half_kneel_use",
+     "use": "sig_hold",
+     "prop": "a safety rope clip",
+     "outfit": {
+      "bold": "a stunt performer look fitted to her body — a fitted sleeveless stunt suit top, short padded shorts, knee guards and gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a stunt performer look — a short-sleeved stunt suit, knee-length padded shorts, knee guards and gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a stunt performer look — a long-sleeved stunt suit, long padded trousers, knee guards and gloves, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "스턴트 배우",
+     "base": "nation_square",
+     "place": "a far-future stunt rehearsal set — crash mats, a rope rig from a wooden tower, padded props and a director's chair",
+     "activity": "she is a stunt performer standing with a hand on her hip after landing the stunt",
+     "preset": "hip_contra",
+     "outfit": {
+      "bold": "a stunt performer look fitted to her body — a fitted sleeveless stunt suit top, short padded shorts, knee guards and gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a stunt performer look — a short-sleeved stunt suit, knee-length padded shorts, knee guards and gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a stunt performer look — a long-sleeved stunt suit, long padded trousers, knee guards and gloves, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "맹달": {
    "root": {
     "ko": "세 번 주인을 바꿨다 — 옷을 뒤집어 고쳐 주는 수선사",
@@ -11517,6 +12205,151 @@
       "bold": "a map peddler look fitted to her body — a cropped wrap jacket with wide cuffs over a bandeau top, a short split skirt, tall boots and a map tube on a strap, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a map peddler look — a short-sleeved wrap jacket, a knee-length split skirt, boots and a map tube, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a map peddler look — a long-sleeved wrap jacket with wide cuffs, loose trousers, boots and a map tube, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "유언": {
+   "root": {
+    "ko": "천자의 수레와 옷을 몰래 지었다 — 수레를 짓는 수레 공방 장인",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "수레 공방 장인",
+     "base": "nation_workshop",
+     "place": "a Han-era carriage workshop — a half-built ornate carriage, spoked wheels leaning on the wall, carving tools and gold leaf on a bench",
+     "activity": "she is a carriage maker sitting sideways on a bench, fitting a spoke into a wheel with both hands",
+     "preset": "bench_fix",
+     "use": "sig_both",
+     "prop": "a carriage wheel spoke",
+     "outfit": {
+      "bold": "a carriage maker look fitted to her body — a fitted sleeveless wrap top, short shorts, a leather tool apron and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a carriage maker look — a short-sleeved top, knee-length trousers, a leather tool apron and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a carriage maker look — a long-sleeved top, long trousers, a leather tool apron and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "수레 공방 장인",
+     "base": "nation_workshop",
+     "place": "a high-fantasy carriage workshop — a half-built ornate carriage, spoked wheels leaning on the wall, carving tools and gold leaf on a bench",
+     "activity": "she is a carriage maker standing with a hand on her hip, admiring the half-built carriage",
+     "preset": "hip_contra",
+     "outfit": {
+      "bold": "a carriage maker look fitted to her body — a fitted sleeveless wrap top, short shorts, a leather tool apron and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a carriage maker look — a short-sleeved top, knee-length trousers, a leather tool apron and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a carriage maker look — a long-sleeved top, long trousers, a leather tool apron and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "수레 공방 장인",
+     "base": "nation_workshop",
+     "place": "a far-future carriage workshop — a half-built ornate carriage, spoked wheels leaning on the wall, carving tools and gold leaf on a bench",
+     "activity": "she is a carriage maker raising a gilded carriage ornament beside her shoulder",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a gilded carriage ornament",
+     "outfit": {
+      "bold": "a carriage maker look fitted to her body — a fitted sleeveless wrap top, short shorts, a leather tool apron and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a carriage maker look — a short-sleeved top, knee-length trousers, a leather tool apron and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a carriage maker look — a long-sleeved top, long trousers, a leather tool apron and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "냉포": {
+   "root": {
+    "ko": "이름의 냉(冷)은 차다 — 얼음을 가는 빙수 가게 주인",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "빙수 가게 주인",
+     "base": "nation_market",
+     "place": "a Han-era shaved-ice stand — a block of ice on a crank shaver, jars of syrup, glass bowls and a shaded counter",
+     "activity": "she is a shaved-ice seller cranking the shaver over a glass bowl with both hands",
+     "preset": "counter_work",
+     "use": "sig_both",
+     "prop": "an ice-shaver crank",
+     "outfit": {
+      "bold": "a shaved-ice seller look fitted to her body — a fitted sleeveless top, short shorts, a striped apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a shaved-ice seller look — a short-sleeved top, knee-length shorts, a striped apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a shaved-ice seller look — a long-sleeved light top, long light trousers, a striped apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "빙수 가게 주인",
+     "base": "nation_market",
+     "place": "a high-fantasy shaved-ice stand — a block of ice on a crank shaver, jars of syrup, glass bowls and a shaded counter",
+     "activity": "she is a shaved-ice seller holding a heaped bowl of shaved ice to serve",
+     "preset": "wrap_close",
+     "use": "sig_both",
+     "prop": "a heaped bowl of shaved ice",
+     "outfit": {
+      "bold": "a shaved-ice seller look fitted to her body — a fitted sleeveless top, short shorts, a striped apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a shaved-ice seller look — a short-sleeved top, knee-length shorts, a striped apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a shaved-ice seller look — a long-sleeved light top, long light trousers, a striped apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "빙수 가게 주인",
+     "base": "nation_square",
+     "place": "a far-future shaved-ice stand — a block of ice on a crank shaver, jars of syrup, glass bowls and a shaded counter",
+     "activity": "she is a shaved-ice seller waving customers over to the stand",
+     "preset": "wave_chest",
+     "outfit": {
+      "bold": "a shaved-ice seller look fitted to her body — a fitted sleeveless top, short shorts, a striped apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a shaved-ice seller look — a short-sleeved top, knee-length shorts, a striped apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a shaved-ice seller look — a long-sleeved light top, long light trousers, a striped apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "방희": {
+   "root": {
+    "ko": "유언의 손자들을 모아 촉으로 데려왔다 — 아이들을 태워 나르는 통학 버스 기사",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "통학 버스 기사",
+     "base": "nation_study",
+     "place": "a Han-era school pick-up stop — a long shuttle carriage with open doors, a stop sign, a row of small backpacks on a bench and a crossing",
+     "activity": "she is a school-bus driver standing with her hands folded at the stop, waiting for the children",
+     "preset": "clasp_low",
+     "outfit": {
+      "bold": "a school-bus driver look fitted to her body — a fitted sleeveless uniform top, a short skirt, a whistle cord and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a school-bus driver look — a short-sleeved uniform shirt, a knee-length skirt, a whistle cord and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a school-bus driver look — a long-sleeved uniform jacket, long trousers, a whistle cord and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "통학 버스 기사",
+     "base": "nation_square",
+     "place": "a high-fantasy school pick-up stop — a long shuttle carriage with open doors, a stop sign, a row of small backpacks on a bench and a crossing",
+     "activity": "she is a school-bus driver walking to the door with a small backpack left behind at her side",
+     "preset": "stride_prop",
+     "use": "sig_low",
+     "prop": "a small backpack",
+     "outfit": {
+      "bold": "a school-bus driver look fitted to her body — a fitted sleeveless uniform top, a short skirt, a whistle cord and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a school-bus driver look — a short-sleeved uniform shirt, a knee-length skirt, a whistle cord and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a school-bus driver look — a long-sleeved uniform jacket, long trousers, a whistle cord and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "통학 버스 기사",
+     "base": "nation_study",
+     "place": "a far-future school pick-up stop — a long shuttle carriage with open doors, a stop sign, a row of small backpacks on a bench and a crossing",
+     "activity": "she is a school-bus driver kneeling with her hands together to greet a child at eye level",
+     "preset": "kneel_clasp",
+     "outfit": {
+      "bold": "a school-bus driver look fitted to her body — a fitted sleeveless uniform top, a short skirt, a whistle cord and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a school-bus driver look — a short-sleeved uniform shirt, a knee-length skirt, a whistle cord and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a school-bus driver look — a long-sleeved uniform jacket, long trousers, a whistle cord and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
      }
     }
    }
@@ -11810,6 +12643,202 @@
      },
      "use": "sig_hold",
      "prop": "a wooden rung"
+    }
+   }
+  },
+  "유종": {
+   "root": {
+    "ko": "형주를 통째로 넘겼다 — 집 열쇠를 건네는 부동산 중개인",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "부동산 중개인",
+     "base": "nation_room",
+     "place": "a Han-era house viewing — an empty bright room with a key rack, a floor plan on an easel and a front door open to the garden",
+     "activity": "she is a real-estate agent holding out a ring of house keys toward the viewer with both hands",
+     "preset": "camera_shot",
+     "use": "sig_both",
+     "prop": "a ring of house keys",
+     "outfit": {
+      "bold": "a real-estate agent look fitted to her body — a fitted sleeveless blazer dress, a short skirt line, a name badge and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a real-estate agent look — a short-sleeved blazer, a knee-length skirt, a name badge and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a real-estate agent look — a long-sleeved blazer, long tailored trousers, a name badge and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "부동산 중개인",
+     "base": "nation_room",
+     "place": "a high-fantasy house viewing — an empty bright room with a key rack, a floor plan on an easel and a front door open to the garden",
+     "activity": "she is a real-estate agent checking a floor plan in her hand",
+     "preset": "pocket_look",
+     "use": "sig_hold",
+     "prop": "a folded floor plan",
+     "outfit": {
+      "bold": "a real-estate agent look fitted to her body — a fitted sleeveless blazer dress, a short skirt line, a name badge and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a real-estate agent look — a short-sleeved blazer, a knee-length skirt, a name badge and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a real-estate agent look — a long-sleeved blazer, long tailored trousers, a name badge and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "부동산 중개인",
+     "base": "nation_study",
+     "place": "a far-future house viewing — an empty bright room with a key rack, a floor plan on an easel and a front door open to the garden",
+     "activity": "she is a real-estate agent standing with her hands folded in the empty room, waiting for the buyer",
+     "preset": "clasp_low",
+     "outfit": {
+      "bold": "a real-estate agent look fitted to her body — a fitted sleeveless blazer dress, a short skirt line, a name badge and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a real-estate agent look — a short-sleeved blazer, a knee-length skirt, a name badge and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a real-estate agent look — a long-sleeved blazer, long tailored trousers, a name badge and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "왕찬": {
+   "root": {
+    "ko": "길가의 비석을 한 번 읽고 외웠다 — 비석의 글을 떠 내는 탁본 장인",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "탁본 장인",
+     "base": "nation_garden",
+     "place": "a Han-era stele garden — tall carved stone tablets, sheets of thin paper pressed to the stone, ink pads and brushes on a stand",
+     "activity": "she is an ink-rubbing artisan kneeling on one knee to dab ink onto paper pressed against a stone tablet",
+     "preset": "half_kneel_use",
+     "use": "sig_hold",
+     "prop": "a round ink pad",
+     "outfit": {
+      "bold": "an ink-rubbing artisan look fitted to her body — a fitted sleeveless wrap top, a short skirt, sleeve guards and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "an ink-rubbing artisan look — a short-sleeved wrap top, a knee-length skirt, sleeve guards and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "an ink-rubbing artisan look — a long-sleeved wrap top, a long skirt, sleeve guards and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "탁본 장인",
+     "base": "nation_study",
+     "place": "a high-fantasy stele garden — tall carved stone tablets, sheets of thin paper pressed to the stone, ink pads and brushes on a stand",
+     "activity": "she is an ink-rubbing artisan leaning over the table, smoothing a fresh rubbing flat with both hands",
+     "preset": "table_lean_use",
+     "use": "sig_both",
+     "prop": "a fresh ink rubbing on thin paper",
+     "outfit": {
+      "bold": "an ink-rubbing artisan look fitted to her body — a fitted sleeveless wrap top, a short skirt, sleeve guards and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "an ink-rubbing artisan look — a short-sleeved wrap top, a knee-length skirt, sleeve guards and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "an ink-rubbing artisan look — a long-sleeved wrap top, a long skirt, sleeve guards and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "탁본 장인",
+     "base": "nation_garden",
+     "place": "a far-future stele garden — tall carved stone tablets, sheets of thin paper pressed to the stone, ink pads and brushes on a stand",
+     "activity": "she is an ink-rubbing artisan raising a finished rubbing beside her shoulder to read it",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a finished ink rubbing",
+     "outfit": {
+      "bold": "an ink-rubbing artisan look fitted to her body — a fitted sleeveless wrap top, a short skirt, sleeve guards and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "an ink-rubbing artisan look — a short-sleeved wrap top, a knee-length skirt, sleeve guards and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "an ink-rubbing artisan look — a long-sleeved wrap top, a long skirt, sleeve guards and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "한숭": {
+   "root": {
+    "ko": "칼 앞에서도 꼿꼿했다 — 굽은 등을 펴 주는 자세 교정 강사",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "자세 교정 강사",
+     "base": "nation_square",
+     "place": "a Han-era posture studio — a wall of mirrors, a tall wooden measuring post, balance blocks and a straight-backed bench",
+     "activity": "she is a posture coach standing tall with a hand on her hip, showing a straight back",
+     "preset": "hip_contra",
+     "outfit": {
+      "bold": "a posture coach look fitted to her body — a fitted sleeveless sports top, short shorts and soft training shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a posture coach look — a short-sleeved sports top, knee-length leggings and soft training shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a posture coach look — a long-sleeved sports top, long leggings and soft training shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "자세 교정 강사",
+     "base": "nation_training",
+     "place": "a high-fantasy posture studio — a wall of mirrors, a tall wooden measuring post, balance blocks and a straight-backed bench",
+     "activity": "she is a posture coach raising a long straight ruler beside her shoulder to show a straight line",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a long straight wooden ruler",
+     "outfit": {
+      "bold": "a posture coach look fitted to her body — a fitted sleeveless sports top, short shorts and soft training shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a posture coach look — a short-sleeved sports top, knee-length leggings and soft training shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a posture coach look — a long-sleeved sports top, long leggings and soft training shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "자세 교정 강사",
+     "base": "nation_training",
+     "place": "a far-future posture studio — a wall of mirrors, a tall wooden measuring post, balance blocks and a straight-backed bench",
+     "activity": "she is a posture coach checking a posture chart in her hand",
+     "preset": "pocket_look",
+     "use": "sig_hold",
+     "prop": "a posture chart card",
+     "outfit": {
+      "bold": "a posture coach look fitted to her body — a fitted sleeveless sports top, short shorts and soft training shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a posture coach look — a short-sleeved sports top, knee-length leggings and soft training shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a posture coach look — a long-sleeved sports top, long leggings and soft training shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "유반": {
+   "root": {
+    "ko": "여러 고을을 넘나들며 치고 빠졌다 — 담을 넘나드는 파쿠르 선수",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "파쿠르 선수",
+     "base": "nation_stairs",
+     "place": "a Han-era rooftop parkour course — low walls, rails and gaps between flat roofs, chalk marks and a water bottle by the ledge",
+     "activity": "she is a parkour runner with one foot up on a low wall, eyeing the next gap",
+     "preset": "step_pause",
+     "outfit": {
+      "bold": "a parkour runner look fitted to her body — a fitted sleeveless sports top, short running shorts, fingerless gloves and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a parkour runner look — a short-sleeved sports top, knee-length running shorts, fingerless gloves and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a parkour runner look — a long-sleeved sports top, long running trousers, fingerless gloves and sneakers, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "파쿠르 선수",
+     "base": "nation_harbor",
+     "place": "a high-fantasy rooftop parkour course — low walls, rails and gaps between flat roofs, chalk marks and a water bottle by the ledge",
+     "activity": "she is a parkour runner sitting on the edge of a wall, catching her breath with her hands braced",
+     "preset": "edge_brace",
+     "outfit": {
+      "bold": "a parkour runner look fitted to her body — a fitted sleeveless sports top, short running shorts, fingerless gloves and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a parkour runner look — a short-sleeved sports top, knee-length running shorts, fingerless gloves and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a parkour runner look — a long-sleeved sports top, long running trousers, fingerless gloves and sneakers, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "파쿠르 선수",
+     "base": "nation_training",
+     "place": "a far-future rooftop parkour course — low walls, rails and gaps between flat roofs, chalk marks and a water bottle by the ledge",
+     "activity": "she is a parkour runner crouching to chalk her hands from a small chalk bag",
+     "preset": "squat_prop",
+     "use": "sig_hold",
+     "prop": "a small chalk bag",
+     "outfit": {
+      "bold": "a parkour runner look fitted to her body — a fitted sleeveless sports top, short running shorts, fingerless gloves and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a parkour runner look — a short-sleeved sports top, knee-length running shorts, fingerless gloves and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a parkour runner look — a long-sleeved sports top, long running trousers, fingerless gloves and sneakers, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
     }
    }
   },
@@ -12588,6 +13617,104 @@
     }
    }
   },
+  "위관": {
+   "root": {
+    "ko": "감군으로 두 장수를 지켜보았다 — 시험장을 지켜보는 시험 감독관",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "시험 감독관",
+     "base": "nation_study",
+     "place": "a Han-era exam hall — rows of desks with papers, a tall clock, a raised proctor's desk and a sealed answer box",
+     "activity": "she is an exam proctor walking slowly between the desks with a stack of exam papers at her side",
+     "preset": "stride_prop",
+     "use": "sig_low",
+     "prop": "a stack of exam papers",
+     "outfit": {
+      "bold": "an exam proctor look fitted to her body — a fitted sleeveless blouse, a short pencil skirt, a lanyard badge and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "an exam proctor look — a short-sleeved blouse, a knee-length skirt, a lanyard badge and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "an exam proctor look — a long-sleeved blouse, long tailored trousers, a lanyard badge and low heels, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "시험 감독관",
+     "base": "nation_study",
+     "place": "a high-fantasy exam hall — rows of desks with papers, a tall clock, a raised proctor's desk and a sealed answer box",
+     "activity": "she is an exam proctor standing with her hands folded at the front, watching the room",
+     "preset": "clasp_low",
+     "outfit": {
+      "bold": "an exam proctor look fitted to her body — a fitted sleeveless blouse, a short pencil skirt, a lanyard badge and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "an exam proctor look — a short-sleeved blouse, a knee-length skirt, a lanyard badge and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "an exam proctor look — a long-sleeved blouse, long tailored trousers, a lanyard badge and low heels, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "시험 감독관",
+     "base": "nation_study",
+     "place": "a far-future exam hall — rows of desks with papers, a tall clock, a raised proctor's desk and a sealed answer box",
+     "activity": "she is an exam proctor raising a pocket watch beside her shoulder to call time",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a pocket watch",
+     "outfit": {
+      "bold": "an exam proctor look fitted to her body — a fitted sleeveless blouse, a short pencil skirt, a lanyard badge and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "an exam proctor look — a short-sleeved blouse, a knee-length skirt, a lanyard badge and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "an exam proctor look — a long-sleeved blouse, long tailored trousers, a lanyard badge and low heels, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "사마망": {
+   "root": {
+    "ko": "이름의 망(望)은 멀리 바라봄 — 망루에서 먼 산을 지켜보는 산불 감시원",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "산불 감시원",
+     "base": "nation_field",
+     "place": "a Han-era fire lookout tower — a high wooden cabin with windows on all sides, a map table with a sighting ring, binocular hooks and forested hills below",
+     "activity": "she is a fire lookout raising a sighting tube beside her shoulder to scan the hills",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a brass sighting tube",
+     "outfit": {
+      "bold": "a fire lookout look fitted to her body — a fitted sleeveless ranger top, short shorts, a wide belt and hiking boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a fire lookout look — a short-sleeved ranger shirt, knee-length shorts, a wide belt and hiking boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a fire lookout look — a long-sleeved ranger shirt, long trousers, a wide belt and hiking boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "산불 감시원",
+     "base": "nation_harbor",
+     "place": "a high-fantasy fire lookout tower — a high wooden cabin with windows on all sides, a map table with a sighting ring, binocular hooks and forested hills below",
+     "activity": "she is a fire lookout sitting on the edge of the cabin bench, hands braced, watching the ridge",
+     "preset": "edge_brace",
+     "outfit": {
+      "bold": "a fire lookout look fitted to her body — a fitted sleeveless ranger top, short shorts, a wide belt and hiking boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a fire lookout look — a short-sleeved ranger shirt, knee-length shorts, a wide belt and hiking boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a fire lookout look — a long-sleeved ranger shirt, long trousers, a wide belt and hiking boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "산불 감시원",
+     "base": "nation_field",
+     "place": "a far-future fire lookout tower — a high wooden cabin with windows on all sides, a map table with a sighting ring, binocular hooks and forested hills below",
+     "activity": "she is a fire lookout checking a logbook in her hand",
+     "preset": "pocket_look",
+     "use": "sig_hold",
+     "prop": "a lookout logbook",
+     "outfit": {
+      "bold": "a fire lookout look fitted to her body — a fitted sleeveless ranger top, short shorts, a wide belt and hiking boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a fire lookout look — a short-sleeved ranger shirt, knee-length shorts, a wide belt and hiking boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a fire lookout look — a long-sleeved ranger shirt, long trousers, a wide belt and hiking boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "하후패": {
    "root": {
     "ko": "창끝을 옛 가문으로 돌렸다 — 방향을 바꾸는 나침반 장인",
@@ -13223,6 +14350,104 @@
     }
    }
   },
+  "복양흥": {
+   "root": {
+    "ko": "홀로 둑 공사가 된다고 했다 — 둑을 쌓는 댐 공사 감독",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "댐 공사 감독",
+     "base": "nation_field",
+     "place": "a Han-era dike building site — an earth embankment rising by a lake, stacked baskets of soil, survey poles and a plan board on a trestle",
+     "activity": "she is a dam site foreman holding the plan board toward the viewer with both hands",
+     "preset": "camera_shot",
+     "use": "sig_both",
+     "prop": "a plan board",
+     "outfit": {
+      "bold": "a dam site foreman look fitted to her body — a fitted sleeveless work top, short shorts, work gloves and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a dam site foreman look — a short-sleeved work shirt, knee-length shorts, work gloves and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a dam site foreman look — a long-sleeved work shirt, long trousers, work gloves and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "댐 공사 감독",
+     "base": "nation_square",
+     "place": "a high-fantasy dike building site — an earth embankment rising by a lake, stacked baskets of soil, survey poles and a plan board on a trestle",
+     "activity": "she is a dam site foreman looking back over her shoulder, raising a survey pole",
+     "preset": "lookback_raise",
+     "use": "sig_raise",
+     "prop": "a survey pole",
+     "outfit": {
+      "bold": "a dam site foreman look fitted to her body — a fitted sleeveless work top, short shorts, work gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a dam site foreman look — a short-sleeved work shirt, knee-length shorts, work gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a dam site foreman look — a long-sleeved work shirt, long trousers, work gloves and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "댐 공사 감독",
+     "base": "nation_square",
+     "place": "a far-future dike building site — an earth embankment rising by a lake, stacked baskets of soil, survey poles and a plan board on a trestle",
+     "activity": "she is a dam site foreman standing with a hand on her hip, looking over the embankment",
+     "preset": "hip_contra",
+     "outfit": {
+      "bold": "a dam site foreman look fitted to her body — a fitted sleeveless work top, short shorts, work gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a dam site foreman look — a short-sleeved work shirt, knee-length shorts, work gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a dam site foreman look — a long-sleeved work shirt, long trousers, work gloves and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "시적": {
+   "root": {
+    "ko": "이름의 적(績)은 실을 잣다 — 물레로 실을 잣는 방적공",
+    "from": "name"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "물레 방적공",
+     "base": "nation_workshop",
+     "place": "a Han-era spinning room — a wooden spinning wheel, baskets of combed fiber, spools of thread on pegs and a window seat",
+     "activity": "she is a spinner sitting sideways at the spinning wheel, drawing out thread with both hands",
+     "preset": "bench_fix",
+     "use": "sig_both",
+     "prop": "a strand of fiber",
+     "outfit": {
+      "bold": "a spinning-wheel spinner look fitted to her body — a fitted sleeveless wrap top, a short skirt, a waist apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a spinning-wheel spinner look — a short-sleeved wrap top, a knee-length skirt, a waist apron and sandals, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a spinning-wheel spinner look — a long-sleeved wrap top, a long skirt, a waist apron and soft shoes, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "물레 방적공",
+     "base": "nation_workshop",
+     "place": "a high-fantasy spinning room — a wooden spinning wheel, baskets of combed fiber, spools of thread on pegs and a window seat",
+     "activity": "she is a spinner raising a full spool of thread beside her shoulder",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a full spool of thread",
+     "outfit": {
+      "bold": "a spinning-wheel spinner look fitted to her body — a fitted sleeveless wrap top, a short skirt, a waist apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a spinning-wheel spinner look — a short-sleeved wrap top, a knee-length skirt, a waist apron and sandals, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a spinning-wheel spinner look — a long-sleeved wrap top, a long skirt, a waist apron and soft shoes, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "물레 방적공",
+     "base": "nation_inn",
+     "place": "a far-future spinning room — a wooden spinning wheel, baskets of combed fiber, spools of thread on pegs and a window seat",
+     "activity": "she is a spinner sitting with her ankles crossed by the window, resting her hands",
+     "preset": "ankles_sit",
+     "outfit": {
+      "bold": "a spinning-wheel spinner look fitted to her body — a fitted sleeveless wrap top, a short skirt, a waist apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a spinning-wheel spinner look — a short-sleeved wrap top, a knee-length skirt, a waist apron and sandals, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a spinning-wheel spinner look — a long-sleeved wrap top, a long skirt, a waist apron and soft shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
   "주연": {
    "root": {
     "ko": "강릉을 반년이나 홀로 지켰다 — 외딴 산장지기",
@@ -13656,6 +14881,104 @@
       "bold": "a pole vaulter look fitted to her body — a short fitted sleeveless top, short fitted shorts, a headband, wrist bands and light shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "moderate": "a pole vaulter look — a fitted short-sleeved top, knee-length trousers, a headband and light shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
       "low": "a pole vaulter look — a long-sleeved fitted top, long trousers, a headband and light shoes, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "학맹": {
+   "root": {
+    "ko": "한밤에 목소리로 들통났다 — 목소리로 사는 성우",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "성우",
+     "base": "nation_study",
+     "place": "a Han-era recording booth — a hanging microphone, a script stand, sound-damping wall panels and headphones on a hook",
+     "activity": "she is a voice actor reading her lines from a script in her hand",
+     "preset": "pocket_look",
+     "use": "sig_hold",
+     "prop": "a script",
+     "outfit": {
+      "bold": "a voice actor look fitted to her body — a fitted sleeveless knit top, short shorts, slippers and a scarf at her throat, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a voice actor look — a short-sleeved knit top, knee-length trousers, slippers and a scarf at her throat, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a voice actor look — a long-sleeved knit top, long trousers, slippers and a scarf at her throat, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "성우",
+     "base": "nation_study",
+     "place": "a high-fantasy recording booth — a hanging microphone, a script stand, sound-damping wall panels and headphones on a hook",
+     "activity": "she is a voice actor hugging her script to her chest between takes",
+     "preset": "wrap_close",
+     "use": "sig_both",
+     "prop": "a script",
+     "outfit": {
+      "bold": "a voice actor look fitted to her body — a fitted sleeveless knit top, short shorts, slippers and a scarf at her throat, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a voice actor look — a short-sleeved knit top, knee-length trousers, slippers and a scarf at her throat, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a voice actor look — a long-sleeved knit top, long trousers, slippers and a scarf at her throat, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "성우",
+     "base": "nation_inn",
+     "place": "a far-future recording booth — a hanging microphone, a script stand, sound-damping wall panels and headphones on a hook",
+     "activity": "she is a voice actor sitting with her ankles crossed on a stool, waiting for the next take",
+     "preset": "ankles_sit",
+     "outfit": {
+      "bold": "a voice actor look fitted to her body — a fitted sleeveless knit top, short shorts, slippers and a scarf at her throat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a voice actor look — a short-sleeved knit top, knee-length trousers, slippers and a scarf at her throat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a voice actor look — a long-sleeved knit top, long trousers, slippers and a scarf at her throat, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
+     }
+    }
+   }
+  },
+  "조성": {
+   "root": {
+    "ko": "한밤의 반란을 맞받아 막았다 — 밤을 지키는 야간 경비원",
+    "from": "story"
+   },
+   "mode": "same_job",
+   "worlds": {
+    "samguk": {
+     "job_ko": "야간 경비원",
+     "base": "nation_square",
+     "place": "a Han-era warehouse at night — a guard booth with a lamp, a gate with a heavy lock, a clock on the wall and long shadows",
+     "activity": "she is a night watch guard walking her rounds with a lantern at her side",
+     "preset": "stride_prop",
+     "use": "sig_low",
+     "prop": "a hand lantern",
+     "outfit": {
+      "bold": "a night watch guard look fitted to her body — a fitted sleeveless guard vest over a cropped top, short shorts, a duty belt and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "moderate": "a night watch guard look — a short-sleeved guard shirt, knee-length shorts, a duty belt and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp",
+      "low": "a night watch guard look — a long-sleeved guard jacket, long trousers, a duty belt and boots, all cut as Han-era Chinese dress — cross-collared wraps, sashes, silk and hemp"
+     }
+    },
+    "fantasy": {
+     "job_ko": "야간 경비원",
+     "base": "nation_square",
+     "place": "a high-fantasy warehouse at night — a guard booth with a lamp, a gate with a heavy lock, a clock on the wall and long shadows",
+     "activity": "she is a night watch guard raising a flashlight-like lamp beside her shoulder to check a corner",
+     "preset": "raise_chest",
+     "use": "sig_raise",
+     "prop": "a small hand lamp",
+     "outfit": {
+      "bold": "a night watch guard look fitted to her body — a fitted sleeveless guard vest over a cropped top, short shorts, a duty belt and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "moderate": "a night watch guard look — a short-sleeved guard shirt, knee-length shorts, a duty belt and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps",
+      "low": "a night watch guard look — a long-sleeved guard jacket, long trousers, a duty belt and boots, all styled as high-fantasy dress — laced leather, embroidered cloth and metal clasps"
+     }
+    },
+    "mecha": {
+     "job_ko": "야간 경비원",
+     "base": "nation_square",
+     "place": "a far-future warehouse at night — a guard booth with a lamp, a gate with a heavy lock, a clock on the wall and long shadows",
+     "activity": "she is a night watch guard giving a thumbs-up at the locked gate",
+     "preset": "thumbs_waist",
+     "outfit": {
+      "bold": "a night watch guard look fitted to her body — a fitted sleeveless guard vest over a cropped top, short shorts, a duty belt and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "moderate": "a night watch guard look — a short-sleeved guard shirt, knee-length shorts, a duty belt and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim",
+      "low": "a night watch guard look — a long-sleeved guard jacket, long trousers, a duty belt and boots, all made as sleek far-future wear — smooth technical fabric, glossy panels and thin glowing trim"
      }
     }
    }

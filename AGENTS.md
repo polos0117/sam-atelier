@@ -11,7 +11,7 @@
 |---|---|
 | 이 문서 | 규칙과 자리 |
 | `DESIGN.md` | 이 공방의 길(천하 지도 → 진영 막사 → 장수)과 화면을 만들 때 지킬 것 — 새 화면 · 화면 고치기 전에 |
-| `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(294 — 게임 표 279 + 게임 표에 없는 공방 장수 15: 손휴, 2026-11-18 새 장수 1묶음 14명 · `extra` 칸) |
+| `data/sam-design.json` | 설계표. 세력(넷) · 역할(넷) · 장수(321 — 게임 표 279 + 게임 표에 없는 공방 장수 42: 손휴, 2026-11-18 새 장수 1묶음 14명 · 2묶음 27명 · `extra` 칸) |
 | `docs/DRAFT2_PLAN.md` · `data/draft2-generals.json` | 새 판 「삼국지 쟁탈전 · 전장」(Phaser, 만드는 중) 설계 · 전용 장수 자료(다듬은 능력치 · 갈래 · 군주 기질 — 옛 게임 · 그림 설계표와 따로). 연도 판의 **추가 명단**은 `data/draft2-roster.json`(2026-11-17 — 옛 게임 명단 `draft2-packs.json` 은 그대로 두고 그 위에 얹는다, 새 판과 천하 지도가 같이 읽는다 · 설계 1-4). 검사 `node tests/draft2-data.cjs` |
 | `IMAGE_RULES.md` | 그림 만들기 · 파일 이름 · 기록 · 올리기 — 그림 작업 전에 |
 | `docs/IMAGE_AUTOMATION.md` | GPT 세션이 그림을 채우는 길(AI 검수 뒤 묻지 않고 올린다) — 잠금(`tools/image-claim.cjs`) · 계획기 → 지시문 묶음(`tools/prompt-pack.cjs`) → 생성 → 검사 |
@@ -60,6 +60,13 @@
 5. **손으로** — 나오는 해는 `data/draft2-roster.json`(그 팩 `add` 끝에 한 줄씩 · why · src, 군주로 세울 장수는 `roles` 와 `lordAs`), 새 세력은 `data/draft2-factions.json`(열쇠는 첫 주인의 이름 · 도장은 성 글자, 겹치면 땅 이름 — 공손도 遼 · 색은 기존 색과 RGB 거리 70 이상), 성의 주인 · 우두머리 · 한 줄은 `data/tianxia.json`(확인 안 되는 해는 그대로 둔다) 뒤 `node tests/tianxia-data.cjs --write`. 새 도장 · 세력 글자는 `index.html` · `dex.html` 의 한자 글꼴 줄에(`node tests/fonts.cjs` 가 빠진 글자를 말해 준다). `rules.js` 를 고쳤으면 `draft2.html` · `index.html` 의 `?v=`.
 6. **검사** — `python -I -X utf8 tools/sam-design.py check` · `tools/sil-spread.py --check` · `tests/draft2-data` · `draft2-rules` · `tianxia-data` · `tianxia-core` · `fonts` · `look-spec` · `words` · `patch`, 화면은 `tianxia-screen` · `screen` · `draft2-screen`, 직업은 `node tools/casual-plan.cjs <이름> --world all --usage none --cosplay-usage none`(한 명에 20초쯤 — 세 세계 다 「90 ◆」). 검사가 장수 수 · 막사 인원을 박아 둔 줄(`tests/tianxia-core.cjs` 의 「195 유요 4명」 따위)은 그 묶음이 바꾼 만큼 고친다. 윈도우에서는 파이썬 출력이 cp949 라 `-X utf8` 을 붙이고, `draft2-rules` 는 `data/draft2-combos.json` · `data/draft2-packs.json` 의 작업 사본을 LF 로 바꿔 돌린 뒤 `git checkout --` 으로 되돌린다.
 7. `docs/PATCH.md` 맨 위에 한 칸(누구를 왜 · 능력치와 직업의 까닭 · 출처 · 뺀 사람) — 장수 수가 적힌 곳은 이 문서 첫 표와 `docs/DRAFT2_PLAN.md`.
+2묶음(2026-11-18, 27명 · `tools/batches/2026-11-18-add2.py`)에서 알게 된 것:
+- 위 · 촉 · 오 장수는 묶음 파일에 `fac`(wei · shu · wu)를 적고 `camp` 는 안 적는다. `CAREER` 는 옛 이력 표처럼 섬긴 차례로 여럿 적어도 된다(마지막이 군웅록의 세력 — 왕찬 `[유표, 조위]`).
+- 새 판 갈래는 역할에 매인다 — 모사 · 군사는 책사만, 내정관 · 외교관은 문관만, 이인은 둘 다(`tests/draft2-data` 가 막는다. 부 갈래는 자유).
+- 들고 쓰는 것이 없는 자세(`use` 없음)는 받침 장소를 가린다 — casual-plan 이 「자세 추천 X 가 바탕 장소 Y 에서 안 된다」 로 멈춘다. 이미 통한 짝: ankles_sit · inn / clasp_low · kneel_clasp · reach_shelf · study / edge_brace · harbor / hip_contra · thumbs_waist · wave_chest · square · workshop / step_pause · stairs. 소품을 드는 자세는 garden · field · market · kitchen · training · room 에서도 통했다. 옆모습 자세도 가린다 — counter_cup · chair_cross_prop 은 inn, table_lean_use · reach_shelf 는 study, lookback_raise 는 square · workshop · market, bench_fix 는 workshop · field(「X 의 자세가 Y 에서 안 된다」).
+- casual-plan 은 씨앗에 따라 가끔 끝나지 않는다(2묶음 81칸 가운데 여덟 칸이 첫 씨앗에서 멈췄다). `timeout` 은 fnm 아래의 node 를 못 죽이니, 40초 넘은 casual-plan node 를 PowerShell 로 끄는 감시를 곁에 두고 `--seed 1~4` 를 차례로 돌린다.
+- 같은 무리와의 겹침(세계별 실루엣 · 헤어 · 체형)은 손으로 찾기보다 한 번 끼운 뒤 스크립트로 같은 무리(군웅 camp, 263 사람은 그해 팩의 세력)를 훑어 덜 쓴 값으로 고르고, 그 값을 묶음 파일에 적은 뒤 네 파일을 `git checkout --` 하고 다시 끼우는 것이 빠르다.
+- 위키문헌 API 도 열 권쯤 받으면 429 — 그 뒤는 WebFetch 로 `https://zh.wikisource.org/wiki/三國志/卷NN` 쪽을 읽으면 된다. Git Bash 의 python 인라인(`-c`)은 한글이 되지만 heredoc 은 깨질 수 있어 스크래치 .py 파일로.
 
 ### 2. 세계 셋, 세계마다 다른 사람
 

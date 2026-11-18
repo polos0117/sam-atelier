@@ -40,7 +40,7 @@ have = {g['key'] for g in d['generals']}
 for s in S.G:
     if s['key'] in have:
         continue
-    g = {'key': s['key'], 'en': s['en'], 'faction': 'qun', 'role': s['role'], 'camp': s['camp'],
+    g = {'key': s['key'], 'en': s['en'], 'faction': s.get('fac', 'qun'), 'role': s['role'], 'camp': s.get('camp'),   # 위 · 촉 · 오 장수는 fac 를 적고 camp 는 없다(2묶음)
          'stats': dict(zip(('lead', 'war', 'int', 'pol'), s['stats'])), 'seal': s['seal'], 'lore': s['lore'],
          'designed': 'draft', 'design_by': 'claude', 'design_date': DATE}
     look = SD.auto_look(g)
@@ -54,9 +54,9 @@ for s in S.G:
         look['worlds'][w]['face'].update(lw)
     SD.fix_eye_clash(look)
     look['why'] = ('시안(claude %s) — %s에서 이름 설명 · 물건 · 인상(%s) · 표정(%s)을 잡았다. 말 · 짐승은 넣지 않았다. '
-                   '머리 색(%s) · 눈 색(%s)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. '
+                   '머리 색(%s) · 눈 색(%s)은 같은 묶음 %d명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. '
                    '체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look)%s.'
-                   % (DATE, s['fact'].split(' — ')[0], s['imp_ko'], s['expr_ko'], s['hair_ko'].replace(' 머리', ''), s['eye_ko'].replace(' 눈', ''),
+                   % (DATE, s['fact'].split(' — ')[0], s['imp_ko'], s['expr_ko'], s['hair_ko'].replace(' 머리', ''), s['eye_ko'].replace(' 눈', ''), len(S.G),
                       ' 에서 겹친 자리만 바꿨다' if s['key'] in getattr(S, 'WORLD_FIX', {}) or s['key'] in BODY else ' 그대로'))
     g['summary'] = {'ko': '%s — %s · %s · %s · %s · %s · %s' % (s['tag'], s['bits'], s['hair_ko'], s['eye_ko'], s['imp_ko'], s['expr_ko'], BODY_KO[look['silhouette']['body']])}
     g['title'] = {'en': s['title']}
@@ -68,6 +68,8 @@ for s in S.G:
         g['extra']['career'] = S.CAREER[s['key']]
     if s['key'] in getattr(S, 'SIL', {}):
         g['worlds'] = {w: {'sil': v} for w, v in zip(('samguk', 'fantasy', 'mecha'), S.SIL[s['key']])}
+    if g['camp'] is None:
+        del g['camp']
     insert_after(d['generals'], lambda x: x['key'], s['after'], g)
 SD.save(d)
 
