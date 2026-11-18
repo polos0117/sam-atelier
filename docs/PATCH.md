@@ -1,5 +1,9 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-18 · claude · 세계컷 GPT 주문 — 몸 방향 고정(3/4)
+- 사용자 2026-11-18 관은병 메카 「자세도 정면을 보는 자세로만 나오던데 … 우리는 약간 옆으로 튼 자세잖아」 → 「추천대로해줘」. 주문엔 자세가 자유였고 몸 방향 말이 없었으며, B안의 「steady pose」 가 정면으로 밀었다(4번 「Stable frontal stance」).
+- WORLD_FREE.pose — 「Pose (body direction fixed — ours)」: 우리 설계와 같은 몸 방향(살짝 틀어 약 3/4, 얼굴은 보는 쪽, 정면으로 딱 서지 않게)만 고정, 다리 · 손 · 몸짓은 맡은 쪽. B안 문구는 「역할이 드러나는 자세, 몸 방향은 Pose 줄대로」.
+
 ## 2026-11-18 · claude · 세계컷 GPT 주문에 화풍 덧줄(피부 마감 · 빛 · Avoid)
 - 사용자 2026-11-18 관은병 메카 GPT 설계 3 · 4 「화풍까지 건든거 같아」 → 「응 고쳐주고」. GPT 는 주문의 Style 줄을 그대로 옮겼다 — 주문(buildWorldFree)이 화풍 문단만 싣고(shortStyle) 화풍 판의 덧줄(worldStyleAfter 피부 마감 · worldLight 빛 · avoid)을 빼서, 물광 피부 · 림 라이트 없이 나왔고 B안은 장면 빛을 스스로 「planetary daylight」 로 정했다.
 - Style (fixed) 뒤에 Skin finish (fixed — ours) · Light (fixed — ours — 배경은 바뀌어도 그녀를 비추는 빛은 그대로) · Avoid (fixed) — 덧줄이 있는 판만(삼국지 기본 kr_drawn_rim_dewy, 원소 kr_promo_hikey_oil · mmorpg_cg · bright_2d_oil).
