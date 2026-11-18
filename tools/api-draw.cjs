@@ -32,6 +32,8 @@ const D = JSON.parse(read('data/sam-design.json')), S = JSON.parse(read('data/st
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json'));
 const GC = JSON.parse(read('data/game-cosplay.json')); ctx.window.AtelierGameCosplay = GC;   /* 게임 코스프레 목록(2026-11-15) */
 const BASE = process.env.API_DRAW_BASE || 'https://api.openai.com/v1';   /* 검사(tests/api-draw.cjs)는 가짜 서버로 */
+/* 비슷한 등록작(세계컷 GPT 설계안 3단계, 2026-11-18) — 주문에 「이것들과도 다르게」. 그림 저장소가 없으면 빈 목록 */
+const NEAR = (card, world) => { try { return require('./design-near.cjs').near(card, world); } catch (e) { return []; } };
 const SIZE = '1024x1536', FIXED = { overall_intensity: 'strong', skin_exposure: 'bold' };
 
 function parse(argv) {
@@ -139,8 +141,8 @@ async function cmdFree(o) {
   const text = fs.readFileSync(o.text, 'utf8').trim(), name = world + '-' + (o.tag || 'gpt1'), model = o.model || styleModel(o.style);
   const gen = await draw({ model, quality: o.quality, prompt: text, out, name });
   if (gen.blocked) return [name];
-  const rec = { ...P.record(D, S, card, world, { style: o.style }), prompt: P.buildWorldFree(D, S, card, world, { style: o.style }) };
-  writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', plan: /gpt2$/.test(name) ? 'B' : 'A', free_prompt: text, free_by: o.by || 'claude' } });   /* plan — 세계컷 GPT 설계안 A(목록 실루엣) · B(역할 출발, 목록 밖도 — 2026-11-18) */
+  const rec = { ...P.record(D, S, card, world, { style: o.style }), prompt: P.buildWorldFree(D, S, card, world, { style: o.style, near: NEAR(card, world) }) };
+  writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', plan: /gpt2$/.test(name) ? 'B' : 'A', summary: ((/^SUMMARY:\s*(.+)$/m.exec(text) || [])[1] || '').trim() || undefined, free_prompt: text, free_by: o.by || 'claude' } });   /* plan — 세계컷 GPT 설계안 A(목록 실루엣) · B(역할 출발, 목록 밖도 — 2026-11-18) */
   return [];
 }
 /* 참고 그림이 GPT 임의 설계인가(2026-11-15 — 일상컷 체형 줄을 그림의 몸만으로). --ref-free 가 있으면 그것, 없으면 참고 png 옆 _record.json 의 generation.design,
@@ -258,7 +260,7 @@ async function main() {
   const [cmd, ...rest] = process.argv.slice(2), o = parse(rest);
   if (!S.styles[o.style]) throw new Error('화풍이 없다: ' + o.style);
   if (S.styles[o.style].retired && !o.force) throw new Error('내린 화풍이다(' + S.styles[o.style].retired + '): ' + o.style + ' — 그래도 그리려면 --force');
-  if (cmd === 'brief') { process.stdout.write(P.buildWorldFree(D, S, o._[0], o._[1], { style: o.style }) + '\n'); return 0; }
+  if (cmd === 'brief') { process.stdout.write(P.buildWorldFree(D, S, o._[0], o._[1], { style: o.style, near: NEAR(o._[0], o._[1]) }) + '\n'); return 0; }
   if (cmd === 'usage') { cmdUsage(o); return 0; }
   if (cmd === 'sheet') { cmdSheet(o); return 0; }
   if (cmd === 'stage') { cmdStage(o); return 0; }

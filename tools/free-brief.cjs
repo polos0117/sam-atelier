@@ -42,7 +42,7 @@ function main(a) {
   const put = (name, text) => { const f = path.join(dir, name); if (fs.existsSync(f) && !o.force) { kept.push(name); return; } fs.writeFileSync(f, text.trim() + '\n'); wrote.push(name); };
   for (const w of P.worldsOf(D, o.card)) {
     const slot = w + '.' + o.style;
-    put(slot + '-brief.txt', P.buildWorldFree(D, S, o.card, w, { style: o.style }) + '\n\n' + WORLD_ASK);
+    put(slot + '-brief.txt', P.buildWorldFree(D, S, o.card, w, { style: o.style, near: require('./design-near.cjs').near(o.card, w) }) + '\n\n' + WORLD_ASK);
     asks.push('- `' + slot + '-brief.txt` → 서로 확실히 다른 두 설계를 `' + slot + '-gpt1.txt` · `' + slot + '-gpt2.txt`');
   }
   for (const pf of o.plans) {

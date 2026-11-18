@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-18 · claude · 세계컷 GPT 설계 3단계 — 설계 요약 기록 · 비슷한 등록작 피하기
+- 사용자 2026-11-18 「응 허용하고 이순서대로 진행해줘」 — 세계컷 GPT 설계안 3단계: 설계 요약 기록 · 비슷한 등록작 피하기.
+- 주문(WORLD_FREE / FREE_DESIGN .summary)에 「지시문 첫 줄 SUMMARY: 얼굴 윤곽 · 눈매와 눈썹 · 표정 · 머리 외곽 · 의상(장갑) 큰 형태」, 기록 generation.summary(묶음 안내).
+- tools/design-near.cjs — 이 장수 · 세계의 우리 설계(lib/prompt-sam.js designKeys · designSummary — 얼굴형 · 눈 · 눈썹 · 표정 · 머리 · 실루엣)와 등록된 다른 장수의 그 세계 대표컷을 견준다(우리 설계는 같은 칸 수, GPT 설계는 기록 요약 낱말 겹침), 점수 3 이상 셋을 주문의 「Registered designs closest to ours」 줄로. tools/api-draw.cjs(brief · free — free 는 SUMMARY 줄을 generation.summary 로) · free-brief.cjs · prompt-pack.cjs 가 넣는다. tests/design-near.cjs.
+
 ## 2026-11-18 · claude · 세계컷 GPT 설계 2단계 — B안(역할 · 기능 출발, 목록 밖 외곽 허용)
 - 사용자 2026-11-18 「응 허용하고 이순서대로 진행해줘」 — 세계컷 GPT 설계안 2단계: 둘째 GPT 설계(-gpt2)는 B안 — 목록 밖 외곽 허용.
 - lib/prompt-spec.js WORLD_FREE.second → 「Costume — Design B」: 지위(rankWord — 군주 · 무장 · 책사 · 문관)와 이 세계에서 맡은 역할을 먼저, 그에 맞는 외곽(목록 밖도), 어깨 너비 · 허리선 · 하체 외곽 가운데 하나는 A안과 다르게, 역할은 의상 구조 · 무기 · 장비 배치 · 배경 건축이나 빛 단서 하나로, 메카는 단단한 전신 장갑 안에서 견갑 · 허리 갑편 · 하체 외곽을 새로(secondMecha). free 줄 — 의상은 고정이 아니라 A · B 안을 따른다.
