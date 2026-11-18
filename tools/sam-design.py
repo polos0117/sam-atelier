@@ -71,6 +71,10 @@ ROMAN = {
  '뇌박': 'Lei Bo', '진란': 'Chen Lan', '염상': 'Yan Xiang', '유훈': 'Liu Xun', '성공영': 'Chenggong Ying', '마휴': 'Ma Xiu', '마철': 'Ma Tie', '양추': 'Yang Qiu', '성의': 'Cheng Yi',
  '유언': 'Liu Yan', '냉포': 'Leng Bao', '방희': 'Pang Xi', '오반': 'Wu Ban', '유종': 'Liu Cong', '왕찬': 'Wang Can', '한숭': 'Han Song', '유반': 'Liu Pan', '학맹': 'Hao Meng',
  '조성': 'Cao Xing', '조표': 'Cao Bao', '제갈상': 'Zhuge Shang', '황호': 'Huang Hao', '초주': 'Qiao Zhou', '복양흥': 'Puyang Xing', '시적': 'Shi Ji', '위관': 'Wei Guan', '사마망': 'Sima Wang',
+ # 새 장수 3묶음 앞쪽(2026-11-18 — 위 · 오, 연의의 하후은 · 하후걸 포함)
+ '조상': 'Cao Shuang', '조방': 'Cao Fang', '조모': 'Cao Mao', '하후상': 'Xiahou Shang', '하후무': 'Xiahou Mao', '하후은': 'Xiahou En', '하후걸': 'Xiahou Jie', '주령': 'Zhu Ling',
+ '왕쌍': 'Wang Shuang', '차주': 'Che Zhou', '장기': 'Zhang Ji', '양부': 'Yang Fu', '양수': 'Yang Xiu', '최염': 'Cui Yan', '모개': 'Mao Jie', '변씨': 'Lady Bian', '예형': 'Mi Heng',
+ '손익': 'Sun Yi', '손소': 'Sun Shao', '육적': 'Lu Ji', '설종': 'Xue Zong', '손량': 'Sun Liang', '보연사': 'Bu Lianshi', '손노반': 'Sun Luban',
 }
 # 남만 — 피부 톤을 남방으로 기운다(외형 자동 돌림만)
 SOUTH = {'올돌골', '타사대왕', '맹우', '맹획', '축융'}
