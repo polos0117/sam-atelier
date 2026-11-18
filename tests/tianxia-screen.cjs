@@ -13,7 +13,7 @@ const server = http.createServer((q, s) => {
 const ESM = { 'https://esm.sh/preact@10.24.3': 'preact/dist/preact.mjs', 'https://esm.sh/preact@10.24.3/hooks': 'preact/hooks/dist/hooks.mjs' };
 const J = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const T = J('data/tianxia.json'), design = J('data/sam-design.json'), IMGDOC = J('data/img.json');
-const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs: J('data/draft2-packs.json'), factions: J('data/draft2-factions.json'), combos: J('data/draft2-combos.json'), tianxia: T, roster: J('data/draft2-roster.json') });
+const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs: J('data/draft2-packs.json'), factions: J('data/draft2-factions.json'), combos: J('data/draft2-combos.json'), tianxia: T, roster: J('data/draft2-roster.json'), careerFix: J('data/draft2-career-fix.json') });
 const TODAY = '2026-11-17';
 /* 그 판도 그 세력에 새 그림(오늘 · 어제 등록)이 있나 — 화면의 범례 점과 맞춰 본다(확인 기록이 빈 브라우저) */
 const hasNew = (era, f) => C.members(doc, era, f).some(m => C.isNew(C.lastAdded(IMGDOC.img[m.name], IMGDOC.added), TODAY, ''));

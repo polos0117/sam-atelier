@@ -4,8 +4,13 @@
    Run: node tests/tianxia-core.cjs */
 const fs = require('fs'), path = require('path'), assert = require('assert');
 const ROOT = path.join(__dirname, '..'), J = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
-const design = J('data/sam-design.json'), packs = J('data/draft2-packs.json'), factions = J('data/draft2-factions.json'), combos = J('data/draft2-combos.json'), tianxia = J('data/tianxia.json'), roster = J('data/draft2-roster.json');
-const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs, factions, combos, tianxia, roster });
+const design = J('data/sam-design.json'), packs = J('data/draft2-packs.json'), factions = J('data/draft2-factions.json'), combos = J('data/draft2-combos.json'), tianxia = J('data/tianxia.json'), roster = J('data/draft2-roster.json'), careerFix = J('data/draft2-career-fix.json');
+const C = require('../lib/tianxia-core.js'), doc = C.make({ design, packs, factions, combos, tianxia, roster, careerFix });
+// 군웅록 이력 고침 표(2026-11-18 「22명만 고쳐」) — 막사가 고친 대표 세력으로: 후성 · 송헌 · 위속은 여포 → 조위, 유요는 제 세력(곡아 근처 성이 모두 동오라 땅 없이 떠도는 세력), 한복은 한조정
+for (const n of ['후성', '송헌', '위속', '고람', '염포', '당자']) assert.equal(C.factionOf(doc, 'mx', n), '조위', n);
+assert.equal(C.factionOf(doc, 'mx', '한복'), '한조정'); assert.equal(C.factionOf(doc, 'mx', '유요'), '유요'); assert.equal(C.chiefOf(doc, 'mx', '유요'), '유요');
+assert(C.factionsOf(doc, 'mx').find(f => f.key === '유요').landless, '군웅록 유요 — 떠도는 세력');
+assert(!C.members(doc, 'mx', '여포').some(m => ['후성', '송헌', '위속'].includes(m.name)), '군웅록 여포 막사 — 후성 · 송헌 · 위속이 빠진다');
 
 assert.deepEqual(C.ERAS, ['mx', 'w194', 'gd200', 'jb208', 'end263']);
 // 군웅록 — 설계표의 장수 모두 어느 세력이든(수는 설계표에서 센다 — 장수가 또 늘어난다)
@@ -89,7 +94,7 @@ assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(do
   assert.equal(C.ownerOf(doc, 'jb208', 'changsha'), '조위'); assert.equal(C.chiefOf(doc, 'jb208', '조위'), '조조', '208 조위 — 조비 · 한현이 들어와도 가운데는 조조');
   assert.equal(C.ownerOf(doc, 'gd200', 'jiaozhi'), '교주'); assert.equal(C.factionOf(doc, 'end263', '종예'), '촉한');
   // 추가 명단을 못 받았을 때 — 옛 명단만으로 지금처럼 돈다
-  const old = C.make({ design, packs, factions, combos, tianxia });
+  const old = C.make({ design, packs, factions, combos, tianxia, careerFix });   // 고침 표는 늘 얹힌다 — 추가 명단만 뺀다
   assert.equal(C.factionOf(old, 'w194', '유장'), null); assert.equal(C.factionsOf(old, 'w194').reduce((s, f) => s + f.count, 0), Object.keys(packs.packs.w194.facMap).length);
   assert.equal(C.factionsOf(old, 'mx').length, C.factionsOf(doc, 'mx').length, '군웅록은 추가 명단과 무관'); }
 // 결의

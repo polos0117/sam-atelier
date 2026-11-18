@@ -96,4 +96,13 @@ for (const f of ['유요', '왕랑']) assert(F.factions[f] && !F.factions[f].maj
 assert(F.factions['유요'].h === '劉' && F.factions['왕랑'].h === '王', '유요 劉 · 왕랑 王(사용자 「성씨로 해줘」)');
 assert(RO.packs.jb208.add.some(a => a.name === '한현' && a.f === '조위') && !RO.packs.jb208.add.some(a => a.name === '황충'), '208 — 한현은 넣고 황충은 뺀다');
 assert(['w194', 'gd200'].every(pk => RO.packs[pk].add.some(a => a.name === '주창')), '주창');
-console.log('draft2-data ok — 추가 명단', roN, '명 ·', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length, '· 전장', BF.fields.length);
+/* 군웅록 이력 고침 표 — data/draft2-career-fix.json(2026-11-18 「22명만 고쳐」): 설계표의 장수, from 은 옛 표(packs.mx.career) 그대로(옛 표가 바뀌면 여기서 걸린다), to 는 세력 표의 열쇠, 근거 · 출처 */
+const XF = JSON.parse(fs.readFileSync(path.join(root, 'data/draft2-career-fix.json'), 'utf8'));
+assert(/22명만 고쳐/.test(XF.about), '고침 표 머리 — 사용자의 말');
+for (const [k, x] of Object.entries(XF.fix)) {
+  assert(role[k], `고침 ${k}: 설계표에 없는 장수`);
+  assert.deepStrictEqual(x.from, P.packs.mx.career[k], `고침 ${k}: from 이 옛 이력과 다르다`);
+  assert(x.to.length && x.to.every(f => F.factions[f]) && x.to.join() !== x.from.join(), `고침 ${k}: to 는 세력 표의 열쇠 · 옛 것과 달라야`);
+  assert(x.why && /^https?:\/\//.test(x.src), `고침 ${k}: 근거 · 출처`);
+}
+console.log('draft2-data ok — 추가 명단', roN, '명 · 이력 고침', Object.keys(XF.fix).length, '명 ·', D.generals.length, '명 · lordAs', D.generals.filter(g => g.lordAs).length, '· 세력', Object.keys(F.factions).length, '· 배신', B.betray.length, '· 전장', BF.fields.length);

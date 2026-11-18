@@ -33,8 +33,14 @@ const doTao = CB.combos.find(c => c.n === '도원결의');
 ok(doTao && doTao.t[3] === 90 && doTao.m.join() === '유비,관우,장비', '도원결의 3인 90');
 
 /* ── 자료 → 카드 ── */
-const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn, BF = J('data/draft2-battlefields.json'), RO = J('data/draft2-roster.json');
-const db = R.buildDB(GN, S, CB, PK, FC, BD, BF, RO), mx = R.view(db, 'mx');
+const FC = J('data/draft2-factions.json'), BD = J('data/draft2-bonds.json'), SY = FC.cohesion.syn, BF = J('data/draft2-battlefields.json'), RO = J('data/draft2-roster.json'), XF = J('data/draft2-career-fix.json');
+const db = R.buildDB(GN, S, CB, PK, FC, BD, BF, RO, XF), mx = R.view(db, 'mx');
+/* 군웅록 이력 고침 표(data/draft2-career-fix.json, 2026-11-18 「22명만 고쳐」) — 옛 표는 그대로, 새 판은 고친 이력으로 */
+ok(R.facsOf(mx, '우번').join() === '왕랑,동오' && R.facOf(mx, '후성') === '조위' && R.facOf(mx, '고람') === '조위' && R.facOf(mx, '유요') === '유요' && R.facOf(mx, '한복') === '한조정'
+  && R.facsOf(mx, '장료').join() === '한조정,동탁,여포,조위' && PK.packs.mx.career['우번'].join() === '동오', '이력 고침 — 우번 [왕랑, 동오] · 후성 · 고람 → 조위 · 유요 → 유요 · 한복 → 한조정(옛 표는 그대로)');
+ok(R.facsOf(mx, '관우').join() === '조위,촉한' && R.facsOf(mx, '문호').join() === '동오,조위' && R.evaluate(mx, ['관우', '유비']).rows.some(r => r.kind === 'syn' && r.fac === '촉한' && /2인/.test(r.label)), '이력 고침 — 같은 세력이 두 번이면 마지막 자리 하나(관우 촉한을 두 번 세지 않는다)');
+ok(mx.facInfo['유요'] && mx.facInfo['왕랑'] && mx.facInfo['유요'].c === FC.factions['유요'].c && !R.isMajor(mx, '유요') && !PK.packs.mx.factions['유요'], '이력 고침 — 군웅록 팩에 없는 세력 유요 · 왕랑도 세력 표의 색으로');
+ok(R.facOf(R.view(R.buildDB(GN, S, CB, PK, FC, BD, BF, RO), 'mx'), '후성') === '여포', '고침 표 없이 — 옛 이력 그대로');
 ok(db.mode === 'base' && mx.mode === 'mx' && R.view(mx, 'base') === db && R.view(db, 'mx') === mx, '진영 셈 view');
 ok(db.list.length === S.generals.length && db.list.length >= 280, '장수 수는 설계표와 같다 — ' + db.list.length);
 ok(R.facOf(mx, '손휴') === '동오' && R.inScope(mx, '손휴') && R.inScope(db, '손휴') && R.facOf(db, '손휴') === '동오' && R.inScope(R.view(db, 'end263'), '손휴') && !R.inScope(R.view(db, 'jb208'), '손휴'), '손휴(이력 없는 공방 장수) — 군웅록 · 본편은 동오, 연도는 263 에만');
@@ -225,8 +231,9 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
     && y208.by['장연'].cat === 'general' && db.by['왕랑'].role === 'official' && mx.by['이각'].cat === 'general', '추가 명단 roles — 195 이각 · 장연 · 왕랑, 200 장연이 그해에만 군주(lordAs)');
   ok(y194.by['여포'].cat === 'lord' && y208.by['마초'].cat === 'lord', '옛 roleMap 군주는 그대로');
   ok(!R.inScope(y208, '황충') && R.inScope(y208, '한현') && R.evaluate(y194, ['유장', '오의', '장임', '엄안']).rows.some(r => r.kind === 'syn' && r.fac === '유장군' && /4인/.test(r.label)), '208 황충은 없다 · 195 유장 결속');
-  /* 추가 명단을 못 받았을 때(파일 없음) — 옛 명단만으로 돈다. 군웅록 · 위촉오+군웅은 추가 명단과 무관(같은 씨앗이면 같은 판) */
-  const db0 = R.buildDB(GN, S, CB, PK, FC, BD, BF);
+  /* 추가 명단을 못 받았을 때(파일 없음) — 옛 명단만으로 돈다. 군웅록 · 위촉오+군웅은 추가 명단과 무관(같은 씨앗이면 같은 판).
+     이력 고침 표는 추가 명단과 달리 늘 얹히는 것이라(빠지면 사실이 틀린 판) 둘 다 얹고 추가 명단만 빼서 견준다(2026-11-18) */
+  const db0 = R.buildDB(GN, S, CB, PK, FC, BD, BF, undefined, XF);
   const run = (d, fmode, seed) => { const s2 = R.newGame(d, { keys: d.list.map(c => c.key), seed, lv: 2, players: 3, fmode }), vv = R.view(d, fmode); let g = 0;
     while (s2.phase === 'draft' && g++ < 400) { const seat = R.turn(s2); if (!seat) { R.endRound(vv, s2); continue; } R.ensureChoices(vv, s2, seat); R.aiAct(vv, s2, seat); }
     return JSON.stringify([s2.mine, s2.foe, s2.foe2, s2.aiFac, s2.field, s2.phase]); };
