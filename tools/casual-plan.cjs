@@ -315,7 +315,7 @@ function lean(r, list, count, key = x => x, factor = () => 1) {
 /* 소품 동작 무게(2026-11-18 행동 단계 — 사용자 「F부터 진행해줘」) — 덜 쓴 소품(제곱) × 덜 쓴 동작. 준비 · 하는 중 · 마무리 단계 동작(stage)은 조금 더,
    단계 없이 그냥 들고 있는 동작(hold)은 조금 덜 — 소품이 달라도 늘 「들고 서 있기」 로 보였다 */
 function useWeight(k, n, U) { const u = C2.use(T2, k); return 1 / Math.pow(1 + n(u.prop), 2) / (1 + ((((U && U.use) || {})[k]) || 0)) * (u.stage ? 1.3 : u.kind === 'hold' ? 0.8 : 1); }
-const EMPTY_USAGE = () => ({ prop: {}, use: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {}, ofam: {}, path: {} });
+const EMPTY_USAGE = () => ({ prop: {}, use: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {}, ofam: {}, path: {}, time: {}, light: {}, weather: {} });
 const usageOf0 = u => (u && (u.place || u.prop || u.preset)) ? { ...EMPTY_USAGE(), ...u } : { ...EMPTY_USAGE(), prop: u || {} };
 /* 새로 더한 옷 계열(쓴 횟수 0)은 다른 계열의 가운데 값에서 시작한다 — 안 그러면 「안 쓴 쪽 먼저」 무게로 모든 묶음에 들어갔다(2026-11-03 동탄룩 72묶음 중 72) */
 const FAMS = (tree.outfits || []).map(o => o.key);
@@ -560,12 +560,16 @@ const situAtPlace = (k, c) => C2.situOk(T2, c, by(T.CASUAL.situations, k));   /*
    조건은 표 ambience(시간대는 하늘 · 창이 있는 곳, 등불은 실내, 밤 고정 장소는 밤 시간대만, 날씨는 하늘 · 창이 있는 곳 …)와 모듈 C2.ambience 가 쥔다.
    묶음 안에서 덜 쓴 값부터. 장면 고르기와 따로 된 난수라 옛 씨앗의 장면(장소 · 옷 · 자세)은 그대로다 */
 const AMBIENT = ['time', 'weather', 'hair', 'light', 'spot', 'depth', 'view'];
-function ambient(cuts, old = [], ra = Math.random) {
+function ambient(cuts, old = [], ra = Math.random, usage = null) {
+  /* 전체 기록 비율(2026-11-18 사용자 A) — 그림 저장소의 다른 장수 · 카드 컷에서 센 횟수를 0 ~ 1 로(가장 많이 쓴 값이 1). 묶음 안 횟수 다음으로 본다 */
+  const U0 = usage ? usageOf(usage) : null, global = {};
+  if (U0) for (const k of ['time', 'light', 'weather']) { const m = U0[k] || {}, top = Math.max(1, ...Object.values(m)); global[k] = Object.fromEntries(Object.entries(m).map(([x, n]) => [x, n / top])); }
   const used = {}, note = c => [...AMBIENT, 'camera'].forEach(k => { if (c[k]) { used[k] = used[k] || {}; used[k][c[k]] = (used[k][c[k]] || 0) + 1; } });
   old.filter(c => !c.sfree).forEach(note);
-  const opts = { times: (T.CASUAL.times || []).map(x => x.key), hairs: (T.CASUAL.hairs || []).map(x => x.key), used };
+  const opts = { times: (T.CASUAL.times || []).map(x => x.key), hairs: (T.CASUAL.hairs || []).map(x => x.key), used, global };
   for (const c of cuts) {
-    if (c.sfree || c.ofree) continue;   /* 자유 설계 칸은 맡은 쪽이 짓는다 */
+    /* 자유 설계 칸은 맡은 쪽이 짓는다 — 시간대만 준다(2026-11-18 사용자 B — 비면 늘 따뜻한 밤 실내로 그렸다) */
+    if (c.sfree || c.ofree) { const a = C2.ambience(T2, c, ra, opts); if (a.time) { c.time = a.time; note({ time: a.time }); } else delete c.time; continue; }
     Object.assign(c, C2.ambience(T2, c, ra, opts));
     /* 역광 실루엣 상황은 빛이 뒤에서 — 밤 시간대는 뗀다 */
     if (c.situ === 'sheer_light') { c.light = 'back'; if (['night', 'neon', 'lamplight'].includes(c.time)) c.time = ''; if (c.weather === 'night_snow') c.weather = ''; }
@@ -743,7 +747,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     /* 묶음 규칙(자유 설계 칸 전) → 색 · 데니어 · 상황 · 갈래 자유를 나눈 뒤 다시 한 번 */
     if (cuts.length === slots.length && !check(cuts, card, old, others).filter(e => !/^갈래 자유 컷이 없다|^게임 코스프레 컷이 없다/.test(e)).length) {
       const real = cuts.filter(c => !c.ofree);
-      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); shadeize(real, old, P.hairHue(D, card.key, card.world || ''), shadeUsed || {}, rng((seed ^ mix ^ 0x4cf5ad43) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0));
+      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); shadeize(real, old, P.hairHue(D, card.key, card.world || ''), shadeUsed || {}, rng((seed ^ mix ^ 0x4cf5ad43) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0), usage);
       if (!freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0), others) || check(cuts, card, old, others).length) { cuts.forEach(c => { delete c._fam; }); continue; }
       /* 상황 노출 늘 한 장(2026-11-16 「늘 1장은 나오게」) — 일반 컷이 있는데 맞는 옷이 없어 못 얹었으면 다른 묶음으로(그 세계에 이미 상황 컷이 있으면 그대로) */
       if (SITU_RATE >= 1 && cuts.some(c => !c.ofree && !requiredType(c) && !sigProp(c)) && !old.some(c => c.situ && !c.ofree) && !cuts.some(c => c.situ && !c.ofree)) { cuts.forEach(c => { delete c._fam; }); continue; }
@@ -818,6 +822,7 @@ function sceneUsage(dirs, skip) {
       if (!sc || (sc.ofree && 'ofreeRecent' in sc)) continue;   /* 자유 설계 컷(2026-11-11 꼴)의 장면 값은 그림자 — 그리지 않았다 */
       const u = C2.use(T2, sc.use);
       if (u && u.prop !== 'signature') { add(out.prop, u.prop); add(out.use, sc.use); }
+      add(out.time, sc.time); add(out.light, sc.light); add(out.weather, sc.weather);   /* 시간대 · 빛 · 날씨(2026-11-18 A — 전체 기록 비율) */
       add(out.place, sc.place); add(out.item, sc.item); add(out.preset, sc.preset); add(out.posture, sc.posture); add(out.expr, sc.expr); add(out.ofam, sc.ofam);
       if (sc.preset && sc.place) add(out.path, pathKey(sc.preset, sc.place));
     }

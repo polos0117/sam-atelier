@@ -12514,7 +12514,7 @@
   }
  ],
  "ambience": {
-  "note": "계획기가 시간대 · 날씨 · 머리 매무새 · 빛을 고를 때의 조건(lib/casual-tree-v2.js ambience). times: 그 시간대가 되는 장소 특징. 밤 고정 장소(night)는 night_times 만. weather_needs_any: 날씨는 하늘 · 창이 있는 곳만. weather_times: 그 날씨와 같이 되는 시간대. hair: 머리 매무새의 조건",
+  "note": "계획기가 시간대 · 날씨 · 머리 매무새 · 빛을 고를 때의 조건(lib/casual-tree-v2.js ambience). times: 그 시간대가 되는 장소 특징. 밤 고정 장소(night)는 night_times 만. weather_needs_any: 날씨는 하늘 · 창이 있는 곳만. weather_times: 그 날씨와 같이 되는 시간대. hair: 머리 매무새의 조건 looks: 그 시간대의 빛이 장소 특징 · 날씨에 따라 어떻게 보이나(2026-11-18 — 첫 맞는 줄이 시간대 줄 뒤에 붙는다). 시간대는 늘 고르고, 덜 쓴 값은 묶음 + 전체 기록 비율로.",
   "times": {
    "morning": {
     "needs_any": [
@@ -12558,6 +12558,38 @@
     "needs": [
      "indoor"
     ]
+   },
+   "dawn": {
+    "needs_any": [
+     "sky",
+     "window"
+    ]
+   },
+   "forenoon": {
+    "needs_any": [
+     "sky",
+     "window"
+    ]
+   },
+   "overcast": {
+    "needs_any": [
+     "sky",
+     "window"
+    ]
+   },
+   "day_indoor": {
+    "needs": [
+     "indoor"
+    ]
+   },
+   "fluorescent": {
+    "needs": [
+     "indoor"
+    ],
+    "eras": [
+     "now",
+     "heritage"
+    ]
    }
   },
   "night_times": [
@@ -12571,7 +12603,9 @@
   ],
   "weather_times": {
    "fog": [
-    "morning"
+    "morning",
+    "dawn",
+    "overcast"
    ],
    "night_snow": [
     "night",
@@ -12579,29 +12613,39 @@
    ],
    "summer": [
     "noon",
-    "golden"
+    "golden",
+    "forenoon"
    ],
    "rain": [
     "morning",
     "noon",
     "dusk",
     "night",
-    "lamplight"
+    "lamplight",
+    "overcast",
+    "forenoon"
    ],
    "snow": [
     "morning",
     "noon",
-    "dusk"
+    "dusk",
+    "dawn",
+    "overcast",
+    "forenoon"
    ],
    "autumn": [
     "morning",
     "noon",
-    "golden"
+    "golden",
+    "forenoon",
+    "overcast"
    ],
    "spring": [
     "morning",
     "noon",
-    "golden"
+    "golden",
+    "forenoon",
+    "dawn"
    ]
   },
   "hair": {
@@ -12621,7 +12665,185 @@
      "sky"
     ]
    }
-  }
+  },
+  "looks": [
+   {
+    "times": [
+     "morning",
+     "forenoon",
+     "noon",
+     "overcast",
+     "dusk",
+     "golden"
+    ],
+    "weather": [
+     "rain"
+    ],
+    "has_any": [
+     "sky"
+    ],
+    "ko": "비에 젖은 바닥 반사",
+    "en": "the rain-wet ground mirroring the light around her"
+   },
+   {
+    "times": [
+     "noon",
+     "forenoon",
+     "golden"
+    ],
+    "has_any": [
+     "water",
+     "shallow_water",
+     "deep_water"
+    ],
+    "ko": "물에서 튀는 빛",
+    "en": "light glittering off the water, dappling her skin"
+   },
+   {
+    "times": [
+     "dawn"
+    ],
+    "has_any": [
+     "window"
+    ],
+    "ko": "새벽 창빛",
+    "en": "the first pale light at the window, the room still dim"
+   },
+   {
+    "times": [
+     "dawn"
+    ],
+    "has_any": [
+     "sky"
+    ],
+    "ko": "새벽 하늘",
+    "en": "a pale lilac sky, mist low on the ground"
+   },
+   {
+    "times": [
+     "morning",
+     "forenoon"
+    ],
+    "has_any": [
+     "window"
+    ],
+    "ko": "아침 창빛",
+    "en": "morning light slanting through the window across the floor"
+   },
+   {
+    "times": [
+     "morning",
+     "forenoon"
+    ],
+    "has_any": [
+     "sky"
+    ],
+    "ko": "아침 바깥빛",
+    "en": "fresh low sunlight, long cool shadows"
+   },
+   {
+    "times": [
+     "noon"
+    ],
+    "has_any": [
+     "sky"
+    ],
+    "ko": "한낮 볕",
+    "en": "hard bright sun, crisp short shadows on the ground"
+   },
+   {
+    "times": [
+     "noon"
+    ],
+    "has_any": [
+     "window"
+    ],
+    "ko": "한낮 창가",
+    "en": "a bright square of sunlight from the window on the floor"
+   },
+   {
+    "times": [
+     "overcast"
+    ],
+    "has_any": [
+     "sky",
+     "window"
+    ],
+    "ko": "흐린 빛",
+    "en": "soft even light, colours calm, no hard shadows"
+   },
+   {
+    "times": [
+     "golden"
+    ],
+    "has_any": [
+     "window"
+    ],
+    "ko": "해 질 녘 창빛",
+    "en": "low gold light through the window, long warm stripes across the walls"
+   },
+   {
+    "times": [
+     "golden"
+    ],
+    "has_any": [
+     "sky"
+    ],
+    "ko": "해 질 녘 역광",
+    "en": "the warm low sun rim-lighting her hair"
+   },
+   {
+    "times": [
+     "dusk"
+    ],
+    "has_any": [
+     "window"
+    ],
+    "ko": "땅거미 첫 불빛",
+    "en": "the first lamps lit inside, blue dusk in the window"
+   },
+   {
+    "times": [
+     "dusk"
+    ],
+    "has_any": [
+     "sky"
+    ],
+    "ko": "땅거미 하늘",
+    "en": "a deep blue sky, the first lights coming on around her"
+   },
+   {
+    "times": [
+     "night"
+    ],
+    "has_any": [
+     "window"
+    ],
+    "ko": "밤 창가",
+    "en": "lamps lit inside, the window dark with night"
+   },
+   {
+    "times": [
+     "day_indoor"
+    ],
+    "ko": "낮 실내 반사광",
+    "en": "daylight bouncing softly off pale walls"
+   },
+   {
+    "times": [
+     "fluorescent"
+    ],
+    "ko": "형광등 빛",
+    "en": "flat white light with crisp edges, no warm glow"
+   },
+   {
+    "times": [
+     "lamplight"
+    ],
+    "ko": "등불 웅덩이",
+    "en": "warm pools of lamplight, soft shadow beyond"
+   }
+  ]
  },
  "outfit_rules": {
   "note": "의상 계열이 설 수 있는 장소 종류(2026-11-13 사용자 「갱도에서 수영복을 입고 누워있는 다거나」). needs_any: 이 종류 가운데 하나여야 · not_has: 이 종류면 안 된다. 없는 계열은 어디든. lib/casual-tree-v2.js why ofam",
