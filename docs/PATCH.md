@@ -1,5 +1,9 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-18 · claude · 세계컷 GPT 주문에 화풍 덧줄(피부 마감 · 빛 · Avoid)
+- 사용자 2026-11-18 관은병 메카 GPT 설계 3 · 4 「화풍까지 건든거 같아」 → 「응 고쳐주고」. GPT 는 주문의 Style 줄을 그대로 옮겼다 — 주문(buildWorldFree)이 화풍 문단만 싣고(shortStyle) 화풍 판의 덧줄(worldStyleAfter 피부 마감 · worldLight 빛 · avoid)을 빼서, 물광 피부 · 림 라이트 없이 나왔고 B안은 장면 빛을 스스로 「planetary daylight」 로 정했다.
+- Style (fixed) 뒤에 Skin finish (fixed — ours) · Light (fixed — ours — 배경은 바뀌어도 그녀를 비추는 빛은 그대로) · Avoid (fixed) — 덧줄이 있는 판만(삼국지 기본 kr_drawn_rim_dewy, 원소 kr_promo_hikey_oil · mmorpg_cg · bright_2d_oil).
+
 ## 2026-11-18 · claude · 세계컷 GPT 설계 3단계 — 설계 요약 기록 · 비슷한 등록작 피하기
 - 사용자 2026-11-18 「응 허용하고 이순서대로 진행해줘」 — 세계컷 GPT 설계안 3단계: 설계 요약 기록 · 비슷한 등록작 피하기.
 - 주문(WORLD_FREE / FREE_DESIGN .summary)에 「지시문 첫 줄 SUMMARY: 얼굴 윤곽 · 눈매와 눈썹 · 표정 · 머리 외곽 · 의상(장갑) 큰 형태」, 기록 generation.summary(묶음 안내).
