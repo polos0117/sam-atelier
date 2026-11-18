@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-19 · claude · 머리색 45 → 61가지 — 밝고 선명한 색 16
+- 사용자 「머리색 더 다양하게 넣어주고」 — 조조 메카 2.6(kr_drawn_rim_dewy) vivid purple 시험이 자연스러워서
+- lib/look-spec.js VOCAB_EN.hair_color 에 vivid_purple · scarlet · tangerine · sunflower · lime · turquoise · electric_blue · cobalt · fuchsia · hot_pink · coral_pink · amethyst · peach · snow_white · ombre_pink · ombre_violet
+- tools/port-look-spec.cjs EXTRA 에도 적었다(2026-11-04 넓힌 16가지도 — 그땐 look-spec.js 에만 있었다). 일상컷 색상 갈래 읽기(hueRx)는 그대로 다 읽힌다. look-spec ?v=10
+- 설계표 분배(기본 화풍 그림 없는 장수)는 아직 — 사용자 확인 뒤
+
 ## 2026-11-19 · claude · 그림 저장소 셋째 sam-atelier-img-3 연결 — 둘째는 닫힘
 - 사용자 「원소랑 삼국지 이미지 저장소 3번 다 만들어놨으니 연결도 시켜줘」 — sam-atelier-img-2 가 GitHub 크기 약 1.08 GB 로 찼다
 - sam-atelier-img-3 에 README · .nojekyll · 썸네일 워크플로(img-2 와 같은 꼴, 크기 경고는 img-4 를 가리킨다)
