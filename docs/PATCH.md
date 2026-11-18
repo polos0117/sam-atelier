@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-19 · claude · 머리색 다시 나누기 — 기본 화풍 그림 없는 240명
+- 사용자 「지금 기본화풍 없는 그림 위주로 분배해줘. 기본화풍 있는 그림 중에 겹치는 색 있는 케릭터 위주로」 → 「7명도 바꿔줘」(다른 화풍 그림이 있는 마량 · 비의 · 등애 · 견씨 · 주태 · 사마휘 · 고순 포함)
+- data/sam-design.json — 238명 머리색을 61가지에서 다시 골랐다(2명은 그대로). 새 색 16가지는 7명씩 모두 그림 없는 장수에게, 전체 370명이 색마다 4~7명, 그림 있는 130명과 많이 겹치던 색(칠흑 · 바이올렛 등)부터 덜었다
+- 같은 세력 안 같은 색 최대 4 · 같은 머리+눈 조합 최대 2. 요약 글의 「○○ 머리」(236명) · look.color_note 도 고쳤다. 고르는 식은 tools/batches/2026-11-18-rehair61.py
+- 기본 화풍 그림이 있는 130명(확정 16명 포함)은 그대로. tests/casual-plan.cjs 의 분홍 머리 예는 엄안 → 하후연(그림 있는 장수)
+
 ## 2026-11-19 · claude · 머리색 45 → 61가지 — 밝고 선명한 색 16
 - 사용자 「머리색 더 다양하게 넣어주고」 — 조조 메카 2.6(kr_drawn_rim_dewy) vivid purple 시험이 자연스러워서
 - lib/look-spec.js VOCAB_EN.hair_color 에 vivid_purple · scarlet · tangerine · sunflower · lime · turquoise · electric_blue · cobalt · fuchsia · hot_pink · coral_pink · amethyst · peach · snow_white · ombre_pink · ombre_violet

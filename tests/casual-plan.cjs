@@ -412,10 +412,10 @@ try {
     assert.equal(new Set(many.map(c => c.shade)).size, 3); assert(new Set(many.map(c => hueOf(c.shade))).size === 3 && !many.some(c => hueOf(c.shade) === 'brown'), '같은 hue 되도록 피함(옛 컷 오트밀 brown 까지) ' + many.map(c => c.shade));
     assert(C.check([{ n: 1, color: 'pastel', shade: 'cherry' }], C.cardOf('조조'), []).some(e => /색 묶음 pastel 안 것이 아니다/.test(e)), '묶음 밖 shade 를 잡는다');
   }
-  /* 분홍 머리 장수(엄안 — cherry_pink) 계획 — 세계 셋 × 씨앗 넷에서 분홍 shade 가 안 나온다 */
-  { const cd = C.cardOf('엄안'), seen = new Set(); assert.equal(P.hairHue(D, '엄안', 'samguk'), 'pink');
-    for (const w of cd.worlds) for (const seed of [1, 2, 3, 4]) { cd.world = w; for (const c of C.plan(cd, SEVEN, [], { seed }).cuts) if (c.shade) { seen.add(c.shade); assert.notEqual(hueOf(c.shade), 'pink', '엄안 ' + w + ' ' + c.shade); } }
-    assert(seen.size >= 8, '엄안 shade 여러 가지 ' + [...seen]); }
+  /* 분홍 머리 장수(하후연 — cherry_pink, 기본 화풍 그림이 있어 머리색이 안 바뀐다 · 2026-11-18 머리색 다시 나누기 전엔 엄안) 계획 — 세계 셋 × 씨앗 넷에서 분홍 shade 가 안 나온다 */
+  { const cd = C.cardOf('하후연'), seen = new Set(); assert.equal(P.hairHue(D, '하후연', 'samguk'), 'pink');
+    for (const w of cd.worlds) for (const seed of [1, 2, 3, 4]) { cd.world = w; for (const c of C.plan(cd, SEVEN, [], { seed }).cuts) if (c.shade) { seen.add(c.shade); assert.notEqual(hueOf(c.shade), 'pink', '하후연 ' + w + ' ' + c.shade); } }
+    assert(seen.size >= 8, '하후연 shade 여러 가지 ' + [...seen]); }
   /* 빈 기록에서 장수 스물넷의 묶음을 이어 짜면(쓴 수를 이어 센다) 덜 쓴 것 먼저라 묶음 안 shade 가 고르게 — 머리색 · 묶음 안 hue 피하기로 조금 벌어진다 */
   { const used = {}, out = []; let k = 0;
     for (const key of keys.slice(0, 24)) { const cd = C.cardOf(key); cd.world = cd.worlds[k++ % cd.worlds.length];
