@@ -312,7 +312,10 @@ function lean(r, list, count, key = x => x, factor = () => 1) {
   return list[list.length - 1];
 }
 /* 쓴 횟수 꼴 바로잡기 — 옛 꼴(소품 → 횟수)도 받는다 */
-const EMPTY_USAGE = () => ({ prop: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {}, ofam: {}, path: {} });
+/* 소품 동작 무게(2026-11-18 행동 단계 — 사용자 「F부터 진행해줘」) — 덜 쓴 소품(제곱) × 덜 쓴 동작. 준비 · 하는 중 · 마무리 단계 동작(stage)은 조금 더,
+   단계 없이 그냥 들고 있는 동작(hold)은 조금 덜 — 소품이 달라도 늘 「들고 서 있기」 로 보였다 */
+function useWeight(k, n, U) { const u = C2.use(T2, k); return 1 / Math.pow(1 + n(u.prop), 2) / (1 + ((((U && U.use) || {})[k]) || 0)) * (u.stage ? 1.3 : u.kind === 'hold' ? 0.8 : 1); }
+const EMPTY_USAGE = () => ({ prop: {}, use: {}, place: {}, item: {}, preset: {}, posture: {}, expr: {}, ofam: {}, path: {} });
 const usageOf0 = u => (u && (u.place || u.prop || u.preset)) ? { ...EMPTY_USAGE(), ...u } : { ...EMPTY_USAGE(), prop: u || {} };
 /* 새로 더한 옷 계열(쓴 횟수 0)은 다른 계열의 가운데 값에서 시작한다 — 안 그러면 「안 쓴 쪽 먼저」 무게로 모든 묶음에 들어갔다(2026-11-03 동탄룩 72묶음 중 72) */
 const FAMS = (tree.outfits || []).map(o => o.key);
@@ -361,7 +364,7 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
     const alt = C2.choices(T2, sc, 'use', g).filter(k => C2.use(T2, k).prop !== 'signature');
     if (alt.length > 1) {
       const n = p => DRINKS.includes(p) ? DRINKS.reduce((a, d) => a + (U.prop[d] || 0), 0) : (U.prop[p] || 0);
-      const u = weighted(rUse, Object.fromEntries(alt.map(k => [k, 1 / Math.pow(1 + n(C2.use(T2, k).prop), 2)])));
+      const u = weighted(rUse, Object.fromEntries(alt.map(k => [k, useWeight(k, n, U)])));
       const next = C2.set(T2, sc, 'use', u, g, rp);
       if (next.use === u) sc = next;
     }
@@ -814,7 +817,7 @@ function sceneUsage(dirs, skip) {
       let sc; try { sc = JSON.parse(fs.readFileSync(path.join(dir, k, f), 'utf8')).scene; } catch (e) { continue; }
       if (!sc || (sc.ofree && 'ofreeRecent' in sc)) continue;   /* 자유 설계 컷(2026-11-11 꼴)의 장면 값은 그림자 — 그리지 않았다 */
       const u = C2.use(T2, sc.use);
-      if (u && u.prop !== 'signature') add(out.prop, u.prop);
+      if (u && u.prop !== 'signature') { add(out.prop, u.prop); add(out.use, sc.use); }
       add(out.place, sc.place); add(out.item, sc.item); add(out.preset, sc.preset); add(out.posture, sc.posture); add(out.expr, sc.expr); add(out.ofam, sc.ofam);
       if (sc.preset && sc.place) add(out.path, pathKey(sc.preset, sc.place));
     }

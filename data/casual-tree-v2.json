@@ -7512,6 +7512,2701 @@
     "half_kneel"
    ],
    "gaze": "at_prop"
+  },
+  {
+   "key": "cup_blow",
+   "prop": "cup",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "두 손으로 잔을 들고 김을 분다",
+   "en": "holds {prop} in both hands just below her lips, blowing softly across the hot drink",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "cradles the cup from the right",
+    "left": "steadies its base from below"
+   },
+   "space": "mouth"
+  },
+  {
+   "key": "cup_knee",
+   "prop": "cup",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "무릎 위 잔을 두 손으로 감싼다",
+   "en": "rests {prop} on her knee, both hands cupped around it",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "curls around the near side of the cup",
+    "left": "curls around the far side"
+   }
+  },
+  {
+   "key": "cup_peek",
+   "prop": "cup",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "빈 잔 바닥을 들여다본다",
+   "en": "tilts the empty {prop} toward her, peering into the bottom",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "glass_garnish",
+   "prop": "drink_glass",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "잔 가장자리에 과일 조각을 꽂는다",
+   "en": "fixes a slice of fruit onto the rim of {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "presses the fruit slice onto the rim",
+    "left": "holds the glass by its stem"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "glass_toast",
+   "prop": "drink_glass",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "잔을 들어 건배하듯 내민다",
+   "en": "raises {prop} toward the camera as if offering a toast",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "glass_swirl",
+   "prop": "drink_glass",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "남은 술을 천천히 돌려 본다",
+   "en": "swirls the last of the drink slowly in {prop}, watching it turn",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "phone_frame",
+   "prop": "phone",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "두 손으로 화면을 맞춰 찍으려 한다",
+   "en": "frames a shot on {prop} held out in both hands, screen toward her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "steadies the right edge, thumb over the shutter",
+    "left": "steadies the left edge"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "phone_type",
+   "prop": "phone",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "두 엄지로 메시지를 친다",
+   "en": "types a message on {prop} with both thumbs",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lie_front"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "taps with her right thumb",
+    "left": "cradles the phone, tapping with her left thumb"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "phone_call",
+   "prop": "phone",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "휴대폰을 귀에 대고 통화한다",
+   "en": "holds {prop} to her ear, mid-call, listening",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "book_shelf",
+   "prop": "book",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "높은 선반에서 책을 꺼낸다",
+   "en": "reaches up to slide {prop} out from a high shelf",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up",
+    "reach_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "needs_any": [
+    "shelf_high"
+   ]
+  },
+  {
+   "key": "book_lap",
+   "prop": "book",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "무릎 위에 펼쳐 놓고 읽는다",
+   "en": "reads {prop} propped open on her knees",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "flattens the open page",
+    "left": "holds the edge of the cover"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "book_mark",
+   "prop": "book",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "책갈피를 끼우고 덮는다",
+   "en": "slips a bookmark between the pages of {prop} before closing it",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "slips the bookmark in",
+    "left": "holds the book half-closed"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "camera_cap",
+   "prop": "camera",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "렌즈 뚜껑을 연다",
+   "en": "pulls the lens cap off {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "pinches the lens cap off",
+    "left": "holds the camera body"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "camera_low",
+   "prop": "camera",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "몸을 낮춰 낮은 높이에서 찍는다",
+   "en": "crouches low with {prop} raised to her eye, framing something at ground level",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "on the grip, finger on the shutter",
+    "left": "supports the lens from below"
+   },
+   "gaze": "into_prop"
+  },
+  {
+   "key": "camera_strap",
+   "prop": "camera",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "카메라 끈을 목에 건다",
+   "en": "loops the strap of {prop} over her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "umbrella_open",
+   "prop": "umbrella",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "우산을 펼친다",
+   "en": "pushes {prop} open in front of her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "pushes the runner up the shaft",
+    "left": "holds the handle"
+   },
+   "needs_any": [
+    "sky"
+   ]
+  },
+  {
+   "key": "umbrella_shoulder",
+   "prop": "umbrella",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "우산을 어깨에 기대 쓴다",
+   "en": "rests the open {prop} back on her shoulder, the canopy framing her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "needs_any": [
+    "sky"
+   ]
+  },
+  {
+   "key": "umbrella_shake",
+   "prop": "umbrella",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "접은 우산의 물기를 턴다",
+   "en": "gives the closed {prop} a shake at her side to throw off the raindrops",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "towel_shake",
+   "prop": "towel",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "수건을 털어 편다",
+   "en": "shakes {prop} out wide in front of her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "holds the right corner",
+    "left": "holds the left corner"
+   }
+  },
+  {
+   "key": "towel_wring",
+   "prop": "towel",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "수건을 비틀어 짠다",
+   "en": "wrings out {prop} between her hands, water dripping",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "twists the towel one way",
+    "left": "twists it the other way"
+   }
+  },
+  {
+   "key": "towel_turban",
+   "prop": "towel",
+   "kind": "both",
+   "hands": "both",
+   "zone": "overhead",
+   "ko": "젖은 머리를 수건으로 감아 올린다",
+   "en": "wraps {prop} around her damp hair, twisting it up into a turban",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "twists the towel at her crown",
+    "left": "holds the wrap at her nape"
+   }
+  },
+  {
+   "key": "fan_open",
+   "prop": "fan",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "부채를 펼친다",
+   "en": "fans {prop} open between her hands, showing its pattern",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "spreads the ribs outward",
+    "left": "holds the pivot end"
+   }
+  },
+  {
+   "key": "fan_neck",
+   "prop": "fan",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "face",
+   "ko": "목덜미에 부채질한다",
+   "en": "fans her neck with {prop}, a loose strand lifting",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "fan_tap",
+   "prop": "fan",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "face",
+   "ko": "접은 부채로 턱을 톡 친다",
+   "en": "taps her chin with the closed {prop}, thinking",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "bottle_open",
+   "prop": "water_bottle",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "물병 뚜껑을 돌려 연다",
+   "en": "twists the cap off {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "twists the cap",
+    "left": "grips the bottle"
+   }
+  },
+  {
+   "key": "bottle_pour",
+   "prop": "water_bottle",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "물병 물을 머리 위로 붓는다",
+   "en": "tips {prop} over her head, cool water spilling through her hair",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "needs_any": [
+    "sky"
+   ]
+  },
+  {
+   "key": "lantern_hang",
+   "prop": "lantern",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "등불을 고리에 건다",
+   "en": "hangs {prop} on a hook above her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up",
+    "reach_up"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "lantern_set",
+   "prop": "lantern",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "등불을 곁에 내려놓는다",
+   "en": "sets {prop} down on the ground beside her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "ic_turn",
+   "prop": "ice_cream",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "녹아내리기 전에 콘을 돌린다",
+   "en": "turns {prop} to catch a drip before it reaches her fingers",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "mic_stand",
+   "prop": "microphone",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "마이크 스탠드 높이를 맞춘다",
+   "en": "adjusts the height of the stand holding {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "loosens the clamp",
+    "left": "holds the stand upright"
+   }
+  },
+  {
+   "key": "mic_cable",
+   "prop": "microphone",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "마이크 줄을 감는다",
+   "en": "coils the cable of {prop} loosely around her hand",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "loops the cable",
+    "left": "holds the coil"
+   }
+  },
+  {
+   "key": "brush_tangle",
+   "prop": "hairbrush",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "엉킨 머리끝을 잡고 빗는다",
+   "en": "works {prop} through a tangled lock of hair",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "brushes the ends",
+    "left": "holds the lock above the tangle"
+   }
+  },
+  {
+   "key": "brush_clean",
+   "prop": "hairbrush",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "빗에 낀 머리카락을 떼어 낸다",
+   "en": "picks loose hairs out of the bristles of {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "picks the hairs out",
+    "left": "holds the brush by its handle"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "note_think",
+   "prop": "notebook",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "펜 끝을 입술에 대고 생각한다",
+   "en": "rests the pen from {prop} against her lips, deciding what to write",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "space": "mouth"
+  },
+  {
+   "key": "note_floor",
+   "prop": "notebook",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "엎드려 노트에 쓴다",
+   "en": "writes in {prop} propped on the floor in front of her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "lie_front",
+    "sit_floor",
+    "kneel"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "writes with the pen",
+    "left": "holds the page flat"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "note_tear",
+   "prop": "notebook",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "다 쓴 장을 찢어 낸다",
+   "en": "tears a finished page out of {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "tears the page along the binding",
+    "left": "holds the notebook"
+   }
+  },
+  {
+   "key": "guitar_tune",
+   "prop": "guitar",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "기타 줄을 조율한다",
+   "en": "tunes {prop}, turning a peg while plucking a string",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "plucks a string",
+    "left": "turns a tuning peg"
+   }
+  },
+  {
+   "key": "guitar_case",
+   "prop": "guitar",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "기타를 케이스에 눕힌다",
+   "en": "lays {prop} into its open case",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "lowers the body into the case",
+    "left": "guides the neck down"
+   }
+  },
+  {
+   "key": "sketch_measure",
+   "prop": "sketchbook",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "연필을 세워 대상의 비례를 잰다",
+   "en": "holds a pencil out at arm's length to measure her subject, {prop} tucked under her other arm",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비"
+  },
+  {
+   "key": "sketch_show",
+   "prop": "sketchbook",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "다 그린 장을 들어 본다",
+   "en": "holds {prop} out at arm's length to look over the finished sketch",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "holds the right side",
+    "left": "holds the left side"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "compact_powder",
+   "prop": "compact",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "손거울을 보며 분을 두드린다",
+   "en": "pats powder onto her cheek, watching in {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "pats the puff on her cheek",
+    "left": "holds the open compact"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "compact_snap",
+   "prop": "compact",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "손거울을 탁 닫는다",
+   "en": "snaps {prop} shut with one hand",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "teapot_lid",
+   "prop": "teapot",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "찻잎을 넣고 뚜껑을 닫는다",
+   "en": "settles the lid onto {prop} after adding the leaves",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "places the lid",
+    "left": "holds the pot by its handle"
+   },
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "teapot_carry",
+   "prop": "teapot",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "찻주전자를 조심스레 나른다",
+   "en": "carries {prop} in both hands, a cloth around the hot handle",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "holds the handle through the cloth",
+    "left": "supports the spout side from below"
+   }
+  },
+  {
+   "key": "bowl_sift",
+   "prop": "mixing_bowl",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "밀가루를 체에 쳐서 넣는다",
+   "en": "taps flour from a small sieve into {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "lean_counter"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "taps the sieve",
+    "left": "steadies the bowl"
+   },
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "bowl_pour",
+   "prop": "mixing_bowl",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "반죽을 틀에 붓는다",
+   "en": "pours the batter from {prop} into a baking tin",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "lean_counter"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "tips the bowl",
+    "left": "scrapes with a spatula"
+   },
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "can_low",
+   "prop": "watering_can",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "waist",
+   "ko": "쪼그려 앉아 새싹에 물을 준다",
+   "en": "crouches to water a seedling at ground level with {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "emb_thread",
+   "prop": "embroidery",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "바늘에 실을 꿴다",
+   "en": "threads a needle held up to the light, {prop} resting in her lap",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "guides the thread",
+    "left": "holds the needle up"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "emb_snip",
+   "prop": "embroidery",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "자수 실을 가위로 끊는다",
+   "en": "snips the thread close to the stitches of {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "snips with small scissors",
+    "left": "holds the hoop"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "bag_peek",
+   "prop": "shopping_bag",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "쇼핑백 안을 들여다본다",
+   "en": "holds {prop} open, peeking inside",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "holds one handle open",
+    "left": "holds the other handle"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "bag_shoulder",
+   "prop": "shopping_bag",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "쇼핑백 여러 개를 어깨에 건다",
+   "en": "hooks {prop} over her shoulder with two more bags",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "mask_try",
+   "prop": "mask",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "가면을 눈앞에 대 본다",
+   "en": "holds {prop} up over her eyes, trying it on",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "holds the right edge",
+    "left": "holds the left edge"
+   }
+  },
+  {
+   "key": "mask_tie",
+   "prop": "mask",
+   "kind": "both",
+   "hands": "both",
+   "zone": "overhead",
+   "ko": "가면 끈을 머리 뒤로 묶는다",
+   "en": "ties the ribbons of {prop} behind her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "pulls the right ribbon",
+    "left": "pulls the left ribbon"
+   }
+  },
+  {
+   "key": "rod_bait",
+   "prop": "fishing_rod",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "낚싯바늘에 미끼를 끼운다",
+   "en": "baits the hook of {prop}, the rod tucked under her arm",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "threads the bait",
+    "left": "holds the hook"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "rod_reel",
+   "prop": "fishing_rod",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "낚싯줄을 감아올린다",
+   "en": "reels in {prop}, the line taut",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "turns the reel",
+    "left": "holds the rod"
+   }
+  },
+  {
+   "key": "racket_serve",
+   "prop": "racket",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "공을 띄우고 서브 자세를 잡는다",
+   "en": "draws {prop} back over her shoulder for a serve, a ball tossed up",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "racket_strings",
+   "prop": "racket",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "라켓 줄을 손끝으로 고른다",
+   "en": "straightens the strings of {prop} with her fingertips",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "straightens the strings",
+    "left": "holds the handle"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "bow_string",
+   "prop": "bow",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "무릎에 대고 활시위를 건다",
+   "en": "strings {prop}, bracing it against her raised knee",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "half_kneel",
+    "step_up",
+    "sit_edge"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "hooks the string over the tip",
+    "left": "bends the limb down"
+   }
+  },
+  {
+   "key": "ring_blow",
+   "prop": "float_ring",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "튜브에 바람을 불어 넣는다",
+   "en": "blows air into {prop} through its valve",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "pinches the valve",
+    "left": "holds the ring"
+   },
+   "space": "mouth"
+  },
+  {
+   "key": "ring_float",
+   "prop": "float_ring",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "튜브에 앉아 물에 뜬다",
+   "en": "floats sitting in {prop}, arms draped over its sides",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "soak"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "drapes over the right side",
+    "left": "drapes over the left side"
+   }
+  },
+  {
+   "key": "flowers_crown",
+   "prop": "loose_flowers",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "꽃으로 화관을 엮는다",
+   "en": "weaves {prop} into a small crown in her lap",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "twists a stem into the ring",
+    "left": "holds the half-made crown"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "flowers_ear",
+   "prop": "loose_flowers",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "꽃 한 송이를 귀 뒤에 꽂는다",
+   "en": "tucks one of {prop} behind her ear",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "tool_lay",
+   "prop": "hand_tool",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "공구를 천 위에 가지런히 늘어놓는다",
+   "en": "lays out {prop} in a neat row on a cloth",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "sets the tool down",
+    "left": "smooths the cloth"
+   },
+   "needs_any": [
+    "table",
+    "worktable",
+    "floor"
+   ]
+  },
+  {
+   "key": "kite_tail",
+   "prop": "kite",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "무릎을 꿇고 연 꼬리를 묶는다",
+   "en": "kneels to tie the tail onto {prop} laid on the grass",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "ties the knot",
+    "left": "holds the kite frame"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "kite_launch",
+   "prop": "kite",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "연을 바람에 띄워 올린다",
+   "en": "lifts {prop} overhead into the wind to launch it",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "step_up"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "kite_knot",
+   "prop": "kite",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "감아 들인 연줄의 매듭을 푼다",
+   "en": "picks at a knot in the wound-in line of {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "picks at the knot",
+    "left": "holds the reel"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "go_ponder",
+   "prop": "go_board",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "바둑돌을 손끝에 쥐고 수를 고민한다",
+   "en": "holds a stone between two fingertips near her lips, weighing her move over {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "space": "mouth"
+  },
+  {
+   "key": "go_clear",
+   "prop": "go_board",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "바둑돌을 통에 쓸어 담는다",
+   "en": "sweeps the stones off {prop} into their bowls",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "sweeps the stones",
+    "left": "holds the bowl at the board edge"
+   }
+  },
+  {
+   "key": "ink_grind",
+   "prop": "brush_ink",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "벼루에 먹을 간다",
+   "en": "grinds the ink stick on {prop}, a little water pooling",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "grinds the ink stick in slow circles",
+    "left": "steadies the inkstone"
+   },
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "ink_rinse",
+   "prop": "brush_ink",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "다 쓴 붓을 물에 헹군다",
+   "en": "rinses the brush from {prop} in a small bowl of water",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "swirls the brush",
+    "left": "holds the water bowl"
+   },
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
+  },
+  {
+   "key": "zheng_tune",
+   "prop": "guzheng",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "고쟁 기러기발을 옮겨 음을 맞춘다",
+   "en": "shifts a bridge under one string of {prop} to tune it",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "slides the bridge",
+    "left": "plucks the string to listen"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "incense_light",
+   "prop": "incense",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "향에 불을 붙인다",
+   "en": "lights the tip of {prop}, a thin curl of smoke rising",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "ff_hide",
+   "prop": "feather_fan",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "face",
+   "ko": "깃털 부채로 입가를 가린다",
+   "en": "hides her smile behind {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "ff_preen",
+   "prop": "feather_fan",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "흐트러진 깃털을 손끝으로 고른다",
+   "en": "smooths a ruffled feather of {prop} with her fingertips",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "smooths the feather",
+    "left": "holds the fan handle"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "ou_open",
+   "prop": "oil_umbrella",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "기름종이 우산을 펼친다",
+   "en": "pushes {prop} open in front of her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "pushes the runner up the shaft",
+    "left": "holds the bamboo handle"
+   }
+  },
+  {
+   "key": "ou_shoulder",
+   "prop": "oil_umbrella",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "기름종이 우산을 어깨에 기대 쓴다",
+   "en": "rests the open {prop} back on her shoulder, the canopy framing her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "laptop_floor",
+   "prop": "laptop",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "엎드려 노트북을 두드린다",
+   "en": "types on {prop} propped open on the floor in front of her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "lie_front",
+    "sit_floor"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "types with her right hand",
+    "left": "types with her left hand"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "laptop_close",
+   "prop": "laptop",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "노트북을 덮는다",
+   "en": "closes the lid of {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "lowers the lid",
+    "left": "holds the base"
+   },
+   "needs_any": [
+    "table",
+    "worktable"
+   ]
   }
  ],
  "outfit_features": {
