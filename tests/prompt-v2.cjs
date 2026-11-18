@@ -166,8 +166,10 @@ console.log('PASS 프롬프트 v2: 실루엣 표 · 무리 색 · 기본 화풍 
     assert(T.SILHOUETTES[w].every(x => listPara.includes(x.en.replace(/[.;:]+$/, '').trim()) === (pool.includes(x.key) && x.key !== own)), key + ' ' + w + ' 실루엣 목록 = 역할 묶음에서 우리 것 빼고');
     assert(tpl.includes('[HAIRSTYLE: …]') && tpl.includes('[COSTUME SILHOUETTE: …]') && /^Design idea: …$/m.test(tpl) && !/^(Hairstyle|Costume silhouette): \[/m.test(tpl), key + ' ' + w + ' 칸이 제자리에');
     const pick = listPara.match(/1\) ([^;]+?)(?:; 2\)|\.$)/)[1];
-    const good = 'SUMMARY: x\n' + tpl.replace('[HAIRSTYLE: …]', 'a sleek low chignon').replace('[COSTUME SILHOUETTE: …]', pick).replace('Design idea: …', 'Design idea: plates layered like feathers').replace('Stance and hands: …\n', '').replace('Setting detail: …', 'Setting detail: a banner hall behind her.');
+    const good = 'SUMMARY: x\n' + tpl.replace('[HAIRSTYLE: …]', 'a sleek low chignon').replace('[COSTUME SILHOUETTE: …]', pick).replace('Design idea: …', 'Design idea: plates layered like feathers').replace('Stance and hands: …\n', '').replace('Setting detail: …', 'Setting detail: a banner hall behind her.').replace('[BUILD: …]', 'slender build');
+    assert(tpl.includes('[BUILD: …]') && /^May keep or change — build: /m.test(t), key + ' ' + w + ' 체형 칸(우리 체형 목록에서, 2026-11-18)');
     assert.equal(JSON.stringify(P.worldFillErrors(D, SF, key, w, good, { style: SF.default })), '[]', key + ' ' + w + ' 채운 글 통과');
+    assert(P.worldFillErrors(D, SF, key, w, good.replace('slender build', 'a giant muscular build'), { style: SF.default }).some(e => /체형이 우리 체형 목록의 글이 아니다/.test(e)), key + ' ' + w + ' 목록 밖 체형은 걸린다');
     const bad = good.replace(/^(Light: )/m, '$1bright daylight; ');
     assert(P.worldFillErrors(D, SF, key, w, bad, { style: SF.default }).some(e => /줄이 바뀌었다/.test(e)), key + ' ' + w + ' 칸 밖이 바뀌면 걸린다');
   }
