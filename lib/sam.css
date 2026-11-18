@@ -142,34 +142,37 @@ body.dx-page {margin:0;background:var(--bg);color:var(--text);-webkit-text-size-
 :where(.dx-page) :is(button,a) {-webkit-tap-highlight-color:transparent}
 :where(.dx-page) button {font:inherit;color:inherit;cursor:pointer}
 .dx-wait {margin:0;padding:40vh 12px 0;text-align:center;color:var(--muted)}
-.dx-top {position:sticky;top:0;z-index:6;background:var(--bg);box-shadow:0 1px 0 var(--line)}
-.dx-bar {display:flex;align-items:baseline;justify-content:space-between;gap:10px;min-height:44px;padding:max(10px,env(safe-area-inset-top)) 12px 8px;background:#2f2a22;color:#f3e7c9}
+/* 세력색(2026-11-18 사용자 「탭색이랑 목록색, 바탕색을 다 본인 세력색으로」) — 탭은 저마다 --fc, 바탕 · 머리 · 줄은 고른 세력의 --cat(줄은 그 장수의 세력 — 찾는 중엔 섞인다). 색은 지도와 같다 */
+.dx-app {--tint:color-mix(in srgb,var(--cat,var(--accent)) 12%,var(--bg));min-height:100vh;min-height:100dvh;background:var(--tint)}
+.dx-top {position:sticky;top:0;z-index:6;background:var(--tint,var(--bg));box-shadow:0 1px 0 var(--line)}
+.dx-bar {display:flex;align-items:baseline;justify-content:space-between;gap:10px;min-height:44px;padding:max(10px,env(safe-area-inset-top)) 12px 8px;background:color-mix(in srgb,var(--cat,#2f2a22) 55%,#16120d);color:#f3e7c9}
 .dx-bar b {font:700 17px/1.2 var(--gallery-serif,'Song Myung','Noto Serif KR',serif);letter-spacing:.06em;white-space:nowrap}
 .dx-bar span {font-size:11.5px;opacity:.8;white-space:nowrap}
 .dx-facs {display:flex;gap:6px;padding:6px 12px;overflow-x:auto;scrollbar-width:none}
 .dx-facs::-webkit-scrollbar {display:none}
-.dx-facs a {position:relative;flex:none;height:44px;display:inline-flex;align-items:center;gap:5px;padding:0 13px;border:1px solid var(--line);border-radius:22px;background:var(--card);color:var(--text);text-decoration:none;font-size:13px;white-space:nowrap}
+.dx-facs a {position:relative;flex:none;height:44px;display:inline-flex;align-items:center;gap:5px;padding:0 13px;border:1px solid color-mix(in srgb,var(--fc,var(--line)) 55%,var(--line));border-radius:22px;background:color-mix(in srgb,var(--fc,var(--card)) 16%,var(--card));color:var(--text);text-decoration:none;font-size:13px;white-space:nowrap}
 .dx-facs .dx-finding {flex:none;height:44px;padding:0 13px;border:1px solid #c9a24a;border-radius:22px;background:#2f2a22;color:#f3e7c9;font-size:13px;font-weight:700;white-space:nowrap;max-width:60vw;overflow:hidden;text-overflow:ellipsis}   /* 찾는 중 — 모든 세력에서 찾는다. 누르면 찾는 말을 지운다 */
 .dx-facs[data-finding="1"] a {opacity:.55}
-.dx-facs .sym {font:900 14px/1 var(--han-font)}
+.dx-facs .sym {font:900 14px/1 var(--han-font);color:var(--fc,inherit)}
+.dx-facs a[aria-current="page"] .sym {color:inherit}
 .dx-facs i {font-style:normal;font-size:11px;opacity:.65}
-.dx-facs a[aria-current="page"] {border-color:var(--cat,var(--accent));background:var(--cat,var(--accent));color:#fff;font-weight:700}
+.dx-facs a[aria-current="page"] {border-color:var(--fc,var(--accent));background:var(--fc,var(--accent));color:#fff;font-weight:700}
 .dx-facs a[data-new="1"]::after,.dx-row[data-new="1"] .dx-slots::after {content:'';position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:#ff5a4d;box-shadow:0 0 0 2px var(--bg)}
 .dx-list {max-width:1180px;margin:0 auto;padding:4px 12px calc(76px + env(safe-area-inset-bottom))}
 .dx-role h3 {margin:10px 2px 6px;font-size:13px;font-weight:700;scroll-margin-top:120px}
 .dx-role h3 span {margin-left:4px;color:var(--muted);font-size:12px;font-weight:400}
 .dx-rows {display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
-.dx-row {min-width:0;padding:8px;border:1px solid var(--line);border-radius:12px;background:var(--card);scroll-margin-top:120px}
+.dx-row {min-width:0;padding:8px;border:1px solid color-mix(in srgb,var(--cat,var(--line)) 40%,var(--line));border-radius:12px;background:color-mix(in srgb,var(--cat,var(--card)) 9%,var(--card));scroll-margin-top:120px}
 .dx-row[data-open="1"] {grid-column:1/-1}
 .dx-main {display:flex;gap:8px;align-items:stretch}
 .dx-slots {position:relative;flex:none;display:flex;gap:4px}
 .dx-slot {position:relative;flex:none;display:block;width:62px;height:93px;padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card2);text-decoration:none}
 .dx-slot img {display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
 /* 빈 칸 — 그림 없는 세계. 세력색 바탕에 성씨 도장 글자를 흐리게(누르면 그 세계의 생성기) */
-.dx-slot.empty {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-style:dashed;background:color-mix(in srgb,var(--cat,var(--accent)) 10%,var(--card2));color:var(--muted)}
+.dx-slot.empty {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-style:dashed;border-color:color-mix(in srgb,var(--cat,var(--line)) 35%,var(--line));background:color-mix(in srgb,var(--cat,var(--accent)) 18%,var(--card));color:var(--muted)}
 .dx-slot.empty i {font:900 22px/1 var(--han-font);font-style:normal;color:var(--cat,var(--accent));opacity:.3;letter-spacing:-.06em}
 .dx-slot.empty span {font-size:9.5px;line-height:1.15;text-align:center;opacity:.8}
-.dx-row[data-art="0"] {background:color-mix(in srgb,var(--card) 55%,var(--bg))}
+.dx-row[data-art="0"] {background:color-mix(in srgb,var(--cat,var(--card)) 7%,color-mix(in srgb,var(--card) 55%,var(--bg)))}
 .dx-who {flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:93px;padding:0 0 0 2px;border:0;background:none;text-align:left}
 .dx-who:disabled {cursor:default}
 .dx-who b {font-size:14.5px;line-height:1.25;overflow-wrap:anywhere}

@@ -28,7 +28,7 @@
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다. 삼국지는 a: samguk) -->
 <script src="lib/favorites.js?v=1"></script>
 <script src="lib/tianxia-core.js?v=6"></script>   <!-- 그림 없음 · 새 그림 판정과 확인 기록(hasArt · lastAdded · isNew · today · seen) — 지도 · 막사와 같은 셈 -->
-<link rel="stylesheet" href="lib/sam.css?v=9">
+<link rel="stylesheet" href="lib/sam.css?v=10">
 </head>
 <body class="dx-page">
 <div id="app"></div>
@@ -44,6 +44,9 @@ import {CasualNote} from './lib/casual-note.js?v=1';   /* 일상컷 한 줄 — 
      ?card= 만 오면 그 장수의 첫 그림을 연다(막사에서 장수를 누른 길), ?card=&pic= 은 그 그림(공방 모음 즐겨찾기의 link). 보기 · 세계 · 걸러 보기는 이 기기에도(samguk_dex_v1) */
 const W=window.W,IMG=window.AtelierImg,FAV=window.AtelierFavorites,T=window.Tianxia,FAV_HUB='/favorites.html',A='samguk',STORE='samguk_dex_v1';
 const VIEWS=['world','casual','all'],ROLES=['lord','general','strategist','official'],STATS=['lead','war','int','pol'],ONLY=['art','new','none'],MAIN=['wei','shu','wu'];
+/* 세력색 — 지도와 같은 색. data/draft2-factions.json 의 dex(목록의 세력 줄 열쇠 → 지도 세력 열쇠)로 찾고, 없는 줄(그 밖의 제후 · 군웅 전체)은 지도의 기본색 */
+const facColor=(doc,k)=>{const x=doc.fx||{};return((x.factions||{})[(x.dex||{})[k]]||{}).c||'#7A6A55';};
+const rowFac=g=>g.faction==='qun'&&g.camp?g.camp:g.faction;
 const param=k=>{try{return new URLSearchParams(location.search).get(k)}catch{return null}};
 const pref=(()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')||{}}catch{return {}}})();
 const savePref=v=>{try{localStorage.setItem(STORE,JSON.stringify(Object.assign({},pref,v)))}catch{}};
@@ -51,9 +54,9 @@ const json=u=>fetch(u,{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(n
 function useDocs(){
   const [doc,setDoc]=useState(null);
   useEffect(()=>{
-    Promise.all([json('data/sam-design.json'),json('data/style.json'),json(IMG.DATA).catch(()=>({img:{}})),json('data/casual-own.json').catch(()=>({cards:{}}))])
-      .then(([d,s,i,own])=>{IMG.setShards(i);IMG.setAdded(i);const img=i.img||{},last={};for(const g of d.generals)last[g.key]=T.lastAdded(img[g.key],IMG.added());
-        setDoc({d,s,img,own:own.cards||{},last,today:T.today(location.search)});}).catch(()=>setDoc({failed:true}));
+    Promise.all([json('data/sam-design.json'),json('data/style.json'),json(IMG.DATA).catch(()=>({img:{}})),json('data/casual-own.json').catch(()=>({cards:{}})),json('data/draft2-factions.json').catch(()=>({factions:{}}))])
+      .then(([d,s,i,own,fx])=>{IMG.setShards(i);IMG.setAdded(i);const img=i.img||{},last={};for(const g of d.generals)last[g.key]=T.lastAdded(img[g.key],IMG.added());
+        setDoc({d,s,img,own:own.cards||{},fx,last,today:T.today(location.search)});}).catch(()=>setDoc({failed:true}));
   },[]);
   return doc;
 }
@@ -109,7 +112,7 @@ function Row({doc,g,view,wf,open,setOpen,onOpen,favs}){
   const o=view!=='world'||!!open[g.key],art=T.hasArt(doc.img[g.key]),nw=isNew(doc,g.key),st=g.stats||{};
   const own=(doc.own[g.key]||{}).worlds||{},job=(own[wf||d.vocab.worlds[0]]||own[d.vocab.worlds.find(w=>own[w])]||{}).job_ko;
   const fav=pics.filter(p=>favs.some(x=>x.a===A&&x.file===p.file)).length;
-  return h('article',{class:'dx-row',id:'c-'+g.key,'data-name':g.key,'data-fac':g.faction,'data-art':art?'1':'0','data-new':nw?'1':'0','data-open':o?'1':'0'},
+  return h('article',{class:'dx-row',id:'c-'+g.key,'data-name':g.key,'data-fac':g.faction,style:{'--cat':facColor(doc,rowFac(g))},'data-art':art?'1':'0','data-new':nw?'1':'0','data-open':o?'1':'0'},
     h('div',{class:'dx-main'},
       h('div',{class:'dx-slots'},worlds.map(w=>h(Slot,{key:w,g,world:w,pic:pics.find(p=>p.kind==='world'&&p.world===w),onOpen}))),
       h('button',{type:'button',class:'dx-who','aria-expanded':o,disabled:view!=='world',onClick:()=>setOpen(Object.assign({},open,{[g.key]:!open[g.key]}))},
@@ -236,12 +239,12 @@ function Dex(){
   const roles=ROLES.map(r=>({key:r,ko:d.roles[r].ko,gs:shown.filter(g=>g.role===r)})).filter(r=>r.gs.length).map(r=>Object.assign(r,{n:r.gs.length}));
   const fresh=d.generals.filter(g=>isNew(doc,g.key)),seenAll=()=>{const m={};for(const g of fresh)m[g.key]=doc.last[g.key];T.seen.markAll(m);tick(n=>n+1);};
   const filtered=!!(q||only||sf||wf||sty!==doc.s.default||view!=='world'),props={doc,view,wf,open,setOpen,favs,onOpen:(g,file)=>openBox({g,file})};
-  return h('div',{class:'dx-app','data-fac':grp.fac},
+  return h('div',{class:'dx-app','data-fac':grp.fac,style:{'--cat':facColor(doc,grp.key)}},
     h('header',{class:'dx-top'},
       h('div',{class:'dx-bar'},h('b',null,W('dx.head',{f:finding?W('dx.finding'):grp.ko})),h('span',null,finding?W('dx.head.found',{n:shown.length}):W('dx.head.n',{n:all.length,done:pr.done}))),
       h('nav',{class:'dx-facs','aria-label':W('dex.pick'),'data-finding':finding?'1':'0'},
         finding&&h('button',{type:'button',class:'dx-finding',title:W('dx.find.clear.title'),'aria-label':W('dx.find.clear.title'),onClick:()=>setQ('')},W('dx.find.clear',{q:q.trim()})),
-        groups.map(x=>h('a',{key:x.key,href:'dex.html?faction='+x.key,'data-f':x.key,'data-fac':x.fac,'data-new':x.gs.some(g=>isNew(doc,g.key))?'1':'0','aria-current':!finding&&x.key===grp.key?'page':undefined,
+        groups.map(x=>h('a',{key:x.key,href:'dex.html?faction='+x.key,'data-f':x.key,'data-fac':x.fac,style:{'--fc':facColor(doc,x.key)},'data-new':x.gs.some(g=>isNew(doc,g.key))?'1':'0','aria-current':!finding&&x.key===grp.key?'page':undefined,
         onClick:e=>{if(e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();setFac(x.key);}},x.sym&&h('span',{class:'sym'},x.sym),x.ko,h('i',null,x.gs.length))))),
     h('main',{class:'dx-list'},
       !roles.length&&h('p',{class:'none-row',id:'dex-none'},W('dex.empty')),
