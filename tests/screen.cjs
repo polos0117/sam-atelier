@@ -22,6 +22,8 @@ const P = ctx0.window.AtelierPrompt;
 /* ONLY=dex(또는 battle · styles · prompt, 쉼표로 여럿) — 바꾼 화면 몫만 돌린다. 없으면 전부 */
 const part = k => !process.env.ONLY || process.env.ONLY.split(',').includes(k);
 const IMGDOC = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/img.json'), 'utf8')), C = require('../lib/tianxia-core.js');
+/* 도감 「그림 없음」(data-art=0 · 그림 없는 것만) — 고른 화풍(검사에선 기본)의 세계 그림이 하나도 없는 장수. 다른 화풍 그림 · 일상컷만 있어도 없는 것(2026-11-18, 전엔 어느 화풍이든) */
+const noWorldArt = g => !['samguk', 'fantasy', 'mecha'].some(w => ((((((IMGDOC.img[g.key] || {}).byStyle || {})[S.default] || {}).byForm || {})[w]) || {}).f);
 const countDex = f => D.generals.filter(g => C.dexKey(DEXSRC, g) === f).length;   /* 목록 도감의 줄 인원 — 진 탭으로 간 장수(사마의 · 나헌 …)는 빠진다 */
 const DEXSRC = (J2 => ({ dex: J2('data/draft2-factions.json').dex, fix: J2('data/draft2-career-fix.json').fix, career: J2('data/draft2-packs.json').packs.mx.career }))(f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')));   /* 목록 도감의 세력 줄 열쇠(진 탭) */
 /* 일상컷 한 줄 fixture — 기본 화풍에 한 세계 일상컷이 넷 넘는 장수, 앞 셋만 색인에(필수 · 코스프레 GPT · 옷 자유), 넷째는 없음 */
@@ -160,7 +162,7 @@ function W0(k) { return ctx0.window.W(k); }
     await v.page.click('#dex-only'); assert.equal(await v.page.getAttribute('#dex-only', 'aria-pressed'), 'false'); await rows(countDex('shu'));
     /* 그림 없는 것만 */
     await v.page.click('.dx-sheet [data-only="none"]'); await v.page.waitForFunction(() => !document.querySelector('.dx-row[data-art="1"]'));
-    assert.equal(await v.page.locator('.dx-row').count(), D.generals.filter(g => C.dexKey(DEXSRC, g) === 'shu' && !C.hasArt(IMGDOC.img[g.key])).length, '그림 없는 것만'); assert.match(v.page.url(), /only=none/);
+    assert.equal(await v.page.locator('.dx-row').count(), D.generals.filter(g => C.dexKey(DEXSRC, g) === 'shu' && noWorldArt(g)).length, '그림 없는 것만(고른 화풍)'); assert.match(v.page.url(), /only=none/);
     await v.page.click('.dx-sheet [data-only="none"]'); await rows(countDex('shu'));
     /* 보기 갈래 · 세계 — 일상컷 보기는 줄마다 펼쳐 두고, 세계를 고르면 그 세계 칸만 */
     await v.page.click('.dx-sheet [data-view="all"]'); await v.page.waitForFunction(() => document.querySelectorAll('.dx-row[data-open="1"]').length === document.querySelectorAll('.dx-row').length); assert.match(v.page.url(), /view=all/);
@@ -313,7 +315,7 @@ function W0(k) { return ctx0.window.W(k); }
     await p.click('.dx-facs [data-f="yuanshao"]'); await p.waitForFunction(n => document.querySelectorAll('.dx-row').length === n, D.generals.filter(g => g.camp === 'yuanshao').length);
     await p.goto(BASE + '/dex.html?faction=qun'); await p.waitForSelector('.dx-row'); assert.equal(await p.locator('.dx-row').count(), D.generals.filter(g => g.faction === 'qun').length);
     /* 그림 없는 장수 */
-    assert(await p.locator('.dx-row[data-art="0"]').count() > 0); assert.equal(await p.locator('.dx-row[data-art="0"]').count(), D.generals.filter(g => g.faction === 'qun' && !C.hasArt(IMGDOC.img[g.key])).length);
+    assert(await p.locator('.dx-row[data-art="0"]').count() > 0); assert.equal(await p.locator('.dx-row[data-art="0"]').count(), D.generals.filter(g => g.faction === 'qun' && noWorldArt(g)).length);
     await p.click('.dx-tools'); await p.click('.dx-sheet [data-only="none"]'); await p.waitForFunction(() => !document.querySelector('.dx-row[data-art="1"]')); assert.equal(await p.locator('.dx-row[data-art="1"]').count(), 0);
     await p.click('.dx-sheet [data-only="none"]'); await p.click('.dx-sheet .dx-close');
     assert(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '폴드 커버 넘침'); checks += 9;
