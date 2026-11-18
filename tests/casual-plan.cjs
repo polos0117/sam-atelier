@@ -148,7 +148,7 @@ assert(freeSeen.size === 3 && freeSitu.size === 1, '갈래 자유 갈래 ' + [..
   /* 최근 장면 — 기록의 채운 덩어리에서 장소 · 하는 일 */
   assert.equal(C.blockScene('x\nFREE DESIGN: …\nRecent scenes to avoid: a.\nPlace: a night ferry deck, wind\nActivity: feeding gulls\nPose: …'), 'a night ferry deck — feeding gulls', '채운 덩어리의 장면'); }
 /* 데니어는 랜덤 — 닿는 옷 컷의 대략 열에 여섯(넓게: 3할 ~ 9할). 분모는 데니어를 얹을 수 있는 컷만(2026-11-16 — 그래서 표본 하한 20 → 10) */
-assert(dn.fit > 10 && dn.set / dn.fit > 0.3 && dn.set / dn.fit < 0.9, '데니어 비율 ' + dn.set + '/' + dn.fit);
+assert(dn.fit >= 10 && dn.set / dn.fit > 0.3 && dn.set / dn.fit < 0.9, '데니어 비율 ' + dn.set + '/' + dn.fit);
 /* 이미 있는 두 장 위에 세 장 — 겹침은 있는 것까지 센다 */
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'casual-plan-'));
 try {
