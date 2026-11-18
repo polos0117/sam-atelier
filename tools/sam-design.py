@@ -75,9 +75,14 @@ ROMAN = {
  '조상': 'Cao Shuang', '조방': 'Cao Fang', '조모': 'Cao Mao', '하후상': 'Xiahou Shang', '하후무': 'Xiahou Mao', '하후은': 'Xiahou En', '하후걸': 'Xiahou Jie', '주령': 'Zhu Ling',
  '왕쌍': 'Wang Shuang', '차주': 'Che Zhou', '장기': 'Zhang Ji', '양부': 'Yang Fu', '양수': 'Yang Xiu', '최염': 'Cui Yan', '모개': 'Mao Jie', '변씨': 'Lady Bian', '예형': 'Mi Heng',
  '손익': 'Sun Yi', '손소': 'Sun Shao', '육적': 'Lu Ji', '설종': 'Xue Zong', '손량': 'Sun Liang', '보연사': 'Bu Lianshi', '손노반': 'Sun Luban',
+ # 3묶음 뒤쪽(2026-11-18) — 촉 · 남만 · 군웅 · 연의 · 전승 인물(답돈 · 가비능 · 어부라 · 사마가는 위키백과 영문 표기)
+ '황승언': 'Huang Chengyan', '향총': 'Xiang Chong', '부사인': 'Fu Shiren', '사마가': 'Shamoke', '관은병': 'Guan Yinping', '포삼랑': 'Bao Sanniang',
+ '옹개': 'Yong Kai', '고정': 'Gao Ding', '화만': 'Hua Man', '동백': 'Dong Bai', '형도영': 'Xing Daorong', '반봉': 'Pan Feng', '무안국': 'Wu Anguo',
+ '유섭': 'Yu She', '고간': 'Gao Gan', '견초': 'Qian Zhao', '답돈': 'Tadun', '양봉': 'Yang Feng', '한섬': 'Han Xian', '장초': 'Zhang Chao',
+ '장홍': 'Zang Hong', '유대': 'Liu Dai', '교모': 'Qiao Mao', '가비능': 'Kebineng', '어부라': 'Yufuluo',
 }
-# 남만 — 피부 톤을 남방으로 기운다(외형 자동 돌림만)
-SOUTH = {'올돌골', '타사대왕', '맹우', '맹획', '축융'}
+# 남만 — 피부 톤을 남방으로 기운다(외형 자동 돌림만). 2026-11-18 남중 · 무릉의 오랑캐 왕과 남만 공주(고정 · 화만 · 사마가)도
+SOUTH = {'올돌골', '타사대왕', '맹우', '맹획', '축융', '고정', '화만', '사마가'}
 
 # ── 자동 외형 — 세력 팔레트에서 머리·눈 색, 역할에서 인상, 열쇠로 돌림. 손으로 적은 look 은 건드리지 않는다 ──
 HAIR_COLOR = {

@@ -2270,6 +2270,102 @@
    }
   },
   {
+   "key": "관은병",
+   "en": "Guan Yinping",
+   "faction": "shu",
+   "role": "general",
+   "stats": {
+    "lead": 64,
+    "war": 78,
+    "int": 60,
+    "pol": 52
+   },
+   "seal": "關",
+   "lore": "손권이 아들의 짝으로 청했으나 관우가 사신을 꾸짖어 물리친 딸 — 은병이라는 이름은 전승",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "관우의 딸 — 가는 언월도 · 혼담을 물리친 · 에메랄드빛 초록 머리 · 진홍 눈 · 날 선 · 결연한 · 풍만형"
+   },
+   "title": {
+    "en": "Guan Yu's daughter, whom Sun Quan sought as a bride for his son and Guan Yu refused — her name comes from folk legend"
+   },
+   "traits": {
+    "en": "proud resolve, a young woman warrior's green-trimmed armor, a silver hair ornament shaped like a folding screen"
+   },
+   "hold": {
+    "en": "a slim crescent glaive"
+   },
+   "look": {
+    "face": {
+     "eye_color": "crimson",
+     "impression": "sharp",
+     "expr": "determined",
+     "skin_tone": "warm_beige",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "gloss",
+     "brows": "straight_thin",
+     "nose": "small_button",
+     "lips": "small_bow"
+    },
+    "silhouette": {
+     "body": "voluptuous",
+     "hair_color": "emerald_green"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "side_ponytail",
+       "bangs": "choppy"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "droopy_soft"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "giant_twin_tails",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "monolid_long"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "wolf_cut",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "hooded"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 관우전에서 이름 설명 · 물건 · 인상(날 선) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(에메랄드빛 초록) · 눈 색(진홍)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 촉서 관우전 — 「先是，權遣使為子索羽女，羽罵辱其使，不許婚，權大怒」(219) — 관우의 딸이 있었다는 것뿐, 이름 · 그 뒤는 정사에 없다. 「관은병 · 관삼소저」 라는 이름과 남정에 따라가 이회의 아들 이유에게 시집간 이야기는 민간 전승(호북성 군중예술관 「삼국외전」 1986 등) — 정사에 없음 · 전승. 무예 이야기도 전승",
+    "src": "https://zh.wikipedia.org/wiki/關銀屏"
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "fur_mantle"
+    },
+    "fantasy": {
+     "sil": "gown_armor"
+    },
+    "mecha": {
+     "sil": "light_agile"
+    }
+   }
+  },
+  {
    "key": "왕평",
    "en": "Wang Ping",
    "faction": "shu",
@@ -2367,6 +2463,104 @@
      "조위"
     ],
     "en": "deep navy blue and black lacquer (Cao Wei)"
+   }
+  },
+  {
+   "key": "향총",
+   "en": "Xiang Chong",
+   "faction": "shu",
+   "role": "general",
+   "stats": {
+    "lead": 76,
+    "war": 66,
+    "int": 68,
+    "pol": 64
+   },
+   "seal": "向",
+   "lore": "이릉에서 모두 무너질 때 홀로 진영을 온전히 지켰고, 제갈량이 출사표에서 「성품이 맑고 고르다」 했다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "온전한 진영 — 호위대장의 창 · 출사표에 이름이 오른 · 짙은 남색 머리 · 청록 눈 · 무표정 · 차분한 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the Shu officer whose camp alone stayed whole in the rout at Yiling, praised in the Chu Shi Biao"
+   },
+   "traits": {
+    "en": "even-tempered steadiness, Shu palace-guard armor, a neat camp roster tucked in her belt"
+   },
+   "hold": {
+    "en": "a guard captain's spear"
+   },
+   "look": {
+    "face": {
+     "eye_color": "teal",
+     "impression": "stoic",
+     "expr": "calm",
+     "skin_tone": "fair",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "blush",
+     "brows": "straight_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "curvy_athletic",
+     "hair_color": "navy"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "bob",
+       "bangs": "side_swept"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "narrow_upturned",
+       "eye_size": "medium"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "shag_layers",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "droopy_soft"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "flipped_shoulder",
+       "bangs": "baby"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "monolid_long",
+       "eye_size": "medium"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 향랑전(조카 향총)에서 이름 설명 · 물건 · 인상(무표정) · 표정(차분한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(짙은 남색) · 눈 색(청록)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 촉서 향랑전(조카 향총) — 「先主時為牙門將。秭歸之敗，寵營特完」, 건흥 원년(223) 도정후 · 중부독으로 숙위병을 맡았다. 출사표 「將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰能」, 중령군. 연희 3년(240) 한가의 오랑캐를 치다 죽었다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷41"
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "heavy_general"
+    },
+    "fantasy": {
+     "sil": "paladin_cape"
+    },
+    "mecha": {
+     "sil": "cape_plates"
+    }
    }
   },
   {
@@ -3134,6 +3328,102 @@
     },
     "mecha": {
      "sil": "power_limbs"
+    }
+   }
+  },
+  {
+   "key": "포삼랑",
+   "en": "Bao Sanniang",
+   "faction": "shu",
+   "role": "general",
+   "stats": {
+    "lead": 60,
+    "war": 80,
+    "int": 44,
+    "pol": 40
+   },
+   "seal": "鮑",
+   "lore": "관색과 백여 합을 겨룬 끝에 져서 그의 아내가 되었다(전승 — 화관색전)",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "포가장의 셋째 딸 — 긴 자루 칼 · 겨뤄서 짝을 고른 · 구릿빛 머리 · 잎빛 눈 · 쾌활한 · 자신 있는 · 골반 굴곡형"
+   },
+   "title": {
+    "en": "the third daughter of the Bao manor who fought Guan Suo over a hundred bouts and became his wife (from folk ballad)"
+   },
+   "traits": {
+    "en": "bold cheer, a manor heiress's scale-trimmed armor, a red sash knotted for a duel"
+   },
+   "hold": {
+    "en": "a long-handled saber"
+   },
+   "look": {
+    "face": {
+     "eye_color": "leaf_green",
+     "impression": "cheerful",
+     "expr": "confident",
+     "skin_tone": "fair",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "winged_liner",
+     "brows": "angled_sharp",
+     "nose": "petite_straight",
+     "lips": "thin_long"
+    },
+    "silhouette": {
+     "body": "pear_curvy",
+     "hair_color": "copper"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "long_wavy",
+       "bangs": "wispy"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "cat"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "segmented_tail",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "almond_wide"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "long_layered",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "round_large"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 명 성화 연간 설창사화 「화관색전」에서 이름 설명 · 물건 · 인상(쾌활한) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(잎빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 명 성화 연간 설창사화 「화관색전」 — 포가장 주인 포개의 셋째 딸, 관색과 비무로 짝을 정하다 백여 합 끝에 져서 아내가 되었다. 정사 · 연의(관색이 남정에 나오는 89회)에 이 사람은 없다 — 정사에 없음 · 전승. 사천 광원 소화고성에 「포삼랑 묘」 가 있다",
+    "src": "https://zh.wikipedia.org/wiki/鮑三娘"
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "light_dancer"
+    },
+    "fantasy": {
+     "sil": "dark_spiked"
+    },
+    "mecha": {
+     "sil": "tail_unit"
     }
    }
   },
@@ -4491,6 +4781,104 @@
     },
     "mecha": {
      "sil": "long_coat_plate"
+    }
+   }
+  },
+  {
+   "key": "사마가",
+   "en": "Shamoke",
+   "faction": "shu",
+   "role": "general",
+   "stats": {
+    "lead": 62,
+    "war": 80,
+    "int": 28,
+    "pol": 22
+   },
+   "seal": "沙",
+   "lore": "무릉 오계만의 왕으로 유비의 동정에 응했다가 효정에서 육손에게 죽었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "오계만의 왕 — 쇠촉 창 · 유비에게 응한 · 불꽃 주황 머리 · 꿀빛 눈 · 사나운 · 결연한 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the tribal king of the Five Streams who answered Liu Bei's call and fell at Xiaoting"
+   },
+   "traits": {
+    "en": "wild valor, a tribal king's lacquered leather armor with river-stone beads, red war paint on one cheek"
+   },
+   "hold": {
+    "en": "a heavy iron-tipped river spear"
+   },
+   "look": {
+    "face": {
+     "eye_color": "honey",
+     "impression": "fierce",
+     "expr": "determined",
+     "skin_tone": "bronze",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "scar",
+     "brows": "feathered",
+     "nose": "petite_straight",
+     "lips": "thin_long"
+    },
+    "silhouette": {
+     "body": "curvy_athletic",
+     "hair_color": "flame_orange"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "shag_layers",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "deep_set"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "cloud_updo",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "phoenix",
+       "eye_tilt": "up"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "lob",
+       "bangs": "curtain"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "cat",
+       "eye_tilt": "up"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 육손전에서 이름 설명 · 물건 · 인상(사나운) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(불꽃 주황) · 눈 색(꿀빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 오서 육손전 — 장무 2년(222) 효정에서 「斬張南、馮習及胡王沙摩柯等首，破其四十餘營」(위키문헌 본은 沙靡柯). 촉서 선주전 — 유비가 「遣侍中馬良安慰五谿蠻夷，咸相率響應」. 「面如噀血，碧眼突出」 의 번왕이 감녕을 활로 쏘아 죽이고(83회) 주태에게 베이는 것(84회)은 연의",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷58"
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "wanderer"
+    },
+    "fantasy": {
+     "sil": "dragon_scale"
+    },
+    "mecha": {
+     "sil": "segmented_parts"
     }
    }
   },
@@ -6498,6 +6886,107 @@
     },
     "mecha": {
      "sil": "slim_suit"
+    }
+   }
+  },
+  {
+   "key": "견초",
+   "en": "Qian Zhao",
+   "faction": "wei",
+   "role": "general",
+   "stats": {
+    "lead": 74,
+    "war": 70,
+    "int": 68,
+    "pol": 72
+   },
+   "seal": "牽",
+   "lore": "원상의 목 앞에 제사를 올렸고, 안문을 지키며 언덕을 뚫어 성 안에 물을 끌어들였다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "안문태수 — 측량 장대 · 물길을 낸 · 먹빛 초록 머리 · 쪽빛 눈 · 날 선 · 진지한 · 굴곡형"
+   },
+   "title": {
+    "en": "the loyal frontier governor who mourned Yuan Shang's head and cut a canal to bring water into Yanmen"
+   },
+   "traits": {
+    "en": "steadfast righteousness, Wei frontier armor, a surveyor's plumb line coiled at her belt"
+   },
+   "hold": {
+    "en": "a long surveying rod"
+   },
+   "look": {
+    "face": {
+     "eye_color": "indigo",
+     "impression": "sharp",
+     "expr": "serious",
+     "skin_tone": "fair",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "blush",
+     "brows": "soft_round",
+     "nose": "petite_straight",
+     "lips": "thin_long"
+    },
+    "silhouette": {
+     "body": "curvy",
+     "hair_color": "ink_green"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "long_layered",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "narrow_upturned"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "windswept_long",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "droopy_soft",
+       "eye_tilt": "down"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "long_wavy",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "monolid_long"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 견초전에서 이름 설명 · 물건 · 인상(날 선) · 표정(진지한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(먹빛 초록) · 눈 색(쪽빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 견초전 — 「冀州牧袁紹辟爲督軍從事，兼領烏丸突騎 … 紹卒，又事紹子尚」, 업이 에워싸이자 고간에게 원상을 맞으라 권했다가 위태로워 조조에게 갔다(「太祖領冀州，辟爲從事」 · 204). 유성의 오환에서 요동 사자 한충을 꾸짖어 꺾었고, 군모연 · 호오환교위. 요동이 보낸 원상의 목 앞에서 「設祭頭下」. 안문태수로 「鑿原開渠，注水城內，民賴其益」, 가비능을 깨뜨리고 제갈량과 가비능이 손잡을 것을 먼저 알았다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷26",
+    "career": [
+     "원소",
+     "조위"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "heavy_general"
+    },
+    "fantasy": {
+     "sil": "elven_leaf"
+    },
+    "mecha": {
+     "sil": "full_armor"
     }
    }
   },
@@ -15889,6 +16378,107 @@
    }
   },
   {
+   "key": "동백",
+   "en": "Dong Bai",
+   "faction": "qun",
+   "role": "official",
+   "camp": "dong",
+   "stats": {
+    "lead": 22,
+    "war": 14,
+    "int": 50,
+    "pol": 42
+   },
+   "seal": "董",
+   "lore": "열다섯이 안 되어 위양군에 봉해져 단 위에서 인수를 받았다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "위양군 — 보랏빛 인끈 · 단 위에 오른 · 금발 · 장밋빛 눈 · 순진한 · 우쭐한 · 가늘고 풍만한 형"
+   },
+   "title": {
+    "en": "Dong Zhuo's granddaughter, made Lady of Weiyang before she came of age and crowned on a terrace built for her"
+   },
+   "traits": {
+    "en": "spoiled pride, a little lady's gold-flowered carriage silks, a seal ribbon of purple silk at her waist"
+   },
+   "hold": {
+    "en": "a purple-ribboned seal of rank"
+   },
+   "look": {
+    "face": {
+     "eye_color": "rose",
+     "impression": "innocent",
+     "expr": "smug",
+     "skin_tone": "porcelain",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "mole_eye",
+     "brows": "straight_thin",
+     "nose": "aquiline",
+     "lips": "plush_pout"
+    },
+    "silhouette": {
+     "body": "busty_slender",
+     "hair_color": "golden_blonde"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "asymmetric_bob",
+       "bangs": "side_swept"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "hooded"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "long_curly",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "peach_blossom"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "shag_layers",
+       "bangs": "baby"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "narrow_upturned",
+       "eye_size": "medium"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 동탁전 주 영웅기에서 이름 설명 · 물건 · 인상(순진한) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(금발) · 눈 색(장밋빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 동탁전 주 영웅기 — 「卓侍妾懷抱中子，皆封侯 … 孫女名白，時尚未笄，封爲渭陽君。於郿城東起壇 … 使白乘軒金華青蓋車 … 詣壇上，使兄子璜爲使者授印綬」. 기록은 이것뿐 — 192년 동씨가 모두 죽을 때 함께 죽었다고 보나 그 이름은 다시 나오지 않는다. 근래 게임(코에이 삼국지 · 진삼국무쌍 등)의 인물됨은 후대 창작",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷06",
+    "career": [
+     "동탁"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "scholar_robe"
+    },
+    "fantasy": {
+     "sil": "mage_robe"
+    },
+    "mecha": {
+     "sil": "float_units"
+    }
+   }
+  },
+  {
    "key": "원소",
    "en": "Yuan Shao",
    "faction": "qun",
@@ -17565,6 +18155,107 @@
    }
   },
   {
+   "key": "무안국",
+   "en": "Wu Anguo",
+   "faction": "qun",
+   "role": "general",
+   "camp": "court",
+   "stats": {
+    "lead": 54,
+    "war": 78,
+    "int": 26,
+    "pol": 20
+   },
+   "seal": "武",
+   "lore": "쇠망치를 들고 여포와 열 합 넘게 겨루다 손목을 잃었다(연의)",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "북해의 쇠망치 — 쇠망치 · 여포와 열 합 · 칠흑 머리 · 보랏빛 눈 · 무표정 · 집중한 · 낭창한 굴곡형"
+   },
+   "title": {
+    "en": "Kong Rong's hammer-wielding officer who lasted over ten bouts against Lü Bu before losing her wrist (from the novel)"
+   },
+   "traits": {
+    "en": "stubborn grit, a Beihai officer's riveted armor, a wrapped wrist guard on one arm"
+   },
+   "hold": {
+    "en": "a heavy iron war hammer"
+   },
+   "look": {
+    "face": {
+     "eye_color": "violet",
+     "impression": "stoic",
+     "expr": "focused",
+     "skin_tone": "porcelain",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "bare",
+     "brows": "feathered",
+     "nose": "aquiline",
+     "lips": "plush_pout"
+    },
+    "silhouette": {
+     "body": "willowy_curvy",
+     "hair_color": "jet_black"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "drill_curls",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "phoenix",
+       "eye_size": "medium"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "giant_braid",
+       "bangs": "baby"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "cat"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "spiky_wild",
+       "bangs": "swept_back"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "almond_wide"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지연의 5회에서 이름 설명 · 물건 · 인상(무표정) · 표정(집중한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(칠흑) · 눈 색(보랏빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지연의 5회 — 호뢰관 앞에서 「北海太守孔融部將武安國，使鐵鎚飛馬而出 … 戰到十餘合，一戟砍斷安國手腕，棄鎚於地而走」. 정사(삼국지)에는 이 사람의 이름이 없다 — 연의에만 있는 사람(사용자 2026-11-18 「반봉 무안국 유섭 하후은, 하후걸도 넣어줘」)",
+    "src": "https://zh.wikisource.org/wiki/三國演義/第005回",
+    "career": [
+     "한조정"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "shadow_garb"
+    },
+    "fantasy": {
+     "sil": "elven_leaf"
+    },
+    "mecha": {
+     "sil": "slim_suit"
+    }
+   }
+  },
+  {
    "key": "원담",
    "en": "Yuan Tan",
    "faction": "qun",
@@ -17853,6 +18544,210 @@
     },
     "mecha": {
      "sil": "power_limbs"
+    }
+   }
+  },
+  {
+   "key": "고간",
+   "en": "Gao Gan",
+   "faction": "qun",
+   "role": "general",
+   "camp": "yuanshao",
+   "stats": {
+    "lead": 68,
+    "war": 64,
+    "int": 60,
+    "pol": 58
+   },
+   "seal": "高",
+   "lore": "원소의 생질로 병주를 맡았고, 조조에게 항복했다 등을 돌려 호관을 지켰다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "병주자사 — 쇠 지휘봉 · 호관을 지킨 · 청록 머리 · 강철빛 파랑 눈 · 차가운 · 진지한 · 슬림 근육형"
+   },
+   "title": {
+    "en": "Yuan Shao's nephew who governed Bing Province, submitted to Cao Cao, then rebelled and held the Hu Pass"
+   },
+   "traits": {
+    "en": "restless ambition, Bing province governor's dark armor, a sealed jar-shaped pass token at her belt"
+   },
+   "hold": {
+    "en": "a governor's iron baton"
+   },
+   "look": {
+    "face": {
+     "eye_color": "steel_blue",
+     "impression": "cool",
+     "expr": "serious",
+     "skin_tone": "golden_tan",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "blush",
+     "brows": "soft_round",
+     "nose": "high_bridge",
+     "lips": "full_wide"
+    },
+    "silhouette": {
+     "body": "lean_toned",
+     "hair_color": "teal"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "chignon",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "narrow_upturned"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "lob",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "droopy_soft",
+       "eye_tilt": "down"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "topknot_tails",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "monolid_long"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 원소전에서 이름 설명 · 물건 · 인상(차가운) · 표정(진지한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(청록) · 눈 색(강철빛 파랑)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 원소전 — 191년 원소가 「使陳留高幹、潁川荀諶等說馥」 하여 한복에게서 기주를 받았고, 공손찬을 깬 뒤(199) 「以中子熙爲幽州，甥高幹爲并州」. 업이 떨어지자(204) 「高幹以并州降，復以幹爲刺史」, 조조가 오환을 치러 가자 「執上黨太守，舉兵守壺口關」, 건안 11년(206) 흉노에게 구원을 청하다 못 얻고 형주로 달아나다 상락도위에게 베였다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷06",
+    "career": [
+     "원소"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "cavalry"
+    },
+    "fantasy": {
+     "sil": "dragon_scale"
+    },
+    "mecha": {
+     "sil": "cape_plates"
+    }
+   }
+  },
+  {
+   "key": "답돈",
+   "en": "Tadun",
+   "faction": "qun",
+   "role": "general",
+   "camp": "yuanshao",
+   "stats": {
+    "lead": 76,
+    "war": 80,
+    "int": 54,
+    "pol": 40
+   },
+   "seal": "蹋",
+   "lore": "오환 세 왕의 무리를 아울러 묵돌에 견주어졌고, 원상 형제를 받아들였다가 백랑산에서 베였다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "오환의 선우 — 센 활 · 원씨를 받아들인 · 끝이 하늘색인 은빛 머리 · 은빛 눈 · 사나운 · 자신 있는 · 아담한 풍만형"
+   },
+   "title": {
+    "en": "the Wuhuan king likened to Modu Chanyu, who allied with Yuan Shao, sheltered Yuan Shang and fell at White Wolf Mountain"
+   },
+   "traits": {
+    "en": "fierce cunning, a Wuhuan king's fur-trimmed embroidered coat, gold hair ornaments on a shaved-side braid"
+   },
+   "hold": {
+    "en": "a heavy recurve bow"
+   },
+   "look": {
+    "face": {
+     "eye_color": "silver",
+     "impression": "fierce",
+     "expr": "confident",
+     "skin_tone": "warm_beige",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "bare",
+     "brows": "arched_thin",
+     "nose": "small_button",
+     "lips": "small_bow"
+    },
+    "silhouette": {
+     "body": "petite_voluptuous",
+     "hair_color": "ombre_azure"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "giant_braid",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "phoenix",
+       "eye_tilt": "up"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "spiky_wild",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "cat",
+       "eye_tilt": "up"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "jellyfish_cut",
+       "bangs": "curtain"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "almond_wide",
+       "eye_size": "medium"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 오환전에서 이름 설명 · 물건 · 인상(사나운) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(끝이 하늘색인 은빛) · 눈 색(은빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 오환전 — 구력거가 죽자 「從子蹋頓有武略，代立，總攝三王部」, 「袁紹與公孫瓚連戰不決，蹋頓遣使詣紹求和親，助紹擊瓚，破之。紹矯制賜蹋頓、峭王、汗魯王印綬，皆以爲單于」. 「蹋頓又驍武，邊長老皆比之冒頓」, 원상 · 원희가 달아나 오자 받아들였고, 건안 12년(207) 백랑산 아래에서 조조에게 「臨陳斬蹋頓首」",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷30",
+    "career": [
+     "원소"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "archer"
+    },
+    "fantasy": {
+     "sil": "winged"
+    },
+    "mecha": {
+     "sil": "heavy_assault"
     }
    }
   },
@@ -19609,6 +20504,106 @@
    }
   },
   {
+   "key": "가비능",
+   "en": "Kebineng",
+   "faction": "qun",
+   "role": "general",
+   "camp": "lords",
+   "stats": {
+    "lead": 82,
+    "war": 76,
+    "int": 66,
+    "pol": 64
+   },
+   "seal": "軻",
+   "lore": "노략한 것을 그 자리에서 고르게 나누어 무리가 목숨을 걸었고, 북으로 나아가고 물러나게 했다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "선비의 대인 — 북채 한 쌍 · 고르게 나눈 · 시안 머리 · 불씨빛 눈 · 성숙한 · 차분한 · 모래시계형"
+   },
+   "title": {
+    "en": "the Xianbei chieftain who split every spoil fairly on the spot and drilled his riders by drum signals"
+   },
+   "traits": {
+    "en": "even-handed command, a Xianbei chieftain's fur-lined coat with Han-style banners, a war drum strapped at her side"
+   },
+   "hold": {
+    "en": "a pair of signal drumsticks"
+   },
+   "look": {
+    "face": {
+     "eye_color": "ember",
+     "impression": "mature",
+     "expr": "calm",
+     "skin_tone": "golden_tan",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "bare",
+     "brows": "arched_thin",
+     "nose": "high_bridge",
+     "lips": "full_wide"
+    },
+    "silhouette": {
+     "body": "hourglass",
+     "hair_color": "cyan"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "flipped_shoulder",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "phoenix"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "messy_bun",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "cat"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "braids",
+       "bangs": "wispy"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "almond_wide"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 선비전에서 이름 설명 · 물건 · 인상(성숙한) · 표정(차분한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(시안) · 눈 색(불씨빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 선비전 — 「軻比能本小種鮮卑，以勇健，斷法平端，不貪財物，衆推以爲大人」, 「勒御部衆，擬則中國 … 建立旌麾，以鼓節爲進退」. 건안 중 염유를 통해 조공, 위의 부의왕(延康 초). 「每鈔畧得財物，均平分付，一決目前，終無所私，故得衆死力」, 마성에서 전예를 에워쌌고, 견초전 — 제갈량이 기산에 나오자 「遣使連結比能。比能至故北地石城」. 청룡 3년(235) 왕웅이 보낸 자객 한룡에게 죽었다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷30",
+    "career": [
+     "재야"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "archer"
+    },
+    "fantasy": {
+     "sil": "ranger"
+    },
+    "mecha": {
+     "sil": "power_limbs"
+    }
+   }
+  },
+  {
    "key": "맹획",
    "en": "Meng Huo",
    "faction": "qun",
@@ -19709,6 +20704,206 @@
    }
   },
   {
+   "key": "옹개",
+   "en": "Yong Kai",
+   "faction": "qun",
+   "role": "general",
+   "camp": "nanman",
+   "stats": {
+    "lead": 62,
+    "war": 58,
+    "int": 64,
+    "pol": 58
+   },
+   "seal": "雍",
+   "lore": "「하늘에 해가 둘 없다 하나 지금은 정삭이 셋이라 어디를 따를지 모르겠다」 하고 촉을 등졌다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "남중의 대성 — 한 장짜리 답장 · 정삭이 셋 · 자줏빛 검은 머리 · 호박빛 눈 · 화려한 · 차가운 미소 · 아담한 풍만형"
+   },
+   "title": {
+    "en": "the Nanzhong clan chief who answered Shu's six-page letter with one page — three calendars, so whom to follow?"
+   },
+   "traits": {
+    "en": "smooth defiance, a southern clan chief's embroidered robe over leather armor, a calendar tablet hung at her waist"
+   },
+   "hold": {
+    "en": "a single folded reply letter"
+   },
+   "look": {
+    "face": {
+     "eye_color": "amber",
+     "impression": "glamorous",
+     "expr": "cold_smile",
+     "skin_tone": "fair",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "scar",
+     "brows": "arched_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "petite_voluptuous",
+     "hair_color": "plum_black"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "long_curly",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "deep_set"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "shag_layers",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "phoenix"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "finger_waves",
+       "bangs": "wispy"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "cat"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 여개전에서 이름 설명 · 물건 · 인상(화려한) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(호박빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 촉서 여개전 — 유비가 죽자(223) 「雍闓等 … 驕黠滋甚」, 이엄이 여섯 장 글을 보내자 한 장으로 「蓋聞天無二日，土無二王，今天下鼎立，正朔有三，是以遠人惶惑，不知所歸也」. 장예전 — 「益州郡殺太守正昂，耆率雍闓恩信著於南土，使命周旋，遠通孫權」, 태수 장예를 오로 보냈다. 후주전 「益州郡有大姓雍闓反」, 제갈량이 남정에 나서자(225) 「闓已為高定部曲所殺」",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷43",
+    "career": [
+     "남만"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "layered_skirt"
+    },
+    "fantasy": {
+     "sil": "wild_warrior"
+    },
+    "mecha": {
+     "sil": "skirt_plate"
+    }
+   }
+  },
+  {
+   "key": "고정",
+   "en": "Gao Ding",
+   "faction": "qun",
+   "role": "general",
+   "camp": "nanman",
+   "stats": {
+    "lead": 64,
+    "war": 74,
+    "int": 36,
+    "pol": 30
+   },
+   "seal": "高",
+   "lore": "월수에서 제멋대로 버티다 제갈량의 남정에 베였다 — 옹개는 그의 부하에게 죽었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "월수의 이왕 — 산악 장도 · 높은 곳에 버틴 · 청동빛 머리 · 금빛 눈 · 거친 · 당당한 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "the Sou tribal king of Yuexi who rebelled against Shu and was cut down in Zhuge Liang's southern campaign"
+   },
+   "traits": {
+    "en": "mountain pride, a highland chieftain's quilted armor with silver studs, a tall feathered headband"
+   },
+   "hold": {
+    "en": "a long mountain glaive"
+   },
+   "look": {
+    "face": {
+     "eye_color": "gold",
+     "impression": "rugged",
+     "expr": "proud",
+     "skin_tone": "deep_brown",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "bare",
+     "brows": "angled_sharp",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "petite_curvy",
+     "hair_color": "bronze"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "side_braid",
+       "bangs": "wispy"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "phoenix"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "hime_cut",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "cat"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "pixie",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "almond_wide"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 후주전에서 이름 설명 · 물건 · 인상(거친) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(청동빛) · 눈 색(금빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 촉서 후주전 — 「越巂夷王高定亦背叛」(223), 이회전 「先主薨，高定恣睢於越巂，雍闓跋扈於建寧」(이회전은 高定元), 여개전 「丞相亮南征討闓，既發在道，而闓已為高定部曲所殺」. 화양국지 남중지 — 「越嶲叟帥高定元殺郡將焦璜，舉郡稱王以叛」, 건흥 3년(225) 제갈량이 월수로 들자 모우 · 정작 · 비수에 보루를 쌓았고 「定元部曲殺雍闓 … 亮既斬定元」",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷43",
+    "career": [
+     "남만"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "light_dancer"
+    },
+    "fantasy": {
+     "sil": "dark_spiked"
+    },
+    "mecha": {
+     "sil": "knight_plate"
+    }
+   }
+  },
+  {
    "key": "축융",
    "en": "Lady Zhurong",
    "faction": "qun",
@@ -19804,6 +20999,108 @@
     },
     "mecha": {
      "sil": "cape_plates"
+    }
+   }
+  },
+  {
+   "key": "화만",
+   "en": "Hua Man",
+   "faction": "qun",
+   "role": "general",
+   "camp": "nanman",
+   "stats": {
+    "lead": 52,
+    "war": 72,
+    "int": 40,
+    "pol": 30
+   },
+   "seal": "花",
+   "lore": "관색과 맞서다 말에서 떨어져 사로잡혔고, 장수 맞바꾸기 끝에 그와 맺어졌다(전승 — 경극 용봉건)",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "남만의 공주 — 굽은 쌍칼 · 맞바꿔 돌아온 · 벚꽃 분홍 머리 · 에메랄드 눈 · 귀여운 · 장난스러운 · 모래시계형"
+   },
+   "title": {
+    "en": "the daughter of Meng Huo and Lady Zhurong who fought Guan Suo, was traded back in a captive exchange and married him (from Peking opera)"
+   },
+   "traits": {
+    "en": "mischievous daring, a southern princess's flower-garland armor, throwing knives tucked in a woven sash"
+   },
+   "hold": {
+    "en": "a pair of curved short blades"
+   },
+   "look": {
+    "face": {
+     "eye_color": "emerald",
+     "impression": "cute",
+     "expr": "mischievous",
+     "skin_tone": "golden_tan",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "blush",
+     "brows": "straight_thin",
+     "nose": "high_bridge",
+     "lips": "full_wide"
+    },
+    "silhouette": {
+     "body": "hourglass",
+     "hair_color": "cherry_pink"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "mermaid_waves",
+       "bangs": "side_swept"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "narrow_upturned",
+       "eye_size": "medium"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "slicked_back",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "droopy_soft"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "flipped_shoulder",
+       "bangs": "baby"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "monolid_long",
+       "eye_size": "medium"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 경극 「용봉건」(부서가 곤강에서 피황으로 옮김에서 이름 설명 · 물건 · 인상(귀여운) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(벚꽃 분홍) · 눈 색(에메랄드)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 경극 「용봉건」(부서가 곤강에서 피황으로 옮김 — 「화외기연」) — 맹획과 축융부인의 딸, 관색과 싸우다 말에서 떨어져 놓여났고, 관색이 사로잡힌 뒤 서로 마음이 맞아 장수를 맞바꾸었으며 남정이 끝나자 제갈량이 짝지어 주었다. 정사 · 연의 · 화관색전 어디에도 없다 — 정사에 없음 · 전승(삼국연의사전 1989)",
+    "src": "https://zh.wikipedia.org/wiki/花鬘_(三國)",
+    "career": [
+     "남만"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "fur_mantle"
+    },
+    "fantasy": {
+     "sil": "full_plate"
+    },
+    "mecha": {
+     "sil": "tail_unit"
     }
    }
   },
@@ -20188,6 +21485,107 @@
     },
     "mecha": {
      "sil": "float_units"
+    }
+   }
+  },
+  {
+   "key": "황승언",
+   "en": "Huang Chengyan",
+   "faction": "qun",
+   "role": "strategist",
+   "camp": "recluse",
+   "stats": {
+    "lead": 14,
+    "war": 12,
+    "int": 84,
+    "pol": 60
+   },
+   "seal": "黃",
+   "lore": "「머리는 누렇고 살갗은 검으나 재주는 짝할 만한」 딸을 제갈량에게 주었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "제갈량의 장인 — 대나무 지팡이 · 딸을 짝지어 준 · 은백 머리 · 사파이어빛 눈 · 성숙한 · 재미있어하는 · 골반 굴곡형"
+   },
+   "title": {
+    "en": "the plain-spoken Mian-south scholar who offered his clever daughter to Zhuge Liang"
+   },
+   "traits": {
+    "en": "open-hearted candor, a recluse scholar's loose hemp robe, a bamboo walking staff with a tied scroll"
+   },
+   "hold": {
+    "en": "a bamboo walking staff"
+   },
+   "look": {
+    "face": {
+     "eye_color": "sapphire",
+     "impression": "mature",
+     "expr": "amused",
+     "skin_tone": "warm_beige",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "scar",
+     "brows": "high_arched",
+     "nose": "small_button",
+     "lips": "small_bow"
+    },
+    "silhouette": {
+     "body": "pear_curvy",
+     "hair_color": "silver_white"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "hime_cut",
+       "bangs": "swept_back"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "deep_set"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "pixie",
+       "bangs": "side_swept"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "phoenix",
+       "eye_size": "medium"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "chignon",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "cat"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전 주 양양기에서 이름 설명 · 물건 · 인상(성숙한) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(은백) · 눈 색(사파이어빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 촉서 제갈량전 주 양양기 — 「黃承彥者，高爽開列，為沔南名士，謂諸葛孔明曰：聞君擇婦；身有醜女，黃頭黑色，而才堪相配」, 제갈량이 허락하자 수레에 실어 보냈고 고을 사람들이 「莫作孔明擇婦，正得阿承醜女」 라 놀렸다. 벼슬한 기록은 없다(면남의 처사). 팔진도의 돌무더기에 갇힌 육손을 길로 이끌어 낸 것은 연의 84회",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷35",
+    "career": [
+     "재야"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "water_sleeves"
+    },
+    "fantasy": {
+     "sil": "mage_robe"
+    },
+    "mecha": {
+     "sil": "hover_rings"
     }
    }
   },
@@ -21662,6 +23060,213 @@
     },
     "mecha": {
      "sil": "cape_plates"
+    }
+   }
+  },
+  {
+   "key": "유섭",
+   "en": "Yu She",
+   "faction": "qun",
+   "role": "general",
+   "camp": "yuanshu",
+   "stats": {
+    "lead": 52,
+    "war": 70,
+    "int": 24,
+    "pol": 18
+   },
+   "seal": "俞",
+   "lore": "「소장이 가겠습니다」 하고 맨 먼저 나섰다가 화웅에게 세 합 만에 베였다(연의)",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "원술의 효장 — 곧은 창 · 맨 먼저 나선 · 쪽빛 머리 · 하늘빛 눈 · 보이시한 · 결연한 · 굴곡형"
+   },
+   "title": {
+    "en": "Yuan Shu's eager officer who volunteered first against Hua Xiong and fell within three bouts (from the novel)"
+   },
+   "traits": {
+    "en": "eager boldness, a Nanyang officer's light armor, a red volunteer tassel on her helmet"
+   },
+   "hold": {
+    "en": "a straight-bladed spear"
+   },
+   "look": {
+    "face": {
+     "eye_color": "sky_blue",
+     "impression": "boyish",
+     "expr": "determined",
+     "skin_tone": "olive",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "winged_liner",
+     "brows": "angled_sharp",
+     "nose": "upturned",
+     "lips": "soft_medium"
+    },
+    "silhouette": {
+     "body": "curvy",
+     "hair_color": "indigo"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "long_straight",
+       "bangs": "curtain"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "cat",
+       "eye_tilt": "up"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "ponytail",
+       "bangs": "choppy"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "almond_wide",
+       "eye_size": "medium"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "half_up",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "round_large",
+       "eye_size": "large"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지연의 5회에서 이름 설명 · 물건 · 인상(보이시한) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(쪽빛) · 눈 색(하늘빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지연의 5회 — 화웅이 손견의 두건을 걸고 싸움을 걸자 「袁術背後轉出驍將俞涉曰：小將願往」, 「俞涉與華雄戰不三合，被華雄斬了」. 정사(삼국지)에는 이 사람의 이름이 없다 — 연의에만 있는 사람(사용자 2026-11-18 「반봉 무안국 유섭 하후은, 하후걸도 넣어줘」)",
+    "src": "https://zh.wikisource.org/wiki/三國演義/第005回",
+    "career": [
+     "원술"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "cape_general"
+    },
+    "fantasy": {
+     "sil": "gown_armor"
+    },
+    "mecha": {
+     "sil": "light_agile"
+    }
+   }
+  },
+  {
+   "key": "어부라",
+   "en": "Yufuluo",
+   "faction": "qun",
+   "role": "general",
+   "camp": "yuanshu",
+   "stats": {
+    "lead": 64,
+    "war": 72,
+    "int": 40,
+    "pol": 34
+   },
+   "seal": "於",
+   "lore": "돌아갈 땅을 잃은 남흉노 선우로 원소 · 장양 곁을 거쳐 원술 편에서 조조와 싸웠다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "떠도는 선우 — 굽은 칼 · 땅을 잃은 · 로열 블루 머리 · 남빛 눈 · 거친 · 집중한 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "the Southern Xiongnu chanyu who lost his homeland and drifted from Yuan Shao's camp to Yuan Shu's side against Cao Cao"
+   },
+   "traits": {
+    "en": "wandering restlessness, a chanyu's felt-and-gold coat, a folding camp stool slung on her back"
+   },
+   "hold": {
+    "en": "a curved nomad saber"
+   },
+   "look": {
+    "face": {
+     "eye_color": "navy",
+     "impression": "rugged",
+     "expr": "focused",
+     "skin_tone": "golden_tan",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "winged_liner",
+     "brows": "angled_sharp",
+     "nose": "high_bridge",
+     "lips": "full_wide"
+    },
+    "silhouette": {
+     "body": "petite_curvy",
+     "hair_color": "royal_blue"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "braids",
+       "bangs": "curtain"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "cat",
+       "eye_tilt": "up"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "drill_curls",
+       "bangs": "choppy"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "almond_wide",
+       "eye_size": "medium"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "giant_braid",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "round_large",
+       "eye_size": "large"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 장양전에서 이름 설명 · 물건 · 인상(거친) · 표정(집중한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로열 블루) · 눈 색(남빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 장양전 — 원소가 하내에 이르자 「楊與紹合，復與匈奴單于於夫羅屯漳水。單于欲叛，紹、楊不從。單于執楊與俱去」, 국의에게 업 남쪽에서 졌다(191~192). 무제기 — 192년 「擊匈奴於夫羅於內黃」, 193년 원술이 봉구에 머물자 「黑山餘賊及於夫羅等佐之」 — 광정에서 조조에게 졌다. 아버지 선우 강거가 죽은 뒤 돌아가지 못하고 하동에 머물렀다(후한서 남흉노전 — 선 지 일곱 해에 죽음, 195)",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷08",
+    "career": [
+     "원소",
+     "원술"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "cavalry"
+    },
+    "fantasy": {
+     "sil": "dragon_scale"
+    },
+    "mecha": {
+     "sil": "tail_unit"
     }
    }
   },
@@ -23475,6 +25080,106 @@
    }
   },
   {
+   "key": "반봉",
+   "en": "Pan Feng",
+   "faction": "qun",
+   "role": "general",
+   "camp": "lords",
+   "stats": {
+    "lead": 50,
+    "war": 72,
+    "int": 22,
+    "pol": 20
+   },
+   "seal": "潘",
+   "lore": "한복이 「우리 상장 반봉이 화웅을 벤다」 하고 내보냈으나 곧 베였다(연의)",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "한복의 상장 — 큰 도끼 · 기대를 한 몸에 받은 · 밤색 머리 · 숲빛 눈 · 사나운 · 자신 있는 · 아담한 풍만형"
+   },
+   "title": {
+    "en": "Han Fu's vaunted chief general who rode out with a great axe against Hua Xiong and was cut down at once (from the novel)"
+   },
+   "traits": {
+    "en": "hearty overconfidence, a Ji province chief general's polished armor, a great axe resting on one shoulder"
+   },
+   "hold": {
+    "en": "a great broad axe"
+   },
+   "look": {
+    "face": {
+     "eye_color": "forest_green",
+     "impression": "fierce",
+     "expr": "confident",
+     "skin_tone": "fair",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "scar",
+     "brows": "high_arched",
+     "nose": "petite_straight",
+     "lips": "thin_long"
+    },
+    "silhouette": {
+     "body": "petite_voluptuous",
+     "hair_color": "chestnut"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "twin_tails",
+       "bangs": "wispy"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "deep_set"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "asymmetric_bob",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "phoenix"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "long_curly",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "cat"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지연의 5회에서 이름 설명 · 물건 · 인상(사나운) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(밤색) · 눈 색(숲빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지연의 5회 — 유섭이 화웅에게 베이자 「太守韓馥曰：吾有上將潘鳳，可斬華雄」, 「潘鳳手提大斧上馬。去不多時，飛馬來報：潘鳳又被華雄斬了」. 정사(삼국지)에는 이 사람의 이름이 없다 — 연의에만 있는 사람(사용자 2026-11-18 「반봉 무안국 유섭 하후은, 하후걸도 넣어줘」). 요즘 「무쌍상장」 이라 놀리는 것은 인터넷의 후대 장난",
+    "src": "https://zh.wikisource.org/wiki/三國演義/第005回",
+    "career": [
+     "한조정"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "wanderer"
+    },
+    "fantasy": {
+     "sil": "full_plate"
+    },
+    "mecha": {
+     "sil": "heavy_assault"
+    }
+   }
+  },
+  {
    "key": "관해",
    "en": "Guan Hai",
    "faction": "qun",
@@ -24676,6 +26381,211 @@
    }
   },
   {
+   "key": "양봉",
+   "en": "Yang Feng",
+   "faction": "qun",
+   "role": "general",
+   "camp": "court",
+   "stats": {
+    "lead": 64,
+    "war": 72,
+    "int": 38,
+    "pol": 34
+   },
+   "seal": "楊",
+   "lore": "이각을 등지고 천자를 모셔 안읍 · 낙양으로 갔으나 조조에게 밀려났다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "천자의 호위 — 기병도 · 천자를 모신 · 잿빛 머리 · 얼음빛 눈 · 거친 · 자신 있는 · 슬림 근육형"
+   },
+   "title": {
+    "en": "the former White Wave chief who broke with Li Jue and escorted the Han emperor east, only to be pushed aside by Cao Cao"
+   },
+   "traits": {
+    "en": "rough loyalty, a cavalry general's battered armor, an imperial escort banner rolled on her back"
+   },
+   "hold": {
+    "en": "a cavalry saber"
+   },
+   "look": {
+    "face": {
+     "eye_color": "ice_blue",
+     "impression": "rugged",
+     "expr": "confident",
+     "skin_tone": "fair",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "red_lip",
+     "brows": "straight_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "lean_toned",
+     "hair_color": "ash_gray"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "side_braid",
+       "bangs": "side_swept"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "peach_blossom"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "hime_cut",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "narrow_upturned",
+       "eye_size": "medium"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "pixie",
+       "bangs": "baby"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "droopy_soft"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 동탁전에서 이름 설명 · 물건 · 인상(거친) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(잿빛) · 눈 색(얼음빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 동탁전 — 「傕將楊奉與傕軍吏宋果等謀殺傕，事泄，遂將兵叛傕」, 「天子奔奉營，奉擊汜，破之」, 조양에서 지자 「奉急招河東故白波帥韓暹、胡才、李樂等合」, 「奉、暹等遂以天子都安邑」(195 겨울), 「奉、暹、承乃以天子還洛陽」(196). 조조가 천자를 허로 모시자 「暹、奉不能奉王法，各出奔，寇徐、揚閒，爲劉備所殺」(197). 서황전 — 서황이 거기장군 양봉을 따랐다. 백파의 우두머리(「楊奉，白波帥耳」 — 동탁전 주)",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷06",
+    "career": [
+     "황건",
+     "동탁",
+     "한조정"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "layered_skirt"
+    },
+    "fantasy": {
+     "sil": "ranger"
+    },
+    "mecha": {
+     "sil": "full_armor"
+    }
+   }
+  },
+  {
+   "key": "한섬",
+   "en": "Han Xian",
+   "faction": "qun",
+   "role": "general",
+   "camp": "court",
+   "stats": {
+    "lead": 60,
+    "war": 70,
+    "int": 34,
+    "pol": 28
+   },
+   "seal": "韓",
+   "lore": "하동 백파의 우두머리로 천자를 모셔 정동장군이 되었으나 공을 믿고 제멋대로였다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "백파의 우두머리 — 넓은 창 · 백파에서 온 · 와인빛 머리 · 옥빛 눈 · 쾌활한 · 우쭐한 · 아담한 굴곡형"
+   },
+   "title": {
+    "en": "the White Wave bandit chief of Hedong who rescued the Han emperor and became General Who Conquers the East"
+   },
+   "traits": {
+    "en": "swaggering pride, a bandit-turned-general's mismatched armor, a white sash of the White Wave band"
+   },
+   "hold": {
+    "en": "a broad-headed spear"
+   },
+   "look": {
+    "face": {
+     "eye_color": "jade",
+     "impression": "cheerful",
+     "expr": "smug",
+     "skin_tone": "fair",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "blush",
+     "brows": "straight_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "petite_curvy",
+     "hair_color": "wine_red"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "messy_bun",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "narrow_upturned"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "double_buns",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "droopy_soft",
+       "eye_tilt": "down"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "tilted_bun",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "monolid_long"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 동탁전에서 이름 설명 · 물건 · 인상(쾌활한) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(와인빛) · 눈 색(옥빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 동탁전 — 양봉이 조양에서 지자 「急招河東故白波帥韓暹、胡才、李樂等合，與傕、汜大戰」, 안읍에서 「以暹爲征東 … 並與奉、承持政」(195 겨울), 낙양으로 천자를 모셨다(196). 조조가 천자를 허로 옮기자 양봉과 함께 달아나 「寇徐、揚閒，爲劉備所殺」. 백파적은 하동 백파곡에서 일어난 황건의 남은 무리",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷06",
+    "career": [
+     "황건",
+     "한조정"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "cavalry"
+    },
+    "fantasy": {
+     "sil": "wild_warrior"
+    },
+    "mecha": {
+     "sil": "skirt_plate"
+    }
+   }
+  },
+  {
    "key": "염행",
    "en": "Yan Xing",
    "faction": "qun",
@@ -25495,6 +27405,212 @@
    }
   },
   {
+   "key": "장초",
+   "en": "Zhang Chao",
+   "faction": "qun",
+   "role": "general",
+   "camp": "lords",
+   "stats": {
+    "lead": 52,
+    "war": 48,
+    "int": 54,
+    "pol": 60
+   },
+   "seal": "張",
+   "lore": "「오직 장홍을 믿는다」 하며 옹구에서 버티다 온 집안과 함께 죽었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "광릉태수 — 추천 편지 · 장홍을 믿은 · 푸른 검은 머리 · 맑은 물빛 눈 · 부드러운 · 생각에 잠긴 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the Guangling governor and Zhang Miao's younger brother who held Yongqiu to the end, trusting only Zang Hong"
+   },
+   "traits": {
+    "en": "quiet trust, a commandery governor's armored robe, a letter of recommendation sealed in her sleeve"
+   },
+   "hold": {
+    "en": "a sealed letter of recommendation"
+   },
+   "look": {
+    "face": {
+     "eye_color": "aqua",
+     "impression": "soft",
+     "expr": "pensive",
+     "skin_tone": "fair",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "bare",
+     "brows": "arched_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "curvy_athletic",
+     "hair_color": "blue_black"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "braided_crown",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "phoenix",
+       "eye_tilt": "up"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "flipped_shoulder",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "cat",
+       "eye_tilt": "up"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "ponytail",
+       "bangs": "curtain"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "almond_wide",
+       "eye_size": "medium"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 장홍전에서 이름 설명 · 물건 · 인상(부드러운) · 표정(생각에 잠긴)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(푸른 검은) · 눈 색(맑은 물빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 장홍전 — 광릉태수 장초가 장홍을 공조로 불렀고 「洪才略智數優超，超甚愛之，海內奇士也」, 190년 산조의 맹세에 「廣陵太守超」. 장막전 — 194년 「邈弟超，與太祖將陳宮 … 共謀叛太祖」 하여 여포를 맞았고, 「邈從布，留超將家屬屯雍丘。太祖攻圍數月，屠之，斬超及其家」(195 12월). 무제기 주 — 「河間張超甞薦遺于太尉朱儁」(원유를 천거)",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷07",
+    "career": [
+     "한조정",
+     "여포"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "wanderer"
+    },
+    "fantasy": {
+     "sil": "paladin_cape"
+    },
+    "mecha": {
+     "sil": "cape_plates"
+    }
+   }
+  },
+  {
+   "key": "장홍",
+   "en": "Zang Hong",
+   "faction": "qun",
+   "role": "general",
+   "camp": "yuanshao",
+   "stats": {
+    "lead": 72,
+    "war": 62,
+    "int": 74,
+    "pol": 72
+   },
+   "seal": "臧",
+   "lore": "산조의 단에 올라 피를 마시며 맹세문을 읽었고, 옛 주인 장초를 구하려다 원소에게 죽었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "산조의 맹세 — 맹세문 두루마리 · 의리를 지킨 · 새빨간 머리 · 흑요석빛 눈 · 사나운 · 결연한 · 낭창한 굴곡형"
+   },
+   "title": {
+    "en": "the righteous official who read the oath of the anti-Dong coalition and died defying Yuan Shao for his old lord"
+   },
+   "traits": {
+    "en": "unbending righteousness, a commandery governor's armored robe, a lacquered oath bowl hung at her belt"
+   },
+   "hold": {
+    "en": "a rolled oath scroll"
+   },
+   "look": {
+    "face": {
+     "eye_color": "obsidian",
+     "impression": "fierce",
+     "expr": "determined",
+     "skin_tone": "fair",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "red_lip",
+     "brows": "straight_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "willowy_curvy",
+     "hair_color": "bright_red"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "triple_tails",
+       "bangs": "choppy"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "peach_blossom"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "undercut_sweep",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "narrow_upturned",
+       "eye_tilt": "up"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "mermaid_waves",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "droopy_soft"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 장홍전에서 이름 설명 · 물건 · 인상(사나운) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(새빨간) · 눈 색(흑요석빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 장홍전 — 즉구장을 지내다 광릉태수 장초의 공조, 190년 산조에서 「咸共推洪。洪乃升壇操槃歃血而盟」, 「辭氣慷慨，涕泣橫下，聞其言者 … 莫不激揚」. 원소가 청주를 맡겼고(「洪在州二年，群盜奔走」) 동군태수로 옮겼다. 조조가 옹구의 장초를 에워싸자 구하려 했으나 원소가 막아 「洪由是怨紹，絕不與通。紹興兵圍之，歷年不下」, 진림의 글에 「吾子託身於盟主，臧洪策名於長安」 하고 답했고 성이 떨어져(196) 죽었다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷07",
+    "career": [
+     "한조정",
+     "원소"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "light_dancer"
+    },
+    "fantasy": {
+     "sil": "gown_armor"
+    },
+    "mecha": {
+     "sil": "slim_suit"
+    }
+   }
+  },
+  {
    "key": "순심",
    "en": "Xun Chen",
    "faction": "qun",
@@ -25691,6 +27807,208 @@
     "en": "Han black and vermilion, gold and jade",
     "ko": "군웅록 한조정 색",
     "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
+   }
+  },
+  {
+   "key": "유대",
+   "en": "Liu Dai",
+   "faction": "qun",
+   "role": "lord",
+   "camp": "lords",
+   "stats": {
+    "lead": 50,
+    "war": 44,
+    "int": 56,
+    "pol": 62
+   },
+   "seal": "劉",
+   "lore": "원소의 처자를 맡아 두었고, 정욱의 말을 따라 공손찬과 끊었으나 황건을 치다 죽었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "연주자사 — 손님방 열쇠 · 원소의 처자를 맡은 · 로열 퍼플 머리 · 마젠타 눈 · 위엄 있는 · 당당한 · 풍만형"
+   },
+   "title": {
+    "en": "the Han-clan inspector of Yan Province who sheltered Yuan Shao's family and fell fighting the Yellow Turbans"
+   },
+   "traits": {
+    "en": "courtly hospitality, an imperial-clan inspector's embroidered robe, a ring of guest-room keys at her waist"
+   },
+   "hold": {
+    "en": "an inspector's staff of office"
+   },
+   "look": {
+    "face": {
+     "eye_color": "magenta",
+     "impression": "regal",
+     "expr": "proud",
+     "skin_tone": "fair",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "red_lip",
+     "brows": "straight_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "voluptuous",
+     "hair_color": "royal_purple"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "triple_tails",
+       "bangs": "asymmetric"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "peach_blossom"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "undercut_sweep",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "narrow_upturned"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "mermaid_waves",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "droopy_soft",
+       "eye_tilt": "down"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 정욱전에서 이름 설명 · 물건 · 인상(위엄 있는) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로열 퍼플) · 눈 색(마젠타)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 정욱전 — 「兗州刺史劉岱 … 是時岱與袁紹、公孫瓚和親，紹令妻子居岱所」, 공손찬이 처자를 내놓으라 하자 정욱의 말을 따라 원소 쪽에 섰다. 무제기 — 190년 관동의 기병에 「兖州刺史劉岱」, 「劉岱與橋瑁相惡，岱殺瑁」, 192년 청주 황건이 연주에 들자 포신의 말을 듣지 않고 싸우다 죽었다(「劉岱爲黃巾所殺」). 동탁이 내보낸 자사(동탁전 「用其所舉韓馥、劉岱 … 出宰州郡」), 양주자사 유요의 형",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷14",
+    "career": [
+     "한조정"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "heavy_general"
+    },
+    "fantasy": {
+     "sil": "noble_coat"
+    },
+    "mecha": {
+     "sil": "skirt_plate"
+    }
+   }
+  },
+  {
+   "key": "교모",
+   "en": "Qiao Mao",
+   "faction": "qun",
+   "role": "official",
+   "camp": "lords",
+   "stats": {
+    "lead": 46,
+    "war": 34,
+    "int": 66,
+    "pol": 68
+   },
+   "seal": "橋",
+   "lore": "도읍의 삼공 이름으로 글을 지어 돌려 관동의 군사를 일으켰다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "동군태수 — 삼공의 글 · 맹을 일으킨 · 앤티크 골드 머리 · 창공빛 눈 · 우아한 · 옅은 미소 · 탄탄한 굴곡형"
+   },
+   "title": {
+    "en": "the Dong commandery governor who forged a letter in the Three Excellencies' names to raise the eastern coalition"
+   },
+   "traits": {
+    "en": "daring wit, a commandery governor's robe, an ink-stained official seal case"
+   },
+   "hold": {
+    "en": "a forged official dispatch"
+   },
+   "look": {
+    "face": {
+     "eye_color": "azure",
+     "impression": "elegant",
+     "expr": "half_smile",
+     "skin_tone": "fair",
+     "age": "mid_20s",
+     "eye_size": "small",
+     "eye_tilt": "down",
+     "mark": "blush",
+     "brows": "straight_thin",
+     "nose": "straight_narrow",
+     "lips": "heart_full"
+    },
+    "silhouette": {
+     "body": "curvy_athletic",
+     "hair_color": "antique_gold"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "slicked_back",
+       "bangs": "choppy"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "narrow_upturned",
+       "eye_tilt": "up"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "long_straight",
+       "bangs": "side_locks"
+      },
+      "face": {
+       "face_shape": "heart",
+       "eyes": "droopy_soft"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "braided_crown",
+       "bangs": "none"
+      },
+      "face": {
+       "face_shape": "v_line",
+       "eyes": "monolid_long"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기와 주 영웅기에서 이름 설명 · 물건 · 인상(우아한) · 표정(옅은 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(앤티크 골드) · 눈 색(창공빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 위서 무제기와 주 영웅기 — 「瑁字元偉，玄族子。先爲兖州刺史，甚有威惠」, 「東郡太守橋瑁詐作京師三公移書與州郡，陳卓罪惡」, 190년 산조에 모인 맹의 한 사람. 「劉岱與橋瑁相惡，岱殺瑁，以王肱領東郡太守」. 태위 교현의 일족",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷01",
+    "career": [
+     "한조정"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "water_sleeves"
+    },
+    "fantasy": {
+     "sil": "battle_mage"
+    },
+    "mecha": {
+     "sil": "big_backpack"
+    }
    }
   },
   {
@@ -25980,7 +28298,7 @@
     "why": "게임 표(draft.html)에 없는 공방 장수 — 「천하 지도」 의 빈 땅을 채우는 새 장수 1묶음. 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었다 — 삼국지 오서 손책전 「繇遣樊能、于麋東屯橫江津，張英屯當利口，以距術」 — 오경 · 손분이 「連年不克」, 유요전은 「歲余不下」. 흥평 2년(195) 손책이 건너와 깨뜨렸고, 강표전에 번능 · 우미가 다시 무리를 모아 우저 진영을 되빼앗았다가 또 깨졌다고 한다. 그 뒤는 기록에 없다(죽는 장면은 연의)",
     "src": "https://zh.wikisource.org/wiki/三國志/卷46",
     "career": [
-     "한조정"
+     "유요"
     ]
    },
    "worlds": {
@@ -26081,7 +28399,7 @@
     "why": "게임 표(draft.html)에 없는 공방 장수 — 「천하 지도」 의 빈 땅을 채우는 새 장수 1묶음. 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었다 — 삼국지 오서 손책전 「繇遣樊能、于麋東屯橫江津」 · 강표전 「樊能、于麋等復合衆襲奪牛渚屯。策聞之，還攻破能等」(흥평 2년 · 195). 于糜 · 于麋 두 표기가 있다. 그 뒤는 기록에 없다(손책의 겨드랑이에 끼여 죽는 것은 연의)",
     "src": "https://zh.wikisource.org/wiki/三國志/卷46",
     "career": [
-     "한조정"
+     "유요"
     ]
    },
    "worlds": {
@@ -26181,7 +28499,7 @@
     "why": "게임 표(draft.html)에 없는 공방 장수 — 「천하 지도」 의 빈 땅을 채우는 새 장수 1묶음. 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었다 — 삼국지 오서 손책전 「張英屯當利口，以距術」 · 유요전 「繇遣樊能、張英屯江邊以拒之 … 孫策東渡，破英、能等」(195). 그 뒤는 기록에 없다(진무에게 죽는 것은 연의)",
     "src": "https://zh.wikisource.org/wiki/三國志/卷46",
     "career": [
-     "한조정"
+     "유요"
     ]
    },
    "worlds": {
@@ -28314,6 +30632,107 @@
     },
     "mecha": {
      "sil": "light_agile"
+    }
+   }
+  },
+  {
+   "key": "형도영",
+   "en": "Xing Daorong",
+   "faction": "qun",
+   "role": "general",
+   "camp": "jing",
+   "stats": {
+    "lead": 54,
+    "war": 76,
+    "int": 24,
+    "pol": 18
+   },
+   "seal": "邢",
+   "lore": "「만 명을 당한다」 던 영릉의 상장이 개산대부를 들고 나섰다가 조운의 창 한 번에 쓰러졌다(연의)",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "영릉의 상장 — 개산대부 · 큰소리친 · 레몬빛 머리 · 산호빛 눈 · 보이시한 · 당당한 · 낭창한 굴곡형"
+   },
+   "title": {
+    "en": "Lingling's boastful chief general with a mountain-splitting axe, felled by a single thrust of Zhao Yun's spear (from the novel)"
+   },
+   "traits": {
+    "en": "loud bravado, a provincial chief general's heavy lamellar armor, a huge axe slung across her back"
+   },
+   "hold": {
+    "en": "a huge mountain-splitting axe"
+   },
+   "look": {
+    "face": {
+     "eye_color": "coral",
+     "impression": "boyish",
+     "expr": "proud",
+     "skin_tone": "warm_beige",
+     "age": "early_20s",
+     "eye_size": "large",
+     "eye_tilt": "level",
+     "mark": "scar",
+     "brows": "arched_thin",
+     "nose": "broad_soft",
+     "lips": "thin_bow"
+    },
+    "silhouette": {
+     "body": "willowy_curvy",
+     "hair_color": "lemon_yellow"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "undercut_sweep",
+       "bangs": "parted"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "deep_set"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "mermaid_waves",
+       "bangs": "baby"
+      },
+      "face": {
+       "face_shape": "oval",
+       "eyes": "phoenix",
+       "eye_size": "medium"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "slicked_back",
+       "bangs": "swept_back"
+      },
+      "face": {
+       "face_shape": "round",
+       "eyes": "cat"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지연의 52회에서 이름 설명 · 물건 · 인상(보이시한) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(레몬빛) · 눈 색(산호빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지연의 52회 — 영릉태수 유도의 아들 유현이 「我本州上將邢道榮，力敵萬人」, 「手使開山大斧」 로 제갈량에게 「反賊安敢侵我境界」 하고 외쳤다가 장비 · 조운에게 지고 사로잡혔고, 거짓 항복 뒤 「趙雲 … 一槍刺道榮於馬下」. 정사(삼국지)에는 이 사람의 이름이 없다 — 연의에만 있는 사람(사용자 2026-11-18 「형도영도 넣어줘」)",
+    "src": "https://zh.wikisource.org/wiki/三國演義/第052回",
+    "career": [
+     "유표"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "cavalry"
+    },
+    "fantasy": {
+     "sil": "winged"
+    },
+    "mecha": {
+     "sil": "power_limbs"
     }
    }
   },
@@ -32618,6 +35037,106 @@
      "동오"
     ],
     "en": "sea-salt blue and pearl white (Tao Qian), crimson red and gold (Eastern Wu)"
+   }
+  },
+  {
+   "key": "부사인",
+   "en": "Fu Shiren",
+   "faction": "shu",
+   "role": "general",
+   "stats": {
+    "lead": 50,
+    "war": 54,
+    "int": 42,
+    "pol": 40
+   },
+   "seal": "傅",
+   "lore": "공안을 지키다 관우와 틀어져 손권에게 성문을 열었다",
+   "designed": "draft",
+   "design_by": "claude",
+   "design_date": "2026-11-18",
+   "summary": {
+    "ko": "공안의 성문 — 성문 열쇠 꾸러미 · 성문을 연 · 짙은 적갈색 머리 · 라일락빛 눈 · 차가운 · 살짝 언짢은 · 가늘고 풍만한 형"
+   },
+   "title": {
+    "en": "the Shu general at Gong'an who fell out with Guan Yu and opened the gates to Sun Quan"
+   },
+   "traits": {
+    "en": "uneasy resentment, Shu garrison armor, a heavy ring of gate keys at her hip"
+   },
+   "hold": {
+    "en": "a ring of heavy gate keys"
+   },
+   "look": {
+    "face": {
+     "eye_color": "lilac",
+     "impression": "cool",
+     "expr": "mildly_annoyed",
+     "skin_tone": "warm_beige",
+     "age": "late_20s",
+     "eye_size": "medium",
+     "eye_tilt": "up",
+     "mark": "winged_liner",
+     "brows": "feathered",
+     "nose": "broad_soft",
+     "lips": "thin_bow"
+    },
+    "silhouette": {
+     "body": "busty_slender",
+     "hair_color": "dark_auburn"
+    },
+    "worlds": {
+     "samguk": {
+      "silhouette": {
+       "hair": "low_ponytail",
+       "bangs": "straight"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "cat"
+      }
+     },
+     "fantasy": {
+      "silhouette": {
+       "hair": "short_crop",
+       "bangs": "one_eye"
+      },
+      "face": {
+       "face_shape": "diamond",
+       "eyes": "almond_wide"
+      }
+     },
+     "mecha": {
+      "silhouette": {
+       "hair": "cloud_updo",
+       "bangs": "wispy"
+      },
+      "face": {
+       "face_shape": "inverted_triangle",
+       "eyes": "round_large"
+      }
+     }
+    },
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 관우전에서 이름 설명 · 물건 · 인상(차가운) · 표정(살짝 언짢은)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(짙은 적갈색) · 눈 색(라일락빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다."
+   },
+   "extra": {
+    "why": "게임 표(draft.html)에 없는 공방 장수 — 촉 · 남만 · 군웅과 연의 · 전승 인물을 채우는 새 장수 3묶음(뒤쪽). 사용자 2026-11-18 「3묶음까지」. 능력치 · 일화는 게임 표가 아니라 확인한 사실에서 적었고, 연의에만 있는 일은 「연의」, 후대 창작은 「정사에 없음 · 전승」 이라고 밝혔다 — 삼국지 촉서 관우전 — 「南郡太守麋芳在江陵，將軍士仁屯公安，素皆嫌羽輕己 … 芳、仁供給軍資，不悉相救 … 權陰誘芳、仁，芳、仁使人迎權」(219). 오주전 「先遣呂蒙襲公安，獲將軍士仁」, 계한보신찬 「士仁字君義，廣陽人也 … 與羽有隙，叛迎孫權」. 정사의 이름은 사인(士仁) — 성 부(傅)를 붙인 「부사인」 은 연의의 이름이다",
+    "src": "https://zh.wikisource.org/wiki/三國志/卷36",
+    "career": [
+     "촉한",
+     "동오"
+    ]
+   },
+   "worlds": {
+    "samguk": {
+     "sil": "archer"
+    },
+    "fantasy": {
+     "sil": "wild_warrior"
+    },
+    "mecha": {
+     "sil": "knight_plate"
+    }
    }
   },
   {

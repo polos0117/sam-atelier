@@ -82,7 +82,7 @@ assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(do
   { const x = fl('w194').find(y => y.key === '공손도'); assert(x && !x.landless && x.glyph === '遼' && x.color === factions.factions['공손도'].c, '195 공손도 — 범례 줄'); }
   for (const e of ['w194', 'gd200', 'jb208', 'end263']) { assert.equal(C.factionOf(doc, e, '공손연'), null, e + ' 공손연은 군웅록에만'); assert.equal(C.factionOf(doc, e, '사휘'), null, e + ' 사휘는 군웅록에만'); }
   assert(!fl('w194').find(y => y.key === '황건').landless && C.factionOf(doc, 'w194', '유벽') === '황건' && C.factionOf(doc, 'w194', '공도') === null && C.factionOf(doc, 'gd200', '공도') === '황건', '195 여남은 황건(유벽), 공도는 200 부터');
-  assert.equal(C.factionOf(doc, 'mx', '번능'), '한조정'); assert.equal(C.factionOf(doc, 'mx', '사휘'), '교주'); assert.equal(C.factionOf(doc, 'mx', '양임'), '장로'); assert.equal(C.factionOf(doc, 'jb208', '양앙'), '장로'); assert.equal(C.factionOf(doc, 'w194', '사일'), '교주');
+  assert.equal(C.factionOf(doc, 'mx', '번능'), '유요'); assert.equal(C.factionOf(doc, 'mx', '사휘'), '교주'); assert.equal(C.factionOf(doc, 'mx', '양임'), '장로'); assert.equal(C.factionOf(doc, 'jb208', '양앙'), '장로'); assert.equal(C.factionOf(doc, 'w194', '사일'), '교주');
   /* 새 장수 2묶음(2026-11-18) — 원술 · 서량 · 유장 · 유표 · 여포 · 도겸 쪽과 263년 촉한 · 동오 · 진 */
   assert.equal(names('w194', '원술'), ['원술', '기령', '장훈', '교유', '양강', '한윤', '뇌박', '진란', '염상', '유훈'].sort().join(), '195 원술 10명');
   assert.equal(names('w194', '서량'), ['마등', '마초', '마대', '한수', '방덕', '염행', '성공영', '마휴', '마철'].sort().join(), '195 서량 9명');
@@ -93,6 +93,13 @@ assert.equal(C.ownerOf(doc, 'w194', 'luoyang'), null); assert.equal(C.ownerOf(do
   assert.equal(C.factionOf(doc, 'jb208', '한현'), '조위'); assert.notEqual(C.factionOf(doc, 'jb208', '황충'), '조위', '208 황충은 조위가 아니다(사용자 「황충은 빼고」)');
   assert.equal(C.ownerOf(doc, 'jb208', 'changsha'), '조위'); assert.equal(C.chiefOf(doc, 'jb208', '조위'), '조조', '208 조위 — 조비 · 한현이 들어와도 가운데는 조조');
   assert.equal(C.ownerOf(doc, 'gd200', 'jiaozhi'), '교주'); assert.equal(C.factionOf(doc, 'end263', '종예'), '촉한');
+  /* 새 장수 3묶음 뒤쪽(2026-11-18) — 촉 · 남만 · 군웅 · 연의 · 전승 인물. 막사 고침 둘: 한조정의 가운데는 하진(tianxia mx lords), 유요 쪽 번능 · 우미 · 장영은 유요 막사로(주흔은 한조정 그대로) */
+  assert.equal(C.chiefOf(doc, 'mx', '한조정'), '하진', '군웅록 한조정 — 한복 · 유대(군주)가 들어와도 가운데는 하진'); for (const n of ['양봉', '한섬', '유대', '교모', '반봉', '무안국']) assert.equal(C.factionOf(doc, 'mx', n), '한조정', n);
+  assert.equal(names('mx', '유요'), ['유요', '번능', '우미', '장영'].sort().join(), '군웅록 유요 4명'); assert.equal(C.chiefOf(doc, 'mx', '유요'), '유요'); assert.equal(C.factionOf(doc, 'mx', '주흔'), '한조정');
+  for (const [n, f] of Object.entries({ 옹개: '남만', 고정: '남만', 화만: '남만', 동백: '동탁', 형도영: '유표', 유섭: '원술', 어부라: '원술', 고간: '원소', 답돈: '원소', 장홍: '원소', 장초: '여포', 황승언: '재야', 가비능: '재야', 부사인: '동오', 견초: '조위', 사마가: '촉한', 관은병: '촉한', 포삼랑: '촉한', 향총: '촉한' })) assert.equal(C.factionOf(doc, 'mx', n), f, '군웅록 ' + n);
+  assert.equal(C.factionOf(doc, 'w194', '양봉'), '한조정'); assert.equal(C.factionOf(doc, 'w194', '한섬'), '한조정'); assert.equal(C.chiefOf(doc, 'w194', '한조정'), '동승', '195 한조정 — 양봉 · 한섬이 들어와도 가운데는 동승');
+  assert.equal(C.factionOf(doc, 'gd200', '고간'), '원소'); assert.equal(C.factionOf(doc, 'gd200', '견초'), '원소'); assert.equal(C.factionOf(doc, 'jb208', '견초'), '조위'); assert.equal(C.chiefOf(doc, 'gd200', '원소'), '원소');
+  for (const e of ['w194', 'gd200', 'jb208', 'end263']) for (const n of ['형도영', '반봉', '무안국', '유섭', '관은병', '포삼랑', '화만', '동백', '장홍', '장초', '어부라']) assert.equal(C.factionOf(doc, e, n), null, e + ' ' + n + ' 는 군웅록에만');
   // 추가 명단을 못 받았을 때 — 옛 명단만으로 지금처럼 돈다
   const old = C.make({ design, packs, factions, combos, tianxia, careerFix });   // 고침 표는 늘 얹힌다 — 추가 명단만 뺀다
   assert.equal(C.factionOf(old, 'w194', '유장'), null); assert.equal(C.factionsOf(old, 'w194').reduce((s, f) => s + f.count, 0), Object.keys(packs.packs.w194.facMap).length);

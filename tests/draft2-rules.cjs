@@ -224,7 +224,7 @@ for (let s = 1; s <= 4; s++) { play(31 + s, db.list.map(c => c.key), 2, 2, { pla
   /* 새 장수 1묶음(2026-11-18) — 옛 이력이 없는 군웅 장수는 설계표 extra.career 의 세력으로(군웅록 · 위촉오+군웅), 연도 판은 추가 명단의 해에만 */
   ok(S.generals.filter(g => g.extra && g.faction === 'qun').every(g => Array.isArray(g.extra.career) && g.extra.career.every(f => FC.factions[f]) && R.facOf(mx, g.key) === g.extra.career[g.extra.career.length - 1]), '공방 군웅 장수 — extra.career 의 세력이 세력 표에 있고 군웅록에서 그 세력에 든다');
   ok(R.facOf(mx, '공손도') === '공손도' && R.facOf(mx, '공손연') === '공손도' && R.facOf(db, '공손강') === '공손도' && mx.facInfo['공손도'].h === '遼' && R.facColor(mx, '공손도') === FC.factions['공손도'].c && !R.isMajor(mx, '공손도')
-    && R.facOf(mx, '유벽') === '황건' && R.facOf(mx, '장위') === '장로' && R.facOf(mx, '번능') === '한조정' && R.facOf(mx, '사휘') === '교주', '군웅록 — 새 세력 공손도 遼, 새 장수는 제 무리에');
+    && R.facOf(mx, '유벽') === '황건' && R.facOf(mx, '장위') === '장로' && R.facOf(mx, '번능') === '유요' && R.facOf(mx, '사휘') === '교주', '군웅록 — 새 세력 공손도 遼, 새 장수는 제 무리에');
   ok(R.facOf(y194, '공손도') === '공손도' && R.facOf(y194, '번능') === '유요' && R.facOf(y194, '주흔') === '왕랑' && R.facOf(y194, '유벽') === '황건' && R.facOf(y200, '공도') === '황건' && R.facOf(y208, '공손강') === '공손도' && R.facOf(y208, '장위') === '장로군'
     && !R.inScope(y208, '공손도') && !R.inScope(y194, '공도') && ['w194', 'gd200', 'jb208', 'end263'].every(m => !R.inScope(R.view(db, m), '공손연') && !R.inScope(R.view(db, m), '사휘')), '연도 판 — 공손도는 195 · 200, 공손강은 208 까지, 공손연 · 사휘는 군웅록에만');
   ok(['이각', '장연', '왕랑'].every(k => y194.by[k].cat === 'lord' && y194.by[k].asLord && y194.by[k].trait === GN.generals.find(g => g.key === k).lordAs.trait) && y200.by['장연'].cat === 'lord'
