@@ -4709,13 +4709,13 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "흰 눈썹 — 흰 리본 두루마리 · 쪽빛 머리 · 흰 눈썹 · 온화한 · 아담한 굴곡형"
+    "ko": "흰 눈썹 — 흰 리본 두루마리 · 새하얀 머리 · 머리와 같은 흰 눈썹 · 온화한 · 아담한 굴곡형"
    },
    "title": {
-    "en": "the finest of the five Ma siblings, marked by white eyebrows"
+    "en": "the finest of the five Ma siblings"
    },
    "traits": {
-    "en": "striking white eyebrows, gentle wisdom, diplomacy among the southern tribes"
+    "en": "pale snow-white eyebrows that match her hair, gentle wisdom, diplomacy among the southern tribes"
    },
    "hold": {
     "en": "a scroll tied with a white ribbon"
@@ -4736,7 +4736,7 @@
     },
     "silhouette": {
      "body": "petite_curvy",
-     "hair_color": "indigo"
+     "hair_color": "snow_white"
     },
     "worlds": {
      "samguk": {
@@ -4774,7 +4774,7 @@
     },
     "why": "시안(claude 2026-11-02) — 게임 일화 「마씨 다섯 형제 중 흰 눈썹이 으뜸이었다」 와 역사 속 성정에서 이름 설명 · 물건 · 인상 · 표정을 잡고, 머리 · 눈 색은 촉 팔레트 안에서 다른 장수와 겹치지 않게. 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림 그대로.",
     "spread": "2026-11-03 외형 다시 나누기 — 많이 쓴 값 · 겹치는 조합을 덜 쓴 값으로(사용자 「외형 관련 분류가 부족하면 더 추가 … 겹치는게 있을 수 밖에」)",
-    "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 copper → magenta, 눈 gold → sky_blue(머리 45 · 눈 27가지에서 고르게) / 2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 magenta → indigo(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)",
+    "color_note": "2026-11-03 사용자 「진영색 상관없이 색팔레트를 많이 다양하게」 — 머리 copper → magenta, 눈 gold → sky_blue(머리 45 · 눈 27가지에서 고르게) / 2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 magenta → indigo(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄) / 2026-11-19 사용자 「마량은 너무 백미에 집중되어서 만들때마다 케릭터가 너무 튀네」 → B안(머리를 흰 눈썹에 맞춤) 「b로 하자. 하얀색으로」 — 머리 indigo → snow_white, 이름 줄에서 「marked by white eyebrows」 를 빼고 전설 줄 「striking white eyebrows」 → 「pale snow-white eyebrows that match her hair」(무협 시험 그림에서 눈썹이 머리에 묻혀 튀지 않았다)",
     "eye_note": "2026-11-10 눈 크기 · 눈꼬리가 세계별 눈 모양과 부딪친 자리를 그 세계에서만 맞췄다(모양을 살린다) — fantasy eye_tilt down→up(cat) · mecha eye_tilt down→up(phoenix). 사용자 「크고 둥근 눈으로」 · 「삼국지 설계표도 다 수정해줘」"
    },
    "worlds": {

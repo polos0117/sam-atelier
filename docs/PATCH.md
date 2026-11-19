@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-19 · claude · 마량 — 백미를 머리색에 맞춤(B안 · 새하얀 머리)
+- 사용자 「마량은 너무 백미에 집중되어서 만들때마다 케릭터가 너무 튀네」 → A안 · B안 무협 시험 한 장씩(기본 화풍 · 2.6) → 「b로 하자. 하얀색으로」
+- data/sam-design.json 마량 — 머리 indigo → snow_white, 이름 줄 「marked by white eyebrows」 뺌, 전설 줄 「striking white eyebrows」 → 「pale snow-white eyebrows that match her hair」, 요약 「새하얀 머리 · 머리와 같은 흰 눈썹」
+- 시험 그림에서 흰 눈썹이 은백 머리에 묻혀 얼굴이 다른 장수와 같은 결로 나왔다. 일상컷 90번 직업(눈썹 화장사)과 시험 그림 올리기는 아직
+
 ## 2026-11-19 · claude · 칸 채우기 검사 말을 낱말 표로 — tests/words.cjs 통과
 - 같은 날 넣은 칸 채우기 검사(worldFillErrors · freeFillErrors)의 한글 오류 말이 조립부 코드에 박혀 tests/words.cjs 가 깨져 있었다(원소 근본 B 묶음 검사에서 드러남)
 - 말은 lib/prompt-spec.js 의 GPT 설계 주문 표(msg)로 옮기고 조립부는 FM(열쇠)로 읽는다 — 글은 그대로라 검사 · 도구 출력은 같다. ?v= 올림
