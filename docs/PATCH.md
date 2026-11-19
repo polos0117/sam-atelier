@@ -1,5 +1,10 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-20 · claude · 자세별 구도 제한 풀기 — 엎드리기 추천 · 카메라 높이 · 가슴 위 뒤 3/4
+- 사용자 「엎드린 자세는 위에서 찍은거 밖에 안나오는거 같던데」 → 「구도제한 다 풀어주고, 다른 공방도 같이 적용해줘」. 엎드리기 추천이 「전신 · 정면」 하나라 세로 화면에서 늘 위에서 찍혔다.  
+  data/casual-tree-v2.json — 엎드리기 추천 더함: lie_front_face(바닥 높이 · 가슴 위 · 얼굴 정면) · lie_front_side(바닥 높이 · 환경 컷 · 옆모습). 카메라 floor(바닥 높이)는 서기 · 걷기도 받고(서면 올려다본다) 누운 자세 말을 더했다, top(바로 위에서)은 앉기 · 무릎 꿇기도 받는다. 쪼그려 앉기는 가슴 위 컷도.  
+  data/casual-tree.json — frame_rules.chest_up 의 no_orients 에서 뒤 3/4(rear_3q · three_quarter_back)을 뺐다(어깨 너머로 돌아보는 가슴 위 컷). 등 돌림 · 뒤 · 걸어가는 뒷모습은 그대로 막는다. tests/casual-tree.cjs 단언을 새 규칙으로.
+
 ## 2026-11-19 · claude · 세계컷 GPT 설계 — 얼굴 칸 여덟(우리와 다르게 · 두 장도 다르게)
 - 사용자 「같아도 되고 달라도 된다고 했더니 거의 같게 그리는거 같아 … gpt 세계컷에 얼굴까지 우리거랑 다르게 … GPT A랑 B가 또 다르게」 → 「Face 쪽은 다 다르게로 하자」 → 「응 진행해줘」
 - lib/prompt-sam.js — 칸 채우기 틀의 Face 줄을 칸 여덟으로([IMPRESSION] · [SKIN TONE] · [FACE SHAPE] · [EYE SHAPE] · [EYE COLOUR] · [BROWS] · [NOSE] · [LIPS]), 주문에 칸마다 우리 목록(FACE_DESIGN 인상 · 피부, VOCAB_EN 얼굴형 · 눈 · 눈 색 · 눈썹 · 코 · 입 — 우리 것 · wide_smile 뺌)

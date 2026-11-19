@@ -318,12 +318,14 @@
   },
   {
    "key": "floor",
-   "ko": "낮게 — 앉은 눈높이",
-   "en": "camera low, near the ground, level with her face as she sits or kneels",
+   "ko": "낮게 — 바닥 높이",
+   "en": "camera low, near the ground — level with her face when she sits, kneels or lies on the floor or a bed, looking up at her when she stands",
    "families": [
     "low",
     "sit",
-    "lie"
+    "lie",
+    "stand",
+    "walk"
    ]
   },
   {
@@ -331,7 +333,9 @@
    "ko": "바로 위에서",
    "en": "camera directly above her, looking straight down",
    "families": [
-    "lie"
+    "lie",
+    "sit",
+    "low"
    ]
   }
  ],
@@ -720,6 +724,7 @@
     "none"
    ],
    "frames": [
+    "chest_up",
     "waist_up",
     "three_quarter",
     "full_body",
@@ -12932,6 +12937,36 @@
    "left": "chin_both",
    "legs": "feet_up",
    "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "lie_front_face",
+   "ko": "엎드려 턱 괴기 — 바닥 높이에서 얼굴 정면",
+   "posture": "lie_front",
+   "support": "front_floor",
+   "frame": "chest_up",
+   "body": "front",
+   "head": "with_body",
+   "camera": "floor",
+   "right": "chin_both",
+   "left": "chin_both",
+   "legs": "",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "lie_front_side",
+   "ko": "엎드려 옆모습 — 침대 · 바닥 높이에서 넓게",
+   "posture": "lie_front",
+   "support": "front_floor",
+   "frame": "environmental",
+   "body": "side",
+   "head": "with_body",
+   "camera": "floor",
+   "right": "chin_both",
+   "left": "chin_both",
+   "legs": "feet_up",
+   "gaze": "screen_left",
    "act": "rest"
   },
   {
