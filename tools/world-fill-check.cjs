@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* 세계컷 GPT 설계 칸 채우기 검사(2026-11-18 사용자 「세계컷은 gpt한테 너무 위임하면 안되겠다」 → 「응 이대로 진행해줘」).
-   설계 주문(lib/prompt-sam.js buildWorldFree)의 우리 설계 지시문에서 표시한 칸([HAIRSTYLE: …] · [COSTUME SILHOUETTE: …] · [BUILD: …](우리 체형 목록 글 그대로) · Design idea · Stance and hands · Setting detail)과
+   설계 주문(lib/prompt-sam.js buildWorldFree)의 우리 설계 지시문에서 표시한 칸([HAIRSTYLE: …] · [COSTUME SILHOUETTE: …] · [BUILD: …](우리 체형 목록 글 그대로) · 얼굴 칸 여덟(우리 것 뺀 목록 글 그대로, 두 장도 칸마다 다르게 — 2026-11-19) · Design idea · Stance and hands · Setting detail)과
    얼굴 · 표정 줄만 바뀌었는지, 헤어스타일이 우리와 다른지, 실루엣이 목록 글 그대로인지, 첫 줄이 SUMMARY 인지 본다. 틀리면 1.
 
    node tools/world-fill-check.cjs <장수> <세계> <채운 글> [--style <화풍>] [--other <다른 GPT 설계 글>] */

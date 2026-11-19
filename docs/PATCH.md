@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-19 · claude · 세계컷 GPT 설계 — 얼굴 칸 여덟(우리와 다르게 · 두 장도 다르게)
+- 사용자 「같아도 되고 달라도 된다고 했더니 거의 같게 그리는거 같아 … gpt 세계컷에 얼굴까지 우리거랑 다르게 … GPT A랑 B가 또 다르게」 → 「Face 쪽은 다 다르게로 하자」 → 「응 진행해줘」
+- lib/prompt-sam.js — 칸 채우기 틀의 Face 줄을 칸 여덟으로([IMPRESSION] · [SKIN TONE] · [FACE SHAPE] · [EYE SHAPE] · [EYE COLOUR] · [BROWS] · [NOSE] · [LIPS]), 주문에 칸마다 우리 목록(FACE_DESIGN 인상 · 피부, VOCAB_EN 얼굴형 · 눈 · 눈 색 · 눈썹 · 코 · 입 — 우리 것 · wide_smile 뺌)
+- worldFillErrors — 목록 밖 · 고친 글 · 빈 칸이면 오류, other 와 칸마다 같으면 오류(헤어스타일 · 실루엣처럼). 칸 찾기를 한 표(slotTable · slotRe)로 묶었다. worldFillFace 내보냄
+- lib/prompt-spec.js WORLD_FREE.fill.face · two · free(표정 줄만 자유) · msg. 안내 IMAGE_RULES · 묶음 차례표 · free-brief · api25 스킬 · world-fill-check 머리. 검사 prompt-v2 · api-draw. ?v= prompt-spec 58 · prompt-sam 55
+
 ## 2026-11-19 · claude · 마량 — 백미를 머리색에 맞춤(B안 · 새하얀 머리)
 - 사용자 「마량은 너무 백미에 집중되어서 만들때마다 케릭터가 너무 튀네」 → A안 · B안 무협 시험 한 장씩(기본 화풍 · 2.6) → 「b로 하자. 하얀색으로」
 - data/sam-design.json 마량 — 머리 indigo → snow_white, 이름 줄 「marked by white eyebrows」 뺌, 전설 줄 「striking white eyebrows」 → 「pale snow-white eyebrows that match her hair」, 요약 「새하얀 머리 · 머리와 같은 흰 눈썹」
