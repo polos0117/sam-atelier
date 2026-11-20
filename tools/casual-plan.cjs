@@ -594,6 +594,8 @@ function ambient(cuts, old = [], ra = Math.random, usage = null) {
     for (const k of AMBIENT) if (!c[k]) delete c[k];
     note(c);
   }
+  /* 고개 · 몸 좌우(2026-11-20 — 공용 모듈 spreadTurns): 한 묶음 안에서 정면 · 왼쪽 · 오른쪽을 덜 쓴 쪽으로. 자유 설계 칸은 맡은 쪽이 짓는다 */
+  if (C2.spreadTurns) C2.spreadTurns(T2, cuts.filter(c => !(c.sfree || c.ofree)), ra, old);
   return cuts;
 }
 /* 상황 — 상황 칸(at)에 그 옷에 맞는 것 하나. 이미 있는 컷 · 다른 세계 묶음이 쓴 상황은 뒤로. 장면과 따로 된 난수.
