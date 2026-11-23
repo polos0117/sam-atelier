@@ -322,9 +322,17 @@ const EMPTY_USAGE = () => ({ prop: {}, use: {}, place: {}, item: {}, preset: {},
 const usageOf0 = u => (u && (u.place || u.prop || u.preset)) ? { ...EMPTY_USAGE(), ...u } : { ...EMPTY_USAGE(), prop: u || {} };
 /* 새로 더한 옷 계열(쓴 횟수 0)은 다른 계열의 가운데 값에서 시작한다 — 안 그러면 「안 쓴 쪽 먼저」 무게로 모든 묶음에 들어갔다(2026-11-03 동탄룩 72묶음 중 72) */
 const FAMS = (tree.outfits || []).map(o => o.key);
+const FRESH_PLACES = [...(tree.places || []), ...(tree2.extra_places || [])].filter(p => p.start_median).map(p => p.key);
+/* 새로 더한 옷(표 옷의 start_median — 2026-11-23 장소 보충 옷 열다섯)도 쓴 옷의 가운데 값에서 시작한다 — 시험 계획에서 새 홈웨어 하나가 세계 안 칸마다 뽑혔다 */
+const FRESH_ITEMS = (tree.outfits || []).flatMap(o => (o.items || []).filter(i => i.start_median).map(i => i.key));
 const usageOf = u => {
   const x = usageOf0(u), used = FAMS.map(k => x.ofam[k] || 0).filter(n => n > 0).sort((a, b) => a - b);
   if (used.length) { const mid = used[Math.floor(used.length / 2)]; x.ofam = { ...x.ofam }; for (const k of FAMS) if (!x.ofam[k]) x.ofam[k] = mid; }
+  /* 새로 더한 장소(표 start_median — 2026-11-23 동물 · 돌봄 · 놀이공원)도 쓴 장소의 가운데 값에서 시작한다 — 안 쓴 값 무게 12 라 그대로 두면 한동안 새 장소만 뽑혔다 */
+  const pu = Object.values(x.place || {}).filter(n => n > 0).sort((a, b) => a - b);
+  if (pu.length) { const mid = pu[Math.floor(pu.length / 2)]; x.place = { ...x.place }; for (const k of FRESH_PLACES) if (!x.place[k]) x.place[k] = mid; }
+  const iu = Object.values(x.item || {}).filter(n => n > 0).sort((a, b) => a - b);
+  if (iu.length) { const mid = iu[Math.floor(iu.length / 2)]; x.item = { ...x.item }; for (const k of FRESH_ITEMS) if (!x.item[k]) x.item[k] = mid; }
   return x;
 };
 const pathKey = (preset, place) => preset + '@' + place;

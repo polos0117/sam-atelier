@@ -88,7 +88,12 @@ fails(lambda d: row(d, 'prop_uses', 'book_turn').update(needs_any=['sofa_arm']),
 fails(lambda d: d.update(banned={'body': ['back']}), '추천 walk_away — 이 공방이 안 쓰는 값')
 fails(lambda d: row(d, 'prop_uses', 'cup_hold').update(role='a barista'), '역할에 한국어 이름(role_ko)')
 fails(lambda d: row(d, 'prop_uses', 'cup_hold').update(places=['moon_base']), '장소 moon_base')
-fails(lambda d: row(d, 'hands', 'wave').update(companion=True), '동료가 있어야 하는데 동료 묶음이 없다')
+# 동료 묶음(2026-11-23 「동물 돌봄」 pet — companion)이 생겨 표엔 동료 묶음이 있다 — 동료 표시를 뺀 버전1 표로 본다
+_v1n = copy.deepcopy(v1)
+for _g in _v1n['groups']: _g.pop('companion', None)
+_d = copy.deepcopy(doc); row(_d, 'hands', 'wave').update(companion=True)
+assert '동료가 있어야 하는데 동료 묶음이 없다' in ' | '.join(T.check(_d, _v1n))
+assert '동료가 있어야 하는데 동료 묶음이 없다' not in ' | '.join(T.check(_d, v1)), '동료 묶음이 있으면 동료 손은 된다'
 assert 'street_park' not in T.preset_places(doc, v1, pre(doc, 'counter_work')) and 'bakery_kitchen' in T.preset_places(doc, v1, pre(doc, 'counter_work'))
 sip = dict(pre(doc, 'sip_close'), left='shush')
 assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), sip) and T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), pre(doc, 'sip_close'))
@@ -117,6 +122,7 @@ assert len([u for u in doc['prop_uses'] if u['prop'] == 'signature']) == 4   # �
 # 택시 뒷좌석에선 서지 않는다(2026-11-04) — 서는 자세는 upright 받침이 있는 장소만
 stands = [p for p in doc['postures'] if p['family'] in ('stand', 'walk')]
 assert stands and all('upright' in p.get('needs', []) for p in stands), stands
-assert 'upright' not in doc['places']['night_taxi'] and all('upright' in v for k, v in doc['places'].items() if k != 'night_taxi')
+SEATED = {'night_taxi', 'amuse_wheel', 'ski_lift'}   # 앉은 자리뿐인 탈것(택시 뒷좌석 · 관람차 곤돌라 · 스키 리프트, 2026-11-23)
+assert all('upright' not in doc['places'][k] for k in SEATED) and all('upright' in v for k, v in doc['places'].items() if k not in SEATED)
 assert all('night_taxi' not in T.preset_places(doc, v1, p) for p in doc['presets'] if any(q['key'] == p['posture'] and q['family'] in ('stand', 'walk') for q in doc['postures']))
 print('casual-tree-v2 ok — 추천', len(doc['presets']), '· 장소', len(doc['places']), '· 삼국지 소품 여섯')

@@ -247,10 +247,11 @@ for (const k of ['heritage_museum', 'heritage_plank', 'heritage_redcliff', 'heri
   assert(C.place(t, k) && C.placeHas(t, k).length && C.presets(t, { era: C.place(t, k).eras[0], place: k, ofam: 'everyday' }).length, k + ' 받침 · 쓸 수 있는 추천');
 /* 세계 안 장소는 세 세계마다 제 이름 · 글(2026-11-02 「일상컷 시대를 각 폼의 시대에 맞게」) — 객잔 · 선술집 · 정거장 바 */
 for (const p of t.v1.places.filter(p => p.key.startsWith('nation_'))) {
-  assert(['samguk', 'fantasy', 'mecha'].every(w => p.worlds && p.worlds[w] && p.worlds[w].ko && p.worlds[w].en), p.key + ' 세계 셋의 이름 · 글');
-  assert(new Set(['samguk', 'fantasy', 'mecha'].map(w => p.worlds[w].en)).size === 3, p.key + ' 세계마다 다른 글');
+  const ws = p.worlds_only || ['samguk', 'fantasy', 'mecha'];   /* 그 세계에만 있는 자리(worlds_only — 마구간은 한 · 판타지, 2026-11-23)는 그 세계 글만 */
+  assert(ws.every(w => p.worlds && p.worlds[w] && p.worlds[w].ko && p.worlds[w].en), p.key + ' 세계 셋의 이름 · 글');
+  assert(new Set(ws.map(w => p.worlds[w].en)).size === ws.length, p.key + ' 세계마다 다른 글');
 }
-assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 16, '세계 안 장소 열여섯(2026-11-03 다섯 더함)');
+assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 24, '세계 안 장소 스물넷(2026-11-03 다섯 더함 · 2026-11-23 동물 · 놀이 넷 · 극장 · 눈 언덕 · 꽃 시장 · 단장방 넷)');
 const r13 = seeded(13);
 for (let i = 0; i < 300; i++) valid(C.random(t, { era: i % 2 ? 'heritage' : 'nation' }, null, r13, ['era']), '삼국지 시대 랜덤 ' + i);
 

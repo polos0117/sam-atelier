@@ -70,7 +70,8 @@ assert.equal(CT.year(tree, null), null); assert.equal(CT.year(tree, { key: 'fe',
 assert(!tree.places.some(p => 'since' in p), 'since 를 가진 장소가 없다');
 assert.deepEqual(CT.places(tree, 'release', { facts: { year: 1990 } }), [], '없는 시대엔 장소가 없다(걸리지 않는다)');
 assert(CT.places(tree, 'heritage', null).some(p => p.key === 'heritage_museum') && !CT.places(tree, 'heritage', null).some(p => p.key === 'home_living'), '역사의 자리 시대엔 역사의 자리만');
-assert(CT.places(tree, 'nation', null).every(p => p.group === 'nation') && CT.places(tree, 'nation', null).length === 16, '세계 안 시대엔 세계 안 열여섯 곳');
+{ const NP = CT.places(tree, 'nation', null);   /* 2026-11-23 — 세계 안 묶음 열여섯 + 다른 묶음의 세계 안 장소 여덟(동물 정원 · 물고기 정원 · 마구간 · 놀이 장터 · 극장 · 눈 언덕 · 꽃 시장 · 단장방) */
+  assert(NP.every(p => p.key.startsWith('nation_')) && NP.filter(p => p.group === 'nation').length === 16 && NP.length === 24, '세계 안 시대엔 세계 안 장소만 — 세계 안 묶음 열여섯 + 여덟'); }
 assert(CT.places(tree, 'now', null).some(p => p.key === 'heritage_museum') && !CT.places(tree, 'now', null).some(p => p.key === 'nation_room'), '역사의 자리는 지금 현실에도, 세계 안은 세계 안에만');
 /* 필수 갈래의 「그 세계 안」 규칙은 required.world(모듈 worldRule — game 의 in_game 자리) */
 assert.equal(CT.worldRule(tree).era, 'nation');

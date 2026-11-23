@@ -3352,6 +3352,654 @@
    "indoor",
    "night",
    "k_public"
+  ],
+  "zoo_walk": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "zoo_feeding": [
+   "rail_waist",
+   "edge",
+   "floor",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "aquarium_tunnel": [
+   "rail_waist",
+   "wall",
+   "floor",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "aquarium_tank": [
+   "chair",
+   "edge",
+   "wall",
+   "floor",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "aquarium_jelly": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "cafe_cat": [
+   "chair",
+   "floor",
+   "table",
+   "wall",
+   "shelf_high",
+   "indoor",
+   "window",
+   "soft",
+   "k_public",
+   "upright"
+  ],
+  "cafe_dog": [
+   "chair",
+   "table",
+   "rail_waist",
+   "wall",
+   "floor",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "park_pond": [
+   "chair",
+   "edge",
+   "rail_waist",
+   "floor",
+   "sky",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "pet_cat_home": [
+   "chair",
+   "lie",
+   "floor",
+   "table",
+   "wall",
+   "indoor",
+   "window",
+   "soft",
+   "k_private",
+   "upright"
+  ],
+  "pet_dog_walk": [
+   "chair",
+   "edge",
+   "floor",
+   "sky",
+   "k_nature",
+   "upright"
+  ],
+  "pet_dove_square": [
+   "edge",
+   "wall",
+   "floor",
+   "sky",
+   "k_street",
+   "upright"
+  ],
+  "pet_rabbit": [
+   "chair",
+   "edge",
+   "floor",
+   "sky",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "pet_fish": [
+   "chair",
+   "floor",
+   "table",
+   "wall",
+   "rail_waist",
+   "indoor",
+   "window",
+   "soft",
+   "k_private",
+   "upright"
+  ],
+  "pet_horse": [
+   "wall",
+   "rail_waist",
+   "edge",
+   "floor",
+   "sky",
+   "doorway",
+   "k_nature",
+   "upright"
+  ],
+  "amuse_carousel": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "amuse_wheel": [
+   "chair",
+   "wall",
+   "window",
+   "indoor",
+   "k_vehicle"
+  ],
+  "amuse_coaster": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "sky",
+   "k_street",
+   "upright"
+  ],
+  "amuse_parade": [
+   "rail_waist",
+   "edge",
+   "wall",
+   "floor",
+   "sky",
+   "k_street",
+   "upright"
+  ],
+  "amuse_snack": [
+   "chair",
+   "table",
+   "rail_waist",
+   "wall",
+   "shelf_high",
+   "sky",
+   "k_street",
+   "upright"
+  ],
+  "amuse_night": [
+   "rail_waist",
+   "edge",
+   "chair",
+   "floor",
+   "sky",
+   "night",
+   "k_public",
+   "upright"
+  ],
+  "nation_menagerie": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "nation_aquarium": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "k_public",
+   "upright"
+  ],
+  "nation_stable": [
+   "wall",
+   "rail_waist",
+   "edge",
+   "floor",
+   "sky",
+   "doorway",
+   "k_nature",
+   "upright"
+  ],
+  "nation_fair": [
+   "rail_waist",
+   "wall",
+   "edge",
+   "floor",
+   "sky",
+   "k_street",
+   "upright"
+  ],
+  "cinema_seats": [
+   "chair",
+   "wall",
+   "stairs",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "cinema_lobby": [
+   "rail_waist",
+   "wall",
+   "chair",
+   "floor",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "bowling_lane": [
+   "chair",
+   "rail_waist",
+   "wall",
+   "floor",
+   "shelf_high",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "boardgame_cafe": [
+   "chair",
+   "table",
+   "wall",
+   "shelf_high",
+   "floor",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "escape_room": [
+   "chair",
+   "table",
+   "wall",
+   "shelf_high",
+   "floor",
+   "indoor",
+   "doorway",
+   "k_public",
+   "upright"
+  ],
+  "theme_cafe": [
+   "chair",
+   "table",
+   "rail_waist",
+   "wall",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "pc_bang": [
+   "chair",
+   "table",
+   "wall",
+   "indoor",
+   "night",
+   "k_public",
+   "upright"
+  ],
+  "ice_rink": [
+   "rail_waist",
+   "chair",
+   "edge",
+   "floor",
+   "wall",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "ski_slope": [
+   "floor",
+   "edge",
+   "sky",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "ski_lift": [
+   "chair",
+   "sky",
+   "k_vehicle"
+  ],
+  "sled_hill": [
+   "floor",
+   "edge",
+   "rail_waist",
+   "sky",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "waterpark_wave": [
+   "water",
+   "deep_water",
+   "edge",
+   "floor",
+   "lie",
+   "sky",
+   "soft",
+   "k_water",
+   "upright"
+  ],
+  "waterpark_slide": [
+   "water",
+   "edge",
+   "floor",
+   "stairs",
+   "sky",
+   "k_water",
+   "upright"
+  ],
+  "pool_party": [
+   "water",
+   "deep_water",
+   "edge",
+   "lie",
+   "chair",
+   "rail_waist",
+   "sky",
+   "soft",
+   "k_water",
+   "upright"
+  ],
+  "beach_club": [
+   "lie",
+   "chair",
+   "table",
+   "floor",
+   "water",
+   "deep_water",
+   "rail_waist",
+   "sky",
+   "soft",
+   "k_water",
+   "upright"
+  ],
+  "hotspring_pool": [
+   "water",
+   "edge",
+   "lie",
+   "sky",
+   "soft",
+   "k_water",
+   "upright"
+  ],
+  "bath_changing": [
+   "chair",
+   "edge",
+   "wall",
+   "rail_waist",
+   "indoor",
+   "k_private",
+   "upright"
+  ],
+  "glamping_tent": [
+   "lie",
+   "floor",
+   "soft",
+   "wall",
+   "indoor",
+   "doorway",
+   "k_private",
+   "upright"
+  ],
+  "glamping_deck": [
+   "chair",
+   "edge",
+   "floor",
+   "sky",
+   "fire",
+   "water",
+   "deep_water",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "ryokan_room": [
+   "floor",
+   "lie",
+   "table",
+   "soft",
+   "wall",
+   "indoor",
+   "window",
+   "k_private",
+   "upright"
+  ],
+  "suite_balcony": [
+   "lie",
+   "chair",
+   "rail_waist",
+   "wall",
+   "sky",
+   "night",
+   "soft",
+   "k_private",
+   "upright"
+  ],
+  "window_seat": [
+   "chair",
+   "edge",
+   "lie",
+   "soft",
+   "window",
+   "indoor",
+   "wall",
+   "k_private",
+   "upright"
+  ],
+  "gallery_white": [
+   "chair",
+   "wall",
+   "floor",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "bookstore_aisle": [
+   "chair",
+   "wall",
+   "shelf_high",
+   "stairs",
+   "floor",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "flower_shop": [
+   "worktable",
+   "rail_waist",
+   "wall",
+   "floor",
+   "shelf_high",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "flower_market": [
+   "rail_waist",
+   "wall",
+   "floor",
+   "shelf_high",
+   "sky",
+   "k_street",
+   "upright"
+  ],
+  "photo_studio": [
+   "stool",
+   "edge",
+   "floor",
+   "wall",
+   "soft",
+   "indoor",
+   "k_stage",
+   "upright"
+  ],
+  "boudoir_set": [
+   "lie",
+   "chair",
+   "wall",
+   "floor",
+   "window",
+   "indoor",
+   "soft",
+   "k_stage",
+   "upright"
+  ],
+  "hair_salon": [
+   "chair",
+   "wall",
+   "rail_waist",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "nail_salon": [
+   "chair",
+   "table",
+   "wall",
+   "shelf_high",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "fitting_room": [
+   "stool",
+   "edge",
+   "wall",
+   "indoor",
+   "k_private",
+   "upright"
+  ],
+  "ballpark_stands": [
+   "chair",
+   "rail_waist",
+   "stairs",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "football_stands": [
+   "chair",
+   "rail_waist",
+   "stairs",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "esports_arena": [
+   "chair",
+   "rail_waist",
+   "wall",
+   "stairs",
+   "indoor",
+   "night",
+   "k_public",
+   "upright"
+  ],
+  "golf_range": [
+   "chair",
+   "wall",
+   "floor",
+   "rail_waist",
+   "sky",
+   "k_public",
+   "upright"
+  ],
+  "golf_course": [
+   "floor",
+   "edge",
+   "sky",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "fencing_piste": [
+   "floor",
+   "wall",
+   "chair",
+   "shelf_high",
+   "indoor",
+   "k_public",
+   "upright"
+  ],
+  "lecture_hall": [
+   "chair",
+   "table",
+   "wall",
+   "stairs",
+   "indoor",
+   "window",
+   "k_public",
+   "upright"
+  ],
+  "campus_lawn": [
+   "floor",
+   "lie",
+   "edge",
+   "chair",
+   "sky",
+   "soft",
+   "k_nature",
+   "upright"
+  ],
+  "festival_booth": [
+   "rail_waist",
+   "table",
+   "chair",
+   "wall",
+   "sky",
+   "shelf_high",
+   "k_street",
+   "upright"
+  ],
+  "nation_theatre": [
+   "chair",
+   "wall",
+   "rail_waist",
+   "stairs",
+   "indoor",
+   "upright",
+   "k_public"
+  ],
+  "nation_snowfield": [
+   "floor",
+   "edge",
+   "sky",
+   "soft",
+   "upright",
+   "k_nature"
+  ],
+  "nation_flower": [
+   "rail_waist",
+   "wall",
+   "floor",
+   "shelf_high",
+   "sky",
+   "upright",
+   "k_street"
+  ],
+  "nation_salon": [
+   "chair",
+   "table",
+   "wall",
+   "floor",
+   "indoor",
+   "window",
+   "upright",
+   "soft",
+   "k_private"
   ]
  },
  "props": [
@@ -3395,7 +4043,20 @@
     "street_noodle_stall",
     "nation_hangar",
     "nation_cockpit",
-    "nation_tackroom"
+    "nation_tackroom",
+    "cafe_cat",
+    "cafe_dog",
+    "pet_cat_home",
+    "cinema_lobby",
+    "boardgame_cafe",
+    "glamping_tent",
+    "glamping_deck",
+    "window_seat",
+    "lecture_hall",
+    "theme_cafe",
+    "ryokan_room",
+    "nation_theatre",
+    "nation_salon"
    ]
   },
   {
@@ -3412,7 +4073,11 @@
     "stage_redcarpet",
     "stage_wedding",
     "fx_ballroom",
-    "fx_mirror"
+    "fx_mirror",
+    "pool_party",
+    "beach_club",
+    "suite_balcony",
+    "boudoir_set"
    ]
   },
   {
@@ -3435,7 +4100,35 @@
     "subway_platform",
     "subway_car",
     "car_wash",
-    "street_noodle_stall"
+    "street_noodle_stall",
+    "@animal",
+    "@amusement",
+    "cinema_lobby",
+    "bowling_lane",
+    "boardgame_cafe",
+    "theme_cafe",
+    "pc_bang",
+    "ice_rink",
+    "ski_slope",
+    "sled_hill",
+    "gallery_white",
+    "bookstore_aisle",
+    "flower_shop",
+    "flower_market",
+    "hair_salon",
+    "nail_salon",
+    "fitting_room",
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena",
+    "golf_range",
+    "campus_lawn",
+    "festival_booth",
+    "lecture_hall",
+    "window_seat",
+    "glamping_tent",
+    "glamping_deck",
+    "suite_balcony"
    ]
   },
   {
@@ -3476,7 +4169,17 @@
     "heritage_boat",
     "heritage_tea_terrace",
     "subway_car",
-    "subway_platform"
+    "subway_platform",
+    "cafe_cat",
+    "pet_cat_home",
+    "pet_fish",
+    "bookstore_aisle",
+    "window_seat",
+    "glamping_tent",
+    "ryokan_room",
+    "lecture_hall",
+    "campus_lawn",
+    "boardgame_cafe"
    ]
   },
   {
@@ -3505,7 +4208,25 @@
     "heritage_boat",
     "heritage_gate_stairs",
     "heritage_tea_terrace",
-    "subway_platform"
+    "subway_platform",
+    "@animal",
+    "@amusement",
+    "pet_dog_walk",
+    "pet_rabbit",
+    "nation_menagerie",
+    "nation_fair",
+    "photo_studio",
+    "ski_slope",
+    "sled_hill",
+    "flower_market",
+    "campus_lawn",
+    "festival_booth",
+    "golf_course",
+    "glamping_deck",
+    "ballpark_stands",
+    "football_stands",
+    "nation_snowfield",
+    "nation_flower"
    ]
   },
   {
@@ -3523,7 +4244,13 @@
     "nation_market",
     "street_bus_stop",
     "street_bike_path",
-    "nation_platform"
+    "nation_platform",
+    "zoo_walk",
+    "park_pond",
+    "pet_dog_walk",
+    "golf_course",
+    "flower_market",
+    "campus_lawn"
    ]
   },
   {
@@ -3548,7 +4275,11 @@
     "water_pool",
     "water_beach",
     "water_resort",
-    "water_infinity"
+    "water_infinity",
+    "waterpark_wave",
+    "waterpark_slide",
+    "pool_party",
+    "beach_club"
    ]
   },
   {
@@ -3573,7 +4304,15 @@
     "water_indoor_pool",
     "nation_laundry",
     "home_veranda",
-    "car_wash"
+    "car_wash",
+    "waterpark_wave",
+    "waterpark_slide",
+    "pool_party",
+    "beach_club",
+    "hotspring_pool",
+    "bath_changing",
+    "fencing_piste",
+    "golf_range"
    ]
   },
   {
@@ -3589,7 +4328,10 @@
     "evening_gala",
     "spa_onsen",
     "nation_inn",
-    "nation_camp"
+    "nation_camp",
+    "ballpark_stands",
+    "ryokan_room",
+    "festival_booth"
    ]
   },
   {
@@ -3600,7 +4342,9 @@
     "night_karaoke",
     "night_livehouse",
     "stage_event",
-    "fx_starstage"
+    "fx_starstage",
+    "festival_booth",
+    "theme_cafe"
    ]
   },
   {
@@ -3649,7 +4393,12 @@
     "greenhouse",
     "backstage_dressing",
     "fx_jungle_ruins",
-    "fx_marble_temple"
+    "fx_marble_temple",
+    "flower_shop",
+    "flower_market",
+    "photo_studio",
+    "boudoir_set",
+    "nation_flower"
    ]
   },
   {
@@ -3660,7 +4409,11 @@
     "street_mall",
     "street_shop",
     "street_market",
-    "street_grocery"
+    "street_grocery",
+    "flower_market",
+    "bookstore_aisle",
+    "fitting_room",
+    "hair_salon"
    ]
   },
   {
@@ -3672,7 +4425,15 @@
     "water_beach",
     "stage_festival",
     "street_mall",
-    "travel_coast"
+    "travel_coast",
+    "zoo_walk",
+    "park_pond",
+    "@amusement",
+    "ballpark_stands",
+    "campus_lawn",
+    "festival_booth",
+    "waterpark_wave",
+    "beach_club"
    ]
   },
   {
@@ -3699,7 +4460,10 @@
     "nation_stairs",
     "nation_workshop",
     "heritage_gate_stairs",
-    "nation_tackroom"
+    "nation_tackroom",
+    "escape_room",
+    "glamping_deck",
+    "glamping_tent"
    ]
   },
   {
@@ -3717,7 +4481,13 @@
     "heritage_tower",
     "heritage_baidi",
     "street_diner",
-    "street_office"
+    "street_office",
+    "zoo_walk",
+    "park_pond",
+    "aquarium_tank",
+    "gallery_white",
+    "campus_lawn",
+    "flower_market"
    ]
   },
   {
@@ -3737,7 +4507,16 @@
     "fx_oasis",
     "street_bike_path",
     "water_indoor_pool",
-    "car_wash"
+    "car_wash",
+    "zoo_walk",
+    "pet_dog_walk",
+    "golf_range",
+    "golf_course",
+    "fencing_piste",
+    "ice_rink",
+    "ski_slope",
+    "bowling_lane",
+    "campus_lawn"
    ]
   },
   {
@@ -3765,7 +4544,13 @@
     "night_powder",
     "home_bedroom",
     "evening_hotel",
-    "home_bath"
+    "home_bath",
+    "nail_salon",
+    "bath_changing",
+    "fitting_room",
+    "boudoir_set",
+    "hair_salon",
+    "nation_salon"
    ]
   },
   {
@@ -3797,7 +4582,8 @@
     "nation_kitchen",
     "nation_camp",
     "street_diner",
-    "street_office"
+    "street_office",
+    "ryokan_room"
    ]
   },
   {
@@ -3817,7 +4603,10 @@
     "street_diner",
     "street_office",
     "street_bookstall",
-    "heritage_inkshop"
+    "heritage_inkshop",
+    "lecture_hall",
+    "campus_lawn",
+    "escape_room"
    ]
   },
   {
@@ -3854,7 +4643,10 @@
     "home_kitchen",
     "stage_wedding",
     "backstage_dressing",
-    "nation_kitchen"
+    "nation_kitchen",
+    "flower_shop",
+    "flower_market",
+    "nation_flower"
    ]
   },
   {
@@ -3881,7 +4673,12 @@
     "evening_hotel",
     "nation_room",
     "train_sleeper",
-    "nation_camp"
+    "nation_camp",
+    "hair_salon",
+    "bath_changing",
+    "fitting_room",
+    "boudoir_set",
+    "nation_salon"
    ]
   },
   {
@@ -4093,7 +4890,9 @@
     "@night",
     "@travel",
     "studio_sound",
-    "library_reading"
+    "library_reading",
+    "pc_bang",
+    "esports_arena"
    ]
   },
   {
@@ -4344,7 +5143,10 @@
     "@street",
     "@stage",
     "@night",
-    "heritage_festival"
+    "heritage_festival",
+    "@amusement",
+    "festival_booth",
+    "ballpark_stands"
    ],
    "eras": [
     "now",
@@ -4361,7 +5163,13 @@
     "@street",
     "@studio",
     "@night",
-    "@evening"
+    "@evening",
+    "@animal",
+    "@amusement",
+    "photo_studio",
+    "festival_booth",
+    "glamping_tent",
+    "theme_cafe"
    ],
    "eras": [
     "now",
@@ -4377,7 +5185,13 @@
     "@water",
     "@sports",
     "@home",
-    "@travel"
+    "@travel",
+    "zoo_walk",
+    "@amusement",
+    "waterpark_wave",
+    "waterpark_slide",
+    "ballpark_stands",
+    "campus_lawn"
    ],
    "eras": [
     "now",
@@ -4404,7 +5218,11 @@
    "places": [
     "@home",
     "@studio",
-    "@spa"
+    "@spa",
+    "nail_salon",
+    "window_seat",
+    "boudoir_set",
+    "nation_salon"
    ],
    "eras": [
     "now",
@@ -4419,7 +5237,10 @@
     "@home",
     "@spa",
     "@studio",
-    "backstage_dressing"
+    "backstage_dressing",
+    "hair_salon",
+    "bath_changing",
+    "nation_salon"
    ],
    "eras": [
     "now",
@@ -4464,7 +5285,15 @@
     "@night",
     "@home",
     "@stage",
-    "@evening"
+    "@evening",
+    "@amusement",
+    "cinema_seats",
+    "cinema_lobby",
+    "bowling_lane",
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena",
+    "nation_theatre"
    ],
    "eras": [
     "now",
@@ -4505,6 +5334,208 @@
     "@home",
     "@studio",
     "@travel"
+   ]
+  },
+  {
+   "key": "glasses_3d",
+   "ko": "3D 안경",
+   "en": "a pair of cardboard 3D glasses",
+   "places": [
+    "cinema_seats",
+    "cinema_lobby"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ]
+  },
+  {
+   "key": "bowling_ball",
+   "ko": "볼링공",
+   "en": "a glossy bowling ball",
+   "places": [
+    "bowling_lane"
+   ]
+  },
+  {
+   "key": "game_cards",
+   "ko": "보드게임 카드",
+   "en": "a fanned hand of plain game cards",
+   "places": [
+    "boardgame_cafe",
+    "glamping_tent",
+    "ryokan_room"
+   ]
+  },
+  {
+   "key": "game_box",
+   "ko": "보드게임 상자",
+   "en": "a board game box",
+   "places": [
+    "boardgame_cafe"
+   ]
+  },
+  {
+   "key": "escape_key",
+   "ko": "녹슨 열쇠",
+   "en": "an old brass key on a ring",
+   "places": [
+    "escape_room"
+   ]
+  },
+  {
+   "key": "ice_skates",
+   "ko": "스케이트",
+   "en": "a pair of white ice skates tied by their laces",
+   "places": [
+    "ice_rink"
+   ]
+  },
+  {
+   "key": "phone_pouch",
+   "ko": "방수 폰 파우치",
+   "en": "a clear waterproof phone pouch on a lanyard",
+   "places": [
+    "waterpark_wave",
+    "waterpark_slide",
+    "pool_party",
+    "beach_club"
+   ],
+   "eras": [
+    "now"
+   ]
+  },
+  {
+   "key": "ski_goggles",
+   "ko": "스키 고글",
+   "en": "a pair of mirrored ski goggles",
+   "places": [
+    "ski_slope",
+    "ski_lift",
+    "sled_hill",
+    "lodge_terrace"
+   ]
+  },
+  {
+   "key": "cocoa_mug",
+   "ko": "핫초코 머그",
+   "en": "a mug of hot cocoa topped with whipped cream",
+   "places": [
+    "ski_slope",
+    "sled_hill",
+    "ice_rink",
+    "lodge_terrace",
+    "glamping_deck",
+    "glamping_tent",
+    "window_seat",
+    "nation_snowfield"
+   ]
+  },
+  {
+   "key": "sled",
+   "ko": "나무 썰매",
+   "en": "a small wooden sled with a red rope",
+   "places": [
+    "sled_hill",
+    "ski_slope",
+    "nation_snowfield"
+   ]
+  },
+  {
+   "key": "animal_ears",
+   "ko": "동물 귀 머리띠",
+   "en": "a fluffy animal-ear headband",
+   "places": [
+    "@amusement",
+    "theme_cafe",
+    "festival_booth",
+    "photo_studio"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ]
+  },
+  {
+   "key": "balloon",
+   "ko": "풍선",
+   "en": "a shiny round balloon on a long ribbon",
+   "places": [
+    "@amusement",
+    "festival_booth",
+    "theme_cafe"
+   ]
+  },
+  {
+   "key": "cheer_stick",
+   "ko": "응원 막대",
+   "en": "a pair of inflatable cheering sticks",
+   "places": [
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ]
+  },
+  {
+   "key": "cheer_towel",
+   "ko": "응원 수건",
+   "en": "a long cheering towel in bright made-up team colours, no lettering",
+   "places": [
+    "ballpark_stands",
+    "football_stands"
+   ]
+  },
+  {
+   "key": "team_flag",
+   "ko": "응원 깃발",
+   "en": "a small waving flag in made-up team colours, no crest or lettering",
+   "places": [
+    "ballpark_stands",
+    "football_stands",
+    "festival_booth"
+   ]
+  },
+  {
+   "key": "flower_bucket",
+   "ko": "꽃 양동이",
+   "en": "a zinc bucket of fresh cut tulips",
+   "places": [
+    "flower_shop",
+    "flower_market",
+    "nation_flower"
+   ]
+  },
+  {
+   "key": "reflector",
+   "ko": "반사판",
+   "en": "a round gold-and-silver photo reflector",
+   "places": [
+    "photo_studio",
+    "boudoir_set"
+   ]
+  },
+  {
+   "key": "festival_flyer",
+   "ko": "축제 전단",
+   "en": "a folded festival flyer with bright doodles, no readable text",
+   "places": [
+    "festival_booth",
+    "campus_lawn",
+    "flower_market",
+    "cinema_lobby"
+   ]
+  },
+  {
+   "key": "golf_club",
+   "ko": "골프채",
+   "en": "a golf club",
+   "places": [
+    "golf_range",
+    "golf_course"
    ]
   }
  ],
@@ -11391,6 +12422,1290 @@
     "right": "works the right needle",
     "left": "holds the left needle"
    }
+  },
+  {
+   "key": "glasses3d_on",
+   "prop": "glasses_3d",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "3D 안경을 콧등에 올린다",
+   "en": "pushes {prop} up her nose",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비"
+  },
+  {
+   "key": "glasses3d_peek",
+   "prop": "glasses_3d",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "3D 안경 너머로 빼꼼 본다",
+   "en": "tips {prop} down her nose to peek over the top",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "bowl_carry",
+   "prop": "bowling_ball",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "볼링공을 옆에 든다",
+   "en": "carries {prop} at her hip, fingers in its holes",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ]
+  },
+  {
+   "key": "bowl_aim",
+   "prop": "bowling_ball",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "볼링공을 가슴 앞에 모아 겨눈다",
+   "en": "lifts {prop} to her chest, lining up her aim",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "fingers in the holes",
+    "left": "supports the ball from below"
+   },
+   "gaze": "horizon"
+  },
+  {
+   "key": "bowl_wipe",
+   "prop": "bowling_ball",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "볼링공을 닦는다",
+   "en": "polishes {prop} with a small cloth",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "wipes with the cloth",
+    "left": "holds the ball"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "cards_fan",
+   "prop": "game_cards",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "카드를 가슴 앞에 펼쳐 든다",
+   "en": "holds {prop} fanned close to her chest",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "cards_play",
+   "prop": "game_cards",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "카드 한 장을 내려놓는다",
+   "en": "lays one card from {prop} on the table",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "lays a card down",
+    "left": "holds the rest of the hand"
+   },
+   "gaze": "at_prop",
+   "needs_any": [
+    "table",
+    "floor"
+   ]
+  },
+  {
+   "key": "gamebox_carry",
+   "prop": "game_box",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "보드게임 상자를 안고 온다",
+   "en": "carries {prop} in both arms",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "under the box",
+    "left": "steadies the lid"
+   }
+  },
+  {
+   "key": "gamebox_open",
+   "prop": "game_box",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "보드게임 상자 뚜껑을 연다",
+   "en": "lifts the lid off {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "lifts the lid",
+    "left": "holds the box"
+   },
+   "gaze": "at_prop",
+   "needs_any": [
+    "table",
+    "floor"
+   ]
+  },
+  {
+   "key": "key_light",
+   "prop": "escape_key",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "열쇠를 불빛에 비춰 본다",
+   "en": "holds {prop} up to the lamplight",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "key_turn",
+   "prop": "escape_key",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "열쇠를 자물쇠에 넣어 돌린다",
+   "en": "turns {prop} in a small lock",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "skates_carry",
+   "prop": "ice_skates",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "스케이트를 끈째 들고 간다",
+   "en": "carries {prop} by the knotted laces at her side",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ]
+  },
+  {
+   "key": "skates_shoulder",
+   "prop": "ice_skates",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "스케이트를 어깨에 걸친다",
+   "en": "slings {prop} over one shoulder",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ]
+  },
+  {
+   "key": "skates_lace",
+   "prop": "ice_skates",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "스케이트 끈을 조인다",
+   "en": "pulls the laces of {prop} tight",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "pulls one lace",
+    "left": "pulls the other lace"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "pouch_shot",
+   "prop": "phone_pouch",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "방수 파우치째 사진을 찍는다",
+   "en": "holds {prop} up to snap a photo through it",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "soak"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "gaze": "at_prop"
+  },
+  {
+   "key": "pouch_neck",
+   "prop": "phone_pouch",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "목에 건 방수 파우치를 쥔다",
+   "en": "clutches {prop} hanging at her chest",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "soak"
+   ]
+  },
+  {
+   "key": "goggles_push",
+   "prop": "ski_goggles",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "고글을 이마 위로 올린다",
+   "en": "pushes {prop} up onto her forehead",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리"
+  },
+  {
+   "key": "goggles_dangle",
+   "prop": "ski_goggles",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "고글을 끈째 늘어뜨려 든다",
+   "en": "dangles {prop} by the strap",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ]
+  },
+  {
+   "key": "cocoa_warm",
+   "prop": "cocoa_mug",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "두 손으로 머그를 감싼다",
+   "en": "wraps both hands around {prop} for warmth",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lie_side"
+   ],
+   "grip": {
+    "right": "around the mug",
+    "left": "around the mug"
+   }
+  },
+  {
+   "key": "cocoa_sip",
+   "prop": "cocoa_mug",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "핫초코를 호 불어 마신다",
+   "en": "blows on {prop} before a sip",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "space": "mouth"
+  },
+  {
+   "key": "sled_tow",
+   "prop": "sled",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "썰매를 줄로 끌고 간다",
+   "en": "tows {prop} behind her by its rope",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "step_up"
+   ]
+  },
+  {
+   "key": "sled_hug",
+   "prop": "sled",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "썰매를 세워 안는다",
+   "en": "hugs {prop} upright against her front",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "grip": {
+    "right": "around the top of the sled",
+    "left": "around its side"
+   }
+  },
+  {
+   "key": "ears_put",
+   "prop": "animal_ears",
+   "kind": "both",
+   "hands": "both",
+   "zone": "overhead",
+   "ko": "동물 귀 머리띠를 쓴다",
+   "en": "settles {prop} onto her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "holds the right side of the band",
+    "left": "holds the left side of the band"
+   }
+  },
+  {
+   "key": "ears_show",
+   "prop": "animal_ears",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "동물 귀 머리띠를 볼 옆에 대 본다",
+   "en": "holds {prop} up beside her cheek",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "balloon_float",
+   "prop": "balloon",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "풍선 끈을 잡는다",
+   "en": "holds the ribbon of {prop} floating above her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ]
+  },
+  {
+   "key": "balloon_tie",
+   "prop": "balloon",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "풍선 끈을 손목에 묶는다",
+   "en": "ties the ribbon of {prop} around her wrist",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "loops the ribbon",
+    "left": "holds out her wrist"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "sticks_clap",
+   "prop": "cheer_stick",
+   "kind": "both",
+   "hands": "both",
+   "zone": "overhead",
+   "ko": "응원 막대를 머리 위에서 두드린다",
+   "en": "bangs {prop} together over her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up",
+    "sit_chair",
+    "sit_edge"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "one stick",
+    "left": "the other stick"
+   }
+  },
+  {
+   "key": "sticks_rest",
+   "prop": "cheer_stick",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "응원 막대를 어깨에 걸친다",
+   "en": "rests {prop} against her shoulder",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ]
+  },
+  {
+   "key": "ctowel_twirl",
+   "prop": "cheer_towel",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "응원 수건을 머리 위로 돌린다",
+   "en": "twirls {prop} over her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up",
+    "sit_chair",
+    "sit_edge"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "ctowel_stretch",
+   "prop": "cheer_towel",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "응원 수건을 펼쳐 든다",
+   "en": "holds {prop} stretched wide across her chest",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "grip": {
+    "right": "holds one end",
+    "left": "holds the other end"
+   }
+  },
+  {
+   "key": "flag_wave",
+   "prop": "team_flag",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "깃발을 머리 위로 흔든다",
+   "en": "waves {prop} over her head",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "step_up",
+    "walk",
+    "sit_chair",
+    "sit_edge"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "flag_shoulder",
+   "prop": "team_flag",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "깃발을 어깨에 기댄다",
+   "en": "rests {prop} on her shoulder",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ]
+  },
+  {
+   "key": "fbucket_carry",
+   "prop": "flower_bucket",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "꽃 양동이를 손잡이째 든다",
+   "en": "carries {prop} by its handle at her side",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ]
+  },
+  {
+   "key": "fbucket_sort",
+   "prop": "flower_bucket",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "양동이 속 꽃대를 고른다",
+   "en": "sorts the stems in {prop}",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat",
+    "lean_counter"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "lifts a stem",
+    "left": "steadies the bucket"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "reflector_tilt",
+   "prop": "reflector",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "반사판을 기울여 얼굴에 빛을 모은다",
+   "en": "tilts {prop} to bounce light onto her face",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "grip": {
+    "right": "holds the rim",
+    "left": "holds the opposite rim"
+   }
+  },
+  {
+   "key": "reflector_fold",
+   "prop": "reflector",
+   "kind": "both",
+   "hands": "both",
+   "zone": "waist",
+   "ko": "반사판을 비틀어 접는다",
+   "en": "twists {prop} folded small",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "finish",
+   "stage_ko": "마무리",
+   "grip": {
+    "right": "twists the rim",
+    "left": "folds the other side in"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "flyer_open",
+   "prop": "festival_flyer",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "전단을 펼쳐 지도를 본다",
+   "en": "unfolds {prop} to check the little map",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "stage": "prep",
+   "stage_ko": "준비",
+   "grip": {
+    "right": "holds the right edge",
+    "left": "holds the left edge"
+   },
+   "gaze": "at_prop"
+  },
+  {
+   "key": "flyer_offer",
+   "prop": "festival_flyer",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "전단을 카메라 쪽으로 내민다",
+   "en": "holds out {prop} toward the camera",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline"
+   ],
+   "stage": "doing",
+   "stage_ko": "하는 중"
+  },
+  {
+   "key": "club_lean",
+   "prop": "golf_club",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "골프채를 지팡이처럼 짚는다",
+   "en": "leans lightly on {prop} like a cane",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_rail"
+   ]
+  },
+  {
+   "key": "club_shoulder",
+   "prop": "golf_club",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "골프채를 어깨에 걸친다",
+   "en": "rests {prop} across her shoulder",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up"
+   ]
   }
  ],
  "outfit_features": {
@@ -11926,6 +14241,110 @@
     "street_noodle_stall"
    ],
    "ko": "새 작업 자리 · 길가에 수영복 · 목욕 차림 · 란제리풍"
+  },
+  {
+   "outfits": [
+    "lingerie",
+    "swimwear",
+    "bath"
+   ],
+   "places": [
+    "@pet"
+   ],
+   "ko": "동물 돌봄 장면에 란제리풍 · 수영복 · 목욕 차림"
+  },
+  {
+   "outfits": [
+    "swimwear",
+    "bath",
+    "lingerie",
+    "homewear"
+   ],
+   "places": [
+    "ski_slope",
+    "sled_hill",
+    "golf_course",
+    "golf_range",
+    "campus_lawn",
+    "nation_snowfield"
+   ],
+   "ko": "눈밭 · 골프장 · 캠퍼스에 수영복 · 목욕 · 란제리풍 · 홈웨어"
+  },
+  {
+   "outfits": [
+    "evening",
+    "bridal",
+    "drape",
+    "resort",
+    "costume",
+    "halloween"
+   ],
+   "places": [
+    "ski_slope",
+    "ski_lift",
+    "sled_hill",
+    "nation_snowfield",
+    "golf_course",
+    "golf_range",
+    "fencing_piste",
+    "bowling_lane"
+   ],
+   "ko": "눈밭 · 골프 · 펜싱 · 볼링에 드레스 · 휴양지 · 무대 차림"
+  },
+  {
+   "outfits": [
+    "bath",
+    "active",
+    "adventure",
+    "workwear"
+   ],
+   "places": [
+    "fitting_room",
+    "boudoir_set",
+    "suite_balcony"
+   ],
+   "ko": "피팅룸 · 부두아르 세트 · 스위트 발코니에 목욕 · 운동 · 모험 · 작업 차림"
+  },
+  {
+   "outfits": [
+    "active",
+    "workwear",
+    "adventure"
+   ],
+   "places": [
+    "ryokan_room",
+    "glamping_tent",
+    "window_seat",
+    "nation_salon"
+   ],
+   "ko": "료칸 · 글램핑 텐트 · 창가 · 단장방에 운동 · 작업 · 모험 차림"
+  },
+  {
+   "outfits": [
+    "lingerie",
+    "homewear"
+   ],
+   "places": [
+    "waterpark_wave",
+    "waterpark_slide",
+    "pool_party",
+    "beach_club",
+    "hotspring_pool"
+   ],
+   "ko": "워터파크 · 풀 파티 · 비치 클럽 · 리조트 풀(사람 많은 물가)에 란제리풍 · 홈웨어"
+  },
+  {
+   "outfits": [
+    "swimwear"
+   ],
+   "places": [
+    "window_seat",
+    "glamping_tent",
+    "ryokan_room",
+    "suite_balcony",
+    "nation_salon"
+   ],
+   "ko": "창가 · 글램핑 텐트 · 료칸 · 스위트 발코니 · 단장방에 수영복(물이 없는 방)"
   }
  ],
  "presets": [

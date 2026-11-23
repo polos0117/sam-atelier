@@ -142,6 +142,40 @@
   {
    "key": "fx",
    "ko": "환상 무대"
+  },
+  {
+   "key": "animal",
+   "ko": "동물 구경(동물원 · 수족관 · 동물 카페)",
+   "animals": true
+  },
+  {
+   "key": "pet",
+   "ko": "동물 돌봄",
+   "companion": true
+  },
+  {
+   "key": "amusement",
+   "ko": "놀이공원"
+  },
+  {
+   "key": "play",
+   "ko": "실내 놀이(영화관 · 볼링 · 보드게임 · 방탈출 · PC방)"
+  },
+  {
+   "key": "winter",
+   "ko": "겨울 놀이(스케이트 · 스키 · 눈썰매)"
+  },
+  {
+   "key": "shop",
+   "ko": "구경 · 꾸밈(미술관 · 서점 · 꽃집 · 사진관 · 미용실)"
+  },
+  {
+   "key": "stadium",
+   "ko": "관람석 · 경기장"
+  },
+  {
+   "key": "campus",
+   "ko": "캠퍼스"
   }
  ],
  "places": [
@@ -925,7 +959,8 @@
    ],
    "outfits": [
     "bath",
-    "swimwear"
+    "swimwear",
+    "lingerie"
    ]
   },
   {
@@ -1067,7 +1102,9 @@
     "subculture",
     "everyday",
     "dongtan",
-    "retro"
+    "retro",
+    "roleplay",
+    "game_cosplay"
    ]
   },
   {
@@ -1126,7 +1163,8 @@
    ],
    "outfits": [
     "evening",
-    "subculture"
+    "subculture",
+    "lingerie"
    ]
   },
   {
@@ -1144,7 +1182,8 @@
     "roleplay",
     "retro",
     "subculture",
-    "halloween"
+    "halloween",
+    "game_cosplay"
    ]
   },
   {
@@ -1213,7 +1252,8 @@
    "outfits": [
     "roleplay",
     "costume",
-    "halloween"
+    "halloween",
+    "game_cosplay"
    ]
   },
   {
@@ -1423,7 +1463,8 @@
     "everyday",
     "dongtan",
     "homewear",
-    "traditional"
+    "traditional",
+    "lingerie"
    ]
   },
   {
@@ -2375,6 +2416,1281 @@
     "costume",
     "halloween"
    ]
+  },
+  {
+   "key": "zoo_walk",
+   "group": "animal",
+   "ko": "동물원 산책로",
+   "en": "a leafy zoo walkway with a low stone wall and a wooden railing, giraffes and zebras grazing in a wide paddock far behind her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "retro",
+    "subculture",
+    "adventure"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "zoo_feeding",
+   "group": "animal",
+   "ko": "동물원 먹이 주는 데크",
+   "en": "a raised wooden feeding deck at the zoo, a tall giraffe and two goats waiting on the far side of a sturdy fence",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "retro",
+    "adventure"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "aquarium_tunnel",
+   "group": "animal",
+   "ko": "수족관 터널",
+   "en": "an aquarium's glass walk-through tunnel with a handrail along the glass, a slow ray and silver fish gliding overhead behind the curved glass, rippling blue light",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "aquarium_tank",
+   "group": "animal",
+   "ko": "수족관 대형 수조",
+   "en": "a dim aquarium hall before a floor-to-ceiling tank, a school of silver fish and a slow ray drifting behind the glass, a low bench in front of it",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "aquarium_jelly",
+   "group": "animal",
+   "ko": "해파리관",
+   "en": "a dark jellyfish room, round glowing tanks of slowly drifting jellyfish behind glass and a rail along them, soft violet light on the floor",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "cafe_cat",
+   "group": "animal",
+   "ko": "고양이 카페",
+   "en": "a cosy cat café with floor cushions, low tables and wall shelves, a few cats dozing on the high shelves and the window seat behind her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "cafe_dog",
+   "group": "animal",
+   "ko": "강아지 카페",
+   "en": "a bright dog café with wooden benches, a counter and a low-fenced play corner, a few small dogs romping in the corner behind her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture",
+    "active"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "park_pond",
+   "group": "animal",
+   "ko": "공원 연못",
+   "en": "a park pond with a stone edge, a bench and a small wooden bridge, ducks paddling and koi drifting under the water at a distance",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "retro",
+    "subculture",
+    "traditional"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pet_cat_home",
+   "group": "pet",
+   "ko": "고양이와 집에서",
+   "en": "her sunlit living room with a soft sofa and a rug, her own tabby cat curled up close beside her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "homewear",
+    "everyday",
+    "dongtan"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pet_dog_walk",
+   "group": "pet",
+   "ko": "강아지 산책",
+   "en": "a leafy park path with benches, out walking her own small dog on a loose leash beside her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "active",
+    "dongtan",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pet_dove_square",
+   "group": "pet",
+   "ko": "광장 비둘기 모이 주기",
+   "en": "a sunny stone square with a fountain, one tame white dove perched on the fountain rim close beside her, waiting to be fed",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pet_rabbit",
+   "group": "pet",
+   "ko": "토끼 안기",
+   "en": "a sunny garden lawn with a low picket fence and a bench, her own soft white rabbit with her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "homewear"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pet_fish",
+   "group": "pet",
+   "ko": "어항 물고기 밥 주기",
+   "en": "her quiet room beside a large home aquarium of green water plants, her own single goldfish swimming in it",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "homewear",
+    "everyday",
+    "dongtan"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pet_horse",
+   "group": "pet",
+   "ko": "마구간 말 손질",
+   "en": "a sunny stable yard beside an open stable door, her own chestnut horse standing calmly beside her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "active",
+    "workwear",
+    "adventure",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "amuse_carousel",
+   "group": "amusement",
+   "ko": "회전목마",
+   "en": "an amusement-park carousel at rest, painted wooden horses on brass poles under a ring of warm bulb lights",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture",
+    "roleplay",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "amuse_wheel",
+   "group": "amusement",
+   "ko": "대관람차 곤돌라",
+   "en": "the cabin of a Ferris wheel high above an amusement park, a bench seat and wide windows onto the park far below",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "amuse_coaster",
+   "group": "amusement",
+   "ko": "롤러코스터 앞 광장",
+   "en": "the plaza at the foot of a roller coaster, its looping track rising high behind her and a railing at the exit gate",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "active",
+    "dongtan",
+    "retro",
+    "subculture",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "amuse_parade",
+   "group": "amusement",
+   "ko": "퍼레이드 거리",
+   "en": "an amusement-park parade street lined with spectators, a bright float and drifting confetti passing in the background",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "subculture",
+    "costume",
+    "roleplay",
+    "halloween",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "amuse_snack",
+   "group": "amusement",
+   "ko": "놀이공원 간식 거리",
+   "en": "an amusement-park snack street of striped stalls selling cotton candy, churros and popcorn, little round tables in front",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "amuse_night",
+   "group": "amusement",
+   "ko": "밤의 놀이공원",
+   "en": "an amusement park at night, every ride outlined in thousands of warm bulbs, the light reflected on the paved paths",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "evening",
+    "dongtan",
+    "retro",
+    "subculture",
+    "halloween"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "nation_menagerie",
+   "group": "animal",
+   "ko": "세계의 동물 정원",
+   "en": "a menagerie of her world, its animals kept in wide enclosures and glimpsed at a distance",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "황실 사냥 정원",
+     "en": "an imperial hunting park of the Han court — sika deer and red-crowned cranes grazing beyond a long bamboo fence, willow trees and a stone path"
+    },
+    "fantasy": {
+     "ko": "성의 동물 정원",
+     "en": "a castle menagerie garden — peacocks and a pair of white stags behind tall brass-barred railings, clipped hedges and a gravel walk"
+    },
+    "mecha": {
+     "ko": "유리 돔 생태관",
+     "en": "a glass-dome biosphere aboard a space station — deer and bright birds among green terraces beyond the curved glass, soft artificial daylight"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "nation_aquarium",
+   "group": "animal",
+   "ko": "세계의 물고기 정원",
+   "en": "a place of her world where fish are kept, seen through water or glass",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "연못 정자",
+     "en": "a lotus-pond pavilion with a carved wooden railing, golden carp gliding under the clear water below"
+    },
+    "fantasy": {
+     "ko": "수정 수족관",
+     "en": "a crystal aquarium hall — tall glass tanks of softly glowing fish and a slow ray under candle-lit stone arches"
+    },
+    "mecha": {
+     "ko": "수족관 갑판",
+     "en": "an aquarium deck of a starship — a curved glass wall onto a vast tank of drifting fish and rays, blue light rippling on the floor"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "nation_stable",
+   "group": "pet",
+   "ko": "세계의 마구간",
+   "en": "a stable yard of her world, her own horse standing calmly beside her",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "workwear"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "군영 마구간",
+     "en": "a Han-era stable yard of rammed-earth walls under a thatched roof, her own bay warhorse standing calmly beside her"
+    },
+    "fantasy": {
+     "ko": "성 마구간",
+     "en": "a castle stable yard of grey stone with an open stable door and hay bales, her own white horse standing calmly beside her"
+    }
+   },
+   "worlds_only": [
+    "samguk",
+    "fantasy"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "nation_fair",
+   "group": "amusement",
+   "ko": "세계의 놀이 장터",
+   "en": "a fairground of her world, its rides and stalls in its own style",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "active"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "묘회 놀이마당",
+     "en": "a Han-era temple fair — a spinning lantern wheel, acrobats on tall poles in the distance, stalls of sugar figures and candied hawthorn under red banners"
+    },
+    "fantasy": {
+     "ko": "중세 축제 마당",
+     "en": "a medieval fairground — a hand-cranked wooden carousel, striped tents, stalls of honey cakes and strings of lanterns"
+    },
+    "mecha": {
+     "ko": "정거장 놀이 갑판",
+     "en": "a space-station amusement deck — a slow glowing ride ring, light-strip snack stalls and a curved window onto the stars"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "cinema_seats",
+   "group": "play",
+   "ko": "영화관 객석",
+   "en": "a dim cinema auditorium of plush red seats in tiered rows, the big screen glowing pale in the dark ahead and its light falling across the armrests",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "cinema_lobby",
+   "group": "play",
+   "ko": "영화관 로비",
+   "en": "a cinema lobby with a popcorn counter, a carpeted floor, velvet rope posts and film posters without readable text under warm lights",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture",
+    "roleplay",
+    "halloween",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "bowling_lane",
+   "group": "play",
+   "ko": "볼링장",
+   "en": "a retro bowling alley — polished wooden lanes, white pins at the far end and a ball return beside a curved bench",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture",
+    "active",
+    "roleplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "boardgame_cafe",
+   "group": "play",
+   "ko": "보드게임 카페",
+   "en": "a board-game café — tall shelves stacked with game boxes, a wooden table spread with cards and dice under a warm pendant lamp",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "escape_room",
+   "group": "play",
+   "ko": "방탈출 카페",
+   "en": "an escape room dressed as an old study — locked chests, a wall of clue cards without readable text, a dim desk lamp and a heavy wooden door",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "subculture",
+    "retro",
+    "halloween",
+    "roleplay",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "theme_cafe",
+   "group": "play",
+   "ko": "테마 카페",
+   "en": "a themed concept café of pastel booths, a frilled counter with cake stands and a small photo corner of paper flowers",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "roleplay",
+    "subculture",
+    "everyday",
+    "dongtan",
+    "costume",
+    "halloween",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pc_bang",
+   "group": "play",
+   "ko": "PC방 부스",
+   "en": "a PC-bang gaming booth — a padded gaming chair before twin glowing monitors and a backlit keyboard, rows of booths behind her in neon-blue light",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "subculture",
+    "active",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "ice_rink",
+   "group": "winter",
+   "ko": "아이스링크",
+   "en": "an indoor ice rink — a glossy sheet of ice inside low white boards, a row of benches for lacing skates and soft lights overhead",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "everyday",
+    "dongtan",
+    "retro",
+    "costume",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "ski_slope",
+   "group": "winter",
+   "ko": "스키장 슬로프",
+   "en": "a groomed ski slope under a bright winter sky, snow-laden pines along the run and a resort village far below",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "everyday",
+    "dongtan",
+    "retro",
+    "adventure"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "ski_lift",
+   "group": "winter",
+   "ko": "스키 리프트",
+   "en": "the seat of a chairlift gliding above snowy slopes, a safety bar across her lap and dark pines far below",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "everyday",
+    "dongtan",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "sled_hill",
+   "group": "winter",
+   "ko": "눈썰매장",
+   "en": "a snowy sledding hill of packed-snow runs, a row of wooden sleds at the top and a low fence of pines along the side",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "waterpark_wave",
+   "group": "water",
+   "ko": "워터파크 파도풀",
+   "en": "a water park wave pool, a long rolling wave breaking toward a gently sloped tiled shore, palm planters and loungers along the edge",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "swimwear",
+    "active",
+    "retro",
+    "resort",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "waterpark_slide",
+   "group": "water",
+   "ko": "워터슬라이드 착수장",
+   "en": "the splash pool at the foot of tall twisting water slides, spray hanging in the sun and a shallow ledge to climb out on",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "swimwear",
+    "active",
+    "retro",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "pool_party",
+   "group": "water",
+   "ko": "루프탑 풀 파티",
+   "en": "a rooftop pool party at golden hour — floats drifting on turquoise water, a DJ table under string lights and loungers along the deck",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "swimwear",
+    "resort",
+    "evening",
+    "dongtan",
+    "drape",
+    "game_cosplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "beach_club",
+   "group": "water",
+   "ko": "비치 클럽",
+   "en": "a beach club of white daybeds and parasols on the sand, a cocktail bar under a thatched roof and the sea beyond",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "swimwear",
+    "resort",
+    "evening",
+    "dongtan",
+    "drape",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "hotspring_pool",
+   "group": "spa",
+   "ko": "온천 리조트 야외 풀",
+   "en": "a hot-spring resort's open-air pool — warm turquoise water steaming in the cool air, smooth stone edges and wooden loungers under maples",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "swimwear",
+    "bath",
+    "resort"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "bath_changing",
+   "group": "spa",
+   "ko": "목욕탕 탈의실",
+   "en": "a bath-house changing room of wooden lockers, a long bench, a mirror counter with hair dryers and stacks of folded towels",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "bath",
+    "lingerie",
+    "swimwear",
+    "homewear",
+    "everyday"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "glamping_tent",
+   "group": "travel",
+   "ko": "글램핑 텐트 안",
+   "en": "inside a canvas bell tent at a glamping site — a low bed of white quilts, fairy lights, layered rugs and the door flap tied open onto the trees",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "homewear",
+    "lingerie",
+    "everyday",
+    "dongtan",
+    "resort"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "glamping_deck",
+   "group": "travel",
+   "ko": "글램핑 호숫가 데크",
+   "en": "a glamping deck beside a lake — a wooden platform with a canvas tent, a fire bowl, two deck chairs and a ladder down into the clear water",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "swimwear",
+    "resort",
+    "adventure",
+    "homewear"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "ryokan_room",
+   "group": "travel",
+   "ko": "료칸 객실",
+   "en": "a ryokan guest room — tatami mats, a low table set with tea, a futon laid out and a paper screen slid open onto a small garden",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "homewear",
+    "lingerie",
+    "traditional",
+    "bath",
+    "everyday"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "suite_balcony",
+   "group": "evening",
+   "ko": "호텔 스위트 발코니",
+   "en": "a hotel suite balcony high above the city at night — sheer curtains blowing out of the open glass door, a cushioned lounger and a glass railing",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "lingerie",
+    "homewear",
+    "evening",
+    "dongtan",
+    "drape"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "window_seat",
+   "group": "home",
+   "ko": "창가 자리",
+   "en": "a cushioned window seat in her flat, piled with pillows and a knitted throw, daylight on the glass and a stack of books beside her",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "homewear",
+    "lingerie",
+    "everyday",
+    "dongtan"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "gallery_white",
+   "group": "shop",
+   "ko": "미술관 전시실",
+   "en": "a bright art museum gallery of white walls hung with large abstract paintings, a polished pale floor and a long viewing bench",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "bookstore_aisle",
+   "group": "shop",
+   "ko": "서점 서가 사이",
+   "en": "a quiet bookstore aisle between tall wooden shelves of books, a rolling library ladder and a worn reading armchair at the end",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "flower_shop",
+   "group": "shop",
+   "ko": "꽃집",
+   "en": "a small flower shop crowded with buckets of fresh cut flowers, a wooden worktable strewn with ribbon and stems, and a glass door onto the street",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "roleplay",
+    "workwear"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "flower_market",
+   "group": "shop",
+   "ko": "꽃 시장",
+   "en": "an open-air flower market — rows of stalls under striped awnings, buckets of tulips, roses and sunflowers lining the lane",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "traditional",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "photo_studio",
+   "group": "shop",
+   "ko": "사진 스튜디오",
+   "en": "a photo studio with a seamless paper backdrop sweeping onto the floor, softbox lights on stands, a round reflector and a posing stool",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "lingerie",
+    "swimwear",
+    "roleplay",
+    "game_cosplay",
+    "retro",
+    "costume",
+    "halloween",
+    "bridal",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "boudoir_set",
+   "group": "shop",
+   "ko": "부두아르 촬영 세트",
+   "en": "a boudoir photo set — a satin-draped chaise, a gilt mirror, sheer curtains glowing with window light and a scatter of rose petals",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "lingerie",
+    "homewear",
+    "evening",
+    "bridal",
+    "retro",
+    "drape",
+    "swimwear"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "hair_salon",
+   "group": "shop",
+   "ko": "미용실",
+   "en": "a bright hair salon — a row of mirrors above styling chairs, a wash basin at the back and a trolley of brushes and clips",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "bridal",
+    "retro",
+    "roleplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "nail_salon",
+   "group": "shop",
+   "ko": "네일숍",
+   "en": "a calm nail salon — a small manicure table under a bright lamp, rows of polish bottles on the wall shelf and a padded armchair",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "fitting_room",
+   "group": "shop",
+   "ko": "옷가게 피팅룸",
+   "en": "a boutique fitting room — a velvet curtain, a full-length mirror, a padded stool and hooks hung with clothes to try on",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "lingerie",
+    "everyday",
+    "dongtan",
+    "evening",
+    "bridal",
+    "swimwear"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "ballpark_stands",
+   "group": "stadium",
+   "ko": "야구장 응원석",
+   "en": "the stands of a baseball stadium on a summer evening — rows of folding seats, fans in made-up team colours, floodlights over a green diamond below",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "roleplay",
+    "subculture",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "football_stands",
+   "group": "stadium",
+   "ko": "축구장 관중석",
+   "en": "the stands of a football stadium — a steep bank of seats, waving scarves and flags in made-up colours, the floodlit pitch far below",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "roleplay",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "esports_arena",
+   "group": "stadium",
+   "ko": "e스포츠 경기장",
+   "en": "an esports arena — a stage of gaming booths under a giant LED screen, neon stage lights sweeping over the packed seats",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "subculture",
+    "game_cosplay",
+    "roleplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "golf_range",
+   "group": "sports",
+   "ko": "골프 연습장",
+   "en": "an open driving range — a row of covered tee bays with green mats facing a wide field dotted with distance flags",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "everyday",
+    "dongtan",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "golf_course",
+   "group": "sports",
+   "ko": "골프장 그린",
+   "en": "a golf course green on a sunny morning — a flag in the hole, smooth rolling grass and a white sand bunker beyond",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "everyday",
+    "dongtan",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "fencing_piste",
+   "group": "sports",
+   "ko": "펜싱장",
+   "en": "a fencing hall — a long marked piste down the polished floor, masks and blades on a wall rack and a bench along the side",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "everyday",
+    "dongtan"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "lecture_hall",
+   "group": "campus",
+   "ko": "대학 강의실",
+   "en": "a tiered university lecture hall — curved rows of wooden desks, tall windows and a wide chalkboard at the front",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "retro",
+    "subculture",
+    "roleplay"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "campus_lawn",
+   "group": "campus",
+   "ko": "캠퍼스 잔디밭",
+   "en": "a sunny campus lawn under old trees, ivy-covered brick buildings around it and a few students resting on the grass far off",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active",
+    "retro",
+    "subculture"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "festival_booth",
+   "group": "campus",
+   "ko": "대학 축제 부스",
+   "en": "a university festival lane of booths under bunting and paper lanterns, a stall counter with hand-drawn signs without readable text and a small stage beyond",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "roleplay",
+    "subculture",
+    "costume",
+    "halloween",
+    "game_cosplay",
+    "retro"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "nation_theatre",
+   "group": "play",
+   "ko": "세계의 극장",
+   "en": "a theatre or playhouse of her world, its stage and seats in its own style",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "등불 놀이마당 무대",
+     "en": "a Han-era courtyard stage — a raised wooden platform under red lanterns, musicians' mats at its side and low benches for the audience"
+    },
+    "fantasy": {
+     "ko": "성 마을 극장",
+     "en": "a candle-lit theatre of a castle town — tiers of carved boxes, a heavy velvet curtain and gilt railings"
+    },
+    "mecha": {
+     "ko": "함선 극장",
+     "en": "a starship theatre — tiered seats facing a wide stage under a dome of soft light"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "nation_snowfield",
+   "group": "winter",
+   "ko": "세계의 눈 언덕",
+   "en": "a snowy slope of her world where people sled and play",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "active"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "눈 덮인 성 밖 언덕",
+     "en": "a snowy hillside outside a walled Han town, dark pines, a wooden sled at the top and the town's grey roofs below"
+    },
+    "fantasy": {
+     "ko": "성 아래 눈 비탈",
+     "en": "a snowy slope below a mountain castle, wooden sleds, pines heavy with snow and the castle towers above"
+    },
+    "mecha": {
+     "ko": "식민지 눈 돔",
+     "en": "a snow dome of a space colony — an artificial ski slope under a vast curved roof, soft daylight panels overhead"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "nation_flower",
+   "group": "shop",
+   "ko": "세계의 꽃 시장",
+   "en": "a flower market of her world, its stalls and blooms in its own style",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "everyday",
+    "dongtan",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "모란 꽃 장",
+     "en": "a Han-era peony market — baskets of peonies and plum branches on bamboo stalls under cloth awnings"
+    },
+    "fantasy": {
+     "ko": "성 광장 꽃 시장",
+     "en": "a castle-square flower market — wicker baskets of roses and lilies, striped awnings and a stone fountain"
+    },
+    "mecha": {
+     "ko": "수경 꽃 상가",
+     "en": "a hydroponic flower arcade of a space station — tiers of glowing grow-beds full of blooms along a curved walkway"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "nation_salon",
+   "group": "shop",
+   "ko": "세계의 단장방",
+   "en": "a dressing and grooming room of her world, a mirror, combs and soft light",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "homewear",
+    "lingerie",
+    "everyday",
+    "dongtan",
+    "evening"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "구리 거울 단장방",
+     "en": "a Han-era dressing chamber — a polished bronze mirror on a lacquered stand, combs, hairpins and a silk screen"
+    },
+    "fantasy": {
+     "ko": "성의 단장방",
+     "en": "a castle dressing room — a gilt vanity mirror, a velvet stool, perfume bottles and a curtained window"
+    },
+    "mecha": {
+     "ko": "함선 단장실",
+     "en": "a starship grooming suite — a mirror wall ringed with soft light, a sleek chair and a vanity console"
+    }
+   },
+   "start_median": true
   }
  ],
  "families": {
@@ -2806,7 +4122,27 @@
     "nation_camp",
     "fx_pirate_ship",
     "fx_jungle_ruins",
-    "fx_marble_temple"
+    "fx_marble_temple",
+    "pet_dove_square",
+    "aquarium_tank",
+    "cafe_cat",
+    "cafe_dog",
+    "park_pond",
+    "amuse_snack",
+    "amuse_night",
+    "pet_dog_walk",
+    "pet_rabbit",
+    "cinema_lobby",
+    "bowling_lane",
+    "ice_rink",
+    "gallery_white",
+    "golf_range",
+    "fencing_piste",
+    "campus_lawn",
+    "festival_booth",
+    "bath_changing",
+    "nation_theatre",
+    "nation_salon"
    ],
    "en": "resting on a seat for a moment, catching her breath",
    "seat": [
@@ -2838,7 +4174,13 @@
     "water_infinity",
     "fx_retro_home",
     "heritage_tower",
-    "heritage_baidi"
+    "heritage_baidi",
+    "amuse_wheel",
+    "ski_lift",
+    "suite_balcony",
+    "window_seat",
+    "glamping_deck",
+    "lecture_hall"
    ],
    "en": "looking out at the view, one hand resting on the nearest ledge"
   },
@@ -2885,7 +4227,22 @@
     "heritage_baidi",
     "fx_pirate_ship",
     "fx_jungle_ruins",
-    "fx_marble_temple"
+    "fx_marble_temple",
+    "zoo_walk",
+    "aquarium_tunnel",
+    "park_pond",
+    "amuse_night",
+    "amuse_parade",
+    "nation_menagerie",
+    "nation_fair",
+    "!glamping_tent",
+    "!ryokan_room",
+    "gallery_white",
+    "flower_market",
+    "campus_lawn",
+    "festival_booth",
+    "bookstore_aisle",
+    "nation_flower"
    ],
    "en": "strolling through the place at an easy pace",
    "hands": "free"
@@ -2914,7 +4271,32 @@
     "heritage_tower",
     "heritage_baidi",
     "fx_jungle_ruins",
-    "fx_marble_temple"
+    "fx_marble_temple",
+    "zoo_walk",
+    "zoo_feeding",
+    "aquarium_tunnel",
+    "aquarium_jelly",
+    "amuse_carousel",
+    "amuse_wheel",
+    "amuse_coaster",
+    "amuse_parade",
+    "amuse_night",
+    "nation_fair",
+    "!glamping_tent",
+    "!ryokan_room",
+    "flower_market",
+    "ski_slope",
+    "sled_hill",
+    "campus_lawn",
+    "festival_booth",
+    "golf_course",
+    "ski_lift",
+    "waterpark_wave",
+    "pool_party",
+    "beach_club",
+    "nation_snowfield",
+    "nation_flower",
+    "suite_balcony"
    ],
    "en": "taking a photo of the scenery with a small camera"
   },
@@ -2925,7 +4307,9 @@
    "places": [
     "home_bedroom",
     "nation_room",
-    "evening_hotel"
+    "evening_hotel",
+    "ryokan_room",
+    "suite_balcony"
    ],
    "en": "stretching her arms overhead by the window just after waking",
    "outfits": [
@@ -2942,7 +4326,9 @@
     "home_bedroom",
     "spa_lounge",
     "nation_room",
-    "spa_jjimjil"
+    "spa_jjimjil",
+    "bath_changing",
+    "ryokan_room"
    ],
    "en": "drying her damp hair with a towel"
   },
@@ -2968,7 +4354,10 @@
     "home_bedroom",
     "evening_hotel",
     "night_powder",
-    "stage_wedding"
+    "stage_wedding",
+    "boudoir_set",
+    "bath_changing",
+    "nation_salon"
    ],
    "en": "at a vanity, fastening one earring",
    "seat": [
@@ -3024,7 +4413,9 @@
     "evening_penthouse",
     "spa_lounge",
     "nation_room",
-    "night_club"
+    "night_club",
+    "pet_cat_home",
+    "suite_balcony"
    ],
    "en": "lounging back on a sofa or daybed, completely at ease",
    "hands": "free"
@@ -3045,7 +4436,16 @@
     "nation_study",
     "nation_temple",
     "street_diner",
-    "street_office"
+    "street_office",
+    "cafe_cat",
+    "pet_cat_home",
+    "pet_fish",
+    "bookstore_aisle",
+    "window_seat",
+    "glamping_tent",
+    "ryokan_room",
+    "campus_lawn",
+    "boardgame_cafe"
    ],
    "en": "reading an unlettered book, one page about to turn"
   },
@@ -3067,7 +4467,11 @@
     "home_bedroom",
     "home_entry",
     "evening_hotel",
-    "stage_wedding"
+    "stage_wedding",
+    "fitting_room",
+    "bath_changing",
+    "hair_salon",
+    "nation_salon"
    ],
    "en": "checking her outfit in a full-length mirror before going out",
    "hands": "free"
@@ -3081,7 +4485,9 @@
     "sports_gym",
     "sports_rink",
     "sports_wall",
-    "nation_training"
+    "nation_training",
+    "bowling_lane",
+    "ice_rink"
    ],
    "en": "sitting on a bench to tie her shoes",
    "seat": [
@@ -3095,7 +4501,8 @@
    "family": "sit",
    "places": [
     "home_bedroom",
-    "evening_hotel"
+    "evening_hotel",
+    "glamping_tent"
    ],
    "en": "sitting up in bed with a breakfast tray across her lap",
    "outfits": [
@@ -3144,7 +4551,10 @@
     "street_market",
     "stage_festival",
     "nation_market",
-    "stage_fireworks"
+    "stage_fireworks",
+    "amuse_snack",
+    "nation_fair",
+    "festival_booth"
    ],
    "en": "buying a paper-wrapped snack at a stall"
   },
@@ -3158,7 +4568,11 @@
     "nation_market",
     "stage_festival",
     "nation_study",
-    "nation_temple"
+    "nation_temple",
+    "bookstore_aisle",
+    "nail_salon",
+    "boardgame_cafe",
+    "escape_room"
    ],
    "en": "browsing a shelf and pulling one item out for a closer look"
   },
@@ -3168,7 +4582,12 @@
    "family": "stand",
    "places": [
     "street_cafe",
-    "street_diner"
+    "street_diner",
+    "cafe_dog",
+    "cafe_cat",
+    "cinema_lobby",
+    "theme_cafe",
+    "flower_market"
    ],
    "en": "picking up a takeout cup at the counter and fixing the lid"
   },
@@ -3248,7 +4667,8 @@
     "fx_observatory",
     "fx_cloudpavilion",
     "heritage_tower",
-    "heritage_baidi"
+    "heritage_baidi",
+    "glamping_deck"
    ],
    "en": "adjusting a small telescope to look at the stars"
   },
@@ -3267,7 +4687,14 @@
     "heritage_tower",
     "heritage_baidi",
     "nation_study",
-    "nation_temple"
+    "nation_temple",
+    "zoo_walk",
+    "park_pond",
+    "aquarium_tank",
+    "nation_aquarium",
+    "gallery_white",
+    "campus_lawn",
+    "flower_market"
    ],
    "en": "sketching the scenery in a small notebook"
   },
@@ -3281,7 +4708,10 @@
     "nation_forest",
     "nation_garden",
     "travel_lake",
-    "street_rooftop"
+    "street_rooftop",
+    "park_pond",
+    "campus_lawn",
+    "glamping_deck"
    ],
    "en": "having a small picnic on a blanket with fruit and a basket",
    "seat": [
@@ -3347,7 +4777,11 @@
     "water_waterfall",
     "water_infinity",
     "nation_bath",
-    "travel_lake"
+    "travel_lake",
+    "pool_party",
+    "waterpark_wave",
+    "beach_club",
+    "glamping_deck"
    ],
    "en": "swimming breaststroke, her head and shoulders above the water",
    "outfits": [
@@ -3376,7 +4810,11 @@
     "water_beach",
     "water_infinity",
     "nation_roof",
-    "nation_bridge"
+    "nation_bridge",
+    "pool_party",
+    "beach_club",
+    "hotspring_pool",
+    "waterpark_wave"
    ],
    "en": "lying back on a sunbed with a cold drink beside her",
    "hands": "free"
@@ -3388,7 +4826,8 @@
    "places": [
     "water_beach",
     "travel_coast",
-    "travel_lake"
+    "travel_lake",
+    "beach_club"
    ],
    "en": "walking along the water's edge, shallow water at her ankles",
    "hands": "free"
@@ -3399,7 +4838,9 @@
    "family": "stand",
    "places": [
     "water_pool",
-    "water_beach"
+    "water_beach",
+    "waterpark_wave",
+    "waterpark_slide"
    ],
    "en": "rinsing off under an open-air shower after a swim",
    "outfits": [
@@ -3413,7 +4854,9 @@
    "places": [
     "water_river",
     "travel_lake",
-    "water_pool"
+    "water_pool",
+    "glamping_deck",
+    "waterpark_slide"
    ],
    "en": "sitting on the edge with her feet over the water",
    "seat": [
@@ -3476,7 +4919,9 @@
    "ko": "튜브 위 쉬기",
    "family": "lie",
    "places": [
-    "water_pool"
+    "water_pool",
+    "pool_party",
+    "waterpark_wave"
    ],
    "en": "lounging on a large inflatable ring, a drink in one hand",
    "outfits": [
@@ -3491,7 +4936,10 @@
     "water_waterfall",
     "water_pool",
     "spa_onsen",
-    "nation_bath"
+    "nation_bath",
+    "waterpark_wave",
+    "waterpark_slide",
+    "hotspring_pool"
    ],
    "en": "pushing her wet hair back with both hands"
   },
@@ -3505,7 +4953,8 @@
     "nation_bath",
     "fx_spa",
     "fx_moonpond",
-    "fx_marble_bath"
+    "fx_marble_bath",
+    "hotspring_pool"
    ],
    "en": "soaking in the warm water, arms resting on the rim, steam rising",
    "seat": [],
@@ -3521,7 +4970,8 @@
    "places": [
     "spa_onsen",
     "spa_cedar",
-    "nation_bath"
+    "nation_bath",
+    "hotspring_pool"
    ],
    "en": "sitting on the edge with her feet in the steaming water",
    "seat": [
@@ -3536,7 +4986,9 @@
    "places": [
     "spa_sauna",
     "spa_jjimjil",
-    "spa_lounge"
+    "spa_lounge",
+    "bath_changing",
+    "hotspring_pool"
    ],
    "en": "cooling down between rounds, sipping cold water",
    "seat": [
@@ -3559,7 +5011,9 @@
     "street_cafe",
     "street_diner",
     "street_office",
-    "fx_marble_bath"
+    "fx_marble_bath",
+    "ryokan_room",
+    "boudoir_set"
    ],
    "en": "pouring herbal tea, relaxed and unhurried",
    "seat": [
@@ -3762,7 +5216,15 @@
     "@sports",
     "travel_trail",
     "water_beach",
-    "@heritage"
+    "@heritage",
+    "pet_dog_walk",
+    "zoo_walk",
+    "golf_range",
+    "golf_course",
+    "fencing_piste",
+    "ice_rink",
+    "ski_slope",
+    "bowling_lane"
    ],
    "en": "catching her breath with a water bottle"
   },
@@ -3824,7 +5286,9 @@
    "places": [
     "night_powder",
     "evening_hotel",
-    "home_bath"
+    "home_bath",
+    "fitting_room",
+    "hair_salon"
    ],
    "en": "touching up her lipstick in the mirror"
   },
@@ -3858,7 +5322,10 @@
     "fx_ice",
     "fx_underwater",
     "nation_inn",
-    "fx_pirate_ship"
+    "fx_pirate_ship",
+    "pool_party",
+    "beach_club",
+    "suite_balcony"
    ],
    "en": "raising a glass in a toast"
   },
@@ -3900,7 +5367,10 @@
    "ko": "고리 던지기",
    "family": "stand",
    "places": [
-    "stage_festival"
+    "stage_festival",
+    "amuse_snack",
+    "nation_fair",
+    "festival_booth"
    ],
    "en": "aiming a ring at a stall's bottles, one eye narrowed",
    "mood": true
@@ -3989,7 +5459,10 @@
    "places": [
     "stage_event",
     "stage_convention",
-    "stage_festival"
+    "stage_festival",
+    "theme_cafe",
+    "cinema_lobby",
+    "festival_booth"
    ],
    "en": "greeting guests at the venue with a bright smile",
    "outfits": [
@@ -4006,7 +5479,14 @@
     "stage_convention",
     "stage_event",
     "fx_studio",
-    "stage_redcarpet"
+    "stage_redcarpet",
+    "amuse_carousel",
+    "amuse_parade",
+    "theme_cafe",
+    "photo_studio",
+    "festival_booth",
+    "cinema_lobby",
+    "nation_flower"
    ],
    "en": "striking a pose for the cameras at a photo zone",
    "hands": "free"
@@ -4071,7 +5551,8 @@
    "ko": "전시실 거닐기",
    "family": "walk",
    "places": [
-    "evening_museum"
+    "evening_museum",
+    "gallery_white"
    ],
    "en": "walking past marble statues, glancing back at one"
   },
@@ -4090,7 +5571,8 @@
     "night_taxi",
     "stage_wedding",
     "evening_hotel",
-    "fx_pirate_ship"
+    "fx_pirate_ship",
+    "suite_balcony"
    ],
    "en": "sitting down after the night out, heels in one hand"
   },
@@ -4117,7 +5599,8 @@
    "family": "low",
    "places": [
     "travel_camp",
-    "travel_ranch"
+    "travel_ranch",
+    "glamping_deck"
    ],
    "en": "kneeling to fold a camping blanket beside the tent"
   },
@@ -4184,7 +5667,8 @@
     "travel_lodge",
     "nation_inn",
     "nation_room",
-    "nation_camp"
+    "nation_camp",
+    "glamping_deck"
    ],
    "en": "sitting by the fire with a warm cup in both hands"
   },
@@ -4437,7 +5921,8 @@
     "street_cafe",
     "travel_lodge",
     "street_diner",
-    "street_office"
+    "street_office",
+    "window_seat"
    ],
    "en": "watching rain run down the window from an armchair, mug in hand",
    "seat": [
@@ -4492,7 +5977,11 @@
    "places": [
     "stage_open_air",
     "sports_court",
-    "sports_track"
+    "sports_track",
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena",
+    "ice_rink"
    ],
    "en": "clapping from a seat in the stands",
    "seat": [
@@ -4561,7 +6050,8 @@
     "street_cafe",
     "home_living",
     "street_diner",
-    "street_office"
+    "street_office",
+    "photo_studio"
    ],
    "en": "sorting printed photographs beside a camera and a scrapbook",
    "seat": [
@@ -4579,7 +6069,9 @@
     "travel_lodge",
     "nation_inn",
     "street_diner",
-    "street_office"
+    "street_office",
+    "boardgame_cafe",
+    "glamping_tent"
    ],
    "en": "moving a piece across a wooden board game, weighing her next move",
    "seat": [
@@ -4653,7 +6145,8 @@
    "family": "move",
    "places": [
     "sports_gym",
-    "nation_training"
+    "nation_training",
+    "fencing_piste"
    ],
    "en": "stepping into an en garde stance, the mask tucked under one arm",
    "outfits": [
@@ -5073,6 +6566,537 @@
    "seat": [
     "edge"
    ]
+  },
+  {
+   "key": "watch_animals",
+   "ko": "동물 구경",
+   "family": "stand",
+   "places": [
+    "@animal",
+    "pet_fish",
+    "nation_menagerie",
+    "nation_aquarium"
+   ],
+   "en": "watching the animals beyond the glass or railing with quiet delight"
+  },
+  {
+   "key": "aquarium_glass",
+   "ko": "수조 유리 앞에 서기",
+   "family": "stand",
+   "places": [
+    "aquarium_tunnel",
+    "aquarium_tank",
+    "aquarium_jelly",
+    "nation_aquarium"
+   ],
+   "en": "standing close to the glass, her face lit blue by the water as it glides past"
+  },
+  {
+   "key": "watch_feeding",
+   "ko": "먹이 시간 구경",
+   "family": "stand",
+   "places": [
+    "zoo_feeding",
+    "nation_menagerie"
+   ],
+   "en": "watching feeding time across the enclosure, leaning forward on her forearms"
+  },
+  {
+   "key": "pet_stroke",
+   "ko": "쓰다듬기",
+   "family": "sit",
+   "places": [
+    "pet_cat_home",
+    "pet_dog_walk",
+    "pet_rabbit",
+    "pet_horse",
+    "nation_stable"
+   ],
+   "en": "gently stroking her animal companion, one hand resting on its back"
+  },
+  {
+   "key": "pet_play",
+   "ko": "같이 놀기",
+   "family": "low",
+   "places": [
+    "pet_cat_home",
+    "pet_dog_walk"
+   ],
+   "en": "kneeling to play with her animal companion, a small toy in her hand"
+  },
+  {
+   "key": "dog_walk",
+   "ko": "강아지 산책",
+   "family": "walk",
+   "places": [
+    "pet_dog_walk"
+   ],
+   "en": "walking her dog at an easy pace, the leash loose in one hand"
+  },
+  {
+   "key": "feed_pet",
+   "ko": "먹이 주기",
+   "family": "stand",
+   "places": [
+    "pet_dove_square",
+    "pet_rabbit",
+    "pet_fish",
+    "pet_horse",
+    "nation_stable"
+   ],
+   "en": "offering a little food to her animal companion"
+  },
+  {
+   "key": "hold_pet",
+   "ko": "안아 들기",
+   "family": "stand",
+   "places": [
+    "pet_rabbit",
+    "pet_cat_home"
+   ],
+   "en": "cradling the small animal gently against her chest"
+  },
+  {
+   "key": "groom_horse",
+   "ko": "말 손질",
+   "family": "stand",
+   "places": [
+    "pet_horse",
+    "nation_stable"
+   ],
+   "en": "brushing her horse's glossy neck with a grooming brush"
+  },
+  {
+   "key": "ride_wait",
+   "ko": "놀이기구 기다리기",
+   "family": "stand",
+   "places": [
+    "amuse_carousel",
+    "amuse_coaster",
+    "nation_fair",
+    "ski_lift"
+   ],
+   "en": "waiting her turn by the ride, looking up at it with a bright grin"
+  },
+  {
+   "key": "snack_sweet",
+   "ko": "달콤한 간식",
+   "family": "stand",
+   "places": [
+    "amuse_snack",
+    "amuse_carousel",
+    "amuse_coaster",
+    "amuse_night",
+    "amuse_parade",
+    "nation_fair",
+    "festival_booth"
+   ],
+   "en": "nibbling a sweet treat from a paper sleeve, a little sugar on her lip"
+  },
+  {
+   "key": "parade_watch",
+   "ko": "퍼레이드 구경",
+   "family": "stand",
+   "places": [
+    "amuse_parade"
+   ],
+   "en": "watching the parade pass from the rail, one hand raised in a wave"
+  },
+  {
+   "key": "wheel_view",
+   "ko": "관람차 창밖 보기",
+   "family": "sit",
+   "places": [
+    "amuse_wheel"
+   ],
+   "en": "sitting in the gondola, gazing out of the window at the park far below",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "watch_film",
+   "ko": "영화 보기",
+   "family": "sit",
+   "places": [
+    "cinema_seats",
+    "nation_theatre"
+   ],
+   "en": "watching the film from her seat, the glow of the screen flickering over her face",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "cinema_settle",
+   "ko": "자리에 앉기",
+   "family": "sit",
+   "places": [
+    "cinema_seats",
+    "nation_theatre"
+   ],
+   "en": "settling into her seat before the lights go down, a drink in the holder beside her",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "ticket_check",
+   "ko": "표 확인하기",
+   "family": "stand",
+   "places": [
+    "cinema_lobby",
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena",
+    "nation_theatre"
+   ],
+   "en": "checking her ticket before going in, glancing around for the right gate"
+  },
+  {
+   "key": "bowl_roll",
+   "ko": "공 굴리기",
+   "family": "move",
+   "places": [
+    "bowling_lane"
+   ],
+   "en": "rolling a bowling ball down the lane, one leg sweeping out behind her"
+  },
+  {
+   "key": "score_cheer",
+   "ko": "환호하기",
+   "family": "stand",
+   "places": [
+    "bowling_lane",
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena",
+    "pc_bang",
+    "ice_rink"
+   ],
+   "en": "cheering a great moment with both fists up and a wide grin",
+   "hands": "free",
+   "mood": true
+  },
+  {
+   "key": "clue_search",
+   "ko": "단서 찾기",
+   "family": "stand",
+   "places": [
+    "escape_room"
+   ],
+   "en": "searching the room for the next clue, lifting a book from the shelf to look behind it"
+  },
+  {
+   "key": "lock_try",
+   "ko": "자물쇠 풀기",
+   "family": "low",
+   "places": [
+    "escape_room"
+   ],
+   "en": "kneeling at a locked chest, turning the dials of its brass padlock"
+  },
+  {
+   "key": "cafe_serve",
+   "ko": "서빙하기",
+   "family": "stand",
+   "places": [
+    "theme_cafe"
+   ],
+   "en": "carrying a tray with a tall parfait over to a booth"
+  },
+  {
+   "key": "game_play",
+   "ko": "게임 하기",
+   "family": "sit",
+   "places": [
+    "pc_bang",
+    "esports_arena"
+   ],
+   "en": "gaming intently at her station, leaning toward the glow, hands busy on the controls",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "ice_skate",
+   "ko": "스케이트 타기",
+   "family": "move",
+   "places": [
+    "ice_rink"
+   ],
+   "en": "gliding across the ice on skates, arms out for balance"
+  },
+  {
+   "key": "lace_skates",
+   "ko": "스케이트 끈 매기",
+   "family": "sit",
+   "places": [
+    "ice_rink"
+   ],
+   "en": "lacing up her skates on the bench, one foot pulled up",
+   "seat": [
+    "chair",
+    "edge"
+   ]
+  },
+  {
+   "key": "ski_ready",
+   "ko": "스키 준비",
+   "family": "stand",
+   "places": [
+    "ski_slope"
+   ],
+   "en": "standing at the top of the run with her skis over one shoulder, goggles pushed up"
+  },
+  {
+   "key": "snow_rest",
+   "ko": "눈밭에 앉아 쉬기",
+   "family": "sit",
+   "places": [
+    "ski_slope",
+    "sled_hill",
+    "nation_snowfield"
+   ],
+   "en": "sitting back in the snow after a run, catching her breath and laughing",
+   "seat": [
+    "floor"
+   ]
+  },
+  {
+   "key": "lift_ride",
+   "ko": "리프트 타기",
+   "family": "sit",
+   "places": [
+    "ski_lift"
+   ],
+   "en": "riding the chairlift, her boots dangling above the snow",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "sled_pull",
+   "ko": "썰매 끌기",
+   "family": "walk",
+   "places": [
+    "sled_hill",
+    "nation_snowfield"
+   ],
+   "en": "pulling a sled back up the hill by its rope"
+  },
+  {
+   "key": "sled_ride",
+   "ko": "썰매 타기",
+   "family": "sit",
+   "places": [
+    "sled_hill",
+    "nation_snowfield"
+   ],
+   "en": "sitting on a sled at the top of the run, about to push off",
+   "seat": [
+    "floor"
+   ]
+  },
+  {
+   "key": "catch_snow",
+   "ko": "눈송이 받기",
+   "family": "stand",
+   "places": [
+    "ski_slope",
+    "sled_hill",
+    "nation_snowfield"
+   ],
+   "en": "catching falling snowflakes on her mitten, looking up into the flurry"
+  },
+  {
+   "key": "wave_jump",
+   "ko": "파도 넘기",
+   "family": "move",
+   "places": [
+    "waterpark_wave"
+   ],
+   "en": "jumping over a rolling wave in the pool, laughing as it breaks",
+   "outfits": [
+    "swimwear",
+    "active"
+   ]
+  },
+  {
+   "key": "slide_splash",
+   "ko": "슬라이드 착수",
+   "family": "move",
+   "places": [
+    "waterpark_slide"
+   ],
+   "en": "surfacing in the splash pool at the foot of the slide, pushing the water from her face",
+   "outfits": [
+    "swimwear",
+    "active"
+   ],
+   "not_frames": [
+    "full_body",
+    "environmental"
+   ]
+  },
+  {
+   "key": "art_view",
+   "ko": "그림 감상",
+   "family": "stand",
+   "places": [
+    "gallery_white"
+   ],
+   "en": "standing before a large painting, head tilted as she takes it in"
+  },
+  {
+   "key": "flower_pick",
+   "ko": "꽃 고르기",
+   "family": "stand",
+   "places": [
+    "flower_shop",
+    "flower_market",
+    "nation_flower"
+   ],
+   "en": "choosing stems from the buckets of fresh flowers"
+  },
+  {
+   "key": "bouquet_tie",
+   "ko": "꽃다발 묶기",
+   "family": "stand",
+   "places": [
+    "flower_shop"
+   ],
+   "en": "tying a ribbon around a fresh bouquet at the worktable"
+  },
+  {
+   "key": "studio_pose",
+   "ko": "촬영 포즈",
+   "family": "stand",
+   "places": [
+    "photo_studio",
+    "boudoir_set"
+   ],
+   "en": "holding a pose for the photographer under the soft studio lights"
+  },
+  {
+   "key": "chaise_recline",
+   "ko": "긴 의자에 기대기",
+   "family": "lie",
+   "places": [
+    "boudoir_set",
+    "suite_balcony"
+   ],
+   "en": "reclining on the chaise for the camera, one arm draped along its back"
+  },
+  {
+   "key": "salon_chair",
+   "ko": "머리 손질받기",
+   "family": "sit",
+   "places": [
+    "hair_salon",
+    "nation_salon"
+   ],
+   "en": "sitting in the salon chair while her hair is styled, watching in the mirror",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "manicure",
+   "ko": "네일 받기",
+   "family": "sit",
+   "places": [
+    "nail_salon"
+   ],
+   "en": "holding out one hand for a manicure, admiring the fresh colour",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "try_on",
+   "ko": "옷 입어 보기",
+   "family": "stand",
+   "places": [
+    "fitting_room"
+   ],
+   "en": "trying on an outfit, turning to see the back in the mirror",
+   "hands": "free"
+  },
+  {
+   "key": "cheer_stand",
+   "ko": "일어서서 응원",
+   "family": "stand",
+   "places": [
+    "ballpark_stands",
+    "football_stands",
+    "esports_arena"
+   ],
+   "en": "on her feet in the stands, cheering with one arm raised",
+   "mood": true
+  },
+  {
+   "key": "golf_swing",
+   "ko": "골프 스윙",
+   "family": "move",
+   "places": [
+    "golf_range",
+    "golf_course"
+   ],
+   "en": "following through a golf swing, eyes on the ball's flight",
+   "outfits": [
+    "active"
+   ],
+   "prefer": [
+    "golf_wear",
+    "golf_skort"
+   ]
+  },
+  {
+   "key": "putt_read",
+   "ko": "퍼팅 라인 읽기",
+   "family": "low",
+   "places": [
+    "golf_course"
+   ],
+   "en": "crouching to read the line of a putt on the green"
+  },
+  {
+   "key": "fence_salute",
+   "ko": "경기 전 인사",
+   "family": "stand",
+   "places": [
+    "fencing_piste"
+   ],
+   "en": "saluting with her blade before a bout, mask tucked under one arm",
+   "outfits": [
+    "active"
+   ],
+   "prefer": [
+    "fencing_set"
+   ]
+  },
+  {
+   "key": "lecture_notes",
+   "ko": "강의 필기",
+   "family": "sit",
+   "places": [
+    "lecture_hall"
+   ],
+   "en": "taking notes in the lecture, pen tapping her lip",
+   "seat": [
+    "chair"
+   ]
+  },
+  {
+   "key": "booth_call",
+   "ko": "부스 호객",
+   "family": "stand",
+   "places": [
+    "festival_booth"
+   ],
+   "en": "calling out to passers-by from behind the booth counter with a bright smile",
+   "mood": true
   }
  ],
  "outfits": [
@@ -5244,6 +7268,39 @@
      "key": "sheer_blouse_skirt",
      "ko": "시스루 블라우스 + 하이웨이스트 스커트",
      "en": "a sheer chiffon blouse over a lace camisole, tucked into a high-waisted skirt"
+    },
+    {
+     "key": "amuse_date",
+     "ko": "놀이공원 데이트룩 — 크롭 가디건 + 멜빵 스커트",
+     "en": "a cropped knit cardigan over a fitted tee with a short suspender skirt, knee socks and chunky sneakers",
+     "low": true,
+     "start_median": true
+    },
+    {
+     "key": "cheer_crop_jersey",
+     "ko": "응원 크롭 저지 + 데님 쇼츠",
+     "en": "a cropped oversized baseball-style jersey in made-up team colours with no crest or lettering, tied at the waist over denim shorts",
+     "low": true,
+     "start_median": true
+    },
+    {
+     "key": "apres_ski_set",
+     "ko": "애프터 스키 — 케이블 니트 + 스키 팬츠 + 퍼 부츠",
+     "en": "a snug cable-knit après-ski sweater with fitted stretch ski trousers and fluffy fur-trimmed boots",
+     "start_median": true
+    },
+    {
+     "key": "campus_varsity",
+     "ko": "캠퍼스룩 — 바시티 가디건 + 플리츠 미니",
+     "en": "a varsity-style knit cardigan with no lettering over a fitted tee, a pleated mini skirt and loafers",
+     "low": true,
+     "start_median": true
+    },
+    {
+     "key": "cinema_date",
+     "ko": "영화관 데이트룩 — 오프숄더 니트 + 새틴 스커트",
+     "en": "a soft off-shoulder knit top with a satin slip midi skirt and ankle boots",
+     "start_median": true
     }
    ],
    "en": "everyday clothes that suit the place and activity"
@@ -5400,6 +7457,12 @@
      "key": "fleece_joggers",
      "ko": "플리스 상의 + 조거 팬츠",
      "en": "a soft fleece pullover with relaxed jogger pants"
+    },
+    {
+     "key": "glamping_knit",
+     "ko": "글램핑 니트 세트",
+     "en": "a chunky knit cardigan over a matching ribbed knit bralette top and soft knit shorts, with wool socks",
+     "start_median": true
     }
    ],
    "en": "soft homewear or loungewear"
@@ -6307,6 +8370,14 @@
      "en": "a bandeau bikini under a matching long pareo skirt slit high at the front",
      "low": true,
      "cls": "resortrunway"
+    },
+    {
+     "key": "sw_rash_bikini",
+     "ko": "래시가드 + 스포티 비키니",
+     "en": "a cropped zip-front rash guard worn open over a sporty bikini with board-short bottoms",
+     "low": false,
+     "cls": "sporty",
+     "start_median": true
     }
    ],
    "en": "modern swimwear, fully lined and secure during movement",
@@ -6528,6 +8599,19 @@
      "ko": "발레 연습복 — 레오타드 + 랩스커트",
      "en": "a ballet leotard with a short wrap skirt, tights and leg warmers",
      "low": true
+    },
+    {
+     "key": "golf_skort",
+     "ko": "골프 스코트 세트",
+     "en": "a sleeveless golf polo with a pleated skort, a visor and a glove on one hand",
+     "low": true,
+     "start_median": true
+    },
+    {
+     "key": "figure_skate_practice",
+     "ko": "피겨 연습복 — 몸에 붙는 스케이팅 원피스",
+     "en": "a fitted long-sleeve figure-skating practice dress with a short flared skirt over skin-tone tights",
+     "start_median": true
     }
    ],
    "en": "activewear made for the activity"
@@ -7501,6 +9585,30 @@
      "en": "an office-look costume cut as a cropped top with a short skirt or hot pants — a silk blouse front with the top buttons open and a slim belt",
      "low": false,
      "cls": "crop_set"
+    },
+    {
+     "key": "cinema_usher",
+     "ko": "영화관 안내원",
+     "en": "a cinema usher costume cut as a short fitted dress — a little pillbox hat, a bow tie and gold-piped trim",
+     "low": false,
+     "cls": "mini_dress",
+     "start_median": true
+    },
+    {
+     "key": "game_master",
+     "ko": "방탈출 진행자",
+     "en": "an escape-room game master costume cut as a tailored waistcoat set with a short skirt — a pocket-watch chain and a ring of brass keys at the hip",
+     "low": false,
+     "cls": "tailored",
+     "start_median": true
+    },
+    {
+     "key": "hair_stylist",
+     "ko": "헤어 스타일리스트",
+     "en": "a hair stylist costume cut as a fitted jumpsuit — a slim tool belt of combs and clips at the waist and a cropped cape-apron",
+     "low": false,
+     "cls": "jumpsuit",
+     "start_median": true
     }
    ],
    "en": "a playful adult event costume inspired by an occupation or role — clearly a costume, not a real uniform, no real insignia",
@@ -8046,6 +10154,14 @@
      "en": "a salsa costume cut as a stage leotard with sheer tights — swinging fringe",
      "low": false,
      "cls": "leotard"
+    },
+    {
+     "key": "figure_skate_show",
+     "ko": "피겨 갈라 의상",
+     "en": "a figure-skating show dress — a crystal-dotted fitted bodice, sheer sleeves and a short flared skirt over skin-tone tights",
+     "low": false,
+     "cls": "mini_dress",
+     "start_median": true
     }
    ],
    "en": "a stage or fantasy costume",
@@ -8609,6 +10725,12 @@
      "key": "bridal_lace",
      "ko": "브라이덜 레이스",
      "en": "a white lace bridal lingerie set with a short veil"
+    },
+    {
+     "key": "bridal_prep_robe",
+     "ko": "신부 준비 새틴 가운",
+     "en": "a white satin bridal-prep robe with lace trim, tied at the waist over a fitted slip",
+     "start_median": true
     }
    ],
    "en": "bridal wear"
@@ -8724,6 +10846,12 @@
      "key": "nineties_windbreaker_track",
      "ko": "90년대 윈드브레이커 + 트랙 팬츠",
      "en": "a color-blocked 1990s windbreaker with matching track pants"
+    },
+    {
+     "key": "bowling_shirt_dress",
+     "ko": "레트로 볼링 셔츠 원피스",
+     "en": "a 1950s-style bowling shirt dress with contrast panels and a camp collar, cinched with a belt",
+     "start_median": true
     }
    ],
    "en": "a period look from a past decade"
@@ -13169,11 +15297,26 @@
    "home_bedroom",
    "fx_studio",
    "fx_starstage",
-   "arcade_hall"
+   "arcade_hall",
+   "stage_event",
+   "amuse_carousel",
+   "amuse_parade",
+   "cinema_lobby",
+   "escape_room",
+   "theme_cafe",
+   "pc_bang",
+   "esports_arena",
+   "photo_studio",
+   "festival_booth",
+   "night_karaoke",
+   "boardgame_cafe"
   ],
   "swim_places": [
    "water_pool",
-   "water_beach"
+   "water_beach",
+   "waterpark_wave",
+   "waterpark_slide",
+   "pool_party"
   ],
   "swim_cuts": [
    "bikini",
