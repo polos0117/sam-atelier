@@ -14813,5 +14813,834 @@
     "now"
    ]
   }
- ]
+ ],
+ "outfit_style": {
+  "note": "옷 꾸밈(2026-11-23 사용자 「같은 의상이라도 색상말고 다른 방법으로 다양화」 → 「1,3,4,5,6번까지해서 공통으로 해줘」). 같은 옷 열쇠라도 소재 · 입은 모양 · 핏 · 겹쳐 입기 · 장신구를 컷마다 하나씩 골라 Outfit 줄 끝에 「styled with …」 로 싣는다(lib/casual-tree-v2.js styleOpts · styleText · spreadStyles — 계획기가 묶음 안에서 덜 쓴 것부터). 축마다 rate(그 컷에 그 축을 얹을 몫) · clash(옷 글에 이 말이 있으면 그 축은 안 얹음 — 이미 정해진 것). 고를 수 있는 것: fams(옷 계열) · frames(보이는 프레이밍) · needs(옷 글에 있어야 하는 말) · clash(옷 글에 있으면 안 되는 말) · warm(추운 철에만 — 계획기가 cold 를 줄 때). 노출을 늘리는 꾸밈(어깨 내리기 · 단추 풀기)은 노출 축과 겹쳐 넣지 않았다. 세계 금지 낱말은 계획기의 ok 가 거른다. 게임 코스프레 · 자유 설계 · 직접 쓴 옷 글(own 90 등)엔 얹지 않는다.",
+  "order": [
+   "material",
+   "wear",
+   "fit",
+   "layer",
+   "acc"
+  ],
+  "axes": {
+   "material": {
+    "ko": "소재 · 질감",
+    "rate": 0.7,
+    "clash": "\\b(satin|silk|silky|leather|denim|jeans|linen|knit|knitted|lace|velvet|wool|woolen|cotton|latex|vinyl|mesh|sheer|sequin|sequined|chiffon|tweed|crochet|fleece|tulle|brocade|organza|lam[eé]|metallic|chrome|ribbed|jersey|cashmere|corduroy|canvas|suede|fur|feather|beaded|pvc|rubber|neoprene)\\b",
+    "options": [
+     {
+      "key": "satin",
+      "ko": "윤기 나는 새틴",
+      "en": "a soft glossy satin finish",
+      "fams": [
+       "everyday",
+       "homewear",
+       "evening",
+       "retro",
+       "bridal",
+       "dongtan",
+       "resort"
+      ]
+     },
+     {
+      "key": "knit",
+      "ko": "부드러운 니트",
+      "en": "a soft fine-knit texture",
+      "fams": [
+       "everyday",
+       "homewear",
+       "retro",
+       "dongtan",
+       "workwear"
+      ]
+     },
+     {
+      "key": "linen",
+      "ko": "구김 있는 린넨",
+      "en": "airy, slightly crumpled linen",
+      "fams": [
+       "everyday",
+       "resort",
+       "workwear",
+       "adventure",
+       "homewear"
+      ]
+     },
+     {
+      "key": "leather",
+      "ko": "매트한 가죽",
+      "en": "supple matte leather",
+      "fams": [
+       "everyday",
+       "subculture",
+       "adventure",
+       "dongtan",
+       "workwear"
+      ]
+     },
+     {
+      "key": "velvet",
+      "ko": "벨벳",
+      "en": "rich, light-catching velvet",
+      "fams": [
+       "evening",
+       "retro",
+       "subculture",
+       "everyday"
+      ]
+     },
+     {
+      "key": "lace_trim",
+      "ko": "레이스 장식",
+      "en": "fine lace trim along the edges",
+      "fams": [
+       "everyday",
+       "homewear",
+       "evening",
+       "bridal",
+       "retro",
+       "subculture"
+      ]
+     },
+     {
+      "key": "sheer_layer",
+      "ko": "비치는 겹",
+      "en": "a translucent chiffon overlayer",
+      "fams": [
+       "evening",
+       "bridal",
+       "resort",
+       "editorial"
+      ]
+     },
+     {
+      "key": "tweed",
+      "ko": "트위드",
+      "en": "textured tweed weave",
+      "fams": [
+       "everyday",
+       "retro",
+       "workwear"
+      ]
+     },
+     {
+      "key": "corduroy",
+      "ko": "코듀로이",
+      "en": "soft fine-wale corduroy",
+      "fams": [
+       "everyday",
+       "workwear",
+       "retro"
+      ]
+     },
+     {
+      "key": "ribbed",
+      "ko": "골지",
+      "en": "close-fitting ribbed fabric",
+      "fams": [
+       "everyday",
+       "homewear",
+       "active",
+       "dongtan"
+      ]
+     },
+     {
+      "key": "brocade",
+      "ko": "무늬 직조(브로케이드)",
+      "en": "woven brocade with a subtle tonal pattern",
+      "fams": [
+       "evening",
+       "retro",
+       "editorial",
+       "bridal"
+      ]
+     },
+     {
+      "key": "crinkle_silk",
+      "ko": "주름진 실크",
+      "en": "lightly crinkled silk",
+      "fams": [
+       "evening",
+       "resort",
+       "homewear",
+       "bridal"
+      ]
+     },
+     {
+      "key": "matte_tech",
+      "ko": "매트한 기능성 천",
+      "en": "matte, smooth performance fabric",
+      "fams": [
+       "active",
+       "adventure",
+       "workwear"
+      ]
+     },
+     {
+      "key": "glossy_swim",
+      "ko": "광택 수영복 천",
+      "en": "a glossy wet-look swim fabric",
+      "fams": [
+       "swimwear"
+      ]
+     },
+     {
+      "key": "textured_swim",
+      "ko": "결 있는 수영복 천",
+      "en": "a textured crinkle swim fabric",
+      "fams": [
+       "swimwear"
+      ]
+     },
+     {
+      "key": "embroidery",
+      "ko": "같은 색 자수",
+      "en": "tone-on-tone embroidery",
+      "fams": [
+       "everyday",
+       "evening",
+       "retro",
+       "bridal",
+       "lingerie",
+       "traditional"
+      ]
+     }
+    ]
+   },
+   "wear": {
+    "ko": "입은 모양",
+    "rate": 0.5,
+    "clash": "",
+    "options": [
+     {
+      "key": "sleeves_up",
+      "ko": "소매 걷어 올림",
+      "en": "sleeves pushed up to the elbows",
+      "fams": [
+       "everyday",
+       "workwear",
+       "adventure",
+       "subculture",
+       "dongtan",
+       "retro"
+      ],
+      "needs": "\\b(shirt|blouse|jacket|cardigan|sweater|knit|hoodie|coat|blazer|tee|t-shirt|jumper|top)\\b",
+      "clash": "\\b(sleeveless|strapless|tank|cami|camisole|halter|tube|bandeau|crop top)\\b"
+     },
+     {
+      "key": "half_tuck",
+      "ko": "앞자락만 넣어 입기",
+      "en": "the top half-tucked at the front",
+      "fams": [
+       "everyday",
+       "workwear",
+       "retro",
+       "dongtan",
+       "adventure"
+      ],
+      "needs": "\\b(skirt|jeans|trousers|pants|shorts)\\b",
+      "clash": "\\b(dress|jumpsuit|overalls|romper|playsuit|bodysuit|crop|cropped)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "collar_open",
+      "ko": "깃을 세워 연 채",
+      "en": "the collar turned up and left open",
+      "fams": [
+       "everyday",
+       "workwear",
+       "adventure",
+       "retro",
+       "subculture"
+      ],
+      "needs": "\\b(shirt|blouse|jacket|coat|blazer|trench)\\b"
+     },
+     {
+      "key": "belted",
+      "ko": "허리를 끈으로 묶음",
+      "en": "cinched at the waist with a tie belt",
+      "fams": [
+       "everyday",
+       "evening",
+       "resort",
+       "homewear",
+       "retro"
+      ],
+      "needs": "\\b(dress|coat|robe|shirt dress|trench|wrap|kaftan|jumpsuit)\\b",
+      "clash": "\\b(belt|belted|tie|tied|sash|corset)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "cuffed",
+      "ko": "밑단 접어 입기",
+      "en": "the hems neatly cuffed",
+      "fams": [
+       "everyday",
+       "workwear",
+       "adventure",
+       "retro"
+      ],
+      "needs": "\\b(jeans|trousers|pants|overalls|dungarees|shorts)\\b",
+      "frames": [
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "front_knot",
+      "ko": "앞에서 매듭",
+      "en": "the shirt tails knotted loosely at the front",
+      "fams": [
+       "everyday",
+       "resort",
+       "workwear",
+       "adventure"
+      ],
+      "needs": "\\b(shirt|blouse)\\b",
+      "clash": "\\b(dress|crop|cropped|knot|knotted|tied)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "layer_peek",
+      "ko": "안의 옷 끝이 살짝 보이게",
+      "en": "an inner layer peeking out at the hem and cuffs",
+      "fams": [
+       "everyday",
+       "subculture",
+       "retro",
+       "workwear"
+      ],
+      "needs": "\\b(sweater|knit|cardigan|jumper|hoodie|jacket)\\b"
+     },
+     {
+      "key": "wrap_side",
+      "ko": "옆으로 여며 입기",
+      "en": "wrapped and fastened at one side",
+      "fams": [
+       "homewear",
+       "resort",
+       "evening",
+       "bath"
+      ],
+      "needs": "\\b(robe|wrap|kaftan|sarong|kimono|towel)\\b"
+     }
+    ]
+   },
+   "fit": {
+    "ko": "핏 · 길이",
+    "rate": 0.4,
+    "clash": "",
+    "options": [
+     {
+      "key": "cropped",
+      "ko": "짧게 크롭",
+      "en": "a slightly cropped cut",
+      "fams": [
+       "everyday",
+       "active",
+       "subculture",
+       "dongtan",
+       "workwear"
+      ],
+      "clash": "\\b(crop|cropped|mini|bikini|bra|bralette|bodysuit|leotard|unitard|tube|bandeau|dress|gown|robe|coat)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "oversized",
+      "ko": "넉넉한 오버사이즈",
+      "en": "a relaxed oversized fit",
+      "fams": [
+       "everyday",
+       "homewear",
+       "subculture",
+       "workwear",
+       "active"
+      ],
+      "clash": "\\b(oversized|fitted|bodycon|corset|bodysuit|leotard|unitard|tight|pencil|slip|bikini|bra)\\b"
+     },
+     {
+      "key": "tailored",
+      "ko": "몸에 맞게 재단",
+      "en": "a close, neatly tailored fit",
+      "fams": [
+       "everyday",
+       "evening",
+       "retro",
+       "workwear",
+       "dongtan"
+      ],
+      "clash": "\\b(oversized|loose|baggy|relaxed|flowing|tailored|fitted)\\b"
+     },
+     {
+      "key": "midi",
+      "ko": "종아리 길이",
+      "en": "a mid-calf length",
+      "fams": [
+       "everyday",
+       "evening",
+       "retro",
+       "resort"
+      ],
+      "needs": "\\b(skirt|dress)\\b",
+      "clash": "\\b(mini|midi|maxi|long|floor|gown|short|knee)\\b",
+      "frames": [
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "maxi",
+      "ko": "발목까지 긴",
+      "en": "an ankle-sweeping length",
+      "fams": [
+       "everyday",
+       "resort",
+       "evening",
+       "homewear"
+      ],
+      "needs": "\\b(skirt|dress)\\b",
+      "clash": "\\b(mini|midi|maxi|long|floor|gown|short|knee|pencil)\\b",
+      "frames": [
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "wide_leg",
+      "ko": "통 넓은 바지",
+      "en": "wide, flowing trouser legs",
+      "fams": [
+       "everyday",
+       "workwear",
+       "retro",
+       "resort"
+      ],
+      "needs": "\\b(trousers|pants|jeans)\\b",
+      "clash": "\\b(skinny|slim|leggings|wide|palazzo|flare|flared|bootcut)\\b",
+      "frames": [
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "high_waist",
+      "ko": "하이웨이스트",
+      "en": "a high-waisted line",
+      "fams": [
+       "everyday",
+       "retro",
+       "swimwear",
+       "dongtan",
+       "resort"
+      ],
+      "needs": "\\b(skirt|jeans|trousers|pants|shorts|bikini|briefs)\\b",
+      "clash": "\\b(high-waisted|high waist|highwaist|low-rise|lowrise)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     }
+    ]
+   },
+   "layer": {
+    "ko": "겹쳐 입기",
+    "rate": 0.35,
+    "clash": "\\b(coat|jacket|cardigan|robe|blazer|hoodie|shawl|cape|cloak|stole|kimono|overshirt|over it|over a|layered|bolero|poncho|vest|waistcoat|kaftan|cover-up|coverup)\\b",
+    "options": [
+     {
+      "key": "cardigan",
+      "ko": "얇은 가디건",
+      "en": "a light fine-knit cardigan layered over it",
+      "fams": [
+       "everyday",
+       "homewear",
+       "retro",
+       "dongtan"
+      ]
+     },
+     {
+      "key": "cropped_jacket",
+      "ko": "짧은 재킷",
+      "en": "a short cropped jacket worn open over it",
+      "fams": [
+       "everyday",
+       "subculture",
+       "dongtan",
+       "evening"
+      ]
+     },
+     {
+      "key": "shawl",
+      "ko": "어깨 숄",
+      "en": "a soft shawl draped around the shoulders",
+      "fams": [
+       "evening",
+       "everyday",
+       "bridal",
+       "resort",
+       "traditional"
+      ]
+     },
+     {
+      "key": "shoulders_draped",
+      "ko": "겉옷을 어깨에 걸침",
+      "en": "a light jacket draped over the shoulders, arms not in the sleeves",
+      "fams": [
+       "everyday",
+       "evening",
+       "workwear",
+       "retro"
+      ],
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "waist_tied",
+      "ko": "겉옷을 허리에 묶음",
+      "en": "a shirt tied around the waist by its sleeves",
+      "fams": [
+       "everyday",
+       "active",
+       "workwear",
+       "adventure",
+       "subculture"
+      ],
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "apron",
+      "ko": "앞치마",
+      "en": "a simple linen apron tied over it",
+      "fams": [
+       "everyday",
+       "workwear",
+       "homewear"
+      ],
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "sheer_shirt",
+      "ko": "비치는 셔츠를 겉에",
+      "en": "a sheer button-up shirt worn open over it",
+      "fams": [
+       "swimwear",
+       "resort",
+       "homewear"
+      ]
+     },
+     {
+      "key": "vest",
+      "ko": "조끼",
+      "en": "a fitted vest buttoned over it",
+      "fams": [
+       "everyday",
+       "workwear",
+       "adventure",
+       "retro"
+      ]
+     },
+     {
+      "key": "long_coat",
+      "ko": "긴 코트",
+      "en": "a long warm coat worn open over it",
+      "fams": [
+       "everyday",
+       "evening",
+       "subculture",
+       "retro"
+      ],
+      "warm": true
+     },
+     {
+      "key": "scarf_wrap",
+      "ko": "두툼한 목도리",
+      "en": "a chunky knit scarf wrapped at the neck",
+      "fams": [
+       "everyday",
+       "subculture",
+       "retro",
+       "active"
+      ],
+      "warm": true,
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     }
+    ]
+   },
+   "acc": {
+    "ko": "장신구",
+    "rate": 0.6,
+    "clash": "",
+    "options": [
+     {
+      "key": "belt",
+      "ko": "가는 가죽 벨트",
+      "en": "a slim leather belt at the waist",
+      "fams": [
+       "everyday",
+       "evening",
+       "retro",
+       "workwear",
+       "adventure",
+       "dongtan",
+       "resort"
+      ],
+      "clash": "\\b(belt|belted|sash|corset|obi)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ]
+     },
+     {
+      "key": "earrings",
+      "ko": "드롭 귀걸이",
+      "en": "delicate drop earrings",
+      "frames": [
+       "face_close",
+       "chest_up",
+       "waist_up"
+      ],
+      "clash": "\\b(earring|earrings)\\b"
+     },
+     {
+      "key": "pearls",
+      "ko": "진주 목걸이",
+      "en": "a single strand of small pearls",
+      "fams": [
+       "everyday",
+       "evening",
+       "retro",
+       "bridal",
+       "homewear",
+       "traditional"
+      ],
+      "frames": [
+       "face_close",
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "clash": "\\b(necklace|choker|collar|pendant|pearl)\\b"
+     },
+     {
+      "key": "choker",
+      "ko": "가는 초커",
+      "en": "a thin velvet choker",
+      "fams": [
+       "everyday",
+       "subculture",
+       "evening",
+       "dongtan",
+       "retro",
+       "lingerie"
+      ],
+      "frames": [
+       "face_close",
+       "chest_up",
+       "waist_up"
+      ],
+      "clash": "\\b(necklace|choker|collar|turtleneck|high neck|pendant)\\b"
+     },
+     {
+      "key": "hair_ribbon",
+      "ko": "머리 리본",
+      "en": "a silk ribbon tied in her hair",
+      "frames": [
+       "face_close",
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "clash": "\\b(ribbon|bow|headband|hat|cap|veil|crown|tiara)\\b"
+     },
+     {
+      "key": "hair_clip",
+      "ko": "반짝이는 머리핀",
+      "en": "a small jewelled hair clip",
+      "frames": [
+       "face_close",
+       "chest_up",
+       "waist_up"
+      ],
+      "clash": "\\b(hat|cap|veil|crown|tiara|hairpin|hair clip)\\b"
+     },
+     {
+      "key": "wide_hat",
+      "ko": "챙 넓은 모자",
+      "en": "a wide-brimmed hat",
+      "fams": [
+       "everyday",
+       "resort",
+       "swimwear",
+       "retro",
+       "evening"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|headband|beret)\\b"
+     },
+     {
+      "key": "beret",
+      "ko": "베레모",
+      "en": "a soft beret tilted to one side",
+      "fams": [
+       "everyday",
+       "retro",
+       "subculture"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret)\\b"
+     },
+     {
+      "key": "silk_scarf",
+      "ko": "목에 맨 실크 스카프",
+      "en": "a small silk scarf knotted at the neck",
+      "fams": [
+       "everyday",
+       "retro",
+       "evening",
+       "workwear"
+      ],
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "clash": "\\b(scarf|necklace|choker|collar|turtleneck|tie)\\b"
+     },
+     {
+      "key": "bangles",
+      "ko": "얇은 팔찌 여럿",
+      "en": "a few thin stacked bangles on one wrist",
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter",
+       "full_body"
+      ],
+      "clash": "\\b(bracelet|bangle|bangles|glove|gloves|cuff|gauntlet)\\b"
+     },
+     {
+      "key": "gloves",
+      "ko": "짧은 장갑",
+      "en": "short fitted gloves",
+      "fams": [
+       "evening",
+       "retro",
+       "everyday",
+       "subculture"
+      ],
+      "clash": "\\b(glove|gloves|gauntlet|mitt)\\b",
+      "warm": true
+     },
+     {
+      "key": "anklet",
+      "ko": "발찌",
+      "en": "a fine chain anklet",
+      "fams": [
+       "swimwear",
+       "resort",
+       "homewear",
+       "everyday"
+      ],
+      "frames": [
+       "full_body",
+       "environmental"
+      ],
+      "clash": "\\b(anklet|boots|stockings|tights)\\b"
+     },
+     {
+      "key": "shell_necklace",
+      "ko": "조개 목걸이",
+      "en": "a delicate shell necklace",
+      "fams": [
+       "swimwear",
+       "resort"
+      ],
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "clash": "\\b(necklace|choker|pendant)\\b"
+     },
+     {
+      "key": "hair_scarf",
+      "ko": "머리에 두른 스카프",
+      "en": "a printed scarf tied as a headband",
+      "fams": [
+       "everyday",
+       "resort",
+       "retro",
+       "workwear",
+       "active"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|headband|bandana|scarf)\\b"
+     },
+     {
+      "key": "brooch",
+      "ko": "작은 브로치",
+      "en": "a small enamel brooch on the lapel or neckline",
+      "fams": [
+       "everyday",
+       "evening",
+       "retro",
+       "workwear"
+      ],
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "clash": "\\b(brooch|pin)\\b"
+     }
+    ]
+   }
+  }
+ }
 }

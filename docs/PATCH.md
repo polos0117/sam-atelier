@@ -1,5 +1,12 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-23 · claude · 일상컷 옷 꾸밈 — 같은 옷도 소재 · 입은 모양 · 핏 · 겹쳐 입기 · 장신구로
+- 사용자 「같은 의상이라도 색상말고 다른 방법으로 다양화를 할 수는 없을까?」 → 「1,3,4,5,6번까지해서 공통으로 해줘」. 같은 옷 열쇠는 색 · 데니어 · 노출만 달라 같은 옷으로 보였다. 네 공방(도시 · 삼국지 · 원소 · 포켓몬) 같이.
+- data/casual-tree-v2.json — 표 outfit_style: 축 다섯(소재 16 · 입은 모양 8 · 핏 · 길이 7 · 겹쳐 입기 10 · 장신구 15), 축마다 몫(rate)과 이미 정해진 옷이면 안 얹는 말(clash), 꾸밈마다 옷 계열 · 프레이밍 · 옷 글에 있어야 할 말(needs) · 부딪히는 말(clash) · 추운 철에만(warm). 노출을 늘리는 꾸밈(어깨 내리기 · 단추 풀기)은 노출 축과 겹쳐 넣지 않았다.
+- lib/casual-tree-v2.js — styleOpts · styleText · spreadStyles(묶음 + 앞 기록에서 덜 쓴 것부터, 게임 코스프레 · 자유 설계 · 직접 쓴 옷 글은 안 꾸밈). scene.ostyle = { 축: 열쇠 }.
+- tools/casual-plan.cjs — 고개 좌우 다음에 spreadStyles. lib/prompt-sam.js — Outfit 줄에 「styled with …」, SCENE_V2 에 ostyle. ?v — casual-tree-v2 9 · prompt-sam 57(prompt.html · promptapi.html).
+- 조조 세 세계 씨앗 11 — 30컷 가운데 18컷에 꾸밈.
+
 ## 2026-11-21 · gpt · 장보 그림 27장 등록
 - 세계컷은 삼국시대 4번 · 중세 판타지 1번 · 메카 1번으로 확정했다. 세계별 일상컷 7장과 정원사 컷 90번을 덧붙였다.
 - `data/img.json`과 `data/casual-index.json`에 그림 27장과 일상컷 24행을 추가했다.

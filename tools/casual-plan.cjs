@@ -596,6 +596,8 @@ function ambient(cuts, old = [], ra = Math.random, usage = null) {
   }
   /* 고개 · 몸 좌우(2026-11-20 — 공용 모듈 spreadTurns): 한 묶음 안에서 정면 · 왼쪽 · 오른쪽을 덜 쓴 쪽으로. 자유 설계 칸은 맡은 쪽이 짓는다 */
   if (C2.spreadTurns) C2.spreadTurns(T2, cuts.filter(c => !(c.sfree || c.ofree)), ra, old);
+  /* 옷 꾸밈(2026-11-23 — 공용 모듈 spreadStyles, 사용자 「1,3,4,5,6번까지해서 공통으로 해줘」): 소재 · 입은 모양 · 핏 · 겹쳐 입기 · 장신구를 묶음 안에서 덜 쓴 것부터. 코스프레 · 자유 설계 · 직접 쓴 옷 글은 모듈이 뺀다. 두꺼운 겉옷 · 장갑은 눈 · 겨울일 때만 */
+  if (C2.spreadStyles) C2.spreadStyles(T2, cuts.filter(c => !(c.sfree || c.ofree)), ra, old, { cold: sc => /snow|winter|cold|frost|freez/.test([sc.season, sc.weather, sc.cityWeather].join(' ')) });
   return cuts;
 }
 /* 상황 — 상황 칸(at)에 그 옷에 맞는 것 하나. 이미 있는 컷 · 다른 세계 묶음이 쓴 상황은 뒤로. 장면과 따로 된 난수.
