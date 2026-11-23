@@ -1288,10 +1288,10 @@
   },
   {
    "key": "clasp_both",
-   "ko": "두 손 모으기",
-   "zone": "chest",
+   "ko": "두 손 깍지(허리 앞)",
+   "zone": "waist",
    "both": true,
-   "en": "both hands clasp loosely together in front of her chest"
+   "en": "her fingers loosely interlaced low in front of her waist, elbows relaxed"
   },
   {
    "key": "edge_brace_both",
@@ -12212,7 +12212,7 @@
   },
   {
    "key": "clasp_low",
-   "ko": "두 손 모으고 올려다보기",
+   "ko": "허리 앞 깍지 끼고 올려다보기",
    "posture": "stand",
    "support": "none",
    "frame": "waist_up",
@@ -12352,15 +12352,15 @@
   },
   {
    "key": "kneel_clasp",
-   "ko": "무릎 꿇고 두 손 모으기",
+   "ko": "무릎 꿇고 한 손 무릎 위에",
    "posture": "kneel",
    "support": "none",
    "frame": "three_quarter",
    "body": "front",
    "head": "with_body",
    "camera": "high",
-   "right": "clasp_both",
-   "left": "clasp_both",
+   "right": "lap",
+   "left": "natural",
    "legs": "knees_together",
    "gaze": "camera",
    "act": "pose"
@@ -13105,6 +13105,160 @@
    "legs": "",
    "gaze": "camera",
    "act": "rest"
+  },
+  {
+   "key": "collarbone_chest",
+   "ko": "쇄골에 손 얹고 고개 기울이기(가슴 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "chest_hand",
+   "left": "out",
+   "legs": "",
+   "gaze": "camera",
+   "pose": true,
+   "act": "pose"
+  },
+  {
+   "key": "cheek_hip_waist",
+   "ko": "볼에 한 손 · 허리에 한 손(허리 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "turn_side",
+   "camera": "eye",
+   "right": "cheek",
+   "left": "hip",
+   "legs": "",
+   "gaze": "screen_left",
+   "act": "pose"
+  },
+  {
+   "key": "wave_waist",
+   "ko": "손 흔들기(허리 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "wave",
+   "left": "hip",
+   "legs": "",
+   "gaze": "camera",
+   "pose": true,
+   "act": "pose"
+  },
+  {
+   "key": "thumbs_chest",
+   "ko": "엄지 척(가슴 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "thumbs_up",
+   "left": "out",
+   "legs": "",
+   "gaze": "camera",
+   "pose": true,
+   "act": "pose"
+  },
+  {
+   "key": "crossed_tilt_waist",
+   "ko": "팔짱 끼고 고개 기울이기(허리 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "low",
+   "right": "arms_crossed",
+   "left": "arms_crossed",
+   "legs": "",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "behind_head_chest",
+   "ko": "한 팔 머리 뒤로 올려다보기(가슴 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "behind_head",
+   "left": "out",
+   "legs": "",
+   "gaze": "up",
+   "act": "rest"
+  },
+  {
+   "key": "hair_hip_waist",
+   "ko": "머리 넘기며 허리에 손(허리 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "side",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "hair_tuck",
+   "left": "hip",
+   "legs": "",
+   "gaze": "down",
+   "act": "ready"
+  },
+  {
+   "key": "reach_chest",
+   "ko": "카메라 쪽으로 손 내밀기(가슴 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front",
+   "head": "with_body",
+   "camera": "low",
+   "right": "reach",
+   "left": "out",
+   "legs": "",
+   "gaze": "camera",
+   "pose": true,
+   "act": "pose"
+  },
+  {
+   "key": "strap_chest",
+   "ko": "어깨끈에 엄지 걸기(가슴 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "strap",
+   "left": "out",
+   "legs": "",
+   "gaze": "screen_right",
+   "act": "ready"
+  },
+  {
+   "key": "collar_waist",
+   "ko": "옷깃 잡고 비껴보기(허리 위)",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "turn_side",
+   "camera": "eye",
+   "right": "collar",
+   "left": "hip",
+   "legs": "",
+   "gaze": "screen_right",
+   "act": "ready"
   }
  ],
  "expressions": {
@@ -15642,5 +15796,11 @@
     ]
    }
   }
- }
+ },
+ "preset_once": [
+  "clasp_low",
+  "kneel_clasp",
+  "shush_close"
+ ],
+ "note_preset_once": "preset_once(2026-11-23 사용자 「1,2,3 은 해주고」) — 두 손 모으기 · 무릎 꿇기 · 쉿이 자주 나와 기도 · 쉿 그림이 반복됐다. 이 추천은 한 캐릭터(세 세계 · 묶음 통틀어) 한 장까지(계획기). 두 손 모으기 손 글은 허리 앞 깍지로, 무릎 꿇고 손 모으기는 무릎 위 손으로 바꿨다(기도로 읽혔다). 같은 날 조건 없는 가슴 위 · 허리 위 추천 열을 더함(가까운 컷이 얼굴 클로즈업 여섯에 몰렸다)."
 }

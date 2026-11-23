@@ -1,5 +1,12 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-23 · claude · 일상컷 자세 — 기도꼴 · 쉿 줄이기, 가까운 컷에 허리 위, 가슴 위 · 허리 위 추천 열
+- 사용자 「무릎꿇고 기도하는 장면이나, 손으로 쉿 하는 포즈가 자주 나오는 기분」 → 원인(조건 없는 추천이 거의 모든 칸 후보라 「덜 쓴 것 먼저」 로도 안 눌림 — 기록에서 평균의 1.4 ~ 2.1 배, 필수 컷은 후보가 좁아 몰림, 가까운 컷 규칙이 얼굴 클로즈업 여섯에 몰림) → 「1,2,3 은 해주고, 4번은 자세도 늘리고 클로즈업을 가슴 위 아니면 허리 위까지해서 같이 묶는」. 네 공방 같이.
+- lib/casual-tree-v2.js — presetBreadth(시대 × 장소 가운데 그 추천이 되는 몫) · presetBias(log2(몫 / 가운데 값), -1 ~ 1.5) · presetOnce(표 preset_once).
+- data/casual-tree-v2.json — preset_once [clasp_low · kneel_clasp · shush_close](한 캐릭터 한 장까지). 손 clasp_both 「가슴 앞에 두 손 모으기」 → 「허리 앞 깍지」(zone waist), kneel_clasp 손 → 한 손 무릎 위(lap · natural — 기도로 읽혔다, 한 손 동작은 양쪽에 같이 못 쓴다). 조건 없는 가슴 위 · 허리 위 추천 열(collarbone_chest · cheek_hip_waist · wave_waist · thumbs_chest · crossed_tilt_waist · behind_head_chest · hair_hip_waist · reach_chest · strap_chest(어깨끈 옷) · collar_waist(깃 옷)).
+- tools/casual-plan.cjs — 자세 추천 무게에 2^-presetBias, preset_once 는 묶음 · 다른 세계 · 옛 컷에 있으면 후보에서 빼고 check 도 잡음, 가까운 컷(NEAR)에 허리 위. ?v casual-tree-v2 10.
+- 조조 · 손권 · 관우 세 세계 씨앗 여섯(378컷) — 세 추천 비율: 기록 7.0% → 무게만 4.0%(한 캐릭터 최대 3장) → 무게 + 한 장 제한 2.6%(최대 1장), 새 추천 38컷, 묶음 규칙 오류 0.
+
 ## 2026-11-23 · claude · 일상컷 옷 꾸밈 — 같은 옷도 소재 · 입은 모양 · 핏 · 겹쳐 입기 · 장신구로
 - 사용자 「같은 의상이라도 색상말고 다른 방법으로 다양화를 할 수는 없을까?」 → 「1,3,4,5,6번까지해서 공통으로 해줘」. 같은 옷 열쇠는 색 · 데니어 · 노출만 달라 같은 옷으로 보였다. 네 공방(도시 · 삼국지 · 원소 · 포켓몬) 같이.
 - data/casual-tree-v2.json — 표 outfit_style: 축 다섯(소재 16 · 입은 모양 8 · 핏 · 길이 7 · 겹쳐 입기 10 · 장신구 15), 축마다 몫(rate)과 이미 정해진 옷이면 안 얹는 말(clash), 꾸밈마다 옷 계열 · 프레이밍 · 옷 글에 있어야 할 말(needs) · 부딪히는 말(clash) · 추운 철에만(warm). 노출을 늘리는 꾸밈(어깨 내리기 · 단추 풀기)은 노출 축과 겹쳐 넣지 않았다.

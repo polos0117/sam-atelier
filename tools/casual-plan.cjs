@@ -47,7 +47,7 @@ if (ARG_STYLE && !S.styles[ARG_STYLE]) { console.error('화풍이 없다: ' + AR
 const T2 = C2.make(tree2, tree), STYLE = ARG_STYLE || S['default'], CASUAL_N = 7;   /* 사용자 2026-11-11 「한 장 더 생성하게 해서 필수갈래 또는 상황 노출을 더 그리게 추가해줘. 그럼 일상컷은 총 7장 되는거야」 — 11-09 「6장으로」, 전엔 다섯 */
 
 const EXPOSE_TYPES = ['lingerie', 'swimwear', 'roleplay'];   /* 노출 갈래 — 장수마다 돌려 가며 */
-const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
+const FAR = ['full_body', 'environmental'], NEAR = ['waist_up', 'chest_up', 'face_close'];   /* 2026-11-23 허리 위도 가까운 컷(사용자 「클로즈업을 가슴 위 아니면 허리 위까지해서 같이 묶는」) — 얼굴 클로즈업 여섯에 몰려 쉿 · 브이가 자주 나왔다 */
 const FRAMES = Object.keys(tree2.frames).filter(k => k !== 'note' && k !== 'detail');
 /* 일상컷 표정 후보 — 일상컷에 어색한 것은 계획기가 고르지 않는다(사용자 2026-11-03 「표정 관련 문구가 과하게」 · 「다 해줘」):
    웃는 입에 무표정한 눈 · 지루함 · 졸림 · 지침 · 짜증 · 시큰둥 · 눈을 질끈 감은 웃음. 생성기에서 손으로 고르는 것은 그대로 된다 */
@@ -332,7 +332,7 @@ const pathKey = (preset, place) => preset + '@' + place;
 /* 한 칸 — 시대 · 장소 · 의상 · 옷, 그 장소에서 쓸 수 있는 자세 추천 하나(frame 을 주면 그 프레이밍의 추천만).
    wantSig 면 소품 동작을 그 장수의 물건으로. 소품 동작은 덜 쓴 소품 쪽으로(무게 1/(1+횟수)², 따로 된 난수 흐름 — game 과 같다).
    장소 · 옷 · 자세 추천(그 자세) · 표정은 다른 카드에서 안 쓴 · 덜 쓴 쪽으로(lean — 2026-11-01) */
-function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = '', usage = {}, rUse = r, cos = null } = {}) {
+function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = '', usage = {}, rUse = r, cos = null , once = false } = {}) {
   const g = card.g, U = usageOf(usage);
   let sc;
   if (reqType === 'cosplay') { if (!cos) return null; const paths = cosplayPaths(cos.cut).filter(x => !wantEra || x.era === wantEra); if (!paths.length) return null; sc = { ...lean(r, paths, U.place, x => x.place) }; }
@@ -345,11 +345,11 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
     if (!sc.ofam) return null;
   }
   sc.treeV = 2; sc.prop = wantSig ? '0' : '';
-  const presets = presetsAt(sc, g).filter(p => (!frame || p.frame === frame) && (!wantSig || p.prop_kind));
+  const presets = presetsAt(sc, g).filter(p => (!frame || p.frame === frame) && (!wantSig || p.prop_kind) && !(once && C2.presetOnce && C2.presetOnce(T2, p.key)));   /* 한 장까지 추천(표 preset_once)은 이미 쓴 캐릭터면 뺀다 — 2026-11-23 */
   if (!presets.length) return null;
   const rp = list => pick(r, list);
   /* 자세 추천 — 그 추천과 그 자세의 횟수를 함께(선 자세가 절반이 넘었다 — 2026-11-01 기록 434장) */
-  const pw = presets.map(p => wOf(U.preset[p.key] || 0) * Math.sqrt(wOf(U.posture[p.posture] || 0)) * wOf(U.path[pathKey(p.key, sc.place)] || 0) * (p.pose ? POSE_WEIGHT : 1) * Math.sqrt(wOf((U.combo || {})[comboKey(p)] || 0)) * (standFrontEye(p) ? 0.5 : 1));
+  const pw = presets.map(p => Math.pow(2, -(C2.presetBias ? C2.presetBias(T2, p.key) : 0)) * wOf(U.preset[p.key] || 0) * Math.sqrt(wOf(U.posture[p.posture] || 0)) * wOf(U.path[pathKey(p.key, sc.place)] || 0) * (p.pose ? POSE_WEIGHT : 1) * Math.sqrt(wOf((U.combo || {})[comboKey(p)] || 0)) * (standFrontEye(p) ? 0.5 : 1));
   let px = r() * pw.reduce((a, b) => a + b, 0), chosen = presets[presets.length - 1];
   for (let i = 0; i < presets.length; i++) { px -= pw[i]; if (px < 0) { chosen = presets[i]; break; } }
   sc = C2.repair(T2, C2.applyPreset(T2, sc, chosen.key), g, rp);
@@ -453,7 +453,7 @@ function check(cuts, card, base = [], others = []) {
   if (card.g.signature_hold.length && all.length >= 3 && !all.some(sigProp)) errs.push('그 장수의 물건을 든 컷이 없다(한두 장)');
   if (all.length >= 3) {
     if (!all.some(c => FAR.includes(c.frame))) errs.push('먼 컷(전신·환경)이 없다');
-    if (!all.some(c => NEAR.includes(c.frame))) errs.push('가까운 컷(가슴 위·클로즈업)이 없다');
+    if (!all.some(c => NEAR.includes(c.frame))) errs.push('가까운 컷(허리 위·가슴 위·클로즈업)이 없다');
   }
   for (const c of cuts) {
     const fixed = C2.repair(T2, { ...c }, card.g);
@@ -469,6 +469,7 @@ function check(cuts, card, base = [], others = []) {
   for (const c of N) {
     const same = others.filter(o => o.place && o.place === c.place && ((c.ofam === COS_FAM) === (o.ofam === COS_FAM)));   /* 코스프레는 코스프레끼리 · 나머지는 나머지끼리 — 양쪽 같게(2026-11-18 — 일반 컷만 코스프레 컷 장소에 걸렸다) */
     if (same.length && (!inWorld(c) || same.some(o => o.ofam === c.ofam))) errs.push(`칸 ${c.n || '?'}: 장소 ${c.place} 는 다른 세계 · 다른 묶음이 쓴 곳`);
+    if (C2.presetOnce && C2.presetOnce(T2, c.preset) && [...N.filter(o => o !== c), ...others].some(o => C2.presetOnce(T2, o.preset))) errs.push(`칸 ${c.n || '?'}: 두 손 모으기 · 무릎 꿇기 · 쉿 자세 추천은 한 캐릭터(세 세계 · 묶음 통틀어) 한 장까지 — ${c.preset}`);
     if (c.preset && others.some(o => o.preset === c.preset)) errs.push(`칸 ${c.n || '?'}: 자세 추천 ${c.preset} 는 다른 세계 · 다른 묶음이 쓴 구도`);
     const ok = outfitKey(c); if (ok && others.some(o => outfitKey(o) === ok)) errs.push(`칸 ${c.n || '?'}: 옷 ${ok} 는 다른 세계 · 다른 묶음이 입은 옷`);
     if (c.ofam === 'bath' && others.some(o => o.ofam === 'bath')) errs.push(`칸 ${c.n || '?'}: 목욕 차림은 한 장수의 세계 셋 통틀어 한 장까지(2026-11-09)`);
@@ -757,7 +758,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
       let got = null;
       for (let k = 0; k < 60 && !got; k++) {
         const U0 = usageOf(usage), here = { ...U0, prop: { ...U0.prop }, ofam: { ...U0.ofam }, combo: { ...(U0.combo || {}) } }; cuts.forEach(c => { if (c.posture) here.combo[comboKey(c)] = (here.combo[comboKey(c)] || 0) + 2; const u = C2.use(T2, c.use); if (u) here.prop[u.prop] = (here.prop[u.prop] || 0) + 10; here.ofam[c.ofam] = (here.ofam[c.ofam] || 0) + 10; });   /* 묶음 안에서 이미 고른 옷 계열은 다시 덜 고른다(동탄룩 한 장까지) */
-        const want = wants[i] || '', sc = slot(r, card, want, { frame: frames[i], wantSig: i === sigAt && !want, era: eras[i], usage: here, rUse, cos });
+        const want = wants[i] || '', sc = slot(r, card, want, { once: [...old, ...cuts, ...others].some(x => x && C2.presetOnce && C2.presetOnce(T2, x.preset)), frame: frames[i], wantSig: i === sigAt && !want, era: eras[i], usage: here, rUse, cos });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
         if (isFreeAt(i)) { cand.ofree = true; if (i === famAt) cand._fam = true; got = cand; break; }   /* 자유 설계 칸 — 그림자 장면, 규칙 셈 밖 */
