@@ -105,11 +105,12 @@ BODY = ['hourglass', 'voluptuous', 'curvy_athletic', 'busty_slender', 'curvy', '
 # 같은 날 「다른 공방 케릭터설계 자동배분에는 써줘 케릭터 추가될 때 분배가 되지 않아?」 — 드문 쪽 무게 2 로 자동 돌림에도 넣었다.
 # 돌림은 look 이 없는 새 장수만(seed) — 이미 적힌 장수의 체형은 그대로다
 BODY_W = [5, 5, 4, 3, 3, 3, 1, 1, 3, 3, 2, 2]
+# 인상 열네 열쇠(2026-11-23 사용자 「다 넣어주고 공방 다 적용해줘」 — 섹시 · 도발 · 퇴폐 · 팜파탈 …)도 역할마다 어울리는 것을 돌림에 넣었다. 돌림은 look 이 없는 새 장수만
 IMPRESSION = {
- 'lord': ['regal', 'glamorous', 'elegant', 'mature', 'cool', 'fierce'],
- 'general': ['fierce', 'rugged', 'sharp', 'stoic', 'boyish', 'cool', 'cheerful', 'glamorous'],
- 'strategist': ['cool', 'elegant', 'languid', 'sharp', 'mature', 'melancholic', 'androgynous'],
- 'official': ['soft', 'elegant', 'stoic', 'innocent', 'cheerful', 'mature', 'cute'],
+ 'lord': ['regal', 'glamorous', 'elegant', 'mature', 'cool', 'fierce', 'haughty', 'femme_fatale', 'confident', 'icy'],
+ 'general': ['fierce', 'rugged', 'sharp', 'stoic', 'boyish', 'cool', 'cheerful', 'glamorous', 'confident', 'sassy', 'icy', 'provocative'],
+ 'strategist': ['cool', 'elegant', 'languid', 'sharp', 'mature', 'melancholic', 'androgynous', 'femme_fatale', 'mysterious', 'mischievous', 'dreamy', 'decadent'],
+ 'official': ['soft', 'elegant', 'stoic', 'innocent', 'cheerful', 'mature', 'cute', 'shy', 'wistful', 'coquettish', 'dreamy', 'seductive'],
 }
 EXPR = {
  'lord': ['confident', 'proud', 'calm', 'cold_smile', 'determined'],

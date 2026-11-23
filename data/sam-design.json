@@ -1493,7 +1493,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "한중의 책사 — 한중 비단 지도 · 청록 머리 · 보라 눈 · 날 선 · 차가운 미소 · 낭창한 굴곡형"
+    "ko": "한중의 책사 — 한중 비단 지도 · 청록 머리 · 보라 눈 · 팜파탈 · 차가운 미소 · 낭창한 굴곡형"
    },
    "title": {
     "en": "Liu Bei's sharpest schemer, the mind behind the conquest of Hanzhong"
@@ -1507,7 +1507,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "sharp",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -1796,7 +1796,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "반골의 선봉 — 초승달 대도 · 진홍 칠 중갑 · 보라 머리 · 강철빛 눈 · 흉터 · 사나운 · 건장한 굴곡형"
+    "ko": "반골의 선봉 — 초승달 대도 · 진홍 칠 중갑 · 보라 머리 · 강철빛 눈 · 흉터 · 도발적인 · 건장한 굴곡형"
    },
    "title": {
     "en": "the defiant vanguard of Shu said to bear a 'rebel's bone'"
@@ -1810,7 +1810,7 @@
    "look": {
     "face": {
      "eye_color": "steel_blue",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -2014,7 +2014,7 @@
    "look": {
     "face": {
      "eye_color": "emerald",
-     "impression": "stoic",
+     "impression": "wistful",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -2689,7 +2689,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "stoic",
+     "impression": "wistful",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -3081,7 +3081,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "stoic",
+     "impression": "wistful",
      "expr": "pensive",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -3255,7 +3255,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "전설 속 관가 막내 — 가벼운 녹술 대도 · 꽃무늬 초록 갑옷 · 선명한 보라 머리 · 화려한 · 낭창한 굴곡형"
+    "ko": "전설 속 관가 막내 — 가벼운 녹술 대도 · 꽃무늬 초록 갑옷 · 선명한 보라 머리 · 섹시한 · 낭창한 굴곡형"
    },
    "title": {
     "en": "Guan Yu's legendary youngest, known only in the tales of Jing"
@@ -3269,7 +3269,7 @@
    "look": {
     "face": {
      "eye_color": "lilac",
-     "impression": "glamorous",
+     "impression": "seductive",
      "expr": "half_smile",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -3349,7 +3349,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "포가장의 셋째 딸 — 긴 자루 칼 · 겨뤄서 짝을 고른 · 스칼렛 머리 · 잎빛 눈 · 쾌활한 · 자신 있는 · 골반 굴곡형"
+    "ko": "포가장의 셋째 딸 — 긴 자루 칼 · 겨뤄서 짝을 고른 · 스칼렛 머리 · 잎빛 눈 · 당찬 · 자신 있는 · 골반 굴곡형"
    },
    "title": {
     "en": "the third daughter of the Bao manor who fought Guan Suo over a hundred bouts and became his wife (from folk ballad)"
@@ -3363,7 +3363,7 @@
    "look": {
     "face": {
      "eye_color": "leaf_green",
-     "impression": "cheerful",
+     "impression": "sassy",
      "expr": "confident",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -3410,7 +3410,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 명 성화 연간 설창사화 「화관색전」에서 이름 설명 · 물건 · 인상(쾌활한) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(잎빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 명 성화 연간 설창사화 「화관색전」에서 이름 설명 · 물건 · 인상(당찬) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(잎빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 copper → scarlet(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -3460,7 +3460,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "sharp",
+     "impression": "sassy",
      "expr": "confident",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -3554,7 +3554,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "cheerful",
+     "impression": "mischievous",
      "expr": "mischievous",
      "skin_tone": "porcelain",
      "age": "late_20s",
@@ -3730,7 +3730,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "면죽의 돌진 — 돌진 창 · 적진으로 내달린 · 자수정빛 머리 · 청록 눈 · 사나운 · 결연한 · 가늘고 풍만한 형"
+    "ko": "면죽의 돌진 — 돌진 창 · 적진으로 내달린 · 자수정빛 머리 · 청록 눈 · 당당한 · 결연한 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the grandchild of Zhuge Liang who charged into the Wei lines at Mianzhu"
@@ -3744,7 +3744,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -3792,7 +3792,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전(제갈첨)에서 이름 설명 · 물건 · 인상(사나운) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(쪽빛) · 눈 색(청록)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전(제갈첨)에서 이름 설명 · 물건 · 인상(당당한) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(쪽빛) · 눈 색(청록)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 indigo → amethyst(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -3828,7 +3828,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "궁중의 속삭임 — 칠 쟁반 · 귀에 속삭인 · 푸크시아 머리 · 연보라 눈 · 귀여운 · 재미있어하는 · 슬림 근육형"
+    "ko": "궁중의 속삭임 — 칠 쟁반 · 귀에 속삭인 · 푸크시아 머리 · 연보라 눈 · 새침한 · 재미있어하는 · 슬림 근육형"
    },
    "title": {
     "en": "the palace eunuch who whispered at Liu Shan's ear until the realm fell"
@@ -3842,7 +3842,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "cute",
+     "impression": "coquettish",
      "expr": "amused",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -3892,7 +3892,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 동윤전에서 이름 설명 · 물건 · 인상(귀여운) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(연보라)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 동윤전에서 이름 설명 · 물건 · 인상(새침한) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(연보라)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 plum_black → fuchsia(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -4220,7 +4220,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "장판의 희생 — 옥비녀 · 단정한 궁중복 · 하늘빛 머리 · 도자기 피부 · 부드러운 · 가늘고 풍만한 형"
+    "ko": "장판의 희생 — 옥비녀 · 단정한 궁중복 · 하늘빛 머리 · 도자기 피부 · 수줍은 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "Liu Bei's consort who entrusted the infant heir to Zhao Yun at Changban"
@@ -4234,7 +4234,7 @@
    "look": {
     "face": {
      "eye_color": "jade",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "gentle",
      "skin_tone": "porcelain",
      "age": "early_20s",
@@ -4314,7 +4314,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "옥 같은 피부 — 백옥 인형 · 로열 블루 머리 · 도자기 피부 · 우아한 · 낭창한 굴곡형"
+    "ko": "옥 같은 피부 — 백옥 인형 · 로열 블루 머리 · 도자기 피부 · 섹시한 · 낭창한 굴곡형"
    },
    "title": {
     "en": "Liu Bei's consort, famed for skin as white as jade"
@@ -4328,7 +4328,7 @@
    "look": {
     "face": {
      "eye_color": "graphite_grey",
-     "impression": "elegant",
+     "impression": "seductive",
      "expr": "soft_smile",
      "skin_tone": "porcelain",
      "age": "early_20s",
@@ -4723,7 +4723,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "gentle",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -4919,7 +4919,7 @@
    "look": {
     "face": {
      "eye_color": "magenta",
-     "impression": "sharp",
+     "impression": "mischievous",
      "expr": "smug",
      "skin_tone": "porcelain",
      "age": "late_20s",
@@ -5376,7 +5376,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "즐거운 마지막 황제 — 단술 잔 · 화려한 황제 예복 · 로즈골드 머리 · 나른한 · 아담한 풍만형"
+    "ko": "즐거운 마지막 황제 — 단술 잔 · 화려한 황제 예복 · 로즈골드 머리 · 퇴폐적인 · 아담한 풍만형"
    },
    "title": {
     "en": "the carefree last emperor of Shu — 'here I am happy and do not miss Shu'"
@@ -5390,7 +5390,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "languid",
+     "impression": "decadent",
      "expr": "playful",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -5951,7 +5951,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "질풍의 장수 — 가벼운 쌍도 · 바람 같은 경갑 · 벚꽃 분홍 머리 · 날 선 · 슬림 근육형"
+    "ko": "질풍의 장수 — 가벼운 쌍도 · 바람 같은 경갑 · 벚꽃 분홍 머리 · 당당한 · 슬림 근육형"
    },
    "title": {
     "en": "the lightning-fast general of Wei who marched five hundred li in three days"
@@ -5965,7 +5965,7 @@
    "look": {
     "face": {
      "eye_color": "graphite_grey",
-     "impression": "sharp",
+     "impression": "confident",
      "expr": "confident",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -6627,7 +6627,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "요래의 귀신 — 초승달 극 · 초승달 투구 장식 · 남빛 검정 머리 · 사나운 · 장신 굴곡형"
+    "ko": "요래의 귀신 — 초승달 극 · 초승달 투구 장식 · 남빛 검정 머리 · 당당한 · 장신 굴곡형"
    },
    "title": {
     "en": "the terror of Hefei who shook a hundred thousand with eight hundred"
@@ -6641,7 +6641,7 @@
    "look": {
     "face": {
      "eye_color": "steel_blue",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -6725,7 +6725,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "주아부 같은 장수 — 큰 도끼 · 엄정한 군기 · 남색 머리 · 무표정 · 골반 굴곡형"
+    "ko": "주아부 같은 장수 — 큰 도끼 · 엄정한 군기 · 남색 머리 · 냉미녀 · 골반 굴곡형"
    },
    "title": {
     "en": "the disciplined general compared to the strict Zhou Yafu"
@@ -6739,7 +6739,7 @@
    "look": {
     "face": {
      "eye_color": "dark_brown",
-     "impression": "stoic",
+     "impression": "icy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -6919,7 +6919,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "안문태수 — 측량 장대 · 물길을 낸 · 민트 머리 · 쪽빛 눈 · 날 선 · 진지한 · 굴곡형"
+    "ko": "안문태수 — 측량 장대 · 물길을 낸 · 민트 머리 · 쪽빛 눈 · 아련한 · 진지한 · 굴곡형"
    },
    "title": {
     "en": "the loyal frontier governor who mourned Yuan Shang's head and cut a canal to bring water into Yanmen"
@@ -6933,7 +6933,7 @@
    "look": {
     "face": {
      "eye_color": "indigo",
-     "impression": "sharp",
+     "impression": "wistful",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -6981,7 +6981,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 견초전에서 이름 설명 · 물건 · 인상(날 선) · 표정(진지한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(먹빛 초록) · 눈 색(쪽빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 견초전에서 이름 설명 · 물건 · 인상(아련한) · 표정(진지한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(먹빛 초록) · 눈 색(쪽빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 ink_green → mint(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -7122,7 +7122,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "유성추의 맹장 — 육십 근 큰 칼 · 쫓다가 베인 · 청록 머리 · 진홍 눈 · 사나운 · 결연한 · 골반 굴곡형"
+    "ko": "유성추의 맹장 — 육십 근 큰 칼 · 쫓다가 베인 · 청록 머리 · 진홍 눈 · 당당한 · 결연한 · 골반 굴곡형"
    },
    "title": {
     "en": "the cavalry officer who chased the retreating Zhuge Liang from Chencang and fell — the novel's giant with a great blade and meteor hammers"
@@ -7136,7 +7136,7 @@
    "look": {
     "face": {
      "eye_color": "crimson",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -7183,7 +7183,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전에서 이름 설명 · 물건 · 인상(사나운) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(불꽃 주황) · 눈 색(진홍)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전에서 이름 설명 · 물건 · 인상(당당한) · 표정(결연한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(불꽃 주황) · 눈 색(진홍)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 flame_orange → teal(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -7315,7 +7315,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "물에 잠긴 명성 — 검은 쇠 지휘봉 · 엄격한 얼굴 · 와인빛 머리 · 성숙한 · 낭창한 굴곡형"
+    "ko": "물에 잠긴 명성 — 검은 쇠 지휘봉 · 엄격한 얼굴 · 와인빛 머리 · 아련한 · 낭창한 굴곡형"
    },
    "title": {
     "en": "the strict general whose thirty-year reputation sank in one flood"
@@ -7329,7 +7329,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "mature",
+     "impression": "wistful",
      "expr": "pensive",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -7799,7 +7799,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "말없는 기책 — 기책 함 · 말없는 눈 · 끝이 붉은 검은 머리 · 무표정 · 굴곡형"
+    "ko": "말없는 기책 — 기책 함 · 말없는 눈 · 끝이 붉은 검은 머리 · 신비로운 · 굴곡형"
    },
    "title": {
     "en": "the quiet strategist who held twelve unconventional plans and spoke of none"
@@ -7813,7 +7813,7 @@
    "look": {
     "face": {
      "eye_color": "rose",
-     "impression": "stoic",
+     "impression": "mysterious",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -7987,7 +7987,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "독사 — 검은 주판 · 계산만으로 건넌 · 밝은 빨강 머리 · 차가운 · 모래시계형"
+    "ko": "독사 — 검은 주판 · 계산만으로 건넌 · 밝은 빨강 머리 · 팜파탈 · 모래시계형"
    },
    "title": {
     "en": "the strategist who crossed the age of chaos by calculation alone"
@@ -8001,7 +8001,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "cool",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -8089,7 +8089,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "곁에 선 책사 — 중원 지도 · 위기마다 곁에 · 밤색 머리 · 날 선 · 장신 굴곡형"
+    "ko": "곁에 선 책사 — 중원 지도 · 위기마다 곁에 · 밤색 머리 · 냉미녀 · 장신 굴곡형"
    },
    "title": {
     "en": "the strategist who stood beside Cao Cao in every crisis"
@@ -8103,7 +8103,7 @@
    "look": {
     "face": {
      "eye_color": "obsidian",
-     "impression": "sharp",
+     "impression": "icy",
      "expr": "serious",
      "skin_tone": "porcelain",
      "age": "early_30s",
@@ -8472,7 +8472,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "붓의 황제 — 옥 붓 · 위의 첫 황제 · 구리빛 머리 · 위엄 있는 · 모래시계형"
+    "ko": "붓의 황제 — 옥 붓 · 위의 첫 황제 · 구리빛 머리 · 도도한 · 모래시계형"
    },
    "title": {
     "en": "the first emperor of Wei, who outdid her siblings even with the brush"
@@ -8486,7 +8486,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "regal",
+     "impression": "haughty",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -8568,7 +8568,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "선대의 그늘 — 옥새 · 궁전을 사랑한 · 복숭아빛 금발 머리 · 위엄 있는 · 골반 굴곡형"
+    "ko": "선대의 그늘 — 옥새 · 궁전을 사랑한 · 복숭아빛 금발 머리 · 도도한 · 골반 굴곡형"
    },
    "title": {
     "en": "the emperor who held back Shu and Wu in her predecessors' shadow"
@@ -8582,7 +8582,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "regal",
+     "impression": "haughty",
      "expr": "proud",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -9052,7 +9052,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "한실의 지낭 — 병법 죽간 · 한 황실의 핏줄 · 청동빛 머리 · 우아한 · 모래시계형"
+    "ko": "한실의 지낭 — 병법 죽간 · 한 황실의 핏줄 · 청동빛 머리 · 신비로운 · 모래시계형"
    },
    "title": {
     "en": "the Han royal descendant who became Wei's wise counsel"
@@ -9066,7 +9066,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "elegant",
+     "impression": "mysterious",
      "expr": "calm",
      "skin_tone": "olive",
      "age": "late_20s",
@@ -9154,7 +9154,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "사마가의 안주인 — 비단 칼집 단검 · 냉정한 안주인 · 백금발 머리 · 차가운 · 모래시계형"
+    "ko": "사마가의 안주인 — 비단 칼집 단검 · 냉정한 안주인 · 백금발 머리 · 냉미녀 · 모래시계형"
    },
    "title": {
     "en": "the iron-willed matriarch of the Sima house"
@@ -9168,7 +9168,7 @@
    "look": {
     "face": {
      "eye_color": "hazel",
-     "impression": "cool",
+     "impression": "icy",
      "expr": "cold_smile",
      "skin_tone": "warm_beige",
      "age": "early_20s",
@@ -9459,7 +9459,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "기성의 활 — 전투 활 · 성벽 위의 궁수 · 딸기 금발 머리 · 사나운 · 슬림 근육형"
+    "ko": "기성의 활 — 전투 활 · 성벽 위의 궁수 · 딸기 금발 머리 · 당당한 · 슬림 근육형"
    },
    "title": {
     "en": "the lady who took up the bow herself on the walls of Ji"
@@ -9473,7 +9473,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -9556,7 +9556,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "낙신 — 옥빗 · 낙수의 신녀 · 푸크시아 머리 · 화려한 · 모래시계형"
+    "ko": "낙신 — 옥빗 · 낙수의 신녀 · 푸크시아 머리 · 섹시한 · 모래시계형"
    },
    "title": {
     "en": "the beauty compared to the goddess of the Luo River"
@@ -9570,7 +9570,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "glamorous",
+     "impression": "seductive",
      "expr": "soft_smile",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -9656,7 +9656,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "무선황후 — 검은 옻칠 부채 · 헛소문에도 흔들리지 않은 · 바다빛 머리 · 꿀빛 눈 · 우아한 · 온화한 · 굴곡형"
+    "ko": "무선황후 — 검은 옻칠 부채 · 헛소문에도 흔들리지 않은 · 바다빛 머리 · 꿀빛 눈 · 섹시한 · 온화한 · 굴곡형"
    },
    "title": {
     "en": "Cao Cao's empress, once a singer, who held his scattered followers together on a false report of his death"
@@ -9670,7 +9670,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "elegant",
+     "impression": "seductive",
      "expr": "gentle",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -9718,7 +9718,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 후비전 무선변황후에서 이름 설명 · 물건 · 인상(우아한) · 표정(온화한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로즈 골드) · 눈 색(꿀빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 후비전 무선변황후에서 이름 설명 · 물건 · 인상(섹시한) · 표정(온화한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로즈 골드) · 눈 색(꿀빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 rose_gold → ocean_blue(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -9754,7 +9754,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "구품관인법 — 관리 명부 · 구품의 사다리 · 레몬빛 머리 · 성숙한 · 굴곡형"
+    "ko": "구품관인법 — 관리 명부 · 구품의 사다리 · 레몬빛 머리 · 도도한 · 굴곡형"
    },
    "title": {
     "en": "the minister who devised the Nine-Rank system for choosing officials"
@@ -9768,7 +9768,7 @@
    "look": {
     "face": {
      "eye_color": "emerald",
-     "impression": "mature",
+     "impression": "haughty",
      "expr": "serious",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -10046,7 +10046,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "북방의 수비 — 장창 · 모피 두른 갑옷 · 산호 분홍 머리 · 무표정 · 장신 굴곡형"
+    "ko": "북방의 수비 — 장창 · 모피 두른 갑옷 · 산호 분홍 머리 · 냉미녀 · 장신 굴곡형"
    },
    "title": {
     "en": "the frontier general whom the Wuhuan dared not cross"
@@ -10060,7 +10060,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "stoic",
+     "impression": "icy",
      "expr": "focused",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -10140,7 +10140,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "법과 칼 — 청동 법패 · 법으로 다스린 · 자흑 머리 · 날 선 · 낭창한 굴곡형"
+    "ko": "법과 칼 — 청동 법패 · 법으로 다스린 · 자흑 머리 · 냉미녀 · 낭창한 굴곡형"
    },
    "title": {
     "en": "the stern governor who ruled by law and fought on the field"
@@ -10154,7 +10154,7 @@
    "look": {
     "face": {
      "eye_color": "magenta",
-     "impression": "sharp",
+     "impression": "icy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -10432,7 +10432,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "형장의 의연함 — 옥 패물 · 흐트러짐 없는 · 터키석빛 머리 · 우아한 · 장신 굴곡형"
+    "ko": "형장의 의연함 — 옥 패물 · 흐트러짐 없는 · 터키석빛 머리 · 아련한 · 장신 굴곡형"
    },
    "title": {
     "en": "the elegant noble who stayed composed even at her execution"
@@ -10446,7 +10446,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "elegant",
+     "impression": "wistful",
      "expr": "calm",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -10528,7 +10528,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "진창의 수비 — 노 · 스무 날의 성벽 · 노을 분홍 머리 · 무표정 · 골반 굴곡형"
+    "ko": "진창의 수비 — 노 · 스무 날의 성벽 · 노을 분홍 머리 · 당당한 · 골반 굴곡형"
    },
    "title": {
     "en": "the defender who held Chencang with a thousand against Zhuge Liang for twenty days"
@@ -10542,7 +10542,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "stoic",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "olive",
      "age": "early_20s",
@@ -11008,7 +11008,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "사치한 대장군 — 보석 박힌 지휘봉 · 천자를 흉내 낸 · 전기 파랑 머리 · 호박빛 눈 · 화려한 · 우쭐한 · 탄탄한 굴곡형"
+    "ko": "사치한 대장군 — 보석 박힌 지휘봉 · 천자를 흉내 낸 · 전기 파랑 머리 · 호박빛 눈 · 퇴폐적인 · 우쭐한 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the regent-general of Wei who lived like an emperor and lost everything at Gaoping Tombs"
@@ -11022,7 +11022,7 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "glamorous",
+     "impression": "decadent",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -11072,7 +11072,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 조진전(조상)에서 이름 설명 · 물건 · 인상(화려한) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(버건디) · 눈 색(호박빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 조진전(조상)에서 이름 설명 · 물건 · 인상(퇴폐적인) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(버건디) · 눈 색(호박빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 burgundy → electric_blue(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -11211,7 +11211,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "말싸움의 패자 — 불자 · 화려한 말솜씨 · 끝이 라일락인 보라 머리 · 성숙한 · 골반 굴곡형"
+    "ko": "말싸움의 패자 — 불자 · 화려한 말솜씨 · 끝이 라일락인 보라 머리 · 도도한 · 골반 굴곡형"
    },
    "title": {
     "en": "the old minister who lost a famous war of words to Zhuge Liang"
@@ -11225,7 +11225,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "mature",
+     "impression": "haughty",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -11311,7 +11311,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "완성의 반전 — 장창 · 살아남은 적 · 귤빛 머리 · 날 선 · 낭창한 굴곡형"
+    "ko": "완성의 반전 — 장창 · 살아남은 적 · 귤빛 머리 · 여우 같은 · 낭창한 굴곡형"
    },
    "title": {
     "en": "the warlord who killed Cao Cao's heir and yet survived to serve him"
@@ -11325,7 +11325,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "sharp",
+     "impression": "mischievous",
      "expr": "half_smile",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -11410,7 +11410,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 호랑이 — 고정도 · 붉은 두건 · 진홍 머리 · 사나운 · 건장한 굴곡형"
+    "ko": "강동의 호랑이 — 고정도 · 붉은 두건 · 진홍 머리 · 당당한 · 건장한 굴곡형"
    },
    "title": {
     "en": "the Tiger of Jiangdong, founder of Wu's fortunes, who recovered the imperial seal from Luoyang's ashes"
@@ -11424,7 +11424,7 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "confident",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -12132,7 +12132,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "이릉의 불 — 불꽃 무늬 깃 부채 · 서생 같은 대도독 · 구리빛 머리 · 차가운 · 가늘고 풍만한 형"
+    "ko": "이릉의 불 — 불꽃 무늬 깃 부채 · 서생 같은 대도독 · 구리빛 머리 · 신비로운 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the young scholar-general whose fire at Yiling ended Shu's advance"
@@ -12146,7 +12146,7 @@
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "cool",
+     "impression": "mysterious",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -12225,7 +12225,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "귤을 품은 아이 — 작은 혼천의 · 귤 셋을 품은 · 캐러멜빛 머리 · 꿀빛 눈 · 순진한 · 부드러운 미소 · 아담한 굴곡형"
+    "ko": "귤을 품은 아이 — 작은 혼천의 · 귤 셋을 품은 · 캐러멜빛 머리 · 꿀빛 눈 · 새침한 · 부드러운 미소 · 아담한 굴곡형"
    },
    "title": {
     "en": "the scholar of Wu who, at six, hid three of Yuan Shu's oranges to bring home to her mother"
@@ -12239,7 +12239,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "innocent",
+     "impression": "coquettish",
      "expr": "soft_smile",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -12287,7 +12287,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 육적전에서 이름 설명 · 물건 · 인상(순진한) · 표정(부드러운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(꿀빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 육적전에서 이름 설명 · 물건 · 인상(새침한) · 표정(부드러운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(꿀빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 copper → caramel(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -12424,7 +12424,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "금범적 — 방울 단 해적 칼 · 방울과 깃 · 밝은 빨강 머리 · 사나운 · 슬림 근육형"
+    "ko": "금범적 — 방울 단 해적 칼 · 방울과 깃 · 밝은 빨강 머리 · 여우 같은 · 슬림 근육형"
    },
    "title": {
     "en": "the former river pirate who raided Cao Cao's camp with a hundred raiders and bells"
@@ -12438,7 +12438,7 @@
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "fierce",
+     "impression": "mischievous",
      "expr": "smug",
      "skin_tone": "honey_tan",
      "age": "late_20s",
@@ -12807,7 +12807,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 활 — 장궁 · 강동의 궁수 · 금발 머리 · 무표정 · 굴곡형"
+    "ko": "강동의 활 — 장궁 · 강동의 궁수 · 금발 머리 · 냉미녀 · 굴곡형"
    },
    "title": {
     "en": "the archer of Jiangdong in the camps of three lords"
@@ -12821,7 +12821,7 @@
    "look": {
     "face": {
      "eye_color": "ember",
-     "impression": "stoic",
+     "impression": "icy",
      "expr": "focused",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -13193,7 +13193,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "회남에서 온 장수 — 창 · 떠나온 장수 · 선명한 보라 머리 · 무표정 · 모래시계형"
+    "ko": "회남에서 온 장수 — 창 · 떠나온 장수 · 선명한 보라 머리 · 아련한 · 모래시계형"
    },
    "title": {
     "en": "the general who left Huainan to serve Wu"
@@ -13207,7 +13207,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "stoic",
+     "impression": "wistful",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -13287,7 +13287,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "눈밭의 돌격 — 쌍단검 · 갑옷 벗은 돌격 · 로즈골드 머리 · 사나운 · 낭창한 굴곡형"
+    "ko": "눈밭의 돌격 — 쌍단검 · 갑옷 벗은 돌격 · 로즈골드 머리 · 당당한 · 낭창한 굴곡형"
    },
    "title": {
     "en": "the general who shed her armor in the snow and charged"
@@ -13301,7 +13301,7 @@
    "look": {
     "face": {
      "eye_color": "obsidian",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -13765,7 +13765,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "직언의 원로 — 간언 홀 · 직언의 원로 · 마젠타 머리 · 성숙한 · 낭창한 굴곡형"
+    "ko": "직언의 원로 — 간언 홀 · 직언의 원로 · 마젠타 머리 · 당찬 · 낭창한 굴곡형"
    },
    "title": {
     "en": "the senior minister whose blunt advice often angered Sun Quan"
@@ -13779,7 +13779,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "mature",
+     "impression": "sassy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -13863,7 +13863,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "말없는 재상 — 승상 인장 · 스무 해의 침묵 · 남색 머리 · 무표정 · 굴곡형"
+    "ko": "말없는 재상 — 승상 인장 · 스무 해의 침묵 · 남색 머리 · 수줍은 · 굴곡형"
    },
    "title": {
     "en": "the quiet chancellor who ran Wu's government for twenty years"
@@ -13877,7 +13877,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "stoic",
+     "impression": "shy",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -13958,7 +13958,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "갈라진 형제 — 편지 두루마리 · 다른 나라를 섬긴 형 · 적갈색 머리 · 부드러운 · 굴곡형"
+    "ko": "갈라진 형제 — 편지 두루마리 · 다른 나라를 섬긴 형 · 적갈색 머리 · 수줍은 · 굴곡형"
    },
    "title": {
     "en": "Zhuge Liang's elder sibling, who served a different kingdom"
@@ -13972,7 +13972,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "gentle",
      "skin_tone": "golden_tan",
      "age": "late_20s",
@@ -14055,7 +14055,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "쫓겨난 직언 — 주역 두루마리 · 지나친 바른말 · 자수정빛 머리 · 날 선 · 가늘고 풍만한 형"
+    "ko": "쫓겨난 직언 — 주역 두루마리 · 지나친 바른말 · 자수정빛 머리 · 당찬 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the scholar exiled to the far south for speaking too plainly"
@@ -14069,7 +14069,7 @@
    "look": {
     "face": {
      "eye_color": "magenta",
-     "impression": "sharp",
+     "impression": "sassy",
      "expr": "unimpressed",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -14163,7 +14163,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "innocent",
+     "impression": "shy",
      "expr": "curious",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -14243,7 +14243,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "말재주의 사신 — 가는 붓 · 말장난을 받아친 · 적갈색 머리 · 남빛 눈 · 쾌활한 · 재미있어하는 · 건장한 굴곡형"
+    "ko": "말재주의 사신 — 가는 붓 · 말장난을 받아친 · 적갈색 머리 · 남빛 눈 · 새침한 · 재미있어하는 · 건장한 굴곡형"
    },
    "title": {
     "en": "the witty official of Wu who answered a Shu envoy's pun with a better one"
@@ -14257,7 +14257,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "cheerful",
+     "impression": "coquettish",
      "expr": "amused",
      "skin_tone": "olive",
      "age": "mid_20s",
@@ -14307,7 +14307,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 설종전에서 이름 설명 · 물건 · 인상(쾌활한) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(민트빛) · 눈 색(남빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 설종전에서 이름 설명 · 물건 · 인상(새침한) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(민트빛) · 눈 색(남빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 mint → dark_auburn(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -14535,7 +14535,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 붓 — 붓 · 강동의 문장 · 쪽빛 머리 · 우아한 · 가늘고 풍만한 형"
+    "ko": "강동의 붓 — 붓 · 강동의 문장 · 쪽빛 머리 · 몽환적인 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the writer who shared the brush of Jiangdong with Zhang Zhao"
@@ -14549,7 +14549,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "elegant",
+     "impression": "dreamy",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -14919,7 +14919,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "머리칼의 계략 — 붉은 실로 묶은 머리칼 · 거짓 항복의 계략 · 복숭아빛 금발 머리 · 날 선 · 가늘고 풍만한 형"
+    "ko": "머리칼의 계략 — 붉은 실로 묶은 머리칼 · 거짓 항복의 계략 · 복숭아빛 금발 머리 · 여우 같은 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the governor who cut her own hair to deceive Cao Xiu"
@@ -14933,7 +14933,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "sharp",
+     "impression": "mischievous",
      "expr": "half_smile",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -15261,7 +15261,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "손권의 보부인 — 추천 쪽지 · 시기하지 않은 · 터키석빛 머리 · 장밋빛 눈 · 부드러운 · 부드러운 미소 · 건장한 굴곡형"
+    "ko": "손권의 보부인 — 추천 쪽지 · 시기하지 않은 · 터키석빛 머리 · 장밋빛 눈 · 수줍은 · 부드러운 미소 · 건장한 굴곡형"
    },
    "title": {
     "en": "Sun Quan's beloved consort, never jealous, who kept recommending others and was honored as empress after death"
@@ -15275,7 +15275,7 @@
    "look": {
     "face": {
      "eye_color": "rose",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "soft_smile",
      "skin_tone": "olive",
      "age": "mid_20s",
@@ -15325,7 +15325,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 비빈전 보부인에서 이름 설명 · 물건 · 인상(부드러운) · 표정(부드러운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(벚꽃 분홍) · 눈 색(장밋빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 비빈전 보부인에서 이름 설명 · 물건 · 인상(수줍은) · 표정(부드러운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(벚꽃 분홍) · 눈 색(장밋빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 cherry_pink → turquoise(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -15361,7 +15361,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "전공주 — 접은 밀서 · 헐뜯은 · 전기 파랑 머리 · 흑요석빛 눈 · 화려한 · 장난스러운 · 아담한 풍만형"
+    "ko": "전공주 — 접은 밀서 · 헐뜯은 · 전기 파랑 머리 · 흑요석빛 눈 · 팜파탈 · 장난스러운 · 아담한 풍만형"
    },
    "title": {
     "en": "the scheming princess of Wu who whispered against the crown prince and plotted until she was exiled"
@@ -15375,7 +15375,7 @@
    "look": {
     "face": {
      "eye_color": "obsidian",
-     "impression": "glamorous",
+     "impression": "femme_fatale",
      "expr": "mischievous",
      "skin_tone": "warm_beige",
      "age": "early_20s",
@@ -15424,7 +15424,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 비빈전에서 이름 설명 · 물건 · 인상(화려한) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(흑요석빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 비빈전에서 이름 설명 · 물건 · 인상(팜파탈) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(흑요석빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 plum_black → electric_blue(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -15460,7 +15460,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 봄 — 꽃 그림 둥근 부채 · 강동의 봄 · 언니 · 로열 블루 머리 · 우아한 · 모래시계형"
+    "ko": "강동의 봄 — 꽃 그림 둥근 부채 · 강동의 봄 · 언니 · 로열 블루 머리 · 섹시한 · 모래시계형"
    },
    "title": {
     "en": "the elder Qiao, Sun Ce's beloved, the spring of Jiangdong"
@@ -15474,7 +15474,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "elegant",
+     "impression": "seductive",
      "expr": "soft_smile",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -15556,7 +15556,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 봄 — 쌍 접부채 · 강동의 봄 · 동생 · 백금발 머리 · 귀여운 · 아담한 풍만형"
+    "ko": "강동의 봄 — 쌍 접부채 · 강동의 봄 · 동생 · 백금발 머리 · 새침한 · 아담한 풍만형"
    },
    "title": {
     "en": "the younger Qiao, Zhou Yu's beloved, the spring of Jiangdong"
@@ -15570,7 +15570,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "cute",
+     "impression": "coquettish",
      "expr": "playful",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -15844,7 +15844,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "화려한 수군 — 금장 극 · 화려한 배 · 라임빛 머리 · 화려한 · 모래시계형"
+    "ko": "화려한 수군 — 금장 극 · 화려한 배 · 라임빛 머리 · 섹시한 · 모래시계형"
    },
    "title": {
     "en": "the general who pacified the Shanyue and sailed splendid ships"
@@ -15858,7 +15858,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "glamorous",
+     "impression": "seductive",
      "expr": "proud",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -16134,7 +16134,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "관우를 잡은 부대 — 갈고리 창 · 약탈한 장식 · 밤색 머리 · 날 선 · 풍만형"
+    "ko": "관우를 잡은 부대 — 갈고리 창 · 약탈한 장식 · 밤색 머리 · 도발적인 · 풍만형"
    },
    "title": {
     "en": "the general whose troops captured Guan Yu"
@@ -16148,7 +16148,7 @@
    "look": {
     "face": {
      "eye_color": "lilac",
-     "impression": "sharp",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -16328,7 +16328,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "낙양을 태운 폭군 — 황금 철퇴 · 낙양의 불길 · 자흑 머리 · 화려한 · 풍만형"
+    "ko": "낙양을 태운 폭군 — 황금 철퇴 · 낙양의 불길 · 자흑 머리 · 퇴폐적인 · 풍만형"
    },
    "title": {
     "en": "the tyrant who burned Luoyang and fell by her own excess"
@@ -16342,7 +16342,7 @@
    "look": {
     "face": {
      "eye_color": "crimson",
-     "impression": "glamorous",
+     "impression": "decadent",
      "expr": "cold_smile",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -16424,7 +16424,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "위양군 — 보랏빛 인끈 · 단 위에 오른 · 금발 · 장밋빛 눈 · 순진한 · 우쭐한 · 가늘고 풍만한 형"
+    "ko": "위양군 — 보랏빛 인끈 · 단 위에 오른 · 금발 · 장밋빛 눈 · 도도한 · 우쭐한 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "Dong Zhuo's granddaughter, made Lady of Weiyang before she came of age and crowned on a terrace built for her"
@@ -16438,7 +16438,7 @@
    "look": {
     "face": {
      "eye_color": "rose",
-     "impression": "innocent",
+     "impression": "haughty",
      "expr": "smug",
      "skin_tone": "porcelain",
      "age": "early_20s",
@@ -16486,7 +16486,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 동탁전 주 영웅기에서 이름 설명 · 물건 · 인상(순진한) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(금발) · 눈 색(장밋빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 동탁전 주 영웅기에서 이름 설명 · 물건 · 인상(도도한) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(금발) · 눈 색(장밋빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 golden_blonde → flame_orange(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -16526,7 +16526,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "사세삼공의 주인 — 보석 의장검 · 명문가의 자부 · 고금빛 머리 · 위엄 있는 · 모래시계형"
+    "ko": "사세삼공의 주인 — 보석 의장검 · 명문가의 자부 · 고금빛 머리 · 도도한 · 모래시계형"
    },
    "title": {
     "en": "the proud lord of a family with four generations of ducal ministers"
@@ -16540,7 +16540,7 @@
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "regal",
+     "impression": "haughty",
      "expr": "proud",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -16622,7 +16622,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "옥새에 눈먼 황제 — 꼭 쥔 옥새 · 가짜 황제 · 버건디 머리 · 화려한 · 풍만형"
+    "ko": "옥새에 눈먼 황제 — 꼭 쥔 옥새 · 가짜 황제 · 버건디 머리 · 퇴폐적인 · 풍만형"
    },
    "title": {
     "en": "the vain noble who proclaimed herself emperor over a jade seal"
@@ -16636,7 +16636,7 @@
    "look": {
     "face": {
      "eye_color": "dark_brown",
-     "impression": "glamorous",
+     "impression": "decadent",
      "expr": "smug",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -16719,7 +16719,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "계교의 선봉 — 장창 · 무모한 선봉 · 선명한 보라 머리 · 사나운 · 굴곡형"
+    "ko": "계교의 선봉 — 장창 · 무모한 선봉 · 선명한 보라 머리 · 당당한 · 굴곡형"
    },
    "title": {
     "en": "the vanguard who fell at Jieqiao against Gongsun Zan's white-armored elite"
@@ -16733,7 +16733,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "determined",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -17111,7 +17111,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "백마장군 — 양날 창 · 새하얀 갑옷 · 풀빛 머리 · 차가운 · 장신 굴곡형"
+    "ko": "백마장군 — 양날 창 · 새하얀 갑옷 · 풀빛 머리 · 도도한 · 장신 굴곡형"
    },
    "title": {
     "en": "the 'White General' who ruled the northern frontier with her all-white elite guard"
@@ -17125,7 +17125,7 @@
    "look": {
     "face": {
      "eye_color": "jade",
-     "impression": "cool",
+     "impression": "haughty",
      "expr": "proud",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -17208,7 +17208,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "형주의 수성 — 경전 두루마리 · 나아가지 않은 수성 · 구리빛 머리 · 우아한 · 풍만형"
+    "ko": "형주의 수성 — 경전 두루마리 · 나아가지 않은 수성 · 구리빛 머리 · 몽환적인 · 풍만형"
    },
    "title": {
     "en": "the governor who held Jing province but never advanced"
@@ -17222,7 +17222,7 @@
    "look": {
     "face": {
      "eye_color": "azure",
-     "impression": "elegant",
+     "impression": "dreamy",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -17306,7 +17306,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "늑대를 들인 주인 — 옥 홀 · 순한 주인 · 잿빛 머리 · 부드러운 · 아담한 굴곡형"
+    "ko": "늑대를 들인 주인 — 옥 홀 · 순한 주인 · 잿빛 머리 · 몽환적인 · 아담한 굴곡형"
    },
    "title": {
     "en": "the gentle ruler of Yi who invited her own downfall"
@@ -17320,7 +17320,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "soft",
+     "impression": "dreamy",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -17996,7 +17996,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "조조를 등진 책사 — 책략 두루마리 · 등을 돌린 책사 · 칠흑 머리 · 날 선 · 장신 굴곡형"
+    "ko": "조조를 등진 책사 — 책략 두루마리 · 등을 돌린 책사 · 칠흑 머리 · 냉미녀 · 장신 굴곡형"
    },
    "title": {
     "en": "the strategist who once saved Cao Cao and then turned against her"
@@ -18010,7 +18010,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "sharp",
+     "impression": "icy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -18304,7 +18304,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "형제의 칼끝 — 장검 · 아우와의 싸움 · 새하얀 머리 · 사나운 · 탄탄한 굴곡형"
+    "ko": "형제의 칼끝 — 장검 · 아우와의 싸움 · 새하얀 머리 · 당찬 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "Yuan Shao's eldest, who fought her own sibling"
@@ -18318,7 +18318,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "fierce",
+     "impression": "sassy",
      "expr": "mildly_annoyed",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -18402,7 +18402,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "틈에 낀 둘째 — 창 · 밀려난 둘째 · 라임빛 머리 · 부드러운 · 아담한 굴곡형"
+    "ko": "틈에 낀 둘째 — 창 · 밀려난 둘째 · 라임빛 머리 · 아련한 · 아담한 굴곡형"
    },
    "title": {
     "en": "Yuan Shao's middle child, squeezed out to You province"
@@ -18416,7 +18416,7 @@
    "look": {
     "face": {
      "eye_color": "magenta",
-     "impression": "soft",
+     "impression": "wistful",
      "expr": "wistful",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -18501,7 +18501,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "편애의 씨앗 — 금장 창 · 아버지의 편애 · 복숭아빛 금발 머리 · 화려한 · 모래시계형"
+    "ko": "편애의 씨앗 — 금장 창 · 아버지의 편애 · 복숭아빛 금발 머리 · 새침한 · 모래시계형"
    },
    "title": {
     "en": "Yuan Shao's favored youngest, whose favoritism sowed ruin"
@@ -18515,7 +18515,7 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "glamorous",
+     "impression": "coquettish",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -18698,7 +18698,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "오환의 선우 — 센 활 · 원씨를 받아들인 · 청록 머리 · 은빛 눈 · 사나운 · 자신 있는 · 아담한 풍만형"
+    "ko": "오환의 선우 — 센 활 · 원씨를 받아들인 · 청록 머리 · 은빛 눈 · 당당한 · 자신 있는 · 아담한 풍만형"
    },
    "title": {
     "en": "the Wuhuan king likened to Modu Chanyu, who allied with Yuan Shao, sheltered Yuan Shang and fell at White Wolf Mountain"
@@ -18712,7 +18712,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "confident",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -18762,7 +18762,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 오환전에서 이름 설명 · 물건 · 인상(사나운) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(끝이 하늘색인 은빛) · 눈 색(은빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 오환전에서 이름 설명 · 물건 · 인상(당당한) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(끝이 하늘색인 은빛) · 눈 색(은빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 ombre_azure → teal(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -18992,7 +18992,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "옥의 직언 — 간언 홀 · 옳은 말 · 쪽빛 머리 · 무표정 · 장신 굴곡형"
+    "ko": "옥의 직언 — 간언 홀 · 옳은 말 · 쪽빛 머리 · 당찬 · 장신 굴곡형"
    },
    "title": {
     "en": "the upright strategist who spoke the truth and died in prison"
@@ -19006,7 +19006,7 @@
    "look": {
     "face": {
      "eye_color": "gold",
-     "impression": "stoic",
+     "impression": "sassy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -19087,7 +19087,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "관도를 본 눈 — 관도 지도 · 미리 본 패배 · 보라 머리 · 날 선 · 모래시계형"
+    "ko": "관도를 본 눈 — 관도 지도 · 미리 본 패배 · 보라 머리 · 아련한 · 모래시계형"
    },
    "title": {
     "en": "the strategist who foresaw the defeat at Guandu"
@@ -19101,7 +19101,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "sharp",
+     "impression": "wistful",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -19184,7 +19184,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "북쪽을 본 최후 — 검 · 끝까지 북쪽을 본 · 해바라기빛 머리 · 사나운 · 건장한 굴곡형"
+    "ko": "북쪽을 본 최후 — 검 · 끝까지 북쪽을 본 · 해바라기빛 머리 · 도도한 · 건장한 굴곡형"
    },
    "title": {
     "en": "the defender of Ye who died facing north toward her lord"
@@ -19198,7 +19198,7 @@
    "look": {
     "face": {
      "eye_color": "jade",
-     "impression": "fierce",
+     "impression": "haughty",
      "expr": "proud",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -19282,7 +19282,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "진영을 가른 혀 — 접부채 · 제 편을 가른 말 · 남빛 검정 머리 · 차가운 · 가늘고 풍만한 형"
+    "ko": "진영을 가른 혀 — 접부채 · 제 편을 가른 말 · 남빛 검정 머리 · 팜파탈 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the schemer whose words split her own camp"
@@ -19296,7 +19296,7 @@
    "look": {
     "face": {
      "eye_color": "graphite_grey",
-     "impression": "cool",
+     "impression": "femme_fatale",
      "expr": "half_smile",
      "skin_tone": "olive",
      "age": "early_20s",
@@ -19667,7 +19667,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "흑산의 주인 — 쌍단도 · 흑산의 무리 · 끝이 분홍인 은빛 머리 · 거친 · 탄탄한 굴곡형"
+    "ko": "흑산의 주인 — 쌍단도 · 흑산의 무리 · 끝이 분홍인 은빛 머리 · 도발적인 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the leader of the Black Mountain bands who ruled the hills"
@@ -19681,7 +19681,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "rugged",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "golden_tan",
      "age": "early_20s",
@@ -19768,7 +19768,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "술이 식기 전 — 무거운 칼 · 식기 전의 술잔 · 라벤더 머리 · 사나운 · 건장한 굴곡형"
+    "ko": "술이 식기 전 — 무거운 칼 · 식기 전의 술잔 · 라벤더 머리 · 도발적인 · 건장한 굴곡형"
    },
    "title": {
     "en": "the fearsome general who fell before a cup of wine cooled"
@@ -19782,7 +19782,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -20255,7 +20255,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "독천의 왕 — 독 창 · 독천 네 갈래 · 라임빛 머리 · 날 선 · 탄탄한 굴곡형"
+    "ko": "독천의 왕 — 독 창 · 독천 네 갈래 · 라임빛 머리 · 신비로운 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the southern king who blocked Shu's path with four poison springs"
@@ -20269,7 +20269,7 @@
    "look": {
     "face": {
      "eye_color": "ice_blue",
-     "impression": "sharp",
+     "impression": "mysterious",
      "expr": "cold_smile",
      "skin_tone": "deep_brown",
      "age": "mid_20s",
@@ -20367,7 +20367,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "cheerful",
+     "impression": "coquettish",
      "expr": "soft_smile",
      "skin_tone": "bronze",
      "age": "early_20s",
@@ -20755,7 +20755,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "남중의 대성 — 한 장짜리 답장 · 정삭이 셋 · 귤빛 머리 · 호박빛 눈 · 화려한 · 차가운 미소 · 아담한 풍만형"
+    "ko": "남중의 대성 — 한 장짜리 답장 · 정삭이 셋 · 귤빛 머리 · 호박빛 눈 · 도발적인 · 차가운 미소 · 아담한 풍만형"
    },
    "title": {
     "en": "the Nanzhong clan chief who answered Shu's six-page letter with one page — three calendars, so whom to follow?"
@@ -20769,7 +20769,7 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "glamorous",
+     "impression": "provocative",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -20816,7 +20816,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 여개전에서 이름 설명 · 물건 · 인상(화려한) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(호박빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 여개전에서 이름 설명 · 물건 · 인상(도발적인) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(자줏빛 검은) · 눈 색(호박빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 plum_black → tangerine(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -20957,7 +20957,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "비도의 여왕 — 비도 묶음 · 불꽃의 여왕 · 먹빛 남색 머리 · 사나운 · 슬림 근육형"
+    "ko": "비도의 여왕 — 비도 묶음 · 불꽃의 여왕 · 먹빛 남색 머리 · 도발적인 · 슬림 근육형"
    },
    "title": {
     "en": "the queen of the Nanman, thrower of flying daggers"
@@ -20971,7 +20971,7 @@
    "look": {
     "face": {
      "eye_color": "dark_brown",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "confident",
      "skin_tone": "bronze",
      "age": "mid_20s",
@@ -21056,7 +21056,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "남만의 공주 — 굽은 쌍칼 · 맞바꿔 돌아온 · 푸크시아 머리 · 에메랄드 눈 · 귀여운 · 장난스러운 · 모래시계형"
+    "ko": "남만의 공주 — 굽은 쌍칼 · 맞바꿔 돌아온 · 푸크시아 머리 · 에메랄드 눈 · 새침한 · 장난스러운 · 모래시계형"
    },
    "title": {
     "en": "the daughter of Meng Huo and Lady Zhurong who fought Guan Suo, was traded back in a captive exchange and married him (from Peking opera)"
@@ -21070,7 +21070,7 @@
    "look": {
     "face": {
      "eye_color": "emerald",
-     "impression": "cute",
+     "impression": "coquettish",
      "expr": "mischievous",
      "skin_tone": "golden_tan",
      "age": "early_20s",
@@ -21119,7 +21119,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 경극 「용봉건」(부서가 곤강에서 피황으로 옮김에서 이름 설명 · 물건 · 인상(귀여운) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(벚꽃 분홍) · 눈 색(에메랄드)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 경극 「용봉건」(부서가 곤강에서 피황으로 옮김에서 이름 설명 · 물건 · 인상(새침한) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(벚꽃 분홍) · 눈 색(에메랄드)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 cherry_pink → fuchsia(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -21159,7 +21159,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "술잔 속 방사 — 신비한 술잔 · 사라지는 방사 · 풀빛 머리 · 나른한 · 가늘고 풍만한 형"
+    "ko": "술잔 속 방사 — 신비한 술잔 · 사라지는 방사 · 풀빛 머리 · 여우 같은 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the Taoist sorcerer who vanished into a wine cup"
@@ -21173,7 +21173,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "languid",
+     "impression": "mischievous",
      "expr": "mischievous",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -21256,7 +21256,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "신의 — 침과 약초 상자 · 신의 · 밝은 빨강 머리 · 부드러운 · 굴곡형"
+    "ko": "신의 — 침과 약초 상자 · 신의 · 밝은 빨강 머리 · 수줍은 · 굴곡형"
    },
    "title": {
     "en": "the miracle physician who proposed opening a skull and was imprisoned"
@@ -21270,7 +21270,7 @@
    "look": {
     "face": {
      "eye_color": "hazel",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "gentle",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -21367,7 +21367,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "innocent",
+     "impression": "dreamy",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -21448,7 +21448,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "수경 선생 — 깃털 부채 · 와룡과 봉추를 알린 · 딸기 금발 머리 · 부드러운 · 모래시계형"
+    "ko": "수경 선생 — 깃털 부채 · 와룡과 봉추를 알린 · 딸기 금발 머리 · 몽환적인 · 모래시계형"
    },
    "title": {
     "en": "Water Mirror, who revealed the names of the Sleeping Dragon and the Fledgling Phoenix"
@@ -21462,7 +21462,7 @@
    "look": {
     "face": {
      "eye_color": "crimson",
-     "impression": "soft",
+     "impression": "dreamy",
      "expr": "soft_smile",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -21543,7 +21543,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "제갈량의 장인 — 대나무 지팡이 · 딸을 짝지어 준 · 라벤더 머리 · 사파이어빛 눈 · 성숙한 · 재미있어하는 · 골반 굴곡형"
+    "ko": "제갈량의 장인 — 대나무 지팡이 · 딸을 짝지어 준 · 라벤더 머리 · 사파이어빛 눈 · 여우 같은 · 재미있어하는 · 골반 굴곡형"
    },
    "title": {
     "en": "the plain-spoken Mian-south scholar who offered his clever daughter to Zhuge Liang"
@@ -21557,7 +21557,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "mature",
+     "impression": "mischievous",
      "expr": "amused",
      "skin_tone": "warm_beige",
      "age": "early_20s",
@@ -21605,7 +21605,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전 주 양양기에서 이름 설명 · 물건 · 인상(성숙한) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(은백) · 눈 색(사파이어빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 제갈량전 주 양양기에서 이름 설명 · 물건 · 인상(여우 같은) · 표정(재미있어하는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(은백) · 눈 색(사파이어빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 silver_white → lavender(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -21645,7 +21645,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "점술가 — 점대 · 운명을 읽는 · 적갈색 머리 · 나른한 · 가늘고 풍만한 형"
+    "ko": "점술가 — 점대 · 운명을 읽는 · 적갈색 머리 · 신비로운 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the diviner who read people's fates in hexagrams"
@@ -21659,7 +21659,7 @@
    "look": {
     "face": {
      "eye_color": "lilac",
-     "impression": "languid",
+     "impression": "mysterious",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -21749,7 +21749,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "폐립의 붓 — 독병 · 황제를 갈아 치운 · 청동빛 머리 · 차가운 · 장신 굴곡형"
+    "ko": "폐립의 붓 — 독병 · 황제를 갈아 치운 · 청동빛 머리 · 팜파탈 · 장신 굴곡형"
    },
    "title": {
     "en": "the strategist whose brush deposed and enthroned emperors"
@@ -21763,7 +21763,7 @@
    "look": {
     "face": {
      "eye_color": "azure",
-     "impression": "cool",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -21847,7 +21847,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "장안의 강탈자 — 갈고리 극 · 황제를 끌고 다닌 · 회보라 머리 · 사나운 · 풍만형"
+    "ko": "장안의 강탈자 — 갈고리 극 · 황제를 끌고 다닌 · 회보라 머리 · 도발적인 · 풍만형"
    },
    "title": {
     "en": "the warlord who seized Chang'an and dragged the emperor about"
@@ -21861,7 +21861,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "porcelain",
      "age": "late_20s",
@@ -21942,7 +21942,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "도성을 망친 다툼 — 무거운 칼 · 다툼의 끝 · 시안 머리 · 사나운 · 건장한 굴곡형"
+    "ko": "도성을 망친 다툼 — 무거운 칼 · 다툼의 끝 · 시안 머리 · 당찬 · 건장한 굴곡형"
    },
    "title": {
     "en": "Li Jue's rival whose quarrels ruined the capital"
@@ -21956,7 +21956,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "fierce",
+     "impression": "sassy",
      "expr": "mildly_annoyed",
      "skin_tone": "olive",
      "age": "early_20s",
@@ -22038,7 +22038,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "두 영웅을 이긴 — 장창 · 조조와 손견을 이긴 · 에메랄드빛 머리 · 차가운 · 장신 굴곡형"
+    "ko": "두 영웅을 이긴 — 장창 · 조조와 손견을 이긴 · 에메랄드빛 머리 · 당당한 · 장신 굴곡형"
    },
    "title": {
     "en": "the general who defeated both Cao Cao and Sun Jian"
@@ -22052,7 +22052,7 @@
    "look": {
     "face": {
      "eye_color": "steel_blue",
-     "impression": "cool",
+     "impression": "confident",
      "expr": "confident",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -22133,7 +22133,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "연환계의 주인 — 옥 홀 · 동탁을 무너뜨린 · 민트 머리 · 성숙한 · 풍만형"
+    "ko": "연환계의 주인 — 옥 홀 · 동탁을 무너뜨린 · 민트 머리 · 팜파탈 · 풍만형"
    },
    "title": {
     "en": "the minister who toppled Dong Zhuo with the chain stratagem and fell herself"
@@ -22147,7 +22147,7 @@
    "look": {
     "face": {
      "eye_color": "honey",
-     "impression": "mature",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "golden_tan",
      "age": "early_30s",
@@ -22820,7 +22820,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "삼첨도 — 삼첨도 · 원술의 으뜸 · 금발 머리 · 사나운 · 건장한 굴곡형"
+    "ko": "삼첨도 — 삼첨도 · 원술의 으뜸 · 금발 머리 · 당당한 · 건장한 굴곡형"
    },
    "title": {
     "en": "Yuan Shu's foremost general, wielder of the three-pointed blade"
@@ -22834,7 +22834,7 @@
    "look": {
     "face": {
      "eye_color": "rose",
-     "impression": "fierce",
+     "impression": "confident",
      "expr": "confident",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -22918,7 +22918,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "첨산의 문전박대 — 산채 도끼 · 옛 주인을 돌려보낸 · 벚꽃 분홍 머리 · 호박빛 눈 · 거친 · 시큰둥한 · 장신 굴곡형"
+    "ko": "첨산의 문전박대 — 산채 도끼 · 옛 주인을 돌려보낸 · 벚꽃 분홍 머리 · 호박빛 눈 · 냉미녀 · 시큰둥한 · 장신 굴곡형"
    },
    "title": {
     "en": "the retainer of Yuan Shu who held Mount Qian and turned her fallen lord away"
@@ -22932,7 +22932,7 @@
    "look": {
     "face": {
      "eye_color": "amber",
-     "impression": "rugged",
+     "impression": "icy",
      "expr": "unimpressed",
      "skin_tone": "porcelain",
      "age": "late_20s",
@@ -22979,7 +22979,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 원술전에서 이름 설명 · 물건 · 인상(거친) · 표정(시큰둥한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(청록) · 눈 색(호박빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 원술전에서 이름 설명 · 물건 · 인상(냉미녀) · 표정(시큰둥한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(청록) · 눈 색(호박빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 teal → cherry_pink(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -23534,7 +23534,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "오소의 불 — 술병과 칼 · 오소의 불길 · 복숭아빛 금발 머리 · 나른한 · 풍만형"
+    "ko": "오소의 불 — 술병과 칼 · 오소의 불길 · 복숭아빛 금발 머리 · 퇴폐적인 · 풍만형"
    },
    "title": {
     "en": "the general who burned with the grain stores at Wuchao"
@@ -23548,7 +23548,7 @@
    "look": {
     "face": {
      "eye_color": "leaf_green",
-     "impression": "languid",
+     "impression": "decadent",
      "expr": "sleepy",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -23830,7 +23830,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "뇌물의 간신 — 금 주머니 · 뇌물에 판 · 마젠타 머리 · 화려한 · 풍만형"
+    "ko": "뇌물의 간신 — 금 주머니 · 뇌물에 판 · 마젠타 머리 · 퇴폐적인 · 풍만형"
    },
    "title": {
     "en": "the corrupt minister who sold out loyal men wherever bribes reached"
@@ -23844,7 +23844,7 @@
    "look": {
     "face": {
      "eye_color": "azure",
-     "impression": "glamorous",
+     "impression": "decadent",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -23928,7 +23928,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "오두미도 — 부적 검 · 쌀 다섯 말의 도 · 먹빛 녹음 머리 · 우아한 · 장신 굴곡형"
+    "ko": "오두미도 — 부적 검 · 쌀 다섯 말의 도 · 먹빛 녹음 머리 · 신비로운 · 장신 굴곡형"
    },
    "title": {
     "en": "the Taoist ruler who governed Hanzhong for thirty years with the Five Pecks of Rice"
@@ -23942,7 +23942,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "elegant",
+     "impression": "mysterious",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -24333,7 +24333,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "함진영 — 무거운 창 · 무너지지 않는 진 · 핫핑크 머리 · 무표정 · 장신 굴곡형"
+    "ko": "함진영 — 무거운 창 · 무너지지 않는 진 · 핫핑크 머리 · 냉미녀 · 장신 굴곡형"
    },
    "title": {
     "en": "commander of the unbreakable Formation-Breaking Battalion"
@@ -24347,7 +24347,7 @@
    "look": {
     "face": {
      "eye_color": "crimson",
-     "impression": "stoic",
+     "impression": "icy",
      "expr": "serious",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -24430,7 +24430,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "선등사 — 노와 방패 · 백마의종을 깨뜨린 · 해바라기빛 머리 · 날 선 · 탄탄한 굴곡형"
+    "ko": "선등사 — 노와 방패 · 백마의종을 깨뜨린 · 해바라기빛 머리 · 당당한 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the commander who broke Gongsun Zan's white-armored elite with her crossbow-shield vanguard"
@@ -24444,7 +24444,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "sharp",
+     "impression": "confident",
      "expr": "confident",
      "skin_tone": "olive",
      "age": "early_20s",
@@ -24526,7 +24526,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "여포를 속인 아버지 — 접부채 · 여포를 속인 · 먹빛 녹음 머리 · 차가운 · 모래시계형"
+    "ko": "여포를 속인 아버지 — 접부채 · 여포를 속인 · 먹빛 녹음 머리 · 팜파탈 · 모래시계형"
    },
    "title": {
     "en": "the elder who deceived Lü Bu together with her child"
@@ -24540,7 +24540,7 @@
    "look": {
     "face": {
      "eye_color": "ice_blue",
-     "impression": "cool",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -24740,7 +24740,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "조조를 세운 — 검 · 조조를 알아본 · 적갈색 머리 · 성숙한 · 풍만형"
+    "ko": "조조를 세운 — 검 · 조조를 알아본 · 적갈색 머리 · 아련한 · 풍만형"
    },
    "title": {
     "en": "the ally who raised Cao Cao up and fell to the Yellow Turbans"
@@ -24754,7 +24754,7 @@
    "look": {
     "face": {
      "eye_color": "steel_blue",
-     "impression": "mature",
+     "impression": "wistful",
      "expr": "gentle",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -24842,7 +24842,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "서주를 넘긴 — 서주 인장 · 유비에게 넘긴 · 백금발 머리 · 부드러운 · 굴곡형"
+    "ko": "서주를 넘긴 — 서주 인장 · 유비에게 넘긴 · 백금발 머리 · 아련한 · 굴곡형"
    },
    "title": {
     "en": "the old governor who passed Xu province to Liu Bei on her deathbed"
@@ -24856,7 +24856,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "soft",
+     "impression": "wistful",
      "expr": "wistful",
      "skin_tone": "warm_beige",
      "age": "early_30s",
@@ -24945,7 +24945,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "하비의 문 — 성문 빗장 열쇠 · 장비와 다툰 · 스칼렛 머리 · 짙은 갈색 눈 · 성숙한 · 살짝 언짢은 · 골반 굴곡형"
+    "ko": "하비의 문 — 성문 빗장 열쇠 · 장비와 다툰 · 스칼렛 머리 · 짙은 갈색 눈 · 당찬 · 살짝 언짢은 · 골반 굴곡형"
    },
    "title": {
     "en": "the old officer of Tao Qian who quarreled with Zhang Fei and let Lü Bu into Xiapi"
@@ -24959,7 +24959,7 @@
    "look": {
     "face": {
      "eye_color": "dark_brown",
-     "impression": "mature",
+     "impression": "sassy",
      "expr": "mildly_annoyed",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -25006,7 +25006,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기 · 촉서 선주전에서 이름 설명 · 물건 · 인상(성숙한) · 표정(살짝 언짢은)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(먹빛 초록) · 눈 색(짙은 갈색)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기 · 촉서 선주전에서 이름 설명 · 물건 · 인상(당찬) · 표정(살짝 언짢은)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(먹빛 초록) · 눈 색(짙은 갈색)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 ink_green → scarlet(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -25046,7 +25046,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "기주를 내준 — 기주 인장 · 그대로 내준 · 끝이 라일락인 보라 머리 · 부드러운 · 아담한 굴곡형"
+    "ko": "기주를 내준 — 기주 인장 · 그대로 내준 · 끝이 라일락인 보라 머리 · 수줍은 · 아담한 굴곡형"
    },
    "title": {
     "en": "the timid governor who handed Ji province to Yuan Shao"
@@ -25060,7 +25060,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "pensive",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -25146,7 +25146,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "한복의 상장 — 큰 도끼 · 기대를 한 몸에 받은 · 바다빛 머리 · 숲빛 눈 · 사나운 · 자신 있는 · 아담한 풍만형"
+    "ko": "한복의 상장 — 큰 도끼 · 기대를 한 몸에 받은 · 바다빛 머리 · 숲빛 눈 · 도발적인 · 자신 있는 · 아담한 풍만형"
    },
    "title": {
     "en": "Han Fu's vaunted chief general who rode out with a great axe against Hua Xiong and was cut down at once (from the novel)"
@@ -25160,7 +25160,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "confident",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -25207,7 +25207,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지연의 5회에서 이름 설명 · 물건 · 인상(사나운) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(밤색) · 눈 색(숲빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지연의 5회에서 이름 설명 · 물건 · 인상(도발적인) · 표정(자신 있는)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(밤색) · 눈 색(숲빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 chestnut → ocean_blue(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -25344,7 +25344,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "지공장군 — 부적 검 · 땅의 장군 · 회보라 머리 · 차가운 · 모래시계형"
+    "ko": "지공장군 — 부적 검 · 땅의 장군 · 회보라 머리 · 신비로운 · 모래시계형"
    },
    "title": {
     "en": "Zhang Jiao's sibling, the 'General of Earth'"
@@ -25358,7 +25358,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "cool",
+     "impression": "mysterious",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -25756,7 +25756,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "innocent",
+     "impression": "mysterious",
      "expr": "calm",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -26145,7 +26145,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "완성의 화근 — 흰 비단 수건 · 재앙의 미색 · 청동빛 머리 · 화려한 · 모래시계형"
+    "ko": "완성의 화근 — 흰 비단 수건 · 재앙의 미색 · 청동빛 머리 · 섹시한 · 모래시계형"
    },
    "title": {
     "en": "Zhang Ji's widow whose beauty became the spark of disaster at Wancheng"
@@ -26159,7 +26159,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "glamorous",
+     "impression": "seductive",
      "expr": "sensual",
      "skin_tone": "porcelain",
      "age": "mid_20s",
@@ -26353,7 +26353,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "옷섶의 조서 — 비단 밀조 · 옷섶에 감춘 · 푸크시아 머리 · 무표정 · 모래시계형"
+    "ko": "옷섶의 조서 — 비단 밀조 · 옷섶에 감춘 · 푸크시아 머리 · 신비로운 · 모래시계형"
    },
    "title": {
     "en": "the imperial in-law who risked her life on a secret edict hidden in her robe"
@@ -26367,7 +26367,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "stoic",
+     "impression": "mysterious",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -26865,7 +26865,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "마등의 둘째 — 서량 칼 · 아버지를 따라 업으로 간 · 라벤더 머리 · 창공빛 눈 · 쾌활한 · 부드러운 미소 · 아담한 풍만형"
+    "ko": "마등의 둘째 — 서량 칼 · 아버지를 따라 업으로 간 · 라벤더 머리 · 창공빛 눈 · 새침한 · 부드러운 미소 · 아담한 풍만형"
    },
    "title": {
     "en": "the second child of Ma Teng who followed her father to Ye as Commandant of Chariots"
@@ -26879,7 +26879,7 @@
    "look": {
     "face": {
      "eye_color": "azure",
-     "impression": "cheerful",
+     "impression": "coquettish",
      "expr": "soft_smile",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -26927,7 +26927,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 마초전 주 전략에서 이름 설명 · 물건 · 인상(쾌활한) · 표정(부드러운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(금발) · 눈 색(창공빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 마초전 주 전략에서 이름 설명 · 물건 · 인상(새침한) · 표정(부드러운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(금발) · 눈 색(창공빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 golden_blonde → lavender(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -26967,7 +26967,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "마등의 막내 — 쇠 박은 단창 · 업에 머문 막내 · 끝이 분홍인 은빛 머리 · 하늘빛 눈 · 보이시한 · 장난기 어린 · 모래시계형"
+    "ko": "마등의 막내 — 쇠 박은 단창 · 업에 머문 막내 · 끝이 분홍인 은빛 머리 · 하늘빛 눈 · 새침한 · 장난기 어린 · 모래시계형"
    },
    "title": {
     "en": "the youngest child of Ma Teng, Commandant of Cavalry at Ye"
@@ -26981,7 +26981,7 @@
    "look": {
     "face": {
      "eye_color": "sky_blue",
-     "impression": "boyish",
+     "impression": "coquettish",
      "expr": "playful",
      "skin_tone": "porcelain",
      "age": "late_20s",
@@ -27029,7 +27029,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 마초전 주 전략에서 이름 설명 · 물건 · 인상(보이시한) · 표정(장난기 어린)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(레몬빛) · 눈 색(하늘빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 마초전 주 전략에서 이름 설명 · 물건 · 인상(새침한) · 표정(장난기 어린)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(레몬빛) · 눈 색(하늘빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 lemon_yellow → ombre_pink(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -27171,7 +27171,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "위남에 진 관중 장수 — 굽은 기창 · 동관을 막은 · 시안 머리 · 산호빛 눈 · 사나운 · 우쭐한 · 장신 굴곡형"
+    "ko": "위남에 진 관중 장수 — 굽은 기창 · 동관을 막은 · 시안 머리 · 산호빛 눈 · 도발적인 · 우쭐한 · 장신 굴곡형"
    },
    "title": {
     "en": "the Guanzhong warlord who held Tong Pass with Ma Chao and fell south of the Wei"
@@ -27185,7 +27185,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -27235,7 +27235,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기 건안 16년(211)에서 이름 설명 · 물건 · 인상(사나운) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(불꽃 주황) · 눈 색(산호빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기 건안 16년(211)에서 이름 설명 · 물건 · 인상(도발적인) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(불꽃 주황) · 눈 색(산호빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 flame_orange → cyan(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -27275,7 +27275,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "도살자 대장군 — 금 식칼 · 백정 출신 대장군 · 끝이 푸른 은빛 머리 · 거친 · 풍만형"
+    "ko": "도살자 대장군 — 금 식칼 · 백정 출신 대장군 · 끝이 푸른 은빛 머리 · 퇴폐적인 · 풍만형"
    },
    "title": {
     "en": "the butcher-turned-generalissimo who tried to purge the eunuchs"
@@ -27289,7 +27289,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "rugged",
+     "impression": "decadent",
      "expr": "smug",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -27481,7 +27481,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "광릉태수 — 추천 편지 · 장홍을 믿은 · 끝이 분홍인 은빛 머리 · 맑은 물빛 눈 · 부드러운 · 생각에 잠긴 · 탄탄한 굴곡형"
+    "ko": "광릉태수 — 추천 편지 · 장홍을 믿은 · 끝이 분홍인 은빛 머리 · 맑은 물빛 눈 · 아련한 · 생각에 잠긴 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the Guangling governor and Zhang Miao's younger brother who held Yongqiu to the end, trusting only Zang Hong"
@@ -27495,7 +27495,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "soft",
+     "impression": "wistful",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -27545,7 +27545,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 장홍전에서 이름 설명 · 물건 · 인상(부드러운) · 표정(생각에 잠긴)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(푸른 검은) · 눈 색(맑은 물빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 장홍전에서 이름 설명 · 물건 · 인상(아련한) · 표정(생각에 잠긴)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(푸른 검은) · 눈 색(맑은 물빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 blue_black → ombre_pink(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -27990,7 +27990,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "동군태수 — 삼공의 글 · 맹을 일으킨 · 에메랄드빛 머리 · 창공빛 눈 · 우아한 · 옅은 미소 · 탄탄한 굴곡형"
+    "ko": "동군태수 — 삼공의 글 · 맹을 일으킨 · 에메랄드빛 머리 · 창공빛 눈 · 여우 같은 · 옅은 미소 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the Dong commandery governor who forged a letter in the Three Excellencies' names to raise the eastern coalition"
@@ -28004,7 +28004,7 @@
    "look": {
     "face": {
      "eye_color": "azure",
-     "impression": "elegant",
+     "impression": "mischievous",
      "expr": "half_smile",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -28052,7 +28052,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기와 주 영웅기에서 이름 설명 · 물건 · 인상(우아한) · 표정(옅은 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(앤티크 골드) · 눈 색(창공빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 무제기와 주 영웅기에서 이름 설명 · 물건 · 인상(여우 같은) · 표정(옅은 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(앤티크 골드) · 눈 색(창공빛)은 같은 묶음 25명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 antique_gold → emerald_green(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -28092,7 +28092,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "장사의 태수 — 태수 인장 · 제 장수에 스러진 · 전기 파랑 머리 · 차가운 · 아담한 굴곡형"
+    "ko": "장사의 태수 — 태수 인장 · 제 장수에 스러진 · 전기 파랑 머리 · 도도한 · 아담한 굴곡형"
    },
    "title": {
     "en": "the governor of Changsha struck down by her own general"
@@ -28106,7 +28106,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "cool",
+     "impression": "haughty",
      "expr": "mildly_annoyed",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -28189,7 +28189,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 자사 — 관인 · 손책에 밀린 · 남색 머리 · 성숙한 · 모래시계형"
+    "ko": "강동의 자사 — 관인 · 손책에 밀린 · 남색 머리 · 몽환적인 · 모래시계형"
    },
    "title": {
     "en": "the inspector who held Jiangdong until Sun Ce pushed her out"
@@ -28203,7 +28203,7 @@
    "look": {
     "face": {
      "eye_color": "hazel",
-     "impression": "mature",
+     "impression": "dreamy",
      "expr": "pensive",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -28598,7 +28598,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "바람을 읽는 태수 — 바람 점 깃발 · 백성을 위해 군사를 흩은 · 라임빛 머리 · 쪽빛 눈 · 우아한 · 생각에 잠긴 · 굴곡형"
+    "ko": "바람을 읽는 태수 — 바람 점 깃발 · 백성을 위해 군사를 흩은 · 라임빛 머리 · 쪽빛 눈 · 몽환적인 · 생각에 잠긴 · 굴곡형"
    },
    "title": {
     "en": "the learned administrator of Danyang who disbanded her troops rather than see the people punished"
@@ -28612,7 +28612,7 @@
    "look": {
     "face": {
      "eye_color": "indigo",
-     "impression": "elegant",
+     "impression": "dreamy",
      "expr": "pensive",
      "skin_tone": "golden_tan",
      "age": "mid_20s",
@@ -28659,7 +28659,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 손정전과 그 주에서 이름 설명 · 물건 · 인상(우아한) · 표정(생각에 잠긴)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(라벤더) · 눈 색(쪽빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 손정전과 그 주에서 이름 설명 · 물건 · 인상(몽환적인) · 표정(생각에 잠긴)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(라벤더) · 눈 색(쪽빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 lavender → lime(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -28699,7 +28699,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "두 주인 없는 충신 — 장창 · 두 주인을 섬기지 않는 · 끝이 붉은 검은 머리 · 무표정 · 장신 굴곡형"
+    "ko": "두 주인 없는 충신 — 장창 · 두 주인을 섬기지 않는 · 끝이 붉은 검은 머리 · 냉미녀 · 장신 굴곡형"
    },
    "title": {
     "en": "the loyal general of Yi — 'a loyal subject does not serve two masters'"
@@ -28713,7 +28713,7 @@
    "look": {
     "face": {
      "eye_color": "lilac",
-     "impression": "stoic",
+     "impression": "icy",
      "expr": "proud",
      "skin_tone": "warm_beige",
      "age": "early_20s",
@@ -28996,7 +28996,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "호협의 수군장 — 배 오르는 칼 · 호협으로 이름난 · 시안 머리 · 남빛 눈 · 화려한 · 장난스러운 · 굴곡형"
+    "ko": "호협의 수군장 — 배 오르는 칼 · 호협으로 이름난 · 시안 머리 · 남빛 눈 · 새침한 · 장난스러운 · 굴곡형"
    },
    "title": {
     "en": "the gallant cousin of Wu Yi who led the river fleet at Yiling"
@@ -29010,7 +29010,7 @@
    "look": {
     "face": {
      "eye_color": "navy",
-     "impression": "glamorous",
+     "impression": "coquettish",
      "expr": "mischievous",
      "skin_tone": "golden_tan",
      "age": "late_20s",
@@ -29057,7 +29057,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 양희전 계한보신찬 주에서 이름 설명 · 물건 · 인상(화려한) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로열 블루) · 눈 색(남빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 양희전 계한보신찬 주에서 이름 설명 · 물건 · 인상(새침한) · 표정(장난스러운)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로열 블루) · 눈 색(남빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 royal_blue → cyan(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -29111,7 +29111,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "cool",
+     "impression": "decadent",
      "expr": "half_smile",
      "skin_tone": "porcelain",
      "age": "early_20s",
@@ -29200,7 +29200,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "서천 지도 — 서천 지도 · 소매 속 지도 · 벚꽃 분홍 머리 · 날 선 · 아담한 풍만형"
+    "ko": "서천 지도 — 서천 지도 · 소매 속 지도 · 벚꽃 분홍 머리 · 여우 같은 · 아담한 풍만형"
    },
    "title": {
     "en": "the envoy who carried the map of Western Shu in her sleeve"
@@ -29214,7 +29214,7 @@
    "look": {
     "face": {
      "eye_color": "teal",
-     "impression": "sharp",
+     "impression": "mischievous",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -29298,7 +29298,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "익주목 — 금빛 수레 방울 · 천자의 기운을 좇은 · 산호 분홍 머리 · 연보라 눈 · 위엄 있는 · 차가운 미소 · 모래시계형"
+    "ko": "익주목 — 금빛 수레 방울 · 천자의 기운을 좇은 · 산호 분홍 머리 · 연보라 눈 · 도도한 · 차가운 미소 · 모래시계형"
    },
    "title": {
     "en": "the imperial clansman who sought Yi Province for its \"air of the Son of Heaven\" and built imperial carriages"
@@ -29312,7 +29312,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "regal",
+     "impression": "haughty",
      "expr": "cold_smile",
      "skin_tone": "golden_tan",
      "age": "early_20s",
@@ -29361,7 +29361,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 유이목전에서 이름 설명 · 물건 · 인상(위엄 있는) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로열 퍼플) · 눈 색(연보라)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 유이목전에서 이름 설명 · 물건 · 인상(도도한) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(로열 퍼플) · 눈 색(연보라)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 royal_purple → coral_pink(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -29401,7 +29401,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "부현의 방패 — 서늘한 강철 극 · 부현에서 막은 · 끝이 라일락인 보라 머리 · 숲빛 눈 · 차가운 · 집중한 · 슬림 근육형"
+    "ko": "부현의 방패 — 서늘한 강철 극 · 부현에서 막은 · 끝이 라일락인 보라 머리 · 숲빛 눈 · 냉미녀 · 집중한 · 슬림 근육형"
    },
    "title": {
     "en": "the officer of Liu Zhang who met Liu Bei at Fu and fell back to Mianzhu"
@@ -29415,7 +29415,7 @@
    "look": {
     "face": {
      "eye_color": "forest_green",
-     "impression": "cool",
+     "impression": "icy",
      "expr": "focused",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -29462,7 +29462,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 촉서 선주전에서 이름 설명 · 물건 · 인상(차가운) · 표정(집중한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(풀빛) · 눈 색(숲빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 촉서 선주전에서 이름 설명 · 물건 · 인상(냉미녀) · 표정(집중한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(풀빛) · 눈 색(숲빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 grass_green → ombre_violet(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -29605,7 +29605,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "오소의 길 — 오소 길 두루마리 · 길을 일러준 · 노을 분홍 머리 · 날 선 · 가늘고 풍만한 형"
+    "ko": "오소의 길 — 오소 길 두루마리 · 길을 일러준 · 노을 분홍 머리 · 여우 같은 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the defector who showed Cao Cao the way to Wuchao"
@@ -29619,7 +29619,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "sharp",
+     "impression": "mischievous",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -29812,7 +29812,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "권모의 형 — 책략 두루마리 · 권모를 앞세운 · 버건디 머리 · 차가운 · 모래시계형"
+    "ko": "권모의 형 — 책략 두루마리 · 권모를 앞세운 · 버건디 머리 · 신비로운 · 모래시계형"
    },
    "title": {
     "en": "the strategist who advised governing chaos with stratagems"
@@ -29826,7 +29826,7 @@
    "look": {
     "face": {
      "eye_color": "ember",
-     "impression": "cool",
+     "impression": "mysterious",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -30320,7 +30320,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "건안칠자 — 먹 탁본 · 한 번 읽고 외운 · 캐러멜빛 머리 · 라일락빛 눈 · 나른한 · 옅은 미소 · 골반 굴곡형"
+    "ko": "건안칠자 — 먹 탁본 · 한 번 읽고 외운 · 캐러멜빛 머리 · 라일락빛 눈 · 몽환적인 · 옅은 미소 · 골반 굴곡형"
    },
    "title": {
     "en": "the prodigy poet who sheltered under Liu Biao and could recite a roadside stele after one reading"
@@ -30334,7 +30334,7 @@
    "look": {
     "face": {
      "eye_color": "lilac",
-     "impression": "languid",
+     "impression": "dreamy",
      "expr": "half_smile",
      "skin_tone": "golden_tan",
      "age": "early_20s",
@@ -30381,7 +30381,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 왕찬전에서 이름 설명 · 물건 · 인상(나른한) · 표정(옅은 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(연기빛 라일락) · 눈 색(라일락빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 왕찬전에서 이름 설명 · 물건 · 인상(몽환적인) · 표정(옅은 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(연기빛 라일락) · 눈 색(라일락빛)은 같은 묶음 27명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 smoky_lilac → caramel(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -30422,7 +30422,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "북 치는 처사 — 북채 · 조조를 욕보인 · 끝이 푸른 은빛 머리 · 불씨빛 눈 · 사나운 · 차가운 미소 · 건장한 굴곡형"
+    "ko": "북 치는 처사 — 북채 · 조조를 욕보인 · 끝이 푸른 은빛 머리 · 불씨빛 눈 · 도발적인 · 차가운 미소 · 건장한 굴곡형"
    },
    "title": {
     "en": "the arrogant prodigy who, made a drummer by Cao Cao, stripped at the banquet and shamed him instead"
@@ -30436,7 +30436,7 @@
    "look": {
     "face": {
      "eye_color": "ember",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -30483,7 +30483,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 후한서 문원전 예형에서 이름 설명 · 물건 · 인상(사나운) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(마젠타) · 눈 색(불씨빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 후한서 문원전 예형에서 이름 설명 · 물건 · 인상(도발적인) · 표정(차가운 미소)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(마젠타) · 눈 색(불씨빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 magenta → ombre_azure(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -31025,7 +31025,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "성문을 연 — 밧줄 · 주인을 묶은 · 전기 파랑 머리 · 차가운 · 탄탄한 굴곡형"
+    "ko": "성문을 연 — 밧줄 · 주인을 묶은 · 전기 파랑 머리 · 팜파탈 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the officer who bound her lord and opened the gate"
@@ -31039,7 +31039,7 @@
    "look": {
     "face": {
      "eye_color": "magenta",
-     "impression": "cool",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "porcelain",
      "age": "late_20s",
@@ -31222,7 +31222,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "회남의 반역 — 무거운 창 · 불같은 성정 · 꿀빛 갈색 머리 · 사나운 · 건장한 굴곡형"
+    "ko": "회남의 반역 — 무거운 창 · 불같은 성정 · 꿀빛 갈색 머리 · 당찬 · 건장한 굴곡형"
    },
    "title": {
     "en": "the fiery general who rose in Huainan with her child"
@@ -31236,7 +31236,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "fierce",
+     "impression": "sassy",
      "expr": "mildly_annoyed",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -31517,7 +31517,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "눈의 상처 — 검은 쇠검 · 비단 붕대 한쪽 눈 · 스칼렛 머리 · 차가운 · 장신 굴곡형"
+    "ko": "눈의 상처 — 검은 쇠검 · 비단 붕대 한쪽 눈 · 스칼렛 머리 · 냉미녀 · 장신 굴곡형"
    },
    "title": {
     "en": "the Sima heir who seized the court even while suffering an eye wound"
@@ -31531,7 +31531,7 @@
    "look": {
     "face": {
      "eye_color": "magenta",
-     "impression": "cool",
+     "impression": "icy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -31620,7 +31620,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "길 가는 이도 아는 마음 — 검은 칠 홀 · 드러난 야심 · 회보라 머리 · 위엄 있는 · 모래시계형"
+    "ko": "길 가는 이도 아는 마음 — 검은 칠 홀 · 드러난 야심 · 회보라 머리 · 팜파탈 · 모래시계형"
    },
    "title": {
     "en": "the Sima who prepared Jin's throne — 'even passers-by know her heart'"
@@ -31634,7 +31634,7 @@
    "look": {
     "face": {
      "eye_color": "azure",
-     "impression": "regal",
+     "impression": "femme_fatale",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -32115,7 +32115,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "천수를 누린 간신 — 칠 부채 · 속을 알 수 없는 · 벚꽃 분홍 머리 · 차가운 · 풍만형"
+    "ko": "천수를 누린 간신 — 칠 부채 · 속을 알 수 없는 · 벚꽃 분홍 머리 · 팜파탈 · 풍만형"
    },
    "title": {
     "en": "the minister who killed an emperor and still lived out her days"
@@ -32129,7 +32129,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "cool",
+     "impression": "femme_fatale",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -32215,7 +32215,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "죽어서도 위의 신하 — 관인 · 끝까지의 충절 · 귤빛 머리 · 무표정 · 모래시계형"
+    "ko": "죽어서도 위의 신하 — 관인 · 끝까지의 충절 · 귤빛 머리 · 아련한 · 모래시계형"
    },
    "title": {
     "en": "the loyal governor who wished to remain Wei's subject even in death"
@@ -32229,7 +32229,7 @@
    "look": {
     "face": {
      "eye_color": "obsidian",
-     "impression": "stoic",
+     "impression": "wistful",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -32712,7 +32712,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "오만한 천재 — 칠 지휘 부채 · 아버지 이름의 오만 · 짙은 갈색 머리 · 화려한 · 장신 굴곡형"
+    "ko": "오만한 천재 — 칠 지휘 부채 · 아버지 이름의 오만 · 짙은 갈색 머리 · 도도한 · 장신 굴곡형"
    },
    "title": {
     "en": "Zhuge Jin's child, brilliant but arrogant"
@@ -32726,7 +32726,7 @@
    "look": {
     "face": {
      "eye_color": "rose",
-     "impression": "glamorous",
+     "impression": "haughty",
      "expr": "smug",
      "skin_tone": "porcelain",
      "age": "early_20s",
@@ -33588,7 +33588,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "스무 가지 간언 — 스무 가지 간언 두루마리 · 직간의 용기 · 꿀빛 갈색 머리 · 무표정 · 풍만형"
+    "ko": "스무 가지 간언 — 스무 가지 간언 두루마리 · 직간의 용기 · 꿀빛 갈색 머리 · 당찬 · 풍만형"
    },
    "title": {
     "en": "the minister who remonstrated with Sun Hao twenty times"
@@ -33602,7 +33602,7 @@
    "look": {
     "face": {
      "eye_color": "violet",
-     "impression": "stoic",
+     "impression": "sassy",
      "expr": "serious",
      "skin_tone": "olive",
      "age": "early_20s",
@@ -33682,7 +33682,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "강동의 마지막 폭군 — 보석 술잔 · 잔학한 황제 · 끝이 분홍인 은빛 머리 · 차가운 · 풍만형"
+    "ko": "강동의 마지막 폭군 — 보석 술잔 · 잔학한 황제 · 끝이 분홍인 은빛 머리 · 퇴폐적인 · 풍만형"
    },
    "title": {
     "en": "the cruel last emperor of Wu who hastened its end"
@@ -33696,7 +33696,7 @@
    "look": {
     "face": {
      "eye_color": "crimson",
-     "impression": "cool",
+     "impression": "decadent",
      "expr": "cold_smile",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -33778,7 +33778,7 @@
    "design_by": "claude",
    "design_date": "2026-11-17",
    "summary": {
-    "ko": "책 읽는 셋째 황제 — 죽간 두루마리 · 학관을 세운 황제 · 자흑 머리 · 산호빛 눈 · 우아한 · 호기심 어린 · 골반 굴곡형"
+    "ko": "책 읽는 셋째 황제 — 죽간 두루마리 · 학관을 세운 황제 · 자흑 머리 · 산호빛 눈 · 몽환적인 · 호기심 어린 · 골반 굴곡형"
    },
    "title": {
     "en": "the bookish third emperor of Wu who founded an academy with erudites of the Five Classics"
@@ -33792,7 +33792,7 @@
    "look": {
     "face": {
      "eye_color": "coral",
-     "impression": "elegant",
+     "impression": "dreamy",
      "expr": "curious",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -33839,7 +33839,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-17) — 삼국지 오서 삼사주전의 손휴(학관 · 오경박사를 두라는 조서, 「銳意於典籍，欲畢覽百家之言」)에서 이름 설명 · 물건(죽간 책) · 인상(우아한) · 표정(호기심)을 잡았다. 꿩 사냥은 짐승이라 넣지 않았다. 머리 색은 설계표에서 가장 덜 쓴 청록(teal — 둘뿐), 눈은 덜 쓴 산호빛(자동 돌림 값 그대로). 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-17) — 삼국지 오서 삼사주전의 손휴(학관 · 오경박사를 두라는 조서, 「銳意於典籍，欲畢覽百家之言」)에서 이름 설명 · 물건(죽간 책) · 인상(몽환적인) · 표정(호기심)을 잡았다. 꿩 사냥은 짐승이라 넣지 않았다. 머리 색은 설계표에서 가장 덜 쓴 청록(teal — 둘뿐), 눈은 덜 쓴 산호빛(자동 돌림 값 그대로). 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 teal → plum_black(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -34361,7 +34361,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "조정을 쥔 자 — 장검 · 제갈각을 벤 · 스칼렛 머리 · 차가운 · 탄탄한 굴곡형"
+    "ko": "조정을 쥔 자 — 장검 · 제갈각을 벤 · 스칼렛 머리 · 냉미녀 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the noble who struck down Zhuge Ke and seized the court"
@@ -34375,7 +34375,7 @@
    "look": {
     "face": {
      "eye_color": "emerald",
-     "impression": "cool",
+     "impression": "icy",
      "expr": "cold_smile",
      "skin_tone": "warm_beige",
      "age": "mid_20s",
@@ -34457,7 +34457,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "어린 권신 — 금장 창 · 어린 나이의 권력 · 잿빛 머리 · 사나운 · 아담한 굴곡형"
+    "ko": "어린 권신 — 금장 창 · 어린 나이의 권력 · 잿빛 머리 · 도발적인 · 아담한 굴곡형"
    },
    "title": {
     "en": "the young regent who shook the court"
@@ -34471,7 +34471,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -34553,7 +34553,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "서예의 재상 — 서예 붓 · 이름난 글씨 · 캐러멜빛 머리 · 우아한 · 굴곡형"
+    "ko": "서예의 재상 — 서예 붓 · 이름난 글씨 · 캐러멜빛 머리 · 몽환적인 · 굴곡형"
    },
    "title": {
     "en": "the chancellor remembered for her calligraphy"
@@ -34567,7 +34567,7 @@
    "look": {
     "face": {
      "eye_color": "ember",
-     "impression": "elegant",
+     "impression": "dreamy",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "early_30s",
@@ -34652,7 +34652,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "옹주자사 — 호적 묶음 · 백성을 옮긴 · 옥빛 머리 · 옥빛 눈 · 성숙한 · 차분한 · 골반 굴곡형"
+    "ko": "옹주자사 — 호적 묶음 · 백성을 옮긴 · 옥빛 머리 · 옥빛 눈 · 팜파탈 · 차분한 · 골반 굴곡형"
    },
    "title": {
     "en": "the governor of Yong Province who talked Ma Teng into leaving Guanzhong and moved tens of thousands of households"
@@ -34666,7 +34666,7 @@
    "look": {
     "face": {
      "eye_color": "jade",
-     "impression": "mature",
+     "impression": "femme_fatale",
      "expr": "calm",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -34715,7 +34715,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 장기전에서 이름 설명 · 물건 · 인상(성숙한) · 표정(차분한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(캐러멜빛) · 눈 색(옥빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 장기전에서 이름 설명 · 물건 · 인상(팜파탈) · 표정(차분한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(캐러멜빛) · 눈 색(옥빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 caramel → jade_green(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -34751,7 +34751,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "예를 따진 별가 — 예법 책 · 천자의 옷을 따진 · 핫핑크 머리 · 은빛 눈 · 무표정 · 당당한 · 장신 굴곡형"
+    "ko": "예를 따진 별가 — 예법 책 · 천자의 옷을 따진 · 핫핑크 머리 · 은빛 눈 · 당찬 · 당당한 · 장신 굴곡형"
    },
    "title": {
     "en": "the Liang official who rose against Ma Chao with five wounds and later asked the emperor which rite his outfit followed"
@@ -34765,7 +34765,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "stoic",
+     "impression": "sassy",
      "expr": "proud",
      "skin_tone": "fair",
      "age": "late_20s",
@@ -34812,7 +34812,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 양부전에서 이름 설명 · 물건 · 인상(무표정) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(잿빛) · 눈 색(은빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 양부전에서 이름 설명 · 물건 · 인상(당찬) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(잿빛) · 눈 색(은빛)은 같은 묶음 24명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 ash_gray → hot_pink(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -35660,7 +35660,7 @@
    "look": {
     "face": {
      "eye_color": "aqua",
-     "impression": "cool",
+     "impression": "haughty",
      "expr": "unimpressed",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -35747,7 +35747,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "독설의 장사 — 죽간 장부 · 잉크 묻은 소매 · 끝이 라일락인 보라 머리 · 날 선 · 탄탄한 굴곡형"
+    "ko": "독설의 장사 — 죽간 장부 · 잉크 묻은 소매 · 끝이 라일락인 보라 머리 · 당찬 · 탄탄한 굴곡형"
    },
    "title": {
     "en": "the brilliant but bitter chief clerk who ran the army's logistics"
@@ -35761,7 +35761,7 @@
    "look": {
     "face": {
      "eye_color": "sapphire",
-     "impression": "sharp",
+     "impression": "sassy",
      "expr": "mildly_annoyed",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -36042,7 +36042,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "바른말의 신하 — 간언 홀 · 황제의 소매를 잡은 · 먹빛 녹음 머리 · 날 선 · 가늘고 풍만한 형"
+    "ko": "바른말의 신하 — 간언 홀 · 황제의 소매를 잡은 · 먹빛 녹음 머리 · 당찬 · 가늘고 풍만한 형"
    },
    "title": {
     "en": "the outspoken minister who pulled the emperor's sleeve to speak the truth"
@@ -36056,7 +36056,7 @@
    "look": {
     "face": {
      "eye_color": "graphite_grey",
-     "impression": "sharp",
+     "impression": "sassy",
      "expr": "serious",
      "skin_tone": "fair",
      "age": "mid_20s",
@@ -36142,7 +36142,7 @@
    "design_by": "claude",
    "design_date": "2026-11-02",
    "summary": {
-    "ko": "어진 관리 — 백성의 청원 · 어진 관리 · 끝이 붉은 검은 머리 · 부드러운 · 모래시계형"
+    "ko": "어진 관리 — 백성의 청원 · 어진 관리 · 끝이 붉은 검은 머리 · 수줍은 · 모래시계형"
    },
    "title": {
     "en": "the compassionate official who pleaded for the common people"
@@ -36156,7 +36156,7 @@
    "look": {
     "face": {
      "eye_color": "dark_brown",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "gentle",
      "skin_tone": "olive",
      "age": "mid_20s",
@@ -36626,7 +36626,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "합포의 아우 — 칠 공물 쟁반 · 정성껏 배웅한 · 끝이 붉은 검은 머리 · 옥빛 눈 · 부드러운 · 온화한 · 낭창한 굴곡형"
+    "ko": "합포의 아우 — 칠 공물 쟁반 · 정성껏 배웅한 · 끝이 붉은 검은 머리 · 옥빛 눈 · 수줍은 · 온화한 · 낭창한 굴곡형"
    },
    "title": {
     "en": "the diligent brother of Shi Xie, administrator of Hepu"
@@ -36640,7 +36640,7 @@
    "look": {
     "face": {
      "eye_color": "jade",
-     "impression": "soft",
+     "impression": "shy",
      "expr": "gentle",
      "skin_tone": "porcelain",
      "age": "early_20s",
@@ -36689,7 +36689,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 사섭전에서 이름 설명 · 물건 · 인상(부드러운) · 표정(온화한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(에메랄드) · 눈 색(옥빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 사섭전에서 이름 설명 · 물건 · 인상(수줍은) · 표정(온화한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(에메랄드) · 눈 색(옥빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 그대로.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 emerald_green → ombre_crimson(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -36729,7 +36729,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "스스로 태수 — 손수 새긴 인장 · 문을 닫아 건 · 터키석빛 머리 · 진홍 눈 · 사나운 · 우쭐한 · 건장한 굴곡형"
+    "ko": "스스로 태수 — 손수 새긴 인장 · 문을 닫아 건 · 터키석빛 머리 · 진홍 눈 · 도발적인 · 우쭐한 · 건장한 굴곡형"
    },
    "title": {
     "en": "the son of Shi Xie who named herself administrator of Jiaozhi and shut the gates"
@@ -36743,7 +36743,7 @@
    "look": {
     "face": {
      "eye_color": "crimson",
-     "impression": "fierce",
+     "impression": "provocative",
      "expr": "smug",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -36792,7 +36792,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 오서 사섭전 · 여대전에서 이름 설명 · 물건 · 인상(사나운) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(진홍)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 오서 사섭전 · 여대전에서 이름 설명 · 물건 · 인상(도발적인) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(구릿빛) · 눈 색(진홍)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 copper → turquoise(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -36832,7 +36832,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "요동의 왕 — 내던진 후(侯)의 인장 · 「나는 요동의 왕」 · 선명한 보라 머리 · 은빛 눈 · 위엄 있는 · 당당한 · 장신 굴곡형"
+    "ko": "요동의 왕 — 내던진 후(侯)의 인장 · 「나는 요동의 왕」 · 선명한 보라 머리 · 은빛 눈 · 도도한 · 당당한 · 장신 굴곡형"
    },
    "title": {
     "en": "the warlord who carved out Liaodong and declared \"I am king of Liaodong\""
@@ -36846,7 +36846,7 @@
    "look": {
     "face": {
      "eye_color": "silver",
-     "impression": "regal",
+     "impression": "haughty",
      "expr": "proud",
      "skin_tone": "fair",
      "age": "early_20s",
@@ -36894,7 +36894,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 공손도전에서 이름 설명 · 물건 · 인상(위엄 있는) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(짙은 남색) · 눈 색(은빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 공손도전에서 이름 설명 · 물건 · 인상(도도한) · 표정(당당한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(짙은 남색) · 눈 색(은빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 navy → vivid_purple(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {
@@ -37037,7 +37037,7 @@
    "design_by": "claude",
    "design_date": "2026-11-18",
    "summary": {
-    "ko": "연왕 — 두 나라의 사신 부절 · 양다리 끝에 무너진 · 밤색 머리 · 불씨빛 눈 · 화려한 · 우쭐한 · 풍만형"
+    "ko": "연왕 — 두 나라의 사신 부절 · 양다리 끝에 무너진 · 밤색 머리 · 불씨빛 눈 · 퇴폐적인 · 우쭐한 · 풍만형"
    },
    "title": {
     "en": "the self-styled King of Yan who played Wei and Wu against each other"
@@ -37051,7 +37051,7 @@
    "look": {
     "face": {
      "eye_color": "ember",
-     "impression": "glamorous",
+     "impression": "decadent",
      "expr": "smug",
      "skin_tone": "warm_beige",
      "age": "late_20s",
@@ -37099,7 +37099,7 @@
       }
      }
     },
-    "why": "시안(claude 2026-11-18) — 삼국지 위서 공손도전(공손연)에서 이름 설명 · 물건 · 인상(화려한) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(끝이 붉은) · 눈 색(불씨빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
+    "why": "시안(claude 2026-11-18) — 삼국지 위서 공손도전(공손연)에서 이름 설명 · 물건 · 인상(퇴폐적인) · 표정(우쭐한)을 잡았다. 말 · 짐승은 넣지 않았다. 머리 색(끝이 붉은) · 눈 색(불씨빛)은 같은 묶음 14명 · 같은 무리의 기존 장수와 겹치지 않게 덜 쓴 색에서 손으로 골랐다. 체형 · 이목구비 · 헤어 · 얼굴형 · 눈 모양(세계마다)은 자동 돌림(tools/sam-design.py auto_look) 에서 겹친 자리만 바꿨다.",
     "color_note": "2026-11-18 사용자 「머리색 더 다양하게 넣어주고, 지금 기본화풍 없는 그림 위주로 분배해줘」 — 머리 ombre_crimson → chestnut(61가지에서, 기본 화풍 그림 있는 장수와 겹치는 색부터 덜어 냄)"
    },
    "extra": {

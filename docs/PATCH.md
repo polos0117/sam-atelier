@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-23 · claude · 인상 열네 개 더함 — 섹시 · 도발 · 퇴폐 · 팜파탈 · 새침 · 도도 · 여우 · 몽환 · 신비 · 당당 · 냉미녀 · 수줍음 · 당찬 · 아련함
+- lib/prompt-spec.js — FACE_DESIGN.impression 에 열네 열쇠(seductive · provocative · decadent · femme_fatale · coquettish · haughty · mischievous · dreamy · mysterious · confident · icy · shy · sassy · wistful), 글은 화풍공방 core v7 블록이 덮는다(블록도 다시 옮김). 사용자 2026-11-23 「인상중에 뭔가 섹시,도발, 퇴폐 느낌이 없네」 → 「다 넣어주고 공방 다 적용해줘. 설계 있는거에서도 옮겨주고」. prompt-spec ?v=63(prompt.html · promptapi.html)
+- data/sam-design.json — 시안(draft) 장수 155명의 인상을 성정 · 일화에 맞춰 새 열쇠로(확정 hand 16명은 그대로): 팜파탈 가후 · 이유 · 손노반 · 사마소, 퇴폐 동탁 · 손호 · 조상 · 원술 · 유선 · 순우경, 도도 원소 · 조비 · 공손도 · 제갈각, 냉미녀 만총 · 서황 · 사마사 · 장춘화, 여우 감녕 · 허유 · 좌자 · 장송, 신비 장로 · 관로 · 우길 · 순유, 섹시 추씨 · 견씨 · 대교 · 변씨, 도발 위연 · 예형 · 화웅 · 축융, 새침 소교 · 화만 · 원상, 몽환 종요 · 왕찬 · 손휴 · 사마휘, 수줍음 미부인 · 한복 · 보연사, 당당 장료 · 손견 · 하후연, 당찬 곽사 · 우번 · 포삼랑, 아련함 도겸 · 원희 · 견초. 표정(expr)과 부딪히는 짝은 피했다. summary.ko · look.why 의 인상 낱말도 맞춤(142 · 37곳)
+- data/sam-design.json — 인상 수: 무표정 38→21 · 사나운 43→20 · 날 선 38→19 · 차가운 38→19 · 성숙 29→19 · 화려 25→11 · 우아 25→13 …, 새 열넷 7~13
+- tools/sam-design.py — 역할별 자동 인상 목록(IMPRESSION)에 어울리는 새 열쇠를 더함(look 이 없는 새 장수만 돌린다)
+
 ## 2026-11-23 · claude · core v7 나이 문장 — 20대 초 youthful · 중반 young-adult · 후반 clear adult
 - lib/prompt-spec.js — 화풍공방 core v7 블록 다시 옮김(나이 문장: 20대 초 youthful · 중반 young-adult · 후반 clear adult). prompt-spec ?v= 올림
 
