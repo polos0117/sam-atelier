@@ -360,7 +360,7 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
   }
   const items = C2.choices(T2, sc, 'item', g);
   if (reqType === 'cosplay') { if (!items.includes('gc_' + cos.cut)) return null; sc.item = 'gc_' + cos.cut; sc.cosplay = { ...cos }; }   /* 재단 = 옷(gc_<재단>) */
-  else sc.item = items.length ? lean(r, items, U.item) : '';
+  else { const pool = C2.classLean ? C2.classLean(T2, sc.ofam, items, k => (U.item || {})[k] || 0) : items; sc.item = pool.length ? lean(r, pool, U.item) : ''; }   /* 실루엣 갈래 — 덜 쓴 갈래의 옷 먼저(공용 모듈 classLean, 2026-11-23) */
   sc = C2.repair(T2, sc, g, rp);
   if (reqType === 'cosplay' && sc.item !== 'gc_' + cos.cut) return null;
   if (!wantSig && sc.use && !sigProp(sc)) {

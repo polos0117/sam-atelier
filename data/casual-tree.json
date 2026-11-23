@@ -5413,162 +5413,483 @@
      "key": "lace_set",
      "ko": "레이스 세트",
      "en": "a black lace lingerie set with a longline top, high-waisted bottoms and geometric lace trim",
-     "low": true
+     "low": true,
+     "cls": "bralette"
     },
     {
      "key": "satin_set",
      "ko": "새틴 세트",
      "en": "a satin lingerie set with a smooth bias-cut top and matching bottoms in a single deep colour",
-     "low": true
+     "low": true,
+     "cls": "bralette"
     },
     {
      "key": "bralette_highwaist",
      "ko": "브라렛 + 하이웨이스트",
      "en": "a soft-cup bralette with wide straps and matching high-waisted bottoms",
-     "low": true
+     "low": true,
+     "cls": "bralette"
     },
     {
      "key": "bustier_inspired",
      "ko": "뷔스티에풍",
-     "en": "a bustier-inspired satin top with a long structured bodice and vertical seams"
+     "en": "a bustier-inspired satin top with a long structured bodice and vertical seams",
+     "cls": "corset"
     },
     {
      "key": "bodysuit",
      "ko": "보디수트",
-     "en": "a lingerie bodysuit with a scooped neckline, wide straps and lace side panels"
+     "en": "a lingerie bodysuit with a scooped neckline, wide straps and lace side panels",
+     "cls": "bodysuit"
     },
     {
      "key": "garter_set",
      "ko": "가터풍",
      "en": "a lingerie set with decorative garter straps",
-     "low": true
+     "low": true,
+     "cls": "garter"
     },
     {
      "key": "corset_lingerie",
      "ko": "코르셋풍",
      "en": "a corset-inspired bodice with visible boning seams and a matching high-waisted piece",
-     "low": true
+     "low": true,
+     "cls": "corset"
     },
     {
      "key": "open_shirt_lingerie",
      "ko": "란제리 위 오픈 셔츠",
-     "en": "a tailored oversized shirt worn open over a matching satin lingerie set"
+     "en": "a tailored oversized shirt worn open over a matching satin lingerie set",
+     "cls": "robe"
     },
     {
      "key": "night_robe",
      "ko": "나이트 로브 + 란제리",
-     "en": "a lingerie set under an open silk night robe with a tied sash"
+     "en": "a lingerie set under an open silk night robe with a tied sash",
+     "cls": "robe"
     },
     {
      "key": "back_strap",
      "ko": "백스트랩",
-     "en": "a lingerie set with a decorative strap arrangement across the upper back"
+     "en": "a lingerie set with a decorative strap arrangement across the upper back",
+     "cls": "harness"
     },
     {
      "key": "asymmetric_lingerie",
      "ko": "비대칭 세트",
-     "en": "an asymmetric lingerie set with one shoulder strap and a diagonal neckline"
+     "en": "an asymmetric lingerie set with one shoulder strap and a diagonal neckline",
+     "cls": "bralette"
     },
     {
      "key": "slip_lingerie",
      "ko": "란제리 슬립",
      "en": "a bias-cut satin slip with narrow straps and a straight hem",
-     "low": true
+     "low": true,
+     "cls": "slip"
     },
     {
      "key": "babydoll",
      "ko": "베이비돌",
      "en": "a babydoll slip with narrow straps, an empire waist and a softly flared hem",
-     "low": true
+     "low": true,
+     "cls": "slip"
     },
     {
      "key": "longline_bra",
      "ko": "롱라인 브라 세트",
      "en": "a longline bra set with a wide underband and matching high-waisted bottoms",
-     "low": true
+     "low": true,
+     "cls": "bralette"
     },
     {
      "key": "knit_lingerie",
      "ko": "니트 혼방 세트",
-     "en": "a soft ribbed-jersey lingerie set with a relaxed cropped top"
+     "en": "a soft ribbed-jersey lingerie set with a relaxed cropped top",
+     "cls": "minimal"
     },
     {
      "key": "cotton_set",
      "ko": "코튼 세트",
-     "en": "a simple cotton lingerie set with plain wide bands"
+     "en": "a simple cotton lingerie set with plain wide bands",
+     "cls": "minimal"
     },
     {
      "key": "juban_inspired",
      "ko": "나가주반 응용",
-     "en": "a juban-inspired silk underlayer with a wrapped front and a narrow sash"
+     "en": "a juban-inspired silk underlayer with a wrapped front and a narrow sash",
+     "cls": "robe"
     },
     {
      "key": "hanbok_slip",
      "ko": "속적삼·속치마 응용",
      "en": "a hanbok-underlayer-inspired set with a short wrapped top and a full high-waisted skirt",
-     "low": true
+     "low": true,
+     "cls": "slip"
     },
     {
      "key": "qipao_silk_set",
      "ko": "치파오 응용 실크",
-     "en": "a qipao-inspired silk set with a mandarin collar and frog-button closures"
+     "en": "a qipao-inspired silk set with a mandarin collar and frog-button closures",
+     "cls": "slip"
     },
     {
      "key": "embroidered_corset",
      "ko": "민속 자수 코르셋",
-     "en": "a folk-embroidered corset with colourful thread work over a matching piece"
+     "en": "a folk-embroidered corset with colourful thread work over a matching piece",
+     "cls": "corset"
     },
     {
      "key": "kebaya_lace",
      "ko": "크바야 응용 레이스",
-     "en": "a kebaya-inspired sheer lace top with floral embroidery over a fitted camisole"
+     "en": "a kebaya-inspired sheer lace top with floral embroidery over a fitted camisole",
+     "cls": "sheer"
     },
     {
      "key": "sari_blouse_set",
      "ko": "사리 블라우스 응용",
-     "en": "a sari-blouse-inspired set with a short fitted top and a draped lower piece"
+     "en": "a sari-blouse-inspired set with a short fitted top and a draped lower piece",
+     "cls": "bralette"
     },
     {
      "key": "satin_teddy",
      "ko": "새틴 테디",
      "en": "a satin teddy, one smooth piece from neckline to hip",
-     "low": true
+     "low": true,
+     "cls": "bodysuit"
     },
     {
      "key": "velvet_set",
      "ko": "벨벳 세트",
      "en": "a deep-coloured velvet bralette and high-waisted bottoms",
-     "low": true
+     "low": true,
+     "cls": "bralette"
     },
     {
      "key": "cage_back",
      "ko": "스트랩 등판",
-     "en": "a lingerie set whose bralette back is crossed by geometric straps"
+     "en": "a lingerie set whose bralette back is crossed by geometric straps",
+     "cls": "harness"
     },
     {
      "key": "chemise_silk",
      "ko": "실크 슈미즈",
      "en": "a knee-skimming silk chemise with a lace hem and an opaque lining",
-     "low": true
+     "low": true,
+     "cls": "slip"
     },
     {
      "key": "front_lace_corset",
      "ko": "앞 끈 코르셋",
      "en": "a front-lacing corset over matching high-waisted bottoms",
-     "low": true
+     "low": true,
+     "cls": "corset"
     },
     {
      "key": "negligee_silk",
      "ko": "네글리제",
-     "en": "a long silk negligee with a lace bodice, thin straps and a side slit"
+     "en": "a long silk negligee with a lace bodice, thin straps and a side slit",
+     "cls": "slip"
     },
     {
      "key": "silk_pajama",
      "ko": "실크 파자마 세트",
-     "en": "a silk pajama set — a short satin camisole with lace trim and matching tap shorts, the long-sleeved pajama shirt worn open over it"
+     "en": "a silk pajama set — a short satin camisole with lace trim and matching tap shorts, the long-sleeved pajama shirt worn open over it",
+     "cls": "minimal"
+    },
+    {
+     "key": "lg_tri_bralette",
+     "ko": "삼각 브라렛 세트",
+     "en": "a lingerie set with a soft triangle bralette and matching mid-rise briefs",
+     "low": false,
+     "cls": "bralette"
+    },
+    {
+     "key": "lg_halter_bralette",
+     "ko": "홀터 브라렛 세트",
+     "en": "a lingerie set with a halter-neck lace bralette and matching high-leg briefs",
+     "low": false,
+     "cls": "bralette"
+    },
+    {
+     "key": "lg_waist_cincher",
+     "ko": "웨이스트 신처",
+     "en": "a satin waist cincher corset worn over a soft bra and matching briefs",
+     "low": false,
+     "cls": "corset"
+    },
+    {
+     "key": "lg_overbust_corset",
+     "ko": "오버버스트 코르셋",
+     "en": "an overbust corset with a sweetheart top edge and matching high-waisted lingerie briefs",
+     "low": false,
+     "cls": "corset"
+    },
+    {
+     "key": "lg_highneck_bodysuit",
+     "ko": "하이넥 레이스 보디수트",
+     "en": "a high-neck long-sleeve lace bodysuit with an opaque lined bust and a high-cut leg",
+     "low": false,
+     "cls": "bodysuit"
+    },
+    {
+     "key": "lg_plunge_teddy",
+     "ko": "플런지 테디",
+     "en": "a plunging satin teddy with lace insets at the waist and narrow straps",
+     "low": false,
+     "cls": "bodysuit"
+    },
+    {
+     "key": "lg_bias_chemise",
+     "ko": "바이어스 슈미즈",
+     "en": "a bias-cut satin chemise slip with a cowl neckline falling to mid-thigh",
+     "low": false,
+     "cls": "slip"
+    },
+    {
+     "key": "lg_tiered_babydoll",
+     "ko": "층진 베이비돌",
+     "en": "a babydoll slip with tiered chiffon frills from an empire waist",
+     "low": false,
+     "cls": "slip"
+    },
+    {
+     "key": "lg_suspender_set",
+     "ko": "서스펜더 세트",
+     "en": "a lingerie set with a wide lace suspender belt and matching briefs",
+     "low": true,
+     "cls": "garter"
+    },
+    {
+     "key": "lg_garter_highwaist",
+     "ko": "하이웨이스트 가터",
+     "en": "a high-waisted garter lingerie set with a satin waistband and four suspender straps",
+     "low": true,
+     "cls": "garter"
+    },
+    {
+     "key": "lg_kimono_robe",
+     "ko": "기모노형 로브 겹침",
+     "en": "a lingerie set under a short kimono-style robe with wide sleeves left open",
+     "low": false,
+     "cls": "robe"
+    },
+    {
+     "key": "lg_feather_robe",
+     "ko": "깃털 트림 로브",
+     "en": "a lingerie set under a sheer long robe trimmed with soft feathers at the cuffs",
+     "low": false,
+     "cls": "robe"
+    },
+    {
+     "key": "lg_out_blazer",
+     "ko": "코르셋 + 테일러드 재킷",
+     "en": "a satin corset worn as outerwear under a sharply tailored open blazer with matching wide-leg trousers",
+     "low": false,
+     "cls": "outerwear"
+    },
+    {
+     "key": "lg_out_bustier_skirt",
+     "ko": "뷔스티에 + 펜슬 치마",
+     "en": "a structured bustier worn as a top with a high-waisted pencil skirt",
+     "low": false,
+     "cls": "outerwear"
+    },
+    {
+     "key": "lg_out_bralette_suit",
+     "ko": "브라렛 + 슈트",
+     "en": "a lace bralette under an open double-breasted jacket with matching tailored shorts",
+     "low": false,
+     "cls": "outerwear"
+    },
+    {
+     "key": "lg_out_slip_coat",
+     "ko": "슬립 + 롱코트",
+     "en": "a silk slip dress worn as eveningwear under a long open trench coat",
+     "low": false,
+     "cls": "outerwear"
+    },
+    {
+     "key": "lg_harness_set",
+     "ko": "하네스 란제리 세트",
+     "en": "a lingerie set with an elastic strap harness across the chest and waist",
+     "low": false,
+     "cls": "harness"
+    },
+    {
+     "key": "lg_harness_body",
+     "ko": "하네스 보디수트",
+     "en": "a lined bodysuit overlaid with a geometric harness of narrow straps",
+     "low": false,
+     "cls": "harness"
+    },
+    {
+     "key": "lg_harness_garter",
+     "ko": "하네스 가터",
+     "en": "a bralette lingerie set with strap harnesses running from the waist to the thighs",
+     "low": true,
+     "cls": "harness"
+    },
+    {
+     "key": "lg_sheer_organza",
+     "ko": "오건자 겹치마",
+     "en": "a lingerie set under a translucent organza overskirt open at the front",
+     "low": true,
+     "cls": "sheer"
+    },
+    {
+     "key": "lg_sheer_tulle_cape",
+     "ko": "튤 망토",
+     "en": "a lingerie set under a short sheer tulle cape tied at the throat",
+     "low": false,
+     "cls": "sheer"
+    },
+    {
+     "key": "lg_sheer_mesh_dress",
+     "ko": "망사 겹 드레스",
+     "en": "a lingerie set under a fine sheer mesh slip dress, the set fully opaque beneath",
+     "low": false,
+     "cls": "sheer"
+    },
+    {
+     "key": "lg_couture_peplum",
+     "ko": "페플럼 코르셋",
+     "en": "a couture corset with a sculpted peplum flaring from the waist over matching briefs",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "lg_couture_cupsculpt",
+     "ko": "조형 컵 코르셋",
+     "en": "a couture corset with sculpted moulded cups and visible boning in a contrasting colour",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "lg_couture_drape",
+     "ko": "드레이프 뷔스티에",
+     "en": "a draped satin bustier gathered into a large knot at the bust over matching briefs",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "lg_boudoir_knicker",
+     "ko": "하이웨이스트 니커",
+     "en": "a vintage boudoir lingerie set with a soft-cup bra and high-waisted silk knickers",
+     "low": false,
+     "cls": "boudoir"
+    },
+    {
+     "key": "lg_boudoir_marabou",
+     "ko": "마라부 트림 세트",
+     "en": "a vintage boudoir lingerie set with a sheer marabou-trimmed bed jacket",
+     "low": false,
+     "cls": "boudoir"
+    },
+    {
+     "key": "lg_boudoir_tap",
+     "ko": "탭 쇼츠 세트",
+     "en": "a 1930s-style lingerie set with a bias-cut camisole and loose tap shorts",
+     "low": false,
+     "cls": "boudoir"
+    },
+    {
+     "key": "lg_min_seamless",
+     "ko": "무봉제 레이저컷",
+     "en": "a minimal seamless lingerie set with laser-cut edges in a single flat colour",
+     "low": false,
+     "cls": "minimal"
+    },
+    {
+     "key": "lg_min_scoop",
+     "ko": "스쿱 브라렛 셋",
+     "en": "a minimal lingerie set with a scoop-neck bralette and clean high-rise briefs",
+     "low": false,
+     "cls": "minimal"
+    },
+    {
+     "key": "lg_min_monochrome_body",
+     "ko": "모노크롬 보디수트",
+     "en": "a minimal monochrome bodysuit with a square neckline and no trim",
+     "low": false,
+     "cls": "minimal"
+    },
+    {
+     "key": "lg_jewel_chain",
+     "ko": "진주 체인 세트",
+     "en": "a lingerie set strung with fine pearl chains draped from the bralette across the waist",
+     "low": false,
+     "cls": "jewel"
+    },
+    {
+     "key": "lg_jewel_crystal",
+     "ko": "크리스털 브라렛",
+     "en": "a lingerie set with a crystal-embroidered bralette and matching briefs",
+     "low": false,
+     "cls": "jewel"
+    },
+    {
+     "key": "lg_jewel_bodychain",
+     "ko": "보디 체인 테디",
+     "en": "a satin teddy layered with a delicate jewelled body chain at the neck and waist",
+     "low": false,
+     "cls": "jewel"
     }
    ],
-   "en": "tasteful lingerie-inspired fashion, fully opaque and securely fitted, with full intimate coverage"
+   "en": "tasteful lingerie-inspired fashion, fully opaque and securely fitted, with full intimate coverage",
+   "classes": [
+    {
+     "key": "bralette",
+     "ko": "브라렛 세트"
+    },
+    {
+     "key": "corset",
+     "ko": "코르셋 · 뷔스티에"
+    },
+    {
+     "key": "bodysuit",
+     "ko": "보디수트 · 테디"
+    },
+    {
+     "key": "slip",
+     "ko": "슬립 · 슈미즈 · 베이비돌"
+    },
+    {
+     "key": "garter",
+     "ko": "가터"
+    },
+    {
+     "key": "robe",
+     "ko": "로브 겹침"
+    },
+    {
+     "key": "outerwear",
+     "ko": "겉옷처럼 입는 란제리"
+    },
+    {
+     "key": "harness",
+     "ko": "하네스 구조"
+    },
+    {
+     "key": "sheer",
+     "ko": "시스루 겹침"
+    },
+    {
+     "key": "couture",
+     "ko": "쿠튀르 코르셋"
+    },
+    {
+     "key": "boudoir",
+     "ko": "빈티지 부두아르"
+    },
+    {
+     "key": "minimal",
+     "ko": "미니멀 모노크롬"
+    },
+    {
+     "key": "jewel",
+     "ko": "주얼 부두아르"
+    }
+   ]
   },
   {
    "key": "swimwear",
@@ -5579,134 +5900,470 @@
      "key": "classic_bikini",
      "ko": "클래식 비키니",
      "en": "a high-waisted bikini with a supportive halter top",
-     "low": true
+     "low": true,
+     "cls": "retro"
     },
     {
      "key": "sport_onepiece",
      "ko": "스포티 원피스",
-     "en": "a sporty one-piece swimsuit with a racerback and a high neckline"
+     "en": "a sporty one-piece swimsuit with a racerback and a high neckline",
+     "cls": "sporty"
     },
     {
      "key": "highleg_onepiece",
      "ko": "하이레그 원피스",
      "en": "a high-leg one-piece swimsuit with a high neckline",
-     "low": true
+     "low": true,
+     "cls": "onepiece"
     },
     {
      "key": "monokini",
      "ko": "모노키니",
      "en": "a sculptural monokini with asymmetric side cut-outs joined by a solid central panel",
-     "low": true
+     "low": true,
+     "cls": "cutout"
     },
     {
      "key": "triangle_bikini",
      "ko": "트라이앵글 비키니",
      "en": "a triangle bikini with slider cups and tie-side bottoms",
-     "low": true
+     "low": true,
+     "cls": "bikini"
     },
     {
      "key": "bandeau_bikini",
      "ko": "반두 비키니",
-     "en": "a bandeau bikini with a straight strapless top"
+     "en": "a bandeau bikini with a straight strapless top",
+     "cls": "bikini"
     },
     {
      "key": "halter_bikini",
      "ko": "홀터 비키니",
-     "en": "a halter bikini with a neck tie and an underbust band"
+     "en": "a halter bikini with a neck tie and an underbust band",
+     "cls": "bikini"
     },
     {
      "key": "asymmetric_swim",
      "ko": "원숄더 수영복",
-     "en": "an asymmetric one-shoulder swimsuit with a clean diagonal neckline"
+     "en": "an asymmetric one-shoulder swimsuit with a clean diagonal neckline",
+     "cls": "onepiece"
     },
     {
      "key": "crossstrap_swim",
      "ko": "크로스 스트랩",
-     "en": "a swimsuit with crossed back straps and a scooped front"
+     "en": "a swimsuit with crossed back straps and a scooped front",
+     "cls": "onepiece"
     },
     {
      "key": "boyshort_swim",
      "ko": "보이쇼트",
      "en": "a swimsuit set with a fitted top and square-cut boyshort bottoms",
-     "low": true
+     "low": true,
+     "cls": "sporty"
     },
     {
      "key": "rashguard_set",
      "ko": "래시가드 세트",
      "en": "a long-sleeve zip rashguard over matching swim bottoms",
-     "low": true
+     "low": true,
+     "cls": "sporty"
     },
     {
      "key": "wrap_swim",
      "ko": "랩 프론트",
      "en": "a wrap-front swimsuit with a crossed bodice tied at the waist",
-     "low": true
+     "low": true,
+     "cls": "onepiece"
     },
     {
      "key": "swim_coverup",
      "ko": "수영복 + 커버업",
      "en": "swimwear under an open gauzy cover-up tied loosely at the hip",
-     "low": true
+     "low": true,
+     "cls": "coverup"
     },
     {
      "key": "burkini_modest",
      "ko": "부르키니",
      "en": "a modest full-cover swimsuit with long sleeves, full legs and a fitted hood",
-     "low": true
+     "low": true,
+     "cls": "sporty"
     },
     {
      "key": "sarong_wrap",
      "ko": "사롱 두른 수영복",
      "en": "swimwear with a printed sarong knotted at the hip",
-     "low": true
+     "low": true,
+     "cls": "coverup"
     },
     {
      "key": "yukata_over",
      "ko": "수영복 위 유카타",
-     "en": "swimwear with a light yukata worn open over it"
+     "en": "swimwear with a light yukata worn open over it",
+     "cls": "coverup"
     },
     {
      "key": "heritage_pattern_swim",
      "ko": "전통 문양 수영복",
-     "en": "a swimsuit in a heritage textile pattern with matching trim"
+     "en": "a swimsuit in a heritage textile pattern with matching trim",
+     "cls": "retro"
     },
     {
      "key": "hanbok_coverup",
      "ko": "한복 선 커버업",
      "en": "swimwear under a hanbok-line cover-up with a high waist and wide skirt",
-     "low": true
+     "low": true,
+     "cls": "coverup"
     },
     {
      "key": "cutout_onepiece",
      "ko": "컷아웃 원피스",
      "en": "a fully lined one-piece swimsuit with large cut-outs at the sides of the waist",
-     "low": true
+     "low": true,
+     "cls": "cutout"
     },
     {
      "key": "plunge_onepiece",
      "ko": "딥 플런지 원피스",
      "en": "a one-piece swimsuit with a deep plunging V and a secure wide waistband",
-     "low": true
+     "low": true,
+     "cls": "onepiece"
     },
     {
      "key": "oring_bikini",
      "ko": "링 장식 비키니",
      "en": "a bikini joined at the centre and hips by polished metal rings",
-     "low": true
+     "low": true,
+     "cls": "hardware"
     },
     {
      "key": "crochet_bikini",
      "ko": "크로셰 비키니",
-     "en": "a fully lined crochet-knit bikini in a sunny resort colour"
+     "en": "a fully lined crochet-knit bikini in a sunny resort colour",
+     "cls": "bikini"
     },
     {
      "key": "sport_bikini",
      "ko": "스포티 비키니",
      "en": "a sporty bikini with a crop top and boy-cut bottoms",
-     "low": true
+     "low": true,
+     "cls": "sporty"
+    },
+    {
+     "key": "sw_balconette_bikini",
+     "ko": "발코넷 비키니",
+     "en": "an underwire balconette bikini top with a straight neckline over classic mid-rise bikini bottoms",
+     "low": false,
+     "cls": "bikini"
+    },
+    {
+     "key": "sw_tiefront_bikini",
+     "ko": "앞 매듭 비키니",
+     "en": "a tie-front bikini top knotted at the centre with side-tie string bikini bottoms",
+     "low": false,
+     "cls": "bikini"
+    },
+    {
+     "key": "sw_scoopback_onepiece",
+     "ko": "등 깊은 원피스",
+     "en": "a scoop-neck one-piece swimsuit with a deep open back and a clean high-cut leg",
+     "low": false,
+     "cls": "onepiece"
+    },
+    {
+     "key": "sw_squareneck_onepiece",
+     "ko": "스퀘어넥 원피스",
+     "en": "a square-neck one-piece swimsuit with wide straps and a ruched front seam",
+     "low": false,
+     "cls": "onepiece"
+    },
+    {
+     "key": "sw_keyhole_monokini",
+     "ko": "키홀 모노키니",
+     "en": "a monokini with a keyhole cut-out at the centre and curved side panels joining the top to the bottoms",
+     "low": false,
+     "cls": "cutout"
+    },
+    {
+     "key": "sw_sideribbon_cutout",
+     "ko": "옆 리본 컷아웃 원피스",
+     "en": "a one-piece swimsuit with a cut-out waist laced across by a single ribbon at each side",
+     "low": false,
+     "cls": "cutout"
+    },
+    {
+     "key": "sw_zipfront_sport",
+     "ko": "지퍼 앞 스포츠 원피스",
+     "en": "a short-sleeve zip-front sporty swimsuit with contrast panels down the sides",
+     "low": false,
+     "cls": "sporty"
+    },
+    {
+     "key": "sw_racer_crop_bikini",
+     "ko": "레이서백 크롭 비키니",
+     "en": "a racerback crop bikini top with banded high-leg bikini bottoms",
+     "low": false,
+     "cls": "sporty"
+    },
+    {
+     "key": "sw_skirted_pinup",
+     "ko": "치마 달린 핀업 수영복",
+     "en": "a 1950s pin-up swimsuit with a sweetheart neckline, a boned bodice and a short flared swim skirt",
+     "low": true,
+     "cls": "retro"
+    },
+    {
+     "key": "sw_polka_highwaist",
+     "ko": "물방울 하이웨이스트 비키니",
+     "en": "a polka-dot halter bikini with ruched high-waisted bikini bottoms and a bow at the bust",
+     "low": false,
+     "cls": "retro"
+    },
+    {
+     "key": "sw_sarong_maxi",
+     "ko": "긴 사롱 덮개",
+     "en": "a bandeau bikini under a long sheer sarong tied high at one hip, falling to the ankles",
+     "low": true,
+     "cls": "coverup"
+    },
+    {
+     "key": "sw_kaftan_short",
+     "ko": "짧은 카프탄 덮개",
+     "en": "a one-piece swimsuit under a short open-front embroidered beach kaftan",
+     "low": false,
+     "cls": "coverup"
+    },
+    {
+     "key": "sw_sculpt_wireframe",
+     "ko": "와이어 프레임 원피스",
+     "en": "a sculptural one-piece swimsuit whose neckline is held by a curved wire frame standing slightly away from the body",
+     "low": false,
+     "cls": "sculpt"
+    },
+    {
+     "key": "sw_sculpt_panel",
+     "ko": "비대칭 패널 원피스",
+     "en": "an architectural one-piece swimsuit built from asymmetric overlapping panels with one bare shoulder",
+     "low": false,
+     "cls": "sculpt"
+    },
+    {
+     "key": "sw_sculpt_shell",
+     "ko": "조개 컵 비키니",
+     "en": "a bikini with moulded shell-shaped cups and sculpted high-cut bikini bottoms",
+     "low": false,
+     "cls": "sculpt"
+    },
+    {
+     "key": "sw_sculpt_ruffle_wave",
+     "ko": "물결 러플 원피스",
+     "en": "a one-piece swimsuit with one large sculpted ruffle sweeping diagonally from shoulder to hip",
+     "low": false,
+     "cls": "sculpt"
+    },
+    {
+     "key": "sw_drape_twist",
+     "ko": "트위스트 드레이프 원피스",
+     "en": "a draped one-piece swimsuit twisted at the bust and gathered into soft folds across the waist",
+     "low": false,
+     "cls": "drape"
+    },
+    {
+     "key": "sw_drape_grecian",
+     "ko": "그리스풍 드레이프 원피스",
+     "en": "a Grecian-draped one-shoulder swimsuit with fine pleats running from shoulder to hip",
+     "low": false,
+     "cls": "drape"
+    },
+    {
+     "key": "sw_drape_knot_bikini",
+     "ko": "매듭 드레이프 비키니",
+     "en": "a bikini with draped cups knotted at the centre and draped bikini bottoms gathered at the hips",
+     "low": false,
+     "cls": "drape"
+    },
+    {
+     "key": "sw_drape_wrap_long",
+     "ko": "긴 끈 감싸기 수영복",
+     "en": "a one-piece swimsuit with long fabric ties wrapped twice around the waist and knotted at the back",
+     "low": false,
+     "cls": "drape"
+    },
+    {
+     "key": "sw_strappy_cage",
+     "ko": "끈 케이지 원피스",
+     "en": "a strappy one-piece swimsuit with a cage of thin straps crossing the back and the open sides",
+     "low": false,
+     "cls": "strappy"
+    },
+    {
+     "key": "sw_strappy_criss",
+     "ko": "끈 엇갈림 비키니",
+     "en": "a criss-cross strappy bikini whose thin straps wrap twice around the ribcage and hips",
+     "low": false,
+     "cls": "strappy"
+    },
+    {
+     "key": "sw_strappy_lattice",
+     "ko": "격자 끈 원피스",
+     "en": "a one-piece swimsuit with a lattice of straps across the neckline and a solid lined body",
+     "low": false,
+     "cls": "strappy"
+    },
+    {
+     "key": "sw_hw_chain",
+     "ko": "체인 어깨끈 수영복",
+     "en": "a one-piece swimsuit with fine metal chain shoulder straps and a chain detail at the hips",
+     "low": false,
+     "cls": "hardware"
+    },
+    {
+     "key": "sw_hw_buckle",
+     "ko": "버클 비키니",
+     "en": "a bikini fastened with polished metal buckles at the centre front and the hips",
+     "low": false,
+     "cls": "hardware"
+    },
+    {
+     "key": "sw_hw_ring_onepiece",
+     "ko": "링 원피스",
+     "en": "a one-piece swimsuit with a large metal ring at the bust joining two angled panels",
+     "low": false,
+     "cls": "hardware"
+    },
+    {
+     "key": "sw_dive_longsleeve",
+     "ko": "긴소매 하이넥 다이브",
+     "en": "a long-sleeve high-neck dive swimsuit with a large oval cut-out across the back",
+     "low": false,
+     "cls": "divehigh"
+    },
+    {
+     "key": "sw_dive_mock",
+     "ko": "모크넥 컷아웃 수영복",
+     "en": "a mock-neck swimsuit with long sleeves and a sculpted cut-out at the waist",
+     "low": false,
+     "cls": "divehigh"
+    },
+    {
+     "key": "sw_dive_zip_high",
+     "ko": "하이넥 지퍼 수영복",
+     "en": "a sleek high-neck sleeveless swimsuit with a front zip and a high-cut leg",
+     "low": false,
+     "cls": "divehigh"
+    },
+    {
+     "key": "sw_couture_pearl",
+     "ko": "진주 장식 수영복",
+     "en": "a couture one-piece swimsuit edged with rows of small pearls along the neckline and straps",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "sw_couture_crystal",
+     "ko": "크리스털 비키니",
+     "en": "a bikini whose cups and straps are embroidered with clusters of small crystals",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "sw_couture_fringe",
+     "ko": "프린지 원피스",
+     "en": "a one-piece swimsuit with a fall of fine fringe from a beaded neckline",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "sw_couture_feather",
+     "ko": "깃털 트림 수영복",
+     "en": "a strapless swimsuit trimmed along the top edge with soft feathers",
+     "low": false,
+     "cls": "couture"
+    },
+    {
+     "key": "sw_resort_shirtdress",
+     "ko": "시스루 롱셔츠 드레스",
+     "en": "a bikini under a long sheer button-up shirt dress worn open and loose to the calves",
+     "low": true,
+     "cls": "resortrunway"
+    },
+    {
+     "key": "sw_resort_widepants",
+     "ko": "수영복 + 와이드 팬츠",
+     "en": "a one-piece swimsuit worn with flowing wide-leg beach trousers in light silk",
+     "low": true,
+     "cls": "resortrunway"
+    },
+    {
+     "key": "sw_resort_cape",
+     "ko": "가벼운 케이프",
+     "en": "a one-piece swimsuit under a long light chiffon cape fastened at the neck",
+     "low": true,
+     "cls": "resortrunway"
+    },
+    {
+     "key": "sw_resort_pareo_set",
+     "ko": "파레오 셋업",
+     "en": "a bandeau bikini under a matching long pareo skirt slit high at the front",
+     "low": true,
+     "cls": "resortrunway"
     }
    ],
-   "en": "modern swimwear, fully lined and secure during movement"
+   "en": "modern swimwear, fully lined and secure during movement",
+   "classes": [
+    {
+     "key": "bikini",
+     "ko": "비키니"
+    },
+    {
+     "key": "onepiece",
+     "ko": "원피스"
+    },
+    {
+     "key": "cutout",
+     "ko": "컷아웃 · 모노키니"
+    },
+    {
+     "key": "sporty",
+     "ko": "스포티"
+    },
+    {
+     "key": "retro",
+     "ko": "레트로 핀업"
+    },
+    {
+     "key": "coverup",
+     "ko": "덮개 겹침"
+    },
+    {
+     "key": "sculpt",
+     "ko": "조형"
+    },
+    {
+     "key": "drape",
+     "ko": "드레이프"
+    },
+    {
+     "key": "strappy",
+     "ko": "스트래피 케이지"
+    },
+    {
+     "key": "hardware",
+     "ko": "하드웨어"
+    },
+    {
+     "key": "divehigh",
+     "ko": "다이브 하이넥"
+    },
+    {
+     "key": "couture",
+     "ko": "쿠튀르 장식"
+    },
+    {
+     "key": "resortrunway",
+     "ko": "리조트 런웨이"
+    }
+   ]
   },
   {
    "key": "bath",
