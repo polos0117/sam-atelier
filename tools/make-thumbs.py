@@ -33,7 +33,7 @@ from PIL import Image
 
 SRC = Path("img")
 DST = SRC / "thumb"
-LONG_EDGE = 512          # 2:3 이면 341x512. 갤러리(.gal, 120~200px 폭) 기준으로 잡았다
+LONG_EDGE = 512          # 2:3 이면 341x512 · 3:2 면 512x341 · 1:1 이면 512x512(일상컷 화면비 2026-11-23). 갤러리(.gal, 120~200px 폭) 기준으로 잡았다
 QUALITY = 72
 
 

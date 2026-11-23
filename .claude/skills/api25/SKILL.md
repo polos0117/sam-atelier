@@ -58,7 +58,7 @@ node tools/api-draw.cjs casual $W/plan/plan-<세계>/plan.json --ref $W/<고른 
 node tools/api-draw.cjs stage <장수> --img ../sam-atelier-img-3 $W/<세계>-<고른 것>.png=<세계> $W/<세계>-casual1.png=<세계>-casual1 …
 ```
 
-- webp(품질 90, 1024×1536) + 기록(`records/<장수>/<세계>.api25-ui.json` · `<세계>-casualN.api25-ui.json`, `generation` 에 모델 · 엔드포인트 · 사용량 · png_sha256 · retries · GPT 설계 글)을 열린 저장소 `sam-atelier-img-2` 에 둔다(`--img` 를 안 주면 그것, 닫힌 `sam-atelier-img` 는 도구가 막는다). 같은 이름이 두 그림 저장소 어디에든 있으면 멈춘다 — 덮지 않는다.
+- webp(품질 90, 세계 그림 1024×1536 · 일상컷은 계획 화면비대로 — 2:3 1024×1536 · 1:1 1024×1024 · 3:2 1536×1024, 2026-11-23. 도구가 기록 `scene.aspect` 로 크기를 맞춰 부르고 `stage` 가 그 크기를 본다) + 기록(`records/<장수>/<세계>.api25-ui.json` · `<세계>-casualN.api25-ui.json`, `generation` 에 모델 · 엔드포인트 · 사용량 · png_sha256 · retries · GPT 설계 글)을 열린 저장소 `sam-atelier-img-2` 에 둔다(`--img` 를 안 주면 그것, 닫힌 `sam-atelier-img` 는 도구가 막는다). 같은 이름이 두 그림 저장소 어디에든 있으면 멈춘다 — 덮지 않는다.
 - 일상 계획도 `records/<장수>/<세계>-casual-plan.api25.json` 으로 둔다.
 - `sam-atelier-img-3` 에 **장수 하나 한 커밋**, `pull --rebase` 뒤 일반 push. 썸네일 · `data/img.json` 은 워크플로가 한다. 코드 저장소 `docs/PATCH.md` 에 한 줄(patch-add).
 

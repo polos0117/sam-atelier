@@ -204,3 +204,19 @@ print('PASS 그림 등록: 장수의 세계 그림(samguk·fantasy·mecha)·일�
       ' · 일상컷은 세계 몫 안(참고 그림 = 세계 그림)·세계 없는 옛 시안은 화풍 몫 · 없는 세계·카드·화풍·성별 표시·밑줄 열쇠·세계 없는 세계 그림·세계 붙은 특별컷·연출컷·같은 자리는 저장 안 함'
       ' · 그림 저장소 둘(새 그림은 열린 저장소 · where · 닫힌 저장소엔 교체만 · 같은 이름 둘 · 못 받은 저장소)'
       ' · 등록한 날(새 것만 오늘·있던 날짜 그대로·지어내지 않음·틀린 날짜 버림·--check·--prune) · git 이력 채우기(교체·지운 것·얕은 저장소 경계)')
+
+# 크기(2026-11-23 일상컷 화면비) — 세계 그림은 1024×1536 하나, 일상컷은 셋(1024×1536 · 1024×1024 · 1536×1024) 가운데 하나이고 기록(계획)에 화면비가 있으면 그 크기
+import json as _json, tempfile as _tf
+from pathlib import Path as _P
+from PIL import Image as _Image
+with _tf.TemporaryDirectory() as _t:
+    _img, _rec = _P(_t) / 'img', _P(_t) / 'records' / 'x'; _img.mkdir(); _rec.mkdir(parents=True)
+    def _pic(name, wh): _Image.new('RGB', wh, (90, 90, 90)).save(_img / name, 'WEBP')
+    _pic('a_w_s_f.webp', (1024, 1536)); _pic('b_w_s_f.webp', (1024, 1024))                       # 세계 그림이 정사각 — 걸림
+    _pic('a_w_s_f_casual1.webp', (1536, 1024)); _pic('a_w_s_f_casual2.webp', (1024, 1024))        # 2 는 계획이 3:2 — 걸림
+    _pic('a_w_s_f_casual3.webp', (1024, 1536)); _pic('a_w_s_f_casual4.webp', (1200, 900))         # 기록 없는 옛 컷 2:3 · 받지 않는 크기
+    for _n in (1, 2): (_rec / f'w-casual{_n}.s-ui.json').write_text(_json.dumps({'file': f'a_w_s_f_casual{_n}.webp', 'scene': {'aspect': '3:2'}}), encoding='utf-8')
+    _bad = {b[0]: b[3] for b in reg.roster.art_size([str(_img)])}
+    assert set(_bad) == {'b_w_s_f.webp', 'a_w_s_f_casual2.webp', 'a_w_s_f_casual4.webp'}, _bad
+    assert '3:2' in _bad['a_w_s_f_casual2.webp'], _bad
+print('PASS 그림 크기: 세계 그림 2:3 · 일상컷 셋 · 계획 화면비(기록 scene.aspect)')

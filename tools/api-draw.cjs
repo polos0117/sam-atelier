@@ -35,6 +35,8 @@ const BASE = process.env.API_DRAW_BASE || 'https://api.openai.com/v1';   /* 검�
 /* 비슷한 등록작(세계컷 GPT 설계안 3단계, 2026-11-18) — 주문에 「이것들과도 다르게」. 그림 저장소가 없으면 빈 목록 */
 const NEAR = (card, world) => { try { return require('./design-near.cjs').near(card, world); } catch (e) { return []; } };
 const SIZE = '1024x1536', FIXED = { overall_intensity: 'strong', skin_exposure: 'bold' };
+/* 일상컷 화면비(2026-11-23) — 계획의 scene.aspect 대로 그림 크기(그림 API 가 받는 셋). 세계 그림 · 모르는 값은 2:3 */
+const SIZES = { '2:3': '1024x1536', '1:1': '1024x1024', '3:2': '1536x1024' }, sizeOf = a => SIZES[a] || SIZE;
 
 function parse(argv) {
   const o = { _: [], style: 'api25', quality: 'medium', n: 2, free: {}, cosplay: {}, exposure: {}, slots: null };
@@ -68,22 +70,22 @@ function shrinkRef(ref, out, w) {
   if (!fs.existsSync(dst)) py(`import sys\nfrom PIL import Image\nImage.open(sys.argv[1]).convert('RGB').resize((int(sys.argv[3]),int(sys.argv[4])),Image.LANCZOS).save(sys.argv[2])`, [ref, dst, String(w), String(h)]);
   return dst;
 }
-async function draw({ model, quality, prompt, ref, out, name, exposure, refSize }) {
-  const retries = [], sent = ref ? shrinkRef(ref, out, refSize) : null;
+async function draw({ model, quality, prompt, ref, out, name, exposure, refSize, aspect }) {
+  const retries = [], sent = ref ? shrinkRef(ref, out, refSize) : null, size = sizeOf(aspect);
   for (let n = 1; n <= 2; n++) {
     const t0 = Date.now();
     try {
       let j, endpoint;
       if (ref) {
         const fd = new FormData(), buf = fs.readFileSync(sent);
-        fd.append('model', model); fd.append('prompt', prompt); fd.append('size', SIZE); fd.append('quality', quality); fd.append('n', '1');
+        fd.append('model', model); fd.append('prompt', prompt); fd.append('size', size); fd.append('quality', quality); fd.append('n', '1');
         fd.append('image[]', new Blob([buf], { type: sent.endsWith('.webp') ? 'image/webp' : 'image/png' }), path.basename(sent));
         j = await call(BASE + '/images/edits', fd, true); endpoint = 'images/edits';
-      } else { j = await call(BASE + '/images/generations', { model, prompt, n: 1, size: SIZE, quality, output_format: 'png' }); endpoint = 'images/generations'; }
+      } else { j = await call(BASE + '/images/generations', { model, prompt, n: 1, size, quality, output_format: 'png' }); endpoint = 'images/generations'; }
       const png = Buffer.from(j.data[0].b64_json, 'base64'), file = path.join(out, name + '.png');
       fs.writeFileSync(file, png);
       retries.push({ n, status: 'ok', exposure: exposure || 'bold' });
-      const gen = { tool: 'tools/api-draw.cjs', model, endpoint, size: [1024, 1536], quality, usage: j.usage || null, seconds: (Date.now() - t0) / 1000, png_sha256: sha(png), prompt_sha256: sha(prompt), retries, date: new Date().toISOString().slice(0, 10) };
+      const gen = { tool: 'tools/api-draw.cjs', model, endpoint, size: size.split('x').map(Number), quality, usage: j.usage || null, seconds: (Date.now() - t0) / 1000, png_sha256: sha(png), prompt_sha256: sha(prompt), retries, date: new Date().toISOString().slice(0, 10) };
       if (ref) { gen.ref_sha256 = sha(fs.readFileSync(ref)); if (sent !== ref) gen.ref_sent = { size: [refSize, Math.round(refSize * 1.5)], sha256: sha(fs.readFileSync(sent)) }; }
       logUsage(out, { name, model, endpoint, output_tokens: (j.usage || {}).output_tokens || null, input_tokens: (j.usage || {}).input_tokens || null, seconds: gen.seconds, at: new Date().toISOString() });
       console.log(name + ' 받았다 ' + gen.seconds.toFixed(1) + '초 · 출력 ' + ((j.usage || {}).output_tokens || '?'));
@@ -168,7 +170,7 @@ async function cmdCasual(o) {
   const model = o.model || styleModel(o.style), blocked = [];
   for (const cut of plan.cuts.filter(c => !o.slots || o.slots.includes(c.n))) {
     const { n, ...sc } = cut, exp = o.exposure[n] || 'bold', name = plan.world + '-casual' + n;
-    const scene = { ...sc, axes: { ...FIXED, ...(sc.axes || {}), skin_exposure: exp }, aspect: '2:3', unlocked: sc.unlocked || [] };
+    const scene = { ...sc, axes: { ...FIXED, ...(sc.axes || {}), skin_exposure: exp }, aspect: sc.aspect || '2:3', unlocked: sc.unlocked || [] };   /* 화면비는 계획대로(옛 계획은 2:3) */
     let rec = P.casualRecord(D, S, plan.card, scene, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
     let prompt = rec.prompt;
     /* 자유 설계 컷(2026-11-11 사용자 「장소·활동·자세·구도·의상을 자유롭게 설계해줘 …」) — 채운 덩어리를 받아 빈 덩어리 자리에. 틀(머리 · 최근 장면 · 필수 갈래 · 상황 줄)은 낱말 그대로여야 한다 */
@@ -190,7 +192,7 @@ async function cmdCasual(o) {
         let who = '';
         if (v === 'again') {   /* 2회차 몫 — 계획이 정해 둔 again(캐릭터 · 재단)으로 장면을 바꿔 지시문을 다시 짓는다(<세계>-casualN-again-prompt.txt 와 같다) */
           const ag = P.cosplayAgainScene(cut); if (!ag) { console.log(name + ' — 계획에 넘길 2회차 몫(cosplay.again)이 없다'); blocked.push(name + '(2회차 없음)'); continue; }
-          const { n: _n, ...as } = ag; rec = P.casualRecord(D, S, plan.card, { ...as, axes: scene.axes, aspect: '2:3', unlocked: as.unlocked || [] }, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
+          const { n: _n, ...as } = ag; rec = P.casualRecord(D, S, plan.card, { ...as, axes: scene.axes, aspect: as.aspect || '2:3', unlocked: as.unlocked || [] }, { world: plan.world, style: o.style, tree, tree2, refFree: refIsFree(o.ref, o['ref-free']) }, n);
           prompt = rec.prompt; cosLine = (prompt.match(/^Outfit: .*$/m) || [''])[0]; cos = P.cosplayRecord(ag, GC);
         } else {
           cosLine = (fs.readFileSync(v, 'utf8').split('\n').find(l => /^Outfit: /.test(l.trim())) || '').trim().replace(/\.\s*$/, '');
@@ -202,7 +204,7 @@ async function cmdCasual(o) {
         }
       } else cos = P.cosplayRecord(cut, GC);
     }
-    const gen = await draw({ model, quality: o.quality, prompt, ref: o.ref, out, name, exposure: exp, refSize: o['ref-size'] == null ? 768 : Number(o['ref-size']) });
+    const gen = await draw({ model, quality: o.quality, prompt, ref: o.ref, out, name, exposure: exp, refSize: o['ref-size'] == null ? 768 : Number(o['ref-size']), aspect: (rec.scene || {}).aspect });
     if (gen.blocked) { blocked.push(name); continue; }
     if (cut.ofree) { gen.design = cut.ofreeFamily ? 'ofree_family' : 'ofree'; gen.free_design = block; gen.free_prompt = prompt; gen.free_by = o.by || 'claude'; }
     if (cos) { gen.cosplay = JSON.parse(JSON.stringify(cos)); if (cosLine) { gen.cosplay_line = cosLine; gen.cosplay_prompt = prompt; gen.cosplay_by = o.by || 'claude'; } }
@@ -228,7 +230,8 @@ try: F=ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeSansBold.ttf',
 except Exception: F=ImageFont.load_default()
 im=Image.new('RGB',(W*len(fs),TOP+H),'white'); d=ImageDraw.Draw(im)
 for i,f in enumerate(fs):
-    im.paste(Image.open(f).convert('RGB').resize((W,H)),(i*W,TOP)); d.text((i*W+8,5),lab[i] if i<len(lab) and lab[i] else f.split('/')[-1],fill='black',font=F)
+    t=Image.open(f).convert('RGB'); t.thumbnail((W,H)); im.paste(t,(i*W+(W-t.width)//2,TOP+(H-t.height)//2))   # 1:1 · 3:2 일상컷은 칸 안에 맞춘다(2026-11-23)
+    d.text((i*W+8,5),lab[i] if i<len(lab) and lab[i] else f.split('/')[-1],fill='black',font=F)
 im.save(out,quality=88)`, [outFile, o.labels || '', ...files]);
   console.log('→ ' + outFile);
 }
@@ -244,6 +247,8 @@ function cmdStage(o) {
     const m = slot.match(/^(samguk|fantasy|mecha)(?:-casual(\d+))?$/); if (!m) throw new Error('자리 꼴이 아니다: ' + slot);
     const recFile = png.replace(/\.png$/, '_record.json'); if (!fs.existsSync(recFile)) throw new Error('기록이 없다: ' + recFile);
     const rec = JSON.parse(fs.readFileSync(recFile, 'utf8'));
+    /* 크기 — 세계 그림 1024×1536, 일상컷은 기록 장면의 화면비(2026-11-23) */
+    const want = a => sizeOf(a).split('x');
     const file = m[2] ? P.casualFile(card, m[1], o.style, Number(m[2])) : P.fileName(card, m[1], o.style);
     const dst = path.join(img, 'img', file), recDst = path.join(img, 'records', card, m[2] ? `${m[1]}-casual${m[2]}.${o.style}-ui.json` : `${m[1]}.${o.style}-ui.json`);
     const hit = [dst, recDst, ...twins(file)].find(f => fs.existsSync(f));
@@ -251,8 +256,8 @@ function cmdStage(o) {
     py(`import sys
 from PIL import Image
 im=Image.open(sys.argv[1]).convert('RGB')
-assert im.size==(1024,1536), im.size
-im.save(sys.argv[2],'WEBP',quality=90,method=6)`, [png, dst]);
+assert im.size==(int(sys.argv[3]),int(sys.argv[4])), im.size
+im.save(sys.argv[2],'WEBP',quality=90,method=6)`, [png, dst, ...want(m[2] ? (rec.scene || {}).aspect : '2:3')]);
     rec.file = file; if (m[2]) { rec.slot = 'casual' + m[2]; rec.ref = P.fileName(card, m[1], o.style); }
     rec.generation = { ...rec.generation, webp: { quality: 90 } }; rec.imported = new Date().toISOString().slice(0, 10);
     fs.mkdirSync(path.dirname(recDst), { recursive: true }); fs.writeFileSync(recDst, JSON.stringify(rec, null, 1) + '\n');

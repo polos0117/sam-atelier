@@ -1,13 +1,16 @@
 /* tools/api-draw.cjs — 가짜 그림 서버로 세계 그림 · GPT 설계 · 일상컷 · 막힘(한 번 더 → 건너뜀) · 사용량 · stage(webp · 기록 · 덮지 않음 · 닫힌 저장소 · 옆 저장소 같은 이름). node tests/api-draw.cjs */
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), os = require('node:os'), http = require('node:http'), cp = require('node:child_process'), vm = require('node:vm');
 const R = path.join(__dirname, '..'), TOOL = path.join(R, 'tools/api-draw.cjs'), tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'api-draw-'));
-const png = cp.execFileSync('python3', ['-c', "import io,base64,sys\nfrom PIL import Image\nb=io.BytesIO();Image.new('RGB',(1024,1536),(200,80,80)).save(b,'PNG');sys.stdout.write(base64.b64encode(b.getvalue()).decode())"]).toString();
+const pngOf = (w, h) => cp.execFileSync('python3', ['-c', "import io,base64,sys\nfrom PIL import Image\nb=io.BytesIO();Image.new('RGB',(" + w + "," + h + "),(200,80,80)).save(b,'PNG');sys.stdout.write(base64.b64encode(b.getvalue()).decode())"]).toString();
+/* 가짜 서버는 부른 크기대로 돌려준다 — 일상컷 화면비(2026-11-23 — 1:1 · 3:2 는 계획대로 부른다) */
+const PNGS = { '1024x1536': pngOf(1024, 1536), '1024x1024': pngOf(1024, 1024), '1536x1024': pngOf(1536, 1024) }, png = PNGS['1024x1536'], sizes = [];
+const sizeIn = body => { const m = /name="size"\r\n\r\n(\d+x\d+)/.exec(body) || /"size":"(\d+x\d+)"/.exec(body); return m ? m[1] : '1024x1536'; };
 let calls = [], block = new Set();
 const srv = http.createServer((q, s) => { let body = ''; q.on('data', d => body += d); q.on('end', () => {
   calls.push(q.url + ' ' + (q.headers['content-type'] || '').split(';')[0]);
   const blocked = [...block].some(b => body.includes(b));
   if (blocked) { s.writeHead(400, { 'content-type': 'application/json' }); return s.end(JSON.stringify({ error: { message: 'Your request was rejected by the safety system. safety_violations=[sexual]' } })); }
-  s.writeHead(200, { 'content-type': 'application/json' }); s.end(JSON.stringify({ data: [{ b64_json: png }], usage: { output_tokens: 343, input_tokens: 1000 } })); }); });
+  s.writeHead(200, { 'content-type': 'application/json' }); const sz = sizeIn(body); sizes.push(sz); s.end(JSON.stringify({ data: [{ b64_json: PNGS[sz] || png }], usage: { output_tokens: 343, input_tokens: 1000 } })); }); });
 /* 가짜 서버가 같은 프로세스라 동기 실행(spawnSync)은 서로를 막는다 — 비동기로 */
 const run = args => new Promise(ok => { const c = cp.spawn(process.execPath, [TOOL, ...args], { env: { ...process.env, OPENAI_API_KEY: 'sk-test', API_DRAW_BASE: 'http://127.0.0.1:' + srv.address().port } }); let stdout = '', stderr = ''; c.stdout.on('data', d => stdout += d); c.stderr.on('data', d => stderr += d); c.on('close', status => ok({ status, stdout, stderr })); });
 srv.listen(0, async () => {
@@ -35,6 +38,7 @@ srv.listen(0, async () => {
     r = await run(['casual', path.join(planDir, 'plan.json'), '--ref', path.join(out, 'samguk-ours1.png'), '--out', out]);
     const c1rec = fs.existsSync(path.join(out, 'samguk-casual1_record.json')) ? JSON.parse(fs.readFileSync(path.join(out, 'samguk-casual1_record.json'), 'utf8')) : null;
     assert(c1rec && c1rec.generation.endpoint === 'images/edits' && c1rec.generation.ref_sent && c1rec.generation.ref_sent.size[0] === 768 && c1rec.generation.ref_sha256 && !/^LIGHT: natural light/m.test(c1rec.prompt), '일상컷 — 편집 API · 참고 그림 · 11-02 꼴');
+    { const pc = plan.cuts.find(c => c.n === 1), want = { '2:3': [1024, 1536], '1:1': [1024, 1024], '3:2': [1536, 1024] }[pc.aspect || '2:3']; assert.deepEqual(c1rec.generation.size, want, '일상컷 크기는 계획 화면비(2026-11-23) — ' + pc.aspect); }
     assert(r.status === 3 && /막혀 건너뛴 자리: samguk-casual2/.test(r.stdout) && calls.filter(c => c.startsWith('/images/edits')).length === 3, '막힌 컷은 한 번 더 뒤 건너뛴다(종료 3)');
     r = await run(['usage', out]); assert(/막힘 2/.test(r.stdout) && /gpt-image-2.5-sunburst · images\/generations — 3장/.test(r.stdout), '사용량 합계: ' + r.stdout);
     r = await run(['stage', '조조', '--img', img, path.join(out, 'samguk-ours1.png') + '=samguk', path.join(out, 'samguk-casual1.png') + '=samguk-casual1']); assert.equal(r.status, 0, r.stderr);

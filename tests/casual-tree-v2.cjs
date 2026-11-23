@@ -255,4 +255,16 @@ assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 24, '�
 const r13 = seeded(13);
 for (let i = 0; i < 300; i++) valid(C.random(t, { era: i % 2 ? 'heritage' : 'nation' }, null, r13, ['era']), '삼국지 시대 랜덤 ' + i);
 
-console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 300 · 바꾸기 200 · 역사의 자리 · 세계 안 · 삼국지 소품');
+/* 화면비(2026-11-23, 표 aspect_rules · aspectFor) — 눕는 자세 · 환경 컷 3:2, 허리 위 · 3/4 1:1, 나머지 2:3, 자유 설계 · 게임 코스프레 2:3 */
+assert.equal(C.aspectFor(t, { posture: 'lie_front', frame: 'waist_up' }), '3:2', '엎드림은 허리 위여도 3:2');
+assert.equal(C.aspectFor(t, { posture: 'recline', frame: 'full_body' }), '3:2'); assert.equal(C.aspectFor(t, { posture: 'lie_side', frame: 'chest_up' }), '3:2');
+assert.equal(C.aspectFor(t, { posture: 'stand', frame: 'environmental' }), '3:2');
+assert.equal(C.aspectFor(t, { posture: 'sit_chair', frame: 'waist_up' }), '1:1'); assert.equal(C.aspectFor(t, { posture: 'stand', frame: 'three_quarter' }), '1:1');
+for (const f of ['full_body', 'chest_up', 'face_close', 'detail']) assert.equal(C.aspectFor(t, { posture: 'stand', frame: f }), '2:3', f);
+assert.equal(C.aspectFor(t, { posture: 'sit_floor', frame: 'full_body' }), '2:3', '앉은 전신');
+assert.equal(C.aspectFor(t, { sfree: true, ofree: true }), '2:3'); assert.equal(C.aspectFor(t, { posture: 'lie_side', frame: 'environmental', sfree: true }), '2:3', '자유 설계 칸');
+assert.equal(C.aspectFor(t, { ofam: 'game_cosplay', posture: 'recline', frame: 'three_quarter' }), '2:3', '게임 코스프레');
+assert.equal(C.aspectFor(t, {}), '2:3');
+assert.deepEqual(C.aspectSize(t, '3:2'), [1536, 1024]); assert.deepEqual(C.aspectSize(t, '1:1'), [1024, 1024]); assert.deepEqual(C.aspectSize(t, '2:3'), [1024, 1536]); assert.deepEqual(C.aspectSize(t, '16:9'), [1024, 1536]);
+
+console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 300 · 바꾸기 200 · 역사의 자리 · 세계 안 · 삼국지 소품 · 화면비');

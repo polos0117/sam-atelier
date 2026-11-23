@@ -418,10 +418,10 @@ def main():
             print("     %-44s %s" % (f, why))
     odd = roster.art_size([IMG_DIR] + [d for d in EXTRA_DIRS if os.path.isdir(d)])
     if odd:
-        print("  새로 들어왔는데 %d×%d 이 아닌 그림 %d"
-              % (roster.ART_SIZE[0], roster.ART_SIZE[1], len(odd)))
-        for name, w, h in odd[:10]:
-            print("     %-44s %d×%d" % (name, w, h))
+        print("  크기가 안 맞는 그림 %d(세계 그림 %d×%d · 일상컷은 계획 화면비대로)"
+              % (len(odd), roster.ART_SIZE[0], roster.ART_SIZE[1]))
+        for name, w, h, why in odd[:10]:
+            print("     %-44s %d×%d — %s" % (name, w, h, why))
     if missing and os.environ.get("GITHUB_ACTIONS"):
         print("::warning::그림 저장소 %s 를 못 받았다 — 그쪽 자리는 그대로 두고, 새 그림은 %s 로 받는다" % (", ".join(missing), SHARDS[open_at]))
     annotate(added, ghosts, unknown, a.prune and not a.check and not unknown, odd)
@@ -440,10 +440,8 @@ def annotate(added, ghosts, unknown, pruned, odd=()):
     for f in ghosts:
         print("::warning::%s 가 img.json 에 적혀 있는데 파일이 없다%s"
               % (f, " (지웠다)" if pruned else " — --prune 으로 지운다"))
-    for name, w, h in odd:
-        print("::warning file=%s::%d×%d 로 들어왔다 — 그림 규격은 %d×%d 다."
-              " 일상컷처럼 일부러 다른 꼴이면 그냥 두라"
-              % (name, w, h, roster.ART_SIZE[0], roster.ART_SIZE[1]))
+    for name, w, h, why in odd:
+        print("::warning file=%s::%d×%d 로 들어왔다 — %s" % (name, w, h, why))
     path = os.environ.get("GITHUB_STEP_SUMMARY")
     if not path:
         return
@@ -460,10 +458,10 @@ def annotate(added, ghosts, unknown, pruned, odd=()):
         if ghosts:
             f.write("- 적혀 있는데 파일이 없는 것 **%d**\n" % len(ghosts))
         if odd:
-            f.write("- 규격(%d×%d) 밖으로 들어온 그림 **%d** — 일부러 그런 것인지 본다\n"
-                    % (roster.ART_SIZE[0], roster.ART_SIZE[1], len(odd)))
-            for name, w, h in odd:
-                f.write("  - `%s` — %d×%d\n" % (name, w, h))
+            f.write("- 크기가 안 맞는 그림 **%d** — 세계 그림은 %d×%d, 일상컷은 계획 화면비대로(1024×1536 · 1024×1024 · 1536×1024)\n"
+                    % (len(odd), roster.ART_SIZE[0], roster.ART_SIZE[1]))
+            for name, w, h, why in odd:
+                f.write("  - `%s` — %d×%d · %s\n" % (name, w, h, why))
 
 
 if __name__ == "__main__":

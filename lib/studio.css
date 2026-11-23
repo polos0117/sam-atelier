@@ -53,7 +53,7 @@
 .ref.none {color:var(--muted)}
 #unlocked-note {color:var(--warn);font-size:13px}
 .art-mini {display:flex;gap:10px;align-items:center;margin:8px 0 0}
-.art-mini img {width:72px;aspect-ratio:2/3;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.art-mini img {width:72px;aspect-ratio:2/3;object-fit:contain;background:var(--card2);border-radius:8px;border:1px solid var(--line)}
 .art-mini small {color:var(--muted);font-size:12px}
 @media (max-width:600px) {.opts {grid-template-columns:1fr 1fr}}
 /* 폰 */

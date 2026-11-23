@@ -3,7 +3,7 @@
 
 삼국지는 data/sam-design.json 한 곳에 있다 — 세력 › 장수. 카드 열쇠는 장수 이름(게임 표 그대로, 예: 관우)이고
 그림 파일 이름 맨 앞에 들어간다. 세계(폼) 열쇠는 vocab.worlds(samguk · fantasy · mecha), 화풍은 data/style.json 의 styles 열쇠다."""
-import json, os
+import json, os, re
 
 DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
 ART_SIZE = (1024, 1536)          # 2:3 세로. 모든 그림은 이 크기로 맞춘다
@@ -85,17 +85,60 @@ def _webp_size(rel):
     return None
 
 
-def art_size(dirs=("img",)):
-    """[(이름, 가로, 세로)…] — 그림 자리 안에서 ART_SIZE 가 아닌 그림."""
-    bad = []
+# 일상컷 화면비(2026-11-23) — 계획(기록 scene.aspect)이 정한다: 눕는 자세 · 환경 컷 3:2, 허리 위 · 3/4 1:1, 나머지 2:3.
+# 그림 API 가 받는 크기 셋뿐. 세계 그림(초상)은 ART_SIZE 하나, 이미 그린 일상컷은 2:3 그대로
+ASPECT_SIZES = {"2:3": (1024, 1536), "1:1": (1024, 1024), "3:2": (1536, 1024)}
+CASUAL_FILE = re.compile(r"_casual\d+\.webp$")
+CASUAL_RECORD = re.compile(r"-casual\d+\.[A-Za-z0-9_]+-ui\.json$")
+
+
+def planned_aspects(dirs=("img",)):
+    """{webp 이름: 화면비} — 그림 저장소의 일상컷 기록(img/ 옆 records/ 의 file · scene.aspect). 기록이 없으면 빈 것"""
+    root, out = os.path.dirname(DIR), {}
     for d in dirs:
-        full = os.path.join(os.path.dirname(DIR), d)
+        full = d if os.path.isabs(d) else os.path.join(root, d)
+        rec = os.path.join(os.path.dirname(os.path.realpath(full)), "records")
+        if not os.path.isdir(rec):
+            continue
+        for base, _, files in os.walk(rec):
+            for f in files:
+                if not CASUAL_RECORD.search(f):
+                    continue
+                try:
+                    r = json.load(open(os.path.join(base, f), encoding="utf-8"))
+                except (OSError, ValueError):
+                    continue
+                a = (r.get("scene") or {}).get("aspect") if isinstance(r, dict) else None
+                if isinstance(r, dict) and r.get("file") and a in ASPECT_SIZES:
+                    out[r["file"]] = a
+    return out
+
+
+def art_size(dirs=("img",)):
+    """[(이름, 가로, 세로, 왜)…] — 크기가 안 맞는 그림. 세계 그림은 ART_SIZE(2:3) 하나, 일상컷은 ASPECT_SIZES 셋 가운데 하나이고
+    기록(계획)에 화면비가 있으면 그 크기(2026-11-23)."""
+    root, bad, plan = os.path.dirname(DIR), [], None
+    for d in dirs:
+        full = d if os.path.isabs(d) else os.path.join(root, d)
         if not os.path.isdir(full):
             continue
         for f in sorted(os.listdir(full)):
             if not f.lower().endswith(".webp"):
                 continue
             s = _webp_size(os.path.join(d, f))
-            if s and tuple(s) != ART_SIZE:
-                bad.append((f, s[0], s[1]))
+            if not s:
+                continue
+            s = tuple(s)
+            if not CASUAL_FILE.search(f):
+                if s != ART_SIZE:
+                    bad.append((f, s[0], s[1], "세계 그림은 %d×%d" % ART_SIZE))
+                continue
+            if s not in ASPECT_SIZES.values():
+                bad.append((f, s[0], s[1], "일상컷은 " + " · ".join("%d×%d" % v for v in ASPECT_SIZES.values())))
+                continue
+            if plan is None:
+                plan = planned_aspects(dirs)
+            a = plan.get(f)
+            if a and ASPECT_SIZES[a] != s:
+                bad.append((f, s[0], s[1], "계획 화면비 %s 는 %d×%d" % ((a,) + ASPECT_SIZES[a])))
     return bad
