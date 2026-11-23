@@ -1,5 +1,8 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-23 · claude · core v7 나이 문장 — 20대 초 youthful · 중반 young-adult · 후반 clear adult
+- lib/prompt-spec.js — 화풍공방 core v7 블록 다시 옮김(나이 문장: 20대 초 youthful · 중반 young-adult · 후반 clear adult). prompt-spec ?v= 올림
+
 ## 2026-11-23 · claude · 일상컷 크기 — 같은 비율로 더 크게 온 원본(1:1 1254×1254)은 맞는 그림, WebP 로 바꿀 때 표준 크기로 줄인다
 - IMAGE_RULES.md — 크기 규칙에 같은 비율로 더 큰 원본은 맞고 표준 크기로 줄인다는 말
 - docs/IMAGE_AUTOMATION.md — 멈춤 조건 · WebP 바꾸기 줄에 같은 비율 큰 원본(ChatGPT 화면 1:1 1254×1254)은 줄여서 올린다
