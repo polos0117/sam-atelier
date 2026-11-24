@@ -251,7 +251,7 @@ for (const p of t.v1.places.filter(p => p.key.startsWith('nation_'))) {
   assert(ws.every(w => p.worlds && p.worlds[w] && p.worlds[w].ko && p.worlds[w].en), p.key + ' 세계 셋의 이름 · 글');
   assert(new Set(ws.map(w => p.worlds[w].en)).size === ws.length, p.key + ' 세계마다 다른 글');
 }
-assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 24, '세계 안 장소 스물넷(2026-11-03 다섯 더함 · 2026-11-23 동물 · 놀이 넷 · 극장 · 눈 언덕 · 꽃 시장 · 단장방 넷)');
+assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 33, '세계 안 장소 서른셋(2026-11-03 다섯 더함 · 2026-11-23 동물 · 놀이 넷 · 극장 · 눈 언덕 · 꽃 시장 · 단장방 넷 · 2026-11-24 탈 것 아홉)');
 const r13 = seeded(13);
 for (let i = 0; i < 300; i++) valid(C.random(t, { era: i % 2 ? 'heritage' : 'nation' }, null, r13, ['era']), '삼국지 시대 랜덤 ' + i);
 

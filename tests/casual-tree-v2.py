@@ -120,9 +120,13 @@ sig = [p for p in doc['props'] if p.get('signature')]
 assert [p['key'] for p in sig] == ['signature'] and sig[0]['places'] == ['*'], sig
 assert len([u for u in doc['prop_uses'] if u['prop'] == 'signature']) == 4   # 옆에 내려 드는 동작(sig_low) 하나 더 — 뒤쪽 몸 방향용(2026-11-13)
 # 택시 뒷좌석에선 서지 않는다(2026-11-04) — 서는 자세는 upright 받침이 있는 장소만
-stands = [p for p in doc['postures'] if p['family'] in ('stand', 'walk')]
+stands = [p for p in doc['postures'] if p['family'] in ('stand', 'walk') and p['key'] != 'board_stand']   # 보드 위 균형(2026-11-24)은 보드(board)가 받침 — 물 위 웨이크 · 패들에도 선다
 assert stands and all('upright' in p.get('needs', []) for p in stands), stands
 SEATED = {'night_taxi', 'amuse_wheel', 'ski_lift'}   # 앉은 자리뿐인 탈것(택시 뒷좌석 · 관람차 곤돌라 · 스키 리프트, 2026-11-23)
+# 2026-11-24 탈 것 — 운전석 · 오픈카 조수석 · 인력거 · 비행기 좌석 · 조종석 · 놀이기구 · 배 · 보드 · 하네스 · 말 · 낙타 위
+SEATED |= {'car_seat', 'car_convertible', 'pedicab', 'plane_window', 'plane_cockpit', 'paraglider_sky', 'zipline', 'ride_bumper', 'ride_pirate', 'ride_droptower', 'ride_teacup', 'ride_coaster', 'ride_carousel',
+           'wake_lake', 'waterski_bay', 'sup_cove', 'kayak_river', 'raft_river', 'jetski_jetty', 'banana_boat', 'swan_boat', 'canal_gondola', 'horse_trail', 'camel_ride', 'carriage_ride',
+           'nation_waveboard', 'nation_fair_ride', 'nation_boat_ride', 'nation_horse_ride'}
 assert all('upright' not in doc['places'][k] for k in SEATED) and all('upright' in v for k, v in doc['places'].items() if k not in SEATED)
 assert all('night_taxi' not in T.preset_places(doc, v1, p) for p in doc['presets'] if any(q['key'] == p['posture'] and q['family'] in ('stand', 'walk') for q in doc['postures']))
 print('casual-tree-v2 ok — 추천', len(doc['presets']), '· 장소', len(doc['places']), '· 삼국지 소품 여섯')
