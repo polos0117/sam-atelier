@@ -64,7 +64,7 @@ function sShape(r) {
 }
 for (const r of doc.rows) {
   sShape(r);
-  assert.deepEqual(Object.keys(r).filter(k => k !== 's'), KEYS, r.path + ' 칸');
+  assert.deepEqual(Object.keys(r).filter((k) => k !== 's' && k !== 'cls' && k !== 'clsKo'), KEYS, r.path + ' 칸');
   if ('s' in r) assert.equal(Object.keys(r).pop(), 's', 's 는 줄 끝');
   for (const k of ['required', 'family', 'item', 'shade', 'world']) if (r[k]) assert.match(r[k + 'Ko'] || '', HAN, `${r.path} ${k}Ko 는 한글`); else if (k !== 'world') assert.equal(r[k + 'Ko'], null, `${r.path} ${k} 가 없으면 ${k}Ko 도 null`);
   assert.match(r.date, /^\d{4}-\d{2}-\d{2}$/);
@@ -127,3 +127,5 @@ assert.equal(fs.readFileSync(out, 'utf8').split('\n').length, 2, '한 줄 JSON')
 
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(`PASS 일상컷 색인: 줄 ${doc.rows.length} · 꼴 · 한글 칸 · 곁가지 합치기 · 계획 필수 표시(코스프레 / 옛 상황) · 코스프레 by · 캐릭터 한글 · Outfit 줄 · 그대로 두기`);
+/* 실루엣 갈래(2026-11-25) — cls 가 있으면 한글 clsKo 도 있다, 수영복 · 란제리 줄 가운데 얼마는 cls 를 가진다 */
+{ const R = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, '..', 'data', 'casual-index.json'), 'utf8')).rows; for (const r of R) if (r.cls) require('assert').ok(r.clsKo, 'clsKo ' + r.path); require('assert').ok(R.some((r) => r.cls), '실루엣 갈래 줄이 하나도 없다'); }
