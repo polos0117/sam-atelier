@@ -197,6 +197,10 @@
    "key": "ride_animal",
    "ko": "말 · 낙타 타기",
    "companion": true
+  },
+  {
+   "key": "orbit",
+   "ko": "궤도 정거장"
   }
  ],
  "places": [
