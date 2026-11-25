@@ -954,6 +954,25 @@
    ]
   },
   {
+   "key": "lean_in",
+   "ko": "카메라 쪽으로 상체 숙이기",
+   "family": "stand",
+   "en": "standing and leaning her upper body forward toward the camera from the hips, her back gently arched and her shoulders lowered toward the viewer, as if leaning in close",
+   "needs": [
+    "upright"
+   ],
+   "supports": [
+    "none"
+   ],
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body"
+   ],
+   "note": "2026-11-25 사용자 「앞으로 살짝 숙인 상체」 — 작업대 · 테이블이 아니라 카메라 쪽으로 숙인다"
+  },
+  {
    "key": "step_up",
    "ko": "한 발 올려 서기",
    "family": "stand",
@@ -1500,7 +1519,8 @@
     "lean_counter",
     "step_up",
     "lean_vehicle",
-    "skate_glide"
+    "skate_glide",
+    "lean_in"
    ]
   },
   {
@@ -1514,7 +1534,8 @@
     "walk",
     "lean_counter",
     "step_up",
-    "lean_vehicle"
+    "lean_vehicle",
+    "lean_in"
    ]
   },
   {
@@ -1789,7 +1810,8 @@
     "sit_sideways",
     "half_kneel",
     "ride_side",
-    "sit_boat"
+    "sit_boat",
+    "lean_in"
    ]
   },
   {
@@ -2166,7 +2188,8 @@
     "lean_rail",
     "lean_counter",
     "reach_up",
-    "lean_vehicle"
+    "lean_vehicle",
+    "lean_in"
    ]
   },
   {
@@ -2181,7 +2204,8 @@
     "stand",
     "lean_wall",
     "lean_rail",
-    "lean_vehicle"
+    "lean_vehicle",
+    "lean_in"
    ]
   },
   {
@@ -2195,7 +2219,8 @@
    "en": "one foot a step ahead of the other",
    "postures": [
     "stand",
-    "walk"
+    "walk",
+    "lean_in"
    ]
   },
   {
@@ -19460,6 +19485,112 @@
    "legs": "",
    "gaze": "camera",
    "act": "rest"
+  },
+  {
+   "key": "stand_lookback",
+   "ko": "서서 어깨 너머 돌아보기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "prop",
+   "left": "down",
+   "prop_kind": "hold",
+   "legs": "contrapposto",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "rail_lookback",
+   "ko": "난간에 기대 어깨 너머 돌아보기",
+   "posture": "lean_rail",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "rail",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "close_lookback",
+   "ko": "가까이서 어깨 너머 돌아보기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "lean_in_low",
+   "ko": "카메라 쪽으로 숙여 다가오기(올려다봄)",
+   "posture": "lean_in",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "low",
+   "right": "lap",
+   "left": "natural",
+   "legs": "contrapposto",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "lean_in_close",
+   "ko": "숙여 얼굴 가까이",
+   "posture": "lean_in",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "counter_rear",
+   "ko": "작업대에 숙인 뒷모습(옆얼굴)",
+   "posture": "lean_counter",
+   "support": "none",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "turn_side",
+   "camera": "eye",
+   "right": "natural",
+   "left": "down",
+   "legs": "stand_relaxed",
+   "gaze": "down",
+   "act": "chore"
+  },
+  {
+   "key": "shelf_rear",
+   "ko": "높은 선반에 손 뻗는 뒷모습",
+   "posture": "reach_up",
+   "support": "none",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "turn_side",
+   "camera": "eye",
+   "right": "reach_high",
+   "left": "natural",
+   "legs": "stand_relaxed",
+   "gaze": "down",
+   "act": "chore"
   },
   {
    "key": "table_chin_high",
