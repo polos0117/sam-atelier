@@ -1,5 +1,9 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-25 · claude · 뒷모습 상체 비틀림 막기
+- lib/casual-tree-v2.js — style-atelier shared 원본에서 sync: 뒷모습 비틀림 막기(backLock) — 「몸방향 뒤, 시선먼곳, 카메라 눈높이 일 때, 자세는 뒷모습을 보이며 걸어가는 자세인데, 상체는 카메라쪽으로 돌아있어서 기괴한 이미지들이 있네」. 몸이 뒤쪽이면 COMPOSITION 줄에 어깨 · 가슴 · 엉덩이가 한 줄로 돌아가고 허리 비틀림 없음, 노출은 뒤에서 보이는 곳만
+- prompt.html · promptapi.html — casual-tree-v2.js ?v=17
+
 ## 2026-11-25 · claude · 한 사람 무리 둘 — 유주 유우 · 선비 가비능
 - data/sam-design.json — 사용자 「응 유우랑 가비능도 빼줘」: 군웅 무리 유주(유우 · 등꽃 연보라 · 서리 흰색) · 선비(가비능 · 초원 하늘 파랑 · 펠트 흰색), palette · persona · 메카 설계. 유우의 군웅록 한조정 색은 지운다. 그 밖의 제후엔 포신 · 유대 · 교모 · 주흔만
 - data/draft2-factions.json — 도감 줄 색 유우 幽 #B48AEA · 선비 鮮 #6084EA(지도 · 새 판엔 아직 없음), dex youzhou · xianbei
