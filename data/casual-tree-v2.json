@@ -521,9 +521,10 @@
     "v_sign",
     "hair_tuck",
     "prop",
-    "out"
+    "out",
+    "natural"
    ],
-   "note": "두 팔뚝이 몸을 받친다 — 팔꿈치를 바닥에 둔 채 할 수 있는 손만"
+   "note": "두 팔뚝이 몸을 받친다 — 팔꿈치를 바닥에 둔 채 할 수 있는 손만 · natural(2026-11-25 — 팔뚝으로 받친 채 그대로, 엎드린 뒷태로 돌아보는 컷은 얼굴 쪽 손을 못 쓴다)"
   },
   {
    "key": "hip_edge",
@@ -19591,6 +19592,81 @@
    "legs": "stand_relaxed",
    "gaze": "down",
    "act": "chore"
+  },
+  {
+   "key": "edge_rear",
+   "ko": "걸터앉아 풍경 보는 뒷모습",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "full_body",
+   "body": "back",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "dangle",
+   "gaze": "horizon",
+   "act": "rest"
+  },
+  {
+   "key": "floor_lookback",
+   "ko": "바닥에 앉아 어깨 너머 돌아보기",
+   "posture": "sit_floor",
+   "support": "none",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "legs_bent_side",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "kneel_lookback",
+   "ko": "무릎 꿇고 앉아 돌아보기(뒷태)",
+   "posture": "kneel",
+   "support": "none",
+   "frame": "full_body",
+   "body": "back",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "kneel_sit",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "lie_side_lookback",
+   "ko": "옆으로 누워 등 보이며 돌아보기",
+   "posture": "lie_side",
+   "support": "side_floor",
+   "frame": "full_body",
+   "body": "back",
+   "head": "over_shoulder",
+   "camera": "high",
+   "right": "natural",
+   "left": "natural",
+   "legs": "knee_up",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "lie_front_lookback",
+   "ko": "엎드려 누운 뒷태로 돌아보기",
+   "posture": "lie_front",
+   "support": "front_floor",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "high",
+   "right": "natural",
+   "left": "natural",
+   "legs": "feet_up",
+   "gaze": "camera",
+   "act": "rest"
   },
   {
    "key": "table_chin_high",
