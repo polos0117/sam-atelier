@@ -599,12 +599,38 @@
      }
     },
     {
+     "key": "youzhou",
+     "ko": "유주",
+     "note": "유주목 유우 — 백성이 따른 목민관",
+     "palette": {
+      "en": "wisteria lavender, frost white, pale pine green and silver",
+      "ko": "등꽃 연보라 · 서리 흰색 · 옅은 솔빛 녹색 · 은"
+     },
+     "persona": "백성이 따른 유주목 유우 — 등꽃 연보라와 서리 흰색",
+     "mecha": {
+      "design": "wisteria-lavender and frost-white plating with pale pine-green trim and silver joints, gentle governor-citadel silhouette, pine and snowflake motifs, soft lavender glow lines"
+     }
+    },
+    {
+     "key": "xianbei",
+     "ko": "선비",
+     "note": "가비능의 선비 — 북방 초원을 묶은 대인",
+     "palette": {
+      "en": "steppe sky blue, felt white, saddle brown and turquoise",
+      "ko": "초원 하늘 파랑 · 펠트 흰색 · 안장 갈색 · 터키석"
+     },
+     "persona": "북방 초원을 묶은 선비의 가비능 — 하늘 파랑과 펠트 흰색",
+     "mecha": {
+      "design": "steppe sky-blue and felt-white plating with saddle-brown leather panels and turquoise studs, swift horse-archer silhouette, sky and horse-banner motifs, turquoise glow lines"
+     }
+    },
+    {
      "key": "lords",
      "ko": "그 밖의 제후",
-     "note": "세력을 이루지 못한 군소 제후 · 한 사람뿐인 세력 — 가비능 · 포신 · 유우 · 유대 · 교모 · 주흔"
+     "note": "세력을 이루지 못한 군소 제후 — 포신 · 유대 · 교모 · 주흔"
     }
    ],
-   "camp_note": "2026-11-05 사용자 「군웅들도 각각 세력색을 넣자」 — 무리(camp)마다 palette · persona · 메카 설계 문장. 없는 무리(그 밖의 제후)는 군웅 세력색 그대로 · 2026-11-25 사용자 「그밖의 제후들 중에서도 세력이 있는 장수들은 해당 세력 만들어주고, 고유색도 부여해줘」 → 세력이 있던 제후 여덟 무리(서주 · 기주 · 하내 · 진류 · 유요군 · 엄백호군 · 교주 · 요동)를 그 밖의 제후에서 떼고 무리 색을 주었다. 무리 장수의 군웅록 대표 세력 색(장수 palette)은 지우고 무리 색을 쓴다"
+   "camp_note": "2026-11-05 사용자 「군웅들도 각각 세력색을 넣자」 — 무리(camp)마다 palette · persona · 메카 설계 문장. 없는 무리(그 밖의 제후)는 군웅 세력색 그대로 · 2026-11-25 사용자 「그밖의 제후들 중에서도 세력이 있는 장수들은 해당 세력 만들어주고, 고유색도 부여해줘」 → 세력이 있던 제후 여덟 무리(서주 · 기주 · 하내 · 진류 · 유요군 · 엄백호군 · 교주 · 요동)를 그 밖의 제후에서 떼고 무리 색을 주었다. 무리 장수의 군웅록 대표 세력 색(장수 palette)은 지우고 무리 색을 쓴다 · 사용자 「응 유우랑 가비능도 빼줘」 → 한 사람 무리 유주(유우) · 선비(가비능)"
   }
  ],
  "roles": {
@@ -20640,7 +20666,7 @@
    "en": "Kebineng",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "xianbei",
    "stats": {
     "lead": 82,
     "war": 76,
@@ -27837,7 +27863,7 @@
    "en": "Liu Yu",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "youzhou",
    "stats": {
     "lead": 60,
     "war": 25,
@@ -27927,11 +27953,6 @@
     "mecha": {
      "sil": "halo_crown"
     }
-   },
-   "palette": {
-    "en": "Han black and vermilion, gold and jade",
-    "ko": "군웅록 한조정 색",
-    "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
    }
   },
   {
