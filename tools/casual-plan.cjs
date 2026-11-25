@@ -309,7 +309,7 @@ const standFrontEye = c => c.posture === 'stand' && (c.body === 'front' || c.bod
 const FAM_WEIGHT = { bath: 0.25 };
 const famW = sc => FAM_WEIGHT[(sc && sc.ofam) || sc] || 1;
 /* 세계 특징 장소(장소 특징 zero_g — 궤도 정거장, 2026-11-26 사용자 「각 세계만의 독특한 특징을 보여줄 수 있는 씬」 → 「무중력은 메카 세계, 사이버펑크도」)에 무게 — 100~200곳 가운데 3곳이라 250컷에 1컷꼴이었다. 메카 · 사이버펑크 묶음에 한 장 안팎 */
-const ZG_BOOST = 3, ZG_PLACES = new Set(Object.entries(tree2.places || {}).filter(([, f]) => (f || []).includes('zero_g')).map(([k]) => k));
+const ZG_BOOST = 3, ZG_PLACES = new Set(Object.entries(tree2.places || {}).filter(([, f]) => (f || []).includes('wfeat')).map(([k]) => k));   /* 세계 특징 장소(장소 특징 wfeat — 궤도 정거장 · 마법 세계 · 증기 세계, 2026-11-26 「판타지랑 스팀펑크,사이버펑크도」) */
 function lean(r, list, count, key = x => x, factor = () => 1) {
   if (!list.length) return undefined;
   const w = list.map(x => wOf((count || {})[key(x)] || 0) * factor(x)), sum = w.reduce((a, b) => a + b, 0);

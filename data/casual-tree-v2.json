@@ -218,6 +218,18 @@
   "berth": {
    "ko": "벽에 묶은 침낭",
    "en": "a sleeping bag strapped to the wall"
+  },
+  "levitate": {
+   "ko": "마법으로 떠오를 수 있는 곳",
+   "en": "a place where magic lets her float"
+  },
+  "wfeat": {
+   "ko": "세계 특징 장소",
+   "en": "a place that shows a feature only this world has"
+  },
+  "magic": {
+   "ko": "마법 세계 장소",
+   "en": "a place of the magic world"
   }
  },
  "frames": {
@@ -582,6 +594,14 @@
    "en": "nothing holds her up — she floats free in weightlessness",
    "needs": [
     "zero_g"
+   ]
+  },
+  {
+   "key": "levitate",
+   "ko": "마법으로 받침",
+   "en": "a soft glow of magic holds her up — nothing else supports her",
+   "needs": [
+    "levitate"
    ]
   }
  ],
@@ -1604,6 +1624,43 @@
     "full_body",
     "environmental"
    ]
+  },
+  {
+   "key": "levitate",
+   "ko": "마법으로 살짝 떠오르기",
+   "family": "float",
+   "en": "levitating a hand's breadth above the ground, held up by a soft magical glow beneath her, her hair and clothes stirring gently",
+   "needs": [
+    "levitate"
+   ],
+   "supports": [
+    "levitate"
+   ],
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ]
+  },
+  {
+   "key": "levitate_cross",
+   "ko": "떠올라 책상다리로 명상",
+   "family": "float",
+   "en": "levitating cross-legged in calm meditation a little above the ground, a soft glow beneath her",
+   "needs": [
+    "levitate"
+   ],
+   "supports": [
+    "levitate"
+   ],
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ]
   }
  ],
  "hands": [
@@ -1635,7 +1692,9 @@
     "skate_glide",
     "lean_in",
     "float_zg",
-    "float_cross"
+    "float_cross",
+    "levitate",
+    "levitate_cross"
    ]
   },
   {
@@ -1652,7 +1711,9 @@
     "lean_vehicle",
     "lean_in",
     "float_zg",
-    "float_cross"
+    "float_cross",
+    "levitate",
+    "levitate_cross"
    ]
   },
   {
@@ -1674,7 +1735,9 @@
     "lean_vehicle",
     "ride_side",
     "float_zg",
-    "float_cross"
+    "float_cross",
+    "levitate",
+    "levitate_cross"
    ],
    "outfit": "pocket"
   },
@@ -1785,7 +1848,9 @@
     "step_up",
     "ride_side",
     "float_zg",
-    "float_cross"
+    "float_cross",
+    "levitate",
+    "levitate_cross"
    ]
   },
   {
@@ -1973,7 +2038,9 @@
     "step_up",
     "lean_vehicle",
     "float_zg",
-    "float_cross"
+    "float_cross",
+    "levitate",
+    "levitate_cross"
    ]
   },
   {
@@ -2297,6 +2364,24 @@
     "climb_frame"
    ],
    "en": "her own {side} hand grips a bar of the climbing frame above her head"
+  },
+  {
+   "key": "conjure_orb",
+   "ko": "손바닥 위 빛 구슬",
+   "zone": "chest",
+   "en": "her own {side} palm turned up, a small glowing orb of light floating just above it",
+   "needs": [
+    "magic"
+   ]
+  },
+  {
+   "key": "rune_draw",
+   "ko": "손끝으로 빛 글자 그리기",
+   "zone": "chest",
+   "en": "her own {side} fingertip drawing a trail of glowing runes in the air",
+   "needs": [
+    "magic"
+   ]
   }
  ],
  "legs": [
@@ -2658,7 +2743,8 @@
    "feet": false,
    "en": "knees loosely drawn up, lower legs relaxed in the air",
    "postures": [
-    "float_zg"
+    "float_zg",
+    "levitate"
    ]
   },
   {
@@ -2670,7 +2756,8 @@
    "feet": true,
    "en": "legs drifting loosely apart behind her, toes softly pointed",
    "postures": [
-    "float_zg"
+    "float_zg",
+    "levitate"
    ]
   }
  ],
@@ -5521,13 +5608,15 @@
    "window",
    "wall",
    "timed",
-   "rail_waist"
+   "rail_waist",
+   "wfeat"
   ],
   "nation_orbit_cupola": [
    "zero_g",
    "indoor",
    "window",
-   "timed"
+   "timed",
+   "wfeat"
   ],
   "nation_orbit_berth": [
    "zero_g",
@@ -5535,7 +5624,60 @@
    "wall",
    "berth",
    "timed",
-   "k_private"
+   "k_private",
+   "wfeat"
+  ],
+  "nation_isle_edge": [
+   "edge",
+   "floor",
+   "sky",
+   "upright",
+   "soft",
+   "levitate",
+   "wfeat",
+   "magic"
+  ],
+  "nation_magic_library": [
+   "chair",
+   "table",
+   "shelf_high",
+   "indoor",
+   "wall",
+   "upright",
+   "window",
+   "levitate",
+   "wfeat",
+   "magic"
+  ],
+  "nation_spirit_spring": [
+   "water",
+   "edge",
+   "floor",
+   "soft",
+   "upright",
+   "wfeat",
+   "magic"
+  ],
+  "nation_moon_glade": [
+   "floor",
+   "soft",
+   "sky",
+   "upright",
+   "night",
+   "levitate",
+   "wfeat",
+   "magic"
+  ],
+  "nation_potion_lab": [
+   "worktable",
+   "table",
+   "chair",
+   "indoor",
+   "wall",
+   "upright",
+   "shelf_high",
+   "wfeat",
+   "magic"
   ]
  },
  "props": [
@@ -7642,6 +7784,54 @@
     "nation_orbit_cupola",
     "nation_orbit_berth"
    ]
+  },
+  {
+   "key": "spellbook",
+   "ko": "빛나는 마법서",
+   "en": "a glowing spellbook with drifting rune light",
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "potion",
+   "ko": "물약 병",
+   "en": "a small potion bottle of glowing liquid",
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "wand",
+   "ko": "작은 지팡이",
+   "en": "a slender wooden wand",
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "star_lantern",
+   "ko": "별 모양 등불",
+   "en": "a star-shaped lantern glowing softly",
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
   }
  ],
  "prop_uses": [
@@ -7681,7 +7871,8 @@
     "half_kneel",
     "step_up",
     "lean_vehicle",
-    "ride_side"
+    "ride_side",
+    "levitate_cross"
    ]
   },
   {
@@ -7720,7 +7911,8 @@
     "half_kneel",
     "step_up",
     "lean_vehicle",
-    "ride_side"
+    "ride_side",
+    "levitate_cross"
    ]
   },
   {
@@ -7908,7 +8100,8 @@
     "half_kneel",
     "step_up",
     "float_cross",
-    "float_zg"
+    "float_zg",
+    "levitate_cross"
    ]
   },
   {
@@ -7946,7 +8139,8 @@
     "half_kneel",
     "sit_boat",
     "float_cross",
-    "float_zg"
+    "float_zg",
+    "levitate_cross"
    ],
    "gaze": "at_prop"
   },
@@ -8948,7 +9142,8 @@
     "sit_sideways",
     "half_kneel",
     "float_cross",
-    "float_zg"
+    "float_zg",
+    "levitate_cross"
    ],
    "gaze": "at_prop",
    "needs_any": [
@@ -17692,6 +17887,190 @@
     "float_zg",
     "float_cross"
    ]
+  },
+  {
+   "key": "spellbook_read",
+   "prop": "spellbook",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "마법서를 펼쳐 읽는다",
+   "en": "reads {prop} held open in both hands",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "levitate_cross",
+    "stand"
+   ],
+   "grip": {
+    "right": "holds the right page",
+    "left": "holds the left page"
+   }
+  },
+  {
+   "key": "spellbook_hold",
+   "prop": "spellbook",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "마법서를 안는다",
+   "en": "holds {prop} against her chest",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel",
+    "levitate",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "potion_light",
+   "prop": "potion",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "물약 병을 빛에 비춰 본다",
+   "en": "holds {prop} up to the light, looking into it",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel",
+    "levitate"
+   ]
+  },
+  {
+   "key": "potion_hold",
+   "prop": "potion",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "물약 병을 든다",
+   "en": "holds {prop} loosely",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel",
+    "levitate",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "wand_flick",
+   "prop": "wand",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "지팡이를 휘두른다",
+   "en": "flicks {prop}, a few sparks trailing from its tip",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "levitate"
+   ]
+  },
+  {
+   "key": "star_lantern_carry",
+   "prop": "star_lantern",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "별 등불을 옆에 든다",
+   "en": "carries {prop} low at her side",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "levitate"
+   ]
   }
  ],
  "outfit_features": {
@@ -18604,6 +18983,17 @@
     "nation_orbit_berth"
    ],
    "ko": "목욕 · 수영복 · 웨딩 차림으로 궤도 정거장 · 엘리베이터"
+  },
+  {
+   "outfits": [
+    "bath",
+    "swimwear"
+   ],
+   "places": [
+    "nation_magic_library",
+    "nation_potion_lab"
+   ],
+   "ko": "목욕 · 수영복으로 마법 서고 · 물약 공방"
   }
  ],
  "presets": [
@@ -21349,6 +21739,176 @@
    "legs": "float_drift",
    "gaze": "camera",
    "act": "pose"
+  },
+  {
+   "key": "mg_orb",
+   "ko": "손바닥 위 빛 구슬 바라보기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "conjure_orb",
+   "left": "natural",
+   "legs": "",
+   "gaze": "down",
+   "act": "look"
+  },
+  {
+   "key": "mg_rune",
+   "ko": "공중에 빛 글자 그리기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "turn_side",
+   "camera": "eye",
+   "right": "rune_draw",
+   "left": "natural",
+   "legs": "",
+   "gaze": "screen_right",
+   "act": "pose"
+  },
+  {
+   "key": "mg_lev",
+   "ko": "마법으로 살짝 떠오르기",
+   "posture": "levitate",
+   "support": "levitate",
+   "frame": "full_body",
+   "body": "front",
+   "head": "tilt",
+   "camera": "low",
+   "right": "natural",
+   "left": "natural",
+   "legs": "float_drift",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "mg_meditate",
+   "ko": "떠올라 명상",
+   "posture": "levitate_cross",
+   "support": "levitate",
+   "frame": "full_body",
+   "body": "front",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "down",
+   "act": "rest"
+  },
+  {
+   "key": "mg_lev_read",
+   "ko": "떠서 마법서 읽기",
+   "posture": "levitate_cross",
+   "support": "levitate",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "prop",
+   "prop_kind": "both",
+   "legs": "",
+   "gaze": "at_prop",
+   "act": "rest"
+  },
+  {
+   "key": "mg_library",
+   "ko": "서고 의자에서 마법서",
+   "posture": "sit_chair",
+   "support": "back_seat",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "prop",
+   "prop_kind": "both",
+   "legs": "",
+   "gaze": "at_prop",
+   "act": "rest"
+  },
+  {
+   "key": "mg_isle",
+   "ko": "섬 가장자리에서 구름바다",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "turn_side",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "dangle",
+   "gaze": "horizon",
+   "act": "rest"
+  },
+  {
+   "key": "mg_spring",
+   "ko": "정령의 샘에 발 담그기",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "down",
+   "act": "rest"
+  },
+  {
+   "key": "mg_potion",
+   "ko": "물약 병 비춰 보기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "raise",
+   "legs": "",
+   "gaze": "at_prop",
+   "act": "look"
+  },
+  {
+   "key": "mg_wand",
+   "ko": "지팡이 휘두르기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "mg_lantern",
+   "ko": "별 등불 들고 숲길",
+   "posture": "walk",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "walk_stride",
+   "gaze": "camera",
+   "act": "walk"
   }
  ],
  "expressions": {
@@ -22013,6 +22573,71 @@
     "mecha"
    ],
    "note": "2026-11-26 사용자 「우주공간이나, 무중력 상태에서 할 수 있는 일(공중에 떠서 음료마시기) 같은 각 세계만의 독특한 특징을 보여줄 수 있는 씬」 → 「무중력은 메카 세계, 사이버펑크도 될 거 같은데, 사이버펑크에 우주궤도 엘리베이터가 있어서」"
+  },
+  {
+   "key": "nation_isle_edge",
+   "group": "magic",
+   "ko": "세계의 떠 있는 섬 가장자리",
+   "en": "the grassy edge of a floating island high in the sky — a sheer drop to a sea of clouds below, other islands drifting in the distance",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지랑 스팀펑크,사이버펑크도 이런식으로 추가안 만들어줘. 판타지는 마법이나 정령같은 요소 넣으면 될거같은데」 → 「응 추가안 진행해줘」",
+   "worlds_only": [
+    "fantasy"
+   ]
+  },
+  {
+   "key": "nation_magic_library",
+   "group": "magic",
+   "ko": "세계의 떠다니는 책들의 마법 서고",
+   "en": "a towering magic library where books drift slowly through the air between tall shelves, lit by floating candles",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지랑 스팀펑크,사이버펑크도 이런식으로 추가안 만들어줘. 판타지는 마법이나 정령같은 요소 넣으면 될거같은데」 → 「응 추가안 진행해줘」",
+   "worlds_only": [
+    "fantasy"
+   ]
+  },
+  {
+   "key": "nation_spirit_spring",
+   "group": "magic",
+   "ko": "세계의 정령의 샘",
+   "en": "a clear spring glowing with soft blue light in a mossy grotto, tiny spirit creatures of light hovering over the water",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지랑 스팀펑크,사이버펑크도 이런식으로 추가안 만들어줘. 판타지는 마법이나 정령같은 요소 넣으면 될거같은데」 → 「응 추가안 진행해줘」",
+   "worlds_only": [
+    "fantasy"
+   ]
+  },
+  {
+   "key": "nation_moon_glade",
+   "group": "magic",
+   "ko": "세계의 달빛 숲 빈터",
+   "en": "a moonlit forest glade carpeted with softly glowing mushrooms and flowers, two moons above the trees",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지랑 스팀펑크,사이버펑크도 이런식으로 추가안 만들어줘. 판타지는 마법이나 정령같은 요소 넣으면 될거같은데」 → 「응 추가안 진행해줘」",
+   "worlds_only": [
+    "fantasy"
+   ]
+  },
+  {
+   "key": "nation_potion_lab",
+   "group": "magic",
+   "ko": "세계의 물약 공방",
+   "en": "an alchemist's potion workshop — a bubbling cauldron, shelves of glowing bottles and bundles of dried herbs hanging from the beams",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지랑 스팀펑크,사이버펑크도 이런식으로 추가안 만들어줘. 판타지는 마법이나 정령같은 요소 넣으면 될거같은데」 → 「응 추가안 진행해줘」",
+   "worlds_only": [
+    "fantasy"
+   ]
   }
  ],
  "weather": [
@@ -23239,6 +23864,97 @@
     "nation_orbit_lounge",
     "nation_orbit_cupola",
     "nation_orbit_berth"
+   ]
+  },
+  {
+   "key": "teapot_pour",
+   "ko": "혼자 차를 따르는 찻주전자",
+   "en": "a teapot nearby pours tea into a cup all by itself, floating in the air",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body"
+   ],
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "drifting_books",
+   "ko": "떠다니는 책과 촛불",
+   "en": "a few books and candles drift slowly through the air around her",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "spirit_wisps",
+   "ko": "작은 정령들",
+   "en": "tiny spirit creatures of light — small glowing wisps with soft translucent wings — hover around her",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "magic_circle",
+   "ko": "발밑의 마법진",
+   "en": "a faint glowing magic circle turns slowly on the ground beneath her",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "petals_rise",
+   "ko": "위로 떠오르는 꽃잎",
+   "en": "flower petals drift upward around her instead of falling",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_isle_edge",
+    "nation_magic_library",
+    "nation_spirit_spring",
+    "nation_moon_glade",
+    "nation_potion_lab"
    ]
   }
  ],
