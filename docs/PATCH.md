@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-25 · claude · 허브 즐겨찾기 — 크게 보기 꽉 채우기 · 가로 보기 · 한도
+- lib/favorites.js — style-atelier shared 판(원본이 공방 모음에서 shared 로): 3000칸, 가득이면 오래된 것을 빼지 않고 거절 · error() · message() · room(), 저장 공간 모자람(QuotaExceededError)은 'quota'(담아 둔 칸 그대로)
+- lib/fill-view.js · lib/fill-core.js(새) — shared 판: 셈 · 두 번 누르기를 몸통 fill-core.js 로 뗐다(동작 같음 — tests/fill-view.cjs 통과)
+- dex.html — 하트 알림이 가득 · 저장 공간이면 그 말(FAV.message()), fill-view ?v=2 · favorites ?v=2
+- AGENTS.md — 공용 파일 목록에 fill-core.js · favorites.js
+
 ## 2026-11-25 · claude · 공용 파일 한 곳에서 — style-atelier shared · sync
 - lib/casual-tree-v2.js — style-atelier shared 판(표 `raise_one` 이 있을 때만 거르는 줄 하나 더함 — 이 공방 표엔 없어 동작 그대로)
 - AGENTS.md — 공용 파일(트리 둘 · fill-view)은 style-atelier `shared/` 에서만 고치고 `node shared/sync.cjs` 로 옮긴다
