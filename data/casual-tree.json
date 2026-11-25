@@ -4783,6 +4783,103 @@
     "mecha"
    ],
    "start_median": true
+  },
+  {
+   "key": "baseball_diamond",
+   "group": "sports",
+   "ko": "야구장 그라운드",
+   "en": "a sunny baseball diamond — a dirt infield with white bases, a pitcher's mound and a chain-link backstop, empty bleachers beyond",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "soccer_pitch",
+   "group": "sports",
+   "ko": "축구장",
+   "en": "a grass soccer pitch with crisp white lines, a goal net behind her and low floodlights at the edges",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "beach_volleyball",
+   "group": "sports",
+   "ko": "비치발리볼 코트",
+   "en": "a beach volleyball court on soft sand, a net strung between two posts and the sea glittering beyond",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active",
+    "swimwear"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "indoor_court",
+   "group": "sports",
+   "ko": "실내 체육관 코트",
+   "en": "an indoor sports hall — a polished wooden court with painted lines, a volleyball net, basketball hoops and a table-tennis table at the side",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "active"
+   ],
+   "start_median": true
+  },
+  {
+   "key": "nation_games",
+   "group": "nation",
+   "ko": "그 세계의 공놀이 마당",
+   "en": "an open games ground of her world where people play ball — a cuju field in the Three Kingdoms, a tournament green in high fantasy, a glowing light-court in the mecha future",
+   "eras": [
+    "nation"
+   ],
+   "outfits": [
+    "active",
+    "everyday"
+   ],
+   "worlds": {
+    "samguk": {
+     "ko": "축국 마당",
+     "en": "a cuju field of packed earth beside a walled town, a bamboo goal frame hung with a silk net"
+    },
+    "fantasy": {
+     "ko": "시합 잔디",
+     "en": "a tournament green of short grass with chalked lines and pennant poles, a castle far off"
+    },
+    "mecha": {
+     "ko": "라이트 코트",
+     "en": "an open light-court under a glass dome — glowing lines on a dark field, a goal outlined in light"
+    }
+   },
+   "start_median": true
+  },
+  {
+   "key": "playground",
+   "group": "street",
+   "ko": "놀이터",
+   "en": "a neighbourhood playground in the late afternoon — swings, a slide, a seesaw and a climbing frame over soft rubber ground, benches around the edge",
+   "eras": [
+    "now"
+   ],
+   "outfits": [
+    "everyday",
+    "active",
+    "retro"
+   ],
+   "kids": true,
+   "start_median": true
   }
  ],
  "families": {
@@ -5237,7 +5334,8 @@
     "nation_salon",
     "tram_stop",
     "scooter_cafe",
-    "golf_cart"
+    "golf_cart",
+    "nation_games"
    ],
    "en": "resting on a seat for a moment, catching her breath",
    "seat": [
@@ -5349,7 +5447,8 @@
     "food_truck",
     "tram_stop",
     "roller_boardwalk",
-    "plane_stairs"
+    "plane_stairs",
+    "nation_games"
    ],
    "en": "strolling through the place at an easy pace",
    "hands": "free"
@@ -5435,7 +5534,8 @@
     "travel_cablecar",
     "nation_skyship",
     "nation_balloon",
-    "nation_boat_ride"
+    "nation_boat_ride",
+    "nation_games"
    ],
    "en": "taking a photo of the scenery with a small camera"
   },

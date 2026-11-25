@@ -25,7 +25,7 @@ DATA = os.path.join(ROOT, "data", "casual-tree-v2.json")
 BASE = os.path.join(ROOT, "data", "casual-tree.json")
 HANGUL = re.compile(r"[가-힣]")
 KINDS = {"hold": "one", "raise": "one", "both": "both"}
-FEATURES = {"pocket", "strap", "collar", "glasses"}
+FEATURES = {"pocket", "strap", "collar", "glasses", "cleavage", "sportswear", "swimsuit", "underlayer"}   # cleavage · sportswear · swimsuit(2026-11-25)
 ACCESSORY = {"glasses"}   # 옷이 아니라 장면의 표시(ofeat) — 그 특징을 가진 옷이 없어도 된다
 SIDES = ("right", "left")
 
@@ -144,7 +144,7 @@ def preset_places(doc, v1, pre):
             continue
         if place not in comp and any(r.get("companion") for r in rows):
             continue
-        if pre.get("prop_kind") and not any(place in prop_places(doc, v1, props[u["prop"]]) and place_ok(u, has) and (place in comp or not u.get("companion"))
+        if pre.get("prop_kind") and not any(place in prop_places(doc, v1, props[u["prop"]]) and place_ok(u, has) and not set(u.get("not_has", [])) & has and (place in comp or not u.get("companion"))
                                             and (not u.get("places") or place in expand(v1, u["places"]))
                                             for u in uses if u["prop"] in props):
             continue
@@ -302,6 +302,10 @@ def check(doc, v1):
             needs(f"{name} {r['key']}", r)
             for f in r.get("frames", []):
                 ref(f"{name} {r['key']}", f, frames, "프레이밍")
+    # 자세의 옷 특징(2026-11-25 — 헤엄 · 공기매트 swimsuit, 요가 · 조깅 sportswear)
+    for r in doc["postures"]:
+        if r.get("outfit"):
+            ref(f"자세 {r['key']}", r["outfit"], FEATURES, "의상 특징")
     # 손 자세
     for r in doc["hands"]:
         w = f"손 {r['key']}"
@@ -368,6 +372,10 @@ def check(doc, v1):
         if r.get("gaze"):
             ref(w, r["gaze"], gaze, "시선")
         needs(w, r)   # 동작의 받침(탁자 · 작업대 …) — needs_any
+        if r.get("outfit"):   # 옷 특징이 있어야 하는 동작(2026-11-25 — 가슴 사이 물건 cleavage · 공기매트 swimsuit)
+            ref(w, r["outfit"], FEATURES, "의상 특징")
+        for x in r.get("not_has", []):   # 그 장소 특징이면 안 되는 동작(놀이터 k_kids)
+            ref(w, x, doc["has"], "장소 특징")
         if r.get("places"):   # 동작이 그 장소에서만(역할이 있는 동작 — 소품의 장소 안에서)
             place_refs(w, r["places"])
             if r["prop"] in props and not set(expand(v1, r["places"])) & prop_places(doc, v1, props[r["prop"]]):
@@ -398,7 +406,7 @@ def check(doc, v1):
             ref(f"의상 특징 {part}", item, items1, "옷")
             for x in feats:
                 ref(f"의상 특징 {item}", x, FEATURES, "특징")
-    for x in {h["outfit"] for h in doc["hands"] if h.get("outfit")} - ACCESSORY:
+    for x in {h["outfit"] for h in doc["hands"] + doc["prop_uses"] + doc["postures"] if h.get("outfit")} - ACCESSORY:
         if not any(x in v for v in of["defaults"].values()) and not any(x in v for v in of.get("add", {}).values()):
             err.append(f"의상 특징 {x} 를 가진 옷이 없다")
 

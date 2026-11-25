@@ -10,7 +10,9 @@ const py = JSON.parse(require('node:child_process').execFileSync('python3', [pat
 const seeded = s => () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648;
 
 /* 1. 검사기와 같은 길 — 추천 × 장소(그 장소의 시대 · 손 자세가 바라는 특징이 있는 옷 계열) */
-const feat = pr => [pr.right, pr.left].map(k => C.hand(t, k)).filter(h => h && h.outfit).map(h => h.outfit);
+/* 옷 특징 — 손 자세가 바라는 것 + 그 추천의 자세에서 되는 소품 동작이 모두 바라는 것(2026-11-25 — 공기매트는 수영복 swimsuit) */
+const useFeat = pr => { if (!pr.prop_kind) return []; const us = t.v2.prop_uses.filter(u => u.kind === pr.prop_kind && u.postures.includes(pr.posture) && u.frames.includes(pr.frame)); return us.length && us.every(u => u.outfit && u.outfit === us[0].outfit) ? [us[0].outfit] : []; };
+const feat = pr => [pr.right, pr.left].map(k => C.hand(t, k)).filter(h => h && h.outfit).map(h => h.outfit).concat(useFeat(pr), (C.posture(t, pr.posture) || {}).outfit ? [C.posture(t, pr.posture).outfit] : []);
 let pairs = 0;
 for (const pr of t.v2.presets) {
   for (const pl of C.allPlaces(t)) {
@@ -251,7 +253,7 @@ for (const p of t.v1.places.filter(p => p.key.startsWith('nation_'))) {
   assert(ws.every(w => p.worlds && p.worlds[w] && p.worlds[w].ko && p.worlds[w].en), p.key + ' 세계 셋의 이름 · 글');
   assert(new Set(ws.map(w => p.worlds[w].en)).size === ws.length, p.key + ' 세계마다 다른 글');
 }
-assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 33, '세계 안 장소 서른셋(2026-11-03 다섯 더함 · 2026-11-23 동물 · 놀이 넷 · 극장 · 눈 언덕 · 꽃 시장 · 단장방 넷 · 2026-11-24 탈 것 아홉)');
+assert.equal(t.v1.places.filter(p => p.key.startsWith('nation_')).length, 34, '세계 안 장소 서른넷(2026-11-03 다섯 더함 · 2026-11-23 동물 · 놀이 넷 · 극장 · 눈 언덕 · 꽃 시장 · 단장방 넷 · 2026-11-24 탈 것 아홉 · 2026-11-25 공놀이 마당)');
 const r13 = seeded(13);
 for (let i = 0; i < 300; i++) valid(C.random(t, { era: i % 2 ? 'heritage' : 'nation' }, null, r13, ['era']), '삼국지 시대 랜덤 ' + i);
 
@@ -266,5 +268,16 @@ assert.equal(C.aspectFor(t, { sfree: true, ofree: true }), '2:3'); assert.equal(
 assert.equal(C.aspectFor(t, { ofam: 'game_cosplay', posture: 'recline', frame: 'three_quarter' }), '2:3', '게임 코스프레');
 assert.equal(C.aspectFor(t, {}), '2:3');
 assert.deepEqual(C.aspectSize(t, '3:2'), [1536, 1024]); assert.deepEqual(C.aspectSize(t, '1:1'), [1024, 1024]); assert.deepEqual(C.aspectSize(t, '2:3'), [1024, 1536]); assert.deepEqual(C.aspectSize(t, '16:9'), [1024, 1536]);
+
+
+/* 놀이터(장소 특징 k_kids, 2026-11-25 사용자 — 아이들이 배경에 나올 수 있다): 덮인 옷 계열(평상복 · 운동복 · 레트로)만, 상황 노출 없음, 가슴 사이 물건 동작 없음 · 한 장까지 무리(once_groups)는 표에 있는 열쇠만 */
+{ const pg = C.allPlaces(t).find(p => p.key === 'playground'); assert(pg && C.placeHas(t, 'playground').includes('k_kids'), '놀이터 k_kids');
+  const era = pg.eras[0];
+  for (const o of t.v1.outfits) assert.equal(!C.why(t, { era, place: 'playground' }, 'ofam', o.key), ['everyday', 'active', 'retro'].includes(o.key) && C.era(t, era).outfits.includes(o.key), '놀이터 옷 계열 ' + o.key);
+  for (const u of t.v2.prop_uses.filter(u => u.outfit === 'cleavage')) assert((u.not_has || []).includes('k_kids'), u.key + ' 놀이터에선 안 된다');
+  const R0 = seeded(2511);
+  for (let i = 0; i < 300; i++) { const sc = C.random(t, { era, place: 'playground' }, null, R0, ['era', 'place']); assert(['everyday', 'active', 'retro'].includes(sc.ofam), '놀이터 랜덤 옷 ' + sc.ofam); const u = C.use(t, sc.use); assert(!(u && u.outfit === 'cleavage'), '놀이터 랜덤 동작 ' + sc.use); }
+  assert(!C.situOk(t, { place: 'playground' }, { key: 'x' }), '놀이터 상황 노출 없음');
+  const G = t.v2.once_groups || {}; for (const k in G) { for (const u of G[k].uses || []) assert(C.use(t, u), k + ' 동작 ' + u); for (const h of G[k].hands || []) assert(C.hand(t, h), k + ' 손 ' + h); for (const po of G[k].postures || []) assert(C.posture(t, po), k + ' 자세 ' + po); } }
 
 console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 300 · 바꾸기 200 · 역사의 자리 · 세계 안 · 삼국지 소품 · 화면비');

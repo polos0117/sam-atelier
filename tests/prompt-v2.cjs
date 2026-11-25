@@ -177,6 +177,18 @@ console.log('PASS 프롬프트 v2: 실루엣 표 · 무리 색 · 기본 화풍 
     assert(P.worldFillErrors(D, SF, key, w, bad, { style: SF.default }).some(e => /줄이 바뀌었다/.test(e)), key + ' ' + w + ' 칸 밖이 바뀌면 걸린다');
   }
 }
+/* 놀이터(k_kids, 2026-11-25) — 노출 축을 많이(bold)로 줘도 드러내는 노출 글 · 상황 노출이 없고, 배경 아이들 · 덮인 옷 줄이 실린다(화풍 다섯 꼴) */
+{ const tree = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree.json'), 'utf8')), tree2 = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree-v2.json'), 'utf8'));
+  for (const [st, SJ] of [['kr_drawn_rim_dewy', SX], ['api25', SX], ['mmorpg_cg', SX], ['mmorpg_cg', S], ['kv_kmmo_23d', SX]]) {
+    const p = P.casualRecord(D, SJ, '조조', { treeV: 2, era: 'now', place: 'playground', ofam: 'everyday', situ: 'wet', axes: { skin_exposure: 'bold' }, posture: 'swing_sit', frame: 'full_body' }, { world: 'samguk', style: st, tree, tree2 }, 3).prompt;
+    assert(/children may appear only as small, soft-focus background figures/.test(p) && /fully non-revealing/.test(p), st + ' 놀이터 아이들 · 덮인 옷 줄');
+    assert(!/most revealing|natural cleavage|more scene-appropriate shoulder|skin clearly showing|Situation: right now/i.test(p), st + ' 놀이터 노출 글\n' + p);
+  }
+  /* 무기 · 갑옷 손질(2026-11-25) — 예외 줄이 실리고 무기 장신구 줄은 빠진다 */
+  const g = P.casualRecord(D, S, '조조', { treeV: 2, era: 'nation', place: 'nation_camp', ofam: 'everyday', posture: 'sit_chair', support: 'none', frame: 'waist_up', body: 'front_3q', head: 'tilt', camera: 'eye', right: 'prop', left: 'prop', use: 'weapon_polish' }, { world: 'samguk', style: 'kr_drawn_rim_dewy', tree, tree2 }, 3).prompt;
+  assert(/OFF-DUTY GEAR CARE/.test(g) && !/SIGNATURE ACCESSORY: off duty she carries no weapon/.test(g), '무기 손질 예외 줄\n' + g);
+}
+
 console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
 
 /* 2.5 API 판(api25, 2026-11-09 — 사용자 「A는 4~9번, B는 1~5 · 8번 … 나머지는 빼도 되잖아」) — 11-02 조조 무협 기록(kr_mmorpg v3 · gpt-image-2.5)과 견준다:
