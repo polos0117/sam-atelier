@@ -633,13 +633,13 @@ function momentize(cuts, old = [], ra = Math.random, usage = null) {
   }
   return cuts;
 }
-function ambient(cuts, old = [], ra = Math.random, usage = null) {
+function ambient(cuts, old = [], ra = Math.random, usage = null, hairKey = '') {
   /* 전체 기록 비율(2026-11-18 사용자 A) — 그림 저장소의 다른 장수 · 카드 컷에서 센 횟수를 0 ~ 1 로(가장 많이 쓴 값이 1). 묶음 안 횟수 다음으로 본다 */
   const U0 = usage ? usageOf(usage) : null, global = {};
   if (U0) for (const k of ['time', 'light', 'weather']) { const m = U0[k] || {}, top = Math.max(1, ...Object.values(m)); global[k] = Object.fromEntries(Object.entries(m).map(([x, n]) => [x, n / top])); }
   const used = {}, note = c => [...AMBIENT, 'camera'].forEach(k => { if (c[k]) { used[k] = used[k] || {}; used[k][c[k]] = (used[k][c[k]] || 0) + 1; } });
   old.filter(c => !c.sfree).forEach(note);
-  const opts = { times: (T.CASUAL.times || []).map(x => x.key), hairs: (T.CASUAL.hairs || []).map(x => x.key), used, global };
+  const opts = { times: (T.CASUAL.times || []).map(x => x.key), hairs: (T.CASUAL.hairs || []).map(x => x.key), used, global, hairKey };   /* hairKey — 짧은 머리면 긴 머리 연출을 안 준다(2026-11-26) */
   for (const c of cuts) {
     /* 자유 설계 칸은 맡은 쪽이 짓는다 — 시간대만 준다(2026-11-18 사용자 B — 비면 늘 따뜻한 밤 실내로 그렸다) */
     if (c.sfree || c.ofree) { const a = C2.ambience(T2, c, ra, opts); if (a.time) { c.time = a.time; note({ time: a.time }); } else delete c.time; continue; }
@@ -834,7 +834,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     /* 묶음 규칙(자유 설계 칸 전) → 색 · 데니어 · 상황 · 갈래 자유를 나눈 뒤 다시 한 번 */
     if (cuts.length === slots.length && !check(cuts, card, old, others).filter(e => !/^갈래 자유 컷이 없다|^게임 코스프레 컷이 없다/.test(e)).length) {
       const real = cuts.filter(c => !c.ofree);
-      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); shadeize(real, old, P.hairHue(D, card.key, card.world || ''), shadeUsed || {}, rng((seed ^ mix ^ 0x4cf5ad43) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0), usage); momentize(cuts, old, rng((seed ^ mix ^ 0x2545f491) >>> 0), usage);
+      colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); shadeize(real, old, P.hairHue(D, card.key, card.world || ''), shadeUsed || {}, rng((seed ^ mix ^ 0x4cf5ad43) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0), usage, P.hairKey(D, card.key, card.world || '')); momentize(cuts, old, rng((seed ^ mix ^ 0x2545f491) >>> 0), usage);
       if (!freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0), others) || check(cuts, card, old, others).length) { cuts.forEach(c => { delete c._fam; }); continue; }
       /* 상황 노출 늘 한 장(2026-11-16 「늘 1장은 나오게」) — 일반 컷이 있는데 맞는 옷이 없어 못 얹었으면 다른 묶음으로(그 세계에 이미 상황 컷이 있으면 그대로) */
       if (SITU_RATE >= 1 && cuts.some(c => !c.ofree && !requiredType(c) && !sigProp(c)) && !old.some(c => c.situ && !c.ofree) && !cuts.some(c => c.situ && !c.ofree)) { cuts.forEach(c => { delete c._fam; }); continue; }

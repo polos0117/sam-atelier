@@ -21856,6 +21856,27 @@
     "needs": [
      "sky"
     ]
+   },
+   "tied": {
+    "long": true
+   },
+   "braid": {
+    "long": true
+   },
+   "half_up": {
+    "long": true
+   },
+   "messy_bun": {
+    "long": true
+   },
+   "side_tail": {
+    "long": true
+   },
+   "twin_tails": {
+    "long": true
+   },
+   "pinned_up": {
+    "long": true
    }
   },
   "looks": [
@@ -22035,7 +22056,20 @@
     "ko": "등불 웅덩이",
     "en": "warm pools of lamplight, soft shadow beyond"
    }
-  ]
+  ],
+  "short_hairs": [
+   "short_crop",
+   "pixie_cut",
+   "pixie",
+   "bob",
+   "asymmetric_bob",
+   "finger_waves",
+   "spiky_wild",
+   "slicked_back",
+   "undercut_sweep",
+   "wolf_cut"
+  ],
+  "note_short_hairs": "2026-11-26 — 설계 헤어스타일이 이 가운데면 묶음 · 땋기처럼 긴 머리 연출(hair.*.long)을 고르지 않는다(공용 모듈 ambience opts.hairKey)"
  },
  "outfit_rules": {
   "note": "의상 계열이 설 수 있는 장소 종류(2026-11-13 사용자 「갱도에서 수영복을 입고 누워있는 다거나」). needs_any: 이 종류 가운데 하나여야 · not_has: 이 종류면 안 된다. 없는 계열은 어디든. lib/casual-tree-v2.js why ofam k_kids(2026-11-25 사용자 — 놀이터엔 아이들이 배경에 나올 수 있어 덮인 옷만): 평상복 · 운동복 · 레트로 말고는 다 not_has. 상황 노출도 안 붙는다(situ_not_has), 가슴 사이 물건 동작도 안 된다(소품 동작 not_has).",
