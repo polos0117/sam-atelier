@@ -495,12 +495,116 @@
      }
     },
     {
+     "key": "xuzhou",
+     "ko": "서주",
+     "note": "도겸의 서주 — 조표 · 진규 · 진등",
+     "palette": {
+      "en": "sea-salt blue, pearl white, pale jade and silver",
+      "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은"
+     },
+     "persona": "도겸의 바닷가 서주 — 소금빛 파랑과 진주 흰색",
+     "mecha": {
+      "design": "sea-salt blue and pearl-white plating with pale-jade trim and silver joints, calm coastal-citadel silhouette, salt-wave motifs, pale jade glow lines"
+     }
+    },
+    {
+     "key": "jizhou",
+     "ko": "기주",
+     "note": "한복의 기주 — 원소에게 넘어가기 전",
+     "palette": {
+      "en": "millet yellow, pale celadon, slate blue and undyed silk",
+      "ko": "조 이삭 노랑 · 옅은 청자 · 슬레이트 파랑 · 생명주"
+     },
+     "persona": "원소에게 넘어가기 전 한복의 기주 — 조 이삭 노랑과 옅은 청자",
+     "mecha": {
+      "design": "millet-yellow and pale-celadon plating with slate-blue trim and undyed-silk panels, broad granary-fortress silhouette, grain-ear motifs, soft yellow glow lines"
+     }
+    },
+    {
+     "key": "henei",
+     "ko": "하내",
+     "note": "왕광 · 장양의 하내 — 황하 북쪽 기슭",
+     "palette": {
+      "en": "olive green, dusty tan, slate grey and brass",
+      "ko": "올리브 · 흙빛 황갈 · 청회색 · 놋쇠"
+     },
+     "persona": "황하 북쪽 기슭 하내 — 올리브와 흙빛 황갈",
+     "mecha": {
+      "design": "olive and earthen-tan plating with blue-grey trim and brass joints, river-bank bastion silhouette, Yellow River ford motifs, brass glow lines"
+     }
+    },
+    {
+     "key": "chenliu",
+     "ko": "진류",
+     "note": "장막 · 장초 형제의 진류",
+     "palette": {
+      "en": "persimmon coral, warm sand, ink black and old gold",
+      "ko": "감빛 산호 · 따뜻한 모래색 · 먹 검정 · 옛 금"
+     },
+     "persona": "의리를 지킨 진류의 장막 형제 — 감빛 산호와 먹빛",
+     "mecha": {
+      "design": "persimmon-coral and warm-sand plating on an ink-black frame with old-gold trim, upright scholar-guard silhouette, open-gate motifs, coral glow lines"
+     }
+    },
+    {
+     "key": "liuyao",
+     "ko": "유요군",
+     "note": "양주자사 유요 — 곡아에서 손책에 맞섰다",
+     "palette": {
+      "en": "peony pink, river silver-blue, ivory and black lacquer",
+      "ko": "모란 분홍 · 강물 은청 · 상아 · 검은 옻칠"
+     },
+     "persona": "강동을 먼저 쥐었던 양주자사 유요 — 모란 분홍과 강물 은청",
+     "mecha": {
+      "design": "peony-pink and river silver-blue plating with ivory panels on a black-lacquer frame, ferry-crossing riverguard silhouette, Yangtze-ford wave motifs, soft pink glow lines"
+     }
+    },
+    {
+     "key": "yanbaihu",
+     "ko": "엄백호군",
+     "note": "오군의 덕왕 엄백호 — 아우 엄여",
+     "palette": {
+      "en": "lake jade-teal, reed green, river-stone grey and bronze",
+      "ko": "호수 비취 청록 · 갈대 녹색 · 강돌 회색 · 청동"
+     },
+     "persona": "오군의 덕왕 엄백호 — 태호의 비취 청록과 갈대",
+     "mecha": {
+      "design": "lake jade-teal and reed-green plating with river-stone grey frame and bronze trim, low marsh-raider silhouette, reed and ripple motifs, teal glow lines"
+     }
+    },
+    {
+     "key": "jiaozhou",
+     "ko": "교주",
+     "note": "사섭의 교주 — 사일 · 사휘",
+     "palette": {
+      "en": "tropical emerald, lotus pink, lacquer red and gold",
+      "ko": "남국 에메랄드 · 연꽃 분홍 · 옻칠 빨강 · 금"
+     },
+     "persona": "남쪽 끝 교주의 사씨 — 남국 에메랄드와 연꽃 분홍",
+     "mecha": {
+      "design": "emerald and lotus-pink plating with lacquer-red trim and gold, tropical temple-palace silhouette, lotus and palm motifs, emerald glow lines"
+     }
+    },
+    {
+     "key": "liaodong",
+     "ko": "요동",
+     "note": "공손도 · 공손강 · 공손연의 요동",
+     "palette": {
+      "en": "northern grass green, frost white, iron grey and sable brown",
+      "ko": "북방 풀빛 녹색 · 서리 흰색 · 쇠회색 · 담비 갈색"
+     },
+     "persona": "바다 건너 홀로 선 요동 공손씨 — 북방 풀빛과 서리 흰색",
+     "mecha": {
+      "design": "grass-green and frost-white plating with iron-grey frame and sable-brown fur-trim panels, cold-frontier fortress silhouette, northern-sea and pine motifs, bright green glow lines"
+     }
+    },
+    {
      "key": "lords",
      "ko": "그 밖의 제후",
-     "note": "서주 · 연주 · 하내 · 유주 · 요동 · 강동 · 교주의 군소 제후"
+     "note": "세력을 이루지 못한 군소 제후 · 한 사람뿐인 세력 — 가비능 · 포신 · 유우 · 유대 · 교모 · 주흔"
     }
    ],
-   "camp_note": "2026-11-05 사용자 「군웅들도 각각 세력색을 넣자」 — 무리(camp)마다 palette · persona · 메카 설계 문장. 없는 무리(그 밖의 제후)는 군웅 세력색 그대로"
+   "camp_note": "2026-11-05 사용자 「군웅들도 각각 세력색을 넣자」 — 무리(camp)마다 palette · persona · 메카 설계 문장. 없는 무리(그 밖의 제후)는 군웅 세력색 그대로 · 2026-11-25 사용자 「그밖의 제후들 중에서도 세력이 있는 장수들은 해당 세력 만들어주고, 고유색도 부여해줘」 → 세력이 있던 제후 여덟 무리(서주 · 기주 · 하내 · 진류 · 유요군 · 엄백호군 · 교주 · 요동)를 그 밖의 제후에서 떼고 무리 색을 주었다. 무리 장수의 군웅록 대표 세력 색(장수 palette)은 지우고 무리 색을 쓴다"
   }
  ],
  "roles": {
@@ -20439,7 +20543,7 @@
    "en": "Yan Yu",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "yanbaihu",
    "stats": {
     "lead": 50,
     "war": 66,
@@ -20529,11 +20633,6 @@
     "mecha": {
      "sil": "knight_plate"
     }
-   },
-   "palette": {
-    "en": "undyed linen white, bamboo green, ink grey and pale celadon",
-    "ko": "군웅록 재야 색",
-    "why": "군웅록 대표 세력 재야 색(2026-11-12)"
    }
   },
   {
@@ -22314,7 +22413,7 @@
    "en": "Wang Kuang",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "henei",
    "stats": {
     "lead": 62,
     "war": 66,
@@ -22404,11 +22503,6 @@
     "mecha": {
      "sil": "slim_suit"
     }
-   },
-   "palette": {
-    "en": "Han black and vermilion, gold and jade",
-    "ko": "군웅록 한조정 색",
-    "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
    }
   },
   {
@@ -24513,7 +24607,7 @@
    "en": "Chen Gui",
    "faction": "qun",
    "role": "official",
-   "camp": "lords",
+   "camp": "xuzhou",
    "stats": {
     "lead": 40,
     "war": 25,
@@ -24604,11 +24698,6 @@
      "sil": "sub_arms"
     }
    },
-   "palette": {
-    "en": "sea-salt blue, pearl white, pale jade and silver",
-    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은",
-    "why": "군웅록 대표 세력 도겸 색(2026-11-12)"
-   },
    "palette_accent": {
     "from": [
      "조위"
@@ -24621,7 +24710,7 @@
    "en": "Chen Deng",
    "faction": "qun",
    "role": "official",
-   "camp": "lords",
+   "camp": "xuzhou",
    "stats": {
     "lead": 58,
     "war": 45,
@@ -24709,11 +24798,6 @@
     "mecha": {
      "sil": "sub_arms"
     }
-   },
-   "palette": {
-    "en": "sea-salt blue, pearl white, pale jade and silver",
-    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은",
-    "why": "군웅록 대표 세력 도겸 색(2026-11-12)"
    },
    "palette_accent": {
     "from": [
@@ -24829,7 +24913,7 @@
    "en": "Tao Qian",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "xuzhou",
    "stats": {
     "lead": 45,
     "war": 35,
@@ -24920,11 +25004,6 @@
     "mecha": {
      "sil": "wing_binder"
     }
-   },
-   "palette": {
-    "en": "sea-salt blue, pearl white, pale jade and silver",
-    "ko": "바다 소금빛 파랑 · 진주 흰색 · 옅은 옥색 · 은",
-    "why": "군웅록 대표 세력 도겸 색(2026-11-12)"
    }
   },
   {
@@ -24932,7 +25011,7 @@
    "en": "Cao Bao",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "xuzhou",
    "stats": {
     "lead": 56,
     "war": 58,
@@ -25033,7 +25112,7 @@
    "en": "Han Fu",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "jizhou",
    "stats": {
     "lead": 30,
     "war": 28,
@@ -25121,11 +25200,6 @@
     "mecha": {
      "sil": "halo_crown"
     }
-   },
-   "palette": {
-    "en": "imperial gold, deep navy, ivory white and bronze",
-    "ko": "군웅록 원소 색",
-    "why": "군웅록 대표 세력 원소 색(2026-11-12)"
    }
   },
   {
@@ -25133,7 +25207,7 @@
    "en": "Pan Feng",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "jizhou",
    "stats": {
     "lead": 50,
     "war": 72,
@@ -25827,7 +25901,7 @@
    "en": "Yan Baihu",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "yanbaihu",
    "stats": {
     "lead": 58,
     "war": 70,
@@ -25917,11 +25991,6 @@
     "mecha": {
      "sil": "slim_suit"
     }
-   },
-   "palette": {
-    "en": "undyed linen white, bamboo green, ink grey and pale celadon",
-    "ko": "군웅록 재야 색",
-    "why": "군웅록 대표 세력 재야 색(2026-11-12)"
    }
   },
   {
@@ -27359,7 +27428,7 @@
    "en": "Zhang Miao",
    "faction": "qun",
    "role": "official",
-   "camp": "lords",
+   "camp": "chenliu",
    "stats": {
     "lead": 55,
     "war": 50,
@@ -27451,11 +27520,6 @@
      "sil": "float_units"
     }
    },
-   "palette": {
-    "en": "deep navy blue, black lacquer, cold steel silver, ivory white",
-    "ko": "군웅록 조위 색",
-    "why": "군웅록 대표 세력 조위 색(2026-11-12)"
-   },
    "palette_accent": {
     "from": [
      "여포"
@@ -27468,7 +27532,7 @@
    "en": "Zhang Chao",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "chenliu",
    "stats": {
     "lead": 52,
     "war": 48,
@@ -28176,7 +28240,7 @@
    "en": "Liu Yao",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "liuyao",
    "stats": {
     "lead": 50,
     "war": 40,
@@ -28266,11 +28330,6 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
-   },
-   "palette": {
-    "en": "Han black and vermilion, gold and jade",
-    "ko": "군웅록 한조정 색",
-    "why": "군웅록 대표 세력 한조정 색(2026-11-12)"
    }
   },
   {
@@ -28278,7 +28337,7 @@
    "en": "Fan Neng",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "liuyao",
    "stats": {
     "lead": 62,
     "war": 64,
@@ -28382,7 +28441,7 @@
    "en": "Yu Mi",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "liuyao",
    "stats": {
     "lead": 56,
     "war": 66,
@@ -28484,7 +28543,7 @@
    "en": "Zhang Ying",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "liuyao",
    "stats": {
     "lead": 60,
     "war": 62,
@@ -36415,7 +36474,7 @@
    "en": "Zhang Yang",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "henei",
    "stats": {
     "lead": 70,
     "war": 73,
@@ -36503,11 +36562,6 @@
     "mecha": {
      "sil": "wing_binder"
     }
-   },
-   "palette": {
-    "en": "olive green, dusty tan, slate grey and brass",
-    "ko": "올리브 · 흙빛 황갈 · 청회색 · 놋쇠",
-    "why": "군웅록 대표 세력 장양 색(2026-11-12)"
    }
   },
   {
@@ -36515,7 +36569,7 @@
    "en": "Shi Xie",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "jiaozhou",
    "stats": {
     "lead": 58,
     "war": 30,
@@ -36601,11 +36655,6 @@
     "mecha": {
      "sil": "long_coat_plate"
     }
-   },
-   "palette": {
-    "en": "tropical emerald, lotus pink, lacquer red and gold",
-    "ko": "남국 에메랄드 · 연꽃 분홍 · 옻칠 빨강 · 금",
-    "why": "군웅록 대표 세력 교주 색(2026-11-12)"
    }
   },
   {
@@ -36613,7 +36662,7 @@
    "en": "Shi Yi",
    "faction": "qun",
    "role": "official",
-   "camp": "lords",
+   "camp": "jiaozhou",
    "stats": {
     "lead": 45,
     "war": 40,
@@ -36716,7 +36765,7 @@
    "en": "Shi Hui",
    "faction": "qun",
    "role": "general",
-   "camp": "lords",
+   "camp": "jiaozhou",
    "stats": {
     "lead": 58,
     "war": 60,
@@ -36819,7 +36868,7 @@
    "en": "Gongsun Du",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "liaodong",
    "stats": {
     "lead": 76,
     "war": 68,
@@ -36921,7 +36970,7 @@
    "en": "Gongsun Kang",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "liaodong",
    "stats": {
     "lead": 72,
     "war": 66,
@@ -37024,7 +37073,7 @@
    "en": "Gongsun Yuan",
    "faction": "qun",
    "role": "lord",
-   "camp": "lords",
+   "camp": "liaodong",
    "stats": {
     "lead": 70,
     "war": 70,
