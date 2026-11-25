@@ -12,6 +12,7 @@
      캐릭터만의 컷(90번)은 required "own". 갈래 자유 · 옷 자유 컷은 required 없이 free 칸에.
    한글: 우리 표의 값(필수 갈래 · 옷 계열 · 옷 · shade · 게임 · 재단 · 세계 · 상황)은 표의 ko, 캐릭터는 data/game-cosplay.json 의 characters[].ko → 주인공 하나 게임 character_ko → null.
    GPT 가 지은 것(자유 설계 Outfit 줄 · 옛 pick 으로 GPT 가 고른 캐릭터 이름)은 기록의 영어 그대로.
+   장면 풀이 s(2026-11-25, 줄 끝 — 장소 · 하는 일 · 구도 + 더 보기 칸, 빈 칸은 뺀다)는 tools/casual-detail.cjs(네 공방 같은 파일)가 짓는다.
 
      node tools/casual-index.cjs                         # 옆에 받아 둔 그림 저장소(tools/img-repos.cjs 차례) → data/casual-index.json
      node tools/casual-index.cjs --repos a,b             # 그림 저장소 자리(차례는 img-repos.cjs REPOS 와 같게 — 등록 워크플로는 img-repo,img-repo-2)
@@ -26,6 +27,7 @@ for (const f of ['lib/prompt-spec.js', 'lib/look-spec.js', 'lib/casual-tree.js',
 const T = ctx.window.AtelierSpec, CT = ctx.window.AtelierCasualTree, C2 = ctx.window.AtelierCasualTreeV2, P = ctx.window.AtelierPrompt;
 const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read('data/casual-tree-v2.json')), T2 = C2.make(tree2, tree);
 const GC0 = JSON.parse(read('data/game-cosplay.json'));
+const DETAIL = require('./casual-detail.cjs')(ROOT);   /* 장면 풀이 s(2026-11-25 — 크게 보기 둘째 줄 · 더 보기) */
 const OWN_N = (fs.existsSync(path.join(ROOT, 'data', 'casual-own.json')) ? JSON.parse(read('data/casual-own.json')).number : 0) || 90;
 const ATELIER = 'sam', OUT = 'data/casual-index.json';
 const EXPOSE = (tree.required || {}).outfits || ['lingerie', 'swimwear', 'roleplay'];
@@ -204,6 +206,7 @@ function build(repos, { gc = GC0, built = new Date().toISOString() } = {}) {
         required, requiredKo: requiredKo(required, s),
         family, familyKo: famKo(family), item, itemKo: itemKo(family, item), shade, shadeKo: shadeKo(s.color, shade),
         cosplay: cos, free });
+      const det = DETAIL(s, x.r, card); if (det) rows[rows.length - 1].s = det;
     }
   }
   rows.sort((a, b) => (b.date > a.date ? 1 : b.date < a.date ? -1 : 0) || a.card.localeCompare(b.card) || a.world.localeCompare(b.world) || a.n - b.n);

@@ -132,12 +132,13 @@ html[data-lb="1"] {overflow:hidden}   /* 크게 보기가 떠 있는 동안 뒤 
   .lightbox .bar > :not(.lb-close):not(.fill-toggle) {display:none}
   .lightbox .bar > :is(.lb-close,.fill-toggle) {min-height:44px;min-width:44px;background:#0006;border-color:#fff5;backdrop-filter:blur(4px)}
 }
-/* 일상컷 한 줄(lib/casual-note.js, 2026-11-17) — 크게 보기 위 줄 아래에 작게. 우리 값은 한글, GPT 글(Outfit)은 영어 그대로 · 길면 줄였다가 누르면 펼침 */
+/* 일상컷 설명(lib/casual-note.js, 2026-11-17 한 줄 → 2026-11-25 두 줄 + 더 보기) — 크게 보기 위 줄 아래에 작게. 우리 값은 한글, GPT 글(Outfit · 자유 설계 장면)은 영어 그대로 · 길면 줄였다가 더 보기에서 펼침. 휴대폰 가로에선 위 줄째 숨는다 */
 .lightbox .lb-cnote {flex-basis:100%;margin:0;max-width:min(100%,72ch);margin-inline:auto;font-size:12px;line-height:1.5;opacity:.85;text-align:center;word-break:keep-all;overflow-wrap:anywhere}
 .lightbox .lb-cnote b {font-size:12px;font-weight:700}
 .lightbox .lb-cnote .cnote-gpt {margin-left:6px;font-size:11px;opacity:.75}
-.lightbox .lb-cnote .cnote-more {display:inline;white-space:normal;min-height:0;padding:0;border:0;border-radius:0;background:none;color:inherit;font:inherit;font-size:12px;text-align:inherit;cursor:pointer;text-decoration:underline dotted #fff8;text-underline-offset:3px}
-.lightbox .lb-cnote .cnote-more:focus-visible {outline:2px solid #fff;outline-offset:2px}
+.lightbox .lb-cnote .cnote-more {min-height:44px;padding:0 14px;border:0;border-radius:10px;background:none;color:inherit;font:inherit;font-size:12px;font-weight:700;text-decoration:underline dotted #fff8;text-underline-offset:3px}   /* 더 보기(2026-11-25) — 누르는 자리 44px */
+.lightbox .lb-cnote .cnote-more:focus-visible {outline:2px solid #fff;outline-offset:-6px}
+.lightbox .lb-cnote .cnote-list {font-size:12px;line-height:1.5}
 .fav-toast {position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:90;max-width:calc(100vw - 32px);padding:9px 16px;border-radius:999px;background:#fff;color:#111;font-size:13px;font-weight:700;text-align:center;pointer-events:none}
 .fav-toast:empty {display:none}
 

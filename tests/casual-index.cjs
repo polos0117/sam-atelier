@@ -19,7 +19,7 @@ put('img-a', '조조', `samguk-casual4.${S}-ui.json`, rec('samguk', 4, { era: 'n
 put('img-a', '조조', `samguk-casual5.${S}-ui.json`, rec('samguk', 5, { era: 'now', place: 'water_pool', ofam: 'everyday', ofree: true, ofreeFamily: 'lingerie', ofreeSitu: 'free', ofreeRecent: 'x' },
   { generation: { free_design: { Place: 'a', Activity: 'b', Pose: 'c', Framing: 'd', Outfit: 'a moss-green satin set' }, free_prompt: 'Outfit: something else' } }));
 put('img-a', '조조', `samguk-casual6.${S}-ui.json`, rec('samguk', 6, { era: 'now', place: 'water_pool', ofam: 'everyday', ofree: true, ofreeRecent: 'x' },
-  { generation: { free_prompt: 'FREE DESIGN: x\nPlace: a pier\nOutfit: a cobalt ribbon halter tunic\nAVOID: y' }, prompt: 'Outfit: … (a revealing, fashionable outfit that is not in our outfit catalog)' }));
+  { generation: { free_prompt: 'FREE DESIGN: design the place, activity, pose, framing and outfit yourself\nPlace: a pier\nOutfit: a cobalt ribbon halter tunic\nAVOID: y' }, prompt: 'Outfit: … (a revealing, fashionable outfit that is not in our outfit catalog)' }));
 put('img-a', '조조', `samguk-casual7.${S}-ui.json`, rec('samguk', 7, { era: 'now', place: 'water_pool', ofam: 'everyday', item: 'knit_skirt' }, { imported: '2026-11-17T01:00:00Z' }));
 put('img-a', '조조', `samguk-casual90.${S}-ui.json`, rec('samguk', 90, { era: 'now', place: 'water_pool', ofam: 'everyday', own: 'samguk' }));
 /* 곁가지 — 막힌 기록 · 다시 짠 계획 · 제출 메모는 줄이 아니다. 같은 컷이 둘째 저장소에도 있으면 한 줄 */
@@ -27,7 +27,8 @@ put('img-a', '조조', `samguk-casual4.${S}.blocked.json`, rec('samguk', 4, { er
 put('img-a', '조조', `samguk-casual4.${S}-blocked.json`, rec('samguk', 4, { era: 'now', place: 'water_pool', ofam: 'lingerie' }));
 put('img-a', '조조', 'samguk-casual1-replan.json', { card: '조조', world: 'samguk', style: S, fresh: false, slots: [1], required: 'lingerie · nation · situ:wind', cuts: [{ n: 1 }] });
 put('img-a', '조조', 'samguk-casual2-submitted.md', 'Outfit: x');
-put('img-b', '조조', `samguk-casual7.${S}-ui.json`, rec('samguk', 7, { era: 'now', place: 'water_pool', ofam: 'everyday', item: 'knit_skirt' }, { imported: '2026-11-17T02:00:00Z' }));
+put('img-b', '조조', `samguk-casual7.${S}-ui.json`, rec('samguk', 7, { era: 'now', place: 'water_pool', ofam: 'everyday', item: 'knit_skirt',
+  posture: 'stand', frame: 'waist_up', body: 'front', camera: 'eye', gaze: 'camera', expr: 'calm', use: 'cup_hold', prop: 'cup', light: 'side', situ: 'wet', ostyle: { material: 'satin' }, aspect: '1:1', right: 'prop', left: 'out', support: 'none', head: 'tilt' }, { imported: '2026-11-17T02:00:00Z' }));
 
 /* ── 묶음 B: 조조 판타지 — 옛 계획(코스프레 없음, situ 있음) → 셋째는 상황 노출. 노출 갈래는 계획이 적은 란제리풍 컷 ── */
 put('img-b', '조조', `fantasy-casual-plan.${S}.json`, { card: '조조', world: 'fantasy', fresh: false, slots: [1, 2, 3, 4], required: 'lingerie · nation · situ:wind', cuts: [1, 2, 3, 4].map(n => ({ n })) });
@@ -49,8 +50,22 @@ assert.deepEqual(Object.keys(doc), ['version', 'atelier', 'built', 'source', 'ro
 assert.equal(doc.version, 1); assert.equal(doc.atelier, 'sam'); assert.deepEqual(doc.source, ['sam-atelier-img', 'sam-atelier-img-2']);
 const KEYS = ['card', 'name', 'world', 'worldKo', 'n', 'date', 'style', 'path', 'required', 'requiredKo', 'family', 'familyKo', 'item', 'itemKo', 'shade', 'shadeKo', 'cosplay', 'free'];
 const HAN = /[가-힣]/;
+/* 장면 풀이 s(2026-11-25) — 줄 끝, 있을 때만. 칸은 짧은 열쇠, 빈 칸 · undefined 없음, 우리 값은 한글(en: 1 이면 GPT 가 지은 영어) */
+const S_KEYS = ['pl', 'act', 'fr', 'ex', 'gz', 'bd', 'cam', 'ln', 'lt', 'mo', 'cp', 'si', 'os', 'tm', 'ss', 'wt', 'era', 'ar', 'en'];
+function sShape(r) {
+  if (!('s' in r)) return;
+  assert.ok(r.s && Object.keys(r.s).length, r.path + ' s 가 있으면 비지 않는다');
+  for (const [k, v] of Object.entries(r.s)) {
+    assert.ok(S_KEYS.includes(k), r.path + ' s 칸 ' + k);
+    if (k === 'en') { assert.equal(v, 1); continue; }
+    assert.equal(typeof v, 'string'); assert.ok(v.trim() && !/undefined|null|\[object/.test(v), r.path + ' s.' + k + ' = ' + v);
+    if (!['ln', 'ar'].includes(k) && !(r.s.en && ['pl', 'act', 'fr'].includes(k))) assert.match(v, v === '3/4' ? /^3\/4$/ : HAN, r.path + ' s.' + k + ' 한글');
+  }
+}
 for (const r of doc.rows) {
-  assert.deepEqual(Object.keys(r), KEYS, r.path + ' 칸');
+  sShape(r);
+  assert.deepEqual(Object.keys(r).filter(k => k !== 's'), KEYS, r.path + ' 칸');
+  if ('s' in r) assert.equal(Object.keys(r).pop(), 's', 's 는 줄 끝');
   for (const k of ['required', 'family', 'item', 'shade', 'world']) if (r[k]) assert.match(r[k + 'Ko'] || '', HAN, `${r.path} ${k}Ko 는 한글`); else if (k !== 'world') assert.equal(r[k + 'Ko'], null, `${r.path} ${k} 가 없으면 ${k}Ko 도 null`);
   assert.match(r.date, /^\d{4}-\d{2}-\d{2}$/);
   if (r.cosplay) { assert.deepEqual(Object.keys(r.cosplay), ['game', 'gameKo', 'character', 'characterKo', 'cut', 'cutKo', 'by', 'round']); assert.match(r.cosplay.gameKo, HAN); assert.match(r.cosplay.cutKo, HAN); }
@@ -84,6 +99,12 @@ assert.deepEqual(f5.free, { kind: 'gfree', kindKo: '갈래 자유', outfit: 'a m
 assert.deepEqual([f5.family, f5.familyKo, f5.item], ['lingerie', '란제리풍', null]);
 assert.deepEqual(f6.free, { kind: 'ofree', kindKo: '옷 자유', outfit: 'a cobalt ribbon halter tunic' }, 'free_prompt 의 Outfit 줄, 「…」 빈 틀은 건너뛴다');
 assert.deepEqual([f6.family, f6.item], [null, null], '자유 설계 칸의 장면 옷은 그림자');
+/* 장면 풀이 — 둘째 줄(장소 · 하는 일 · 구도) + 더 보기. 손 · 받침 · 고개는 싣지 않는다. 자유 설계 컷은 GPT 가 채운 줄만(영어, en) */
+const s7 = row('samguk', 7)[0].s;
+assert.deepEqual(s7, { pl: '수영장', act: '잔을 든다', fr: '허리 위', ex: '차분함', gz: '카메라', bd: '정면', cam: '눈높이', ln: '50mm 표준', lt: '옆 빛', si: '젖은 옷', os: '윤기 나는 새틴', era: '지금 현실', ar: '1:1' });
+assert.deepEqual(f5.s, { pl: 'a', act: 'b', fr: 'd', en: 1 }, 'free_design 덩어리 — 우리 장면 값(water_pool)은 그림자');
+assert.deepEqual(f6.s, { pl: 'a pier', en: 1 }, '「design the place」 컷 — 채운 줄만, 빈 칸은 뺀다');
+assert.equal(row('samguk', 1)[0].s.pl, '수영장'); assert.ok(!('fr' in row('samguk', 1)[0].s), '옛 기록 — 없는 칸은 뺀다');
 /* 차례 — 날짜 새것 먼저, 같으면 카드 · 세계 · 번호 */
 assert.equal(doc.rows[0].path, `sam-atelier-img-2/records/조조/samguk-casual7.${S}-ui.json`);
 for (let i = 1; i < doc.rows.length; i++) assert(doc.rows[i - 1].date >= doc.rows[i].date, '날짜 차례');
