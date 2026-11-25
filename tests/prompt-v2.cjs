@@ -126,9 +126,11 @@ assert(/^CONCEPT: /.test(P.build(D, S, k0, 'mecha', { style: 'kr_mmorpg' })), 'k
     assert(f('samguk') !== f('fantasy') && f('samguk') !== f('mecha') && f('fantasy') !== f('mecha'), '문앙 — 얼굴 · 머리는 세계마다 다르다'); }
   /* 일상컷 — 지킬 것 · 바꿀 것 · 장면 · 제약 */
   { const Cp = require('../tools/casual-plan.cjs'), card = Cp.cardOf('문앙'); card.world = 'mecha'; const tr = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree.json'), 'utf8')), tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/casual-tree-v2.json'), 'utf8'));
-    let nc = 0; for (const cut of Cp.plan(card, [1, 2, 3, 4, 5, 6], [], { seed: 11 }).cuts) for (const st of ['mmorpg_cg', 'kv_jp_paint']) { const { n, ...sc } = cut, K = T.SECTIONS.casual;
+    let nc = 0; for (const cut of Cp.plan(card, [1, 2, 3, 4, 5, 6], [], { seed: 11 }).cuts) for (const st of ['mmorpg_cg', 'kv_jp_paint']) { const { n, ...sc } = cut, K = T.SECTIONS.casual
+      /* 끝 칸 = 끝 줄 + 동물 줄(2026-11-23 일상컷 동물 — 없음 · 배경 · 동료면 「One figure in focus」 자리를 동료 줄로, lib/prompt-sam.js creatureEnd) */
+      const CR = T.CASUAL.creatures, ends = [K.end + ' ' + CR.none, K.end + ' ' + CR.background, K.end.replace(/^One figure in focus[.,]\s*(\w)/, (a, ch) => CR.companion + ' ' + ch.toUpperCase())].map(e => K.s4 + '\n' + e);
       const p = P.casualRecord(D, SX, '문앙', sc, { world: 'mecha', style: st, tree: tr, tree2: tr2 }, n).prompt, parts = p.split('\n\n');
-      assert(parts.length === 5 && p.startsWith('Edit the attached image: the same woman — Wen Yang') && p.includes({ '1:1': 'one square 1:1 image, 1024×1024', '3:2': 'one horizontal 3:2 image, 1536×1024' }[cut.aspect] || 'one vertical 2:3 image, 1024×1536') && parts[1].startsWith(K.s1 + '\n' + K.identity) && parts[1].includes('Style: ' + P.shortStyle(SX, st)) && parts[2].startsWith(K.s2 + '\n' + K.clothes + '\n' + K.pose + '\nOutfit: ') && parts[3].startsWith(K.s3 + '\n') && /\nPOSTURE: /.test(parts[3]) && parts[4] === K.s4 + '\n' + K.end, '문앙 일상 ' + n + ' ' + st + ' 네 칸');
+      assert(parts.length === 5 && p.startsWith('Edit the attached image: the same woman — Wen Yang') && p.includes({ '1:1': 'one square 1:1 image, 1024×1024', '3:2': 'one horizontal 3:2 image, 1536×1024' }[cut.aspect] || 'one vertical 2:3 image, 1024×1536') && parts[1].startsWith(K.s1 + '\n' + K.identity) && parts[1].includes('Style: ' + P.shortStyle(SX, st)) && parts[2].startsWith(K.s2 + '\n' + K.clothes + '\n' + K.pose + '\nOutfit: ') && parts[3].startsWith(K.s3 + '\n') && /\nPOSTURE: /.test(parts[3]) && ends.includes(parts[4]), '문앙 일상 ' + n + ' ' + st + ' 네 칸');
       assert(!/\{\w+\}|undefined|  /.test(p) && !/^(?:overall_intensity|skin_exposure):/m.test(p), '문앙 일상 ' + n + ' ' + st + ' 빈 칸 없음'); nc++; }
     console.log('PASS 칸 꼴 정리판: 세계 그림 ' + ns + '장 · 일상컷 ' + nc + '장 — 다섯 칸 · 겹침 없음 · api25 그대로 · 얼굴 · 머리 세계마다'); }
 }
@@ -181,7 +183,7 @@ console.log('PASS 짧은 세계 그림: ' + nw + '장'); }
    옛 그대로 — 11-08 전 나이 · 얼굴 머리말(윤곽 · 비율 꼬리 없음) · 눈꼬리 「sharply upward」, 더한 것 — 실루엣 줄 · 무기 한 자루 · 「중요 부위」 · 은은한 표정 */
 {
   const v = S.styles.api25.versions.find(x => x.v === S.styles.api25.current), lg = v.legacy25;
-  assert(v.model === 'gpt-image-2.5-sunburst' && v.worldShort === false && v.casualShort === false && Object.keys(lg.ageOld).length === D.generals.length, 'api25 판 칸');
+  assert(v.model === 'gpt-image-2.5-sunburst' && v.worldShort === false && v.casualShort === false && Object.keys(lg.ageOld).sort().join() === D.generals.filter(g => !g.extra).map(g => g.key).sort().join(), 'api25 판 칸');   /* 옛 나이는 11-08 전 장수(게임 표 279)만 — 2026-11-17 뒤 더한 공방 장수(extra)는 옛 나이가 없어 지금 나이로(lib/prompt-sam.js) */
   const t = P.build(D, S, '조조', 'samguk', { style: 'api25' }), f = (t.match(/^FACE — .*$/m) || [''])[0];
   assert(/^STYLE: Premium Korean MMORPG promotional character render/m.test(t) && /^OUTFIT SILHOUETTE: /m.test(t) && t.includes('It is one whole object drawn once') && /Intimate areas covered/.test(t), 'api25 세계 그림 — 더한 것');
   assert(/^AGE: early thirties/m.test(t) && f.endsWith('.') && !/Whatever the face shape|Face proportions/.test(f) && /tilting sharply upward/.test(f), 'api25 세계 그림 — 옛 나이 · 얼굴 머리말 · 눈꼬리');

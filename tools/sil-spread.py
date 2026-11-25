@@ -3,6 +3,9 @@
 
   python3 tools/sil-spread.py           비어 있는 장수 · 세계만 채운다(이미 적힌 값은 건드리지 않는다)
   python3 tools/sil-spread.py --check   모든 장수 · 세계에 표에 있는 실루엣이 있는지, 갈래마다 몇 명인지만 본다(안 쓴다)
+  python3 tools/sil-spread.py --rebalance   갈래마다 수의 차(가장 많은 - 가장 적은)가 2 를 넘는 세계만 다시 고르게(2026-11-24):
+                                            그 세계 그림이 없는 시안 장수(draft)만, 가장 많이 쓴 갈래에서 역할 묶음 안의 가장 덜 쓴 갈래로 한 명씩 옮긴다
+                                            (같은 무리 — 군웅은 camp, 나머지는 세력 — 에서 덜 쓴 갈래 먼저). 그린 장수 · 확정(hand) 장수는 그대로
 
 나누는 법 — 역할마다 어울리는 갈래 묶음(lib/prompt-spec.js SIL_POOLS) 안에서, 지금까지 가장 적게 쓰인 갈래를 고른다
 (같으면 그 세력에서 덜 쓰인 것, 그래도 같으면 열쇠 해시). 장수 순서도 해시라 다시 돌려도 같은 결과.
@@ -42,8 +45,63 @@ def h(s):
     return hashlib.sha1(s.encode('utf-8')).hexdigest()
 
 
+SPREAD_MAX = 2   # --rebalance 가 맞추는 차 — tests/prompt-v2.cjs 는 3 까지 받는다(새 묶음이 한 칸 기울 여유)
+
+
+def drawn_in(img, key, w):
+    """그 장수가 그 세계 그림을 어느 화풍으로든 가졌나 — 그린 그림과 설계가 어긋나지 않게 옮기지 않는다."""
+    for st in ((img.get(key) or {}).get('byStyle') or {}).values():
+        if (((st.get('byForm') or {}).get(w)) or {}).get('f'):
+            return True
+    return False
+
+
+def rebalance(G, keys, img):
+    moved = []
+    for w in WORLDS:
+        grp = lambda g: g.get('camp') or g['faction'] if g['faction'] == 'qun' else g['faction']
+        cnt, gcnt = collections.Counter({k: 0 for k in keys[w]}), collections.Counter()
+        for g in G:
+            s = g['worlds'][w]['sil']
+            cnt[s] += 1
+            gcnt[(grp(g), s)] += 1
+        free = [g for g in G if g.get('designed') != 'hand' and not drawn_in(img, g['key'], w)]
+        while max(cnt.values()) - min(cnt.values()) > SPREAD_MAX:
+            hi, lo = max(cnt.values()), min(cnt.values())
+            best = None
+            for g in free:
+                src = g['worlds'][w]['sil']
+                for dst in POOLS[g['role']][w]:
+                    if cnt[src] - cnt[dst] < 2 or (cnt[src] != hi and cnt[dst] != lo):
+                        continue
+                    rank = (-(cnt[src] - cnt[dst]), gcnt[(grp(g), dst)] - gcnt[(grp(g), src)], h(g['key'] + '|' + w + '|' + dst))
+                    if best is None or rank < best[0]:
+                        best = (rank, g, src, dst)
+            if best is None:
+                break
+            _, g, src, dst = best
+            g['worlds'][w]['sil'] = dst
+            cnt[src] -= 1; cnt[dst] += 1
+            gcnt[(grp(g), src)] -= 1; gcnt[(grp(g), dst)] += 1
+            free.remove(g)   # 한 장수는 세계마다 한 번만 옮긴다
+            moved.append('%s %s: %s → %s' % (g['key'], w, src, dst))
+    return moved
+
+
 def main():
     check = '--check' in sys.argv
+    if '--rebalance' in sys.argv:
+        raw = open(DESIGN, encoding='utf-8').read()
+        D = json.loads(raw)
+        img = json.load(open(os.path.join(ROOT, 'data', 'img.json'), encoding='utf-8'))['img']
+        moved = rebalance(D['generals'], spec_keys(), img)
+        if moved:
+            ind = 1 if raw.startswith('{\n "') else 2
+            open(DESIGN, 'w', encoding='utf-8').write(json.dumps(D, ensure_ascii=False, indent=ind) + ('\n' if raw.endswith('\n') else ''))
+        print('\n'.join(moved))
+        print('옮김 %d' % len(moved))
+        sys.argv = [sys.argv[0], '--check']
+        check = True
     keys = spec_keys()
     errs = []
     for role, ws in POOLS.items():

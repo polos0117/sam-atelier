@@ -8734,10 +8734,10 @@
    },
    "worlds": {
     "samguk": {
-     "sil": "heavy_general"
+     "sil": "court_regalia"
     },
     "fantasy": {
-     "sil": "winged"
+     "sil": "crown_regalia"
     },
     "mecha": {
      "sil": "halo_crown"
@@ -16888,7 +16888,7 @@
    },
    "worlds": {
     "samguk": {
-     "sil": "light_dancer"
+     "sil": "scholar_robe"
     },
     "fantasy": {
      "sil": "noble_coat"
@@ -19734,7 +19734,7 @@
    },
    "worlds": {
     "samguk": {
-     "sil": "cavalry"
+     "sil": "shadow_garb"
     },
     "fantasy": {
      "sil": "full_plate"
@@ -20331,7 +20331,7 @@
      "sil": "winged"
     },
     "mecha": {
-     "sil": "heavy_assault"
+     "sil": "slim_suit"
     }
    }
   },
@@ -21420,7 +21420,7 @@
    },
    "worlds": {
     "samguk": {
-     "sil": "archer"
+     "sil": "phoenix_crown"
     },
     "fantasy": {
      "sil": "gown_armor"
@@ -22603,7 +22603,7 @@
      "sil": "noble_coat"
     },
     "mecha": {
-     "sil": "slim_suit"
+     "sil": "long_coat_plate"
     }
    }
   },
@@ -23705,7 +23705,7 @@
      "sil": "dragon_scale"
     },
     "mecha": {
-     "sil": "cape_plates"
+     "sil": "light_agile"
     }
    },
    "palette_accent": {
@@ -24598,7 +24598,7 @@
      "sil": "phoenix_crown"
     },
     "fantasy": {
-     "sil": "gown_armor"
+     "sil": "battle_mage"
     },
     "mecha": {
      "sil": "sub_arms"
@@ -25720,7 +25720,7 @@
      "sil": "dark_spiked"
     },
     "mecha": {
-     "sil": "light_agile"
+     "sil": "segmented_parts"
     }
    }
   },
@@ -26123,7 +26123,7 @@
      "sil": "wild_warrior"
     },
     "mecha": {
-     "sil": "tail_unit"
+     "sil": "segmented_parts"
     }
    }
   },
@@ -28475,7 +28475,7 @@
      "sil": "gown_armor"
     },
     "mecha": {
-     "sil": "skirt_plate"
+     "sil": "full_armor"
     }
    }
   },
@@ -29681,7 +29681,7 @@
      "sil": "elven_leaf"
     },
     "mecha": {
-     "sil": "slim_suit"
+     "sil": "halo_crown"
     }
    },
    "palette_accent": {
@@ -30499,7 +30499,7 @@
      "sil": "celestial_shawl"
     },
     "fantasy": {
-     "sil": "ranger"
+     "sil": "noble_coat"
     },
     "mecha": {
      "sil": "big_backpack"
@@ -30607,7 +30607,7 @@
      "sil": "gown_armor"
     },
     "mecha": {
-     "sil": "segmented_parts"
+     "sil": "frame_exposed"
     }
    }
   },
@@ -33851,10 +33851,10 @@
      "sil": "phoenix_crown"
     },
     "fantasy": {
-     "sil": "dark_spiked"
+     "sil": "crown_regalia"
     },
     "mecha": {
-     "sil": "full_armor"
+     "sil": "wing_binder"
     }
    }
   },
@@ -36117,7 +36117,7 @@
      "sil": "noble_coat"
     },
     "mecha": {
-     "sil": "segmented_parts"
+     "sil": "long_coat_plate"
     }
    },
    "palette_accent": {
@@ -36501,7 +36501,7 @@
      "sil": "dragon_scale"
     },
     "mecha": {
-     "sil": "full_armor"
+     "sil": "wing_binder"
     }
    },
    "palette": {
