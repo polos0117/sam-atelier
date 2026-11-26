@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-26 · claude · 세계 장면 추천은 그 세계 장소에서만
+- data/casual-tree-v2.json — 사용자 「피티룸에 정령의 숲 발담구기가 왜 나와?」(원소 — 옷가게 피팅룸에 추천 mg_spring 「정령의 샘에 발 담그기」: 추천은 자세 조합뿐이라 걸터앉을 데만 있으면 어디서나 골라졌다): 세계 장면 추천(mg_ · sp_ · cp_ · wx_ · mc_ · zg_)에 needs — 마법 magic · 무협 wuxia · 메카 mech · 무중력 zero_g, 정령의 샘은 magic + water. 망원경 들여다보기(spyglass_look)에 gaze into_prop(빠져 있어 sp_spyglass 가 증기 장소에서 한 번도 안 맞았다), mc_catwalk 시선 위 → 먼 곳(위는 하늘이 있어야 — 실내 격납고)
+- lib/casual-tree-v2.js — 공용(style-atelier/shared): 추천 needs
+- tools/casual-tree-v2.py — places-all 이 추천 needs 를 보고, 검사가 needs 열쇠를 장소 특징 표에서 찾는다
+- prompt.html 들 — casual-tree-v2.js ?v=need1
+
 ## 2026-11-26 · claude · data/img.json 잘림 확인
 - data/img.json — 사용자 「삼국지공방.그림이 다 없는걸로 나와」: 30879d5(「그림 등록: 장패 세계컷 3장 · 일상컷 24장」)가 옮기다 잘린 파일을 올려 중간 13만 자쯤이 「… bytes omitted …」 글자로 바뀌어 JSON 이 깨졌었다(도감이 표를 못 읽어 그림이 다 없음). 앞 판 + tools/register-images.py 로 다시 지은 결과가 같은 때 올라온 d4234e2(무결성 복구) · 8be4eb5(등지 등록)와 글자 하나 다르지 않아 그쪽 판을 그대로 둔다 — 장수 211, 장패 · 등지 27장씩
 

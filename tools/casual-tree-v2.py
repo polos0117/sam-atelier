@@ -130,6 +130,8 @@ def preset_places(doc, v1, pre):
         rows.append(legs.get(pre["legs"]))
     if pre.get("gaze"):   # 시선도 장소 특징을 본다 — 창밖은 창, 위는 하늘(2026-11-13)
         rows.append(by_key(doc["gaze"]).get(pre["gaze"]))
+    if pre.get("needs") or pre.get("needs_any"):   # 세계 장면 추천은 그 장소 특징이 있는 곳에서만(2026-11-26)
+        rows.append(pre)
     rows = [r for r in rows if r]
     uses = [u for u in doc["prop_uses"] if use_fits(doc, u, pre)] if pre.get("prop_kind") else []
     props = by_key(doc["props"])
@@ -204,6 +206,10 @@ def check(doc, v1):
     for r in doc["legs"]:
         for b in r.get("not_bodies", []):
             ref(f"다리 {r['key']}", b, body, "몸 방향")
+    for r in doc["presets"]:
+        for x in r.get("needs", []) + r.get("needs_any", []):
+            if x not in doc["has"]:
+                err.append(f"추천 {r['key']} — needs {x} 는 장소 특징 표(has)에 없다")
     supports, postures, hands, legs, props, uses = (keys(n, doc[n]) for n in ("supports", "postures", "hands", "legs", "props", "prop_uses"))
     presets = keys("presets", doc["presets"])
     for name in ("body", "head", "camera", "gaze", "supports", "postures", "hands", "legs", "props", "prop_uses"):
