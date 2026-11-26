@@ -209,6 +209,10 @@
   {
    "key": "murim",
    "ko": "무협 세계"
+  },
+  {
+   "key": "mech",
+   "ko": "메카 세계"
   }
  ],
  "places": [
@@ -12956,6 +12960,8 @@
     "swimwear"
    ],
    "scene_places": [
+    "nation_cockpit",
+    "nation_hangar",
     "nation_orbit_lounge",
     "nation_orbit_cupola",
     "nation_orbit_berth",
@@ -12971,7 +12977,14 @@
     "nation_lotus_lake",
     "nation_rain_bridge",
     "nation_moon_roof",
-    "nation_sect_gate"
+    "nation_sect_gate",
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge"
    ],
    "note_scene_places": "2026-11-26 사용자 「삼국지공방은 필수컷으로 그 세계의 장소 컷이 있는데, 지금 추가한 세계별 장면들을 거기에 포함시키면 될 것 같아」 — 세계 장면 장소(v2 places 의 wfeat: 궤도 정거장 · 마법 세계 · 무협)는 옷과 상관없이 세계 안 갈래. 계획기는 세계 안 칸의 반쯤을 그 세계의 장면 장소에서(tools/casual-plan.cjs REQ_SCENE_SHARE)"
   },

@@ -238,6 +238,10 @@
   "wuxia": {
    "ko": "무협 세계 장소",
    "en": "a place of the wuxia martial world"
+  },
+  "mech": {
+   "ko": "메카 세계 장소",
+   "en": "a place of the mecha world"
   }
  },
  "frames": {
@@ -2486,6 +2490,15 @@
     "wuxia"
    ],
    "en": "her own {side} hand raised, a single falling leaf caught lightly between two fingertips"
+  },
+  {
+   "key": "holo_map",
+   "ko": "홀로그램 지도 짚기",
+   "zone": "chest",
+   "needs": [
+    "mech"
+   ],
+   "en": "her own {side} fingertips touch a glowing holographic map floating above the table, turning it slowly"
   }
  ],
  "legs": [
@@ -4543,7 +4556,9 @@
    "indoor",
    "window",
    "upright",
-   "k_vehicle"
+   "k_vehicle",
+   "wfeat",
+   "mech"
   ],
   "nation_hangar": [
    "worktable",
@@ -4556,7 +4571,9 @@
    "shelf_high",
    "indoor",
    "upright",
-   "k_work"
+   "k_work",
+   "wfeat",
+   "mech"
   ],
   "arcade_hall": [
    "chair",
@@ -5854,6 +5871,68 @@
    "edge",
    "wfeat",
    "wuxia"
+  ],
+  "nation_mech_palm": [
+   "edge",
+   "floor",
+   "upright",
+   "indoor",
+   "wfeat",
+   "mech"
+  ],
+  "nation_mech_catwalk": [
+   "rail_waist",
+   "edge",
+   "floor",
+   "upright",
+   "indoor",
+   "wfeat",
+   "mech"
+  ],
+  "nation_launch_deck": [
+   "floor",
+   "edge",
+   "upright",
+   "wfeat",
+   "mech"
+  ],
+  "nation_colony_park": [
+   "chair",
+   "floor",
+   "soft",
+   "upright",
+   "sky",
+   "wfeat",
+   "mech"
+  ],
+  "nation_bridge_holo": [
+   "chair",
+   "table",
+   "indoor",
+   "window",
+   "wall",
+   "upright",
+   "wfeat",
+   "mech"
+  ],
+  "nation_pilot_locker": [
+   "chair",
+   "wall",
+   "indoor",
+   "upright",
+   "k_private",
+   "wfeat",
+   "mech"
+  ],
+  "nation_spaceport_lounge": [
+   "chair",
+   "table",
+   "window",
+   "indoor",
+   "wall",
+   "upright",
+   "wfeat",
+   "mech"
   ]
  },
  "props": [
@@ -5919,7 +5998,11 @@
     "scooter_cafe",
     "car_kerb",
     "nation_cliff_pavilion",
-    "nation_jianghu_inn"
+    "nation_jianghu_inn",
+    "nation_bridge_holo",
+    "nation_spaceport_lounge",
+    "nation_pilot_locker",
+    "nation_colony_park"
    ]
   },
   {
@@ -6018,7 +6101,9 @@
     "ride_carousel",
     "ride_teacup",
     "canal_gondola",
-    "swan_boat"
+    "swan_boat",
+    "nation_spaceport_lounge",
+    "nation_pilot_locker"
    ]
   },
   {
@@ -6077,7 +6162,9 @@
     "canal_gondola",
     "nation_orbit_lounge",
     "nation_orbit_cupola",
-    "nation_orbit_berth"
+    "nation_orbit_berth",
+    "nation_colony_park",
+    "nation_spaceport_lounge"
    ]
   },
   {
@@ -6930,7 +7017,9 @@
     "heritage_calligraphy",
     "nation_workshop",
     "nation_hangar",
-    "nation_tackroom"
+    "nation_tackroom",
+    "nation_mech_catwalk",
+    "nation_mech_palm"
    ]
   },
   {
@@ -8076,6 +8165,22 @@
     "nation_rain_bridge",
     "nation_moon_roof",
     "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "pilot_helmet",
+   "ko": "파일럿 헬멧",
+   "en": "a sleek pilot helmet with a tinted visor",
+   "places": [
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge",
+    "nation_cockpit",
+    "nation_hangar"
    ]
   }
  ],
@@ -18456,6 +18561,63 @@
     "kneel",
     "half_kneel"
    ]
+  },
+  {
+   "key": "phelmet_hug",
+   "prop": "pilot_helmet",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "파일럿 헬멧을 옆구리에 낀다",
+   "en": "holds {prop} tucked under her arm against her side",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel"
+   ]
+  },
+  {
+   "key": "phelmet_carry",
+   "prop": "pilot_helmet",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "파일럿 헬멧을 들고 간다",
+   "en": "carries {prop} low at her side by its rim",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_wall",
+    "lean_rail"
+   ]
   }
  ],
  "outfit_features": {
@@ -19394,6 +19556,20 @@
     "nation_sect_gate"
    ],
    "ko": "목욕 · 수영복 · 웨딩으로 대숲 끝 · 달밤 지붕 · 연꽃 호수 · 객잔 · 산문"
+  },
+  {
+   "outfits": [
+    "bath",
+    "swimwear",
+    "bridal"
+   ],
+   "places": [
+    "nation_launch_deck",
+    "nation_bridge_holo",
+    "nation_mech_catwalk",
+    "nation_pilot_locker"
+   ],
+   "ko": "목욕 · 수영복 · 웨딩으로 발진 갑판 · 함교 · 캣워크 · 대기실"
   }
  ],
  "presets": [
@@ -22510,6 +22686,159 @@
    "legs": "",
    "gaze": "at_prop",
    "act": "rest"
+  },
+  {
+   "key": "mc_palm",
+   "ko": "거대 메카 손바닥에 걸터앉기",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "low",
+   "right": "natural",
+   "left": "natural",
+   "legs": "dangle",
+   "gaze": "camera",
+   "act": "rest"
+  },
+  {
+   "key": "mc_palm_back",
+   "ko": "메카 손바닥에서 돌아보기",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "environmental",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "dangle",
+   "gaze": "camera",
+   "act": "look"
+  },
+  {
+   "key": "mc_catwalk",
+   "ko": "캣워크 난간에서 메카 올려다보기",
+   "posture": "lean_rail",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "side",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "up",
+   "act": "look"
+  },
+  {
+   "key": "mc_helmet",
+   "ko": "발진 갑판에서 헬멧 끼고 서기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "low",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "contrapposto",
+   "gaze": "camera",
+   "act": "ready"
+  },
+  {
+   "key": "mc_deck_walk",
+   "ko": "발진 갑판을 헬멧 들고 걷기",
+   "posture": "walk",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "walk_stride",
+   "gaze": "camera",
+   "act": "walk"
+  },
+  {
+   "key": "mc_colony",
+   "ko": "콜로니 공원에서 말려 올라간 하늘 보기",
+   "posture": "sit_floor",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "up",
+   "act": "rest"
+  },
+  {
+   "key": "mc_bridge",
+   "ko": "작전 테이블 홀로그램 짚기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "holo_map",
+   "left": "natural",
+   "legs": "",
+   "gaze": "down",
+   "act": "look"
+  },
+  {
+   "key": "mc_locker",
+   "ko": "대기실 벤치에서 헬멧 안고",
+   "posture": "sit_chair",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "",
+   "gaze": "camera",
+   "act": "ready"
+  },
+  {
+   "key": "mc_spaceport",
+   "ko": "우주항 창가에서 돌아보기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "look"
+  },
+  {
+   "key": "mc_cockpit",
+   "ko": "조종석에서 캐노피 밖 보기",
+   "posture": "sit_chair",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "side",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "window",
+   "act": "look"
   }
  ],
  "expressions": {
@@ -23342,6 +23671,97 @@
    "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
    "worlds_only": [
     "samguk"
+   ]
+  },
+  {
+   "key": "nation_mech_palm",
+   "group": "mech",
+   "ko": "세계의 거대 메카의 손바닥 위",
+   "en": "the open palm of a towering giant mecha kneeling in its hangar — a broad armoured hand lowered near the floor, its huge visored head looming above",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
+   ]
+  },
+  {
+   "key": "nation_mech_catwalk",
+   "group": "mech",
+   "ko": "세계의 격납고 캣워크(메카 머리 옆)",
+   "en": "a steel catwalk high inside a giant hangar, level with the head of a towering mecha held in its maintenance gantry — hanging cables, warning lights and the long drop to the hangar floor",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
+   ]
+  },
+  {
+   "key": "nation_launch_deck",
+   "group": "mech",
+   "ko": "세계의 출격 발진 갑판",
+   "en": "the launch deck of a carrier ship of her world — a long catapult rail lined with blinking guide lights, a mecha crouched at the far end and the stars beyond the open launch bay",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
+   ]
+  },
+  {
+   "key": "nation_colony_park",
+   "group": "mech",
+   "ko": "세계의 콜로니 회전 거주구 공원",
+   "en": "a park inside a rotating space colony — lawns, trees and a little stream, and overhead, instead of sky, the far side of the colony's land curving up and over her",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
+   ]
+  },
+  {
+   "key": "nation_bridge_holo",
+   "group": "mech",
+   "ko": "세계의 함교 홀로그램 작전 테이블",
+   "en": "the bridge of a warship of her world — tiered consoles, a wide forward viewport onto space and a glowing holographic tactical table in the middle",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
+   ]
+  },
+  {
+   "key": "nation_pilot_locker",
+   "group": "mech",
+   "ko": "세계의 파일럿 대기실",
+   "en": "a pilot ready room — rows of lockers, pilot suits on hangers, a long bench and a status screen on the wall",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
+   ]
+  },
+  {
+   "key": "nation_spaceport_lounge",
+   "group": "mech",
+   "ko": "세계의 우주항 창가 라운지",
+   "en": "a spaceport departure lounge — tall windows onto a launch pad where a shuttle lifts off on a column of light, rows of seats and a small café counter",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「메카는 장소가 더 없나?」 → 「응 다 해줘」 — 중력 있는 메카 장소(무중력 정거장만이라 자세가 자주 안 맞았다)",
+   "worlds_only": [
+    "mecha"
    ]
   }
  ],
@@ -24787,6 +25207,116 @@
     "nation_rain_bridge",
     "nation_moon_roof",
     "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "mech_eyes",
+   "ko": "등 뒤 메카의 눈빛",
+   "en": "behind her, the visor eyes of a giant mecha flicker on with a soft glow",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge",
+    "nation_cockpit",
+    "nation_hangar"
+   ]
+  },
+  {
+   "key": "weld_sparks",
+   "ko": "멀리 떨어지는 용접 불꽃",
+   "en": "a spray of welding sparks falls in the background",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge",
+    "nation_cockpit",
+    "nation_hangar"
+   ]
+  },
+  {
+   "key": "launch_trail",
+   "ko": "멀리 셔틀의 발사 궤적",
+   "en": "far away, a shuttle climbs on a bright launch trail",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge",
+    "nation_cockpit",
+    "nation_hangar"
+   ]
+  },
+  {
+   "key": "colony_light",
+   "ko": "콜로니 하늘빛이 바뀜",
+   "en": "the long light-strip of the colony's sky shifts to warm evening gold",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge",
+    "nation_cockpit",
+    "nation_hangar"
+   ]
+  },
+  {
+   "key": "holo_glow",
+   "ko": "얼굴에 비친 홀로그램 빛",
+   "en": "the blue light of a holographic display plays over her face and hands",
+   "frames": [
+    "face_close",
+    "chest_up",
+    "waist_up",
+    "three_quarter"
+   ],
+   "places": [
+    "nation_mech_palm",
+    "nation_mech_catwalk",
+    "nation_launch_deck",
+    "nation_colony_park",
+    "nation_bridge_holo",
+    "nation_pilot_locker",
+    "nation_spaceport_lounge",
+    "nation_cockpit",
+    "nation_hangar"
    ]
   }
  ],
