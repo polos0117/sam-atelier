@@ -193,26 +193,34 @@ function W0(k) { return ctx0.window.W(k); }
       await v.page.click(row + ' .dx-who'); await v.page.waitForSelector(row + '[data-open="1"] .dx-casuals button.dx-slot');   /* 줄을 펼쳐야 일상컷 칸이 나온다 */
       assert.equal(await v.page.locator('.cnote').count(), 0, '목록 칸엔 한 줄이 없다'); assert.equal(fetched, 0, '목록을 그릴 때 색인을 안 받는다');
       await v.page.locator(row + ' .dx-casuals button.dx-slot[title$="' + CN.label(0) + '"]').click();
-      const note = v.page.locator('.lightbox .lb-cnote'), l1 = note.locator('.cnote-l1'), l2 = note.locator('.cnote-l2'), more = note.locator('.cnote-more'), list = note.locator('.cnote-list');
+      const note = v.page.locator('.lightbox .lb-cnote'), l1 = note.locator('.cnote-l1'), l2 = note.locator('.cnote-l2'), more = note.locator('.cnote-more');
+      const sheet = v.page.locator('.cnote-sheet'), list = sheet.locator('.cnote-list');
       await note.waitFor(); assert.equal(fetched, 1, '처음 열 때 색인 한 번');
       assert.equal((await l1.textContent()).trim(), '필수 · 노출 갈래(수영복) — 비키니 · 코랄 · 오렌지', '첫 줄 — 필수 · 옷 · 색');
       assert.equal((await l2.textContent()).trim(), '수영장 · 잔을 든다 · 허리 위', '둘째 줄 — 장소 · 하는 일 · 구도(2026-11-25)');
-      /* 더 보기 — 44px 단추 · aria-expanded · 펼치면 표정 · 시선 · 렌즈 · 시대 · 화면비, 크게 보기는 그대로 */
-      assert.equal(await more.getAttribute('aria-expanded'), 'false'); assert.equal(await list.isVisible(), false, '처음엔 접힘');
+      /* 더 보기 — 44px 단추 · aria-expanded · 그림 위에 겹치는 판(2026-11-26 — 그림 · 단추를 밀지 않는다), 판에 표정 · 시선 · 렌즈 · 시대 · 화면비 */
+      assert.equal(await more.getAttribute('aria-expanded'), 'false'); assert.equal(await sheet.count(), 0, '처음엔 접힘');
       { const bb = await more.boundingBox(); assert(bb.height >= 44 && bb.width >= 44, '더 보기 단추 44px ' + JSON.stringify(bb)); }
-      await more.click(); assert.equal(await more.getAttribute('aria-expanded'), 'true'); assert(await list.isVisible(), '펼침');
+      const imgBox = async () => JSON.stringify(Object.values(await v.page.locator('.lightbox .lb-stage img').boundingBox()).map(Math.round));
+      const img0 = await imgBox();
+      await more.click(); assert.equal(await more.getAttribute('aria-expanded'), 'true'); await sheet.waitFor(); assert(await list.isVisible(), '판이 뜬다');
       assert.deepEqual(await list.locator('dt').allTextContents(), ['표정', '시선', '렌즈', '시대', '화면비']); assert.equal(await list.locator('dd').first().textContent(), '차분함');
-      assert(await v.page.locator('.lightbox').isVisible(), '펼쳐도 크게 보기는 그대로');
+      assert.equal(await imgBox(), img0, '판이 떠도 그림 자리 · 크기는 그대로');
+      await v.page.keyboard.press('Escape'); assert.equal(await sheet.count(), 0, 'Esc 는 판만 닫는다'); assert(await v.page.locator('.lightbox').isVisible(), '크게 보기는 그대로');
+      assert.equal(await more.getAttribute('aria-expanded'), 'false');
       await v.page.keyboard.press('ArrowRight'); await v.page.waitForFunction(() => /코스프레/.test((document.querySelector('.lb-cnote') || {}).textContent || ''));
       assert.equal(await l1.locator('b').textContent(), '필수 · 게임 코스프레'); assert.match(await l1.textContent(), /— 드래곤 퀘스트 · Jessica Albert · 미니 드레스GPT 고름$/, '코스프레 — 캐릭터는 영어 그대로 · GPT 고름');
       assert.equal(await note.locator('.cnote-gpt').count(), 1); assert.equal(await l2.count(), 0, '장면 풀이가 없는 옛 줄 — 첫 줄만'); assert.equal(await more.count(), 0, '더 볼 것이 없으면 단추도 없다');
       await v.page.keyboard.press('ArrowRight'); await v.page.waitForFunction(() => /옷 자유/.test((document.querySelector('.lb-cnote') || {}).textContent || ''));
       assert.equal(await l1.locator('b').textContent(), '옷 자유');
-      assert.equal(await more.getAttribute('aria-expanded'), 'true', '펼침은 이 탭 동안 기억한다'); assert.equal(await l1.locator('span[lang="en"]').textContent(), CN.outfit, '펼친 채면 Outfit 도 다');
+      assert.equal(await more.getAttribute('aria-expanded'), 'false', '펼침은 기억하지 않는다(2026-11-26)'); assert((await l1.locator('span[lang="en"]').textContent()).endsWith('…'), '긴 Outfit 은 줄여 보인다');
+      { const nb = await note.locator('.cnote-body').boundingBox(); assert(nb.height <= 12 * 4.8 + 2, '두 줄 칸은 높이 한도 ' + JSON.stringify(nb)); }
+      { const cb = await v.page.locator('.lightbox .lb-close').boundingBox(), vh = v.page.viewportSize().height; assert(cb && cb.y + cb.height <= vh, '닫기 단추는 화면 안 ' + JSON.stringify(cb)); }
       assert.equal(await l2.locator('.cnote-tag').textContent(), 'GPT 설계'); assert.equal(await l2.locator('span[lang="en"]').textContent(), 'a rooftop garden · she waters the herbs', '자유 설계 장면은 영어 그대로');
+      await more.click(); await sheet.waitFor();
+      assert.equal(await sheet.locator('.cnote-l1 span[lang="en"]').textContent(), CN.outfit, '판에는 Outfit 이 다');
       assert.deepEqual(await list.locator('dd').allTextContents(), ['옷 자유 — GPT 가 설계', '2:3']);
-      await more.click(); assert.equal(await more.getAttribute('aria-expanded'), 'false'); assert((await l1.locator('span[lang="en"]').textContent()).endsWith('…'), '접으면 긴 Outfit 은 줄여 보인다');
-      assert.equal(await v.page.evaluate(() => sessionStorage.getItem('cnote-open')), '0');
+      await v.page.mouse.click(5, 5); assert.equal(await sheet.count(), 0, '판 바깥을 누르면 닫힌다'); assert(await v.page.locator('.lightbox').isVisible(), '크게 보기는 그대로');
       await v.page.keyboard.press('ArrowRight'); await v.page.waitForFunction(f => (document.querySelector('.lightbox .lb-stage img') || {}).getAttribute('src').endsWith(encodeURIComponent(f)), CN.files[3]);
       assert.equal(await v.page.locator('.lb-cnote').count(), 0, '색인에 없는 컷은 아무것도 안 보인다'); assert.equal(fetched, 1, '색인은 한 번만');
       await noOverflow(v.page, vp.width + ' 일상컷 설명'); assert.deepEqual(v.errors, [], '일상컷 설명 콘솔'); checks += 16; await v.ctx.close();
