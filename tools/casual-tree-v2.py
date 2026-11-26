@@ -201,6 +201,9 @@ def check(doc, v1):
     for r in doc["head"]:
         for b in r.get("not_bodies", []):
             ref(f"머리 {r['key']}", b, body, "몸 방향")
+    for r in doc["legs"]:
+        for b in r.get("not_bodies", []):
+            ref(f"다리 {r['key']}", b, body, "몸 방향")
     supports, postures, hands, legs, props, uses = (keys(n, doc[n]) for n in ("supports", "postures", "hands", "legs", "props", "prop_uses"))
     presets = keys("presets", doc["presets"])
     for name in ("body", "head", "camera", "gaze", "supports", "postures", "hands", "legs", "props", "prop_uses"):
@@ -530,6 +533,8 @@ def check(doc, v1):
                 err.append(f"{w} — 발 동작 {p['legs']} 는 전신 · 환경 컷만")
             if po["family"] not in lg["families"]:
                 err.append(f"{w} — 다리 {p['legs']} 는 자세 계열 {po['family']} 밖")
+            if p["body"] in lg.get("not_bodies", []):
+                err.append(f"{w} — 다리 {p['legs']} 는 몸 방향 {p['body']} 와 같이 못 고른다(등 돌려 걸터앉으면 다리는 난간 너머)")
         # 시선 — 소품을 보려면 소품이 있어야
         if p.get("gaze") == "at_prop" and not n_prop:
             err.append(f"{w} — 시선이 소품인데 소품을 쓰는 손이 없다")

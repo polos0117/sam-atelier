@@ -1,5 +1,11 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-26 · claude · 등 돌려 걸터앉기 — 다리는 난간 너머
+- data/casual-tree-v2.json — 사용자 「이렇게 뒷모습 걸터앉는 씬에서 다리 연결이 부자연스러운데 어떻게 해?」(원소 다이아몬드 판타지 일상2 — 추천 edge_rear: 등을 보이고 걸터앉아 다리를 늘어뜨리고 전신 「발까지 프레임 안」 이라, 난간 너머로 가야 할 다리를 화면 쪽으로 끌어내려 허리에서 꺾였다): 다리 dangle_far(등 돌려 걸터앉으면 다리는 가장자리 너머로 내려 가려진다 — 엉덩이 · 허벅지 위만 걸침, 발 안 보임, 정면 · 3/4 · 옆 몸엔 못 씀), 다리 dangle 은 등(back)과 못 묶는다(not_bodies). 등 · 뒤 3/4 로 걸터앉아 늘어뜨리던 추천(edge_rear · mg_isle · mc_palm_back)은 dangle_far · 3/4 구도(무릎 위까지)로
+- lib/casual-tree-v2.js — 공용(style-atelier/shared): 다리 칸 not_bodies
+- tools/casual-tree-v2.py — 다리 not_bodies 를 보고 추천을 잡는다
+- prompt.html 들 — casual-tree-v2.js ?v=far1
+
 ## 2026-11-26 · claude · 선반 컷 — 위에서 내려다보기(높은 칸 · 아래 칸)
 - data/casual-tree-v2.json — 사용자 「선반 위에 물건을 꺼낼때 카메라가 위에서 내려다보고 있는 컷은 없지?」 → 「응 둘 다 넣어줘」(선반 추천 셋은 아래에서 · 눈높이뿐이었다): 추천 셋 — shelf_high_look(높은 선반에 손 뻗다 어깨 너머로 올려다보기, 위에서 · 3/4) · shelf_low_squat(쪼그려 아래 칸에서 꺼내며 올려다보기, 위에서 · 전신) · shelf_low_kneel(한쪽 무릎 꿇고 아래 칸 꺼내기, 위에서 · 3/4). 손 low_shelf(아래 칸에서 물건 꺼내기 — 높은 선반이 있는 곳 shelf_high 에서만, 쪼그려 · 무릎 꿇기 자세)
 - tools/casual-plan.cjs — 상황 노출 한 장: 일반 컷이 필수 갈래(노출 계열 · 세계 장면 장소) · 그 장수의 물건으로 다 덮여도 처음 SITU_TRY(60) 번은 다른 묶음으로 — 표본이 바뀌어 tests/casual-plan 의 상황 컷이 18 중 14(기준 0.8)로 떨어졌다 → 18 중 18

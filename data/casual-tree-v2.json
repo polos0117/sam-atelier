@@ -2642,7 +2642,10 @@
     "sit_edge"
    ],
    "feet": true,
-   "en": "legs dangling loosely over the edge"
+   "en": "legs dangling loosely over the edge",
+   "not_bodies": [
+    "back"
+   ]
   },
   {
    "key": "knees_together",
@@ -2892,6 +2895,24 @@
     "float_zg",
     "levitate"
    ]
+  },
+  {
+   "key": "dangle_far",
+   "ko": "난간 너머로 내린 다리(등 돌려 걸터앉기)",
+   "families": [
+    "sit"
+   ],
+   "postures": [
+    "sit_edge"
+   ],
+   "feet": false,
+   "not_bodies": [
+    "front",
+    "front_3q",
+    "side"
+   ],
+   "en": "she sits squarely on the edge facing away from the camera, her legs hanging down the far side of it, out of sight behind the edge — only her hips and the tops of her thighs rest on it",
+   "note": "2026-11-26 사용자 「이렇게 뒷모습 걸터앉는 씬에서 다리 연결이 부자연스러운데 어떻게 해?」(원소 다이아몬드 판타지 일상2 — 등을 보이고 걸터앉아 다리를 늘어뜨리고 전신이라 발까지 보이게 하니, 다리를 화면 쪽으로 끌어내려 허리에서 꺾였다)"
   }
  ],
  "places": {
@@ -20830,13 +20851,13 @@
    "ko": "걸터앉아 풍경 보는 뒷모습",
    "posture": "sit_edge",
    "support": "hip_edge",
-   "frame": "full_body",
+   "frame": "three_quarter",
    "body": "back",
    "head": "with_body",
    "camera": "eye",
    "right": "natural",
    "left": "natural",
-   "legs": "dangle",
+   "legs": "dangle_far",
    "gaze": "horizon",
    "act": "rest"
   },
@@ -22428,13 +22449,13 @@
    "ko": "섬 가장자리에서 구름바다",
    "posture": "sit_edge",
    "support": "hip_edge",
-   "frame": "full_body",
+   "frame": "three_quarter",
    "body": "rear_3q",
    "head": "turn_side",
    "camera": "eye",
    "right": "natural",
    "left": "natural",
-   "legs": "dangle",
+   "legs": "dangle_far",
    "gaze": "horizon",
    "act": "rest"
   },
@@ -22722,13 +22743,13 @@
    "ko": "메카 손바닥에서 돌아보기",
    "posture": "sit_edge",
    "support": "hip_edge",
-   "frame": "environmental",
+   "frame": "three_quarter",
    "body": "rear_3q",
    "head": "over_shoulder",
    "camera": "eye",
    "right": "natural",
    "left": "natural",
-   "legs": "dangle",
+   "legs": "dangle_far",
    "gaze": "camera",
    "act": "look"
   },
