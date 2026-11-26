@@ -309,6 +309,8 @@ const standFrontEye = c => c.posture === 'stand' && (c.body === 'front' || c.bod
 const FAM_WEIGHT = { bath: 0.25 };
 const famW = sc => FAM_WEIGHT[(sc && sc.ofam) || sc] || 1;
 /* 세계 특징 장소(장소 특징 zero_g — 궤도 정거장, 2026-11-26 사용자 「각 세계만의 독특한 특징을 보여줄 수 있는 씬」 → 「무중력은 메카 세계, 사이버펑크도」)에 무게 — 100~200곳 가운데 3곳이라 250컷에 1컷꼴이었다. 메카 · 사이버펑크 묶음에 한 장 안팎 */
+/* 세계 장면 장소(필수 세계 안 칸 — 2026-11-26 사용자 「지금 추가한 세계별 장면들을 거기에 포함시키면 될 것 같아」): 표 required.world.scene_places, 세계 안 칸의 이 몫만큼 */
+const SCENE_PL = new Set((tree.required.world || {}).scene_places || []), REQ_SCENE_SHARE = 0.5;
 const ZG_BOOST = 3, ZG_PLACES = new Set(Object.entries(tree2.places || {}).filter(([, f]) => (f || []).includes('wfeat')).map(([k]) => k));   /* 세계 특징 장소(장소 특징 wfeat — 궤도 정거장 · 마법 세계 · 증기 세계, 2026-11-26 「판타지랑 스팀펑크,사이버펑크도」) */
 function lean(r, list, count, key = x => x, factor = () => 1) {
   if (!list.length) return undefined;
@@ -361,7 +363,12 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
   const g = card.g, U = usageMemo(usage);
   let sc;
   if (reqType === 'cosplay') { if (!cos) return null; const paths = cosplayPaths(cos.cut).filter(x => (!wantEra || x.era === wantEra) && !(prune && !prune.placeOk(x.place, COS_FAM))); if (!paths.length) return null; sc = { ...lean(r, paths, U.place, x => x.place) }; }
-  else if (reqType) { const paths = requiredPaths(reqType).filter(x => (!wantEra || x.era === wantEra) && !(prune && !prune.placeOk(x.place, x.ofam))); if (!paths.length) return null; sc = { ...lean(r, paths, U.place, x => x.place, famW) }; }
+  else if (reqType) {
+    /* 세계 안 칸 — 그 세계에 있는 자리만(worlds_only), 세계 장면 장소(scene_places)가 있으면 그쪽이 칸의 반쯤(REQ_SCENE_SHARE) */
+    const okPl = new Map(), placeOk = x => { if (!okPl.has(x.era)) okPl.set(x.era, new Set(C2.choices(T2, { era: x.era }, 'place', g))); return okPl.get(x.era).has(x.place); };
+    const paths = requiredPaths(reqType).filter(x => (!wantEra || x.era === wantEra) && placeOk(x) && !(prune && !prune.placeOk(x.place, x.ofam))); if (!paths.length) return null;
+    const nS = paths.filter(x => SCENE_PL.has(x.place)).length, nO = paths.length - nS, wS = nS && nO ? (REQ_SCENE_SHARE / (1 - REQ_SCENE_SHARE)) * nO / nS : 1;
+    sc = { ...lean(r, paths, U.place, x => x.place, x => famW(x) * (SCENE_PL.has(x.place) ? wS : 1)) }; }
   else {
     const era = wantEra || weighted(r, ERA_WEIGHT), pls0 = C2.choices(T2, { era }, 'place', g).filter(pl => !(prune && !prune.placeOk(pl, ''))), zgs = zgOnly ? pls0.filter(pl => ZG_PLACES.has(pl)) : [], place = lean(r, zgs.length ? zgs : pls0, U.place, x => x, pl => ZG_PLACES.has(pl) ? ZG_BOOST : 1);   /* 세계 특징 칸(zgOnly)은 먼저 정거장에서만 */
     if (!place) return null;
@@ -431,6 +438,7 @@ function capFits(old, cuts) {
 }
 /* 묶음 규칙 — 틀린 것 목록. base 는 이미 있는 컷(그 세계): 그것들이 벌써 넘긴 한도는 그만큼 올려 준다 */
 function check(cuts, card, base = [], others = []) {
+  if (card && card.g && card.world) card.g.world = card.world;   /* 그 세계에만 있는 자리(worlds_only)를 그 카드의 세계로 본다 — plan 을 거치지 않고 부르면 앞 세계가 남아 있었다(2026-11-26) */
   /* 자유 설계 컷(ofree)의 장면 값은 그림자 — 장면 규칙(갈래 · 장소 · 시대 · 구도 · 소품 · 세계 사이 겹침)은 나머지 컷만으로 센다(2026-11-11) */
   const ALL = [...base, ...cuts], errs = [], all = ALL.filter(c => !c.ofree), B = base.filter(c => !c.ofree), N = cuts.filter(c => !c.ofree);
   others = others.filter(o => !o.ofree);
@@ -453,7 +461,7 @@ function check(cuts, card, base = [], others = []) {
   for (const gk of Object.keys(ONCE)) over('한 장까지(' + (ONCE[gk].ko || gk) + ')', c => onceOf(c).includes(gk) && gk, 1);   /* 표 once_groups(2026-11-25) */
   for (const c of cuts) {
     if (c.expr && exprPool(c).length < EXPRS.length && !exprPool(c).includes(c.expr)) errs.push(`칸 ${c.n || '?'}: 표정 ${c.expr} 는 이 동작 · 추천에 안 맞는다(exprs)`);
-    if (kidsAt(c.place) && (C2.features(T2, c.ofam, c.item).includes('cleavage') || c.situ)) errs.push(`칸 ${c.n || '?'}: 놀이터 — 목선이 열린 옷 · 상황 노출은 안 쓴다`);
+    if (kidsAt(c.place) && (C2.features(T2, c.ofam, c.item).includes('cleavage') || c.situ || c.ofree)) errs.push(`칸 ${c.n || '?'}: 놀이터 — 목선이 열린 옷 · 상황 노출 · 자유 설계 컷(노출이 굵게라 놀이터의 덮인 옷과 부딪친다, 2026-11-26)은 안 쓴다`);
   }
   /* 하는 일 갈래(표 presets[].act — 이동 · 야영 · 손보기 · 집안일 · 채비 · 살피기 · 걷기 · 쉬기 · 먹고 마시기 · 카메라용 몸짓)는 묶음에 두 장까지(2026-11-13 — 한 사람의 묶음이 한 갈래로 몰리지 않게) */
   over('하는 일 갈래', c => (by(tree2.presets, c.preset) || {}).act, ACT_MOST);
@@ -819,7 +827,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
     }
     /* 세계 특징 칸(2026-11-26 — 무중력 궤도 정거장): 그 세계에 정거장이 있고(메카) 이미 있는 컷 · 이번 묶음에 없으면, 정해 둔 칸이 아닌 「세계 안」 칸 하나가 처음 40번은 정거장에서만 고른다.
        무게만으로는 정거장 추천(넷)이 칸의 프레이밍과 자주 안 맞아 다른 곳으로 다시 뽑혀 묶음에 거의 안 남았다 */
-    const zgHere = !old.some(c => ZG_PLACES.has(c.place)) && C2.choices(T2, { era: 'nation' }, 'place', card.g).some(pl => ZG_PLACES.has(pl));
+    const zgHere = !wants.includes('nation') && !old.some(c => ZG_PLACES.has(c.place)) && C2.choices(T2, { era: 'nation' }, 'place', card.g).some(pl => ZG_PLACES.has(pl));
     let zgAt = -1;
     { const at = []; for (let i = wants.length; i < slots.length; i++) if (!isFreeAt(i)) at.push(i); const tail = at.map(i => eras[i]).sort(() => r() - 0.5); at.forEach((i, j) => { eras[i] = tail[j]; }); }
     if (zgHere) zgAt = eras.findIndex((e, i) => e === 'nation' && !wants[i] && !isFreeAt(i));

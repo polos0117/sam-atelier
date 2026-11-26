@@ -18,12 +18,13 @@ for (const pr of t.v2.presets) {
   for (const pl of C.allPlaces(t)) {
     const era = pl.eras.includes('now') ? 'now' : pl.eras[0], e = C.era(t, era);
     /* 대표 옷은 정해 둔 갈래가 아닌 것 먼저 — 정해 둔 갈래 컷엔 얼굴 클로즈업을 안 쓴다(data/casual-tree.json frame_rules.face_close.not_required, 2026-11-02) */
-    const rq = t.v1.required || {}, rw = rq.world || {}, req = o => (rq.outfits || []).includes(o.key) || (era === rw.era && (rw.places || []).includes(pl.key) && (rw.outfits || []).includes(o.key));
+    const rq = t.v1.required || {}, rw = rq.world || {}, req = o => (rq.outfits || []).includes(o.key) || (era === rw.era && (rw.scene_places || []).includes(pl.key)) || (era === rw.era && (rw.places || []).includes(pl.key) && (rw.outfits || []).includes(o.key));   /* 세계 장면 장소는 옷과 상관없이 필수(2026-11-26 scene_places) */
     const fits = t.v1.outfits.filter(o => e.outfits.includes(o.key) && feat(pr).every(x => C.features(t, o.key, '').includes(x)) && !C.why(t, { era, place: pl.key }, 'ofam', o.key));   /* 그 장소에 설 수 있는 의상 계열만(표 outfit_rules, 2026-11-13) */
     const fam = fits.find(o => !req(o)) || fits[0];
     if (!fam) continue;
     pairs++;
-    assert.equal(C.presetOk(t, { era, place: pl.key, ofam: fam.key }, pr.key), py[pr.key].includes(pl.key), pr.key + ' @ ' + pl.key);
+    const noReq = req(fam) && ((t.v1.frame_rules || {})[pr.frame] || {}).not_required;   /* 모든 옷이 필수인 곳(세계 장면 장소)은 필수 컷에 안 쓰는 프레이밍(얼굴 클로즈업)이 안 된다 — 검사기는 필수를 모른다 */
+    assert.equal(C.presetOk(t, { era, place: pl.key, ofam: fam.key }, pr.key), py[pr.key].includes(pl.key) && !noReq, pr.key + ' @ ' + pl.key);
   }
   assert(py[pr.key].length, pr.key + ' 쓸 장소');
 }

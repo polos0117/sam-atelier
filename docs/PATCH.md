@@ -1,5 +1,14 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-26 · claude · 세계 줄에 무협 결 · 필수 세계 안 컷에 세계 장면
+- lib/prompt-spec.js · lib/prompt-sam.js — 사용자 「응 세계 줄에 무협 분위기도 넣어줘. 그리고 삼국지공방은 필수컷으로 그 세계의 장소 컷이 있는데, 지금 추가한 세계별 장면들을 거기에 포함시키면 될 것 같아.」: 장소 특징에 결 열쇠(wuxia)가 있으면 WORLD 줄 끝에 강호 한 줄(T.CASUAL.worldFlavor · worldFlavor) — 무협 장소 컷만, 네 판(자연 · 짧은 · 칸 꼴 · 긴) 모두
+- data/casual-tree.json — required.world.scene_places: 세계 장면 장소 열여섯(궤도 정거장 셋 · 마법 다섯 · 무협 여덟)은 옷과 상관없이 세계 안 갈래
+- tools/casual-plan.cjs — 세계 안 칸: 그 세계에 있는 자리만 고르고(worlds_only), 세계 장면 장소가 칸의 반쯤(REQ_SCENE_SHARE 0.5). 세계 안 칸이 있는 묶음은 따로 붙던 세계 특징 칸을 안 쓴다. check 가 카드의 세계를 다시 맞춘다(plan 을 거치지 않으면 앞 세계가 남았다). 놀이터엔 자유 설계 컷을 안 둔다(노출이 굵게라 덮인 옷과 부딪친다 — 표본이 바뀌어 드러났다). 조조 열두 묶음: 삼국 13 중 8 · 판타지 13 중 7 · 메카 12 중 3 이 세계 장면
+- tools/casual-check.py — 세계 장면 장소면 세계 안 갈래
+- tests/casual-tree-v2.cjs — 모든 옷이 필수인 곳은 얼굴 클로즈업 추천이 안 된다
+- lib/casual-tree.js — 공용(style-atelier/shared) isRequired 가 scene_places 를 본다
+- prompt.html · promptapi.html — prompt-spec ?v=69 · prompt-sam ?v=63 · casual-tree ?v=req1
+
 ## 2026-11-26 · claude · 세계 장면 — 삼국(무협) 경공 · 내공 · 강호
 - data/casual-tree-v2.json · data/casual-tree.json — 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」: 삼국 세계에만(worlds_only samguk, 묶음 murim) 장소 여덟 — 대나무 숲 꼭대기 · 절벽 위 정자 · 폭포 아래 수련 바위 · 강호 객잔 2층 · 연꽃 호수 물 위 · 빗속 돌다리 · 달밤 기와지붕 · 산문 앞 돌계단(장소 특징 wfeat · wuxia, 경공 자리는 qinggong). 자세 셋 — 경공으로 끝에 한 발로 서기 · 경공으로 날아오르기 · 물 위 딛기(받침 qinggong). 손 셋 — 포권 · 검지 · 떨어지는 잎 잡기(무협 장소에서만). 소품 — 퉁소 · 비급 · 막사발 술잔, 있던 호리병 · 기름종이 우산 · 고쟁 · 찻주전자 · 종이 등 · 향을 새 장소로. 순간 여섯 — 내공의 기운 · 소용돌이 댓잎 · 발끝 파문 · 갈라지는 빗줄기 · 흰 학 · 바람에 휘날리는 옷자락. 추천 열셋(wx_*), 어색한 조합(목욕 · 수영복 · 웨딩). 객잔은 무기 없음 줄과 부딪히지 않게 칼 대신 삿갓을 둔다. 계획기 세계 특징 칸이 그대로 받아 조조 삼국 여섯 묶음 모두에 한 장 이상
 - tests/casual-plan.cjs — 무기 장신구 줄 검사에서 손질 컷(OFF-DUTY GEAR CARE, 무기 없음의 예외)은 건너뛴다 — 표본이 바뀌어 유비 seed 7 에 들었다

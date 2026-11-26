@@ -44,8 +44,8 @@ def kind(scene):
     if s.get('ofam') in REQ['outfits']:
         out.add('expose')
     w = REQ['world']
-    if s.get('era') == w['era'] and s.get('place') in w['places'] and s.get('ofam') in w['outfits']:
-        out.add('inworld')
+    if s.get('era') == w['era'] and (s.get('place') in w.get('scene_places', []) or (s.get('place') in w['places'] and s.get('ofam') in w['outfits'])):
+        out.add('inworld')   # 세계 장면 장소(scene_places)는 옷과 상관없이(2026-11-26)
     if s.get('situ') and not out:
         out.add('situ')   # 셋째 필수(2026-11-09) — 상황 노출, 노출 · 세계 안 갈래 컷과 다른 컷
     if s.get('ofree') and s.get('ofreeFamily') and not out:
