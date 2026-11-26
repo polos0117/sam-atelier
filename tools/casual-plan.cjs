@@ -69,7 +69,7 @@ const DRINKS = ['cup', 'drink_glass', 'water_bottle', 'teapot'];
 const SITUS = (T.CASUAL.situations || []).map(x => x.key);
 const SITU_NO_FRAME = ['face_close'];   /* 얼굴 클로즈업엔 옷이 안 보여 상황이 안 산다(손상향 시험 계획 — 젖은 옷이 클로즈업에) */
 /* 상황 노출은 필수에서 빠졌다(2026-11-15) — 일반 컷(필수 · 자유 설계 · 그 장수의 물건 칸이 아닌 컷) 하나에 반쯤(원소 공방과 같은 값) */
-const SITU_RATE = 1;   /* 2026-11-16 사용자 「늘 1장은 나오게 맞춰줘」 — 반쯤(0.5)에서 늘. 맞는 옷의 일반 컷이 없으면 건너뛴다 */
+const SITU_RATE = 1, SITU_TRY = 60;   /* 2026-11-16 사용자 「늘 1장은 나오게 맞춰줘」 — 반쯤(0.5)에서 늘. 맞는 옷의 일반 컷이 없으면 건너뛴다 */
 
 /* ══ 게임 코스프레(2026-11-15 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 — 필수 셋째, 상황 노출 자리) ══
    목록 data/game-cosplay.json(원본 game-atelier). 「캐릭터 + 재단」 묶음이 한 단위, 쓴 기록은 세 공방(삼국 · 원소 · pkm)을 합쳐 센다:
@@ -852,7 +852,7 @@ function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, 
       colorize(real, old, others, rng((seed ^ mix ^ 0x27d4eb2f) >>> 0)); shadeize(real, old, P.hairHue(D, card.key, card.world || ''), shadeUsed || {}, rng((seed ^ mix ^ 0x4cf5ad43) >>> 0)); denierize(real, rng((seed ^ mix ^ 0x165667b1) >>> 0)); situate(cuts, null, old, others, rng((seed ^ mix ^ 0x3c6ef372) >>> 0)); ambient(cuts, old, rng((seed ^ mix ^ 0x7f4a7c15) >>> 0), usage, P.hairKey(D, card.key, card.world || '')); momentize(cuts, old, rng((seed ^ mix ^ 0x2545f491) >>> 0), usage);
       if (!freeOutfit(cuts, old, rng((seed ^ mix ^ 0x1b873593) >>> 0), others) || check(cuts, card, old, others).length) { cuts.forEach(c => { delete c._fam; }); continue; }
       /* 상황 노출 늘 한 장(2026-11-16 「늘 1장은 나오게」) — 일반 컷이 있는데 맞는 옷이 없어 못 얹었으면 다른 묶음으로(그 세계에 이미 상황 컷이 있으면 그대로) */
-      if (SITU_RATE >= 1 && cuts.some(c => !c.ofree && !requiredType(c) && !sigProp(c)) && !old.some(c => c.situ && !c.ofree) && !cuts.some(c => c.situ && !c.ofree)) { cuts.forEach(c => { delete c._fam; }); continue; }
+      if (SITU_RATE >= 1 && (cuts.some(c => !c.ofree && !requiredType(c) && !sigProp(c)) || attempt <= SITU_TRY) && !old.some(c => c.situ && !c.ofree) && !cuts.some(c => c.situ && !c.ofree)) { cuts.forEach(c => { delete c._fam; }); continue; }   /* 일반 컷이 필수 갈래 · 그 장수의 물건으로 다 덮여도 처음 SITU_TRY 번은 다른 묶음으로(2026-11-26 — 세계 장면 장소 · 노출 계열이 일반 칸을 먹어 상황 컷이 18 중 14 로 줄었다) */
       recentize(cuts, old, recent, card.world || '');
       cuts.forEach(c => { c.aspect = aspectOf(c); });   /* 화면비 — 자유 설계 칸(ofree)은 칸을 정한 뒤라 여기서 다시(2:3) */
       cuts.forEach(c => { if (c.cosplay) c.cosplay = withAgain(c.cosplay, cosplayUsed || [], c.place, rng((seed ^ mix ^ 0x68e31da4) >>> 0)); });   /* 1회차의 2회차 몫 */

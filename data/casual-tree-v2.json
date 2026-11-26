@@ -2499,6 +2499,21 @@
     "mech"
    ],
    "en": "her own {side} fingertips touch a glowing holographic map floating above the table, turning it slowly"
+  },
+  {
+   "key": "low_shelf",
+   "ko": "아래 칸에서 물건 꺼내기",
+   "zone": "hips",
+   "needs": [
+    "shelf_high"
+   ],
+   "postures": [
+    "squat",
+    "kneel",
+    "half_kneel"
+   ],
+   "en": "her own {side} hand reaches into a low shelf beside her near the floor, drawing out a book or a small box",
+   "note": "2026-11-26 사용자 「선반 위에 물건을 꺼낼때 카메라가 위에서 내려다보고 있는 컷은 없지?」 → 「응 둘 다 넣어줘」"
   }
  ],
  "legs": [
@@ -22839,6 +22854,51 @@
    "legs": "",
    "gaze": "window",
    "act": "look"
+  },
+  {
+   "key": "shelf_high_look",
+   "ko": "높은 선반에 손 뻗다 어깨 너머로 올려다보기 — 위에서",
+   "posture": "reach_up",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "side",
+   "head": "over_shoulder",
+   "camera": "high",
+   "right": "reach_high",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "chore"
+  },
+  {
+   "key": "shelf_low_squat",
+   "ko": "아래 칸에서 꺼내며 올려다보기 — 위에서",
+   "posture": "squat",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "high",
+   "right": "low_shelf",
+   "left": "lap",
+   "legs": "squat_heels",
+   "gaze": "camera",
+   "act": "chore"
+  },
+  {
+   "key": "shelf_low_kneel",
+   "ko": "한쪽 무릎 꿇고 아래 칸 꺼내기 — 위에서",
+   "posture": "half_kneel",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "with_body",
+   "camera": "high",
+   "right": "low_shelf",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "chore"
   }
  ],
  "expressions": {
