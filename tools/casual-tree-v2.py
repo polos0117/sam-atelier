@@ -93,6 +93,8 @@ def use_fits(doc, use, pre):
     frames = doc["frames"]
     if use["kind"] != pre.get("prop_kind"):
         return False
+    if pre.get("uses") and use["key"] not in pre["uses"]:   # 추천이 소품 동작을 못박는다(2026-11-26)
+        return False
     if pre["frame"] not in use["frames"] or pre["posture"] not in use["postures"]:
         return False
     if use["zone"] not in frames[pre["frame"]]["zones"]:
@@ -140,6 +142,8 @@ def preset_places(doc, v1, pre):
     for place, has in doc["places"].items():
         has = set(has)
         if not all(place_ok(r, has) for r in rows):
+            continue
+        if pre.get("places") and place not in pre["places"]:   # 그 장소 이름이 든 추천은 그곳에서만(2026-11-26)
             continue
         # 동료를 쓰는 손 · 동작은 동료 묶음에서만, 동료 묶음엔 가슴 위 · 클로즈업을 안 쓴다(pkm)
         if place in comp and pre["frame"] in not_frames:
@@ -210,6 +214,12 @@ def check(doc, v1):
         for x in r.get("needs", []) + r.get("needs_any", []):
             if x not in doc["has"]:
                 err.append(f"추천 {r['key']} — needs {x} 는 장소 특징 표(has)에 없다")
+        for x in r.get("uses", []):
+            if x not in {u["key"] for u in doc["prop_uses"]}:
+                err.append(f"추천 {r['key']} — uses {x} 는 소품 동작 표에 없다")
+        for x in r.get("places", []):
+            if x not in doc["places"]:
+                err.append(f"추천 {r['key']} — places {x} 는 장소 표에 없다")
     supports, postures, hands, legs, props, uses = (keys(n, doc[n]) for n in ("supports", "postures", "hands", "legs", "props", "prop_uses"))
     presets = keys("presets", doc["presets"])
     for name in ("body", "head", "camera", "gaze", "supports", "postures", "hands", "legs", "props", "prop_uses"):
