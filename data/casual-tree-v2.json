@@ -230,6 +230,14 @@
   "magic": {
    "ko": "마법 세계 장소",
    "en": "a place of the magic world"
+  },
+  "qinggong": {
+   "ko": "경공으로 디딜 수 있는 곳(대숲 끝 · 물 위 · 지붕)",
+   "en": "a place where a martial artist's lightness skill lets her stand or leap"
+  },
+  "wuxia": {
+   "ko": "무협 세계 장소",
+   "en": "a place of the wuxia martial world"
   }
  },
  "frames": {
@@ -602,6 +610,14 @@
    "en": "a soft glow of magic holds her up — nothing else supports her",
    "needs": [
     "levitate"
+   ]
+  },
+  {
+   "key": "qinggong",
+   "ko": "경공(몸을 가볍게 하는 무공)",
+   "en": "her qinggong lightness skill carries her weight — the thin tip, the water or the air holds her without bending or sinking, nothing else supports her",
+   "needs": [
+    "qinggong"
    ]
   }
  ],
@@ -1661,6 +1677,57 @@
     "full_body",
     "environmental"
    ]
+  },
+  {
+   "key": "qinggong_perch",
+   "ko": "경공으로 끝에 가볍게 서기",
+   "family": "float",
+   "en": "standing weightlessly on one foot on the very tip of something far too thin to hold her — her other knee lifted, toes pointed, perfectly balanced as if she weighs nothing, clothes and hair lifting in the wind",
+   "needs": [
+    "qinggong"
+   ],
+   "supports": [
+    "qinggong"
+   ],
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ]
+  },
+  {
+   "key": "qinggong_leap",
+   "ko": "경공으로 날아오르기",
+   "family": "float",
+   "en": "mid-air in a graceful qinggong leap, gliding lightly through the air — one knee drawn up, the other leg trailing, arms open for balance, clothes and hair streaming behind her",
+   "needs": [
+    "qinggong"
+   ],
+   "supports": [
+    "qinggong"
+   ],
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ]
+  },
+  {
+   "key": "water_step",
+   "ko": "물 위를 가볍게 딛기",
+   "family": "float",
+   "en": "stepping lightly across the surface of the water as if it were solid ground — the tip of one foot just touching the water, the other foot lifted mid-step",
+   "needs": [
+    "qinggong"
+   ],
+   "supports": [
+    "qinggong"
+   ],
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ]
   }
  ],
  "hands": [
@@ -1694,7 +1761,10 @@
     "float_zg",
     "float_cross",
     "levitate",
-    "levitate_cross"
+    "levitate_cross",
+    "qinggong_perch",
+    "qinggong_leap",
+    "water_step"
    ]
   },
   {
@@ -1850,7 +1920,10 @@
     "float_zg",
     "float_cross",
     "levitate",
-    "levitate_cross"
+    "levitate_cross",
+    "qinggong_perch",
+    "qinggong_leap",
+    "water_step"
    ]
   },
   {
@@ -2040,7 +2113,10 @@
     "float_zg",
     "float_cross",
     "levitate",
-    "levitate_cross"
+    "levitate_cross",
+    "qinggong_perch",
+    "qinggong_leap",
+    "water_step"
    ]
   },
   {
@@ -2382,6 +2458,34 @@
    "needs": [
     "magic"
    ]
+  },
+  {
+   "key": "baoquan",
+   "ko": "포권(주먹을 손바닥으로 감싸 인사)",
+   "zone": "chest",
+   "both": true,
+   "needs": [
+    "wuxia"
+   ],
+   "en": "both hands raised before her chest in the martial world's fist-and-palm salute — her right hand a loose fist pressed into her open left palm, a small polite bow"
+  },
+  {
+   "key": "sword_finger",
+   "ko": "검지(두 손가락 모아 세우기)",
+   "zone": "chest",
+   "needs": [
+    "wuxia"
+   ],
+   "en": "her own {side} index and middle fingers held straight together and raised before her chest in a sword-finger gesture, the other fingers folded"
+  },
+  {
+   "key": "leaf_catch",
+   "ko": "떨어지는 잎을 두 손가락으로 잡기",
+   "zone": "face",
+   "needs": [
+    "wuxia"
+   ],
+   "en": "her own {side} hand raised, a single falling leaf caught lightly between two fingertips"
   }
  ],
  "legs": [
@@ -2744,7 +2848,8 @@
    "en": "knees loosely drawn up, lower legs relaxed in the air",
    "postures": [
     "float_zg",
-    "levitate"
+    "levitate",
+    "qinggong_leap"
    ]
   },
   {
@@ -5678,6 +5783,77 @@
    "shelf_high",
    "wfeat",
    "magic"
+  ],
+  "nation_bamboo_tops": [
+   "sky",
+   "upright",
+   "qinggong",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_cliff_pavilion": [
+   "chair",
+   "table",
+   "floor",
+   "edge",
+   "rail_waist",
+   "upright",
+   "sky",
+   "soft",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_waterfall_rock": [
+   "water",
+   "shallow_water",
+   "edge",
+   "floor",
+   "soft",
+   "upright",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_jianghu_inn": [
+   "chair",
+   "table",
+   "rail_waist",
+   "indoor",
+   "upright",
+   "window",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_lotus_lake": [
+   "upright",
+   "qinggong",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_rain_bridge": [
+   "upright",
+   "rail_waist",
+   "edge",
+   "floor",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_moon_roof": [
+   "floor",
+   "edge",
+   "sky",
+   "upright",
+   "night",
+   "qinggong",
+   "wfeat",
+   "wuxia"
+  ],
+  "nation_sect_gate": [
+   "stairs",
+   "upright",
+   "floor",
+   "edge",
+   "wfeat",
+   "wuxia"
   ]
  },
  "props": [
@@ -5741,7 +5917,9 @@
     "airship_cabin",
     "tram_stop",
     "scooter_cafe",
-    "car_kerb"
+    "car_kerb",
+    "nation_cliff_pavilion",
+    "nation_jianghu_inn"
    ]
   },
   {
@@ -6363,7 +6541,9 @@
     "nation_camp",
     "street_diner",
     "street_office",
-    "ryokan_room"
+    "ryokan_room",
+    "nation_cliff_pavilion",
+    "nation_jianghu_inn"
    ]
   },
   {
@@ -6480,7 +6660,8 @@
     "heritage_calligraphy",
     "library_reading",
     "nation_study",
-    "nation_temple"
+    "nation_temple",
+    "nation_cliff_pavilion"
    ]
   },
   {
@@ -6497,7 +6678,11 @@
     "heritage_baidi",
     "nation_inn",
     "nation_market",
-    "nation_camp"
+    "nation_camp",
+    "nation_moon_roof",
+    "nation_jianghu_inn",
+    "nation_cliff_pavilion",
+    "nation_bamboo_tops"
    ]
   },
   {
@@ -6554,7 +6739,10 @@
     "heritage_baidi",
     "nation_market",
     "nation_inn",
-    "nation_camp"
+    "nation_camp",
+    "nation_moon_roof",
+    "nation_rain_bridge",
+    "nation_jianghu_inn"
    ]
   },
   {
@@ -6583,7 +6771,8 @@
     "nation_garden",
     "fx_cloudpavilion",
     "fx_moonpond",
-    "fx_marble_bath"
+    "fx_marble_bath",
+    "nation_cliff_pavilion"
    ]
   },
   {
@@ -6635,7 +6824,10 @@
     "nation_garden",
     "nation_forest",
     "fx_lanternriver",
-    "fx_moonpond"
+    "fx_moonpond",
+    "nation_rain_bridge",
+    "nation_sect_gate",
+    "nation_lotus_lake"
    ]
   },
   {
@@ -6661,7 +6853,8 @@
     "heritage_guandi",
     "heritage_wuzhang",
     "heritage_luofeng",
-    "nation_temple"
+    "nation_temple",
+    "nation_sect_gate"
    ]
   },
   {
@@ -6882,7 +7075,10 @@
     "nation_garden",
     "heritage_archery",
     "fx_castle",
-    "fx_forest"
+    "fx_forest",
+    "nation_bamboo_tops",
+    "nation_waterfall_rock",
+    "nation_sect_gate"
    ]
   },
   {
@@ -7690,7 +7886,11 @@
     "nation_stable",
     "nation_hangar",
     "nation_workshop",
-    "nation_garden"
+    "nation_garden",
+    "nation_bamboo_tops",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_sect_gate"
    ],
    "weapon": true,
    "start_median": true
@@ -7831,6 +8031,51 @@
     "nation_spirit_spring",
     "nation_moon_glade",
     "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "xiao_flute",
+   "ko": "퉁소",
+   "en": "a long bamboo xiao flute with a red tassel",
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "martial_manual",
+   "ko": "비급",
+   "en": "an old thread-bound martial-arts manual with a faded cover",
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "wine_bowl",
+   "ko": "막사발 술잔",
+   "en": "a coarse earthenware wine bowl",
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
    ]
   }
  ],
@@ -9691,7 +9936,8 @@
     "sit_lean",
     "sit_sideways",
     "half_kneel",
-    "step_up"
+    "step_up",
+    "qinggong_perch"
    ]
   },
   {
@@ -10386,7 +10632,9 @@
     "lean_counter",
     "sit_lean",
     "sit_sideways",
-    "step_up"
+    "step_up",
+    "qinggong_perch",
+    "water_step"
    ],
    "needs": [
     "sky"
@@ -11026,7 +11274,8 @@
     "stand",
     "walk",
     "lean_wall",
-    "step_up"
+    "step_up",
+    "qinggong_perch"
    ]
   },
   {
@@ -13696,7 +13945,9 @@
     "sit_floor",
     "kneel",
     "half_kneel",
-    "squat"
+    "squat",
+    "qinggong_perch",
+    "water_step"
    ],
    "stage": "doing",
    "stage_ko": "하는 중"
@@ -18071,6 +18322,140 @@
     "walk",
     "levitate"
    ]
+  },
+  {
+   "key": "xiao_play",
+   "prop": "xiao_flute",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "퉁소를 분다",
+   "en": "plays {prop}, held straight down in front of her",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel",
+    "qinggong_perch"
+   ],
+   "grip": {
+    "right": "covers the lower finger holes",
+    "left": "covers the upper finger holes"
+   }
+  },
+  {
+   "key": "manual_read",
+   "prop": "martial_manual",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "비급을 펼쳐 읽는다",
+   "en": "reads {prop} held open in both hands",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "stand",
+    "lean_rail"
+   ],
+   "grip": {
+    "right": "holds the right page",
+    "left": "holds the left page"
+   }
+  },
+  {
+   "key": "manual_hold",
+   "prop": "martial_manual",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "비급을 품에 든다",
+   "en": "holds {prop} against her chest",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel"
+   ]
+  },
+  {
+   "key": "bowl_drink",
+   "prop": "wine_bowl",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "술 사발을 든다",
+   "en": "raises {prop} to her lips",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "walk",
+    "lean_rail",
+    "lean_wall",
+    "lean_counter",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "sit_lean",
+    "sit_sideways",
+    "kneel",
+    "half_kneel"
+   ]
   }
  ],
  "outfit_features": {
@@ -18994,6 +19379,21 @@
     "nation_potion_lab"
    ],
    "ko": "목욕 · 수영복으로 마법 서고 · 물약 공방"
+  },
+  {
+   "outfits": [
+    "bath",
+    "swimwear",
+    "bridal"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_moon_roof",
+    "nation_lotus_lake",
+    "nation_jianghu_inn",
+    "nation_sect_gate"
+   ],
+   "ko": "목욕 · 수영복 · 웨딩으로 대숲 끝 · 달밤 지붕 · 연꽃 호수 · 객잔 · 산문"
   }
  ],
  "presets": [
@@ -21909,6 +22309,207 @@
    "legs": "walk_stride",
    "gaze": "camera",
    "act": "walk"
+  },
+  {
+   "key": "wx_bamboo",
+   "ko": "대나무 끝에 한 발로 서기",
+   "posture": "qinggong_perch",
+   "support": "qinggong",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "turn_side",
+   "camera": "low",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "horizon",
+   "act": "pose"
+  },
+  {
+   "key": "wx_roof_leap",
+   "ko": "달밤 지붕을 건너뛰기",
+   "posture": "qinggong_leap",
+   "support": "qinggong",
+   "frame": "full_body",
+   "body": "side",
+   "head": "over_shoulder",
+   "camera": "low",
+   "right": "natural",
+   "left": "natural",
+   "legs": "float_tucked",
+   "gaze": "camera",
+   "act": "walk"
+  },
+  {
+   "key": "wx_lotus",
+   "ko": "연꽃 호수 수면 딛기",
+   "posture": "water_step",
+   "support": "qinggong",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "natural",
+   "left": "natural",
+   "legs": "",
+   "gaze": "down",
+   "act": "walk"
+  },
+  {
+   "key": "wx_meditate",
+   "ko": "폭포 아래 운기조식",
+   "posture": "sit_floor",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "lap",
+   "left": "natural",
+   "legs": "cross_legged",
+   "gaze": "down",
+   "act": "rest"
+  },
+  {
+   "key": "wx_roof_wine",
+   "ko": "달밤 지붕에서 호리병 술",
+   "posture": "sit_floor",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "knee_up",
+   "gaze": "up",
+   "act": "sip"
+  },
+  {
+   "key": "wx_inn",
+   "ko": "객잔에서 술 사발 들기",
+   "posture": "sit_chair",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "raise",
+   "legs": "",
+   "gaze": "camera",
+   "act": "sip"
+  },
+  {
+   "key": "wx_baoquan",
+   "ko": "산문 앞에서 포권",
+   "posture": "stand",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "baoquan",
+   "left": "baoquan",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "wx_flute",
+   "ko": "절벽 정자에서 퉁소",
+   "posture": "stand",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "prop",
+   "prop_kind": "both",
+   "legs": "",
+   "gaze": "down",
+   "act": "rest"
+  },
+  {
+   "key": "wx_zheng",
+   "ko": "운해 정자에서 고쟁",
+   "posture": "sit_floor",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "prop",
+   "prop_kind": "both",
+   "legs": "",
+   "gaze": "at_prop",
+   "act": "rest"
+  },
+  {
+   "key": "wx_umbrella",
+   "ko": "빗속 돌다리에서 돌아보기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "prop",
+   "left": "natural",
+   "prop_kind": "hold",
+   "legs": "",
+   "gaze": "camera",
+   "act": "look"
+  },
+  {
+   "key": "wx_leaf",
+   "ko": "떨어지는 잎 잡기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "chest_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "leaf_catch",
+   "left": "natural",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose"
+  },
+  {
+   "key": "wx_sword_finger",
+   "ko": "검지 세우고 바람 맞기",
+   "posture": "stand",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "turn_side",
+   "camera": "low",
+   "right": "sword_finger",
+   "left": "natural",
+   "legs": "",
+   "gaze": "horizon",
+   "act": "pose"
+  },
+  {
+   "key": "wx_manual",
+   "ko": "정자에서 비급 읽기",
+   "posture": "sit_chair",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "prop",
+   "left": "prop",
+   "prop_kind": "both",
+   "legs": "",
+   "gaze": "at_prop",
+   "act": "rest"
   }
  ],
  "expressions": {
@@ -22637,6 +23238,110 @@
    "note": "2026-11-26 사용자 「판타지랑 스팀펑크,사이버펑크도 이런식으로 추가안 만들어줘. 판타지는 마법이나 정령같은 요소 넣으면 될거같은데」 → 「응 추가안 진행해줘」",
    "worlds_only": [
     "fantasy"
+   ]
+  },
+  {
+   "key": "nation_bamboo_tops",
+   "group": "murim",
+   "ko": "세계의 대나무 숲 꼭대기",
+   "en": "high above a dense bamboo forest — the slender swaying tips of the stalks, morning mist drifting through the green below, misty mountains beyond",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_cliff_pavilion",
+   "group": "murim",
+   "ko": "세계의 절벽 위 정자",
+   "en": "a small open pavilion with upturned eaves perched on a sheer mountain cliff above a sea of clouds, gnarled pines clinging to the rock",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_waterfall_rock",
+   "group": "murim",
+   "ko": "세계의 폭포 아래 수련 바위",
+   "en": "a flat dark rock in a pool at the foot of a tall waterfall, white spray and mist hanging in the air, mossy cliffs on both sides",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_jianghu_inn",
+   "group": "murim",
+   "ko": "세계의 강호 객잔 2층",
+   "en": "the upper floor of a busy roadside inn of the jianghu martial world — worn wooden tables, earthenware wine jars, paper lanterns, a conical bamboo hat left on a neighbouring table, an open railing over the dusty street",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_lotus_lake",
+   "group": "murim",
+   "ko": "세계의 연꽃 호수 물 위",
+   "en": "the still surface of a wide lotus lake in morning mist — broad lotus leaves and pink blossoms, willows and a distant pavilion on the shore",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_rain_bridge",
+   "group": "murim",
+   "ko": "세계의 빗속 돌다리",
+   "en": "a high arched stone bridge over a canal of an old water town in fine rain — weeping willows, white walls and black-tiled roofs",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_moon_roof",
+   "group": "murim",
+   "ko": "세계의 달밤 기와지붕 위",
+   "en": "the curved black-tiled roof ridge of a great hall under a huge full moon, upturned eaves, the sleeping town and its lanterns below",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
+   ]
+  },
+  {
+   "key": "nation_sect_gate",
+   "group": "murim",
+   "ko": "세계의 산문 앞 돌계단",
+   "en": "long mossy stone steps climbing to the carved gate of a mountain sect, misty peaks and old pines all around",
+   "eras": [
+    "nation"
+   ],
+   "note": "2026-11-26 사용자 「판타지,스팀펑크,메카, 사이버펑크는 해당 세계의 특별한 행동을 넣었는데, 무협쪽은 빠트려서 이것도 추가 해줘. 실제 무협지 느낌 나게 하려면 어떻게 해야 되려나」",
+   "worlds_only": [
+    "samguk"
    ]
   }
  ],
@@ -23955,6 +24660,133 @@
     "nation_spirit_spring",
     "nation_moon_glade",
     "nation_potion_lab"
+   ]
+  },
+  {
+   "key": "qi_mist",
+   "ko": "몸을 감도는 내공의 기운",
+   "en": "a faint pale mist of inner qi curls slowly around her body",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "bamboo_leaves",
+   "ko": "소용돌이치는 댓잎",
+   "en": "green bamboo leaves whirl around her in a sudden gust",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "water_ripple",
+   "ko": "발끝의 파문",
+   "en": "a single ring of ripples spreads across the water from where her toe touched it",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "rain_part",
+   "ko": "갈라지는 빗줄기",
+   "en": "the fine rain parts around her in a thin unseen arc, as if turned aside by her inner force",
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "cranes",
+   "ko": "지나가는 흰 학",
+   "en": "a pair of white cranes glide past through the mist below",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
+   ]
+  },
+  {
+   "key": "wind_clothes",
+   "ko": "바람에 휘날리는 옷자락",
+   "en": "a strong mountain wind sweeps the loose ends of her clothes and hair out to one side",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "places": [
+    "nation_bamboo_tops",
+    "nation_cliff_pavilion",
+    "nation_waterfall_rock",
+    "nation_jianghu_inn",
+    "nation_lotus_lake",
+    "nation_rain_bridge",
+    "nation_moon_roof",
+    "nation_sect_gate"
    ]
   }
  ],

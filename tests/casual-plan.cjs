@@ -231,6 +231,7 @@ try {
     const cuts = C.plan(card, SIX, [], { seed: 7 }).cuts;
     for (const c of cuts) {
       const p = C.record(card, card.world, c).prompt;
+      if (p.includes('OFF-DUTY GEAR CARE')) continue;   /* 손질 컷은 무기 없음의 한 가지 예외(note_gear_care) — 2026-11-26 무협 장면을 넣으며 표본이 바뀌어 seed 7 에 들었다 */
       if (C.requiredType(c) === 'cosplay') { assert(!p.includes('SIGNATURE ACCESSORY') && !/\nAccessory: off duty/.test(p), key + ' — 코스프레 컷엔 무기 장신구 줄 없이(코스튬이 캐릭터를 드러낸다, 2026-11-15)'); continue; }
       assert.equal(p.includes('SIGNATURE ACCESSORY') || /\nAccessory: off duty she carries no weapon/.test(p), weapon, key + ' — 장신구 줄');   /* 짧은 판은 Accessory: 줄(2026-11-08) */
       if (weapon) assert(!p.includes('SIGNATURE ITEM SHAPE') && !p.includes(P.holdOf(card.c) + ' in'), key + ' — 무기를 들지 않는다');
