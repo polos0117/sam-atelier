@@ -38,8 +38,12 @@ def load(path=DATA, base=BASE):
     return doc, v1
 
 
+PLACE_HAS = {}   # 장소 → 특징(버전2 표 places) — expand 의 #특징(2026-11-27)
+
+
 def merged(doc, v1):
     """버전2 표의 새 장소(extra_places)까지 더한 버전1 표 — 버전1 표는 그대로 두고 버전2 만 쓴다"""
+    PLACE_HAS.clear(); PLACE_HAS.update(doc.get("places", {}))
     if v1.get("_merged") or not doc.get("extra_places"):
         return v1
     return dict(v1, places=v1["places"] + doc["extra_places"], _merged=True)
@@ -50,13 +54,19 @@ def by_key(rows):
 
 
 def expand(v1, refs):
-    """장소 목록 — * 는 모든 장소, @묶음 은 그 묶음의 모든 장소, !장소 는 거기서 뺀다"""
+    """장소 목록 — * 는 모든 장소, @묶음 은 그 묶음의 모든 장소, #특징 은 그 특징이 있는 모든 장소, !장소 · !#특징 · !@묶음 은 거기서 뺀다"""
     out, drop = [], set()
     for k in refs:
         if k == "*":
             out += [p["key"] for p in v1["places"]]
         elif k.startswith("@"):
             out += [p["key"] for p in v1["places"] if p["group"] == k[1:]]
+        elif k.startswith("#"):   # 그 특징이 있는 모든 장소
+            out += [p["key"] for p in v1["places"] if k[1:] in PLACE_HAS.get(p["key"], [])]
+        elif k.startswith("!#"):
+            drop.update(p["key"] for p in v1["places"] if k[2:] in PLACE_HAS.get(p["key"], []))
+        elif k.startswith("!@"):
+            drop.update(p["key"] for p in v1["places"] if p["group"] == k[2:])
         elif k.startswith("!"):
             drop.add(k[1:])
         else:
@@ -198,8 +208,10 @@ def check(doc, v1):
         for k in refs:
             if k == "*":
                 continue
-            if k.startswith("@"):
-                ref(where, k[1:], groups1, "묶음")
+            if k.lstrip("!").startswith("@"):
+                ref(where, k.lstrip("!")[1:], groups1, "묶음")
+            elif k.lstrip("!").startswith("#"):
+                ref(where, k.lstrip("!")[1:], doc["has"], "장소 특징")
             else:
                 ref(where, k.lstrip("!"), places1, "장소")
 

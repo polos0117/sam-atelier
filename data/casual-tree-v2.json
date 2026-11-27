@@ -8299,6 +8299,84 @@
     "nation_cockpit",
     "nation_hangar"
    ]
+  },
+  {
+   "key": "sun_hat",
+   "ko": "챙 넓은 밀짚모자",
+   "en": "a wide-brimmed straw sun hat",
+   "places": [
+    "#k_water",
+    "#k_nature",
+    "!#deep_water"
+   ],
+   "slot": [
+    "head"
+   ],
+   "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "start_median": true
+  },
+  {
+   "key": "ball_cap",
+   "ko": "야구 모자",
+   "en": "a soft baseball cap",
+   "places": [
+    "#run_path",
+    "#k_street",
+    "#k_nature",
+    "!#deep_water"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "slot": [
+    "head"
+   ],
+   "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "start_median": true
+  },
+  {
+   "key": "sunglasses",
+   "ko": "선글라스",
+   "en": "a pair of dark sunglasses",
+   "places": [
+    "#k_water",
+    "#k_street",
+    "!#deep_water"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "slot": [
+    "eyes"
+   ],
+   "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "start_median": true
+  },
+  {
+   "key": "eyeglasses",
+   "ko": "안경",
+   "en": "a pair of thin-framed glasses",
+   "places": [
+    "#k_work",
+    "#worktable",
+    "#k_private",
+    "!#water"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "slot": [
+    "eyes"
+   ],
+   "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "start_median": true
   }
  ],
  "prop_uses": [
@@ -18739,6 +18817,678 @@
     "lean_wall",
     "lean_rail"
    ]
+  },
+  {
+   "key": "sunhat_side",
+   "prop": "sun_hat",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "챙모자를 옆에 늘어뜨려 든다",
+   "en": "holds {prop} loosely by the brim at her side",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ]
+  },
+  {
+   "key": "sunhat_chest",
+   "prop": "sun_hat",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "챙모자를 가슴에 안는다",
+   "en": "holds {prop} against her chest",
+   "grip": {
+    "right": "holds the brim",
+    "left": "cups the crown"
+   },
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "sit_boat"
+   ]
+  },
+  {
+   "key": "sunhat_fan",
+   "prop": "sun_hat",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "챙모자로 부채질한다",
+   "en": "fans her face with {prop}",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "sunhat_wind",
+   "prop": "sun_hat",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "바람에 날리는 모자를 손으로 누른다",
+   "en": "holds {prop} down on her head by the brim as the breeze tugs at it",
+   "wear": true,
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ]
+  },
+  {
+   "key": "sunhat_peek",
+   "prop": "sun_hat",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "모자 챙을 손끝으로 올려 본다",
+   "en": "tips up the front brim of {prop} on her head with one fingertip to look out from under it",
+   "gaze": "camera",
+   "wear": true,
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "cap_brim",
+   "prop": "ball_cap",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "모자 챙을 눌러 내린다",
+   "en": "tugs the brim of {prop} on her head down low over her eyes",
+   "wear": true,
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "cap_hold",
+   "prop": "ball_cap",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "모자를 챙째 들고 있다",
+   "en": "holds {prop} by the brim at her side",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ]
+  },
+  {
+   "key": "cap_puton",
+   "prop": "ball_cap",
+   "kind": "both",
+   "hands": "both",
+   "zone": "overhead",
+   "ko": "모자를 두 손으로 눌러 쓴다",
+   "en": "pulls {prop} snugly onto her head",
+   "grip": {
+    "right": "holds the brim",
+    "left": "presses the back of the crown"
+   },
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ]
+  },
+  {
+   "key": "sung_peek",
+   "prop": "sunglasses",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "선글라스를 콧등에서 내려 너머로 본다",
+   "en": "slides {prop} she is wearing down her nose with one finger to peek over the top",
+   "gaze": "camera",
+   "wear": true,
+   "not_times": [
+    "dawn",
+    "dusk",
+    "lamplight",
+    "neon",
+    "night",
+    "night_out",
+    "past_midnight"
+   ],
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "sung_push",
+   "prop": "sunglasses",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "선글라스를 머리 위로 올린다",
+   "en": "pushes {prop} up onto the top of her head",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ]
+  },
+  {
+   "key": "sung_temple",
+   "prop": "sunglasses",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "face",
+   "ko": "접은 선글라스 다리를 입가에 댄다",
+   "en": "holds {prop}, folded, with the tip of one temple resting at the corner of her lips",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ]
+  },
+  {
+   "key": "sung_puton",
+   "prop": "sunglasses",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "두 손으로 선글라스를 쓴다",
+   "en": "slips on {prop}, opening them at her temples",
+   "grip": {
+    "right": "holds one temple",
+    "left": "holds the other temple"
+   },
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up"
+   ]
+  },
+  {
+   "key": "sung_dangle",
+   "prop": "sunglasses",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "선글라스를 손끝에 걸어 든다",
+   "en": "dangles {prop} from her fingertips by one temple",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ]
+  },
+  {
+   "key": "specs_push",
+   "prop": "eyeglasses",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "안경을 손끝으로 밀어 올린다",
+   "en": "pushes {prop} she is wearing up the bridge of her nose with one fingertip",
+   "wear": true,
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "specs_off",
+   "prop": "eyeglasses",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "벗은 안경을 접어 든다",
+   "en": "holds {prop}, just taken off, folded shut",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "specs_lip",
+   "prop": "eyeglasses",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "안경다리를 입술에 댄다",
+   "en": "rests one earpiece of {prop} against her lower lip in thought",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
+  },
+  {
+   "key": "specs_wipe",
+   "prop": "eyeglasses",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "안경알을 천으로 닦는다",
+   "en": "polishes the lenses of {prop} with a soft cloth",
+   "grip": {
+    "right": "rubs a lens with the cloth",
+    "left": "holds the frame"
+   },
+   "gaze": "into_prop",
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "sit_boat"
+   ]
+  },
+  {
+   "key": "specs_peek",
+   "prop": "eyeglasses",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "안경 너머로 올려다본다",
+   "en": "lowers {prop} she is wearing slightly with one finger to look over the top",
+   "gaze": "camera",
+   "wear": true,
+   "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ]
   }
  ],
  "outfit_features": {
@@ -25159,6 +25909,9 @@
     ],
     "needs": [
      "sky"
+    ],
+    "slot": [
+     "head"
     ]
    },
    "tied": {
@@ -26985,7 +27738,10 @@
        "retro",
        "evening"
       ],
-      "clash": "\\b(hat|cap|hood|veil|crown|tiara|headband|beret)\\b"
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|headband|beret)\\b",
+      "slot": [
+       "head"
+      ]
      },
      {
       "key": "beret",
@@ -26996,7 +27752,10 @@
        "retro",
        "subculture"
       ],
-      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret)\\b"
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret)\\b",
+      "slot": [
+       "head"
+      ]
      },
      {
       "key": "silk_scarf",
@@ -27082,7 +27841,10 @@
        "workwear",
        "active"
       ],
-      "clash": "\\b(hat|cap|hood|veil|crown|tiara|headband|bandana|scarf)\\b"
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|headband|bandana|scarf)\\b",
+      "slot": [
+       "head"
+      ]
      },
      {
       "key": "brooch",
@@ -27100,6 +27862,470 @@
        "three_quarter"
       ],
       "clash": "\\b(brooch|pin)\\b"
+     },
+     {
+      "key": "baseball_cap",
+      "ko": "야구 모자",
+      "en": "a soft baseball cap",
+      "fams": [
+       "everyday",
+       "active",
+       "subculture",
+       "adventure",
+       "dongtan"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "cap_backward",
+      "ko": "거꾸로 쓴 야구 모자",
+      "en": "a baseball cap worn backwards",
+      "fams": [
+       "active",
+       "subculture",
+       "everyday"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "bucket_hat",
+      "ko": "버킷햇",
+      "en": "a soft cotton bucket hat",
+      "fams": [
+       "everyday",
+       "resort",
+       "adventure",
+       "subculture",
+       "dongtan"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "place_needs": [
+       "sky"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "beanie",
+      "ko": "니트 비니",
+      "en": "a slouchy knit beanie",
+      "fams": [
+       "everyday",
+       "subculture",
+       "active",
+       "adventure",
+       "dongtan"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "warm": true,
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "straw_hat",
+      "ko": "리본 두른 밀짚모자",
+      "en": "a woven straw sun hat with a ribbon band",
+      "fams": [
+       "resort",
+       "swimwear",
+       "everyday",
+       "adventure"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "place_needs": [
+       "sky"
+      ],
+      "not_times": [
+       "dawn",
+       "dusk",
+       "lamplight",
+       "neon",
+       "night",
+       "night_out",
+       "past_midnight"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "fedora",
+      "ko": "페도라",
+      "en": "a felt fedora worn at a slight tilt",
+      "fams": [
+       "everyday",
+       "retro",
+       "evening",
+       "workwear"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "cloche",
+      "ko": "클로슈 모자",
+      "en": "a fitted 1920s-style cloche hat",
+      "fams": [
+       "retro",
+       "evening"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "newsboy_cap",
+      "ko": "뉴스보이 캡",
+      "en": "a tweed newsboy cap",
+      "fams": [
+       "everyday",
+       "retro",
+       "workwear",
+       "subculture"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "sun_visor",
+      "ko": "선캡",
+      "en": "a sporty sun visor",
+      "fams": [
+       "active",
+       "swimwear",
+       "resort"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "place_needs": [
+       "sky"
+      ],
+      "not_times": [
+       "dawn",
+       "dusk",
+       "lamplight",
+       "neon",
+       "night",
+       "night_out",
+       "past_midnight"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "hat_on_back",
+      "ko": "등에 늘어뜨린 밀짚모자",
+      "en": "a straw hat hanging down her back by its chin cord",
+      "fams": [
+       "resort",
+       "everyday",
+       "adventure"
+      ],
+      "slot": [
+       "head"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban)\\b",
+      "frames": [
+       "waist_up",
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ],
+      "place_needs": [
+       "sky"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "sunglasses",
+      "ko": "큰 선글라스",
+      "en": "dark oversized sunglasses",
+      "fams": [
+       "everyday",
+       "resort",
+       "swimwear",
+       "evening",
+       "dongtan"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "place_needs": [
+       "sky"
+      ],
+      "not_times": [
+       "dawn",
+       "dusk",
+       "lamplight",
+       "neon",
+       "night",
+       "night_out",
+       "past_midnight"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "cat_eye_sunglasses",
+      "ko": "캣아이 선글라스",
+      "en": "cat-eye sunglasses",
+      "fams": [
+       "retro",
+       "resort",
+       "evening",
+       "everyday"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "place_needs": [
+       "sky"
+      ],
+      "not_times": [
+       "dawn",
+       "dusk",
+       "lamplight",
+       "neon",
+       "night",
+       "night_out",
+       "past_midnight"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "sport_sunglasses",
+      "ko": "스포츠 선글라스",
+      "en": "wraparound sport sunglasses",
+      "fams": [
+       "active",
+       "adventure"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "place_needs": [
+       "sky"
+      ],
+      "not_times": [
+       "dawn",
+       "dusk",
+       "lamplight",
+       "neon",
+       "night",
+       "night_out",
+       "past_midnight"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "round_glasses",
+      "ko": "동그란 금속테 안경",
+      "en": "thin round wire-rimmed glasses",
+      "fams": [
+       "everyday",
+       "workwear",
+       "homewear",
+       "retro",
+       "subculture"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "square_glasses",
+      "ko": "검은 뿔테 안경",
+      "en": "black square-framed glasses",
+      "fams": [
+       "everyday",
+       "workwear",
+       "subculture",
+       "dongtan",
+       "homewear"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "clear_glasses",
+      "ko": "투명테 안경",
+      "en": "clear acetate-framed glasses",
+      "fams": [
+       "everyday",
+       "homewear",
+       "dongtan"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "sunglasses_on_head",
+      "ko": "머리에 올린 선글라스",
+      "en": "sunglasses pushed up on top of her head",
+      "fams": [
+       "everyday",
+       "resort",
+       "swimwear",
+       "dongtan",
+       "evening"
+      ],
+      "slot": [
+       "head",
+       "eyes"
+      ],
+      "clash": "\\b(hat|cap|hood|veil|crown|tiara|beret|helmet|visor|bandana|headscarf|headdress|beanie|turban|sunglasses|glasses|goggles)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "not_times": [
+       "dawn",
+       "dusk",
+       "lamplight",
+       "neon",
+       "night",
+       "night_out",
+       "past_midnight"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "sunglasses_hooked",
+      "ko": "옷깃에 건 선글라스",
+      "en": "sunglasses hooked into the front of her neckline",
+      "fams": [
+       "everyday",
+       "resort",
+       "dongtan",
+       "active"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
+     },
+     {
+      "key": "glasses_chain",
+      "ko": "목에 건 안경줄 안경",
+      "en": "reading glasses hanging on a slim chain around her neck",
+      "fams": [
+       "retro",
+       "workwear",
+       "homewear",
+       "everyday"
+      ],
+      "slot": [
+       "eyes"
+      ],
+      "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
+      "eras": [
+       "now",
+       "heritage"
+      ],
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」"
      }
     ]
    }
