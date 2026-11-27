@@ -1,5 +1,12 @@
 삼국지 그림·도감 변경 기록입니다. 최신 작업을 위에 추가하며, 이전에 기록한 작업과 검수 내용은 그대로 보존합니다.
 
+## 2026-11-27 · claude · 세계컷 GPT 설계 — 세 세계 여섯 장 겹치지 않게
+- 사용자 「삼국지 공방, 원소공방에서 gpt 설계가 3가지 세계에서 겹치지 않게 해줘」 → 얼굴은 「얼굴 조합만 다르게」. 전엔 한 세계 안의 설계 1 · 2 끼리만 견줬다.
+- lib/prompt-sam.js — hairFamilyPlan: 머리 갈래를 세 세계 여섯 장에 한꺼번에 나눈다(앞 세계가 쓴 갈래는 뒤 세계에 안 줌 — 장수 370 모두 여섯이 다르다). buildWorldFree 에 세 세계 줄(fill.worlds), opts.prior(다른 세계 GPT 설계 글)가 있으면 그 헤어스타일 · 실루엣 · 얼굴 칸 줄(fill.prior). worldFillErrors opts.prior — 헤어스타일 · 실루엣 같으면, 얼굴 여덟 칸 중 넷 이상 같으면 오류(셋까지는 통과).
+- lib/prompt-spec.js WORLD_FREE.fill.worlds · prior · msg.world_hair · world_sil · world_face. ?v= prompt-spec 70 · prompt-sam 65
+- tools/gpt-prior.cjs(새) — 한 폴더에서 다른 세계 GPT 설계 글(<세계>-gpt1.txt · <세계>.<화풍>-gpt1.txt)을 읽는다. tools/api-draw.cjs brief --dir · free(글 파일 폴더) · tools/world-fill-check.cjs --prior-dir(기본 글 파일 폴더) 가 쓴다. tools/free-brief.cjs REQUEST 규칙에 한 줄.
+- tests/prompt-v2.cjs — 머리 갈래 세계끼리 안 겹침(장수 전부) · 다른 세계와 같은 헤어스타일 · 얼굴 넷 이상은 걸리고 셋은 통과 · 주문의 세 세계 줄 · 다른 세계 줄. IMAGE_RULES · api25 스킬 · IMAGE_AUTOMATION 안내.
+
 ## 2026-11-27 · claude · 유리 너머 추천 — 물속 관찰창 · 우주에서 창 너머로
 - data/casual-tree-v2.json — 사용자 「응 만들어줘. 우주공간이나 다른 장면에서도 될 거 같은데. 우주 엘리베이터나 우주공간 밖에서 안에 떠 있는 사람을 본다거나 그런거」(앞서 GPT 자유 설계 — 베이징 이화원 사이버펑크 일상10, 수중 관찰창 너머): 자세 underwater_float(완전히 물속에 떠 있기 — 수영복, 받침 underwater 「물이 온몸을 감싸 수면 아래 떠 있다」), 장소 water_dive_pool(관찰창이 있는 깊은 다이빙 풀), 우주 엘리베이터 꼭대기 객차(orbit_elevator_top — 궤도 끝 무중력, 파노라마 창), 궤도 휴게실 · 관측창에 glass_wall. 구도 glass_water(물 밖에서 관찰창 너머로) · glass_space(우주 밖 어둠에서 두꺼운 창 너머로, 그녀는 불 켜진 객실 안에 떠 있음). 추천 여섯 — 물속에 떠서 · 유리에 손 뻗기 · 옆으로 떠가며(관찰창 너머), 떠 있는 그녀를 우주에서 · 창 너머 우주로 손 흔들기 · 행성을 내려다보는 그녀를 우주에서 — 추천이 구도를 못박는다(presets[].view)
 - lib/casual-tree-v2.js — 공용(style-atelier/shared): presets[].view

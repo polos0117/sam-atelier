@@ -3,7 +3,7 @@
    키는 환경 변수 OPENAI_API_KEY 로만 읽는다(어디에도 적지 않는다). Node 는 NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=… 로(클라우드 세션).
    지시문은 생성기 조립부(lib/prompt-sam.js)가 짓는다 — 손으로 고치지 않는다. GPT 설계 글만 밖에서 온다(Claude · GPT 세션 · --text).
 
-   node tools/api-draw.cjs brief  <장수> <세계> [--style api25]                       GPT 자유 설계 주문을 찍는다(Claude 가 읽고 지시문을 쓴다)
+   node tools/api-draw.cjs brief  <장수> <세계> [--style api25] [--dir <폴더>]          GPT 자유 설계 주문을 찍는다(Claude 가 읽고 지시문을 쓴다) — --dir 에 다른 세계 GPT 설계 글(<세계>-gpt1.txt …)이 있으면 그것과 겹치지 않게(2026-11-27)
    node tools/api-draw.cjs world  <장수> <세계> --out <폴더> [--n 2] [--exposure moderate|low]   우리 설계 n 장 → <세계>-ours1.png …
    node tools/api-draw.cjs free   <장수> <세계> --text <글 파일> --tag gpt1 --out <폴더>        GPT 설계 글로 한 장 → <세계>-gpt1.png
    node tools/api-draw.cjs casual <plan.json> --ref <세계 그림 png|webp> --out <폴더> [--slots 1,2] [--free N=<글 파일>] [--cosplay N=<글 파일>|again] [--exposure N=moderate|low] [--ref-size 768|0] [--ref-free yes|no]
@@ -33,6 +33,7 @@ const tree = JSON.parse(read('data/casual-tree.json')), tree2 = JSON.parse(read(
 const GC = JSON.parse(read('data/game-cosplay.json')); ctx.window.AtelierGameCosplay = GC;   /* 게임 코스프레 목록(2026-11-15) */
 const BASE = process.env.API_DRAW_BASE || 'https://api.openai.com/v1';   /* 검사(tests/api-draw.cjs)는 가짜 서버로 */
 /* 비슷한 등록작(세계컷 GPT 설계안 3단계, 2026-11-18) — 주문에 「이것들과도 다르게」. 그림 저장소가 없으면 빈 목록 */
+const PRIOR = require('./gpt-prior.cjs').priorFrom;
 const NEAR = (card, world) => { try { return require('./design-near.cjs').near(card, world); } catch (e) { return []; } };
 const SIZE = '1024x1536', FIXED = { overall_intensity: 'strong', skin_exposure: 'bold' };
 /* 일상컷 화면비(2026-11-23) — 계획의 scene.aspect 대로 그림 크기(그림 API 가 받는 셋). 세계 그림 · 모르는 값은 2:3 */
@@ -142,11 +143,13 @@ async function cmdFree(o) {
   const [card, world] = o._; const out = o.out; fs.mkdirSync(out, { recursive: true });
   const text = fs.readFileSync(o.text, 'utf8').trim(), name = world + '-' + (o.tag || 'gpt1'), model = o.model || styleModel(o.style);
   /* 칸 채우기 검사(2026-11-18) — 표시한 칸 말고 바뀐 줄 · 우리와 같은 헤어스타일 · 목록 밖 실루엣이면 그리지 않는다. --other 면 다른 GPT 설계와도 견준다 */
-  const errs = P.worldFillErrors(D, S, card, world, text, { style: o.style }, o.other ? fs.readFileSync(o.other, 'utf8') : null);
+  /* 다른 세계 GPT 설계(2026-11-27 「3가지 세계에서 겹치지 않게」) — 글 파일과 같은 폴더(--dir 이면 거기)의 <세계>-gpt1.txt · gpt2.txt */
+  const prior = PRIOR(o.dir || path.dirname(o.text), P.worldsOf(D, card), world);
+  const errs = P.worldFillErrors(D, S, card, world, text, { style: o.style, prior }, o.other ? fs.readFileSync(o.other, 'utf8') : null);
   if (errs.length) throw new Error('GPT 설계 글이 틀을 안 지켰다 — 그리지 않는다:\n  ' + errs.join('\n  '));
   const gen = await draw({ model, quality: o.quality, prompt: text.replace(/^SUMMARY:.*\n+/, ''), out, name });
   if (gen.blocked) return [name];
-  const rec = { ...P.record(D, S, card, world, { style: o.style }), prompt: P.buildWorldFree(D, S, card, world, { style: o.style, near: NEAR(card, world) }) };
+  const rec = { ...P.record(D, S, card, world, { style: o.style }), prompt: P.buildWorldFree(D, S, card, world, { style: o.style, near: NEAR(card, world), prior }) };
   writeRec(out, name, { ...rec, generation: { ...gen, design: 'gpt_free', plan: /gpt2$/.test(name) ? 'B' : 'A', summary: ((/^SUMMARY:\s*(.+)$/m.exec(text) || [])[1] || '').trim() || undefined, free_prompt: text, free_by: o.by || 'claude' } });   /* plan — 세계컷 GPT 설계안 A(목록 실루엣) · B(역할 출발, 목록 밖도 — 2026-11-18) */
   return [];
 }
@@ -268,7 +271,7 @@ async function main() {
   const [cmd, ...rest] = process.argv.slice(2), o = parse(rest);
   if (!S.styles[o.style]) throw new Error('화풍이 없다: ' + o.style);
   if (S.styles[o.style].retired && !o.force) throw new Error('내린 화풍이다(' + S.styles[o.style].retired + '): ' + o.style + ' — 그래도 그리려면 --force');
-  if (cmd === 'brief') { process.stdout.write(P.buildWorldFree(D, S, o._[0], o._[1], { style: o.style, near: NEAR(o._[0], o._[1]) }) + '\n'); return 0; }
+  if (cmd === 'brief') { process.stdout.write(P.buildWorldFree(D, S, o._[0], o._[1], { style: o.style, near: NEAR(o._[0], o._[1]), prior: PRIOR(o.dir, P.worldsOf(D, o._[0]), o._[1]) }) + '\n'); return 0; }
   if (cmd === 'usage') { cmdUsage(o); return 0; }
   if (cmd === 'sheet') { cmdSheet(o); return 0; }
   if (cmd === 'stage') { cmdStage(o); return 0; }

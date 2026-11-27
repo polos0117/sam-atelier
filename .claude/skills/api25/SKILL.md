@@ -20,7 +20,7 @@ description: 삼국지 장수 그림을 OpenAI 그림 API(gpt-image-2.5-sunburst
 
 ```bash
 node tools/api-draw.cjs world <장수> <세계> --out $W --n 2          # 우리 설계 둘 → <세계>-ours1.png · -ours2.png
-node tools/api-draw.cjs brief <장수> <세계>                          # GPT 자유 설계 주문(읽기만)
+node tools/api-draw.cjs brief <장수> <세계> --dir $W                # GPT 자유 설계 주문(읽기만) — $W 의 다른 세계 GPT 설계 글과 겹치지 않게(2026-11-27). 세계는 차례로: 한 세계 글을 쓴 뒤 다음 세계 brief
 node tools/api-draw.cjs free  <장수> <세계> --text $W/<세계>-gpt1.txt --tag gpt1 --out $W --by claude   # 둘째도 gpt2
 ```
 

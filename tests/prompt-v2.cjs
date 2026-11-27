@@ -176,6 +176,28 @@ console.log('PASS 프롬프트 v2: 실루엣 표 · 무리 색 · 기본 화풍 
     const bad = good.replace(/^(Light: )/m, '$1bright daylight; ');
     assert(P.worldFillErrors(D, SF, key, w, bad, { style: SF.default }).some(e => /줄이 바뀌었다/.test(e)), key + ' ' + w + ' 칸 밖이 바뀌면 걸린다');
   }
+  /* 세 세계 여섯 장 겹치지 않게(2026-11-27 「gpt 설계가 3가지 세계에서 겹치지 않게」 → 「얼굴 조합만 다르게」) — 머리 갈래 여섯이 다 다르고,
+     다른 세계 글과 헤어스타일 · 실루엣이 같거나 얼굴 칸이 넷 이상 같으면 걸린다. 셋까지는 통과 */
+  for (const key of P.cards(D)) { const fam = Object.values(P.hairFamilyPlan(D, key)).flat().map(f => f.key); assert(fam.length === 2 * P.worldsOf(D, key).length && new Set(fam).size === fam.length, key + ' 머리 갈래 세계끼리 안 겹침 ' + fam); }
+  { const key = '조조', [w1, w2] = P.worldsOf(D, key), opt = { style: SF.default };
+    const fillOf = (w, hair, n) => { const t = P.buildWorldFree(D, SF, key, w, opt), tpl = P.worldFillTemplate(D, SF, key, w, opt), fo = P.worldFillFace(D, key, w);
+      const sil = (t.match(/^Must differ — costume silhouette:.*$/m)[0].match(/1\) ([^;]+?)(?:; 2\)|\.$)/) || [])[1];
+      let g = 'SUMMARY: x\n' + tpl.replace('[HAIRSTYLE: …]', hair).replace('[COSTUME SILHOUETTE: …]', sil).replace('Design idea: …', 'Design idea: plates layered like feathers').replace('Stance and hands: …\n', '').replace('Setting detail: …\n', '').replace('[BUILD: …]', 'slender build');
+      for (const [k, lab] of [['impression', 'IMPRESSION'], ['skin_tone', 'SKIN TONE'], ['face_shape', 'FACE SHAPE'], ['eyes', 'EYE SHAPE'], ['eye_color', 'EYE COLOUR'], ['brows', 'BROWS'], ['nose', 'NOSE'], ['lips', 'LIPS']])
+        g = g.replace('[' + lab + ': …]', fo[k].list[(n[k] || 0) % fo[k].list.length]);
+      return g; };
+    const a = fillOf(w1, 'a sleek low chignon', {}), shift = { impression: 3, skin_tone: 1, face_shape: 2, eyes: 2, eye_color: 5 };
+    assert.equal(JSON.stringify(P.worldFillErrors(D, SF, key, w1, a, opt)), '[]', '세계 하나 채운 글 통과');
+    const prior = [{ world: w1, tag: 'gpt1', text: a }];
+    const okB = fillOf(w2, 'twin braids looped at the nape', shift);   /* 얼굴 셋(눈썹 · 코 · 입술)만 같다 */
+    assert.equal(JSON.stringify(P.worldFillErrors(D, SF, key, w2, okB, Object.assign({ prior }, opt))), '[]', '다른 세계 — 얼굴 셋까지 같으면 통과');
+    const sameHair = fillOf(w2, 'a sleek low chignon', shift), sameFace = fillOf(w2, 'twin braids looped at the nape', { impression: 3 });
+    assert(P.worldFillErrors(D, SF, key, w2, sameHair, Object.assign({ prior }, opt)).some(e => /다른 세계 GPT 설계와 헤어스타일이 같다/.test(e)), '다른 세계와 같은 헤어스타일은 걸린다');
+    assert(P.worldFillErrors(D, SF, key, w2, sameFace, Object.assign({ prior }, opt)).some(e => /얼굴 칸이 넷 이상 같다/.test(e)), '다른 세계와 얼굴 넷 이상 같으면 걸린다');
+    const brief = P.buildWorldFree(D, SF, key, w2, Object.assign({ prior }, opt));
+    assert(brief.includes(T.WORLD_FREE.fill.worlds) && /^Already written for her other worlds — keep clear of these: 1\) \w+ gpt1 — hairstyle a sleek low chignon; silhouette /m.test(brief), '주문 — 세 세계 줄 · 다른 세계 설계 줄');
+    assert(!/^Already written/m.test(P.buildWorldFree(D, SF, key, w1, opt)), '다른 세계 글이 없으면 그 줄 없음');
+  }
 }
 /* 놀이터(k_kids, 2026-11-25) — 노출 축을 많이(bold)로 줘도 드러내는 노출 글 · 상황 노출이 없고, 배경 아이들 · 덮인 옷 줄이 실린다(화풍 다섯 꼴) */
 { const tree = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree.json'), 'utf8')), tree2 = JSON.parse(fs.readFileSync(path.join(R, 'data/casual-tree-v2.json'), 'utf8'));
