@@ -541,6 +541,8 @@ def check(doc, v1):
                 err.append(f"{w} — {s} 손 {k} 는 자세 {p['posture']} 에서 못 한다")
         if camera[p["camera"]].get("families") and po["family"] not in camera[p["camera"]]["families"]:
             err.append(f"{w} — 카메라 {p['camera']} 는 자세 계열 {po['family']} 에서 못 쓴다")
+        if camera[p["camera"]].get("frames") and p["frame"] not in camera[p["camera"]]["frames"]:   # 크게 올려다보는 카메라(worm, 2026-11-27)
+            err.append(f"{w} — 카메라 {p['camera']} 는 프레이밍 {p['frame']} 에서 못 쓴다")
         for s in SIDES:
             if po.get("hands") and p[s] not in po["hands"]:
                 err.append(f"{w} — 자세 {p['posture']} 가 {s} 손 {p[s]} 를 받지 않는다")

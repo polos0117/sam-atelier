@@ -300,6 +300,7 @@ const WEIGHT_UNUSED = 12;
 /* 카메라용 몸짓 추천(쉿 · 브이 · 엄지 척 · 손 흔들기 · 카메라로 손 뻗기 … — 표의 pose)은 덜 고른다(2026-11-13 검토 — 추천 47 중 카메라 응시 28 · 눈높이 34 라
    장소가 달라도 「사진 찍히는 중」 한 장이 됐다). 없애지는 않는다 */
 const POSE_WEIGHT = 0.4, ACT_MOST = 2;
+const BACK_WEIGHT = 0.3;   /* 완전 뒷모습(body back) 추천 무게(2026-11-27 사용자 「뒷태구도도 완전 뒤로 나오는 비율을 줄이고, 살짝 틀은 뒷태가 더 많이 나오게」 — 살짝 튼 뒷태 rear_3q 는 그대로) */
 /* 어색한 조합(⚠ — 표 awkward: 수영복으로 작업 자리, 휴양지 차림으로 현장 …)인 의상 계열은 덜 고른다(2026-11-13 — 새 장소 · 새 계열이 새 모순이 되지 않게). 묶음마다 한 장까지는 여전히 된다 */
 const AWKWARD_WEIGHT = 0.15;
 const wOf = n => n ? 1 / Math.pow(1 + n, 3) : WEIGHT_UNUSED;
@@ -383,7 +384,7 @@ function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = ''
   if (!presets.length) return null;
   const rp = list => pick(r, list);
   /* 자세 추천 — 그 추천과 그 자세의 횟수를 함께(선 자세가 절반이 넘었다 — 2026-11-01 기록 434장) */
-  const pw = presets.map(p => Math.pow(2, -(C2.presetBias ? C2.presetBias(T2, p.key) : 0)) * wOf(U.preset[p.key] || 0) * Math.sqrt(wOf(U.posture[p.posture] || 0)) * wOf(U.path[pathKey(p.key, sc.place)] || 0) * (p.pose ? POSE_WEIGHT : 1) * Math.sqrt(wOf((U.combo || {})[comboKey(p)] || 0)) * (standFrontEye(p) ? 0.5 : 1));
+  const pw = presets.map(p => (p.body === 'back' ? BACK_WEIGHT : 1) * Math.pow(2, -(C2.presetBias ? C2.presetBias(T2, p.key) : 0)) * wOf(U.preset[p.key] || 0) * Math.sqrt(wOf(U.posture[p.posture] || 0)) * wOf(U.path[pathKey(p.key, sc.place)] || 0) * (p.pose ? POSE_WEIGHT : 1) * Math.sqrt(wOf((U.combo || {})[comboKey(p)] || 0)) * (standFrontEye(p) ? 0.5 : 1));
   let px = r() * pw.reduce((a, b) => a + b, 0), chosen = presets[presets.length - 1];
   for (let i = 0; i < presets.length; i++) { px -= pw[i]; if (px < 0) { chosen = presets[i]; break; } }
   sc = C2.repair(T2, C2.applyPreset(T2, sc, chosen.key), g, rp);
