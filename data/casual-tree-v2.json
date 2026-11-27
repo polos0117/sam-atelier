@@ -1775,6 +1775,99 @@
     "environmental"
    ],
    "note": "2026-11-27 사용자 「응 만들어줘. 우주공간이나 다른 장면에서도 될 거 같은데. 우주 엘리베이터나 우주공간 밖에서 안에 떠 있는 사람을 본다거나 그런거」(앞서 「유리나 건물 밖에서 안쪽의 사람을 보는거」 — 베이징 이화원 사이버펑크 일상10 수중 관찰창)"
+  },
+  {
+   "key": "stand_arch",
+   "ko": "허리 젖혀 서기",
+   "family": "stand",
+   "en": "standing with her back gently arched and her weight shifted onto one hip, shoulders eased back",
+   "needs": [
+    "upright"
+   ],
+   "supports": [
+    "none"
+   ],
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "doorway_lean",
+   "ko": "문틀에 기대 서기",
+   "family": "stand",
+   "en": "standing in a doorway, one shoulder leaning against the door frame, her hips angled away from it",
+   "needs": [
+    "doorway",
+    "upright"
+   ],
+   "supports": [
+    "none"
+   ],
+   "frames": [
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "chair_straddle",
+   "ko": "의자에 거꾸로 앉기",
+   "family": "sit",
+   "en": "sitting astride a chair turned backwards, leaning her chest lightly toward its backrest",
+   "needs": [
+    "chair"
+   ],
+   "supports": [
+    "none"
+   ],
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "outfit": "allure",
+   "hands": [
+    "backrest_both",
+    "natural",
+    "cheek",
+    "hair_tuck",
+    "lip_touch",
+    "finger_bite",
+    "prop"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "kneel_arch",
+   "ko": "무릎 꿇고 허리 젖히기",
+   "family": "low",
+   "en": "kneeling upright on a soft surface, knees slightly apart, her back arched and her chest lifted",
+   "needs": [
+    "soft"
+   ],
+   "supports": [
+    "none"
+   ],
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "hands": [
@@ -1812,7 +1905,9 @@
     "qinggong_perch",
     "qinggong_leap",
     "water_step",
-    "underwater_float"
+    "underwater_float",
+    "stand_arch",
+    "doorway_lean"
    ]
   },
   {
@@ -1831,7 +1926,9 @@
     "float_zg",
     "float_cross",
     "levitate",
-    "levitate_cross"
+    "levitate_cross",
+    "stand_arch",
+    "doorway_lean"
    ]
   },
   {
@@ -2122,7 +2219,8 @@
     "half_kneel",
     "ride_side",
     "sit_boat",
-    "lean_in"
+    "lean_in",
+    "kneel_arch"
    ]
   },
   {
@@ -2560,6 +2658,194 @@
    ],
    "en": "her own {side} hand reaches into a low shelf beside her near the floor, drawing out a book or a small box",
    "note": "2026-11-26 사용자 「선반 위에 물건을 꺼낼때 카메라가 위에서 내려다보고 있는 컷은 없지?」 → 「응 둘 다 넣어줘」"
+  },
+  {
+   "key": "hair_lift_both",
+   "ko": "두 손으로 머리 쓸어 올리기",
+   "zone": "overhead",
+   "en": "both hands gather her hair up off the back of her neck, elbows raised",
+   "both": true,
+   "space": "hair",
+   "postures": [
+    "stand",
+    "stand_arch",
+    "kneel_arch",
+    "sit_edge",
+    "sit_chair",
+    "sit_floor",
+    "lean_wall",
+    "kneel"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "lip_touch",
+   "ko": "손끝으로 입술 쓸기",
+   "zone": "face",
+   "en": "her own {side} fingertip slowly traces her lower lip",
+   "space": "mouth",
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "finger_bite",
+   "ko": "손끝 살짝 깨물기",
+   "zone": "face",
+   "en": "her own {side} fingertip rests lightly between her teeth",
+   "space": "mouth",
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "strap_slip",
+   "ko": "어깨끈 걸어 내리기",
+   "zone": "chest",
+   "en": "her own {side} finger hooks a shoulder strap and eases it down off her shoulder",
+   "outfit": "strap",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "thigh_trace",
+   "ko": "허벅지 쓸기",
+   "zone": "hips",
+   "en": "her own {side} fingertips trail slowly down the outside of her thigh",
+   "outfit": "allure",
+   "postures": [
+    "stand",
+    "stand_arch",
+    "lean_wall",
+    "doorway_lean",
+    "sit_edge",
+    "sit_chair",
+    "kneel_arch"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "wall_overhead",
+   "ko": "머리 위 벽 · 문틀에 팔 얹기",
+   "zone": "overhead",
+   "en": "her own {side} forearm rests up against the wall or frame above her head",
+   "elbow": "raised above her head",
+   "needs_any": [
+    "wall",
+    "doorway"
+   ],
+   "postures": [
+    "lean_wall",
+    "doorway_lean",
+    "stand_arch"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "stretch_overhead",
+   "ko": "기지개 켜기",
+   "zone": "overhead",
+   "en": "both arms stretch high above her head, hands loosely clasped, in a long lazy stretch",
+   "both": true,
+   "postures": [
+    "stand",
+    "stand_arch",
+    "kneel_arch",
+    "sit_edge",
+    "sit_floor"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "backrest_both",
+   "ko": "등받이에 두 팔 걸치기",
+   "zone": "chest",
+   "en": "both forearms fold over the top of the chair back in front of her, her chin close above them",
+   "both": true,
+   "postures": [
+    "chair_straddle"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "collar_tug",
+   "ko": "옷깃 · 넥타이 당겨 풀기",
+   "zone": "chest",
+   "en": "her own {side} hand tugs her collar a little looser",
+   "outfit": "collar",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "stocking_pull",
+   "ko": "스타킹 끌어올리기",
+   "zone": "lap",
+   "en": "both hands smooth a sheer stocking up over her raised knee toward her thigh",
+   "both": true,
+   "outfit": "legwear",
+   "postures": [
+    "sit_edge",
+    "sit_chair",
+    "sit_sideways",
+    "sit_floor"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "shoe_on",
+   "ko": "하이힐 신기",
+   "zone": "feet",
+   "en": "her own {side} hand slips a high-heeled shoe onto her foot, her heel lifted",
+   "outfit": "heels",
+   "postures": [
+    "sit_edge",
+    "sit_chair",
+    "sit_sideways",
+    "sit_floor"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "shoe_off",
+   "ko": "하이힐 벗기",
+   "zone": "feet",
+   "en": "her own {side} hand eases a high-heeled shoe off her foot by its heel",
+   "outfit": "heels",
+   "postures": [
+    "sit_edge",
+    "sit_chair",
+    "sit_sideways",
+    "sit_floor"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "top_on",
+   "ko": "속옷 위로 윗옷 입기",
+   "zone": "chest",
+   "en": "both hands pull a loose knit top down over her head, its hem still bunched above her lingerie",
+   "both": true,
+   "outfit": "undies",
+   "postures": [
+    "stand",
+    "sit_edge",
+    "kneel",
+    "kneel_arch",
+    "sit_floor"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "top_off",
+   "ko": "윗옷 벗기 — 속옷 차림",
+   "zone": "overhead",
+   "en": "crossed hands grip the hem of a loose top and lift it up over her head, her lingerie underneath",
+   "both": true,
+   "outfit": "undies",
+   "postures": [
+    "stand",
+    "stand_arch",
+    "sit_edge",
+    "kneel",
+    "kneel_arch"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "legs": [
@@ -2578,7 +2864,9 @@
     "lean_counter",
     "reach_up",
     "lean_vehicle",
-    "lean_in"
+    "lean_in",
+    "stand_arch",
+    "doorway_lean"
    ]
   },
   {
@@ -2594,7 +2882,9 @@
     "lean_wall",
     "lean_rail",
     "lean_vehicle",
-    "lean_in"
+    "lean_in",
+    "stand_arch",
+    "doorway_lean"
    ]
   },
   {
@@ -2609,7 +2899,8 @@
    "postures": [
     "stand",
     "walk",
-    "lean_in"
+    "lean_in",
+    "stand_arch"
    ]
   },
   {
@@ -2640,7 +2931,8 @@
    "en": "rising onto her toes",
    "postures": [
     "stand",
-    "reach_up"
+    "reach_up",
+    "stand_arch"
    ],
    "needs": [
     "shelf_high"
@@ -2659,7 +2951,9 @@
    "en": "one foot lifted flat against the wall behind her",
    "postures": [
     "stand",
-    "lean_wall"
+    "lean_wall",
+    "stand_arch",
+    "doorway_lean"
    ]
   },
   {
@@ -2838,7 +3132,9 @@
     "lean_counter",
     "sit_sideways",
     "lean_vehicle",
-    "ride_side"
+    "ride_side",
+    "stand_arch",
+    "doorway_lean"
    ],
    "feet": true,
    "en": "both legs held close together, one ankle crossed over the other at the feet"
@@ -2960,6 +3256,65 @@
    ],
    "en": "she sits squarely on the edge facing away from the camera, her legs hanging down the far side of it, out of sight behind the edge — only her hips and the tops of her thighs rest on it",
    "note": "2026-11-26 사용자 「이렇게 뒷모습 걸터앉는 씬에서 다리 연결이 부자연스러운데 어떻게 해?」(원소 다이아몬드 판타지 일상2 — 등을 보이고 걸터앉아 다리를 늘어뜨리고 전신이라 발까지 보이게 하니, 다리를 화면 쪽으로 끌어내려 허리에서 꺾였다)"
+  },
+  {
+   "key": "pinup_knee",
+   "ko": "한쪽 무릎 안으로 굽히기",
+   "families": [
+    "stand"
+   ],
+   "postures": [
+    "stand",
+    "stand_arch",
+    "lean_wall",
+    "doorway_lean"
+   ],
+   "feet": true,
+   "en": "weight on one leg, the other knee bent softly inward with that heel lifted",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "shoe_dangle",
+   "ko": "다리 꼬고 하이힐 대롱",
+   "families": [
+    "sit"
+   ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_lean",
+    "sit_sideways"
+   ],
+   "feet": true,
+   "en": "legs crossed at the knee, a high-heeled shoe dangling loosely from the toes of her top foot",
+   "outfit": "heels",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "astride_chair",
+   "ko": "의자 양옆으로 다리",
+   "families": [
+    "sit"
+   ],
+   "postures": [
+    "chair_straddle"
+   ],
+   "feet": true,
+   "en": "one leg on each side of the chair seat, feet planted on the floor",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "kneel_apart",
+   "ko": "무릎 벌려 꿇기",
+   "families": [
+    "low"
+   ],
+   "postures": [
+    "kneel_arch"
+   ],
+   "feet": false,
+   "en": "knees set a little apart on the soft surface, lower legs folded beneath her",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "places": {
@@ -8377,6 +8732,106 @@
    "clash": "\\b(glasses|sunglasses|goggles|eyewear|visor|mask|blindfold|monocle)\\b",
    "note": "2026-11-27 사용자 「응 모자종류,안경등의 종류를 더 늘리고 쓰는것만 아니라 걸치거나 드는 장면 등도 넣으면 좋을거 같아.」",
    "start_median": true
+  },
+  {
+   "key": "lipstick",
+   "ko": "립스틱",
+   "en": "a slim tube of deep-red lipstick",
+   "places": [
+    "#k_private",
+    "#table",
+    "#k_stage"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "high_heels",
+   "ko": "손에 든 하이힐",
+   "en": "a pair of strappy high-heeled shoes",
+   "places": [
+    "#k_street",
+    "#k_private",
+    "#k_water",
+    "!#deep_water"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "violin",
+   "ko": "바이올린",
+   "en": "a violin and its bow",
+   "places": [
+    "#k_stage",
+    "#k_street",
+    "#k_private",
+    "#k_nature",
+    "!#water"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」",
+   "eras": [
+    "now",
+    "heritage",
+    "fantasy"
+   ]
+  },
+  {
+   "key": "flute",
+   "ko": "플루트",
+   "en": "a silver flute",
+   "places": [
+    "#k_stage",
+    "#k_street",
+    "#k_private",
+    "#k_nature",
+    "!#water"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "saxophone",
+   "ko": "색소폰",
+   "en": "a brass saxophone",
+   "places": [
+    "#k_stage",
+    "#k_street",
+    "#k_private",
+    "!#water"
+   ],
+   "eras": [
+    "now",
+    "heritage"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "tambourine",
+   "ko": "탬버린",
+   "en": "a tambourine",
+   "places": [
+    "#k_stage",
+    "#k_street",
+    "#k_nature",
+    "!#water"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "prop_uses": [
@@ -19489,10 +19944,424 @@
     "ride_side",
     "levitate_cross"
    ]
+  },
+  {
+   "key": "lipstick_apply",
+   "prop": "lipstick",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "face",
+   "ko": "립스틱을 바른다",
+   "en": "glides {prop} slowly across her lower lip",
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "lipstick_hold",
+   "prop": "lipstick",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "립스틱 뚜껑을 열어 든다",
+   "en": "holds {prop}, uncapped, just below her chin",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "heels_dangle",
+   "prop": "high_heels",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "하이힐을 손가락에 걸어 든다",
+   "en": "dangles {prop} from two fingers by their straps",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "heels_shoulder",
+   "prop": "high_heels",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "하이힐을 어깨에 걸친다",
+   "en": "slings {prop} back over her shoulder by their straps",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "violin_play",
+   "prop": "violin",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "바이올린을 켠다",
+   "en": "plays {prop}, the violin tucked under her chin",
+   "grip": {
+    "right": "draws the bow across the strings",
+    "left": "presses the strings at the neck"
+   },
+   "gaze": "into_prop",
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "violin_rest",
+   "prop": "violin",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "바이올린과 활을 옆에 든다",
+   "en": "holds {prop} loosely at her side",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "flute_play",
+   "prop": "flute",
+   "kind": "both",
+   "hands": "both",
+   "zone": "face",
+   "ko": "플루트를 분다",
+   "en": "plays {prop}, held level out to one side of her lips",
+   "grip": {
+    "right": "fingers the lower keys",
+    "left": "fingers the upper keys"
+   },
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "frames": [
+    "face_close",
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "flute_hold",
+   "prop": "flute",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "chest",
+   "ko": "플루트를 어깨에 기대 든다",
+   "en": "holds {prop} resting against her shoulder",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "lean_vehicle",
+    "ride_side",
+    "levitate_cross"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "sax_play",
+   "prop": "saxophone",
+   "kind": "both",
+   "hands": "both",
+   "zone": "chest",
+   "ko": "색소폰을 분다",
+   "en": "plays {prop}, its mouthpiece at her lips, its bell angled down by her hip",
+   "grip": {
+    "right": "fingers the lower keys",
+    "left": "fingers the upper keys"
+   },
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "frames": [
+    "detail",
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel",
+    "squat",
+    "recline",
+    "lie_side",
+    "lie_front",
+    "lean_counter",
+    "sit_lean",
+    "sit_sideways",
+    "half_kneel",
+    "step_up",
+    "sit_boat"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "sax_rest",
+   "prop": "saxophone",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "색소폰을 엉덩이 옆에 기대 든다",
+   "en": "rests {prop} against her hip by its neck",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "tamb_shake",
+   "prop": "tambourine",
+   "kind": "raise",
+   "hands": "one",
+   "zone": "overhead",
+   "ko": "탬버린을 머리 위로 흔든다",
+   "en": "shakes {prop} high above her head",
+   "stage": "doing",
+   "stage_ko": "하는 중",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "sit_chair",
+    "sit_edge",
+    "sit_sideways",
+    "sit_lean",
+    "recline",
+    "sit_floor",
+    "kneel",
+    "half_kneel",
+    "squat"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "tamb_tap",
+   "prop": "tambourine",
+   "kind": "hold",
+   "hands": "one",
+   "zone": "hips",
+   "ko": "탬버린을 엉덩이에 친다",
+   "en": "taps {prop} against her hip",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "postures": [
+    "stand",
+    "lean_wall",
+    "lean_rail",
+    "walk",
+    "step_up",
+    "lean_vehicle",
+    "ride_side"
+   ],
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "outfit_features": {
-  "note": "손 자세가 옷에 기대는 것 — pocket(주머니에 손) · strap(끈 잡기) · collar(옷깃 잡기). 계열 기본값(defaults)에 옷마다 더하기(add)·빼기(remove). 없는 옷에 그 손 자세는 걸러진다 · glasses(안경)는 옷이 아니라 장면의 「안경」 표시로만 sportswear(운동복 계열 — 요가 · 조깅 팔) · swimsuit(수영복 · 휴양지 — 헤엄 · 물에 뜨기 · 공기매트) · cleavage(2026-11-25) — 목선이 열린 옷(가슴 사이에 물건을 끼우거나 얹는 소품 동작의 outfit). 수영복 · 란제리는 계열 기본(목까지 덮는 옷은 remove), 휴양지 · 운동복 · 저녁 · 역할극은 목선이 열린 옷만 add. 평상복 · 전통 · 웨딩 · 작업복 같은 덮인 옷엔 없다. underlayer(2026-11-25 삼국지만) — 무기 · 갑옷 손질 컷의 속옷차림(평상복 · 운동복 · 홈웨어 · 작업복 — 속두루마기 · 안감 튜닉 · 수련복으로).",
+  "note": "손 자세가 옷에 기대는 것 — pocket(주머니에 손) · strap(끈 잡기) · collar(옷깃 잡기). 계열 기본값(defaults)에 옷마다 더하기(add)·빼기(remove). 없는 옷에 그 손 자세는 걸러진다 · glasses(안경)는 옷이 아니라 장면의 「안경」 표시로만 sportswear(운동복 계열 — 요가 · 조깅 팔) · swimsuit(수영복 · 휴양지 — 헤엄 · 물에 뜨기 · 공기매트) · cleavage(2026-11-25) — 목선이 열린 옷(가슴 사이에 물건을 끼우거나 얹는 소품 동작의 outfit). 수영복 · 란제리는 계열 기본(목까지 덮는 옷은 remove), 휴양지 · 운동복 · 저녁 · 역할극은 목선이 열린 옷만 add. 평상복 · 전통 · 웨딩 · 작업복 같은 덮인 옷엔 없다. underlayer(2026-11-25 삼국지만) — 무기 · 갑옷 손질 컷의 속옷차림(평상복 · 운동복 · 홈웨어 · 작업복 — 속두루마기 · 안감 튜닉 · 수련복으로). · allure(2026-11-27) — 핀업 · 화보 자세(허리 젖혀 돌아보기 · 문틀에 기대기 · 의자 거꾸로 앉기 · 무릎 꿇고 젖히기 · 입술에 손끝 …)를 받는 옷: 란제리 · 수영복 · 목욕 · 저녁 · 화보 · 드레이프 · 역할극 · undies — 속옷 위로 윗옷을 입거나 벗는 손(란제리 · 수영복) · heels — 하이힐(저녁 · 화보 · 웨딩 기본, 글에 heels 가 든 옷) · legwear — 스타킹 · 타이츠(글에 든 옷)",
   "defaults": {
    "everyday": [
     "pocket",
@@ -19503,36 +20372,53 @@
    ],
    "lingerie": [
     "strap",
-    "cleavage"
+    "cleavage",
+    "allure",
+    "undies"
    ],
    "swimwear": [
     "strap",
     "cleavage",
-    "swimsuit"
+    "swimsuit",
+    "allure",
+    "undies"
    ],
-   "bath": [],
+   "bath": [
+    "allure"
+   ],
    "active": [
     "sportswear",
     "underlayer"
    ],
-   "evening": [],
+   "evening": [
+    "allure",
+    "heels"
+   ],
    "traditional": [],
    "roleplay": [
-    "collar"
+    "collar",
+    "allure"
    ],
    "subculture": [
     "pocket"
    ],
    "costume": [],
-   "editorial": [],
-   "bridal": [],
+   "editorial": [
+    "allure",
+    "heels"
+   ],
+   "bridal": [
+    "heels"
+   ],
    "retro": [],
    "halloween": [],
    "dongtan": [],
    "adventure": [
     "pocket"
    ],
-   "drape": [],
+   "drape": [
+    "allure"
+   ],
    "resort": [
     "swimsuit"
    ],
@@ -19550,7 +20436,8 @@
     "strap"
    ],
    "slip_tights": [
-    "strap"
+    "strap",
+    "legwear"
    ],
    "blazer_skirt": [
     "collar"
@@ -19746,7 +20633,8 @@
     "cleavage"
    ],
    "witch_party": [
-    "cleavage"
+    "cleavage",
+    "legwear"
    ],
    "sailor_stage": [
     "cleavage"
@@ -19797,7 +20685,8 @@
     "cleavage"
    ],
    "rp_witch_party_crop_set": [
-    "cleavage"
+    "cleavage",
+    "legwear"
    ],
    "rp_majorette_corset": [
     "cleavage"
@@ -19843,6 +20732,205 @@
    ],
    "romper_wrap": [
     "cleavage"
+   ],
+   "dongtan_knit_mini": [
+    "heels"
+   ],
+   "dongtan_crop_skirt": [
+    "heels"
+   ],
+   "dongtan_turtleneck_pencil": [
+    "heels"
+   ],
+   "club_mesh": [
+    "heels"
+   ],
+   "club_metallic": [
+    "heels"
+   ],
+   "garter_set": [
+    "legwear"
+   ],
+   "lg_garter_highwaist": [
+    "legwear"
+   ],
+   "ballet_practice": [
+    "legwear"
+   ],
+   "figure_skate_practice": [
+    "legwear"
+   ],
+   "expo_model": [
+    "legwear"
+   ],
+   "office_look": [
+    "heels",
+    "legwear"
+   ],
+   "rp_event_staff_leotard": [
+    "legwear"
+   ],
+   "rp_police_leotard": [
+    "legwear"
+   ],
+   "rp_secretary_leotard": [
+    "legwear"
+   ],
+   "rp_flight_attendant_bodysuit": [
+    "legwear"
+   ],
+   "rp_casino_dealer_leotard": [
+    "legwear"
+   ],
+   "rp_retro_racer_bodysuit": [
+    "legwear"
+   ],
+   "rp_vinyl_stage_leotard": [
+    "legwear"
+   ],
+   "rp_librarian_bodysuit": [
+    "legwear"
+   ],
+   "rp_cheer_costume_leotard": [
+    "legwear"
+   ],
+   "rp_witch_party_bodysuit": [
+    "legwear"
+   ],
+   "rp_majorette_leotard": [
+    "legwear"
+   ],
+   "rp_cat_cafe_bodysuit": [
+    "legwear"
+   ],
+   "rp_santa_party_leotard": [
+    "legwear"
+   ],
+   "rp_mechanic_jumpsuit_bodysuit": [
+    "legwear"
+   ],
+   "rp_race_model_leotard": [
+    "legwear"
+   ],
+   "rp_dance_crew_bodysuit": [
+    "legwear"
+   ],
+   "rp_cabaret_dancer_leotard": [
+    "legwear"
+   ],
+   "rp_office_look_bodysuit": [
+    "legwear"
+   ],
+   "gyaru": [
+    "heels"
+   ],
+   "cs_elf_costume_bodysuit": [
+    "legwear"
+   ],
+   "cs_angel_devil_bodysuit": [
+    "legwear"
+   ],
+   "cs_angel_devil_leotard": [
+    "legwear"
+   ],
+   "cs_forest_spirit_bodysuit": [
+    "legwear"
+   ],
+   "cs_star_goddess_leotard": [
+    "legwear"
+   ],
+   "cs_vampire_gala_bodysuit": [
+    "legwear"
+   ],
+   "cs_flamenco_leotard": [
+    "legwear"
+   ],
+   "cs_hula_bodysuit": [
+    "legwear"
+   ],
+   "cs_mermaid_show_leotard": [
+    "legwear"
+   ],
+   "cs_tango_dress_bodysuit": [
+    "legwear"
+   ],
+   "cs_salsa_fringe_leotard": [
+    "legwear"
+   ],
+   "figure_skate_show": [
+    "legwear"
+   ],
+   "hw_witch": [
+    "legwear"
+   ],
+   "hw_vampire": [
+    "legwear"
+   ],
+   "hw_black_cat": [
+    "legwear"
+   ],
+   "hw_succubus": [
+    "legwear"
+   ],
+   "hw_pumpkin": [
+    "legwear"
+   ],
+   "hw_pirate": [
+    "legwear"
+   ],
+   "hw2_witch_leotard": [
+    "legwear"
+   ],
+   "hw2_devil_leotard": [
+    "legwear"
+   ],
+   "hw2_succubus_tailored": [
+    "legwear"
+   ],
+   "hw2_succubus_jumpsuit": [
+    "legwear"
+   ],
+   "hw2_ghost_bride_leotard": [
+    "legwear"
+   ],
+   "hw2_pumpkin_jumpsuit": [
+    "legwear"
+   ],
+   "hw2_pumpkin_cape_layer": [
+    "legwear"
+   ],
+   "hw2_wolf_bodysuit": [
+    "legwear"
+   ],
+   "hw2_pirate_leotard": [
+    "legwear"
+   ],
+   "hw2_bat_bodysuit": [
+    "legwear"
+   ],
+   "hw2_sheer_ghost_leotard": [
+    "legwear"
+   ],
+   "aerobics_80s": [
+    "legwear"
+   ],
+   "pirate_captain": [
+    "legwear"
+   ],
+   "one_shoulder_goddess": [
+    "legwear"
+   ],
+   "gc_bodysuit": [
+    "legwear"
+   ],
+   "gc_lingerie": [
+    "legwear"
+   ],
+   "gc_leotard": [
+    "legwear"
+   ],
+   "gc_slit_gown": [
+    "legwear"
    ]
   },
   "remove": {
@@ -24547,6 +25635,412 @@
     "window",
     "glass_wall"
    ]
+  },
+  {
+   "key": "pin_lookback",
+   "ko": "허리 젖혀 어깨 너머 돌아보기",
+   "posture": "stand_arch",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "eye",
+   "right": "hip",
+   "left": "down",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose",
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_lookback_full",
+   "ko": "허리 젖혀 돌아보기 — 전신",
+   "posture": "stand_arch",
+   "support": "none",
+   "frame": "full_body",
+   "body": "rear_3q",
+   "head": "over_shoulder",
+   "camera": "low",
+   "right": "hip",
+   "left": "down",
+   "legs": "pinup_knee",
+   "gaze": "camera",
+   "act": "pose",
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_tummy",
+   "ko": "엎드려 발 들고 턱 괴기",
+   "posture": "lie_front",
+   "support": "front_floor",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "chin_both",
+   "left": "chin_both",
+   "legs": "feet_up",
+   "gaze": "camera",
+   "act": "rest",
+   "needs_any": [
+    "soft",
+    "lie"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_doorway",
+   "ko": "문틀에 기대 팔 올리기",
+   "posture": "doorway_lean",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "wall_overhead",
+   "left": "hip",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose",
+   "needs": [
+    "doorway"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_straddle",
+   "ko": "의자 거꾸로 앉아 등받이에 팔",
+   "posture": "chair_straddle",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "backrest_both",
+   "left": "backrest_both",
+   "legs": "",
+   "gaze": "camera",
+   "act": "rest",
+   "needs": [
+    "chair"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_stretch",
+   "ko": "허리 젖혀 기지개",
+   "posture": "stand_arch",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "stretch_overhead",
+   "left": "stretch_overhead",
+   "legs": "",
+   "gaze": "camera",
+   "act": "rest",
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_kneel_hair",
+   "ko": "무릎 꿇고 머리 쓸어 올리기",
+   "posture": "kneel_arch",
+   "support": "none",
+   "frame": "three_quarter",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "hair_lift_both",
+   "left": "hair_lift_both",
+   "legs": "kneel_apart",
+   "gaze": "camera",
+   "act": "pose",
+   "needs": [
+    "soft"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_lip",
+   "ko": "벽에 기대 입술에 손끝",
+   "posture": "lean_wall",
+   "support": "back_wall",
+   "frame": "chest_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "lip_touch",
+   "left": "out",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose",
+   "needs": [
+    "wall"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "pin_strap",
+   "ko": "어깨끈 걸어 내리며 보기",
+   "posture": "stand_arch",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "strap_slip",
+   "left": "hip",
+   "legs": "",
+   "gaze": "camera",
+   "act": "pose",
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "dress_stocking",
+   "ko": "걸터앉아 스타킹 끌어올리기",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "full_body",
+   "body": "side",
+   "head": "with_body",
+   "camera": "eye",
+   "right": "stocking_pull",
+   "left": "stocking_pull",
+   "legs": "",
+   "gaze": "down",
+   "act": "ready",
+   "needs": [
+    "edge"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "dress_heel_on",
+   "ko": "앉아서 하이힐 신기",
+   "posture": "sit_chair",
+   "support": "none",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "shoe_on",
+   "left": "natural",
+   "legs": "",
+   "gaze": "down",
+   "act": "ready",
+   "needs": [
+    "chair"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "dress_top_off",
+   "ko": "윗옷 벗으며 — 속옷 차림",
+   "posture": "stand",
+   "support": "none",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "top_off",
+   "left": "top_off",
+   "legs": "",
+   "gaze": "camera",
+   "act": "ready",
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "dress_top_on",
+   "ko": "걸터앉아 윗옷 입기 — 속옷 위로",
+   "posture": "sit_edge",
+   "support": "hip_edge",
+   "frame": "waist_up",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "top_on",
+   "left": "top_on",
+   "legs": "",
+   "gaze": "camera",
+   "act": "ready",
+   "needs": [
+    "edge"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "heel_dangle_sit",
+   "ko": "다리 꼬고 하이힐 대롱",
+   "posture": "sit_chair",
+   "support": "back_seat",
+   "frame": "full_body",
+   "body": "front_3q",
+   "head": "tilt",
+   "camera": "eye",
+   "right": "cheek",
+   "left": "natural",
+   "legs": "shoe_dangle",
+   "gaze": "camera",
+   "act": "rest",
+   "needs": [
+    "chair"
+   ],
+   "pose": true,
+   "exprs": [
+    "sensual",
+    "wink",
+    "lip_bite",
+    "heavy_lidded",
+    "knowing_smirk",
+    "confident",
+    "half_smile"
+   ],
+   "start_median": true,
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "expressions": {
@@ -24581,7 +26075,10 @@
   "cold_smile": "a faint cool smile, calm composed eyes",
   "laughing": "a natural laugh, eyes crinkled, mouth open in a smile",
   "laughing_open": "a bright open laugh, eyes open and engaged",
-  "wink": "a playful wink with a small smile"
+  "wink": "a playful wink with a small smile",
+  "lip_bite": "lower lip caught lightly between her teeth, eyes half-lidded and steady",
+  "heavy_lidded": "heavy-lidded, half-closed eyes, lips softly parted and relaxed",
+  "knowing_smirk": "one corner of her mouth tugged up in a knowing smirk, eyes narrowed slightly"
  },
  "legacy": {
   "note": "버전1 기록(하는 일 act · 자세 pose · 방향 orient) → 버전2 칸. 시대 · 장소 · 의상 · 옷 · 프레이밍 · 표정은 같은 열쇠라 그대로 둔다. 렌즈는 버린다(자동)",
@@ -27027,6 +28524,64 @@
     "nation_bridge_holo",
     "nation_cockpit"
    ]
+  },
+  {
+   "key": "lipstick_fresh",
+   "ko": "막 바른 립스틱",
+   "en": "her lips glossy with freshly applied deep-red lipstick",
+   "frames": [
+    "face_close",
+    "chest_up",
+    "waist_up"
+   ],
+   "face": true,
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "water_trail",
+   "ko": "쇄골을 타고 흐르는 물방울",
+   "en": "a few water droplets trail slowly down from her collarbone",
+   "frames": [
+    "chest_up",
+    "waist_up",
+    "three_quarter"
+   ],
+   "needs_any": [
+    "water",
+    "k_water"
+   ],
+   "outfit": "allure",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "heels_kicked",
+   "ko": "벗어 던진 하이힐",
+   "en": "a pair of high heels lies kicked off on the floor near her feet",
+   "frames": [
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "needs": [
+    "floor"
+   ],
+   "outfit": "heels",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+  },
+  {
+   "key": "robe_pool",
+   "ko": "발치에 흘러내린 가운",
+   "en": "a silky robe lies slipped down in a soft pool around her feet",
+   "frames": [
+    "full_body",
+    "environmental"
+   ],
+   "needs_any": [
+    "k_private"
+   ],
+   "outfit": "undies",
+   "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
   }
  ],
  "outfit_style": {
@@ -27355,6 +28910,27 @@
        "bath"
       ],
       "needs": "\\b(robe|wrap|kaftan|sarong|kimono|towel)\\b"
+     },
+     {
+      "key": "off_shoulder",
+      "ko": "한쪽 어깨로 흘러내림",
+      "en": "worn slipping down off one shoulder",
+      "fams": [
+       "homewear",
+       "lingerie",
+       "everyday",
+       "evening",
+       "drape",
+       "retro",
+       "bath"
+      ],
+      "clash": "\\b(strapless|off-shoulder|off the shoulder|one-shoulder|halter|bandeau|tube top|bikini|swimsuit)\\b",
+      "frames": [
+       "chest_up",
+       "waist_up",
+       "three_quarter"
+      ],
+      "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
      }
     ]
    },
@@ -27625,6 +29201,49 @@
        "full_body",
        "environmental"
       ]
+     },
+     {
+      "key": "boyfriend_shirt",
+      "ko": "남자친구 셔츠 걸치기",
+      "en": "an oversized men's dress shirt thrown on over it, half-buttoned with the sleeves rolled",
+      "fams": [
+       "lingerie",
+       "swimwear",
+       "homewear"
+      ],
+      "clash": "\\b(shirt|blouse|robe|cardigan|jacket|coat|kimono)\\b",
+      "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+     },
+     {
+      "key": "sheer_robe",
+      "ko": "시스루 가운",
+      "en": "a sheer chiffon robe falling open over it",
+      "fams": [
+       "lingerie",
+       "swimwear",
+       "bath",
+       "evening"
+      ],
+      "clash": "\\b(robe|kimono|cardigan|jacket|coat|cape|cover-up)\\b",
+      "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
+     },
+     {
+      "key": "stockings_garter",
+      "ko": "스타킹 · 가터",
+      "en": "sheer thigh-high stockings held by a lace garter belt",
+      "fams": [
+       "lingerie",
+       "evening",
+       "roleplay",
+       "retro"
+      ],
+      "clash": "\\b(stockings?|tights|thigh[- ]highs?|garters?|hold-ups|pantyhose|fishnets?)\\b",
+      "frames": [
+       "three_quarter",
+       "full_body",
+       "environmental"
+      ],
+      "note": "2026-11-27 사용자 「뭔가 도발적이고 뇌쇄적인 포즈나 의상등이 없을까」 → 「1~4다 넣어주고, 순간중에 스타킹, 신발 등을 신고 벋는 다거나, 속옷이 있는채로 윗옷을 입거나 벋는 다거나 그런것도 있을테고. 별개로 소품이나 동작중에 악기가 없는거 같아.」"
      }
     ]
    },

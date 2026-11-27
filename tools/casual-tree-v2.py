@@ -25,7 +25,7 @@ DATA = os.path.join(ROOT, "data", "casual-tree-v2.json")
 BASE = os.path.join(ROOT, "data", "casual-tree.json")
 HANGUL = re.compile(r"[가-힣]")
 KINDS = {"hold": "one", "raise": "one", "both": "both"}
-FEATURES = {"pocket", "strap", "collar", "glasses", "cleavage", "sportswear", "swimsuit", "underlayer"}   # cleavage · sportswear · swimsuit(2026-11-25)
+FEATURES = {"pocket", "strap", "collar", "glasses", "cleavage", "sportswear", "swimsuit", "underlayer", "allure", "undies", "heels", "legwear"}   # cleavage · sportswear · swimsuit(2026-11-25) · allure · undies · heels · legwear(2026-11-27 핀업 자세 · 옷 입고 벗기)
 ACCESSORY = {"glasses"}   # 옷이 아니라 장면의 표시(ofeat) — 그 특징을 가진 옷이 없어도 된다
 SIDES = ("right", "left")
 
@@ -361,6 +361,11 @@ def check(doc, v1):
             ref(f"다리 {r['key']}", po, postures, "자세")
             if po in postures and postures[po]["family"] not in r["families"]:
                 err.append(f"다리 {r['key']} 의 자세 {po} 가 다리 계열 밖")
+        if r.get("outfit"):   # 옷 특징이 있어야 하는 다리(2026-11-27 — 발끝에 걸린 하이힐 heels)
+            ref(f"다리 {r['key']}", r["outfit"], FEATURES, "의상 특징")
+    for r in doc.get("moments", []):   # 옷 특징이 있어야 하는 순간(2026-11-27)
+        if r.get("outfit"):
+            ref(f"순간 {r['key']}", r["outfit"], FEATURES, "의상 특징")
     # 받침이 손을 가리면(배를 대고 — 두 팔뚝이 몸을 받친다) 그 손만
     for r in doc["supports"]:
         for k in r.get("hands", []):
@@ -437,7 +442,7 @@ def check(doc, v1):
             ref(f"의상 특징 {part}", item, items1, "옷")
             for x in feats:
                 ref(f"의상 특징 {item}", x, FEATURES, "특징")
-    for x in {h["outfit"] for h in doc["hands"] + doc["prop_uses"] + doc["postures"] if h.get("outfit")} - ACCESSORY:
+    for x in {h["outfit"] for h in doc["hands"] + doc["prop_uses"] + doc["postures"] + doc["legs"] + doc.get("moments", []) if h.get("outfit")} - ACCESSORY:
         if not any(x in v for v in of["defaults"].values()) and not any(x in v for v in of.get("add", {}).values()):
             err.append(f"의상 특징 {x} 를 가진 옷이 없다")
 

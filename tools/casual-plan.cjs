@@ -54,7 +54,9 @@ const FRAMES = Object.keys(tree2.frames).filter(k => k !== 'note' && k !== 'deta
 /* 2026-11-03 「일상컷쪽이 더 그래」 — 빼는 목록 대신 고르는 목록으로. GPT 세션의 image_gen 은 결연함을 노려봄으로, 으쓱 · 장난을 한쪽 눈썹 + 비웃음으로,
    크게 웃음을 벌린 입으로, 호기심을 치켜든 눈썹으로, 관능을 반쯤 감은 눈으로 키웠다. 일상컷은 은은한 표정 열일곱에서만 */
 const EXPR_CASUAL = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistful', 'nostalgic', 'confident', 'proud', 'focused', 'half_smile', 'candid', 'relieved',
-  'wink', 'sensual', 'serious', 'curious'];   /* 같은 날 사용자 「윙크, 관능, 진지, 호기심 정도는 일상컷에 넣어줘」 */
+  'wink', 'sensual', 'serious', 'curious', 'lip_bite', 'heavy_lidded', 'knowing_smirk'];   /* 같은 날 사용자 「윙크, 관능, 진지, 호기심 정도는 일상컷에 넣어줘」 */
+/* 입술 깨물기 · 나른한 눈 · 비웃는 미소(2026-11-27 사용자 「도발적이고 뇌쇄적인 포즈나 의상」 → 「1~4다 넣어주고」)는 도발적인 옷(옷 특징 allure — 란제리 · 수영복 · 목욕 · 저녁 · 화보 · 드레이프 · 역할극)에서만 */
+const EXPR_ALLURE = ['lip_bite', 'heavy_lidded', 'knowing_smirk'];
 const EXPR_SKIP = Object.keys(tree2.expressions || {}).filter(k => !EXPR_CASUAL.includes(k));
 const EXPRS = EXPR_CASUAL.filter(k => (tree2.expressions || {})[k]);
 const ERA_WEIGHT = { now: 5, heritage: 2, nation: 2, fantasy: 1 };
@@ -356,7 +358,7 @@ const aspectOf = sc => C2.aspectFor ? C2.aspectFor(T2, sc) : '2:3';
 const ONCE = tree2.once_groups || {};
 const onceOf = c => !c ? [] : Object.keys(ONCE).filter(k => { const o = ONCE[k]; return (o.uses || []).includes(c.use) || (o.postures || []).includes(c.posture) || (o.hands || []).some(h => h === c.right || h === c.left); });
 /* 고를 표정 — 소품 동작 · 자세 추천의 exprs(빵 물기 — 입을 벌리지 않는 표정, 몸짓 — 장난 · 당당 · 윙크) */
-const exprPool = c => { const u = C2.use(T2, c.use), p = by(tree2.presets, c.preset); let l = EXPRS; for (const x of [u && u.exprs, p && p.exprs]) if (x && x.length) { const k = l.filter(e => x.includes(e)); if (k.length) l = k; } return l; };
+const exprPool = c => { const u = C2.use(T2, c.use), p = by(tree2.presets, c.preset); let l = C2.sceneFeatures(T2, c).includes('allure') ? EXPRS : EXPRS.filter(e => !EXPR_ALLURE.includes(e)); for (const x of [u && u.exprs, p && p.exprs]) if (x && x.length) { const k = l.filter(e => x.includes(e)); if (k.length) l = k; } return l; };
 /* 아이들이 오는 곳(장소 특징 k_kids — 놀이터, 2026-11-25): 덮인 옷 계열만(표 outfit_rules) · 목선이 열린 옷(cleavage) 안 고름 · 상황 노출 없음 */
 const kidsAt = place => C2.placeHas(T2, place).includes('k_kids');
 function slot(r, card, reqType, { frame = '', wantSig = false, era: wantEra = '', usage = {}, rUse = r, cos = null , once = false, prune = null, onceUsed = new Set() , zgOnly = false} = {}) {
@@ -760,7 +762,7 @@ function ownCut(card, world, level = OWN_LEVELS[0], rr = Math.random) {
   for (const k of AMBIENT) if (!sc[k]) delete sc[k];
   const body = by(tree2.body, sc.body), head = by(tree2.head, sc.head);
   return { ...sc, n: OWN_N, own: world, ...(row.prop ? { prop: '0', ownProp: row.prop } : {}), placeText: row.place, scene: row.activity, outfit: row.outfit[level] || row.outfit[OWN_LEVELS[0]], preset: row.preset,
-    expr: body && body.face_hidden && !(head && head.look_back) ? '' : EXPRS[Math.floor(rr() * EXPRS.length)], axes: { ...FIXED_AXES, skin_exposure: level }, aspect: aspectOf(sc), unlocked: [] };
+    expr: body && body.face_hidden && !(head && head.look_back) ? '' : (l => l[Math.floor(rr() * l.length)])(EXPRS.filter(e => !EXPR_ALLURE.includes(e))), axes: { ...FIXED_AXES, skin_exposure: level }, aspect: aspectOf(sc), unlocked: [] };
 }
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|그 장수의 물건을 든 컷이 없다|시대가 |게임 코스프레 컷이 없다|갈래 자유 컷이 없다)/;
 function plan(card, slots, old, { seed = Date.now(), required = '', usage = {}, others = [], recent = [], cosplayUsed = null, shadeUsed = null } = {}) {

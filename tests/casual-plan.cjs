@@ -253,8 +253,8 @@ try {
 /* 표정 — 일상컷에 어색한 것(웃는 입에 무표정한 눈 · 지루함 · 졸림 · 지침 · 짜증 · 시큰둥 · 질끈 감은 웃음)은 계획기가 고르지 않고,
    문구는 단서 두셋(2026-11-03 사용자 「표정 관련 문구가 과하게」) */
 {
-  const ok = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistful', 'nostalgic', 'confident', 'proud', 'focused', 'half_smile', 'candid', 'relieved', 'wink', 'sensual', 'serious', 'curious'], seen = new Set();   /* 2026-11-03 「일상컷쪽이 더 그래」 — 은은한 열셋만 */
-  for (const key of pickKeys) { const card = C.cardOf(key); for (const w of card.worlds) { card.world = w; for (const seed of [3]) for (const c of C.plan(card, SIX, [], { seed }).cuts) if (c.expr) seen.add(c.expr); } }
+  const ok = ['calm', 'soft_smile', 'gentle', 'amused', 'pensive', 'wistful', 'nostalgic', 'confident', 'proud', 'focused', 'half_smile', 'candid', 'relieved', 'wink', 'sensual', 'serious', 'curious', 'lip_bite', 'heavy_lidded', 'knowing_smirk'], seen = new Set(), allure = ['lip_bite', 'heavy_lidded', 'knowing_smirk'], T2a = C2T.make(JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree-v2.json'), 'utf8')), JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree.json'), 'utf8')));   /* 2026-11-27 입술 깨물기 · 나른한 눈 · 비웃는 미소 — 도발적인 옷(allure)에서만 */   /* 2026-11-03 「일상컷쪽이 더 그래」 — 은은한 열셋만 */
+  for (const key of pickKeys) { const card = C.cardOf(key); for (const w of card.worlds) { card.world = w; for (const seed of [3]) for (const c of C.plan(card, SIX, [], { seed }).cuts) if (c.expr) { seen.add(c.expr); if (allure.includes(c.expr)) assert(C2T.sceneFeatures(T2a, c).includes('allure'), c.expr + ' 가 도발적이지 않은 옷(' + c.ofam + ')에'); } } }
   for (const k of seen) assert(ok.includes(k), '은은한 표정이 아닌 ' + k);
   assert(seen.size >= 10, '표정 ' + seen.size + ' 가지');
   const tr2 = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/casual-tree-v2.json'), 'utf8'));

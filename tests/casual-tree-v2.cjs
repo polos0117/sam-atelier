@@ -12,7 +12,7 @@ const seeded = s => () => (s = (s * 1103515245 + 12345) % 2147483648) / 21474836
 /* 1. 검사기와 같은 길 — 추천 × 장소(그 장소의 시대 · 손 자세가 바라는 특징이 있는 옷 계열) */
 /* 옷 특징 — 손 자세가 바라는 것 + 그 추천의 자세에서 되는 소품 동작이 모두 바라는 것(2026-11-25 — 공기매트는 수영복 swimsuit) */
 const useFeat = pr => { if (!pr.prop_kind) return []; const us = t.v2.prop_uses.filter(u => u.kind === pr.prop_kind && u.postures.includes(pr.posture) && u.frames.includes(pr.frame)); return us.length && us.every(u => u.outfit && u.outfit === us[0].outfit) ? [us[0].outfit] : []; };
-const feat = pr => [pr.right, pr.left].map(k => C.hand(t, k)).filter(h => h && h.outfit).map(h => h.outfit).concat(useFeat(pr), (C.posture(t, pr.posture) || {}).outfit ? [C.posture(t, pr.posture).outfit] : []);
+const feat = pr => [pr.right, pr.left].map(k => C.hand(t, k)).filter(h => h && h.outfit).map(h => h.outfit).concat(useFeat(pr), (C.posture(t, pr.posture) || {}).outfit ? [C.posture(t, pr.posture).outfit] : [], (C.leg(t, pr.legs) || {}).outfit ? [C.leg(t, pr.legs).outfit] : []);   /* 다리 특징(2026-11-27 — 발끝에 걸린 하이힐 heels) */
 let pairs = 0;
 for (const pr of t.v2.presets) {
   for (const pl of C.allPlaces(t)) {
