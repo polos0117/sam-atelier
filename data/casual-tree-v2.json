@@ -250,6 +250,10 @@
   "water_surface": {
    "ko": "디딜 수 있는 잔잔한 물 위",
    "en": "a still water surface she can step across"
+  },
+  "glass_wall": {
+   "ko": "유리벽 · 관찰창(밖에서 들여다볼 수 있는 곳)",
+   "en": "a glass wall or observation pane someone could look in through"
   }
  },
  "frames": {
@@ -3180,7 +3184,8 @@
    "worktable",
    "upright",
    "indoor",
-   "k_work"
+   "k_work",
+   "glass_wall"
   ],
   "water_pool": [
    "water",
@@ -3809,7 +3814,8 @@
    "chair",
    "upright",
    "indoor",
-   "k_public"
+   "k_public",
+   "glass_wall"
   ],
   "night_livehouse": [
    "wall",
@@ -4408,7 +4414,8 @@
    "floor",
    "sky",
    "upright",
-   "k_street"
+   "k_street",
+   "glass_wall"
   ],
   "street_bike_path": [
    "edge",
@@ -4431,7 +4438,8 @@
    "indoor",
    "window",
    "upright",
-   "k_water"
+   "k_water",
+   "glass_wall"
   ],
   "nation_workshop": [
    "worktable",
@@ -4654,7 +4662,8 @@
    "floor",
    "indoor",
    "k_public",
-   "upright"
+   "upright",
+   "glass_wall"
   ],
   "aquarium_tank": [
    "chair",
@@ -4663,7 +4672,8 @@
    "floor",
    "indoor",
    "k_public",
-   "upright"
+   "upright",
+   "glass_wall"
   ],
   "aquarium_jelly": [
    "rail_waist",
@@ -4672,7 +4682,8 @@
    "floor",
    "indoor",
    "k_public",
-   "upright"
+   "upright",
+   "glass_wall"
   ],
   "cafe_cat": [
    "chair",
@@ -4836,7 +4847,8 @@
    "edge",
    "floor",
    "k_public",
-   "upright"
+   "upright",
+   "glass_wall"
   ],
   "nation_stable": [
    "wall",
@@ -5621,7 +5633,8 @@
    "floor",
    "sky",
    "k_street",
-   "upright"
+   "upright",
+   "glass_wall"
   ],
   "tram_inside": [
    "chair",
@@ -24686,15 +24699,19 @@
   },
   {
    "key": "glass",
-   "ko": "창유리 너머로",
-   "en": "she is seen through window glass with faint reflections on it",
-   "needs": [
-    "window"
-   ],
+   "ko": "유리 너머 — 밖에서 안을 들여다봄",
+   "en": "the camera stands outside, looking in at her through a large pane of clear glass — one edge of its frame shows at a side of the image and faint reflections lie on its surface, while she is inside the lit space beyond",
    "frames": [
     "chest_up",
     "waist_up",
-    "three_quarter"
+    "three_quarter",
+    "full_body",
+    "environmental"
+   ],
+   "note": "2026-11-27 사용자 「이런거 느낌 괜찮다. 유리나 건물 밖에서 안쪽의 사람을 보는거」(베이징 이화원 사이버펑크 일상10 — 수중 관찰창 너머) — 카메라가 밖에서 유리 너머로, 유리 틀 가장자리 · 반사, 그녀는 불 켜진 안쪽. 전신 · 환경 컷에도",
+   "needs_any": [
+    "window",
+    "glass_wall"
    ]
   }
  ],
